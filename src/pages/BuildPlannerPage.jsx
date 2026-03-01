@@ -8,9 +8,15 @@ import BuildSummary from '../components/buildPlanner/BuildSummary'
 import BuildActions from '../components/buildPlanner/BuildActions'
 
 export default function BuildPlannerPage() {
-  const { data, loading, progress } = useDataLoader()
+  const { data, loading, error, progress } = useDataLoader()
 
   if (loading) return <Loader progress={progress} />
+  if (error) return (
+    <div className="p-8 text-center">
+      <p className="text-red-400 text-lg font-bold uppercase tracking-widest mb-2">Erreur de chargement</p>
+      <p className="text-gray-400 text-sm">{error}</p>
+    </div>
+  )
 
   return (
     <BuildProvider>

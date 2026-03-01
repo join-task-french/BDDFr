@@ -1,6 +1,7 @@
 // Utilitaire pour charger les fichiers JSONC (JSON avec commentaires)
 function stripJsonComments(text) {
-  return text.replace(/^\s*\/\/.*$/gm, '')
+  // Remove BOM + single-line comments
+  return text.replace(/^\uFEFF/, '').replace(/^\s*\/\/.*$/gm, '')
 }
 
 const cache = {}
@@ -8,10 +9,17 @@ const cache = {}
 export async function loadJsonc(path) {
   if (cache[path]) return cache[path]
   const resp = await fetch(path)
+  if (!resp.ok) {
+    throw new Error(`Erreur chargement ${path}: ${resp.status} ${resp.statusText}`)
+  }
   const text = await resp.text()
-  const data = JSON.parse(stripJsonComments(text))
-  cache[path] = data
-  return data
+  try {
+    const data = JSON.parse(stripJsonComments(text))
+    cache[path] = data
+    return data
+  } catch (e) {
+    throw new Error(`Erreur parsing ${path}: ${e.message}`)
+  }
 }
 
 export function clearCache() {

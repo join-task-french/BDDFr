@@ -18,7 +18,7 @@ const CATEGORIES = [
 ]
 
 export default function DatabasePage() {
-  const { data, loading, progress } = useDataLoader()
+  const { data, loading, error, progress } = useDataLoader()
   const [activeCategory, setActiveCategory] = useState('armes')
   const [searchTerm, setSearchTerm] = useState('')
 
@@ -35,6 +35,12 @@ export default function DatabasePage() {
   }, [data, activeCategory, searchTerm])
 
   if (loading) return <Loader progress={progress} />
+  if (error) return (
+    <div className="p-8 text-center">
+      <p className="text-red-400 text-lg font-bold uppercase tracking-widest mb-2">Erreur de chargement</p>
+      <p className="text-gray-400 text-sm">{error}</p>
+    </div>
+  )
 
   const activeCat = CATEGORIES.find(c => c.key === activeCategory)
 
