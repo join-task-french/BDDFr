@@ -20,7 +20,7 @@ export default function Sidebar({ open, onClose }) {
         <div className="flex items-center gap-2">
           <ShdIcon className="w-7 h-7 sm:w-8 sm:h-8 text-shd" />
           <h1 className="text-xl sm:text-2xl font-bold text-white tracking-widest uppercase">
-            Réseau <span className="text-shd">SHD</span>
+            Réseau <span className="text-shd">SHD</span>: <span className='text-blue-700'>JT</span><span className='text-white'>F</span><span className='text-red-500'>r</span>
           </h1>
         </div>
         <button onClick={onClose} className="md:hidden text-gray-500 hover:text-shd p-2 -mr-2">
@@ -46,11 +46,18 @@ export default function Sidebar({ open, onClose }) {
           </svg>
           Build Planner
         </NavLink>
+        <NavLink to="/changelog" className={linkClass} onClick={onClose}>
+          <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Changelog
+        </NavLink>
       </nav>
 
       {/* Status */}
       <div className="mt-auto p-4 border-t border-tactical-border text-xs text-gray-600 flex justify-between items-center shrink-0">
-        <span>ISAC System v3.5</span>
+        <span className='text-blue-700'>BDD</span><span className='text-white'>F</span><span className='text-red-500'>r</span><span> v2.0</span>
         <span className="inline-block w-2 h-2 rounded-full bg-shd animate-pulse shadow-[0_0_8px_#ff9000]" />
       </div>
     </aside>

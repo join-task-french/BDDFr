@@ -20,7 +20,7 @@ export default function Layout() {
             </svg>
           </button>
           <span className="text-lg font-bold text-white tracking-widest uppercase">
-            Réseau <span className="text-shd">SHD</span>
+            Réseau <span className="text-shd">SHD</span>: <span className='text-blue-700'>JT</span><span className='text-white'>F</span><span className='text-red-500'>r</span>
           </span>
         </header>
 

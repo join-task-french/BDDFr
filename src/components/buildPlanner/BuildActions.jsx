@@ -81,7 +81,7 @@ export default function BuildActions() {
       </button>
       <button onClick={reset}
         className="px-4 py-2 rounded text-xs font-bold uppercase tracking-widest bg-red-900/20 text-red-400 border border-red-500/30 hover:bg-red-900/40 transition-all">
-        🔄 Reset
+        🔄 Réinitialiser
       </button>
 
       {showSaves && (

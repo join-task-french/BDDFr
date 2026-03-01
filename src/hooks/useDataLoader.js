@@ -14,6 +14,7 @@ const DATA_FILES = {
   modsEquipements: 'mods-equipements.jsonc',
   modsCompetences: 'mods-competences.jsonc',
   metadata: 'metadata.jsonc',
+  changelog: 'changelog.jsonc',
 }
 
 export function useDataLoader() {

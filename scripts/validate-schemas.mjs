@@ -30,6 +30,7 @@ const VALIDATIONS = [
   { data: 'mods-armes.jsonc', schema: 'mods-armes.schema.json' },
   { data: 'mods-equipements.jsonc', schema: 'mods-equipements.schema.json' },
   { data: 'mods-competences.jsonc', schema: 'mods-competences.schema.json' },
+  { data: 'changelog.jsonc', schema: 'changelog.schema.json' },
   { data: 'metadata.jsonc', schema: 'metadata.schema.json' },
 ]
 
