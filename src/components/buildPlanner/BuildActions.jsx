@@ -1,9 +1,30 @@
 import { useState } from 'react'
 import { useBuild } from '../../context/BuildContext'
+import { generateShareUrl } from '../../utils/buildShare'
 
 export default function BuildActions() {
   const { specialWeapon, weapons, weaponTalents, sidearm, sidearmTalent, gear, gearTalents, skills, dispatch } = useBuild()
   const [showSaves, setShowSaves] = useState(false)
+  const [shareStatus, setShareStatus] = useState(null) // null | 'copied' | 'error'
+
+  const shareBuild = async () => {
+    const state = { specialWeapon, weapons, weaponTalents, sidearm, sidearmTalent, gear, gearTalents, skills }
+    const url = generateShareUrl(state)
+    if (!url) {
+      setShareStatus('error')
+      setTimeout(() => setShareStatus(null), 2000)
+      return
+    }
+    try {
+      await navigator.clipboard.writeText(url)
+      setShareStatus('copied')
+    } catch {
+      // Fallback : prompt
+      prompt('Copiez ce lien :', url)
+      setShareStatus('copied')
+    }
+    setTimeout(() => setShareStatus(null), 3000)
+  }
 
   const saveBuild = () => {
     const name = prompt('Nom du build :')
@@ -40,6 +61,16 @@ export default function BuildActions() {
 
   return (
     <div className="flex flex-wrap gap-2 relative">
+      <button onClick={shareBuild}
+        className={`px-4 py-2 rounded text-xs font-bold uppercase tracking-widest border transition-all ${
+          shareStatus === 'copied'
+            ? 'bg-emerald-900/30 text-emerald-400 border-emerald-500/40'
+            : shareStatus === 'error'
+            ? 'bg-red-900/20 text-red-400 border-red-500/30'
+            : 'bg-purple-900/20 text-purple-400 border-purple-500/30 hover:bg-purple-900/40'
+        }`}>
+        {shareStatus === 'copied' ? '✅ Lien copié !' : shareStatus === 'error' ? '❌ Build vide' : '🔗 Partager'}
+      </button>
       <button onClick={saveBuild}
         className="px-4 py-2 rounded text-xs font-bold uppercase tracking-widest bg-shd/20 text-shd border border-shd/40 hover:bg-shd/30 transition-all">
         💾 Sauvegarder
@@ -88,4 +119,3 @@ export default function BuildActions() {
     </div>
   )
 }
-

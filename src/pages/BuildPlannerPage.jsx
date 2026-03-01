@@ -1,10 +1,12 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useDataLoader } from '../hooks/useDataLoader'
-import { BuildProvider } from '../context/BuildContext'
+import { BuildProvider, useBuild } from '../context/BuildContext'
+import { decodeBuild, resolveBuild } from '../utils/buildShare'
 import Loader from '../components/common/Loader'
 import WeaponSection from '../components/buildPlanner/WeaponSection'
 import GearSection from '../components/buildPlanner/GearSection'
 import SkillSection from '../components/buildPlanner/SkillSection'
-import BuildSummary from '../components/buildPlanner/BuildSummary'
 import BuildActions from '../components/buildPlanner/BuildActions'
 
 export default function BuildPlannerPage() {
@@ -26,6 +28,24 @@ export default function BuildPlannerPage() {
 }
 
 function BuildPlannerContent({ data }) {
+  const { dispatch } = useBuild()
+  const location = useLocation()
+
+  // Charger un build depuis l'URL au montage
+  useEffect(() => {
+    const params = new URLSearchParams(location.search)
+    const encoded = params.get('b')
+    if (!encoded) return
+
+    const compact = decodeBuild(encoded)
+    if (!compact) return
+
+    const build = resolveBuild(compact, data)
+    if (build) {
+      dispatch({ type: 'LOAD_BUILD', build })
+    }
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="p-4 sm:p-6 lg:p-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
@@ -64,15 +84,6 @@ function BuildPlannerContent({ data }) {
         </h3>
         <SkillSection data={data} />
       </section>
-
-      {/* Récapitulatif */}
-      <section id="section-summary">
-        <h3 className="text-sm font-bold text-emerald-400 uppercase tracking-widest mb-4 flex items-center gap-2">
-          <span>📊</span> Récapitulatif du Build
-        </h3>
-        <BuildSummary data={data} />
-      </section>
     </div>
   )
 }
-
