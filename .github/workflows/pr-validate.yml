@@ -1,0 +1,40 @@
+name: Validation PR
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validation des données JSONC
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Valider les JSONC avec les schémas
+        run: npm run validate
+
+  build-check:
+    name: Vérification du build
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build de vérification
+        run: npm run build
+

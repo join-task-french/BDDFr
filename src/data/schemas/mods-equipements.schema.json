@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mods d'équipements — The Division 2",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["statistique"],
+    "properties": {
+      "categorie": {
+        "type": "string",
+        "description": "Catégorie du mod (offensif, défensif, utilitaire)"
+      },
+      "protocole": {
+        "type": "string",
+        "description": "Protocole associé"
+      },
+      "statistique": {
+        "type": "string",
+        "description": "Nom de la statistique affectée"
+      },
+      "valeurMax": {
+        "type": "string",
+        "description": "Valeur maximale du bonus"
+      }
+    }
+  }
+}
+

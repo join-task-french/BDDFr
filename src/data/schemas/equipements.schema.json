@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Équipements — The Division 2",
+  "description": "Toutes les pièces d'équipement (gear sets, marques, nommés, exotiques)",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["nom", "emplacement"],
+    "properties": {
+      "nom": { "type": "string" },
+      "marque": { "type": "string", "description": "Nom de la marque, du gear set, ou 'Exotique'" },
+      "emplacement": {
+        "type": "string",
+        "enum": ["masque", "torse", "holster", "sac_a_dos", "gants", "genouilleres", "inconnu"],
+        "description": "Emplacement sur le personnage"
+      },
+      "attributEssentiel": { "type": "string" },
+      "attribut1": { "type": "string" },
+      "attributUnique": { "type": "string" },
+      "talent": { "type": "string", "description": "Talent de pièce nommée" },
+      "mod": { "type": "string" },
+      "estNomme": { "type": "boolean" },
+      "estExotique": { "type": "boolean" },
+      "source": {
+        "type": "string",
+        "enum": ["gear_set", "marque", "exotic"],
+        "description": "Provenance de la pièce"
+      },
+      "talent1": { "type": "string", "description": "Talent exotique principal (exotiques uniquement)" },
+      "talent2": { "type": "string", "description": "Talent exotique secondaire (exotiques uniquement)" },
+      "obtention": { "type": "string", "description": "Comment obtenir l'équipement (exotiques uniquement)" }
+    }
+  }
+}

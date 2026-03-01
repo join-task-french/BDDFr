@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Talents d'équipements",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["nom", "emplacement"],
+    "properties": {
+      "nom": { "type": "string" },
+      "description": { "type": "string" },
+      "prerequis": { "type": "string" },
+      "emplacement": {
+        "type": "string",
+        "enum": ["torse", "sac_a_dos", "tous"],
+        "description": "Sur quel emplacement le talent peut être utilisé"
+      }
+    }
+  }
+}
+

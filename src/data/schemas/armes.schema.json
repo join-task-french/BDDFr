@@ -1,0 +1,31 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Armes — The Division 2",
+  "description": "Toutes les armes (classiques + exotiques) avec statistiques et talents",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["nom", "type"],
+    "properties": {
+      "nom": { "type": "string", "description": "Nom de l'arme" },
+      "type": {
+        "type": "string",
+        "enum": ["fusil_assaut", "fusil", "fusil_precision", "pistolet_mitrailleur", "fusil_mitrailleur", "calibre_12", "pistolet", "arme_specifique", "autre"],
+        "description": "Type/catégorie de l'arme"
+      },
+      "fabricant": { "type": "string", "description": "Fabricant de l'arme" },
+      "portee": { "type": "number", "description": "Portée optimale en mètres" },
+      "rpm": { "type": "integer", "description": "Coups par minute" },
+      "chargeur": { "type": "integer", "description": "Taille du chargeur" },
+      "rechargement": { "type": "number", "description": "Temps de rechargement en secondes" },
+      "headshot": { "type": "string", "description": "Multiplicateur de headshot" },
+      "attributEssentiel": { "type": "string", "description": "Attribut essentiel spécifique" },
+      "degatsBase": { "type": "integer", "description": "Dégâts de base" },
+      "degatsMax": { "type": "integer", "description": "Dégâts maximum" },
+      "estExotique": { "type": "boolean", "description": "True si arme exotique" },
+      "talent1": { "type": "string", "description": "Talent exotique principal (exotiques uniquement)" },
+      "talent2": { "type": "string", "description": "Talent exotique secondaire (exotiques uniquement)" },
+      "obtention": { "type": "string", "description": "Comment obtenir l'arme (exotiques uniquement)" }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Talents d'armes — The Division 2",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["nom", "compatibilite"],
+    "properties": {
+      "nom": { "type": "string" },
+      "description": { "type": "string" },
+      "prerequis": { "type": "string" },
+      "compatibilite": {
+        "type": "object",
+        "description": "Quels types d'armes peuvent utiliser ce talent",
+        "properties": {
+          "fusil": { "type": "boolean" },
+          "calibre_12": { "type": "boolean" },
+          "fusil_assaut": { "type": "boolean" },
+          "fusil_mitrailleur": { "type": "boolean" },
+          "fusil_precision": { "type": "boolean" },
+          "pistolet": { "type": "boolean" },
+          "pistolet_mitrailleur": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}
+

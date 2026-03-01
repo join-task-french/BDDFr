@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mods de compétences — The Division 2",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["competence", "emplacement"],
+    "properties": {
+      "competence": {
+        "type": "string",
+        "description": "Nom de la compétence associée"
+      },
+      "emplacement": {
+        "type": "string",
+        "description": "Emplacement du mod sur la compétence"
+      },
+      "statistiques": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Liste des statistiques affectées par le mod"
+      }
+    }
+  }
+}
+

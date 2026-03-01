@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mods d'armes — The Division 2",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["nom"],
+    "properties": {
+      "nom": { "type": "string", "description": "Nom de la modification" },
+      "type": {
+        "type": "string",
+        "enum": ["chargeur", "canon", "viseur", "accessoire", "autre"],
+        "description": "Type de modification"
+      },
+      "bonus": { "type": "string", "description": "Bonus apporté" },
+      "malus": { "type": "string", "description": "Malus apporté" }
+    }
+  }
+}
+

@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Compétences",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": ["competence", "variante"],
+    "properties": {
+      "competence": { "type": "string", "description": "Nom de la compétence (ex: TOURELLE, DRONE)" },
+      "variante": { "type": "string", "description": "Nom de la variante" },
+      "expertise": { "type": "string" },
+      "statistiques": { "type": "string" },
+      "effetEtat": { "type": "string" },
+      "tier1": { "type": "string" },
+      "tier2": { "type": "string" },
+      "tier3": { "type": "string" },
+      "tier4": { "type": "string" },
+      "tier5": { "type": "string" },
+      "tier6": { "type": "string" },
+      "surcharge": { "type": "string" }
+    }
+  }
+}
+
