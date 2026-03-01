@@ -731,5 +731,17 @@
     "bonus4pieces": "",
     "talentTorse": "",
     "talentSac": ""
+  },
+  {
+    "nom": "Habsburg Guard",
+    "type": "marque",
+    "attributsEssentiels": [],
+    "bonus1piece": "",
+    "bonus2pieces": "",
+    "bonus3pieces": "",
+    "bonus4pieces": "",
+    "talentTorse": "",
+    "talentSac": "",
+    "logo": ""
   }
 ]
