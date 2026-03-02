@@ -1,5 +1,4 @@
 node_modules/
-.idea/copilot.data.migration.ask2agent.xml
 dist/
 
 # Généré automatiquement depuis src/data/ par npm run sync-data
