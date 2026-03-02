@@ -1,4 +1,4 @@
-// Historique des modifications — The Division 2
+// Historique des modifications — The Division 2 / BDDFr
 [
   {
     "date": "Le 25/02/2026",
@@ -386,29 +386,173 @@
       "Création de la page \"Mods des compétences\"",
       "Création de la page \"plage de dégâts des armes\"",
       "Mise à jour de la page \"mods d'armes\"",
-      "Ajout valeur pvp \"armes et équipements nommés\". 27/10/19 :",
+      "Ajout valeur pvp \"armes et équipements nommés\"."
+    ]
+  },
+  {
+    "date": "le 27/10/19",
+    "patch": "",
+    "changements": [
       "Ajout des \"Équipement nommés\"",
       "Création de la page \"Ensemble de Set\"",
-      "Création de la page \"Modèles d'Équipements\"25/10/19 :",
-      "Mise à jour de la page \"Roll des valeurs d'attributs\"23/10/19 :",
-      "Ajout des \"Armes nommées\"19/10/19 : Reprise et mise à jour de la base de donnée",
-      "Mise à jour des \"Talents d'armure\" / \"Talents d'arme\" / \"Exotiques\" / \"Ensemble de marque\"07/06/19 : MAJ18/06/19",
-      "Ajout : Roll des valeurs d'attributs18/04/19",
-      "Ajout : Road map des dev's17/04/19 Update : Talents par ensemble de marque12/04/19",
-      "Ajout : Corrélation Ensemble de marque/Talent/Attribut/Mod +",
-      "Ajout : Type d'attributs par ensemble d'équipement09/04/19",
-      "Ajout : Builds (liste)08/04/19 Update : Attributs (armure) + Attributs par ensemble de marque (armure) +",
-      "Ajout : Probabilité drops T505/04/19 Update :",
-      "Ajout de l'obtention de l'exotique Pestilence05/04/19 Update :",
-      "Mise à jour suite à l'update Tidal Bassin02/04/19 Update : Armure - Attributs par ensemble de marque + activation des commentaires publics01/04/19 Update : Arme - Mods + Armure - Talents par ensemble de marque + Armure - Attributs31/03/19 Update : Armure - Talents, Armure - ensemble de marque + Arme - Talents +",
-      "Ajout : Compétence - Mods (par Teckillah)30/03/19",
-      "Ajout : Statistique - Cap maximum + update et amélioration diverse29/03/19",
-      "Ajout : Talents par ensemble de marque + Arme - Exotique28/03/19",
-      "Ajout : Type d'attributs par ensemble de marque27/03/19",
-      "Ajout : Arme - Mods26/03/19",
-      "Ajout : Arme - Talents & Armure - Ensemble de marque25/03/19",
-      "Ajout : Armure - Attributs24/03/19",
-      "Ajout : Armure - Talents13/03/19",
+      "Création de la page \"Modèles d'Équipements\""
+    ]
+  },
+  {
+    "date": "le 25/10/19",
+    "patch": "",
+    "changements": [
+      "Mise à jour de la page \"Roll des valeurs d'attributs\""
+    ]
+  },
+  {
+    "date": "le 23/10/19",
+    "patch": "",
+    "changements": [
+      "Ajout des \"Armes nommées\""
+    ]
+  },
+  {
+    "date": "le 19/10/19",
+    "patch": "Reprise et mise à jour de la base de donnée",
+    "changements": [
+      "Mise à jour des \"Talents d'armure\" / \"Talents d'arme\" / \"Exotiques\" / \"Ensemble de marque\""
+    ]
+  },
+  {
+    "date": "le 07/06/19",
+    "patch": "MAJ le 18/06/19",
+    "changements": [
+      "Ajout : Roll des valeurs d'attributs"
+    ]
+  },
+  {
+    "date": "le 18/04/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Road map des dev's"
+    ]
+  },
+  {
+    "date": "le 17/04/19",
+    "patch": "",
+    "changements": [
+      "Update : Talents par ensemble de marque"
+    ]
+  },
+  {
+    "date": "le 12/04/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Corrélation Ensemble de marque/Talent/Attribut/Mod",
+      "Ajout : Type d'attributs par ensemble d'équipement"
+    ]
+  },
+  {
+    "date": "le 09/04/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Builds (liste)"
+    ]
+  },
+  {
+    "date": "le 08/04/19",
+    "patch": "",
+    "changements": [
+      "Update : Attributs (armure) + Attributs par ensemble de marque (armure)",
+      "Ajout : Probabilité drops T5"
+    ]
+  },
+  {
+    "date": "le 05/04/19",
+    "patch": "",
+    "changements": [
+      "Ajout de l'obtention de l'exotique Pestilence"
+    ]
+  },
+  {
+    "date": "le 05/04/19",
+    "patch": "",
+    "changements": [
+      "Ajout de l'obtention de l'exotique Pestilence",
+      "Mise à jour suite à l'update Tidal Bassin"
+    ]
+  },
+  {
+    "date": "le 02/04/19",
+    "patch": "",
+    "changements": [
+      "Update : Armure - Attributs par ensemble de marque + activation des commentaires publics"
+    ]
+  },
+  {
+    "date": "le 01/04/19",
+    "patch": "",
+    "changements": [
+      "Update : Arme - Mods + Armure - Talents par ensemble de marque + Armure - Attributs"
+    ]
+  },
+  {
+    "date": "le 31/03/19",
+    "patch": "",
+    "changements": [
+      "Update : Armure - Talents, Armure - ensemble de marque + Arme - Talents",
+      "Ajout : Compétence - Mods (par Teckillah)"
+    ]
+  },
+  {
+    "date": "le 30/03/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Statistique - Cap maximum + update et amélioration diverse"
+    ]
+  },
+  {
+    "date": "le 29/03/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Talents par ensemble de marque + Arme - Exotique"
+    ]
+  },
+  {
+    "date": "le 28/03/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Type d'attributs par ensemble de marque"
+    ]
+  },
+  {
+    "date": "le 27/03/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Arme - Mods"
+    ]
+  },
+  {
+    "date": "le 26/03/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Arme - Talents & Armure - Ensemble de marque"
+    ]
+  },
+  {
+    "date": "le 25/03/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Armure - Attributs"
+    ]
+  },
+  {
+    "date": "le 24/03/19",
+    "patch": "",
+    "changements": [
+      "Ajout : Armure - Talents"
+    ]
+  },
+  {
+    "date": "le 23/03/19",
+    "patch": "Début de la BDDFr",
+    "changements": [
       "Création du doc pour la télémétrie du jeu"
     ]
   }
