@@ -3,6 +3,12 @@ import { GEAR_SLOT_LABELS } from '../../../utils/formatters'
 import { GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
 
+const ATTR_LABELS = {
+  offensif: 'Offensif',
+  'défensif': 'Défensif',
+  utilitaire: 'Utilitaire',
+}
+
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE' && v !== 'TRUE'
 }
@@ -31,9 +37,9 @@ export default function GearCard({ item, ensembles, talentsEquipements }) {
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
   const borderColor = isExotic ? 'border-l-red-500' : isNamed ? 'border-l-yellow-500' : isGearSet ? 'border-l-emerald-500' : 'border-l-shd/50'
 
-  // Résoudre les attributs essentiels depuis l'ensemble de la marque
+  // Résoudre les attributs essentiels : array direct ou fallback depuis l'ensemble
   const attrsEssentiels = useMemo(() => {
-    if (hasContent(item.attributEssentiel)) return [item.attributEssentiel]
+    if (Array.isArray(item.attributEssentiel) && item.attributEssentiel.length > 0) return item.attributEssentiel
     if (!ensembles || !item.marque) return []
     const ensemble = ensembles.find(e => e.nom.toLowerCase() === item.marque.toLowerCase())
     return ensemble?.attributsEssentiels || []
@@ -91,7 +97,7 @@ export default function GearCard({ item, ensembles, talentsEquipements }) {
               {attrsEssentiels.map((attr, i) => (
                 <span key={i} className="text-blue-300 bg-blue-500/10 px-1.5 py-0.5 rounded text-[10px] flex items-center gap-1">
                   <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3 h-3" />
-                  {attr}
+                  {ATTR_LABELS[attr] || attr}
                 </span>
               ))}
             </div>

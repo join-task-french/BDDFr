@@ -48,8 +48,8 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
             </div>
             <div className="font-bold text-white text-sm uppercase tracking-wide">{piece.nom}</div>
             <div className="text-xs text-gray-500">{piece.marque}</div>
-            {piece.attributEssentiel && (
-              <div className="text-[10px] text-blue-400 mt-1">{piece.attributEssentiel}</div>
+            {Array.isArray(piece.attributEssentiel) && piece.attributEssentiel.length > 0 && (
+              <div className="text-[10px] text-blue-400 mt-1">{piece.attributEssentiel.join(', ')}</div>
             )}
             {piece.attributUnique && (
               <div className="text-[10px] text-purple-400 mt-1">✦ {piece.attributUnique}</div>

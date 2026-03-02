@@ -4,7 +4,7 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["competence", "variante"],
+    "required": ["competence", "variante", "tier1", "tier2", "tier3", "tier4", "tier5", "tier6", "surcharge"],
     "properties": {
       "competence": { "type": "string", "description": "Nom de la compétence (ex: TOURELLE, DRONE)" },
       "variante": { "type": "string", "description": "Nom de la variante" },
