@@ -4,7 +4,7 @@
   "type": "array",
   "items": {
     "type": "object",
-    "required": ["nom", "compatibilite"],
+    "required": ["nom", "compatibilite", "icone", "description"],
     "properties": {
       "nom": { "type": "string" },
       "icone": { "type": "string", "description": "Slug du fichier icône dans game_assets/talents/arme/ (sans .png)" },
