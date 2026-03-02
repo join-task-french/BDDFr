@@ -58,31 +58,32 @@ import attr_defensif from '../img/game_assets/equipements/attribute/deffensif.pn
 import attr_competences from '../img/game_assets/equipements/attribute/competances.png'
 
 export const ATTRIBUTE_ICONS = {
-  degats: attr_offensif,
   offensif: attr_offensif,
-  protection: attr_defensif,
+  degats: attr_offensif,
+  'défensif': attr_defensif,
   defensif: attr_defensif,
+  protection: attr_defensif,
+  utilitaire: attr_competences,
   competences: attr_competences,
 }
 
 /**
- * Résout l'icône d'attribut à partir d'un texte libre.
+ * Résout l'icône d'attribut à partir d'un texte (enum ou texte libre).
  */
 export function resolveAttributeIcon(text) {
   if (!text) return null
-  const t = text.toLowerCase()
-  if (t.includes('dégât') || t.includes('degat') || t.includes('dgts') || t.includes('dgat')
-    || t.includes('offensi') || t.includes('critique') || t.includes('headshot')
-    || t.includes('arme') || t === 'degats') {
+  // Match direct par enum
+  const direct = ATTRIBUTE_ICONS[text]
+  if (direct) return direct
+  // Fallback texte libre
+  const t = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+  if (t.includes('degat') || t.includes('offensi') || t.includes('critique') || t.includes('headshot') || t.includes('arme')) {
     return attr_offensif
   }
-  if (t.includes('protect') || t.includes('armure') || t.includes('défensi') || t.includes('defensi')
-    || t.includes('vie') || t.includes('santé') || t.includes('sant') || t === 'protection') {
+  if (t.includes('protect') || t.includes('armure') || t.includes('defensi') || t.includes('vie') || t.includes('sante')) {
     return attr_defensif
   }
-  if (t.includes('compétence') || t.includes('competence') || t.includes('comptence')
-    || t.includes('hâte') || t.includes('hate') || t.includes('réparation') || t.includes('reparation')
-    || t === 'competences') {
+  if (t.includes('competence') || t.includes('hate') || t.includes('reparation') || t.includes('utilitaire')) {
     return attr_competences
   }
   return null

@@ -89,9 +89,9 @@ export function getGearFilters(data) {
     : []
 
   const catAttrOptions = [
-    { value: 'degats', label: 'Dégâts' },
-    { value: 'protection', label: 'Protection' },
-    { value: 'competences', label: 'Compétences' },
+    { value: 'offensif', label: 'Offensif' },
+    { value: 'défensif', label: 'Défensif' },
+    { value: 'utilitaire', label: 'Utilitaire' },
   ]
 
   return [
@@ -104,7 +104,7 @@ export function getGearFilters(data) {
       options: marques,
     },
     {
-      key: 'categorieAttribut', type: 'select', label: 'Attribut essentiel',
+      key: 'attributEssentiel', type: 'select', label: 'Attribut essentiel',
       options: catAttrOptions,
     },
     { key: 'estExotique', type: 'toggle', label: 'Exotique uniquement' },
@@ -116,7 +116,7 @@ export function getGearDefaults() {
   return {
     emplacement: '',
     marque: '',
-    categorieAttribut: '',
+    attributEssentiel: '',
     estExotique: false,
     estNomme: false,
   }
@@ -126,7 +126,7 @@ export function applyGearFilters(items, filters) {
   return items.filter(item => {
     if (filters.emplacement && item.emplacement !== filters.emplacement) return false
     if (filters.marque && item.marque !== filters.marque) return false
-    if (filters.categorieAttribut && item.categorieAttribut !== filters.categorieAttribut) return false
+    if (filters.attributEssentiel && !(Array.isArray(item.attributEssentiel) && item.attributEssentiel.includes(filters.attributEssentiel))) return false
     if (filters.estExotique && !item.estExotique) return false
     if (filters.estNomme && !item.estNomme) return false
     return true
