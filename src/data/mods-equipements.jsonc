@@ -1,19 +1,19 @@
 // Modifications d'équipements — The Division 2
 [
   {
-    "categorie": "",
+    "categorie": "utilitaire",
     "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "statistique": "% Durée de compétence",
     "valeurMax": "10%"
   },
   {
-    "categorie": "",
+    "categorie": "utilitaire",
     "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "statistique": "% Récup de compétence",
     "valeurMax": "12%"
   },
   {
-    "categorie": "",
+    "categorie": "utilitaire",
     "protocole": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "statistique": "% Compétence de réparation",
     "valeurMax": "20%"
