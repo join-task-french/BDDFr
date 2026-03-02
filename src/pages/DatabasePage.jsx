@@ -30,7 +30,7 @@ const FILTER_CATEGORIES = new Set(['armes', 'equipements', 'talentsArmes', 'tale
 
 function getFiltersConfig(category, data) {
   switch (category) {
-    case 'armes':             return { filters: getWeaponFilters(), defaults: getWeaponDefaults(), apply: applyWeaponFilters }
+    case 'armes':             return { filters: getWeaponFilters(data), defaults: getWeaponDefaults(data), apply: applyWeaponFilters }
     case 'equipements':       return { filters: getGearFilters(data), defaults: getGearDefaults(), apply: applyGearFilters }
     case 'talentsArmes':      return { filters: getTalentArmeFilters(), defaults: getTalentArmeDefaults(), apply: applyTalentArmeFilters }
     case 'talentsEquipements':return { filters: getTalentEquipFilters(), defaults: getTalentEquipDefaults(), apply: applyTalentEquipFilters }

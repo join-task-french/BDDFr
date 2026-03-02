@@ -1,34 +1,60 @@
 import { WEAPON_TYPE_LABELS, GEAR_SLOT_LABELS } from '../utils/formatters'
 
 // ================================================================
+// Utilitaire : calcul des bornes min/max depuis un tableau de valeurs
+// ================================================================
+function bounds(items, field, { step = 1, fallbackMin = 0, fallbackMax = 100 } = {}) {
+  const values = items.map(i => i[field]).filter(v => typeof v === 'number' && v > 0)
+  if (values.length === 0) return { min: fallbackMin, max: fallbackMax }
+  const rawMin = Math.min(...values)
+  const rawMax = Math.max(...values)
+  // Arrondir au step inférieur/supérieur pour avoir des bornes propres
+  const min = Math.floor(rawMin / step) * step
+  const max = Math.ceil(rawMax / step) * step
+  return { min, max }
+}
+
+// ================================================================
 // ARMES
 // ================================================================
-export function getWeaponFilters() {
+export function getWeaponFilters(data) {
+  const armes = data?.armes || []
   const typeOptions = Object.entries(WEAPON_TYPE_LABELS)
     .filter(([k]) => k !== 'autre')
     .map(([value, label]) => ({ value, label }))
+
+  const portee = bounds(armes, 'portee', { step: 5 })
+  const rpm = bounds(armes, 'rpm', { step: 50 })
+  const chargeur = bounds(armes, 'chargeur', { step: 5 })
+  const rechargement = bounds(armes, 'rechargement', { step: 0.5, fallbackMax: 10 })
 
   return [
     {
       key: 'types', type: 'checkboxes', label: "Type d'arme",
       options: typeOptions,
     },
-    { key: 'porteeMin', type: 'range', label: 'Portée (m)', min: 0, max: 70, step: 5 },
-    { key: 'rpm', type: 'range', label: 'CPM (coups/min)', min: 0, max: 1300, step: 50 },
-    { key: 'chargeur', type: 'range', label: 'Chargeur', min: 0, max: 200, step: 5 },
-    { key: 'rechargement', type: 'range', label: 'Rechargement (s)', min: 0, max: 8, step: 0.5 },
+    { key: 'porteeMin', type: 'range', label: 'Portée (m)', ...portee, step: 5 },
+    { key: 'rpm', type: 'range', label: 'CPM (coups/min)', ...rpm, step: 50 },
+    { key: 'chargeur', type: 'range', label: 'Chargeur', ...chargeur, step: 5 },
+    { key: 'rechargement', type: 'range', label: 'Rechargement (s)', ...rechargement, step: 0.5 },
     { key: 'estExotique', type: 'toggle', label: 'Exotique uniquement' },
     { key: 'estNomme', type: 'toggle', label: 'Nommé uniquement' },
   ]
 }
 
-export function getWeaponDefaults() {
+export function getWeaponDefaults(data) {
+  const armes = data?.armes || []
+  const portee = bounds(armes, 'portee', { step: 5 })
+  const rpm = bounds(armes, 'rpm', { step: 50 })
+  const chargeur = bounds(armes, 'chargeur', { step: 5 })
+  const rechargement = bounds(armes, 'rechargement', { step: 0.5, fallbackMax: 10 })
+
   return {
     types: [],
-    porteeMin: [0, 70],
-    rpm: [0, 1300],
-    chargeur: [0, 200],
-    rechargement: [0, 8],
+    porteeMin: [portee.min, portee.max],
+    rpm: [rpm.min, rpm.max],
+    chargeur: [chargeur.min, chargeur.max],
+    rechargement: [rechargement.min, rechargement.max],
     estExotique: false,
     estNomme: false,
   }
