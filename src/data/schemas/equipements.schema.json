@@ -15,6 +15,11 @@
         "description": "Emplacement sur le personnage"
       },
       "attributEssentiel": { "type": "string" },
+      "categorieAttribut": {
+        "type": "string",
+        "enum": ["degats", "protection", "competences", ""],
+        "description": "Catégorie de l'attribut essentiel par défaut : degats, protection ou competences"
+      },
       "attribut1": { "type": "string" },
       "attributUnique": { "type": "string" },
       "talent": { "type": "string", "description": "Talent de pièce nommée" },
