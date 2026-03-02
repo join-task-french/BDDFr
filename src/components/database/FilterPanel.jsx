@@ -114,34 +114,7 @@ function FilterField({ filter, value, onChange }) {
       )
 
     case 'range':
-      return (
-        <div>
-          <label className="block text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">
-            {filter.label}
-            <span className="text-shd ml-1.5">{value[0]}—{value[1]}</span>
-          </label>
-          <div className="flex items-center gap-2">
-            <input
-              type="range"
-              min={filter.min}
-              max={filter.max}
-              step={filter.step || 1}
-              value={value[0]}
-              onChange={e => onChange([Math.min(Number(e.target.value), value[1]), value[1]])}
-              className="flex-1 accent-shd h-1"
-            />
-            <input
-              type="range"
-              min={filter.min}
-              max={filter.max}
-              step={filter.step || 1}
-              value={value[1]}
-              onChange={e => onChange([value[0], Math.max(Number(e.target.value), value[0])])}
-              className="flex-1 accent-shd h-1"
-            />
-          </div>
-        </div>
-      )
+      return <DualRangeSlider filter={filter} value={value} onChange={onChange} />
 
     case 'toggle':
       return (
@@ -162,4 +135,72 @@ function FilterField({ filter, value, onChange }) {
       return null
   }
 }
+
+/**
+ * Slider à double poignée sur une seule barre.
+ * Deux <input type="range"> superposés avec une piste colorée entre les deux thumbs.
+ */
+function DualRangeSlider({ filter, value, onChange }) {
+  const min = filter.min
+  const max = filter.max
+  const step = filter.step || 1
+  const lo = value[0]
+  const hi = value[1]
+
+  // Pourcentages pour la barre colorée
+  const loPercent = ((lo - min) / (max - min)) * 100
+  const hiPercent = ((hi - min) / (max - min)) * 100
+
+  const handleLo = (e) => {
+    const v = Number(e.target.value)
+    onChange([Math.min(v, hi), hi])
+  }
+
+  const handleHi = (e) => {
+    const v = Number(e.target.value)
+    onChange([lo, Math.max(v, lo)])
+  }
+
+  return (
+    <div>
+      <label className="block text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">
+        {filter.label}
+        <span className="text-shd ml-1.5">{lo} — {hi}</span>
+      </label>
+      <div className="relative h-6 flex items-center">
+        {/* Piste de fond */}
+        <div className="absolute left-0 right-0 h-1 rounded-full bg-tactical-border" />
+        {/* Piste active (entre les deux thumbs) */}
+        <div
+          className="absolute h-1 rounded-full bg-shd/60"
+          style={{ left: `${loPercent}%`, right: `${100 - hiPercent}%` }}
+        />
+        {/* Input min — z-index plus haut quand les deux sont proches du max */}
+        <input
+          type="range"
+          min={min}
+          max={max}
+          step={step}
+          value={lo}
+          onChange={handleLo}
+          className="dual-range-thumb absolute w-full"
+          style={{ zIndex: lo > max - step ? 4 : 3 }}
+        />
+        {/* Input max */}
+        <input
+          type="range"
+          min={min}
+          max={max}
+          step={step}
+          value={hi}
+          onChange={handleHi}
+          className="dual-range-thumb absolute w-full"
+          style={{ zIndex: hi <= min + step ? 3 : 4 }}
+        />
+      </div>
+    </div>
+  )
+}
+
+
 

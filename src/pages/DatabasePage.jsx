@@ -113,20 +113,20 @@ export default function DatabasePage() {
 
       <SearchBar value={searchTerm} onChange={setSearchTerm} />
 
-      {hasFilters && filterConfig && currentFilters && (
-        <FilterPanel
-          filters={filterConfig.filters}
-          values={currentFilters}
-          onChange={handleFilterChange}
-          onReset={handleFilterReset}
-        />
-      )}
-
       <CategoryNav
         categories={CATEGORIES}
         active={activeCategory}
         onSelect={handleCategoryChange}
       />
+
+      {hasFilters && filterConfig && currentFilters && (
+          <FilterPanel
+              filters={filterConfig.filters}
+              values={currentFilters}
+              onChange={handleFilterChange}
+              onReset={handleFilterReset}
+          />
+      )}
 
       <CategorySection
         key={activeCategory}
