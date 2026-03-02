@@ -4,9 +4,7 @@
     "nom": "Masque de classe A de Heft",
     "marque": "True Patriot",
     "emplacement": "masque",
-    "attributEssentiel": [
-      "défensif"
-    ],
+    "attributEssentiel": ["défensif"],
     "attribut1": "",
     "mod": "oui",
     "source": "gear_set",
@@ -18,9 +16,7 @@
     "nom": "Masque de collecteur",
     "marque": "Ongoing Directive",
     "emplacement": "masque",
-    "attributEssentiel": [
-      "offensif"
-    ],
+    "attributEssentiel": ["offensif"],
     "attribut1": "",
     "mod": "oui",
     "source": "gear_set",
@@ -32,9 +28,7 @@
     "nom": "Masque AR Rhodeswood",
     "marque": "Hard Wired",
     "emplacement": "masque",
-    "attributEssentiel": [
-      "utilitaire"
-    ],
+    "attributEssentiel": ["utilitaire"],
     "attribut1": "",
     "mod": "oui",
     "source": "gear_set",
@@ -46,9 +40,7 @@
     "nom": "Masque de tireur d'élite Lyudmila",
     "marque": "As et Huit",
     "emplacement": "masque",
-    "attributEssentiel": [
-      "offensif"
-    ],
+    "attributEssentiel": ["offensif"],
     "attribut1": "",
     "mod": "oui",
     "source": "gear_set",
@@ -4218,9 +4210,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'armes",
-    "talents": [
-      "Gâchette facile"
-    ]
+    "talents": ["Gâchette facile"]
   },
   {
     "nom": "Gants Stratégiques BTSU",
@@ -4235,9 +4225,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Tier de compétence",
-    "talents": [
-      "Optimisation de transfert"
-    ]
+    "talents": ["Optimisation de transfert"]
   },
   {
     "nom": "Genouillères de Sawyer",
@@ -4252,9 +4240,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Protection",
-    "talents": [
-      "Inflexibilité"
-    ]
+    "talents": ["Inflexibilité"]
   },
   {
     "nom": "Sac à dos de survie d'Acosta",
@@ -4269,10 +4255,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Tier de compétence",
-    "talents": [
-      "Un tiens vaut mieux ...",
-      "Que deux tu l'auras"
-    ]
+    "talents": ["Un tiens vaut mieux ...", "Que deux tu l'auras"]
   },
   {
     "nom": "Masque de Coyote",
@@ -4287,9 +4270,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Instinct de meute"
-    ]
+    "talents": ["Instinct de meute"]
   },
   {
     "nom": "Système de protection Tardigrade",
@@ -4304,9 +4285,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Protection",
-    "talents": [
-      "Nano-plaquage ablatif"
-    ]
+    "talents": ["Nano-plaquage ablatif"]
   },
   {
     "nom": "Dynastie Impériale",
@@ -4321,9 +4300,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Tier de compétence",
-    "talents": [
-      "Éclat du dragon"
-    ]
+    "talents": ["Éclat du dragon"]
   },
   {
     "nom": "Fourreau Centurion",
@@ -4338,9 +4315,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'armes",
-    "talents": [
-      "Contre"
-    ]
+    "talents": ["Contre"]
   },
   {
     "nom": "Holster d'agilité",
@@ -4355,9 +4330,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'armes",
-    "talents": [
-      "Esquive réparatrice"
-    ]
+    "talents": ["Esquive réparatrice"]
   },
   {
     "nom": "Poing sanglant",
@@ -4372,9 +4345,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Exubérant"
-    ]
+    "talents": ["Exubérant"]
   },
   {
     "nom": "Gants robustes",
@@ -4389,9 +4360,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Poigne de fer"
-    ]
+    "talents": ["Poigne de fer"]
   },
   {
     "nom": "Gants Exodus",
@@ -4406,9 +4375,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Ecran de fumée"
-    ]
+    "talents": ["Ecran de fumée"]
   },
   {
     "nom": "Conquérants",
@@ -4423,19 +4390,13 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Maillon faible"
-    ]
+    "talents": ["Maillon faible"]
   },
   {
     "nom": "Ninja Bike",
     "marque": "Exotique",
     "emplacement": "genouilleres",
-    "attributEssentiel": [
-      "offensif",
-      "défensif",
-      "utilitaire"
-    ],
+    "attributEssentiel": ["offensif", "défensif", "utilitaire"],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
@@ -4444,9 +4405,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'armes",
-    "talents": [
-      "Parkour !"
-    ]
+    "talents": ["Parkour !"]
   },
   {
     "nom": "Blacklisters",
@@ -4461,15 +4420,13 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Ostracisation"
-    ]
+    "talents": ["Ostracisation"]
   },
   {
     "nom": "Memento",
     "marque": "Exotique",
     "emplacement": "sac_a_dos",
-    "attributEssentiel": [ "offensif", "utilitaire", "défensif" ],
+    "attributEssentiel": ["offensif", "utilitaire", "défensif"],
     "attribut1": "",
     "attributUnique": "",
     "talent": "",
@@ -4478,9 +4435,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'armes Protection Tier de compétence",
-    "talents": [
-      "Élimination confirmée"
-    ]
+    "talents": ["Élimination confirmée"]
   },
   {
     "nom": "Sac Ninja Bike",
@@ -4495,9 +4450,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'armes Protection Tier de compétence",
-    "talents": [
-      "Débrouillardise"
-    ]
+    "talents": ["Débrouillardise"]
   },
   {
     "nom": "Pack de réparation d'urgence de Birdie",
@@ -4512,9 +4465,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Tier de compétence",
-    "talents": [
-      "Médecin de combat"
-    ]
+    "talents": ["Médecin de combat"]
   },
   {
     "nom": "Vilenie",
@@ -4529,9 +4480,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Tier de compétence",
-    "talents": [
-      "Charge toxique"
-    ]
+    "talents": ["Charge toxique"]
   },
   {
     "nom": "Catharsis",
@@ -4546,9 +4495,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Protection",
-    "talents": [
-      "Cercle vicieux"
-    ]
+    "talents": ["Cercle vicieux"]
   },
   {
     "nom": "Le Catalyseur",
@@ -4563,9 +4510,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Agent chimique"
-    ]
+    "talents": ["Agent chimique"]
   },
   {
     "nom": "Bricoleur",
@@ -4580,9 +4525,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Abrégé"
-    ]
+    "talents": ["Abrégé"]
   },
   {
     "nom": "La fierté de Ridgeway",
@@ -4597,9 +4540,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Avantage sanglant"
-    ]
+    "talents": ["Avantage sanglant"]
   },
   {
     "nom": "Collector",
@@ -4614,9 +4555,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Hoarder"
-    ]
+    "talents": ["Hoarder"]
   },
   {
     "nom": "Provocateur",
@@ -4631,9 +4570,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Protection",
-    "talents": [
-      "Prétendant"
-    ]
+    "talents": ["Prétendant"]
   },
   {
     "nom": "Beacon",
@@ -4648,9 +4585,7 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Dégâts d'arme",
-    "talents": [
-      "Lien"
-    ]
+    "talents": ["Lien"]
   },
   {
     "nom": "Genouillère d'Acosta",
@@ -4665,8 +4600,6 @@
     "source": "exotic",
     "estExotique": true,
     "obtention": "Protection",
-    "talents": [
-      "Plan de fuite"
-    ]
+    "talents": ["Plan de fuite"]
   }
 ]
