@@ -41,6 +41,38 @@ export function serializeBuild(state) {
   const s = (state.skills || []).map(s => s ? { c: s.competence, v: s.variante } : null)
   if (s.some(Boolean)) b.s = s
 
+  // Attributs d'armes (nom + valeur)
+  const wa = (state.weaponAttributes || []).map(a => a ? { n: a.nom, v: a.valeur } : null)
+  if (wa.some(Boolean)) b.wa = wa
+  if (state.sidearmAttribute) b.saa = { n: state.sidearmAttribute.nom, v: state.sidearmAttribute.valeur }
+
+  // Attributs d'équipements
+  const ga = {}
+  for (const [slot, attrs] of Object.entries(state.gearAttributes || {})) {
+    if (!attrs) continue
+    const entry = {}
+    if (attrs.essentiels?.some(Boolean)) entry.e = attrs.essentiels.map(a => a ? { n: a.nom, v: a.valeur } : null)
+    if (attrs.classiques?.some(Boolean)) entry.c = attrs.classiques.map(a => a ? { n: a.nom, v: a.valeur } : null)
+    if (Object.keys(entry).length > 0) ga[slot] = entry
+  }
+  if (Object.keys(ga).length > 0) b.ga = ga
+
+  // Mods d'armes (nom du mod)
+  const wm = (state.weaponMods || []).map(m => m ? m.map(mod => mod?.nom || null) : null)
+  if (wm.some(Boolean)) b.wm = wm
+  if (state.sidearmMods) b.sam = state.sidearmMods.map(mod => mod?.nom || null)
+
+  // Mods d'équipements (statistique du mod)
+  const gm = {}
+  for (const [slot, mod] of Object.entries(state.gearMods || {})) {
+    if (mod) gm[slot] = mod.statistique
+  }
+  if (Object.keys(gm).length > 0) b.gm = gm
+
+  // Mods de compétences (statistique du mod)
+  const sm = (state.skillMods || []).map(m => m ? m.statistique : null)
+  if (sm.some(Boolean)) b.sm = sm
+
   return b
 }
 
@@ -136,6 +168,50 @@ export function resolveBuild(compact, data) {
   // Compétences
   build.skills = (compact.s || [null, null]).map(s => s ? findSkill(s.c, s.v) : null)
   while (build.skills.length < 2) build.skills.push(null)
+
+  // Attributs d'armes
+  const resolveAttr = (compactAttr) => {
+    if (!compactAttr || !data.attributs) return null
+    const ref = data.attributs.find(a => a.nom.toLowerCase() === compactAttr.n.toLowerCase())
+    if (!ref) return { nom: compactAttr.n, valeur: compactAttr.v }
+    return { nom: ref.nom, valeur: compactAttr.v, min: ref.min, max: ref.max, unite: ref.unite, categorie: ref.categorie }
+  }
+  build.weaponAttributes = (compact.wa || [null, null]).map(a => resolveAttr(a))
+  while (build.weaponAttributes.length < 2) build.weaponAttributes.push(null)
+  build.sidearmAttribute = resolveAttr(compact.saa)
+
+  // Attributs d'équipements
+  build.gearAttributes = {}
+  if (compact.ga) {
+    for (const [slot, entry] of Object.entries(compact.ga)) {
+      build.gearAttributes[slot] = {
+        essentiels: (entry.e || []).map(a => resolveAttr(a)),
+        classiques: (entry.c || []).map(a => resolveAttr(a)),
+      }
+    }
+  }
+
+  // Mods d'armes
+  const findModArme = (name) => name ? (data.modsArmes || []).find(m => m.nom.toLowerCase() === name.toLowerCase()) || null : null
+  build.weaponMods = (compact.wm || [null, null]).map(slotMods =>
+    slotMods ? slotMods.map(name => findModArme(name)) : null
+  )
+  while (build.weaponMods.length < 2) build.weaponMods.push(null)
+  build.sidearmMods = compact.sam ? compact.sam.map(name => findModArme(name)) : null
+
+  // Mods d'équipements
+  build.gearMods = {}
+  if (compact.gm) {
+    for (const [slot, stat] of Object.entries(compact.gm)) {
+      build.gearMods[slot] = (data.modsEquipements || []).find(m => m.statistique === stat) || null
+    }
+  }
+
+  // Mods de compétences
+  build.skillMods = (compact.sm || [null, null]).map(stat =>
+    stat ? (data.modsEquipements || []).find(m => m.statistique === stat) || null : null
+  )
+  while (build.skillMods.length < 2) build.skillMods.push(null)
 
   return build
 }
