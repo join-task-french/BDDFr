@@ -26,6 +26,18 @@
       },
       "attribut1": { "type": "string" },
       "attributUnique": { "type": "string" },
+      "attributs": {
+        "type": "array",
+        "description": "Attributs fixés par défaut sur cet équipement, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
+        "items": {
+          "type": "object",
+          "required": ["nom", "valeur"],
+          "properties": {
+            "nom": { "type": "string", "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)" },
+            "valeur": { "type": "number", "description": "Valeur de l'attribut sur cet équipement" }
+          }
+        }
+      },
       "talent": { "type": "string", "description": "Ancien champ talent — migrer vers talents[]" },
       "talents": {
         "type": "array",

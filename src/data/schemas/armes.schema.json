@@ -20,7 +20,19 @@
       "chargeur": { "type": "integer", "description": "Taille du chargeur" },
       "rechargement": { "type": "number", "description": "Temps de rechargement en secondes" },
       "headshot": { "type": "string", "description": "Multiplicateur de headshot" },
-      "attributEssentiel": { "type": "string", "description": "Attribut essentiel spécifique" },
+      "attributEssentiel": { "type": "string", "description": "Attribut essentiel spécifique (texte descriptif legacy)" },
+      "attributs": {
+        "type": "array",
+        "description": "Attributs fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
+        "items": {
+          "type": "object",
+          "required": ["nom", "valeur"],
+          "properties": {
+            "nom": { "type": "string", "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)" },
+            "valeur": { "type": "number", "description": "Valeur de l'attribut sur cette arme" }
+          }
+        }
+      },
       "degatsBase": { "type": "integer", "description": "Dégâts de base" },
       "degatsMax": { "type": "integer", "description": "Dégâts maximum" },
       "estExotique": { "type": "boolean", "description": "True si arme exotique" },
@@ -30,7 +42,20 @@
         "description": "Liste de slugs de talents (référencent les noms dans talents-armes.jsonc). Pour les exotiques, les talents dédiés sont directement dans cette liste.",
         "items": { "type": "string" }
       },
-      "obtention": { "type": "string", "description": "Comment obtenir l'arme" }
+      "obtention": { "type": "string", "description": "Comment obtenir l'arme" },
+      "emplacementsMods": {
+        "type": "array",
+        "description": "Types de mods acceptés par l'arme (chargeur, canon, viseur, accessoire)",
+        "items": {
+          "type": "string",
+          "enum": ["chargeur", "canon", "viseur", "accessoire"]
+        }
+      },
+      "modsPredefinis": {
+        "type": "array",
+        "description": "Mods pré-équipés (armes exotiques) — non modifiables. Chaque entrée est le nom du mod.",
+        "items": { "type": "string" }
+      }
     }
   }
 }

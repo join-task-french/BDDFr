@@ -4,7 +4,7 @@ import SkillSlot from './SkillSlot'
 import SkillPicker from './SkillPicker'
 
 export default function SkillSection({ data }) {
-  const { skills } = useBuild()
+  const { skills, skillMods } = useBuild()
   const [pickerSlot, setPickerSlot] = useState(null)
 
   return (
@@ -15,6 +15,9 @@ export default function SkillSection({ data }) {
             key={i}
             slotIndex={i}
             skill={skills[i]}
+            skillMod={skillMods[i]}
+            modsCompetences={data.modsCompetences}
+            modsEquipements={data.modsEquipements}
             onSelect={() => setPickerSlot(i)}
           />
         ))}

@@ -132,5 +132,58 @@
     background: transparent;
     border: none;
   }
+
+  /* Attribute slider — petit curseur stylisé pour les sliders d'attributs */
+  .attr-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+    background: var(--color-tactical-border);
+  }
+  .attr-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-shd);
+    border: 2px solid var(--color-tactical-bg);
+    cursor: grab;
+    box-shadow: 0 0 4px rgba(255, 144, 0, 0.4);
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .attr-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 8px rgba(255, 144, 0, 0.6);
+  }
+  .attr-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-shd);
+    border: 2px solid var(--color-tactical-bg);
+    cursor: grab;
+    box-shadow: 0 0 4px rgba(255, 144, 0, 0.4);
+  }
+  .attr-slider::-moz-range-track {
+    height: 4px;
+    border-radius: 2px;
+    background: var(--color-tactical-border);
+    border: none;
+  }
+  .attr-slider:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .attr-slider:disabled::-webkit-slider-thumb {
+    cursor: not-allowed;
+    background: #666;
+  }
+  .attr-slider:disabled::-moz-range-thumb {
+    cursor: not-allowed;
+    background: #666;
+  }
 }
 

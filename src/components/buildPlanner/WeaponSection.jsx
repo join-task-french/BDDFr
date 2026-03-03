@@ -6,7 +6,7 @@ import WeaponPicker from './WeaponPicker'
 import WeaponTalentPicker from './WeaponTalentPicker'
 
 export default function WeaponSection({ data }) {
-  const { specialWeapon, weapons, weaponTalents, sidearm, sidearmTalent, specialisation, dispatch } = useBuild()
+  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, dispatch } = useBuild()
   const [pickerOpen, setPickerOpen] = useState(null) // 'special' | 'primary' | 'secondary' | 'sidearm' | null
   const [talentPickerSlot, setTalentPickerSlot] = useState(null)
 
@@ -35,9 +35,15 @@ export default function WeaponSection({ data }) {
           label="Arme Primaire"
           weapon={weapons[0]}
           talent={weaponTalents[0]}
+          attribute={weaponAttributes[0]}
+          allAttributs={data.attributs}
+          modsArmes={data.modsArmes}
+          weaponMods={weaponMods[0]}
           onSelect={() => setPickerOpen('primary')}
           onRemove={() => dispatch({ type: 'REMOVE_WEAPON', slot: 0 })}
           onSelectTalent={() => setTalentPickerSlot(0)}
+          onSetAttribute={(attr) => dispatch({ type: 'SET_WEAPON_ATTRIBUTE', slot: 0, attribute: attr })}
+          onSetMods={(mods) => dispatch({ type: 'SET_WEAPON_MODS', slot: 0, mods })}
         />
 
         {/* Arme secondaire */}
@@ -45,9 +51,15 @@ export default function WeaponSection({ data }) {
           label="Arme Secondaire"
           weapon={weapons[1]}
           talent={weaponTalents[1]}
+          attribute={weaponAttributes[1]}
+          allAttributs={data.attributs}
+          modsArmes={data.modsArmes}
+          weaponMods={weaponMods[1]}
           onSelect={() => setPickerOpen('secondary')}
           onRemove={() => dispatch({ type: 'REMOVE_WEAPON', slot: 1 })}
           onSelectTalent={() => setTalentPickerSlot(1)}
+          onSetAttribute={(attr) => dispatch({ type: 'SET_WEAPON_ATTRIBUTE', slot: 1, attribute: attr })}
+          onSetMods={(mods) => dispatch({ type: 'SET_WEAPON_MODS', slot: 1, mods })}
         />
 
         {/* Arme de poing */}
@@ -55,10 +67,16 @@ export default function WeaponSection({ data }) {
           label="Arme de Poing"
           weapon={sidearm}
           talent={sidearmTalent}
+          attribute={sidearmAttribute}
+          allAttributs={data.attributs}
+          modsArmes={data.modsArmes}
+          weaponMods={sidearmMods}
           headerColor="gray"
           onSelect={() => setPickerOpen('sidearm')}
           onRemove={() => dispatch({ type: 'REMOVE_SIDEARM' })}
           onSelectTalent={() => setTalentPickerSlot('sidearm')}
+          onSetAttribute={(attr) => dispatch({ type: 'SET_SIDEARM_ATTRIBUTE', attribute: attr })}
+          onSetMods={(mods) => dispatch({ type: 'SET_SIDEARM_MODS', mods })}
         />
       </div>
 

@@ -15,7 +15,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "ACR-E",
@@ -32,7 +38,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "F2000",
@@ -49,7 +61,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "SHIELD SPLINTERER",
@@ -66,7 +84,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "AUG A3-CQC",
@@ -83,7 +107,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "MAIN INVISIBLE",
@@ -100,7 +130,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "AK-M",
@@ -117,7 +153,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "AK-M DU MARCHÉ NOIRE",
@@ -134,7 +176,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "MANIAQUE",
@@ -151,7 +199,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "FAL",
@@ -168,7 +222,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "FAL SA-58",
@@ -185,7 +245,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "FAL TACTIQUE SA-58",
@@ -202,7 +268,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "FAMAS 2010",
@@ -219,7 +291,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "BURNOUT",
@@ -236,7 +314,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "G36 MILITAIRE",
@@ -253,7 +337,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "L'INNÉ",
@@ -270,7 +360,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "G36",
@@ -287,7 +383,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "G36 AMÉLIORÉ",
@@ -304,7 +406,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "M4 POLICE",
@@ -321,7 +429,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "PYROMANE",
@@ -338,7 +452,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "CARBINE 7",
@@ -355,7 +475,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "LA FOREUSE",
@@ -372,7 +498,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "HONEY BADGER",
@@ -389,7 +521,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "CARCAJOU FURIEUX",
@@ -406,7 +544,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "P416 MILITAIRE",
@@ -423,7 +567,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "P416 G3 PERSONNALISÉ",
@@ -440,7 +590,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "VISION GLORIEUSE",
@@ -457,7 +613,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "MK16",
@@ -474,7 +636,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "MK16 SOCOM",
@@ -491,7 +659,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "MK16 TACTIQUE",
@@ -508,7 +682,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "CTAR-21",
@@ -525,7 +705,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "LE FENDOIR",
@@ -542,7 +728,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "SIG556",
@@ -559,7 +751,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "ANIMAL MÉCANIQUE",
@@ -576,7 +774,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "PDR",
@@ -593,7 +797,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "SUJET DE TEST",
@@ -610,7 +820,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "TKB-408",
@@ -627,7 +843,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "TUEUR DE ROI",
@@ -644,7 +866,13 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
   },
   {
     "nom": "MG5",
@@ -661,7 +889,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "BIG SHOW",
@@ -678,7 +911,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SLEIPNER",
@@ -695,7 +933,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MG5 INFANTERIE",
@@ -712,7 +955,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "STONER LAMG",
@@ -729,7 +977,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "GRONDEMENT",
@@ -746,7 +999,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "Écran bleu",
@@ -765,6 +1023,11 @@
     "estNomme": false,
     "talents": [
       "Munitions désactivatrices"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -782,7 +1045,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "BLACK FRIDAY",
@@ -799,7 +1067,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "STINGER",
@@ -816,7 +1089,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M249 PARA TACTIQUE",
@@ -833,7 +1111,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MK46 MILITAIRE",
@@ -850,7 +1133,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M60 CLASSIQUE",
@@ -867,7 +1155,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M60 E4 MILITAIRE",
@@ -884,7 +1177,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M60 E6 DU MARCHÉ NOIRE",
@@ -901,7 +1199,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "BELLE ÉPOQUE",
@@ -918,7 +1221,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "RPK-74 CLASSIQUE",
@@ -935,7 +1243,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "RPK-74 MILITAIRE",
@@ -952,7 +1265,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "RPK-74 DU MARCHÉ NOIRE",
@@ -969,7 +1287,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "NOUVEAU ET FIABLE",
@@ -986,7 +1309,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "L86 LSW MILITAIRE",
@@ -1003,7 +1331,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "L86 A2 PERSONNALISÉ",
@@ -1020,7 +1353,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "TABULA RASA",
@@ -1037,7 +1375,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "IWI NEGEV",
@@ -1054,7 +1397,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "CARNAGE",
@@ -1071,7 +1419,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "GR9",
@@ -1088,7 +1441,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "DÉFI",
@@ -1105,7 +1463,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "CRICKET",
@@ -1122,7 +1485,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "Px4 STORM TYPE F",
@@ -1139,7 +1507,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "Px4 STORM TYPE T",
@@ -1156,7 +1529,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "X-45",
@@ -1173,7 +1551,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "X-45 TACTIQUE",
@@ -1190,7 +1573,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M9 MILITAIRE",
@@ -1207,7 +1595,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M9A1 D'OFFICER",
@@ -1224,7 +1617,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "93R",
@@ -1241,7 +1639,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "93R DE TIREUR D'ÉLITE",
@@ -1258,7 +1661,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "D50",
@@ -1275,7 +1683,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "D50 DE SURVIVALISTE",
@@ -1292,7 +1705,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M1911",
@@ -1309,7 +1727,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M45A1",
@@ -1326,7 +1749,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M1911 TACTIQUE",
@@ -1343,7 +1771,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MOZAMBIQUE SPÉCIAL",
@@ -1360,7 +1793,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "FIRST WAVE PF45",
@@ -1377,7 +1815,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "PF45 PERSONNALISÉ",
@@ -1394,7 +1837,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "PARATONNERRE",
@@ -1411,7 +1859,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "PETITE ABEILLE OUVRIERE",
@@ -1428,7 +1881,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SUBNOSED DICEROS",
@@ -1445,7 +1903,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "DICEROS",
@@ -1462,7 +1925,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "DICEROS SPÉCIAL",
@@ -1479,7 +1947,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "586 MAGNUM",
@@ -1496,7 +1969,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "ORBIT",
@@ -1513,7 +1991,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "POLICE 686 MAGNUM",
@@ -1530,7 +2013,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "PROPHÈTE",
@@ -1547,7 +2035,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "LE MOISSONNEUR",
@@ -1564,7 +2057,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "KARD-45",
@@ -1581,7 +2079,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "TDI \"KARD\" PERSONNALISÉ",
@@ -1598,7 +2101,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MAXIM 9",
@@ -1615,7 +2123,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "P320",
@@ -1632,7 +2145,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "ACS-12",
@@ -1649,7 +2167,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "ROCK'N'ROLL",
@@ -1666,7 +2189,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "GAUCHER",
@@ -1683,7 +2211,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SASG-12 S MARCHÉ NOIR",
@@ -1700,7 +2233,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SASG-12",
@@ -1717,7 +2255,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SASG-12 TACTIQUE",
@@ -1734,7 +2277,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "TSUNAMI",
@@ -1751,7 +2299,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SUPER 90 MARINE",
@@ -1768,7 +2321,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SUPER 90",
@@ -1785,7 +2343,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "COMME DE LA COLLE",
@@ -1802,7 +2365,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SUPER 90 SBS TACTIQUE",
@@ -1819,7 +2387,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "ENFORCER",
@@ -1836,7 +2409,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "FUSIL À CANON SCIÉ",
@@ -1853,7 +2431,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "ALLUME-FEU",
@@ -1870,7 +2453,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "BAGUETTE MAGIQUE DE SECOURS",
@@ -1887,7 +2475,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "FUSIL À DOUBLE CANON",
@@ -1904,7 +2497,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "BAGUETTE MAGIQUE",
@@ -1921,7 +2519,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "KSG",
@@ -1938,7 +2541,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "L'INHUMATEUR",
@@ -1955,7 +2563,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M870 MCS PERSONNALISÉ",
@@ -1972,7 +2585,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M870 POLICE",
@@ -1989,7 +2607,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M870 EXPRESS",
@@ -2006,7 +2629,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M870 MILITAIRE",
@@ -2023,7 +2651,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M870",
@@ -2040,7 +2673,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "CUÉLEBRE",
@@ -2057,7 +2695,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SPAS-12",
@@ -2074,7 +2717,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "ÉPINE",
@@ -2091,7 +2739,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SIX12",
@@ -2108,7 +2761,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "LA SERPILLIERE",
@@ -2125,7 +2783,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "G28*",
@@ -2142,7 +2805,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "RELIQUE*",
@@ -2159,7 +2827,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SACRUM IMPERIUM*",
@@ -2176,7 +2849,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SOCOM MK20 SSR*",
@@ -2193,7 +2871,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "LES TÉNÈBRES*",
@@ -2210,7 +2893,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M700 CARBON",
@@ -2227,7 +2915,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "BRUTUS",
@@ -2244,7 +2937,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M700 TACTIQUE",
@@ -2261,7 +2959,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MODEL 700",
@@ -2278,7 +2981,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "GRAND BATON D'EKIM",
@@ -2295,7 +3003,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SVD DE SURPLUS*",
@@ -2312,7 +3025,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SVD DE PARACHUTISTE*",
@@ -2329,7 +3047,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "COMMANDO*",
@@ -2346,7 +3069,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "EFFROYABLE SENTENCE*",
@@ -2363,7 +3091,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SRS FURTIF",
@@ -2380,7 +3113,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SRS A1",
@@ -2397,7 +3135,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "ÉPINGLE",
@@ -2414,7 +3157,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M44 PERSONNALISÉ",
@@ -2431,7 +3179,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M44 CLASSIQUE",
@@ -2448,7 +3201,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M44 DE CHASSE",
@@ -2465,7 +3223,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MORT BLANCHE",
@@ -2482,7 +3245,18 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "attributs": [
+      {
+        "nom": "Dégâts de headshot",
+        "valeur": 137
+      }
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "OH, NOEL",
@@ -2499,7 +3273,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SR-1",
@@ -2516,7 +3295,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "ADRESTIA",
@@ -2533,7 +3317,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "TUEUR ATTITRÉ",
@@ -2550,7 +3339,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "TACTICAL .308",
@@ -2567,7 +3361,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SCALPEL",
@@ -2584,7 +3383,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SMG-9 CONVERTI",
@@ -2601,7 +3405,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SMG-9 A2 CONVERTI",
@@ -2618,7 +3427,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MP5A2",
@@ -2635,7 +3449,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MP5-N",
@@ -2652,7 +3471,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MP5 ST",
@@ -2669,7 +3493,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "CABARET",
@@ -2686,7 +3515,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "PP-19",
@@ -2703,7 +3537,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "PP-19 AMÉLIORÉ",
@@ -2720,7 +3559,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "COUP DE FROID",
@@ -2737,7 +3581,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "AUG A3 PARA XS",
@@ -2754,7 +3603,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "AUG A3 PARA XS AMÉLIORÉ",
@@ -2771,7 +3625,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "AUG A3 TACTIQUE",
@@ -2788,7 +3647,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "VECTOR TACTIQUE SBR 9MM",
@@ -2805,7 +3669,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "VECTOR SBR 9MM",
@@ -2822,7 +3691,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "VECTOR .45 ACP",
@@ -2839,7 +3713,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "HIVER FUNESTE",
@@ -2856,7 +3735,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MP7",
@@ -2873,7 +3757,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "L'ÉCHANGEUR",
@@ -2890,7 +3779,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "T821 DU MARCHÉ NOIR",
@@ -2907,7 +3801,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "T821 POLICE",
@@ -2924,7 +3823,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "UMP-45 POLICE",
@@ -2941,7 +3845,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "UMP-45 TACTIQUE",
@@ -2958,7 +3867,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M1928",
@@ -2975,7 +3889,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "TOMMY GUN",
@@ -2992,7 +3911,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "L'ACQUIS",
@@ -3009,7 +3933,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "L'ENNEIGEUR",
@@ -3026,7 +3955,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "P90",
@@ -3043,7 +3977,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "BOUCLIER D'EMELINE",
@@ -3060,7 +3999,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MPX",
@@ -3077,7 +4021,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "L'ÉCARTEUR",
@@ -3094,7 +4043,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "L'APPARTEMENT",
@@ -3111,7 +4065,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "BACKFIRE",
@@ -3128,7 +4087,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "CMMG BANSHEE",
@@ -3145,7 +4109,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "RANCUNE",
@@ -3162,7 +4131,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "UIC15 MOD2*",
@@ -3179,7 +4153,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "ACR SS*",
@@ -3196,7 +4175,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M16A2",
@@ -3213,7 +4197,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MURMURE",
@@ -3230,7 +4219,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M1A SOCOM*",
@@ -3247,7 +4241,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M1A CQB*",
@@ -3264,7 +4263,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "COOLER*",
@@ -3281,7 +4285,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MÉDECIN DE FAMILLE*",
@@ -3298,7 +4307,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M1A CLASSIQUE*",
@@ -3315,7 +4329,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SECRET DU CHEF*",
@@ -3332,7 +4351,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "LVOA-C*",
@@ -3349,7 +4373,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SURGE*",
@@ -3366,7 +4395,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MDR URBAIN*",
@@ -3383,7 +4417,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "VINDICATOR*",
@@ -3400,7 +4439,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "Mk17 MILITAIRE*",
@@ -3417,7 +4461,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "Mk17 DE LA POLICE*",
@@ -3434,7 +4483,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "REGARD ÉTERNEL*",
@@ -3451,7 +4505,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SIG 716 CQB*",
@@ -3468,7 +4527,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "SIG 716*",
@@ -3485,7 +4549,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "OUTILS D'ARTISTE*",
@@ -3502,7 +4571,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "USC .45 ACP*",
@@ -3519,7 +4593,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "1886",
@@ -3536,7 +4615,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "LA VIRGINIENNE",
@@ -3553,7 +4637,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MK47 RESOLUTE*",
@@ -3570,7 +4659,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "HARMONIE*",
@@ -3587,7 +4681,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "LA VORACE*",
@@ -3604,7 +4703,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "M4 ALLÉGÉE*",
@@ -3621,7 +4725,12 @@
     "estExotique": false,
     "obtention": "",
     "estNomme": false,
-    "talents": []
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
   },
   {
     "nom": "MINIGUN",
@@ -3742,6 +4851,11 @@
     "estNomme": false,
     "talents": [
       "Marchand de sable"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3761,6 +4875,11 @@
     "estNomme": false,
     "talents": [
       "Marchand de sable"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3780,6 +4899,11 @@
     "estNomme": false,
     "talents": [
       "Choc septique"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3799,6 +4923,11 @@
     "estNomme": false,
     "talents": [
       "Capitulation"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3818,6 +4947,12 @@
     "estNomme": false,
     "talents": [
       "Autentico"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
     ]
   },
   {
@@ -3837,6 +4972,11 @@
     "estNomme": false,
     "talents": [
       "Détente binaire"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3856,6 +4996,11 @@
     "estNomme": false,
     "talents": [
       "Détente binaire"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3875,6 +5020,11 @@
     "estNomme": false,
     "talents": [
       "Morsure Fatale"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3894,6 +5044,11 @@
     "estNomme": false,
     "talents": [
       "Geri et Freki"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3913,6 +5068,11 @@
     "estNomme": false,
     "talents": [
       "Médecin de Famille"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3932,6 +5092,12 @@
     "estNomme": false,
     "talents": [
       "Interface d'assaut Ortiz"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
     ]
   },
   {
@@ -3951,6 +5117,11 @@
     "estNomme": false,
     "talents": [
       "Transfusion"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -3971,6 +5142,12 @@
     "talents": [
       "Frappe de l'aigle",
       "Ténacité"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
     ]
   },
   {
@@ -3990,6 +5167,12 @@
     "estNomme": false,
     "talents": [
       "Instinct d'adaptation"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
     ]
   },
   {
@@ -4009,6 +5192,12 @@
     "estNomme": false,
     "talents": [
       "Chasseur de gros gibier"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
     ]
   },
   {
@@ -4028,6 +5217,12 @@
     "estNomme": false,
     "talents": [
       "Capacité"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
     ]
   },
   {
@@ -4047,6 +5242,12 @@
     "estNomme": false,
     "talents": [
       "Actum Est"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
     ]
   },
   {
@@ -4066,6 +5267,12 @@
     "estNomme": false,
     "talents": [
       "Pertubation"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
     ]
   },
   {
@@ -4085,6 +5292,11 @@
     "estNomme": false,
     "talents": [
       "Peste des Parias"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4104,6 +5316,11 @@
     "estNomme": false,
     "talents": [
       "Déluge de feu"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4123,6 +5340,11 @@
     "estNomme": false,
     "talents": [
       "Ardent"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4142,6 +5364,11 @@
     "estNomme": false,
     "talents": [
       "Pakhan"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4161,6 +5388,11 @@
     "estNomme": false,
     "talents": [
       "Accélarateur électromagnétique"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4180,6 +5412,11 @@
     "estNomme": false,
     "talents": [
       "Visée analytique"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4199,6 +5436,11 @@
     "estNomme": false,
     "talents": [
       "Point Final"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4218,6 +5460,11 @@
     "estNomme": false,
     "talents": [
       "Le piège"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4237,6 +5484,11 @@
     "estNomme": false,
     "talents": [
       "Cible de priorité élevée"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4256,6 +5508,11 @@
     "estNomme": false,
     "talents": [
       "La Liberté ou la Mort"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4275,6 +5532,11 @@
     "estNomme": false,
     "talents": [
       "Régicide"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4294,6 +5556,11 @@
     "estNomme": false,
     "talents": [
       "Petite abeille ouvrière"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4313,6 +5580,11 @@
     "estNomme": false,
     "talents": [
       "Chanson du Mosquito"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4332,6 +5604,11 @@
     "estNomme": false,
     "talents": [
       "Mesure"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4351,6 +5628,11 @@
     "estNomme": false,
     "talents": [
       "Conversation ininterrompue"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4370,6 +5652,11 @@
     "estNomme": false,
     "talents": [
       "Souffle ultime"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4389,6 +5676,11 @@
     "estNomme": false,
     "talents": [
       "Paiement en nature"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4408,6 +5700,11 @@
     "estNomme": false,
     "talents": [
       "Rule them all"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4427,6 +5724,11 @@
     "estNomme": false,
     "talents": [
       "Symbiose"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   },
   {
@@ -4446,6 +5748,12 @@
     "estNomme": false,
     "talents": [
       "Courant alternatif"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
     ]
   },
   {
@@ -4465,6 +5773,11 @@
     "estNomme": false,
     "talents": [
       "Defibrillator"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
     ]
   }
 ]

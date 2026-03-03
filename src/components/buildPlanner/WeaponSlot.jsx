@@ -1,5 +1,6 @@
 import { WEAPON_TYPE_LABELS } from '../../utils/formatters'
 import StatChip from '../common/StatChip'
+import WeaponAttributePanel from './WeaponAttributePanel'
 
 const HEADER_COLORS = {
   red:    { bg: 'bg-red-500/10',    border: 'border-red-500/30',    text: 'text-red-400',    hover: 'group-hover:text-red-500/50' },
@@ -7,7 +8,7 @@ const HEADER_COLORS = {
   gray:   { bg: 'bg-gray-500/10',   border: 'border-gray-500/30',   text: 'text-gray-400',   hover: 'group-hover:text-gray-500/50' },
 }
 
-export default function WeaponSlot({ label, weapon, talent, onSelect, onRemove, onSelectTalent, headerColor = 'red', badge }) {
+export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge }) {
   const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
   const isSpecific = weapon?.type === 'arme_specifique'
 
@@ -46,6 +47,16 @@ export default function WeaponSlot({ label, weapon, talent, onSelect, onRemove, 
                 <StatChip icon="🎯" value={weapon.headshot ? `${weapon.headshot} HS` : null} color="text-yellow-400" />
               </div>
             )}
+            {/* Attributs */}
+            <WeaponAttributePanel
+              weapon={weapon}
+              attribute={attribute}
+              allAttributs={allAttributs}
+              modsArmes={modsArmes}
+              weaponMods={weaponMods}
+              onChangeAttribute={onSetAttribute}
+              onChangeMods={onSetMods}
+            />
             {/* Talents exotiques/nommés (depuis talents[]) */}
             {weapon.talents && weapon.talents.length > 0 && (weapon.estExotique || weapon.estNomme) ? (
               <div className="mt-3 pt-3 border-t border-tactical-border">

@@ -52,6 +52,24 @@ export function getSkillRequiredSpec(variante) {
   return null
 }
 
+// Mapping type d'arme → attribut principal (non modifiable)
+export const WEAPON_MAIN_ATTRIBUTE = {
+  fusil_assaut: "Dégâts Fusil d'assaut",
+  fusil: 'Dégâts Fusil',
+  fusil_precision: 'Dégâts Fusil de précision',
+  pistolet_mitrailleur: 'Dégâts Pistolet-mitrailleur',
+  fusil_mitrailleur: 'Dégâts Fusil-mitrailleur',
+  calibre_12: 'Dégâts Calibre 12',
+  pistolet: 'Dégâts Pistolet',
+}
+
+// Labels des catégories d'attributs essentiels
+export const ATTR_CATEGORY_LABELS = {
+  offensif: 'Offensif',
+  'défensif': 'Défensif',
+  utilitaire: 'Utilitaire',
+}
+
 export const GEAR_SLOT_LABELS = {
   masque: 'Masque',
   torse: 'Torse',

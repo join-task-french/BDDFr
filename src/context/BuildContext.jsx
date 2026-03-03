@@ -9,14 +9,26 @@ const INITIAL_STATE = {
   // Armes classiques : primaire, secondaire
   weapons: [null, null],
   weaponTalents: [null, null],
+  // Attributs armes : [{nom, valeur}] par slot (0=primaire, 1=secondaire, 'sidearm'=poing)
+  weaponAttributes: [null, null],
+  sidearmAttribute: null,
+  // Mods d'armes : [array_de_mods] par slot
+  weaponMods: [null, null],
+  sidearmMods: null,
   // Arme de poing
   sidearm: null,
   sidearmTalent: null,
   // Équipements
   gear: { masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null },
   gearTalents: { torse: null, sac_a_dos: null },
+  // Attributs équipements : { slot: { essentiels: [{nom,valeur}], classiques: [{nom,valeur}] } }
+  gearAttributes: {},
+  // Mods d'équipements : { slot: mod_object }
+  gearMods: {},
   // Compétences
   skills: [null, null],
+  // Mods de compétences : [mod_object, mod_object]
+  skillMods: [null, null],
 }
 
 function buildReducer(state, action) {
@@ -32,14 +44,22 @@ function buildReducer(state, action) {
       weapons[action.slot] = action.weapon
       const weaponTalents = [...state.weaponTalents]
       weaponTalents[action.slot] = null
-      return { ...state, weapons, weaponTalents }
+      const weaponAttributes = [...state.weaponAttributes]
+      weaponAttributes[action.slot] = null
+      const weaponMods = [...state.weaponMods]
+      weaponMods[action.slot] = null
+      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods }
     }
     case 'REMOVE_WEAPON': {
       const weapons = [...state.weapons]
       weapons[action.slot] = null
       const weaponTalents = [...state.weaponTalents]
       weaponTalents[action.slot] = null
-      return { ...state, weapons, weaponTalents }
+      const weaponAttributes = [...state.weaponAttributes]
+      weaponAttributes[action.slot] = null
+      const weaponMods = [...state.weaponMods]
+      weaponMods[action.slot] = null
+      return { ...state, weapons, weaponTalents, weaponAttributes, weaponMods }
     }
     case 'SET_WEAPON_TALENT': {
       const weaponTalents = [...state.weaponTalents]
@@ -47,10 +67,10 @@ function buildReducer(state, action) {
       return { ...state, weaponTalents }
     }
     case 'SET_SIDEARM': {
-      return { ...state, sidearm: action.weapon, sidearmTalent: null }
+      return { ...state, sidearm: action.weapon, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null }
     }
     case 'REMOVE_SIDEARM': {
-      return { ...state, sidearm: null, sidearmTalent: null }
+      return { ...state, sidearm: null, sidearmTalent: null, sidearmAttribute: null, sidearmMods: null }
     }
     case 'SET_SIDEARM_TALENT': {
       return { ...state, sidearmTalent: action.talent }
@@ -61,7 +81,11 @@ function buildReducer(state, action) {
       if (action.slot === 'torse' || action.slot === 'sac_a_dos') {
         gearTalents[action.slot] = null
       }
-      return { ...state, gear, gearTalents }
+      const gearAttributes = { ...state.gearAttributes }
+      delete gearAttributes[action.slot]
+      const gearMods = { ...state.gearMods }
+      delete gearMods[action.slot]
+      return { ...state, gear, gearTalents, gearAttributes, gearMods }
     }
     case 'REMOVE_GEAR': {
       const gear = { ...state.gear, [action.slot]: null }
@@ -69,7 +93,11 @@ function buildReducer(state, action) {
       if (action.slot === 'torse' || action.slot === 'sac_a_dos') {
         gearTalents[action.slot] = null
       }
-      return { ...state, gear, gearTalents }
+      const gearAttributes = { ...state.gearAttributes }
+      delete gearAttributes[action.slot]
+      const gearMods = { ...state.gearMods }
+      delete gearMods[action.slot]
+      return { ...state, gear, gearTalents, gearAttributes, gearMods }
     }
     case 'SET_GEAR_TALENT': {
       const gearTalents = { ...state.gearTalents, [action.slot]: action.talent }
@@ -78,12 +106,49 @@ function buildReducer(state, action) {
     case 'SET_SKILL': {
       const skills = [...state.skills]
       skills[action.slot] = action.skill
-      return { ...state, skills }
+      const skillMods = [...state.skillMods]
+      skillMods[action.slot] = null
+      return { ...state, skills, skillMods }
     }
     case 'REMOVE_SKILL': {
       const skills = [...state.skills]
       skills[action.slot] = null
-      return { ...state, skills }
+      const skillMods = [...state.skillMods]
+      skillMods[action.slot] = null
+      return { ...state, skills, skillMods }
+    }
+    // ---- Attributs d'arme (1 personnalisable par arme) ----
+    case 'SET_WEAPON_ATTRIBUTE': {
+      const weaponAttributes = [...state.weaponAttributes]
+      weaponAttributes[action.slot] = action.attribute // {nom, valeur}
+      return { ...state, weaponAttributes }
+    }
+    case 'SET_SIDEARM_ATTRIBUTE': {
+      return { ...state, sidearmAttribute: action.attribute }
+    }
+    // ---- Mods d'arme ----
+    case 'SET_WEAPON_MODS': {
+      const weaponMods = [...state.weaponMods]
+      weaponMods[action.slot] = action.mods
+      return { ...state, weaponMods }
+    }
+    case 'SET_SIDEARM_MODS': {
+      return { ...state, sidearmMods: action.mods }
+    }
+    // ---- Attributs d'équipement ----
+    case 'SET_GEAR_ATTRIBUTES': {
+      const gearAttributes = { ...state.gearAttributes, [action.slot]: action.attributes }
+      return { ...state, gearAttributes }
+    }
+    case 'SET_GEAR_MOD': {
+      const gearMods = { ...state.gearMods, [action.slot]: action.mod }
+      return { ...state, gearMods }
+    }
+    // ---- Mods de compétence ----
+    case 'SET_SKILL_MOD': {
+      const skillMods = [...state.skillMods]
+      skillMods[action.slot] = action.mod
+      return { ...state, skillMods }
     }
     case 'LOAD_BUILD':
       return { ...INITIAL_STATE, ...action.build }
