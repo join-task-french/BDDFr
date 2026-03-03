@@ -13,7 +13,7 @@ const BASE_URL = process.env.GITHUB_ACTIONS
 const BASE_PATH = process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr';
 
 const pages = [
-    { path: 'build-planner', title: 'Build Planner — BDDFr', description: 'Créez vos configurations d\'équipement.', icon:'favicon.png' },
+    { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez vos configurations d\'équipement.', icon:'favicon.png' },
     { path: 'changelog', title: 'Mises à jour — BDDFr', description: 'Historique des changements.', icon:'favicon.png' },
     { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.', icon:'favicon.png' }
 ];
