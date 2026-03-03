@@ -1,11 +1,12 @@
 import { useMemo } from 'react'
 import { useBuild } from '../../context/BuildContext'
+import GearAttributePanel from './GearAttributePanel'
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles }) {
+export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMod, onSetMod }) {
   const { dispatch } = useBuild()
 
   const remove = (e) => {
@@ -48,12 +49,19 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
             </div>
             <div className="font-bold text-white text-sm uppercase tracking-wide">{piece.nom}</div>
             <div className="text-xs text-gray-500">{piece.marque}</div>
-            {Array.isArray(piece.attributEssentiel) && piece.attributEssentiel.length > 0 && (
-              <div className="text-[10px] text-blue-400 mt-1">{piece.attributEssentiel.join(', ')}</div>
-            )}
             {piece.attributUnique && (
               <div className="text-[10px] text-purple-400 mt-1">✦ {piece.attributUnique}</div>
             )}
+            {/* Panneau d'attributs */}
+            <GearAttributePanel
+              piece={piece}
+              attributes={gearAttributes}
+              allAttributs={allAttributs}
+              modsEquipements={modsEquipements}
+              gearMod={gearMod}
+              onChange={onSetAttributes}
+              onChangeMod={onSetMod}
+            />
             {/* Talents exotiques/nommés (depuis talents[]) */}
             {piece.talents && piece.talents.length > 0 && (piece.estExotique || piece.estNomme) && (
               <div className="mt-3 pt-3 border-t border-tactical-border">

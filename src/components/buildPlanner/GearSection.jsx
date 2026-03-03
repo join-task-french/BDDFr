@@ -6,7 +6,7 @@ import GearPicker from './GearPicker'
 import GearTalentPicker from './GearTalentPicker'
 
 export default function GearSection({ data }) {
-  const { gear, gearTalents } = useBuild()
+  const { gear, gearTalents, gearAttributes, gearMods, dispatch } = useBuild()
   const [pickerSlot, setPickerSlot] = useState(null)
   const [talentSlot, setTalentSlot] = useState(null)
 
@@ -25,6 +25,12 @@ export default function GearSection({ data }) {
             onSelect={() => setPickerSlot(slot)}
             onSelectTalent={() => setTalentSlot(slot)}
             ensembles={data.ensembles}
+            allAttributs={data.attributs}
+            gearAttributes={gearAttributes[slot] || null}
+            onSetAttributes={(attrs) => dispatch({ type: 'SET_GEAR_ATTRIBUTES', slot, attributes: attrs })}
+            modsEquipements={data.modsEquipements}
+            gearMod={gearMods[slot] || null}
+            onSetMod={(mod) => dispatch({ type: 'SET_GEAR_MOD', slot, mod })}
           />
         ))}
       </div>
