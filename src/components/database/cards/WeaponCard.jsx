@@ -30,7 +30,7 @@ function resolveTalents(item, talentsArmes) {
   })
 }
 
-export default function WeaponCard({ item, talentsArmes }) {
+export default function WeaponCard({ item, talentsArmes, allAttributs }) {
   const isExotic = item.estExotique
   const isNamed = item.estNomme && !isExotic
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : 'text-shd'
@@ -70,6 +70,28 @@ export default function WeaponCard({ item, talentsArmes }) {
         <Stat label="Headshot" value={item.headshot || null} span2 />
         <StatWithIcon label="Attribut" value={item.attributEssentiel?.replace(/^\.\+?/, '') || null} icon={attrIcon} />
       </div>
+
+      {/* Attributs fixés */}
+      {item.attributs?.length > 0 && (
+        <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1">
+          {item.attributs.map((attr, i) => {
+            const ref = allAttributs?.find(a => a.nom.toLowerCase() === attr.nom.toLowerCase())
+            const isOverMax = ref && attr.valeur > ref.max
+            return (
+              <div key={i} className="flex items-center justify-between text-xs">
+                <span className="flex items-center gap-1.5 text-gray-400">
+                  <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
+                  {attr.nom}
+                </span>
+                <span className={`font-bold ${isOverMax ? 'text-yellow-400' : 'text-gray-200'}`}>
+                  {attr.valeur}{ref?.unite || ''}
+                  {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {ref.max}{ref.unite})</span>}
+                </span>
+              </div>
+            )
+          })}
+        </div>
+      )}
 
       {/* Talents résolus */}
       {resolvedTalents.length > 0 && (
