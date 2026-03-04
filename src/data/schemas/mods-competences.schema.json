@@ -1,38 +1,36 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Mods de compétences — The Division 2",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "required": [
-      "competence",
-      "emplacement",
-      "slug"
-    ],
-    "properties": {
-      "competence": {
-        "type": "string",
-        "description": "Nom de la compétence associée"
-      },
-      "emplacement": {
-        "type": "string",
-        "description": "Emplacement du mod sur la compétence"
-      },
-      "statistiques": {
-        "type": "array",
-        "items": {
-          "type": "string"
+  "description": "Clé = slug du mod.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "competence",
+        "emplacement"
+      ],
+      "properties": {
+        "competence": {
+          "type": "string",
+          "description": "Nom de la compétence associée"
         },
-        "description": "Liste des statistiques affectées par le mod"
-      },
-      "prerequis": {
-        "type": "string",
-        "description": "Clé de spécialisation requise pour utiliser ce mod (optionnel)"
-      },
-      "slug": {
-        "type": "string",
-        "pattern": "^[a-z0-9_]+$",
-        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
+        "emplacement": {
+          "type": "string",
+          "description": "Emplacement du mod sur la compétence"
+        },
+        "statistiques": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Liste des statistiques affectées par le mod"
+        },
+        "prerequis": {
+          "type": "string",
+          "description": "Clé de spécialisation requise pour utiliser ce mod (optionnel)"
+        }
       }
     }
   }

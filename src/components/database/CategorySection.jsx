@@ -12,8 +12,8 @@ const GRID_CONFIG = {
   armes:             'grid-cols-1 lg:grid-cols-2',
   equipements:       'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
   attributs:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
-  talentsArmes:      'grid-cols-1 sm:grid-cols-2',
-  talentsEquipements:'grid-cols-1 sm:grid-cols-2',
+  talentsArmes:      'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
+  talentsEquipements:'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
   ensembles:         'grid-cols-1 sm:grid-cols-2',
   competences:       'grid-cols-1 sm:grid-cols-2',
   modsArmes:         'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3',
@@ -68,6 +68,12 @@ export default function CategorySection({ category, items, searchTerm, allData }
 
   // Props supplémentaires pour certaines cards
   const extraProps = {}
+
+  // Type data disponibles pour toutes les catégories qui en ont besoin
+  if (allData?.armes_type) extraProps.armesType = allData.armes_type
+  if (allData?.equipements_type) extraProps.equipementsType = allData.equipements_type
+  if (allData?.attributs_type) extraProps.attributsType = allData.attributs_type
+
   if (category?.key === 'armes') {
     if (allData?.talentsArmes) extraProps.talentsArmes = allData.talentsArmes
     if (allData?.attributs) extraProps.allAttributs = allData.attributs

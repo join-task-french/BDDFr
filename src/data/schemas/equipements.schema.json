@@ -1,112 +1,93 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Équipements — The Division 2",
-  "description": "Toutes les pièces d'équipement (gear sets, marques, nommés, exotiques)",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "required": [
-      "nom",
-      "emplacement",
-      "slug"
-    ],
-    "properties": {
-      "nom": {
-        "type": "string"
-      },
-      "marque": {
-        "type": "string",
-        "description": "Nom de la marque, du gear set, ou 'Exotique'"
-      },
-      "emplacement": {
-        "type": "string",
-        "enum": [
-          "masque",
-          "torse",
-          "holster",
-          "sac_a_dos",
-          "gants",
-          "genouilleres"
-        ],
-        "description": "Emplacement sur le personnage"
-      },
-      "attributEssentiel": {
-        "type": "array",
-        "items": {
+  "description": "Toutes les pièces d'équipement. Clé = slug de l'équipement.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "nom",
+        "emplacement"
+      ],
+      "properties": {
+        "nom": {
+          "type": "string"
+        },
+        "marque": {
+          "type": "string",
+          "description": "Slug de la marque/gear set, ou 'Exotique'"
+        },
+        "emplacement": {
           "type": "string",
           "enum": [
-            "offensif",
-            "défensif",
-            "utilitaire"
-          ],
-          "maxItems": 3,
-          "minItems": 1,
-          "description": "Catégorie de l'attribut essentiel par défaut : offensif, défensif ou utilitaire"
-        }
-      },
-      "attribut1": {
-        "type": "string"
-      },
-      "attributUnique": {
-        "type": "string"
-      },
-      "attributs": {
-        "type": "array",
-        "description": "Attributs fixés par défaut sur cet équipement, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
-        "items": {
-          "type": "object",
-          "required": [
-            "nom",
-            "valeur"
-          ],
-          "properties": {
-            "nom": {
-              "type": "string",
-              "description": "Nom de l'attribut (doit correspondre à un nom dans attributs.jsonc)"
-            },
-            "valeur": {
-              "type": "number",
-              "description": "Valeur de l'attribut sur cet équipement"
+            "masque",
+            "torse",
+            "holster",
+            "sac_a_dos",
+            "gants",
+            "genouilleres"
+          ]
+        },
+        "attributEssentiel": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "offensif",
+              "défensif",
+              "utilitaire"
+            ]
+          }
+        },
+        "attributUnique": {
+          "type": "string"
+        },
+        "attributs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "nom",
+              "valeur"
+            ],
+            "properties": {
+              "nom": {
+                "type": "string"
+              },
+              "valeur": {
+                "type": "number"
+              }
             }
           }
-        }
-      },
-      "talent": {
-        "type": "string",
-        "description": "Ancien champ talent — migrer vers talents[]"
-      },
-      "talents": {
-        "type": "array",
-        "description": "Liste de slugs de talents (référencent les noms dans talents-equipements.jsonc). Pour les exotiques, les talents dédiés.",
-        "items": {
+        },
+        "talent": {
+          "type": "string"
+        },
+        "talents": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "mod": {
+          "type": "boolean"
+        },
+        "estNomme": {
+          "type": "boolean"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "standard",
+            "gear_set",
+            "exotique"
+          ]
+        },
+        "obtention": {
           "type": "string"
         }
-      },
-      "mod": {
-        "type": "boolean",
-        "description": "True si l'équipement accepte un mod"
-      },
-      "estNomme": {
-        "type": "boolean",
-        "description": "True si l'équipement est un nommé"
-      },
-      "type": {
-        "type": "string",
-        "enum": [
-          "standard",
-          "gear_set",
-          "exotique"
-        ],
-        "description": "Type de l'équipement : standard, gear_set ou exotique"
-      },
-      "obtention": {
-        "type": "string",
-        "description": "Comment obtenir l'équipement"
-      },
-      "slug": {
-        "type": "string",
-        "pattern": "^[a-z0-9_]+$",
-        "description": "Identifiant unique stable (lowercase, sans accents, snake_case)"
       }
     }
   }
