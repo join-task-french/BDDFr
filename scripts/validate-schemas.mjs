@@ -22,8 +22,11 @@ function stripComments(text) {
 // Mapping fichier JSONC → fichier schema
 const VALIDATIONS = [
   { data: 'armes.jsonc', schema: 'armes.schema.json' },
+  { data: 'armes-type.jsonc', schema: 'armes-type.schema.json' },
   { data: 'equipements.jsonc', schema: 'equipements.schema.json' },
+  { data: 'equipements-type.jsonc', schema: 'equipements-type.schema.json' },
   { data: 'attributs.jsonc', schema: 'attributs.schema.json' },
+  { data: 'attributs-type.jsonc', schema: 'attributs-type.schema.json' },
   { data: 'talents-armes.jsonc', schema: 'talents-armes.schema.json' },
   { data: 'talents-equipements.jsonc', schema: 'talents-equipements.schema.json' },
   { data: 'ensembles.jsonc', schema: 'ensembles.schema.json' },
@@ -32,7 +35,6 @@ const VALIDATIONS = [
   { data: 'mods-armes.jsonc', schema: 'mods-armes.schema.json' },
   { data: 'mods-equipements.jsonc', schema: 'mods-equipements.schema.json' },
   { data: 'mods-competences.jsonc', schema: 'mods-competences.schema.json' },
-  { data: 'changelog.jsonc', schema: 'changelog.schema.json' },
   { data: 'metadata.jsonc', schema: 'metadata.schema.json' },
 ]
 
@@ -91,7 +93,11 @@ for (const { data: dataFile, schema: schemaFile } of VALIDATIONS) {
   const valid = validate(data)
 
   if (valid) {
-    const count = Array.isArray(data) ? `${data.length} entrées` : 'objet'
+    const count = Array.isArray(data)
+      ? `${data.length} entrées`
+      : typeof data === 'object' && data !== null
+        ? `${Object.keys(data).length} entrées`
+        : 'objet'
     console.log(`  ✅ ${dataFile} — OK (${count})`)
     passedFiles++
   } else {
