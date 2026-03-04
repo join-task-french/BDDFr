@@ -3243,7 +3243,7 @@
     "degatsMax": 960452,
     "estExotique": false,
     "obtention": "",
-    "estNomme": false,
+    "estNomme": true,
     "talents": [],
     "attributs": [
       {

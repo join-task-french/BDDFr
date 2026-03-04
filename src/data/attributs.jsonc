@@ -2,7 +2,344 @@
 // Référentiel de tous les attributs disponibles sur les armes et équipements.
 // Les valeurs min/max correspondent aux valeurs classiques (hors bonus exotique/nommé).
 [
-  // Attributs essentiels
+  {
+    "nom": "Dégâts Fusil d'assaut",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Augmente les dégâts infligés par les fusils d'assaut",
+    "slug": "degats_fusil_d_assaut_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts à la santé",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 21,
+    "description": "Augmente les dégâts infligés à la santé de l'ennemi",
+    "slug": "degats_a_la_sante_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts Fusil",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Augmente les dégâts infligés par les fusils",
+    "slug": "degats_fusil_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 17,
+    "description": "Augmente les dégâts infligés lors d'un coup critique",
+    "slug": "degats_de_coup_critique_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts Fusil de précision",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Augmente les dégâts infligés par les fusils de précision",
+    "slug": "degats_fusil_de_precision_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts de headshot",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 111,
+    "description": "Augmente les dégâts infligés lors d'un tir à la tête",
+    "slug": "degats_de_headshot_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts de PM",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Augmente les dégâts infligés par les pistolets-mitrailleurs",
+    "slug": "degats_pm_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Probabilité de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 21,
+    "description": "Augmente la probabilité de déclencher un coup critique",
+    "slug": "probabilite_de_coup_critique_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts Fusil-mitrailleur",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Augmente les dégâts infligés par les fusils-mitrailleurs",
+    "slug": "degats_fusil_mitrailleur_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts sur cible non abritée",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés aux cibles non abritées",
+    "slug": "degats_sur_cible_non_abritee_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts de fusil calibre 12",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Augmente les dégâts infligés par les armes de calibre 12",
+    "slug": "degats_fusil_calibre_12_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts aux protections",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés aux protections de l'ennemi",
+    "slug": "degats_aux_protections_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts Pistolet",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Augmente les dégâts infligés par les pistolets",
+    "slug": "degats_pistolet_es",
+    "estEssentiel": true
+  },
+  {
+    "nom": "Dégâts aux protections",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente les dégâts infligés aux protections de l'ennemi",
+    "slug": "degats_aux_protections_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Dégâts à la santé",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 9.5,
+    "description": "Augmente les dégâts infligés à la santé de l'ennemi",
+    "slug": "degats_a_la_sante_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Probabilité de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 9.5,
+    "description": "Augmente la probabilité de déclencher un coup critique",
+    "slug": "probabilite_de_coup_critique_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Dégâts sur cible non abritée",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts infligés aux cibles non abritées",
+    "slug": "degats_sur_cible_non_abritee_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Dégâts de headshot",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts infligés lors d'un tir à la tête",
+    "slug": "degats_de_headshot_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Dégâts de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts infligés lors d'un coup critique",
+    "slug": "degats_de_coup_critique_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Taille du chargeur",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12.5,
+    "description": "Augmente la capacité du chargeur de l'arme",
+    "slug": "taille_du_chargeur_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Vitesse de changement",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Réduit le temps de changement d'arme",
+    "slug": "vitesse_de_changement_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Vitesse de rechargement",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Réduit le temps de rechargement de l'arme",
+    "slug": "vitesse_de_rechargement_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Stabilité",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente la stabilité de l'arme",
+    "slug": "stabilite_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Précision",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente la précision de l'arme",
+    "slug": "precision_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Portée optimale",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 24,
+    "description": "Augmente la portée optimale de l'arme",
+    "slug": "portee_optimale_arm",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Cadence de tir",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente la cadence de tir de l'arme",
+    "slug": "cadence_de_tir_arm",
+    "estEssentiel": false
+  },
   {
     "nom": "Dégâts d'armes",
     "categorie": "offensif",
@@ -30,184 +367,96 @@
     "slug": "tiers_de_competence"
   },
   {
-    "nom": "Armure",
+    "nom": "Protection",
     "categorie": "défensif",
     "cible": [
       "equipement"
     ],
     "unite": "pts",
     "min": 1,
-    "max": 170000,
+    "max": 170001,
     "description": "Augmente la valeur totale d'armure",
-    "slug": "armure",
+    "slug": "protection",
     "estEssentiel": true
   },
-
-
-  // Attributs offensifs
-
   {
-    "nom": "Dégâts de coup critique",
+    "nom": "Maniement d'arme",
     "categorie": "offensif",
     "cible": [
-      "arme",
       "equipement"
     ],
     "unite": "%",
     "min": 1,
-    "max": 12,
-    "description": "Augmente les dégâts infligés lors d'un coup critique",
-    "slug": "degats_de_coup_critique",
+    "max": 8,
+    "description": "Augmente la maniabilité de l'arme, réduisant le temps de visée et de changement d'arme",
+    "slug": "maniement_d_arme_eqp",
     "estEssentiel": false
   },
   {
-    "nom": "Chance de coup critique",
+    "nom": "Probabilité de coup critique",
     "categorie": "offensif",
     "cible": [
-      "arme",
       "equipement"
     ],
     "unite": "%",
     "min": 1,
     "max": 6,
     "description": "Augmente la probabilité de déclencher un coup critique",
-    "slug": "chance_de_coup_critique",
+    "slug": "probabilite_de_coup_critique_eqp",
+    "estEssentiel": false
+  },
+  {
+    "nom": "Dégâts de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés lors d'un coup critique",
+    "slug": "degats_de_coup_critique_eqp",
     "estEssentiel": false
   },
   {
     "nom": "Dégâts de headshot",
     "categorie": "offensif",
     "cible": [
-      "arme",
       "equipement"
     ],
     "unite": "%",
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés lors d'un tir à la tête",
-    "slug": "degats_de_headshot",
+    "slug": "degats_de_headshot_eqp",
     "estEssentiel": false
   },
   {
-    "nom": "Dégâts à la santé",
-    "categorie": "offensif",
+    "nom": "Régénération de protection",
+    "categorie": "défensif",
     "cible": [
-      "arme"
+      "equipement"
     ],
-    "unite": "%",
+    "unite": "pts/s",
     "min": 1,
-    "max": 21,
-    "description": "Augmente les dégâts infligés à la santé de l'ennemi",
-    "slug": "degats_a_la_sante",
+    "max": 4925,
+    "description": "Régénère l'armure au fil du temps",
+    "slug": "regeneration_de_protection_eqp",
     "estEssentiel": false
   },
   {
-    "nom": "Dégâts sur cible non abritée",
-    "categorie": "offensif",
+    "nom": "Protection contre altérations d'état",
+    "categorie": "défensif",
     "cible": [
-      "arme",
       "equipement"
     ],
     "unite": "%",
     "min": 1,
     "max": 10,
-    "description": "Augmente les dégâts infligés aux cibles non abritées",
-    "slug": "degats_sur_cible_non_abritee",
+    "description": "Réduit la durée des effets d'état subis",
+    "slug": "protection_contre_alterations_d_etat_eqp",
     "estEssentiel": false
   },
-  {
-    "nom": "Dégâts Fusil d'assaut",
-    "categorie": "offensif",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 12,
-    "description": "Augmente les dégâts infligés par les fusils d'assaut",
-    "slug": "degats_fusil_d_assaut",
-    "estEssentiel": false
-  },
-  {
-    "nom": "Dégâts Fusil",
-    "categorie": "offensif",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 12,
-    "description": "Augmente les dégâts infligés par les fusils",
-    "slug": "degats_fusil",
-    "estEssentiel": false
-  },
-  {
-    "nom": "Dégâts Fusil de précision",
-    "categorie": "offensif",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 12,
-    "description": "Augmente les dégâts infligés par les fusils de précision",
-    "slug": "degats_fusil_de_precision",
-    "estEssentiel": false
-  },
-  {
-    "nom": "Dégâts Pistolet-mitrailleur",
-    "categorie": "offensif",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 12,
-    "description": "Augmente les dégâts infligés par les pistolets-mitrailleurs",
-    "slug": "degats_pistolet_mitrailleur",
-    "estEssentiel": false
-  },
-  {
-    "nom": "Dégâts Fusil-mitrailleur",
-    "categorie": "offensif",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 12,
-    "description": "Augmente les dégâts infligés par les fusils-mitrailleurs",
-    "slug": "degats_fusil_mitrailleur",
-    "estEssentiel": false
-  },
-  {
-    "nom": "Dégâts Calibre 12",
-    "categorie": "offensif",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 12,
-    "description": "Augmente les dégâts infligés par les armes de calibre 12",
-    "slug": "degats_calibre_12",
-    "estEssentiel": false
-  },
-  {
-    "nom": "Dégâts Pistolet",
-    "categorie": "offensif",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 12,
-    "description": "Augmente les dégâts infligés par les pistolets",
-    "slug": "degats_pistolet",
-    "estEssentiel": false
-  },
-
-  // Attributs défensifs
   {
     "nom": "Santé",
     "categorie": "défensif",
@@ -218,24 +467,11 @@
     "min": 1,
     "max": 18935,
     "description": "Augmente la valeur totale de santé",
-    "slug": "sante",
+    "slug": "sante_eqp",
     "estEssentiel": false
   },
   {
-    "nom": "Régénération d'armure",
-    "categorie": "défensif",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "pts/s",
-    "min": 1,
-    "max": 4525,
-    "description": "Régénère l'armure au fil du temps",
-    "slug": "regeneration_d_armure",
-    "estEssentiel": false
-  },
-  {
-    "nom": "Protection aux explosions",
+    "nom": "Résistance - Explosions",
     "categorie": "défensif",
     "cible": [
       "equipement"
@@ -244,35 +480,7 @@
     "min": 1,
     "max": 10,
     "description": "Réduit les dégâts subis par les explosions",
-    "slug": "protection_aux_explosions",
-    "estEssentiel": false
-  },
-  {
-    "nom": "Armure aux protections",
-    "categorie": "défensif",
-    "cible": [
-      "arme"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 12,
-    "description": "Augmente les protections conférées par l'armure",
-    "slug": "armure_aux_protections",
-    "estEssentiel": false
-  },
-
-  // Attributs utilitaires
-  {
-    "nom": "Hâte de compétence",
-    "categorie": "utilitaire",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 12,
-    "description": "Réduit le temps de recharge des compétences",
-    "slug": "hate_de_competence",
+    "slug": "resistance_explosions_eqp",
     "estEssentiel": false
   },
   {
@@ -285,11 +493,11 @@
     "min": 1,
     "max": 10,
     "description": "Augmente les dégâts infligés par les compétences",
-    "slug": "degats_de_competence",
+    "slug": "degats_de_competence_eqp",
     "estEssentiel": false
   },
   {
-    "nom": "Réparation de compétence",
+    "nom": "Compétences de réparation",
     "categorie": "utilitaire",
     "cible": [
       "equipement"
@@ -298,24 +506,24 @@
     "min": 1,
     "max": 20,
     "description": "Augmente les soins prodigués par les compétences",
-    "slug": "reparation_de_competence",
+    "slug": "competences_de_reparation_eqp",
     "estEssentiel": false
   },
   {
-    "nom": "Durée de compétence",
+    "nom": "Récup de compétence",
     "categorie": "utilitaire",
     "cible": [
       "equipement"
     ],
     "unite": "%",
     "min": 1,
-    "max": 20,
-    "description": "Augmente la durée active des compétences",
-    "slug": "duree_de_competence",
+    "max": 12,
+    "description": "Réduit le temps de recharge des compétences",
+    "slug": "recup_de_competence_eqp",
     "estEssentiel": false
   },
   {
-    "nom": "Durée d'effet d'état",
+    "nom": "Effets d'état",
     "categorie": "utilitaire",
     "cible": [
       "equipement"
@@ -324,20 +532,7 @@
     "min": 1,
     "max": 10,
     "description": "Augmente la durée des effets d'état infligés",
-    "slug": "duree_d_effet_d_etat",
-    "estEssentiel": false
-  },
-  {
-    "nom": "Résistance aux effets d'état",
-    "categorie": "utilitaire",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "%",
-    "min": 1,
-    "max": 10,
-    "description": "Réduit la durée des effets d'état subis",
-    "slug": "resistance_aux_effets_d_etat",
+    "slug": "effets_d_etat_eqp",
     "estEssentiel": false
   }
 ]
