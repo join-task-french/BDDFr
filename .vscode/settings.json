@@ -9,6 +9,10 @@
             "url": "./src/data/schemas/armes.schema.json"
         },
         {
+            "fileMatch": ["/src/data/armes-type.jsonc"],
+            "url": "./src/data/schemas/armes-type.schema.json"
+        },
+        {
             "fileMatch": ["/src/data/equipements.jsonc"],
             "url": "./src/data/schemas/equipements.schema.json"
         },
