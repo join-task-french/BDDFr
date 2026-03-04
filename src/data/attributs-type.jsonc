@@ -1,14 +1,17 @@
 {
     "offensif": {
         "nom": "Offensif",
-        "icon": "offensif"
+        "icon": "offensif",
+        "color": "red"
     },
     "defensif": {
         "nom": "Défensif",
-        "icon": "defensif"
+        "icon": "defensif",
+        "color": "blue"
     },
     "utilitaire": {
         "nom": "Utilitaire",
-        "icon": "utilitaire"
+        "icon": "utilitaire",
+        "color": "yellow"
     }
 }

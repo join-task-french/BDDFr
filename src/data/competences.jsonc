@@ -1,12 +1,12 @@
-// Compétence — The Division 2
-[
-  {
+// Compétences — The Division 2
+{
+  "abri_intelligent": {
     "competence": "Abri intelligent",
     "variantes": [
       {
         "variante": "Précision",
         "expertise": "+1% Durée",
-        "statistiques": "Rayon : 6m\nRecharge : 40,9s\nDurée : 24s\/Maniabilité d'arme : 15%\nDégâts sur cibles non abritées : 10%\nSanté : 663 623 PV",
+        "statistiques": "Rayon : 6m\nRecharge : 40,9s\nDurée : 24s/Maniabilité d'arme : 15%\nDégâts sur cibles non abritées : 10%\nSanté : 663 623 PV",
         "tier1": "+10% Rayon\n+25% Maniement d'arme\n+7% Dégâts sur cibles non abritées\n+70% Santé",
         "tier2": "+20% Rayon\n+35% Maniement d'arme\n+9% Dégâts sur cibles non abritées\n+140% Santé",
         "tier3": "+30% Rayon\n+45% Maniement d'arme\n+12% Dégâts sur cibles non abritées\n+210% Santé",
@@ -34,10 +34,9 @@
       {
         "emplacement": "LANCEUR INTELLIGENT"
       }
-    ],
-    "slug": "abri_intelligent"
+    ]
   },
-  {
+  "bombe_adhesive": {
     "competence": "BOMBE ADHÉSIVE",
     "variantes": [
       {
@@ -82,10 +81,9 @@
         "surcharge": "+ 150% Rayon de souffle IEM + 100% Durée",
         "slug": "iem"
       }
-    ],
-    "slug": "bombe_adhesive"
+    ]
   },
-  {
+  "piege": {
     "competence": "PIEGE",
     "variantes": [
       {
@@ -135,10 +133,9 @@
       {
         "emplacement": "ÉLECTRONIQUE"
       }
-    ],
-    "slug": "piege"
+    ]
   },
-  {
+  "leurre": {
     "competence": "LEURRE",
     "variantes": [
       {
@@ -160,10 +157,9 @@
       {
         "emplacement": "LOGEMENT"
       }
-    ],
-    "slug": "leurre"
+    ]
   },
-  {
+  "impulsion": {
     "competence": "IMPULSION",
     "variantes": [
       {
@@ -246,10 +242,9 @@
         "emplacement": "BOBINE",
         "prerequis": "artilleur"
       }
-    ],
-    "slug": "impulsion"
+    ]
   },
-  {
+  "tourelle": {
     "competence": "TOURELLE",
     "variantes": [
       {
@@ -318,10 +313,9 @@
         "emplacement": "MÉCANISME DE TIR",
         "prerequis": "demolisseur"
       }
-    ],
-    "slug": "tourelle"
+    ]
   },
-  {
+  "ruche": {
     "competence": "RUCHE",
     "variantes": [
       {
@@ -404,10 +398,9 @@
         "emplacement": "LANCEUR",
         "prerequis": "technicien"
       }
-    ],
-    "slug": "ruche"
+    ]
   },
-  {
+  "lanceur_chimique": {
     "competence": "LANCEUR CHIMIQUE",
     "variantes": [
       {
@@ -471,10 +464,9 @@
       {
         "emplacement": "AGITATEUR"
       }
-    ],
-    "slug": "lanceur_chimique"
+    ]
   },
-  {
+  "luciole": {
     "competence": "LUCIOLE",
     "variantes": [
       {
@@ -524,10 +516,9 @@
       {
         "emplacement": "CHARGE UTILE"
       }
-    ],
-    "slug": "luciole"
+    ]
   },
-  {
+  "mine_teleguide": {
     "competence": "MINE TÉLÉGUIDÉ",
     "variantes": [
       {
@@ -596,10 +587,9 @@
         "emplacement": "DÉSIGNATION",
         "prerequis": "survivaliste"
       }
-    ],
-    "slug": "mine_teleguide"
+    ]
   },
-  {
+  "drone": {
     "competence": "DRONE",
     "variantes": [
       {
@@ -682,10 +672,9 @@
         "emplacement": "BATTERIE",
         "prerequis": "tireur_elite"
       }
-    ],
-    "slug": "drone"
+    ]
   },
-  {
+  "bouclier": {
     "competence": "BOUCLIER",
     "variantes": [
       {
@@ -754,7 +743,6 @@
         "emplacement": "REVÊTEMENT DUR",
         "prerequis": "incendiaire"
       }
-    ],
-    "slug": "bouclier"
+    ]
   }
-]
+}

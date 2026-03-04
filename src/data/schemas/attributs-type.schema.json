@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Types Armes — The Division 2",
-  "description": "Type d'armes + attributs essentiels lié",
+  "title": "Types Attributs — The Division 2",
+  "description": "Catégories d'attributs (offensif, défensif, utilitaire)",
   "type": "object",
   "patternProperties": {
     "^[a-z_]+$": {

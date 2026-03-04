@@ -1,6 +1,27 @@
 // Armes — The Division 2
-[
-  {
+{
+  "1886": {
+    "nom": "1886",
+    "type": "fusil",
+    "fabricant": "WINCHESTER",
+    "portee": 35,
+    "rpm": 100,
+    "chargeur": 8,
+    "rechargement": 3.47,
+    "headshot": "60%",
+    "degatsBase": 386892,
+    "degatsMax": 889852,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "acr": {
     "nom": "ACR",
     "type": "fusil_assaut",
     "fabricant": "REMINGTON",
@@ -20,10 +41,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "acr"
+    ]
   },
-  {
+  "acr_e": {
     "nom": "ACR-E",
     "type": "fusil_assaut",
     "fabricant": "REMINGTON",
@@ -43,10 +63,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "acr_e"
+    ]
   },
-  {
+  "f2000": {
     "nom": "F2000",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
@@ -66,10 +85,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "f2000"
+    ]
   },
-  {
+  "shield_splinterer": {
     "nom": "SHIELD SPLINTERER",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
@@ -89,10 +107,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "shield_splinterer"
+    ]
   },
-  {
+  "aug_a3_cqc": {
     "nom": "AUG A3-CQC",
     "type": "fusil_assaut",
     "fabricant": "STEYR",
@@ -112,10 +129,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "aug_a3_cqc"
+    ]
   },
-  {
+  "main_invisible": {
     "nom": "MAIN INVISIBLE",
     "type": "fusil_assaut",
     "fabricant": "STEYR",
@@ -135,10 +151,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "main_invisible"
+    ]
   },
-  {
+  "ak_m": {
     "nom": "AK-M",
     "type": "fusil_assaut",
     "fabricant": "AKM",
@@ -158,10 +173,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "ak_m"
+    ]
   },
-  {
+  "ak_m_du_marche_noire": {
     "nom": "AK-M DU MARCHÉ NOIRE",
     "type": "fusil_assaut",
     "fabricant": "AKM",
@@ -181,10 +195,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "ak_m_du_marche_noire"
+    ]
   },
-  {
+  "maniaque": {
     "nom": "MANIAQUE",
     "type": "fusil_assaut",
     "fabricant": "AKM",
@@ -204,10 +217,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "maniaque"
+    ]
   },
-  {
+  "fal": {
     "nom": "FAL",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
@@ -227,10 +239,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "fal"
+    ]
   },
-  {
+  "fal_sa_58": {
     "nom": "FAL SA-58",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
@@ -250,10 +261,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "fal_sa_58"
+    ]
   },
-  {
+  "fal_tactique_sa_58": {
     "nom": "FAL TACTIQUE SA-58",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
@@ -273,10 +283,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "fal_tactique_sa_58"
+    ]
   },
-  {
+  "famas_2010": {
     "nom": "FAMAS 2010",
     "type": "fusil_assaut",
     "fabricant": "GIAT INDUSTRIES",
@@ -296,10 +305,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "famas_2010"
+    ]
   },
-  {
+  "burnout": {
     "nom": "BURNOUT",
     "type": "fusil_assaut",
     "fabricant": "GIAT INDUSTRIES",
@@ -319,10 +327,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "burnout"
+    ]
   },
-  {
+  "g36_militaire": {
     "nom": "G36 MILITAIRE",
     "type": "fusil_assaut",
     "fabricant": "HECKLER&KOCH",
@@ -342,10 +349,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "g36_militaire"
+    ]
   },
-  {
+  "l_inne": {
     "nom": "L'INNÉ",
     "type": "fusil_assaut",
     "fabricant": "HECKLER&KOCH",
@@ -365,10 +371,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "l_inne"
+    ]
   },
-  {
+  "g36": {
     "nom": "G36",
     "type": "fusil_assaut",
     "fabricant": "HECKLER&KOCH",
@@ -388,10 +393,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "g36"
+    ]
   },
-  {
+  "g36_ameliore": {
     "nom": "G36 AMÉLIORÉ",
     "type": "fusil_assaut",
     "fabricant": "HECKLER&KOCH",
@@ -411,10 +415,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "g36_ameliore"
+    ]
   },
-  {
+  "m4_police": {
     "nom": "M4 POLICE",
     "type": "fusil_assaut",
     "fabricant": "COLT",
@@ -434,10 +437,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "m4_police"
+    ]
   },
-  {
+  "pyromane": {
     "nom": "PYROMANE",
     "type": "fusil_assaut",
     "fabricant": "COLT",
@@ -457,10 +459,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "pyromane"
+    ]
   },
-  {
+  "carbine_7": {
     "nom": "CARBINE 7",
     "type": "fusil_assaut",
     "fabricant": "BRACE BUILT",
@@ -480,10 +481,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "carbine_7"
+    ]
   },
-  {
+  "la_foreuse": {
     "nom": "LA FOREUSE",
     "type": "fusil_assaut",
     "fabricant": "BRACE BUILT",
@@ -503,10 +503,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "la_foreuse"
+    ]
   },
-  {
+  "honey_badger": {
     "nom": "HONEY BADGER",
     "type": "fusil_assaut",
     "fabricant": "AAC",
@@ -526,10 +525,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "honey_badger"
+    ]
   },
-  {
+  "carcajou_furieux": {
     "nom": "CARCAJOU FURIEUX",
     "type": "fusil_assaut",
     "fabricant": "AAC",
@@ -549,10 +547,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "carcajou_furieux"
+    ]
   },
-  {
+  "p416_militaire": {
     "nom": "P416 MILITAIRE",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
@@ -572,10 +569,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "p416_militaire"
+    ]
   },
-  {
+  "p416_g3_personnalise": {
     "nom": "P416 G3 PERSONNALISÉ",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
@@ -595,10 +591,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "p416_g3_personnalise"
+    ]
   },
-  {
+  "vision_glorieuse": {
     "nom": "VISION GLORIEUSE",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
@@ -618,10 +613,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "vision_glorieuse"
+    ]
   },
-  {
+  "mk16": {
     "nom": "MK16",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
@@ -641,10 +635,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "mk16"
+    ]
   },
-  {
+  "mk16_socom": {
     "nom": "MK16 SOCOM",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
@@ -664,10 +657,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "mk16_socom"
+    ]
   },
-  {
+  "mk16_tactique": {
     "nom": "MK16 TACTIQUE",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
@@ -687,10 +679,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "mk16_tactique"
+    ]
   },
-  {
+  "ctar_21": {
     "nom": "CTAR-21",
     "type": "fusil_assaut",
     "fabricant": "IMI TAVOR",
@@ -710,10 +701,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "ctar_21"
+    ]
   },
-  {
+  "le_fendoir": {
     "nom": "LE FENDOIR",
     "type": "fusil_assaut",
     "fabricant": "IMI TAVOR",
@@ -733,10 +723,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "le_fendoir"
+    ]
   },
-  {
+  "sig556": {
     "nom": "SIG556",
     "type": "fusil_assaut",
     "fabricant": "SIG SAUER",
@@ -756,10 +745,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "sig556"
+    ]
   },
-  {
+  "animal_mecanique": {
     "nom": "ANIMAL MÉCANIQUE",
     "type": "fusil_assaut",
     "fabricant": "SIG SAUER",
@@ -779,10 +767,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "animal_mecanique"
+    ]
   },
-  {
+  "pdr": {
     "nom": "PDR",
     "type": "fusil_assaut",
     "fabricant": "MAGPUL",
@@ -802,10 +789,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "pdr"
+    ]
   },
-  {
+  "sujet_de_test": {
     "nom": "SUJET DE TEST",
     "type": "fusil_assaut",
     "fabricant": "MAGPUL",
@@ -825,10 +811,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "sujet_de_test"
+    ]
   },
-  {
+  "tkb_408": {
     "nom": "TKB-408",
     "type": "fusil_assaut",
     "fabricant": "KOROBOV",
@@ -848,10 +833,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "tkb_408"
+    ]
   },
-  {
+  "tueur_de_roi": {
     "nom": "TUEUR DE ROI",
     "type": "fusil_assaut",
     "fabricant": "KOROBOV",
@@ -871,10 +855,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "tueur_de_roi"
+    ]
   },
-  {
+  "mg5": {
     "nom": "MG5",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -893,10 +876,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mg5"
+    ]
   },
-  {
+  "big_show": {
     "nom": "BIG SHOW",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -915,10 +897,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "big_show"
+    ]
   },
-  {
+  "sleipner": {
     "nom": "SLEIPNER",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -937,10 +918,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "sleipner"
+    ]
   },
-  {
+  "mg5_infanterie": {
     "nom": "MG5 INFANTERIE",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -959,10 +939,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mg5_infanterie"
+    ]
   },
-  {
+  "stoner_lamg": {
     "nom": "STONER LAMG",
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
@@ -981,10 +960,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "stoner_lamg"
+    ]
   },
-  {
+  "grondement": {
     "nom": "GRONDEMENT",
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
@@ -1003,10 +981,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "grondement"
+    ]
   },
-  {
+  "ecran_bleu": {
     "nom": "Écran bleu",
     "type": "fusil_mitrailleur",
     "fabricant": "KNIGHT'S ARMEMENT",
@@ -1027,10 +1004,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "ecran_bleu"
+    ]
   },
-  {
+  "m249b": {
     "nom": "M249B",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -1049,10 +1025,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m249b"
+    ]
   },
-  {
+  "black_friday": {
     "nom": "BLACK FRIDAY",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -1071,10 +1046,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "black_friday"
+    ]
   },
-  {
+  "stinger": {
     "nom": "STINGER",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -1093,10 +1067,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "stinger"
+    ]
   },
-  {
+  "m249_para_tactique": {
     "nom": "M249 PARA TACTIQUE",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -1115,10 +1088,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m249_para_tactique"
+    ]
   },
-  {
+  "mk46_militaire": {
     "nom": "MK46 MILITAIRE",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -1137,10 +1109,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mk46_militaire"
+    ]
   },
-  {
+  "m60_classique": {
     "nom": "M60 CLASSIQUE",
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
@@ -1159,10 +1130,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m60_classique"
+    ]
   },
-  {
+  "m60_e4_militaire": {
     "nom": "M60 E4 MILITAIRE",
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
@@ -1181,10 +1151,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m60_e4_militaire"
+    ]
   },
-  {
+  "m60_e6_du_marche_noire": {
     "nom": "M60 E6 DU MARCHÉ NOIRE",
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
@@ -1203,10 +1172,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m60_e6_du_marche_noire"
+    ]
   },
-  {
+  "belle_epoque": {
     "nom": "BELLE ÉPOQUE",
     "type": "fusil_mitrailleur",
     "fabricant": "SACO DEFENSE",
@@ -1225,10 +1193,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "belle_epoque"
+    ]
   },
-  {
+  "rpk_74_classique": {
     "nom": "RPK-74 CLASSIQUE",
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
@@ -1247,10 +1214,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "rpk_74_classique"
+    ]
   },
-  {
+  "rpk_74_militaire": {
     "nom": "RPK-74 MILITAIRE",
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
@@ -1269,10 +1235,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "rpk_74_militaire"
+    ]
   },
-  {
+  "rpk_74_du_marche_noire": {
     "nom": "RPK-74 DU MARCHÉ NOIRE",
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
@@ -1291,10 +1256,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "rpk_74_du_marche_noire"
+    ]
   },
-  {
+  "nouveau_et_fiable": {
     "nom": "NOUVEAU ET FIABLE",
     "type": "fusil_mitrailleur",
     "fabricant": "KALASHNIKOV",
@@ -1313,10 +1277,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "nouveau_et_fiable"
+    ]
   },
-  {
+  "l86_lsw_militaire": {
     "nom": "L86 LSW MILITAIRE",
     "type": "fusil_mitrailleur",
     "fabricant": "ENFIELD",
@@ -1335,10 +1298,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "l86_lsw_militaire"
+    ]
   },
-  {
+  "l86_a2_personnalise": {
     "nom": "L86 A2 PERSONNALISÉ",
     "type": "fusil_mitrailleur",
     "fabricant": "ENFIELD",
@@ -1357,10 +1319,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "l86_a2_personnalise"
+    ]
   },
-  {
+  "tabula_rasa": {
     "nom": "TABULA RASA",
     "type": "fusil_mitrailleur",
     "fabricant": "ENFIELD",
@@ -1379,10 +1340,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "tabula_rasa"
+    ]
   },
-  {
+  "iwi_negev": {
     "nom": "IWI NEGEV",
     "type": "fusil_mitrailleur",
     "fabricant": "IMI",
@@ -1401,10 +1361,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "iwi_negev"
+    ]
   },
-  {
+  "carnage": {
     "nom": "CARNAGE",
     "type": "fusil_mitrailleur",
     "fabricant": "IMI",
@@ -1423,10 +1382,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "carnage"
+    ]
   },
-  {
+  "gr9": {
     "nom": "GR9",
     "type": "fusil_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -1445,10 +1403,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "gr9"
+    ]
   },
-  {
+  "defi": {
     "nom": "DÉFI",
     "type": "fusil_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -1467,10 +1424,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "defi"
+    ]
   },
-  {
+  "cricket": {
     "nom": "CRICKET",
     "type": "fusil_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -1489,10 +1445,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "cricket"
+    ]
   },
-  {
+  "px4_storm_type_f": {
     "nom": "Px4 STORM TYPE F",
     "type": "pistolet",
     "fabricant": "BERETTA",
@@ -1511,10 +1466,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "px4_storm_type_f"
+    ]
   },
-  {
+  "px4_storm_type_t": {
     "nom": "Px4 STORM TYPE T",
     "type": "pistolet",
     "fabricant": "BERETTA",
@@ -1533,10 +1487,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "px4_storm_type_t"
+    ]
   },
-  {
+  "x_45": {
     "nom": "X-45",
     "type": "pistolet",
     "fabricant": "FN HERSTAL",
@@ -1555,10 +1508,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "x_45"
+    ]
   },
-  {
+  "x_45_tactique": {
     "nom": "X-45 TACTIQUE",
     "type": "pistolet",
     "fabricant": "FN HERSTAL",
@@ -1577,10 +1529,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "x_45_tactique"
+    ]
   },
-  {
+  "m9_militaire": {
     "nom": "M9 MILITAIRE",
     "type": "pistolet",
     "fabricant": "BERETTA",
@@ -1599,10 +1550,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m9_militaire"
+    ]
   },
-  {
+  "m9a1_d_officer": {
     "nom": "M9A1 D'OFFICER",
     "type": "pistolet",
     "fabricant": "BERETTA",
@@ -1621,10 +1571,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m9a1_d_officer"
+    ]
   },
-  {
+  "93r": {
     "nom": "93R",
     "type": "pistolet",
     "fabricant": "BERETTA",
@@ -1643,10 +1592,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "93r"
+    ]
   },
-  {
+  "93r_de_tireur_d_elite": {
     "nom": "93R DE TIREUR D'ÉLITE",
     "type": "pistolet",
     "fabricant": "BERETTA",
@@ -1665,10 +1613,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "93r_de_tireur_d_elite"
+    ]
   },
-  {
+  "d50": {
     "nom": "D50",
     "type": "pistolet",
     "fabricant": "MAGNUM/IMI",
@@ -1687,10 +1634,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "d50"
+    ]
   },
-  {
+  "d50_de_survivaliste": {
     "nom": "D50 DE SURVIVALISTE",
     "type": "pistolet",
     "fabricant": "MAGNUM/IMI",
@@ -1709,10 +1655,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "d50_de_survivaliste"
+    ]
   },
-  {
+  "m1911": {
     "nom": "M1911",
     "type": "pistolet",
     "fabricant": "COLT",
@@ -1731,10 +1676,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m1911"
+    ]
   },
-  {
+  "m45a1": {
     "nom": "M45A1",
     "type": "pistolet",
     "fabricant": "COLT",
@@ -1753,10 +1697,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m45a1"
+    ]
   },
-  {
+  "m1911_tactique": {
     "nom": "M1911 TACTIQUE",
     "type": "pistolet",
     "fabricant": "COLT",
@@ -1775,10 +1718,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m1911_tactique"
+    ]
   },
-  {
+  "mozambique_special": {
     "nom": "MOZAMBIQUE SPÉCIAL",
     "type": "pistolet",
     "fabricant": "COLT",
@@ -1797,10 +1739,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mozambique_special"
+    ]
   },
-  {
+  "first_wave_pf45": {
     "nom": "FIRST WAVE PF45",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -1819,10 +1760,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "first_wave_pf45"
+    ]
   },
-  {
+  "pf45_personnalise": {
     "nom": "PF45 PERSONNALISÉ",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -1841,10 +1781,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "pf45_personnalise"
+    ]
   },
-  {
+  "paratonnerre": {
     "nom": "PARATONNERRE",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -1863,32 +1802,32 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "paratonnerre"
+    ]
   },
-  {
-    "nom": "PETITE ABEILLE OUVRIERE",
-    "type": "pistolet",
-    "fabricant": "SMITH&WESSON",
-    "portee": 14,
-    "rpm": 370,
-    "chargeur": 15,
-    "rechargement": 1.7,
-    "headshot": "100%",
-    "degatsBase": 79900,
-    "degatsMax": 183770,
-    "estExotique": false,
-    "obtention": "",
+  "petite_abeille_ouvriere": {
+    "nom": "Petite abeille ouvrière",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "Exotique",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": "",
+    "degatsBase": 0,
+    "degatsMax": 0,
+    "estExotique": true,
+    "obtention": "Dégâts de pistolet",
     "estNomme": false,
-    "talents": [],
+    "talents": [
+      "petite_abeille_ouvriere"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "petite_abeille_ouvriere"
+    ]
   },
-  {
+  "subnosed_diceros": {
     "nom": "SUBNOSED DICEROS",
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
@@ -1907,10 +1846,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "subnosed_diceros"
+    ]
   },
-  {
+  "diceros": {
     "nom": "DICEROS",
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
@@ -1929,10 +1867,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "diceros"
+    ]
   },
-  {
+  "diceros_special": {
     "nom": "DICEROS SPÉCIAL",
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
@@ -1951,10 +1888,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "diceros_special"
+    ]
   },
-  {
+  "586_magnum": {
     "nom": "586 MAGNUM",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -1973,10 +1909,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "586_magnum"
+    ]
   },
-  {
+  "orbit": {
     "nom": "ORBIT",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -1995,10 +1930,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "orbit"
+    ]
   },
-  {
+  "police_686_magnum": {
     "nom": "POLICE 686 MAGNUM",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -2017,10 +1951,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "police_686_magnum"
+    ]
   },
-  {
+  "prophete": {
     "nom": "PROPHÈTE",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -2039,10 +1972,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "prophete"
+    ]
   },
-  {
+  "le_moissonneur": {
     "nom": "LE MOISSONNEUR",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -2061,10 +1993,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "le_moissonneur"
+    ]
   },
-  {
+  "kard_45": {
     "nom": "KARD-45",
     "type": "pistolet",
     "fabricant": "TDI",
@@ -2083,10 +2014,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "kard_45"
+    ]
   },
-  {
+  "tdi_kard_personnalise": {
     "nom": "TDI \"KARD\" PERSONNALISÉ",
     "type": "pistolet",
     "fabricant": "TDI",
@@ -2105,10 +2035,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "tdi_kard_personnalise"
+    ]
   },
-  {
+  "maxim_9": {
     "nom": "MAXIM 9",
     "type": "pistolet",
     "fabricant": "SILENCERCO",
@@ -2127,10 +2056,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "maxim_9"
+    ]
   },
-  {
+  "p320": {
     "nom": "P320",
     "type": "pistolet",
     "fabricant": "SIG-SAUER",
@@ -2149,10 +2077,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "p320"
+    ]
   },
-  {
+  "acs_12": {
     "nom": "ACS-12",
     "type": "calibre_12",
     "fabricant": "ATCHISSON",
@@ -2171,10 +2098,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "acs_12"
+    ]
   },
-  {
+  "rock_n_roll": {
     "nom": "ROCK'N'ROLL",
     "type": "calibre_12",
     "fabricant": "ATCHISSON",
@@ -2193,10 +2119,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "rock_n_roll"
+    ]
   },
-  {
+  "gaucher": {
     "nom": "GAUCHER",
     "type": "calibre_12",
     "fabricant": "ATCHISSON",
@@ -2215,10 +2140,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "gaucher"
+    ]
   },
-  {
+  "sasg_12_s_marche_noir": {
     "nom": "SASG-12 S MARCHÉ NOIR",
     "type": "calibre_12",
     "fabricant": "IZHMASH",
@@ -2237,10 +2161,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "sasg_12_s_marche_noir"
+    ]
   },
-  {
+  "sasg_12": {
     "nom": "SASG-12",
     "type": "calibre_12",
     "fabricant": "IZHMASH",
@@ -2259,10 +2182,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "sasg_12"
+    ]
   },
-  {
+  "sasg_12_tactique": {
     "nom": "SASG-12 TACTIQUE",
     "type": "calibre_12",
     "fabricant": "IZHMASH",
@@ -2281,10 +2203,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "sasg_12_tactique"
+    ]
   },
-  {
+  "tsunami": {
     "nom": "TSUNAMI",
     "type": "calibre_12",
     "fabricant": "IZHMASH",
@@ -2303,10 +2224,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "tsunami"
+    ]
   },
-  {
+  "super_90_marine": {
     "nom": "SUPER 90 MARINE",
     "type": "calibre_12",
     "fabricant": "BENELLI",
@@ -2325,10 +2245,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "super_90_marine"
+    ]
   },
-  {
+  "super_90": {
     "nom": "SUPER 90",
     "type": "calibre_12",
     "fabricant": "BENELLI",
@@ -2347,10 +2266,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "super_90"
+    ]
   },
-  {
+  "comme_de_la_colle": {
     "nom": "COMME DE LA COLLE",
     "type": "calibre_12",
     "fabricant": "BENELLI",
@@ -2369,10 +2287,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "comme_de_la_colle"
+    ]
   },
-  {
+  "super_90_sbs_tactique": {
     "nom": "SUPER 90 SBS TACTIQUE",
     "type": "calibre_12",
     "fabricant": "BENELLI",
@@ -2391,10 +2308,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "super_90_sbs_tactique"
+    ]
   },
-  {
+  "enforcer": {
     "nom": "ENFORCER",
     "type": "calibre_12",
     "fabricant": "BENELLI",
@@ -2413,10 +2329,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "enforcer"
+    ]
   },
-  {
+  "fusil_a_canon_scie": {
     "nom": "FUSIL À CANON SCIÉ",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
@@ -2435,10 +2350,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "fusil_a_canon_scie"
+    ]
   },
-  {
+  "allume_feu": {
     "nom": "ALLUME-FEU",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
@@ -2457,10 +2371,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "allume_feu"
+    ]
   },
-  {
+  "baguette_magique_de_secours": {
     "nom": "BAGUETTE MAGIQUE DE SECOURS",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
@@ -2479,10 +2392,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "baguette_magique_de_secours"
+    ]
   },
-  {
+  "fusil_a_double_canon": {
     "nom": "FUSIL À DOUBLE CANON",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
@@ -2501,10 +2413,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "fusil_a_double_canon"
+    ]
   },
-  {
+  "baguette_magique": {
     "nom": "BAGUETTE MAGIQUE",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
@@ -2523,10 +2434,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "baguette_magique"
+    ]
   },
-  {
+  "ksg": {
     "nom": "KSG",
     "type": "calibre_12",
     "fabricant": "KEL-TEC",
@@ -2545,10 +2455,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "ksg"
+    ]
   },
-  {
+  "l_inhumateur": {
     "nom": "L'INHUMATEUR",
     "type": "calibre_12",
     "fabricant": "KEL-TEC",
@@ -2567,10 +2476,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "l_inhumateur"
+    ]
   },
-  {
+  "m870_mcs_personnalise": {
     "nom": "M870 MCS PERSONNALISÉ",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
@@ -2589,10 +2497,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m870_mcs_personnalise"
+    ]
   },
-  {
+  "m870_police": {
     "nom": "M870 POLICE",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
@@ -2611,10 +2518,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m870_police"
+    ]
   },
-  {
+  "m870_express": {
     "nom": "M870 EXPRESS",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
@@ -2633,10 +2539,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m870_express"
+    ]
   },
-  {
+  "m870_militaire": {
     "nom": "M870 MILITAIRE",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
@@ -2655,10 +2560,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m870_militaire"
+    ]
   },
-  {
+  "m870": {
     "nom": "M870",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
@@ -2677,10 +2581,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m870"
+    ]
   },
-  {
+  "cuelebre": {
     "nom": "CUÉLEBRE",
     "type": "calibre_12",
     "fabricant": "REMINGTON",
@@ -2699,10 +2602,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "cuelebre"
+    ]
   },
-  {
+  "spas_12": {
     "nom": "SPAS-12",
     "type": "calibre_12",
     "fabricant": "FRANCHI",
@@ -2721,10 +2623,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "spas_12"
+    ]
   },
-  {
+  "epine": {
     "nom": "ÉPINE",
     "type": "calibre_12",
     "fabricant": "FRANCHI",
@@ -2743,10 +2644,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "epine"
+    ]
   },
-  {
+  "six12": {
     "nom": "SIX12",
     "type": "calibre_12",
     "fabricant": "CRYE PRECISION",
@@ -2765,10 +2665,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "six12"
+    ]
   },
-  {
+  "la_serpilliere": {
     "nom": "LA SERPILLIERE",
     "type": "calibre_12",
     "fabricant": "CRYE PRECISION",
@@ -2787,10 +2686,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "la_serpilliere"
+    ]
   },
-  {
+  "g28": {
     "nom": "G28*",
     "type": "fusil_precision",
     "fabricant": "HECKLER&KOCK",
@@ -2809,10 +2707,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "g28"
+    ]
   },
-  {
+  "relique": {
     "nom": "RELIQUE*",
     "type": "fusil_precision",
     "fabricant": "HECKLER&KOCK",
@@ -2831,32 +2728,32 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "relique"
+    ]
   },
-  {
-    "nom": "SACRUM IMPERIUM*",
+  "sacrum_imperium": {
+    "nom": "Sacrum Imperium",
     "type": "fusil_precision",
-    "fabricant": "HECKLER&KOCK",
-    "portee": 50,
-    "rpm": 180,
-    "chargeur": 20,
-    "rechargement": 3.6,
-    "headshot": "111% x Bonus",
-    "degatsBase": 206376,
-    "degatsMax": 474665,
-    "estExotique": false,
-    "obtention": "",
+    "fabricant": "Exotique",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": "",
+    "degatsBase": 0,
+    "degatsMax": 0,
+    "estExotique": true,
+    "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
-    "talents": [],
+    "talents": [
+      "le_piege"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "sacrum_imperium"
+    ]
   },
-  {
+  "socom_mk20_ssr": {
     "nom": "SOCOM MK20 SSR*",
     "type": "fusil_precision",
     "fabricant": "FN HERSTAL",
@@ -2875,10 +2772,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "socom_mk20_ssr"
+    ]
   },
-  {
+  "les_tenebres": {
     "nom": "LES TÉNÈBRES*",
     "type": "fusil_precision",
     "fabricant": "FN HERSTAL",
@@ -2897,10 +2793,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "les_tenebres"
+    ]
   },
-  {
+  "m700_carbon": {
     "nom": "M700 CARBON",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
@@ -2919,10 +2814,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m700_carbon"
+    ]
   },
-  {
+  "brutus": {
     "nom": "BRUTUS",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
@@ -2941,10 +2835,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "brutus"
+    ]
   },
-  {
+  "m700_tactique": {
     "nom": "M700 TACTIQUE",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
@@ -2963,10 +2856,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m700_tactique"
+    ]
   },
-  {
+  "model_700": {
     "nom": "MODEL 700",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
@@ -2985,10 +2877,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "model_700"
+    ]
   },
-  {
+  "grand_baton_d_ekim": {
     "nom": "GRAND BATON D'EKIM",
     "type": "fusil_precision",
     "fabricant": "REMINGTON",
@@ -3007,10 +2898,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "grand_baton_d_ekim"
+    ]
   },
-  {
+  "svd_de_surplus": {
     "nom": "SVD DE SURPLUS*",
     "type": "fusil_precision",
     "fabricant": "KALASHNIKOV CONCERN",
@@ -3029,10 +2919,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "svd_de_surplus"
+    ]
   },
-  {
+  "svd_de_parachutiste": {
     "nom": "SVD DE PARACHUTISTE*",
     "type": "fusil_precision",
     "fabricant": "KALASHNIKOV CONCERN",
@@ -3051,10 +2940,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "svd_de_parachutiste"
+    ]
   },
-  {
+  "commando": {
     "nom": "COMMANDO*",
     "type": "fusil_precision",
     "fabricant": "KALASHNIKOV CONCERN",
@@ -3073,32 +2961,32 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "commando"
+    ]
   },
-  {
-    "nom": "EFFROYABLE SENTENCE*",
-    "type": "fusil_precision",
-    "fabricant": "KALASHNIKOV CONCERN",
-    "portee": 50,
-    "rpm": 260,
-    "chargeur": 10,
-    "rechargement": 2.85,
-    "headshot": "111% x Bonus",
-    "degatsBase": 156626,
-    "degatsMax": 360240,
-    "estExotique": false,
-    "obtention": "",
+  "effroyable_sentence": {
+    "nom": "Effroyable Sentence",
+    "type": "calibre_12",
+    "fabricant": "Exotique",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": "",
+    "degatsBase": 0,
+    "degatsMax": 0,
+    "estExotique": true,
+    "obtention": "Dégâts de fusil de précision Dégâts de headshot",
     "estNomme": false,
-    "talents": [],
+    "talents": [
+      "point_final"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "effroyable_sentence"
+    ]
   },
-  {
+  "srs_furtif": {
     "nom": "SRS FURTIF",
     "type": "fusil_precision",
     "fabricant": "DESERT TACTICAL ARMS",
@@ -3117,10 +3005,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "srs_furtif"
+    ]
   },
-  {
+  "srs_a1": {
     "nom": "SRS A1",
     "type": "fusil_precision",
     "fabricant": "DESERT TACTICAL ARMS",
@@ -3139,10 +3026,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "srs_a1"
+    ]
   },
-  {
+  "epingle": {
     "nom": "ÉPINGLE",
     "type": "fusil_precision",
     "fabricant": "DESERT TACTICAL ARMS",
@@ -3161,10 +3047,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "epingle"
+    ]
   },
-  {
+  "m44_personnalise": {
     "nom": "M44 PERSONNALISÉ",
     "type": "fusil_precision",
     "fabricant": "IZHMASH",
@@ -3183,10 +3068,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m44_personnalise"
+    ]
   },
-  {
+  "m44_classique": {
     "nom": "M44 CLASSIQUE",
     "type": "fusil_precision",
     "fabricant": "IZHMASH",
@@ -3205,10 +3089,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m44_classique"
+    ]
   },
-  {
+  "m44_de_chasse": {
     "nom": "M44 DE CHASSE",
     "type": "fusil_precision",
     "fabricant": "IZHMASH",
@@ -3227,10 +3110,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m44_de_chasse"
+    ]
   },
-  {
+  "mort_blanche": {
     "nom": "MORT BLANCHE",
     "type": "fusil_precision",
     "fabricant": "IZHMASH",
@@ -3255,10 +3137,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mort_blanche"
+    ]
   },
-  {
+  "oh_noel": {
     "nom": "OH, NOEL",
     "type": "fusil_precision",
     "fabricant": "IZHMASH",
@@ -3277,10 +3158,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "oh_noel"
+    ]
   },
-  {
+  "sr_1": {
     "nom": "SR-1",
     "type": "fusil_precision",
     "fabricant": "DSR-PRECISION",
@@ -3299,10 +3179,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "sr_1"
+    ]
   },
-  {
+  "adrestia": {
     "nom": "ADRESTIA",
     "type": "fusil_precision",
     "fabricant": "DSR-PRECISION",
@@ -3321,10 +3200,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "adrestia"
+    ]
   },
-  {
+  "tueur_attitre": {
     "nom": "TUEUR ATTITRÉ",
     "type": "fusil_precision",
     "fabricant": "DSR-PRECISION",
@@ -3343,10 +3221,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "tueur_attitre"
+    ]
   },
-  {
+  "tactical_308": {
     "nom": "TACTICAL .308",
     "type": "fusil_precision",
     "fabricant": "CADEX DEFENSE",
@@ -3365,10 +3242,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "tactical_308"
+    ]
   },
-  {
+  "scalpel": {
     "nom": "SCALPEL",
     "type": "fusil_precision",
     "fabricant": "CADEX DEFENSE",
@@ -3387,10 +3263,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "scalpel"
+    ]
   },
-  {
+  "smg_9_converti": {
     "nom": "SMG-9 CONVERTI",
     "type": "pistolet_mitrailleur",
     "fabricant": "INTRACTEC",
@@ -3409,10 +3284,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "smg_9_converti"
+    ]
   },
-  {
+  "smg_9_a2_converti": {
     "nom": "SMG-9 A2 CONVERTI",
     "type": "pistolet_mitrailleur",
     "fabricant": "INTRACTEC",
@@ -3431,10 +3305,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "smg_9_a2_converti"
+    ]
   },
-  {
+  "mp5a2": {
     "nom": "MP5A2",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -3453,10 +3326,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mp5a2"
+    ]
   },
-  {
+  "mp5_n": {
     "nom": "MP5-N",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -3475,10 +3347,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mp5_n"
+    ]
   },
-  {
+  "mp5_st": {
     "nom": "MP5 ST",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -3497,10 +3368,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mp5_st"
+    ]
   },
-  {
+  "cabaret": {
     "nom": "CABARET",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -3519,10 +3389,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "cabaret"
+    ]
   },
-  {
+  "pp_19": {
     "nom": "PP-19",
     "type": "pistolet_mitrailleur",
     "fabricant": "IZHMASH",
@@ -3541,10 +3410,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "pp_19"
+    ]
   },
-  {
+  "pp_19_ameliore": {
     "nom": "PP-19 AMÉLIORÉ",
     "type": "pistolet_mitrailleur",
     "fabricant": "IZHMASH",
@@ -3563,10 +3431,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "pp_19_ameliore"
+    ]
   },
-  {
+  "coup_de_froid": {
     "nom": "COUP DE FROID",
     "type": "pistolet_mitrailleur",
     "fabricant": "IZHMASH",
@@ -3585,10 +3452,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "coup_de_froid"
+    ]
   },
-  {
+  "aug_a3_para_xs": {
     "nom": "AUG A3 PARA XS",
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
@@ -3607,10 +3473,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "aug_a3_para_xs"
+    ]
   },
-  {
+  "aug_a3_para_xs_ameliore": {
     "nom": "AUG A3 PARA XS AMÉLIORÉ",
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
@@ -3629,10 +3494,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "aug_a3_para_xs_ameliore"
+    ]
   },
-  {
+  "aug_a3_tactique": {
     "nom": "AUG A3 TACTIQUE",
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
@@ -3651,10 +3515,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "aug_a3_tactique"
+    ]
   },
-  {
+  "vector_tactique_sbr_9mm": {
     "nom": "VECTOR TACTIQUE SBR 9MM",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
@@ -3673,10 +3536,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "vector_tactique_sbr_9mm"
+    ]
   },
-  {
+  "vector_sbr_9mm": {
     "nom": "VECTOR SBR 9MM",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
@@ -3695,10 +3557,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "vector_sbr_9mm"
+    ]
   },
-  {
+  "vector_45_acp": {
     "nom": "VECTOR .45 ACP",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
@@ -3717,10 +3578,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "vector_45_acp"
+    ]
   },
-  {
+  "hiver_funeste": {
     "nom": "HIVER FUNESTE",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
@@ -3739,10 +3599,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "hiver_funeste"
+    ]
   },
-  {
+  "mp7": {
     "nom": "MP7",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -3761,10 +3620,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mp7"
+    ]
   },
-  {
+  "l_echangeur": {
     "nom": "L'ÉCHANGEUR",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -3783,10 +3641,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "l_echangeur"
+    ]
   },
-  {
+  "t821_du_marche_noir": {
     "nom": "T821 DU MARCHÉ NOIR",
     "type": "pistolet_mitrailleur",
     "fabricant": "SOCIMI",
@@ -3805,10 +3662,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "t821_du_marche_noir"
+    ]
   },
-  {
+  "t821_police": {
     "nom": "T821 POLICE",
     "type": "pistolet_mitrailleur",
     "fabricant": "SOCIMI",
@@ -3827,10 +3683,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "t821_police"
+    ]
   },
-  {
+  "ump_45_police": {
     "nom": "UMP-45 POLICE",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -3849,10 +3704,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "ump_45_police"
+    ]
   },
-  {
+  "ump_45_tactique": {
     "nom": "UMP-45 TACTIQUE",
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
@@ -3871,10 +3725,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "ump_45_tactique"
+    ]
   },
-  {
+  "m1928": {
     "nom": "M1928",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
@@ -3893,10 +3746,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m1928"
+    ]
   },
-  {
+  "tommy_gun": {
     "nom": "TOMMY GUN",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
@@ -3915,10 +3767,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "tommy_gun"
+    ]
   },
-  {
+  "l_acquis": {
     "nom": "L'ACQUIS",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
@@ -3937,10 +3788,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "l_acquis"
+    ]
   },
-  {
+  "l_enneigeur": {
     "nom": "L'ENNEIGEUR",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
@@ -3959,10 +3809,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "l_enneigeur"
+    ]
   },
-  {
+  "p90": {
     "nom": "P90",
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -3981,10 +3830,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "p90"
+    ]
   },
-  {
+  "bouclier_d_emeline": {
     "nom": "BOUCLIER D'EMELINE",
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -4003,10 +3851,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "bouclier_d_emeline"
+    ]
   },
-  {
+  "mpx": {
     "nom": "MPX",
     "type": "pistolet_mitrailleur",
     "fabricant": "SIG-SAUER",
@@ -4025,10 +3872,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mpx"
+    ]
   },
-  {
+  "l_ecarteur": {
     "nom": "L'ÉCARTEUR",
     "type": "pistolet_mitrailleur",
     "fabricant": "SIG-SAUER",
@@ -4047,10 +3893,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "l_ecarteur"
+    ]
   },
-  {
+  "l_appartement": {
     "nom": "L'APPARTEMENT",
     "type": "pistolet_mitrailleur",
     "fabricant": "SIG-SAUER",
@@ -4069,10 +3914,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "l_appartement"
+    ]
   },
-  {
+  "backfire": {
     "nom": "BACKFIRE",
     "type": "pistolet_mitrailleur",
     "fabricant": "SIG-SAUER",
@@ -4091,10 +3935,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "backfire"
+    ]
   },
-  {
+  "cmmg_banshee": {
     "nom": "CMMG BANSHEE",
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
@@ -4113,10 +3956,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "cmmg_banshee"
+    ]
   },
-  {
+  "rancune": {
     "nom": "RANCUNE",
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
@@ -4135,10 +3977,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "rancune"
+    ]
   },
-  {
+  "uic15_mod2": {
     "nom": "UIC15 MOD2*",
     "type": "fusil",
     "fabricant": "AMERICAN DEFENSE MANUFACTURING",
@@ -4157,10 +3998,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "uic15_mod2"
+    ]
   },
-  {
+  "acr_ss": {
     "nom": "ACR SS*",
     "type": "fusil",
     "fabricant": "AMERICAN DEFENSE MANUFACTURING",
@@ -4179,10 +4019,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "acr_ss"
+    ]
   },
-  {
+  "m16a2": {
     "nom": "M16A2",
     "type": "fusil",
     "fabricant": "COLT",
@@ -4201,10 +4040,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m16a2"
+    ]
   },
-  {
+  "murmure": {
     "nom": "MURMURE",
     "type": "fusil",
     "fabricant": "COLT",
@@ -4223,10 +4061,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "murmure"
+    ]
   },
-  {
+  "m1a_socom": {
     "nom": "M1A SOCOM*",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
@@ -4245,10 +4082,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m1a_socom"
+    ]
   },
-  {
+  "m1a_cqb": {
     "nom": "M1A CQB*",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
@@ -4267,10 +4103,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "m1a_cqb"
+    ]
   },
-  {
+  "cooler": {
     "nom": "COOLER*",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
@@ -4289,667 +4124,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "cooler"
+    ]
   },
-  {
-    "nom": "MÉDECIN DE FAMILLE*",
-    "type": "fusil",
-    "fabricant": "SPRINGFIELD ARMORY",
-    "portee": 60,
-    "rpm": 320,
-    "chargeur": 10,
-    "rechargement": 2.32,
-    "headshot": "60%",
-    "degatsBase": 129150,
-    "degatsMax": 297045,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "medecin_de_famille"
-  },
-  {
-    "nom": "M1A CLASSIQUE*",
-    "type": "fusil",
-    "fabricant": "SPRINGFIELD ARMORY",
-    "portee": 60,
-    "rpm": 180,
-    "chargeur": 10,
-    "rechargement": 2.86,
-    "headshot": "60%",
-    "degatsBase": 231290,
-    "degatsMax": 531967,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "m1a_classique"
-  },
-  {
-    "nom": "SECRET DU CHEF*",
-    "type": "fusil",
-    "fabricant": "SPRINGFIELD ARMORY",
-    "portee": 60,
-    "rpm": 180,
-    "chargeur": 10,
-    "rechargement": 2.86,
-    "headshot": "60%",
-    "degatsBase": 231290,
-    "degatsMax": 531967,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "secret_du_chef"
-  },
-  {
-    "nom": "LVOA-C*",
-    "type": "fusil",
-    "fabricant": "WAR SPORT",
-    "portee": 55,
-    "rpm": 380,
-    "chargeur": 30,
-    "rechargement": 2.52,
-    "headshot": "60%",
-    "degatsBase": 100590,
-    "degatsMax": 231357,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "lvoa_c"
-  },
-  {
-    "nom": "SURGE*",
-    "type": "fusil",
-    "fabricant": "WAR SPORT",
-    "portee": 55,
-    "rpm": 380,
-    "chargeur": 30,
-    "rechargement": 2.52,
-    "headshot": "60%",
-    "degatsBase": 100590,
-    "degatsMax": 231357,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "surge"
-  },
-  {
-    "nom": "MDR URBAIN*",
-    "type": "fusil",
-    "fabricant": "DESERT TECH",
-    "portee": 60,
-    "rpm": 380,
-    "chargeur": 20,
-    "rechargement": 2.97,
-    "headshot": "95%",
-    "degatsBase": 102947,
-    "degatsMax": 236778,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "mdr_urbain"
-  },
-  {
-    "nom": "VINDICATOR*",
-    "type": "fusil",
-    "fabricant": "DESERT TECH",
-    "portee": 60,
-    "rpm": 380,
-    "chargeur": 20,
-    "rechargement": 2.97,
-    "headshot": "95%",
-    "degatsBase": 102947,
-    "degatsMax": 236778,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "vindicator"
-  },
-  {
-    "nom": "Mk17 MILITAIRE*",
-    "type": "fusil",
-    "fabricant": "FN HERSTAL",
-    "portee": 55,
-    "rpm": 275,
-    "chargeur": 10,
-    "rechargement": 2.47,
-    "headshot": "60%",
-    "degatsBase": 145815,
-    "degatsMax": 335375,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "mk17_militaire"
-  },
-  {
-    "nom": "Mk17 DE LA POLICE*",
-    "type": "fusil",
-    "fabricant": "FN HERSTAL",
-    "portee": 55,
-    "rpm": 275,
-    "chargeur": 10,
-    "rechargement": 2.47,
-    "headshot": "60%",
-    "degatsBase": 145815,
-    "degatsMax": 335375,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "mk17_de_la_police"
-  },
-  {
-    "nom": "REGARD ÉTERNEL*",
-    "type": "fusil",
-    "fabricant": "FN HERSTAL",
-    "portee": 55,
-    "rpm": 275,
-    "chargeur": 10,
-    "rechargement": 2.47,
-    "headshot": "60%",
-    "degatsBase": 145815,
-    "degatsMax": 335375,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "regard_eternel"
-  },
-  {
-    "nom": "SIG 716 CQB*",
-    "type": "fusil",
-    "fabricant": "SIG-SAUER",
-    "portee": 45,
-    "rpm": 320,
-    "chargeur": 20,
-    "rechargement": 2.92,
-    "headshot": "60%",
-    "degatsBase": 125834,
-    "degatsMax": 289418,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "sig_716_cqb"
-  },
-  {
-    "nom": "SIG 716*",
-    "type": "fusil",
-    "fabricant": "SIG-SAUER",
-    "portee": 45,
-    "rpm": 320,
-    "chargeur": 20,
-    "rechargement": 2.92,
-    "headshot": "60%",
-    "degatsBase": 121128,
-    "degatsMax": 278594,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "sig_716"
-  },
-  {
-    "nom": "OUTILS D'ARTISTE*",
-    "type": "fusil",
-    "fabricant": "SIG-SAUER",
-    "portee": 45,
-    "rpm": 320,
-    "chargeur": 20,
-    "rechargement": 2.92,
-    "headshot": "60%",
-    "degatsBase": 121128,
-    "degatsMax": 278594,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "outils_d_artiste"
-  },
-  {
-    "nom": "USC .45 ACP*",
-    "type": "fusil",
-    "fabricant": "KECKLER&KOCH",
-    "portee": 50,
-    "rpm": 420,
-    "chargeur": 20,
-    "rechargement": 2.99,
-    "headshot": "60%",
-    "degatsBase": 97719,
-    "degatsMax": 224754,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "usc_45_acp"
-  },
-  {
-    "nom": "1886",
-    "type": "fusil",
-    "fabricant": "WINCHESTER",
-    "portee": 35,
-    "rpm": 100,
-    "chargeur": 8,
-    "rechargement": 3.47,
-    "headshot": "60%",
-    "degatsBase": 386892,
-    "degatsMax": 889852,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "1886"
-  },
-  {
-    "nom": "LA VIRGINIENNE",
-    "type": "fusil",
-    "fabricant": "WINCHESTER",
-    "portee": 35,
-    "rpm": 100,
-    "chargeur": 8,
-    "rechargement": 3.47,
-    "headshot": "60%",
-    "degatsBase": 386892,
-    "degatsMax": 889852,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "la_virginienne"
-  },
-  {
-    "nom": "MK47 RESOLUTE*",
-    "type": "fusil",
-    "fabricant": "CMMG",
-    "portee": 55,
-    "rpm": 300,
-    "chargeur": 30,
-    "rechargement": 2.03,
-    "headshot": "60%",
-    "degatsBase": 121142,
-    "degatsMax": 278627,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "mk47_resolute"
-  },
-  {
-    "nom": "HARMONIE*",
-    "type": "fusil",
-    "fabricant": "CMMG",
-    "portee": 55,
-    "rpm": 300,
-    "chargeur": 30,
-    "rechargement": 2.03,
-    "headshot": "60%",
-    "degatsBase": 121142,
-    "degatsMax": 278627,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "harmonie"
-  },
-  {
-    "nom": "LA VORACE*",
-    "type": "fusil",
-    "fabricant": "SILVERSHADOW",
-    "portee": 50,
-    "rpm": 240,
-    "chargeur": 60,
-    "rechargement": 1.9,
-    "headshot": "60%",
-    "degatsBase": 134360,
-    "degatsMax": 309028,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "la_vorace"
-  },
-  {
-    "nom": "M4 ALLÉGÉE*",
-    "type": "fusil",
-    "fabricant": "COLT",
-    "portee": 55,
-    "rpm": 360,
-    "chargeur": 30,
-    "rechargement": 2.03,
-    "headshot": "60%",
-    "degatsBase": 103747,
-    "degatsMax": 238618,
-    "estExotique": false,
-    "obtention": "",
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "m4_allegee"
-  },
-  {
-    "nom": "Bonne nuit",
-    "type": "calibre_12",
-    "fabricant": "FRANCHI",
-    "portee": 16,
-    "rpm": 70,
-    "chargeur": 8,
-    "rechargement": 5.5,
-    "headshot": "25%",
-    "degatsBase": 715833,
-    "degatsMax": 1646416,
-    "estExotique": true,
-    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
-    "estNomme": false,
-    "talents": [
-      "marchand_de_sable"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "bonne_nuit"
-  },
-  {
-    "nom": "Berceuse",
-    "type": "calibre_12",
-    "fabricant": "FRANCHI",
-    "portee": 16,
-    "rpm": 70,
-    "chargeur": 8,
-    "rechargement": 5.5,
-    "headshot": "25%",
-    "degatsBase": 715833,
-    "degatsMax": 1646416,
-    "estExotique": true,
-    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
-    "estNomme": false,
-    "talents": [
-      "marchand_de_sable"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "berceuse"
-  },
-  {
-    "nom": "Scorpio",
-    "type": "calibre_12",
-    "fabricant": "CRYE PRECISION",
-    "portee": 14,
-    "rpm": 130,
-    "chargeur": 7,
-    "rechargement": 3,
-    "headshot": "45%",
-    "degatsBase": 409469,
-    "degatsMax": 941779,
-    "estExotique": true,
-    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
-    "estNomme": false,
-    "talents": [
-      "choc_septique"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "scorpio"
-  },
-  {
-    "nom": "Overlord",
-    "type": "calibre_12",
-    "fabricant": "KEL-TEC",
-    "portee": 16,
-    "rpm": 70,
-    "chargeur": 12,
-    "rechargement": 7.99,
-    "headshot": "45%",
-    "degatsBase": 678672,
-    "degatsMax": 1560946,
-    "estExotique": true,
-    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
-    "estNomme": false,
-    "talents": [
-      "capitulation"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "overlord"
-  },
-  {
-    "nom": "Shérif",
-    "type": "fusil_assaut",
-    "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": "",
-    "degatsBase": 0,
-    "degatsMax": 0,
-    "estExotique": true,
-    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
-    "estNomme": false,
-    "talents": [
-      "autentico"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur",
-      "accessoire"
-    ],
-    "slug": "sherif"
-  },
-  {
-    "nom": "Impitoyable",
-    "type": "fusil",
-    "fabricant": "IZHMASH",
-    "portee": 35,
-    "rpm": 400,
-    "chargeur": 30,
-    "rechargement": 2.64,
-    "headshot": "60%",
-    "degatsBase": 102143,
-    "degatsMax": 234929,
-    "estExotique": true,
-    "obtention": "Dégâts de fusilDégâts de coup critique",
-    "estNomme": false,
-    "talents": [
-      "detente_binaire"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "impitoyable"
-  },
-  {
-    "nom": "Inflexible",
-    "type": "fusil",
-    "fabricant": "IZHMASH",
-    "portee": 35,
-    "rpm": 400,
-    "chargeur": 30,
-    "rechargement": 2.64,
-    "headshot": "60%",
-    "degatsBase": 102143,
-    "degatsMax": 234929,
-    "estExotique": true,
-    "obtention": "Dégâts de fusilDégâts de coup critique",
-    "estNomme": false,
-    "talents": [
-      "detente_binaire"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "inflexible"
-  },
-  {
-    "nom": "Diamondback",
-    "type": "fusil",
-    "fabricant": "WINCHESTER",
-    "portee": 35,
-    "rpm": 100,
-    "chargeur": 8,
-    "rechargement": 3.47,
-    "headshot": "60%",
-    "degatsBase": 386892,
-    "degatsMax": 889852,
-    "estExotique": true,
-    "obtention": "Dégâts de fusilDégâts de coup critique",
-    "estNomme": false,
-    "talents": [
-      "morsure_fatale"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "diamondback"
-  },
-  {
-    "nom": "La Vorace",
-    "type": "calibre_12",
-    "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": "",
-    "degatsBase": 0,
-    "degatsMax": 0,
-    "estExotique": true,
-    "obtention": "Dégâts de fusilDégâts de coup critique",
-    "estNomme": false,
-    "talents": [
-      "geri_et_freki"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "la_vorace"
-  },
-  {
+  "medecin_de_famille": {
     "nom": "Médecin de famille",
     "type": "fusil",
     "fabricant": "Exotique",
@@ -4970,10 +4147,114 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "medecin_de_famille"
+    ]
   },
-  {
+  "m1a_classique": {
+    "nom": "M1A CLASSIQUE*",
+    "type": "fusil",
+    "fabricant": "SPRINGFIELD ARMORY",
+    "portee": 60,
+    "rpm": 180,
+    "chargeur": 10,
+    "rechargement": 2.86,
+    "headshot": "60%",
+    "degatsBase": 231290,
+    "degatsMax": 531967,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "secret_du_chef": {
+    "nom": "SECRET DU CHEF*",
+    "type": "fusil",
+    "fabricant": "SPRINGFIELD ARMORY",
+    "portee": 60,
+    "rpm": 180,
+    "chargeur": 10,
+    "rechargement": 2.86,
+    "headshot": "60%",
+    "degatsBase": 231290,
+    "degatsMax": 531967,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "lvoa_c": {
+    "nom": "LVOA-C*",
+    "type": "fusil",
+    "fabricant": "WAR SPORT",
+    "portee": 55,
+    "rpm": 380,
+    "chargeur": 30,
+    "rechargement": 2.52,
+    "headshot": "60%",
+    "degatsBase": 100590,
+    "degatsMax": 231357,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "surge": {
+    "nom": "SURGE*",
+    "type": "fusil",
+    "fabricant": "WAR SPORT",
+    "portee": 55,
+    "rpm": 380,
+    "chargeur": 30,
+    "rechargement": 2.52,
+    "headshot": "60%",
+    "degatsBase": 100590,
+    "degatsMax": 231357,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "mdr_urbain": {
+    "nom": "MDR URBAIN*",
+    "type": "fusil",
+    "fabricant": "DESERT TECH",
+    "portee": 60,
+    "rpm": 380,
+    "chargeur": 20,
+    "rechargement": 2.97,
+    "headshot": "95%",
+    "degatsBase": 102947,
+    "degatsMax": 236778,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "vindicator": {
     "nom": "Vindicator",
     "type": "fusil_assaut",
     "fabricant": "Exotique",
@@ -4995,10 +4276,448 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "vindicator"
+    ]
   },
-  {
+  "mk17_militaire": {
+    "nom": "Mk17 MILITAIRE*",
+    "type": "fusil",
+    "fabricant": "FN HERSTAL",
+    "portee": 55,
+    "rpm": 275,
+    "chargeur": 10,
+    "rechargement": 2.47,
+    "headshot": "60%",
+    "degatsBase": 145815,
+    "degatsMax": 335375,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "mk17_de_la_police": {
+    "nom": "Mk17 DE LA POLICE*",
+    "type": "fusil",
+    "fabricant": "FN HERSTAL",
+    "portee": 55,
+    "rpm": 275,
+    "chargeur": 10,
+    "rechargement": 2.47,
+    "headshot": "60%",
+    "degatsBase": 145815,
+    "degatsMax": 335375,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "regard_eternel": {
+    "nom": "REGARD ÉTERNEL*",
+    "type": "fusil",
+    "fabricant": "FN HERSTAL",
+    "portee": 55,
+    "rpm": 275,
+    "chargeur": 10,
+    "rechargement": 2.47,
+    "headshot": "60%",
+    "degatsBase": 145815,
+    "degatsMax": 335375,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "sig_716_cqb": {
+    "nom": "SIG 716 CQB*",
+    "type": "fusil",
+    "fabricant": "SIG-SAUER",
+    "portee": 45,
+    "rpm": 320,
+    "chargeur": 20,
+    "rechargement": 2.92,
+    "headshot": "60%",
+    "degatsBase": 125834,
+    "degatsMax": 289418,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "sig_716": {
+    "nom": "SIG 716*",
+    "type": "fusil",
+    "fabricant": "SIG-SAUER",
+    "portee": 45,
+    "rpm": 320,
+    "chargeur": 20,
+    "rechargement": 2.92,
+    "headshot": "60%",
+    "degatsBase": 121128,
+    "degatsMax": 278594,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "outils_d_artiste": {
+    "nom": "OUTILS D'ARTISTE*",
+    "type": "fusil",
+    "fabricant": "SIG-SAUER",
+    "portee": 45,
+    "rpm": 320,
+    "chargeur": 20,
+    "rechargement": 2.92,
+    "headshot": "60%",
+    "degatsBase": 121128,
+    "degatsMax": 278594,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "usc_45_acp": {
+    "nom": "USC .45 ACP*",
+    "type": "fusil",
+    "fabricant": "KECKLER&KOCH",
+    "portee": 50,
+    "rpm": 420,
+    "chargeur": 20,
+    "rechargement": 2.99,
+    "headshot": "60%",
+    "degatsBase": 97719,
+    "degatsMax": 224754,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "la_virginienne": {
+    "nom": "LA VIRGINIENNE",
+    "type": "fusil",
+    "fabricant": "WINCHESTER",
+    "portee": 35,
+    "rpm": 100,
+    "chargeur": 8,
+    "rechargement": 3.47,
+    "headshot": "60%",
+    "degatsBase": 386892,
+    "degatsMax": 889852,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "mk47_resolute": {
+    "nom": "MK47 RESOLUTE*",
+    "type": "fusil",
+    "fabricant": "CMMG",
+    "portee": 55,
+    "rpm": 300,
+    "chargeur": 30,
+    "rechargement": 2.03,
+    "headshot": "60%",
+    "degatsBase": 121142,
+    "degatsMax": 278627,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "harmonie": {
+    "nom": "HARMONIE*",
+    "type": "fusil",
+    "fabricant": "CMMG",
+    "portee": 55,
+    "rpm": 300,
+    "chargeur": 30,
+    "rechargement": 2.03,
+    "headshot": "60%",
+    "degatsBase": 121142,
+    "degatsMax": 278627,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "la_vorace": {
+    "nom": "La Vorace",
+    "type": "calibre_12",
+    "fabricant": "Exotique",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": "",
+    "degatsBase": 0,
+    "degatsMax": 0,
+    "estExotique": true,
+    "obtention": "Dégâts de fusilDégâts de coup critique",
+    "estNomme": false,
+    "talents": [
+      "geri_et_freki"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "m4_allegee": {
+    "nom": "M4 ALLÉGÉE*",
+    "type": "fusil",
+    "fabricant": "COLT",
+    "portee": 55,
+    "rpm": 360,
+    "chargeur": 30,
+    "rechargement": 2.03,
+    "headshot": "60%",
+    "degatsBase": 103747,
+    "degatsMax": 238618,
+    "estExotique": false,
+    "obtention": "",
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "bonne_nuit": {
+    "nom": "Bonne nuit",
+    "type": "calibre_12",
+    "fabricant": "FRANCHI",
+    "portee": 16,
+    "rpm": 70,
+    "chargeur": 8,
+    "rechargement": 5.5,
+    "headshot": "25%",
+    "degatsBase": 715833,
+    "degatsMax": 1646416,
+    "estExotique": true,
+    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
+    "estNomme": false,
+    "talents": [
+      "marchand_de_sable"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "berceuse": {
+    "nom": "Berceuse",
+    "type": "calibre_12",
+    "fabricant": "FRANCHI",
+    "portee": 16,
+    "rpm": 70,
+    "chargeur": 8,
+    "rechargement": 5.5,
+    "headshot": "25%",
+    "degatsBase": 715833,
+    "degatsMax": 1646416,
+    "estExotique": true,
+    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
+    "estNomme": false,
+    "talents": [
+      "marchand_de_sable"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "scorpio": {
+    "nom": "Scorpio",
+    "type": "calibre_12",
+    "fabricant": "CRYE PRECISION",
+    "portee": 14,
+    "rpm": 130,
+    "chargeur": 7,
+    "rechargement": 3,
+    "headshot": "45%",
+    "degatsBase": 409469,
+    "degatsMax": 941779,
+    "estExotique": true,
+    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
+    "estNomme": false,
+    "talents": [
+      "choc_septique"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "overlord": {
+    "nom": "Overlord",
+    "type": "calibre_12",
+    "fabricant": "KEL-TEC",
+    "portee": 16,
+    "rpm": 70,
+    "chargeur": 12,
+    "rechargement": 7.99,
+    "headshot": "45%",
+    "degatsBase": 678672,
+    "degatsMax": 1560946,
+    "estExotique": true,
+    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
+    "estNomme": false,
+    "talents": [
+      "capitulation"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "sherif": {
+    "nom": "Shérif",
+    "type": "fusil_assaut",
+    "fabricant": "Exotique",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": "",
+    "degatsBase": 0,
+    "degatsMax": 0,
+    "estExotique": true,
+    "obtention": "Dégâts de fusil calibre 12 Dégâts aux protections",
+    "estNomme": false,
+    "talents": [
+      "autentico"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "accessoire"
+    ]
+  },
+  "impitoyable": {
+    "nom": "Impitoyable",
+    "type": "fusil",
+    "fabricant": "IZHMASH",
+    "portee": 35,
+    "rpm": 400,
+    "chargeur": 30,
+    "rechargement": 2.64,
+    "headshot": "60%",
+    "degatsBase": 102143,
+    "degatsMax": 234929,
+    "estExotique": true,
+    "obtention": "Dégâts de fusilDégâts de coup critique",
+    "estNomme": false,
+    "talents": [
+      "detente_binaire"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "inflexible": {
+    "nom": "Inflexible",
+    "type": "fusil",
+    "fabricant": "IZHMASH",
+    "portee": 35,
+    "rpm": 400,
+    "chargeur": 30,
+    "rechargement": 2.64,
+    "headshot": "60%",
+    "degatsBase": 102143,
+    "degatsMax": 234929,
+    "estExotique": true,
+    "obtention": "Dégâts de fusilDégâts de coup critique",
+    "estNomme": false,
+    "talents": [
+      "detente_binaire"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "diamondback": {
+    "nom": "Diamondback",
+    "type": "fusil",
+    "fabricant": "WINCHESTER",
+    "portee": 35,
+    "rpm": 100,
+    "chargeur": 8,
+    "rechargement": 3.47,
+    "headshot": "60%",
+    "degatsBase": 386892,
+    "degatsMax": 889852,
+    "estExotique": true,
+    "obtention": "Dégâts de fusilDégâts de coup critique",
+    "estNomme": false,
+    "talents": [
+      "morsure_fatale"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "bittersweet": {
     "nom": "Bittersweet",
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
@@ -5019,10 +4738,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "bittersweet"
+    ]
   },
-  {
+  "eagle_bearer": {
     "nom": "Eagle Bearer",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
@@ -5045,10 +4763,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "eagle_bearer"
+    ]
   },
-  {
+  "cameleon": {
     "nom": "Caméléon",
     "type": "fusil_assaut",
     "fabricant": "TDI",
@@ -5070,10 +4787,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "cameleon"
+    ]
   },
-  {
+  "big_horn": {
     "nom": "Big Horn",
     "type": "fusil_assaut",
     "fabricant": "STEYR",
@@ -5095,10 +4811,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "big_horn"
+    ]
   },
-  {
+  "capacitor": {
     "nom": "Capacitor",
     "type": "fusil_assaut",
     "fabricant": "MAGPUL",
@@ -5120,10 +4835,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "capacitor"
+    ]
   },
-  {
+  "feu_de_saint_elme": {
     "nom": "Feu de Saint-Elme",
     "type": "fusil_assaut",
     "fabricant": "COLT",
@@ -5145,10 +4859,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "feu_de_saint_elme"
+    ]
   },
-  {
+  "strega": {
     "nom": "Strega",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
@@ -5170,10 +4883,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "strega"
+    ]
   },
-  {
+  "pestilence": {
     "nom": "Pestilence",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -5194,10 +4906,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "pestilence"
+    ]
   },
-  {
+  "bullet_king": {
     "nom": "Bullet King",
     "type": "fusil_mitrailleur",
     "fabricant": "IMI",
@@ -5218,10 +4929,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "bullet_king"
+    ]
   },
-  {
+  "dragon_de_fer": {
     "nom": "Dragon de Fer",
     "type": "fusil_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -5242,10 +4952,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "dragon_de_fer"
+    ]
   },
-  {
+  "pakhan": {
     "nom": "Pakhan",
     "type": "fusil_mitrailleur",
     "fabricant": "Exotique",
@@ -5266,10 +4975,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "pakhan"
+    ]
   },
-  {
+  "nemesis": {
     "nom": "Nemesis",
     "type": "fusil_precision",
     "fabricant": "ACCURACY INTERNATIONAL",
@@ -5290,10 +4998,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "nemesis"
+    ]
   },
-  {
+  "mantis": {
     "nom": "Mantis",
     "type": "fusil_precision",
     "fabricant": "DESERT TACTICAL ARMS",
@@ -5314,58 +5021,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mantis"
+    ]
   },
-  {
-    "nom": "Effroyable Sentence",
-    "type": "calibre_12",
-    "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": "",
-    "degatsBase": 0,
-    "degatsMax": 0,
-    "estExotique": true,
-    "obtention": "Dégâts de fusil de précision Dégâts de headshot",
-    "estNomme": false,
-    "talents": [
-      "point_final"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "effroyable_sentence"
-  },
-  {
-    "nom": "Sacrum Imperium",
-    "type": "fusil_precision",
-    "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": "",
-    "degatsBase": 0,
-    "degatsMax": 0,
-    "estExotique": true,
-    "obtention": "Dégâts de fusil de précision Dégâts de headshot",
-    "estNomme": false,
-    "talents": [
-      "le_piege"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "sacrum_imperium"
-  },
-  {
+  "linceul": {
     "nom": "Linceul",
     "type": "fusil_precision",
     "fabricant": "Exotique",
@@ -5386,10 +5044,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "linceul"
+    ]
   },
-  {
+  "liberte": {
     "nom": "Liberté",
     "type": "pistolet",
     "fabricant": "MAGNUM/IMI",
@@ -5410,10 +5067,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "liberte"
+    ]
   },
-  {
+  "regulus": {
     "nom": "Regulus",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
@@ -5434,34 +5090,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "regulus"
+    ]
   },
-  {
-    "nom": "Petite abeille ouvrière",
-    "type": "pistolet_mitrailleur",
-    "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": "",
-    "degatsBase": 0,
-    "degatsMax": 0,
-    "estExotique": true,
-    "obtention": "Dégâts de pistolet",
-    "estNomme": false,
-    "talents": [
-      "petite_abeille_ouvriere"
-    ],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ],
-    "slug": "petite_abeille_ouvriere"
-  },
-  {
+  "mosquito": {
     "nom": "Mosquito",
     "type": "pistolet",
     "fabricant": "BERETTA",
@@ -5482,10 +5113,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "mosquito"
+    ]
   },
-  {
+  "tempest": {
     "nom": "Tempest",
     "type": "fusil",
     "fabricant": "Exotique",
@@ -5506,10 +5136,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "tempest"
+    ]
   },
-  {
+  "flux_continu": {
     "nom": "Flux continu",
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
@@ -5530,10 +5159,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "flux_continu"
+    ]
   },
-  {
+  "lady_death": {
     "nom": "Lady death",
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
@@ -5554,10 +5182,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "lady_death"
+    ]
   },
-  {
+  "contre_feu": {
     "nom": "Contre-feu",
     "type": "calibre_12",
     "fabricant": "Exotique",
@@ -5578,10 +5205,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "contre_feu"
+    ]
   },
-  {
+  "ouroboros": {
     "nom": "Ouroboros",
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
@@ -5602,10 +5228,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "ouroboros"
+    ]
   },
-  {
+  "oxpecker": {
     "nom": "Oxpecker",
     "type": "pistolet",
     "fabricant": "Exotique",
@@ -5626,10 +5251,9 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "oxpecker"
+    ]
   },
-  {
+  "forme_d_onde": {
     "nom": "Forme d'onde",
     "type": "fusil_assaut",
     "fabricant": "Exotique",
@@ -5651,10 +5275,9 @@
       "canon",
       "chargeur",
       "accessoire"
-    ],
-    "slug": "forme_d_onde"
+    ]
   },
-  {
+  "electrochoc": {
     "nom": "Électrochoc",
     "type": "pistolet",
     "fabricant": "Exotique",
@@ -5675,7 +5298,6 @@
       "viseur",
       "canon",
       "chargeur"
-    ],
-    "slug": "electrochoc"
+    ]
   }
-]
+}

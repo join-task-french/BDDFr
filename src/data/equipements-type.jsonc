@@ -1,0 +1,32 @@
+{
+    "masque": {
+        "nom": "Masque",
+        "icon": "masque",
+        "emoji": "🎭"
+    },
+    "torse": {
+        "nom": "Torse",
+        "icon": "torse",
+        "emoji": "🦺"
+    },
+    "holster": {
+        "nom": "Holster",
+        "icon": "holster",
+        "emoji": "🔧"
+    },
+    "sac_a_dos": {
+        "nom": "Sac à dos",
+        "icon": "sac",
+        "emoji": "🎒"
+    },
+    "gants": {
+        "nom": "Gants",
+        "icon": "gants",
+        "emoji": "🧤"
+    },
+    "genouilleres": {
+        "nom": "Genouillères",
+        "icon": "genouilleres",
+        "emoji": "🦿"
+    }
+}

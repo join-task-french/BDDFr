@@ -37,17 +37,17 @@
             </SchemaInfo>
           </value>
         </entry>
-        <entry key="equipement-type.schema">
+        <entry key="equipements-type.schema">
           <value>
             <SchemaInfo>
               <option name="generatedName" value="New Schema" />
-              <option name="name" value="equipement-type.schema" />
-              <option name="relativePathToSchema" value="src/data/schemas/equipement-type.schema.json" />
+              <option name="name" value="equipements-type.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/equipements-type.schema.json" />
               <option name="schemaVersion" value="JSON Schema 7" />
               <option name="patterns">
                 <list>
                   <Item>
-                    <option name="path" value="src/data/equipement-type.jsonc" />
+                    <option name="path" value="src/data/equipements-type.jsonc" />
                   </Item>
                 </list>
               </option>

@@ -1,7 +1,6 @@
 // Classes de spécialisation — The Division 2
-// Chaque spécialisation a une arme spécifique avec ses statistiques
-[
-  {
+{
+  "demolisseur": {
     "cle": "demolisseur",
     "nom": "Démolisseur",
     "icone": "💥",
@@ -13,10 +12,9 @@
       "rechargement": 6.2,
       "headshot": "75%",
       "degatsBase": 1700000
-    },
-    "slug": "demolisseur"
+    }
   },
-  {
+  "survivaliste": {
     "cle": "survivaliste",
     "nom": "Survivaliste",
     "icone": "🏹",
@@ -28,10 +26,9 @@
       "rechargement": 3,
       "headshot": "25%",
       "degatsBase": 3600000
-    },
-    "slug": "survivaliste"
+    }
   },
-  {
+  "tireur_elite": {
     "cle": "tireur_elite",
     "nom": "Tireur d'élite",
     "icone": "🎯",
@@ -43,10 +40,9 @@
       "rechargement": 3.2,
       "headshot": "200%",
       "degatsBase": 1400000
-    },
-    "slug": "tireur_elite"
+    }
   },
-  {
+  "artilleur": {
     "cle": "artilleur",
     "nom": "Artilleur",
     "icone": "⚙️",
@@ -58,10 +54,9 @@
       "rechargement": 1.7,
       "headshot": "65%",
       "degatsBase": 84600
-    },
-    "slug": "artilleur"
+    }
   },
-  {
+  "technicien": {
     "cle": "technicien",
     "nom": "Technicien",
     "icone": "🔧",
@@ -73,10 +68,9 @@
       "rechargement": 3.5,
       "headshot": "75%",
       "degatsBase": 1800000
-    },
-    "slug": "technicien"
+    }
   },
-  {
+  "incendiaire": {
     "cle": "incendiaire",
     "nom": "Incendiaire",
     "icone": "🔥",
@@ -88,7 +82,6 @@
       "rechargement": 3.3,
       "headshot": "65%",
       "degatsBase": 303600
-    },
-    "slug": "incendiaire"
+    }
   }
-]
+}

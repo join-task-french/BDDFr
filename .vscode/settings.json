@@ -17,8 +17,8 @@
             "url": "./src/data/schemas/attributs-type.schema.json"
         },
         {
-            "fileMatch": ["/src/data/equipement-type.jsonc"],
-            "url": "./src/data/schemas/equipement-type.schema.json"
+            "fileMatch": ["/src/data/equipements-type.jsonc"],
+            "url": "./src/data/schemas/equipements-type.schema.json"
         },
         {
             "fileMatch": ["/src/data/equipements.jsonc"],
@@ -47,10 +47,6 @@
         {
             "fileMatch": ["/src/data/mods-*.jsonc"],
             "url": "./src/data/schemas/mods-*.schema.json"
-        },
-        {
-            "fileMatch": ["/src/data/changelog.jsonc"],
-            "url": "./src/data/schemas/changelog.schema.json"
         },
         {
             "fileMatch": ["/src/data/metadata.jsonc"],
