@@ -1,4 +1,5 @@
 import { getSpecialisations } from '../../../utils/formatters'
+import {GameIcon, resolveIcon} from "../../../utils/gameAssets.jsx";
 
 function hasContent(v) {
     return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'N/A'
@@ -19,19 +20,27 @@ export default function SkillCard({ item }) {
 
     return (
         <div className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden">
-            <div className="px-4 py-3 border-b border-tactical-border/50">
-                <div className="flex items-center gap-2">
-                    <span className="font-bold text-yellow-400 text-sm uppercase tracking-wide">{item.variante}</span>
-                    {specLabel && (
-                        <span className="text-xs font-bold bg-blue-500/15 text-blue-400 px-1.5 py-0.5 rounded uppercase tracking-widest border border-blue-500/30">
+            <div className='flex flex-col gap-2'>
+                {resolveIcon(item?.logo) && (
+                    <GameIcon src={resolveIcon(item?.logo)} alt="" size="w-10 h-10" className="rounded" />
+                )}
+
+                <div className="px-4 py-3 border-b border-tactical-border/50">
+                    <div className="flex items-center gap-2">
+                        <span className="font-bold text-yellow-400 text-sm uppercase tracking-wide">{item.variante}</span>
+                        {specLabel && (
+                            <span className="text-xs font-bold bg-blue-500/15 text-blue-400 px-1.5 py-0.5 rounded uppercase tracking-widest border border-blue-500/30">
               {specLabel}
             </span>
-                    )}
-                </div>
-                <div className="text-xs text-gray-500 mt-0.5">
-                    <span className="text-yellow-500/70 font-bold">{item.competence}</span>
+                        )}
+                    </div>
+                    <div className="text-xs text-gray-500 mt-0.5">
+                        <span className="text-yellow-500/70 font-bold">{item.competence}</span>
+                    </div>
                 </div>
             </div>
+
+
 
             <div className="px-4 py-2.5 space-y-1.5">
                 {hasContent(item.statistiques) && (
