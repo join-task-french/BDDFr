@@ -16,8 +16,7 @@ const COMPAT_LABELS = {
  * Même présentation que TalentArmeCard mais en version compacte.
  * Si le talent a une perfectDescription, un switch permet de basculer.
  */
-export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements }) {
-  const [showPerfect, setShowPerfect] = useState(false)
+export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements, isNamed }) {
 
   if (!talent) return null
 
@@ -36,12 +35,15 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
   // Talent résolu (objet complet depuis talents-armes ou talents-equipements)
   const icon = resolveIcon(talent.icone)
   const nameColor = talent.estExotique ? 'text-red-400' : 'text-shd'
-  // Un talent exotique n'a jamais de version parfaite
-  const hasPerfect = !talent.estExotique && !!talent.perfectDescription
-  const description = showPerfect && hasPerfect ? talent.perfectDescription : talent.description
+  const isPerfectNamed = isNamed && talent.perfectDescription
+
+  const [showPerfect, setShowPerfect] = useState(isPerfectNamed)
+
+  const description = showPerfect ? talent.perfectDescription : talent.description
   const compatTypes = talent.compatibilite
     ? Object.entries(talent.compatibilite).filter(([, v]) => v).map(([k]) => k)
     : []
+
 
   return (
     <div className="bg-tactical-bg/40 rounded px-3 py-2 space-y-1.5">

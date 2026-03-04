@@ -161,7 +161,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
       {hasResolvedTalents && (
         <div className="px-3 py-2.5 border-t border-tactical-border/50 space-y-2">
           {resolvedTalents.map((talent, i) => (
-            <TalentInline key={i} talent={talent} isExotic={isExotic} />
+            <TalentInline key={i} talent={talent} isExotic={isExotic} isNamed={isNamed} />
           ))}
         </div>
       )}
