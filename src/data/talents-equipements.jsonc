@@ -81,7 +81,11 @@
     "nom": "Canon de verre",
     "description": "Tous les dégâts que vous infligez sont accrus de 25%.Tous les dégâts que vous subissez sont accrus de 50%.",
     "prerequis": "n/a",
-    "emplacement": "tous",
+    "emplacement": "torse",
+    "perfectDescription": "Tous les dégâts que vous infligez sont accrus de 30%.Tous les dégâts que vous subissez sont accrus de 60%.",
+    "equipementsParfaits": [
+      "sacrifice"
+    ],
     "slug": "canon_de_verre"
   },
   {
