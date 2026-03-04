@@ -11,6 +11,11 @@
     "properties": {
       "categorie": {
         "type": "string",
+        "enum": [
+          "offensif",
+          "défensif",
+          "utilitaire"
+        ],
         "description": "Catégorie du mod (offensif, défensif, utilitaire)"
       },
       "protocole": {
