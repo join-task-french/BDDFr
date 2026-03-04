@@ -83,12 +83,15 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
         </div>
       )}
       {showPerfect && talent.equipementsParfaits?.length > 0 && (
-        <div className="text-xs text-yellow-500/70 mt-0.5 flex items-center gap-1">
+        <div className="text-xs text-yellow-500/70 mt-0.5 flex flex-col items-start gap-1">
           <span className="text-yellow-400 font-bold uppercase tracking-widest">Équipement :</span>
-          {talent.equipementsParfaits.map(slug => {
-            const eq = allEquipements?.find(e => e.slug === slug)
-            return eq?.nom || slug
-          }).join(', ')}
+          <span className='whitespace-pre-line text-xs'>
+            - {talent.equipementsParfaits.map(slug => {
+              const eq = allEquipements?.find(e => e.slug === slug)
+              return eq?.nom || slug
+            }).join('\n- ')}
+          </span>
+
         </div>
       )}
 
