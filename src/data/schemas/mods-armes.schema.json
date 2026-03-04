@@ -8,12 +8,25 @@
     "^[a-z0-9_]+$": {
       "type": "object",
       "required": [
-        "nom"
+        "nom",
+        "compatible",
+        "type",
+        "bonus"
       ],
       "properties": {
         "nom": {
           "type": "string",
           "description": "Nom de la modification"
+        },
+        "compatible": {
+          "type": "array",
+          "description": "Types d'armes compatibles avec ce mod",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$",
+            "description": "Slug type d'arme compatible",
+            "minItems": 1
+          }
         },
         "type": {
           "type": "string",
