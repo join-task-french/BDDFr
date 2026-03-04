@@ -56,10 +56,6 @@
         "type": "string",
         "description": "Multiplicateur de headshot"
       },
-      "attributEssentiel": {
-        "type": "string",
-        "description": "Attribut essentiel spécifique (texte descriptif legacy)"
-      },
       "attributs": {
         "type": "array",
         "description": "Attributs fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",

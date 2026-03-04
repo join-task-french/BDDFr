@@ -2,20 +2,50 @@
 // Référentiel de tous les attributs disponibles sur les armes et équipements.
 // Les valeurs min/max correspondent aux valeurs classiques (hors bonus exotique/nommé).
 [
+  // Attributs essentiels
   {
-    "nom": "Dégâts aux armes",
+    "nom": "Dégâts d'armes",
     "categorie": "offensif",
     "cible": [
-      "arme",
       "equipement"
     ],
     "unite": "%",
     "min": 1,
     "max": 15,
     "description": "Augmente les dégâts infligés par les armes",
-    "slug": "degats_aux_armes",
+    "slug": "degats_armes",
     "estEssentiel": true
   },
+  {
+    "nom": "Tiers de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 1,
+    "description": "Augmente le tier de compétence de 1",
+    "estEssentiel": true,
+    "slug": "tiers_de_competence"
+  },
+  {
+    "nom": "Armure",
+    "categorie": "défensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "pts",
+    "min": 1,
+    "max": 170000,
+    "description": "Augmente la valeur totale d'armure",
+    "slug": "armure",
+    "estEssentiel": true
+  },
+
+
+  // Attributs offensifs
+
   {
     "nom": "Dégâts de coup critique",
     "categorie": "offensif",
@@ -176,19 +206,8 @@
     "slug": "degats_pistolet",
     "estEssentiel": false
   },
-  {
-    "nom": "Armure",
-    "categorie": "défensif",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "pts",
-    "min": 1,
-    "max": 170000,
-    "description": "Augmente la valeur totale d'armure",
-    "slug": "armure",
-    "estEssentiel": true
-  },
+
+  // Attributs défensifs
   {
     "nom": "Santé",
     "categorie": "défensif",
@@ -241,6 +260,8 @@
     "slug": "armure_aux_protections",
     "estEssentiel": false
   },
+
+  // Attributs utilitaires
   {
     "nom": "Hâte de compétence",
     "categorie": "utilitaire",
@@ -318,18 +339,5 @@
     "description": "Réduit la durée des effets d'état subis",
     "slug": "resistance_aux_effets_d_etat",
     "estEssentiel": false
-  },
-  {
-    "nom": "Tiers de compétence",
-    "categorie": "utilitaire",
-    "cible": [
-      "equipement"
-    ],
-    "unite": "",
-    "min": 1,
-    "max": 1,
-    "description": "Augmente le tier de compétence de 1",
-    "estEssentiel": true,
-    "slug": "tiers_de_competence"
   }
 ]
