@@ -75,13 +75,13 @@ export const FIELDS = {
       { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsArmes', isIdentity: true },
       { key: 'type', label: 'Type', type: 'tagSelect', required: true, dynamicOptions: 'armesTypes', singleSelect: true },
       { key: 'fabricant', label: 'Fabricant', type: 'autocomplete', suggestionsKey: 'fabricants' },
-      { key: 'portee', label: 'Portée (m)', type: 'number' },
-      { key: 'rpm', label: 'CPM', type: 'number', step: 1 },
-      { key: 'chargeur', label: 'Chargeur', type: 'number', step: 1 },
-      { key: 'rechargement', label: 'Rechargement (s)', type: 'number', step: 0.1 },
-      { key: 'headshot', label: 'Headshot (%)', type: 'text' },
-      { key: 'degatsBase', label: 'Dégâts base', type: 'number', step: 1 },
-      { key: 'degatsMax', label: 'Dégâts max', type: 'number', step: 1 },
+      { key: 'portee', label: 'Portée (m)', type: 'number', min: 0 },
+      { key: 'rpm', label: 'CPM', type: 'number', step: 1, min: 0 },
+      { key: 'chargeur', label: 'Chargeur', type: 'number', step: 1, min: 0 },
+      { key: 'rechargement', label: 'Rechargement (s)', type: 'number', step: 0.1, min: 0 },
+      { key: 'headshot', label: 'Headshot (%)', type: 'number', step: 1, min: 0 },
+      { key: 'degatsBase', label: 'Dégâts base', type: 'number', step: 1, min: 0 },
+      { key: 'degatsMax', label: 'Dégâts max', type: 'number', step: 1, min: 0 },
       { key: '_rarity', label: 'Rareté', type: 'radioGroup', target: { exo: 'estExotique', nom: 'estNomme' }, options: [
         { value: '', label: 'Standard' },
         { value: 'exo', label: 'Exotique' },
@@ -206,8 +206,8 @@ export const FIELDS = {
         { value: 'equipement', label: 'Équipement', color: 'blue' },
       ]},
       { key: 'unite', label: 'Unité', type: 'text', placeholder: '%, pts, pts/s...' },
-      { key: 'min', label: 'Minimum', type: 'number', step: 0.1 },
-      { key: 'max', label: 'Maximum', type: 'number', step: 0.1 },
+      { key: 'min', label: 'Minimum', type: 'number', step: 0.1, min: 0 },
+      { key: 'max', label: 'Maximum', type: 'number', step: 0.1, min: 0 },
       { key: 'description', label: 'Description', type: 'text' },
       { key: 'estEssentiel', label: 'Attribut essentiel', type: 'boolean' },
       { key: 'statistiques', label: 'Statistiques affectées', type: 'autocomplete_array', suggestionsKey: 'statistiques', placeholder: 'Rechercher une statistique...' },
@@ -306,12 +306,6 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   s.allAttributsSlugs = (merged.attributs || []).filter(a => a.slug && a.nom).map(a => ({ value: a.slug, label: a.nom }))
   s.allAttributsSlugs.sort((a, b) => a.label.localeCompare(b.label))
 
-  // Slugs de compétences (pour compatible[] des mods de compétences)
-  const compSlugSet = new Set()
-  groupedComps.forEach(c => { if (c.slug) compSlugSet.add(c.slug) })
-  flatComps.forEach(c => { if (c.competenceSlug) compSlugSet.add(c.competenceSlug) })
-  s.competenceSlugs = Array.from(compSlugSet).sort().map(slug => ({ value: slug, label: slug }))
-
   // Compétences : flat array (from flattened) or grouped (from raw)
   const flatComps = merged.competences || []
 
@@ -338,6 +332,12 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
     (c.emplacementsMods || []).forEach(em => emplacementSet.add(em.emplacement))
   })
   s.emplacementsModsCompetences = Array.from(emplacementSet).sort()
+
+  // Slugs de compétences (pour compatible[] des mods de compétences)
+  const compSlugSet = new Set()
+  groupedComps.forEach(c => { if (c.slug) compSlugSet.add(c.slug) })
+  flatComps.forEach(c => { if (c.competenceSlug) compSlugSet.add(c.competenceSlug) })
+  s.competenceSlugs = Array.from(compSlugSet).sort().map(slug => ({ value: slug, label: slug }))
 
   // --- Fabricants d'armes ---
   const fabSet = new Set()

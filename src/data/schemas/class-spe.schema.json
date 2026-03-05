@@ -52,7 +52,8 @@
               "type": "number"
             },
             "headshot": {
-              "type": "string"
+              "type": "number",
+              "description": "Multiplicateur de headshot en pourcentage"
             },
             "degatsBase": {
               "type": "number"
