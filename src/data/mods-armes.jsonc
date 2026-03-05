@@ -3,33 +3,51 @@
   "charg_45_acp_etendu": {
     "nom": "Charg. .45 ACP étendu",
     "type": "chargeur",
-    "bonus": "+15 Munitions"
+    "bonus": "+15 Munitions",
+    "compatible": [
+      "fusil"
+    ]
   },
   "charg_45_acp_approv_precision": {
     "nom": "Charg. .45 ACP approv. précision",
     "type": "chargeur",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "fusil"
+    ]
   },
   "charg_45_acp_approv_forcee": {
     "nom": "Charg. .45 ACP approv. forcée",
     "type": "chargeur",
-    "bonus": "+5% cadence de tir"
+    "bonus": "+5% cadence de tir",
+    "compatible": [
+      "fusil"
+    ]
   },
   "charg_45_acp_ressort_court": {
     "nom": "Charg. .45 ACP ressort court",
     "type": "chargeur",
-    "bonus": "+20% Vitesse de rechargement"
+    "bonus": "+20% Vitesse de rechargement",
+    "compatible": [
+      "fusil"
+    ]
   },
   "charg_45_acp_surdimensionne": {
     "nom": "Charg. .45 ACP surdimensionné",
     "type": "chargeur",
     "bonus": "+20 Munitions",
-    "malus": "-10% Vitesse de rechargement"
+    "malus": "-10% Vitesse de rechargement",
+    "compatible": [
+      "fusil"
+    ]
   },
   "charg_etendu_leger_5_56": {
     "nom": "Charg. étendu léger 5.56",
     "type": "chargeur",
-    "bonus": "+15 Munitions"
+    "bonus": "+15 Munitions",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "charg_5_56_tactique": {
     "nom": "Charg. 5.56 tactique",
@@ -39,411 +57,657 @@
   "charg_5_56_ressort_equilibre": {
     "nom": "Charg. 5.56 ressort équilibré",
     "type": "chargeur",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "charg_5_56_infanterie": {
     "nom": "Charg. 5.56 infanterie",
     "type": "chargeur",
-    "bonus": "+70% Portée optimale"
+    "bonus": "+70% Portée optimale",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "charg_etendu_solide_5_56": {
     "nom": "Charg. étendu solide 5.56",
     "type": "chargeur",
     "bonus": "+20 Munitions",
-    "malus": "-10% Vitesse de rechargement"
+    "malus": "-10% Vitesse de rechargement",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "charg_precision_condense": {
     "nom": "Charg. précision condensé",
     "type": "chargeur",
-    "bonus": "+5 Munitions"
+    "bonus": "+5 Munitions",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_precision_repare": {
     "nom": "Charg. précision réparé",
     "type": "chargeur",
-    "bonus": "+20% Portée optimale"
+    "bonus": "+20% Portée optimale",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_precision_leger": {
     "nom": "Charg. précision léger",
     "type": "chargeur",
-    "bonus": "+20% Vitesse de rechargement"
+    "bonus": "+20% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_precision_robuste": {
     "nom": "Charg. précision robuste",
     "type": "chargeur",
-    "bonus": "+20% Stabilité"
+    "bonus": "+20% Stabilité",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_etendu_leger_7_62": {
     "nom": "Charg. étendu léger 7.62",
     "type": "chargeur",
-    "bonus": "+15 Munitions"
+    "bonus": "+15 Munitions",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "charg_7_62_pondere": {
     "nom": "Charg. 7.62 pondéré",
     "type": "chargeur",
-    "bonus": "+20% Stabilité"
+    "bonus": "+20% Stabilité",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "charg_7_62_mince": {
     "nom": "Charg. 7.62 mince",
     "type": "chargeur",
-    "bonus": "+20% Vitesse de rechargement"
+    "bonus": "+20% Vitesse de rechargement",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "charg_7_62_precision": {
     "nom": "Charg. 7.62 précision",
     "type": "chargeur",
-    "bonus": "+10% Dégâts de headshot"
+    "bonus": "+10% Dégâts de headshot",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "charg_9mm_segmente": {
     "nom": "Charg. 9mm segmenté",
     "type": "chargeur",
-    "bonus": "+20% Vitesse de rechargement"
+    "bonus": "+20% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_9mm_ressort_lourd": {
     "nom": "Charg. 9mm ressort lourd",
     "type": "chargeur",
-    "bonus": "+10% Dégâts de coup critique"
+    "bonus": "+10% Dégâts de coup critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_9mm_etendu": {
     "nom": "Charg. 9mm étendu",
     "type": "chargeur",
     "bonus": "+20 Munitions",
-    "malus": "-10% Vitesse de rechargement"
+    "malus": "-10% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_9mm_surdimensionne": {
     "nom": "Charg. 9mm surdimensionné",
     "type": "chargeur",
-    "bonus": "+15 Munitions"
+    "bonus": "+15 Munitions",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_pistolet_etendu": {
     "nom": "Charg. pistolet étendu",
     "type": "chargeur",
-    "bonus": "+11 Munitions"
+    "bonus": "+11 Munitions",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_pistolet_de_terrain": {
     "nom": "Charg. pistolet de terrain",
     "type": "chargeur",
-    "bonus": "+30% Portée optimale"
+    "bonus": "+30% Portée optimale",
+    "compatible": [
+      "unknown"
+    ]
   },
   "charg_pistolet_police": {
     "nom": "Charg. pistolet Police",
     "type": "chargeur",
-    "bonus": "+20% Vitesse de rechargement"
+    "bonus": "+20% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "ressort_integre_compense": {
     "nom": "Ressort intégré compensé",
     "type": "chargeur",
-    "bonus": "+20% Vitesse de rechargement"
+    "bonus": "+20% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "ressort_integre_sous_equilibre": {
     "nom": "Ressort intégré sous-équilibré",
     "type": "chargeur",
-    "bonus": "+5% cadence de tir"
+    "bonus": "+5% cadence de tir",
+    "compatible": [
+      "unknown"
+    ]
   },
   "ressort_integre_rapide": {
     "nom": "Ressort intégré rapide",
     "type": "chargeur",
-    "bonus": "+5% Dégâts d'arme"
+    "bonus": "+5% Dégâts d'arme",
+    "compatible": [
+      "unknown"
+    ]
   },
   "ressort_tubulaire_souple": {
     "nom": "Ressort tubulaire souple",
     "type": "chargeur",
-    "bonus": "+20% Vitesse de rechargement"
+    "bonus": "+20% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "ressort_tubulaire_dur": {
     "nom": "Ressort tubulaire dur",
     "type": "chargeur",
-    "bonus": "+5% cadence de tir"
+    "bonus": "+5% cadence de tir",
+    "compatible": [
+      "unknown"
+    ]
   },
   "ressort_tubulaire_anti_horaire": {
     "nom": "Ressort tubulaire anti-horaire",
     "type": "chargeur",
-    "bonus": "+5% Dégâts aux headshot"
+    "bonus": "+5% Dégâts aux headshot",
+    "compatible": [
+      "unknown"
+    ]
   },
   "ressort_integre_surequilibre": {
     "nom": "Ressort intégré suréquilibré",
     "type": "chargeur",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "unknown"
+    ]
   },
   "barillet_a_chargement_rapide": {
     "nom": "Barillet à chargement rapide",
     "type": "chargeur",
-    "bonus": "+20% Vitesse de rechargement"
+    "bonus": "+20% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "fixation_de_ceinture_agile": {
     "nom": "Fixation de ceinture agile",
     "type": "chargeur",
-    "bonus": "+5% Cadence de tir"
+    "bonus": "+5% Cadence de tir",
+    "compatible": [
+      "unknown"
+    ]
   },
   "fixation_sans_perturbation": {
     "nom": "Fixation sans perturbation",
     "type": "chargeur",
-    "bonus": "+10% Dégâts de coup critique"
+    "bonus": "+10% Dégâts de coup critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "fixation_etalonnee": {
     "nom": "Fixation étalonnée",
     "type": "chargeur",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "unknown"
+    ]
   },
   "petite_sacoche_tactique": {
     "nom": "Petite sacoche tactique",
     "type": "chargeur",
-    "bonus": "+20% Vitesse de rechargement"
+    "bonus": "+20% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "grande_sacoche": {
     "nom": "Grande sacoche",
     "type": "chargeur",
-    "bonus": "+50 Munitions"
+    "bonus": "+50 Munitions",
+    "compatible": [
+      "unknown"
+    ]
   },
   "petit_silencieux_45": {
     "nom": "Petit silencieux .45",
     "type": "canon",
-    "bonus": "+30% Précision"
+    "bonus": "+30% Précision",
+    "compatible": [
+      "fusil"
+    ]
   },
   "silencieux_osprey_45": {
     "nom": "Silencieux Osprey .45",
     "type": "canon",
-    "bonus": "+10% Probabilité de coup critique"
+    "bonus": "+10% Probabilité de coup critique",
+    "compatible": [
+      "fusil"
+    ]
   },
   "frein_ventile_bruyant_45": {
     "nom": "Frein ventilé bruyant .45",
     "type": "canon",
-    "bonus": "+50% Portée optimale"
+    "bonus": "+50% Portée optimale",
+    "compatible": [
+      "fusil"
+    ]
   },
   "frein_de_bouche_45": {
     "nom": "Frein de bouche .45",
     "type": "canon",
-    "bonus": "+10% aux dégâts de headshot"
+    "bonus": "+10% aux dégâts de headshot",
+    "compatible": [
+      "fusil"
+    ]
   },
   "compensateur_45": {
     "nom": "Compensateur .45",
     "type": "canon",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "fusil"
+    ]
   },
   "cache_flamme_45": {
     "nom": "Cache-flamme .45",
     "type": "canon",
-    "bonus": "+5% Dégâts de coup critique"
+    "bonus": "+5% Dégâts de coup critique",
+    "compatible": [
+      "fusil"
+    ]
   },
   "grand_silencieux_5_56": {
     "nom": "Grand silencieux 5.56",
     "type": "canon",
-    "bonus": "+30% Précision"
+    "bonus": "+30% Précision",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "compensateur_5_56": {
     "nom": "Compensateur 5.56",
     "type": "canon",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "silencieux_de_fusil_omega_5_56": {
     "nom": "Silencieux de fusil Omega 5.56",
     "type": "canon",
     "bonus": "+40% Stabilité",
-    "malus": "-10% Portée optimale"
+    "malus": "-10% Portée optimale",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "frein_de_bouche_5_56": {
     "nom": "Frein de bouche 5.56",
     "type": "canon",
-    "bonus": "+5% Probabilité coup critique"
+    "bonus": "+5% Probabilité coup critique",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "frein_ventile_bruyant_5_56": {
     "nom": "Frein ventilé bruyant 5.56",
     "type": "canon",
-    "bonus": "+50% Portée optimale"
+    "bonus": "+50% Portée optimale",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "cache_flamme_5_56": {
     "nom": "Cache-flamme 5.56",
     "type": "canon",
-    "bonus": "+10% Dégâts de coup critique"
+    "bonus": "+10% Dégâts de coup critique",
+    "compatible": [
+      "fusil_assaut"
+    ]
   },
   "grand_silencieux_7_62": {
     "nom": "Grand silencieux 7.62",
     "type": "canon",
-    "bonus": "+30% Précision"
+    "bonus": "+30% Précision",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "silencieux_de_fusil_omega_7_62": {
     "nom": "Silencieux de fusil Omega 7.62",
     "type": "canon",
     "bonus": "+40% Stabilité",
-    "malus": "-10% Portée optimale"
+    "malus": "-10% Portée optimale",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "cache_flamme_7_62": {
     "nom": "Cache-flamme 7.62",
     "type": "canon",
-    "bonus": "+10% Dégâts de coup critique"
+    "bonus": "+10% Dégâts de coup critique",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "frein_de_bouche_7_62": {
     "nom": "Frein de bouche 7.62",
     "type": "canon",
-    "bonus": "+5% Probabilité coup critique"
+    "bonus": "+5% Probabilité coup critique",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "compensateur_7_62": {
     "nom": "Compensateur 7.62",
     "type": "canon",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "frein_ventile_bruyant_7_62": {
     "nom": "Frein ventilé bruyant 7.62",
     "type": "canon",
-    "bonus": "+50% Portée optimale"
+    "bonus": "+50% Portée optimale",
+    "compatible": [
+      "fusil_precision"
+    ]
   },
   "petit_silencieux_9mm": {
     "nom": "Petit silencieux 9mm",
     "type": "canon",
-    "bonus": "+30% Précision"
+    "bonus": "+30% Précision",
+    "compatible": [
+      "pistolet",
+      "pistolet_mitrailleur"
+    ]
   },
   "silencieux_osprey_9mm": {
     "nom": "Silencieux Osprey 9mm",
     "type": "canon",
-    "bonus": "+5% Probabilité de coup critique"
+    "bonus": "+5% Probabilité de coup critique",
+    "compatible": [
+      "pistolet",
+      "pistolet_mitrailleur"
+    ]
   },
   "compensateur_9mm": {
     "nom": "Compensateur 9mm",
     "type": "canon",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "pistolet",
+      "pistolet_mitrailleur"
+    ]
   },
   "cache_flamme_9mm": {
     "nom": "Cache-flamme 9mm",
     "type": "canon",
-    "bonus": "+10% Dégâts de coup critique"
+    "bonus": "+10% Dégâts de coup critique",
+    "compatible": [
+      "pistolet",
+      "pistolet_mitrailleur"
+    ]
   },
   "frein_de_bouche_9mm": {
     "nom": "Frein de bouche 9mm",
     "type": "canon",
-    "bonus": "+10% Dégâts aux headshot"
+    "bonus": "+10% Dégâts aux headshot",
+    "compatible": [
+      "pistolet",
+      "pistolet_mitrailleur"
+    ]
   },
   "frein_ventile_bruyant_9mm": {
     "nom": "Frein ventilé bruyant 9mm",
     "type": "canon",
-    "bonus": "+50% Portée optimale"
+    "bonus": "+50% Portée optimale",
+    "compatible": [
+      "pistolet",
+      "pistolet_mitrailleur"
+    ]
   },
   "petite_lunette_rds": {
     "nom": "Petite lunette RDS",
     "type": "viseur",
     "bonus": "+50% Stabilité",
-    "malus": "-20% Précision"
+    "malus": "-20% Précision",
+    "compatible": [
+      "unknown"
+    ]
   },
   "lunette_acog_4x": {
     "nom": "Lunette ACOG (4x)",
     "type": "viseur",
-    "bonus": "+50% Portée optimale"
+    "bonus": "+50% Portée optimale",
+    "compatible": [
+      "unknown"
+    ]
   },
   "lunette_c79_3_4x": {
     "nom": "Lunette C79 (3,4x)",
     "type": "viseur",
-    "bonus": "+5% Probilité de coup critique"
+    "bonus": "+5% Probilité de coup critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "lunette_ccqbs_8x": {
     "nom": "Lunette CCQBS (8x)",
     "type": "viseur",
-    "bonus": "+30% Dégâts headshot"
+    "bonus": "+30% Dégâts headshot",
+    "compatible": [
+      "unknown"
+    ]
   },
   "lunette_vx1_12x": {
     "nom": "Lunette VX1 (12x)",
     "type": "viseur",
     "bonus": "+35% Dégâts headshot",
-    "malus": "-10% Vitesse de rechargement"
+    "malus": "-10% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "lunette_numerique": {
     "nom": "Lunette numérique",
     "type": "viseur",
     "bonus": "+45% Dégâts headshot",
-    "malus": "-5% Dégâts critique"
+    "malus": "-5% Dégâts critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "mire_metallique_ouverte": {
     "nom": "Mire métallique ouverte",
     "type": "viseur",
     "bonus": "+30% Précision",
-    "malus": "-10% Précision"
+    "malus": "-10% Précision",
+    "compatible": [
+      "unknown"
+    ]
   },
   "mire_metallique_ponderee": {
     "nom": "Mire métallique pondérée",
     "type": "viseur",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "unknown"
+    ]
   },
   "mire_metallique_epuree": {
     "nom": "Mire métallique épurée",
     "type": "viseur",
-    "bonus": "+14% Vitesse de rechargement"
+    "bonus": "+14% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "visee_holo_552": {
     "nom": "Visée holo 552",
     "type": "viseur",
-    "bonus": "+30% Précision"
+    "bonus": "+30% Précision",
+    "compatible": [
+      "unknown"
+    ]
   },
   "visee_point_rouge_t2_micro": {
     "nom": "Visée point rouge T2 Micro",
     "type": "viseur",
-    "bonus": "+30% Précision"
+    "bonus": "+30% Précision",
+    "compatible": [
+      "unknown"
+    ]
   },
   "visee_point_rouge_pro": {
     "nom": "Visée point rouge PRO",
     "type": "viseur",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "unknown"
+    ]
   },
   "visee_holo_exps3": {
     "nom": "Visée holo EXPS3",
     "type": "viseur",
-    "bonus": "+10% Dégâts de headshot"
+    "bonus": "+10% Dégâts de headshot",
+    "compatible": [
+      "unknown"
+    ]
   },
   "visee_reflex": {
     "nom": "Visée reflex",
     "type": "viseur",
-    "bonus": "+5% maniement d'arme"
+    "bonus": "+5% maniement d'arme",
+    "compatible": [
+      "unknown"
+    ]
   },
   "visee_reflex_basse": {
     "nom": "Visée reflex basse",
     "type": "viseur",
     "bonus": "+15% Dégâts de headshot",
-    "malus": "-25% Portée optimale"
+    "malus": "-25% Portée optimale",
+    "compatible": [
+      "unknown"
+    ]
   },
   "visee_point_rouge_russe": {
     "nom": "Visée point rouge russe",
     "type": "viseur",
-    "bonus": "+10% Dégâts de coup critique"
+    "bonus": "+10% Dégâts de coup critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "visee_reflex_mini_rustique": {
     "nom": "Visée reflex mini rustique",
     "type": "viseur",
-    "bonus": "+5% Probabilité de coup critique"
+    "bonus": "+5% Probabilité de coup critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "poignee_incline": {
     "nom": "Poignée incliné",
     "type": "accessoire",
-    "bonus": "+30% Stabilité"
+    "bonus": "+30% Stabilité",
+    "compatible": [
+      "unknown"
+    ]
   },
   "poignee_verticale": {
     "nom": "Poignée verticale",
     "type": "accessoire",
-    "bonus": "+30% Précision"
+    "bonus": "+30% Précision",
+    "compatible": [
+      "unknown"
+    ]
   },
   "poignee_courte": {
     "nom": "Poignée courte",
     "type": "accessoire",
-    "bonus": "+5% Dégâts de coup critique"
+    "bonus": "+5% Dégâts de coup critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "poignee_courte_tactique": {
     "nom": "Poignée courte tactique",
     "type": "accessoire",
-    "bonus": "+15% dégâts coup critique"
+    "bonus": "+15% dégâts coup critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "pointeur_laser": {
     "nom": "Pointeur laser",
     "type": "accessoire",
-    "bonus": "+5% Probabilité de coup critique"
+    "bonus": "+5% Probabilité de coup critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "petit_pointeur_laser": {
     "nom": "Petit pointeur laser",
     "type": "accessoire",
-    "bonus": "+7% Probabilité de coup critique"
+    "bonus": "+7% Probabilité de coup critique",
+    "compatible": [
+      "unknown"
+    ]
   },
   "pointeur_laser_lie": {
     "nom": "Pointeur laser lié",
     "type": "accessoire",
-    "bonus": "Applique une impulsion sur les cibles visées"
+    "bonus": "Applique une impulsion sur les cibles visées",
+    "compatible": [
+      "unknown"
+    ]
   },
   "protege_rail": {
     "nom": "Protège-rail",
     "type": "accessoire",
-    "bonus": "+14% Vitesse de rechargement"
+    "bonus": "+14% Vitesse de rechargement",
+    "compatible": [
+      "unknown"
+    ]
   },
   "lampe_torche": {
     "nom": "Lampe torche",
