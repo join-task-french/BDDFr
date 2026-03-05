@@ -59,11 +59,17 @@ function FieldLabel({ field }) {
 const inputClass = 'w-full bg-tactical-bg border border-tactical-border rounded px-3 py-1.5 text-sm text-white placeholder-gray-600 focus:outline-none focus:border-shd/50 transition-colors'
 
 function TextInput({ field, value, onChange }) {
+  const isInvalid = field.pattern && value && !new RegExp(field.pattern).test(value)
   return (
     <div>
       <FieldLabel field={field} />
       <input type="text" value={value || ''} onChange={e => onChange(e.target.value)}
-        placeholder={field.placeholder || ''} className={inputClass} />
+        placeholder={field.placeholder || ''}
+        pattern={field.pattern}
+        className={`${inputClass} ${isInvalid ? 'border-red-500/60' : ''}`} />
+      {isInvalid && (
+        <p className="text-2xs text-red-400 mt-0.5">Format attendu : {field.patternHint || field.pattern}</p>
+      )}
     </div>
   )
 }
@@ -79,11 +85,29 @@ function TextArea({ field, value, onChange }) {
 }
 
 function NumberInput({ field, value, onChange }) {
+  const handleKeyDown = (e) => {
+    // Autoriser : navigation, suppression, copier/coller
+    const allowed = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End']
+    if (allowed.includes(e.key)) return
+    if ((e.ctrlKey || e.metaKey) && ['a', 'c', 'v', 'x', 'z'].includes(e.key.toLowerCase())) return
+    // Autoriser : chiffres, point, virgule, signe négatif
+    if (/^[0-9.\-,]$/.test(e.key)) return
+    e.preventDefault()
+  }
+  const handleChange = (e) => {
+    // Nettoyer la valeur : ne garder que chiffres, point, signe négatif
+    const raw = e.target.value.replace(',', '.')
+    if (raw === '' || raw === '-' || raw === '.') { onChange(raw); return }
+    if (/^-?\d*\.?\d*$/.test(raw)) onChange(raw)
+  }
   return (
     <div>
       <FieldLabel field={field} />
-      <input type="number" value={value ?? ''} onChange={e => onChange(e.target.value)}
-        step={field.step || 'any'} className={inputClass} />
+      <input type="number" value={value ?? ''} onChange={handleChange} onKeyDown={handleKeyDown}
+        step={field.step || 'any'}
+        min={field.min}
+        max={field.max}
+        className={inputClass} />
     </div>
   )
 }
@@ -425,8 +449,22 @@ function ObjectArrayInput({ field, value, onChange, suggestions }) {
                   <input
                     type={sf.type === 'number' ? 'number' : 'text'}
                     value={item[sf.key] ?? ''}
-                    onChange={e => update(i, sf.key, e.target.value)}
-                    step={sf.type === 'number' ? 'any' : undefined}
+                    onChange={e => {
+                      if (sf.type === 'number') {
+                        const raw = e.target.value.replace(',', '.')
+                        if (raw === '' || raw === '-' || raw === '.' || /^-?\d*\.?\d*$/.test(raw)) update(i, sf.key, raw)
+                      } else {
+                        update(i, sf.key, e.target.value)
+                      }
+                    }}
+                    onKeyDown={sf.type === 'number' ? (e) => {
+                      const allowed = ['Backspace', 'Delete', 'Tab', 'Escape', 'Enter', 'ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Home', 'End']
+                      if (allowed.includes(e.key)) return
+                      if ((e.ctrlKey || e.metaKey) && ['a', 'c', 'v', 'x', 'z'].includes(e.key.toLowerCase())) return
+                      if (/^[0-9.\-,]$/.test(e.key)) return
+                      e.preventDefault()
+                    } : undefined}
+                    step={sf.type === 'number' ? (sf.step || 'any') : undefined}
                     className={`${inputClass} text-xs py-1`}
                   />
                 )}

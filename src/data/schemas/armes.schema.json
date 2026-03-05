@@ -54,8 +54,8 @@
           "description": "Temps de rechargement en secondes"
         },
         "headshot": {
-          "type": "string",
-          "description": "Multiplicateur de headshot"
+          "type": "number",
+          "description": "Multiplicateur de headshot en pourcentage (ex: 60 pour 60%)"
         },
         "attributs": {
           "type": "array",

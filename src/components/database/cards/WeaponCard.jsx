@@ -78,7 +78,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         <Stat label="Chargeur" value={item.chargeur || null} />
         <Stat label="Rechargement" value={item.rechargement ? `${item.rechargement}s` : null} />
         <Stat label="Dégâts max" value={fmt(item.degatsMax)} accent />
-        <Stat label="Headshot" value={item.headshot || null} span2={essentialAttrs.length === 0} />
+        <Stat label="Headshot" value={item.headshot != null ? `${item.headshot}%` : null} span2={essentialAttrs.length === 0} />
       </div>
 
       {/* Attributs essentiels (hérités du type d'arme) */}

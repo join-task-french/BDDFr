@@ -10,7 +10,7 @@
       "rpm": 98,
       "chargeur": 6,
       "rechargement": 6.2,
-      "headshot": "75%",
+      "headshot": 75,
       "degatsBase": 1700000
     }
   },
@@ -24,7 +24,7 @@
       "rpm": 98,
       "chargeur": 1,
       "rechargement": 3,
-      "headshot": "25%",
+      "headshot": 25,
       "degatsBase": 3600000
     }
   },
@@ -38,7 +38,7 @@
       "rpm": 41,
       "chargeur": 6,
       "rechargement": 3.2,
-      "headshot": "200%",
+      "headshot": 200,
       "degatsBase": 1400000
     }
   },
@@ -52,7 +52,7 @@
       "rpm": 100,
       "chargeur": 150,
       "rechargement": 1.7,
-      "headshot": "65%",
+      "headshot": 65,
       "degatsBase": 84600
     }
   },
@@ -66,7 +66,7 @@
       "rpm": 98,
       "chargeur": 6,
       "rechargement": 3.5,
-      "headshot": "75%",
+      "headshot": 75,
       "degatsBase": 1800000
     }
   },
@@ -80,7 +80,7 @@
       "rpm": 500,
       "chargeur": 50,
       "rechargement": 3.3,
-      "headshot": "65%",
+      "headshot": 65,
       "degatsBase": 303600
     }
   }
