@@ -45,7 +45,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                 <StatChip icon="⚡" value={weapon.rpm ? `${weapon.rpm} CPM` : null} />
                 <StatChip icon="📦" value={weapon.chargeur || null} />
                 <StatChip icon="💥" value={weapon.degatsBase ? weapon.degatsBase.toLocaleString('fr-FR') : null} color="text-red-400" />
-                <StatChip icon="🎯" value={weapon.headshot ? `${weapon.headshot} HS` : null} color="text-yellow-400" />
+                <StatChip icon="🎯" value={weapon.headshot ? `${weapon.headshot}% HS` : null} color="text-yellow-400" />
               </div>
             )}
             {/* Attributs */}

@@ -1,6 +1,7 @@
 import { getWeaponTypeLabel, getWeaponEssentialAttributes } from '../../../utils/formatters'
 import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
+import ObtentionDisplay from './ObtentionDisplay'
 
 function fmt(n) {
   if (!n) return '—'
@@ -78,7 +79,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         <Stat label="Chargeur" value={item.chargeur || null} />
         <Stat label="Rechargement" value={item.rechargement ? `${item.rechargement}s` : null} />
         <Stat label="Dégâts max" value={fmt(item.degatsMax)} accent />
-        <Stat label="Headshot" value={item.headshot || null} span2={essentialAttrs.length === 0} />
+        <Stat label="Headshot" value={item.headshot != null ? `${item.headshot}%` : null} span2={essentialAttrs.length === 0} />
       </div>
 
       {/* Attributs essentiels (hérités du type d'arme) */}
@@ -131,14 +132,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
       )}
 
       {/* Obtention */}
-      {hasContent(item.obtention) && (
-        <div className="px-4 py-2 border-t border-tactical-border/50">
-          <div className="text-xs text-gray-500 leading-relaxed">
-            <span className="text-gray-400 font-bold uppercase tracking-widest text-xs">Obtention : </span>
-            {item.obtention}
-          </div>
-        </div>
-      )}
+      <ObtentionDisplay obtention={item.obtention} />
     </div>
   )
 }

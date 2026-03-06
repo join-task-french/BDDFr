@@ -20,18 +20,36 @@ const COLUMN_LABELS = {
 // Columns to skip in display
 const SKIP_COLS = ['tier1','tier2','tier3','tier4','tier5','tier6']
 
-function formatValue(val) {
+function formatValue(val, col) {
   if (val === null || val === undefined || val === '') return '—'
   if (typeof val === 'boolean') return val ? '✔' : '✕'
   if (typeof val === 'object') {
     if (Array.isArray(val)) return val.join(', ')
+    // obtention object
+    if (col === 'obtention') {
+      const parts = []
+      const methods = { butinCible: 'Butin ciblé', cachesExotiques: 'Caches exotiques', mission: 'Mission', raid: 'Raid', incursion: 'Incursion' }
+      for (const [k, label] of Object.entries(methods)) {
+        const v = val[k]
+        if (v === undefined) continue
+        if (v === true) parts.push(`✔ ${label}`)
+        else if (typeof v === 'string' && v.length > 0) parts.push(`⚠ ${label}: ${v}`)
+        else parts.push(`✕ ${label}`)
+      }
+      if (val.schemasRepresail) parts.push(`Représailles: ${val.schemasRepresail}`)
+      if (val.description && val.description.trim()) parts.push(val.description)
+      return parts.length > 0 ? parts.join(' | ') : '—'
+    }
     // compatibilite object
     return Object.entries(val)
       .filter(([, v]) => v)
       .map(([k]) => COLUMN_LABELS[k] || k)
       .join(', ') || '—'
   }
-  if (typeof val === 'number') return val.toLocaleString('fr-FR')
+  if (typeof val === 'number') {
+    if (col === 'headshot') return `${val}%`
+    return val.toLocaleString('fr-FR')
+  }
   const s = String(val)
   if (s === 'FALSE' || s === 'false') return '✕'
   if (s === '-' || s === 'n/a') return '—'
@@ -93,7 +111,7 @@ export default function DataTable({ items }) {
             <tr key={i} className="hover:bg-tactical-hover transition-colors border-b border-tactical-border/30">
               {columns.map(col => (
                 <td key={col} className="px-3 py-2.5 text-sm text-gray-300 align-top max-w-xs">
-                  <span className="whitespace-pre-line break-words">{formatValue(item[col])}</span>
+                  <span className="whitespace-pre-line break-words">{formatValue(item[col], col)}</span>
                 </td>
               ))}
             </tr>

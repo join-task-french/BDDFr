@@ -20,6 +20,16 @@
 }
 
 @layer utilities {
+  /* Masquer les spinners des champs numériques */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
   .fade-in { animation: fadeIn 0.5s ease-out forwards; }
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(15px); }
