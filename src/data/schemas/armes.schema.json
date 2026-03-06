@@ -168,7 +168,7 @@
               ],
               "description": "Disponible via une incursion — true/false ou string décrivant les conditions"
             },
-            "represail": {
+            "represailles": {
               "type": "string",
               "description": "Nom de la faction pour schémas représailles (optionnel)"
             }

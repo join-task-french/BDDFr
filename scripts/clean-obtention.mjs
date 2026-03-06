@@ -41,9 +41,9 @@ function cleanObtention(obt) {
     // false => on ne l'inclut pas
   }
 
-  // Garder represail si non vide
-  if (obt.represail && obt.represail.trim()) {
-    cleaned.represail = obt.represail.trim()
+  // Garder represailles si non vide
+  if (obt.represailles && obt.represailles.trim()) {
+    cleaned.represailles = obt.represailles.trim()
   }
 
   // Si l'objet est vide, retourner undefined pour le supprimer
