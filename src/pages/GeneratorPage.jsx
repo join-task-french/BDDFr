@@ -311,7 +311,7 @@ export default function GeneratorPage() {
         <div className="flex justify-between items-start">
           <div>
             <h1 className="text-lg sm:text-xl font-bold uppercase tracking-widest">
-              <span className="text-shd">⚙</span> Générateur JSONC
+              <span className="text-shd">⚙</span> Générateur <span className='text-shd'>JSONC</span>
             </h1>
             <p className="text-xs text-gray-500 mt-1">
               Créez et éditez des objets JSONC pour les fichiers de données

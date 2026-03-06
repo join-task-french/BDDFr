@@ -145,7 +145,7 @@ export default function DatabasePage() {
     <div className="p-4 sm:p-6 lg:p-8 max-w-screen-xl mx-auto">
       <div className="mb-6">
         <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1">
-          Base de Données
+          Base de <span className='text-shd'>Données</span>
         </h2>
         <p className="text-sm text-gray-500">The Division 2 — Données en français</p>
       </div>
