@@ -4305,8 +4305,6 @@
       "mission": true,
       "cachesExotiques": true,
       "butinCible": true,
-      "incursion": true,
-      "raid": true,
       "description": "Terminer les 3 zones de l'expédition Kenly College."
     },
     "estNomme": false,
