@@ -197,6 +197,7 @@ export default function GeneratorPage() {
       persistSaved(next)
       return next
     })
+    handleReset()
     showToast('✓ Enregistré', 'green')
   }, [data, activeCategory, equipmentSet])
 
