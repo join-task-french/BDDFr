@@ -260,6 +260,10 @@
     "description": "Toucher un ennemi confère +15% de dégâts de compétence pendant 5s. Utiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère +15% aux dégâts d'arme pendant 5s.Les augmentations sont doublées quand les deux buffs sont activés en même temps.",
     "prerequis": "n/a",
     "icone": "synchro",
+    "perfectDescription": "Toucher un ennemi confère +20% de dégâts de compétence pendant 5s. Utiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère +20% aux dégâts d'arme pendant 5s.Les augmentations sont doublées quand les deux buffs sont activés en même temps.",
+    "armesParfaites": [
+      "harmony"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -305,6 +309,10 @@
     "description": "Les coups critiques ont 50% de probabilité de renvoyer les munitions dans le chargeur. Si une munition est renvoyée dans le chargeur, les dégâts du prochain tir sont accrus de +40%.",
     "prerequis": "n/a",
     "icone": "boomerang",
+    "perfectDescription": "Les coups critiques ont 75% de probabilité de renvoyer les munitions dans le chargeur. Si une munition est renvoyée dans le chargeur, les dégâts du prochain tir sont accrus de +50%.",
+    "armesParfaites": [
+      "la_virginienne"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": false,
@@ -695,6 +703,10 @@
     "description": "Détruire un point faible confère +27% de dégâts d'arme pendant 10s.",
     "prerequis": "n/a",
     "icone": "petit_faible",
+    "perfectDescription": "Détruire un point faible confère +32% de dégâts d'arme pendant 15s.",
+    "armesParfaites": [
+      "achille"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,

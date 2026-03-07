@@ -6,16 +6,14 @@
     "portee": 35,
     "rpm": 100,
     "chargeur": 8,
-    "rechargement": 3.47,
+    "rechargement": 3.15,
     "headshot": 60,
-    "degatsBase": 386892,
+    "degatsBase": 387000,
     "degatsMax": 889852,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
-      "viseur",
-      "canon",
       "chargeur"
     ]
   },
@@ -37,7 +35,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "acr_e": {
@@ -58,7 +56,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "f2000": {
@@ -79,7 +77,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "shield_splinterer": {
@@ -100,7 +98,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "aug_a3_cqc": {
@@ -121,7 +119,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "main_invisible": {
@@ -142,7 +140,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "ak_m": {
@@ -163,7 +161,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "ak_m_du_marche_noire": {
@@ -184,7 +182,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "maniaque": {
@@ -205,7 +203,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "fal": {
@@ -226,7 +224,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "fal_sa_58": {
@@ -247,7 +245,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "fal_tactique_sa_58": {
@@ -268,7 +266,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "famas_2010": {
@@ -289,7 +287,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "burnout": {
@@ -310,7 +308,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "g36_militaire": {
@@ -331,7 +329,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "l_inne": {
@@ -352,7 +350,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "g36": {
@@ -373,7 +371,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "g36_ameliore": {
@@ -394,7 +392,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "m4_police": {
@@ -415,7 +413,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "pyromane": {
@@ -436,7 +434,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "carbine_7": {
@@ -457,7 +455,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "la_foreuse": {
@@ -478,7 +476,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "honey_badger": {
@@ -499,7 +497,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "carcajou_furieux": {
@@ -520,7 +518,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "p416_militaire": {
@@ -541,7 +539,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "p416_g3_personnalise": {
@@ -562,7 +560,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "vision_glorieuse": {
@@ -583,7 +581,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "mk16": {
@@ -604,7 +602,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "mk16_socom": {
@@ -625,7 +623,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "mk16_tactique": {
@@ -646,7 +644,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "ctar_21": {
@@ -667,7 +665,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "le_fendoir": {
@@ -688,7 +686,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "sig556": {
@@ -709,7 +707,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "mecanimal": {
@@ -730,7 +728,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "pdr": {
@@ -751,7 +749,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "sujet_de_test": {
@@ -772,7 +770,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "tkb_408": {
@@ -793,7 +791,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "tueur_de_rois": {
@@ -814,7 +812,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "mg5": {
@@ -2568,7 +2566,7 @@
     ]
   },
   "g28": {
-    "nom": "G28*",
+    "nom": "G28",
     "type": "fusil_precision",
     "fabricant": "HECKLER&KOCK",
     "portee": 50,
@@ -2588,7 +2586,7 @@
     ]
   },
   "relique": {
-    "nom": "RELIQUE*",
+    "nom": "RELIQUE",
     "type": "fusil_precision",
     "fabricant": "HECKLER&KOCK",
     "portee": 50,
@@ -2633,7 +2631,7 @@
     ]
   },
   "socom_mk20_ssr": {
-    "nom": "SOCOM MK20 SSR*",
+    "nom": "SOCOM MK20 SSR",
     "type": "fusil_precision",
     "fabricant": "FN HERSTAL",
     "portee": 55,
@@ -2653,7 +2651,7 @@
     ]
   },
   "les_tenebres": {
-    "nom": "LES TÉNÈBRES*",
+    "nom": "LES TÉNÈBRES",
     "type": "fusil_precision",
     "fabricant": "FN HERSTAL",
     "portee": 55,
@@ -2773,7 +2771,7 @@
     ]
   },
   "svd_de_surplus": {
-    "nom": "SVD DE SURPLUS*",
+    "nom": "SVD DE SURPLUS",
     "type": "fusil_precision",
     "fabricant": "KALASHNIKOV CONCERN",
     "portee": 50,
@@ -2793,7 +2791,7 @@
     ]
   },
   "svd_de_parachutiste": {
-    "nom": "SVD DE PARACHUTISTE*",
+    "nom": "SVD DE PARACHUTISTE",
     "type": "fusil_precision",
     "fabricant": "KALASHNIKOV CONCERN",
     "portee": 50,
@@ -2813,7 +2811,7 @@
     ]
   },
   "commando": {
-    "nom": "COMMANDO*",
+    "nom": "COMMANDO",
     "type": "fusil_precision",
     "fabricant": "KALASHNIKOV CONCERN",
     "portee": 50,
@@ -3787,7 +3785,7 @@
     ]
   },
   "uic15_mod2": {
-    "nom": "UIC15 MOD2*",
+    "nom": "UIC15 MOD2",
     "type": "fusil",
     "fabricant": "AMERICAN DEFENSE MANUFACTURING",
     "portee": 60,
@@ -3807,7 +3805,7 @@
     ]
   },
   "acr_ss": {
-    "nom": "ACR SS*",
+    "nom": "ACR SS todo",
     "type": "fusil",
     "fabricant": "AMERICAN DEFENSE MANUFACTURING",
     "portee": 45,
@@ -3833,16 +3831,16 @@
     "portee": 50,
     "rpm": 400,
     "chargeur": 30,
-    "rechargement": 2.94,
+    "rechargement": 2.22,
     "headshot": 60,
-    "degatsBase": 106948,
+    "degatsBase": 107000,
     "degatsMax": 245980,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
-      "canon",
+      "bouche",
       "chargeur"
     ]
   },
@@ -3873,9 +3871,9 @@
     "portee": 60,
     "rpm": 320,
     "chargeur": 10,
-    "rechargement": 2.32,
+    "rechargement": 2.11,
     "headshot": 60,
-    "degatsBase": 129150,
+    "degatsBase": 129200,
     "degatsMax": 297045,
     "estExotique": false,
     "estNomme": false,
@@ -3883,7 +3881,8 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "m1a_cqb": {
@@ -3893,9 +3892,9 @@
     "portee": 60,
     "rpm": 320,
     "chargeur": 10,
-    "rechargement": 2.32,
+    "rechargement": 2.11,
     "headshot": 60,
-    "degatsBase": 129150,
+    "degatsBase": 129200,
     "degatsMax": 297045,
     "estExotique": false,
     "estNomme": false,
@@ -3903,7 +3902,8 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "rafraichisseur": {
@@ -3952,15 +3952,15 @@
     ]
   },
   "m1a_classique": {
-    "nom": "M1A CLASSIQUE*",
+    "nom": "M1A CLASSIQUE",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
     "rpm": 180,
     "chargeur": 10,
-    "rechargement": 2.86,
+    "rechargement": 2.36,
     "headshot": 60,
-    "degatsBase": 231290,
+    "degatsBase": 231300,
     "degatsMax": 531967,
     "estExotique": false,
     "estNomme": false,
@@ -3972,7 +3972,7 @@
     ]
   },
   "secret_du_chef": {
-    "nom": "SECRET DU CHEF*",
+    "nom": "SECRET DU CHEF",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -3992,15 +3992,15 @@
     ]
   },
   "lvoa_c": {
-    "nom": "LVOA-C*",
+    "nom": "LVOA-C",
     "type": "fusil",
     "fabricant": "WAR SPORT",
     "portee": 55,
     "rpm": 380,
     "chargeur": 30,
-    "rechargement": 2.52,
+    "rechargement": 1.89,
     "headshot": 60,
-    "degatsBase": 100590,
+    "degatsBase": 100600,
     "degatsMax": 231357,
     "estExotique": false,
     "estNomme": false,
@@ -4008,11 +4008,12 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "surge": {
-    "nom": "SURGE*",
+    "nom": "SURGE",
     "type": "fusil",
     "fabricant": "WAR SPORT",
     "portee": 55,
@@ -4032,15 +4033,15 @@
     ]
   },
   "mdr_urbain": {
-    "nom": "MDR URBAIN*",
+    "nom": "MDR URBAIN",
     "type": "fusil",
     "fabricant": "DESERT TECH",
     "portee": 60,
     "rpm": 380,
     "chargeur": 20,
-    "rechargement": 2.97,
-    "headshot": 95,
-    "degatsBase": 102947,
+    "rechargement": 2.59,
+    "headshot": 60,
+    "degatsBase": 103000,
     "degatsMax": 236778,
     "estExotique": false,
     "estNomme": false,
@@ -4048,7 +4049,8 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "vindicator": {
@@ -4074,11 +4076,11 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "mk17_militaire": {
-    "nom": "Mk17 MILITAIRE*",
+    "nom": "Mk17 MILITAIRE TODO",
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
@@ -4097,16 +4099,16 @@
       "chargeur"
     ]
   },
-  "mk17_de_la_police": {
-    "nom": "Mk17 DE LA POLICE*",
+  "mk17_police": {
+    "nom": "Mk17 POLICE",
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
     "rpm": 275,
     "chargeur": 10,
-    "rechargement": 2.47,
+    "rechargement": 2.23,
     "headshot": 60,
-    "degatsBase": 145815,
+    "degatsBase": 145900,
     "degatsMax": 335375,
     "estExotique": false,
     "estNomme": false,
@@ -4114,11 +4116,12 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "regard_eternel": {
-    "nom": "REGARD ÉTERNEL*",
+    "nom": "REGARD ÉTERNEL",
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
@@ -4138,7 +4141,7 @@
     ]
   },
   "sig_716_cqb": {
-    "nom": "SIG 716 CQB*",
+    "nom": "SIG 716 CQB",
     "type": "fusil",
     "fabricant": "SIG-SAUER",
     "portee": 45,
@@ -4158,7 +4161,7 @@
     ]
   },
   "sig_716": {
-    "nom": "SIG 716*",
+    "nom": "SIG 716",
     "type": "fusil",
     "fabricant": "SIG-SAUER",
     "portee": 45,
@@ -4178,7 +4181,7 @@
     ]
   },
   "outils_d_artiste": {
-    "nom": "OUTILS D'ARTISTE*",
+    "nom": "OUTILS D'ARTISTE",
     "type": "fusil",
     "fabricant": "SIG-SAUER",
     "portee": 45,
@@ -4198,7 +4201,7 @@
     ]
   },
   "usc_45_acp": {
-    "nom": "USC .45 ACP*",
+    "nom": "USC .45 ACP",
     "type": "fusil",
     "fabricant": "KECKLER&KOCH",
     "portee": 50,
@@ -4224,21 +4227,21 @@
     "portee": 35,
     "rpm": 100,
     "chargeur": 8,
-    "rechargement": 3.47,
+    "rechargement": 3.15,
     "headshot": 60,
-    "degatsBase": 386892,
+    "degatsBase": 387000,
     "degatsMax": 889852,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "boomerang"
+    ],
     "emplacementsMods": [
-      "viseur",
-      "canon",
       "chargeur"
     ]
   },
   "mk47_resolute": {
-    "nom": "MK47 RESOLUTE*",
+    "nom": "MK47 RESOLUTE",
     "type": "fusil",
     "fabricant": "CMMG",
     "portee": 55,
@@ -4257,40 +4260,46 @@
       "chargeur"
     ]
   },
-  "harmonie": {
-    "nom": "HARMONIE*",
+  "harmony": {
+    "nom": "HARMONY",
     "type": "fusil",
     "fabricant": "CMMG",
     "portee": 55,
     "rpm": 300,
     "chargeur": 30,
-    "rechargement": 2.03,
+    "rechargement": 1.76,
     "headshot": 60,
-    "degatsBase": 121142,
+    "degatsBase": 124900,
     "degatsMax": 278627,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "synchro"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
+
     ]
   },
   "la_vorace": {
     "nom": "La Vorace",
-    "type": "calibre_12",
+    "type": "fusil",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 50,
+    "rpm": 240,
+    "chargeur": 60,
+    "rechargement": 2,
+    "headshot": 60,
+    "degatsBase": 134400,
     "degatsMax": 0,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusilDégâts de coup critique"
+      "raid": true,
+      "darkZone": true,
+      "description": "Récompense coffre fin de raid 2 : Cheval de fer"
     },
     "estNomme": false,
     "talents": [
@@ -4299,13 +4308,14 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
-  "m4_allegee": {
-    "nom": "M4 ALLÉGÉE*",
+  "m4_allege": {
+    "nom": "M4 ALLÉGÉ",
     "type": "fusil",
-    "fabricant": "COLT",
+    "fabricant": "COLT TODO",
     "portee": 55,
     "rpm": 360,
     "chargeur": 30,
@@ -4445,7 +4455,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "impitoyable": {
@@ -4480,13 +4490,13 @@
     "portee": 35,
     "rpm": 400,
     "chargeur": 30,
-    "rechargement": 2.64,
+    "rechargement": 1.61,
     "headshot": 60,
-    "degatsBase": 102143,
+    "degatsBase": 102300,
     "degatsMax": 234929,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusilDégâts de coup critique"
+      "description": "Précommander The Division 2, bundle boutique"
     },
     "estNomme": false,
     "talents": [
@@ -4495,7 +4505,8 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "diamondback": {
@@ -4505,13 +4516,18 @@
     "portee": 35,
     "rpm": 100,
     "chargeur": 8,
-    "rechargement": 3.47,
+    "rechargement": 2.89,
     "headshot": 60,
-    "degatsBase": 386892,
+    "degatsBase": 387000,
     "degatsMax": 889852,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusilDégâts de coup critique"
+      "mission": true,
+      "cachesExotiques": true,
+      "butinCible": true,
+      "incursion": true,
+      "raid": true,
+      "description": "Terminer les 3 zones de l'expédition Kenly College."
     },
     "estNomme": false,
     "talents": [
@@ -4527,16 +4543,19 @@
     "nom": "Bittersweet",
     "type": "fusil",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 60,
+    "rpm": 180,
+    "chargeur": 20,
+    "rechargement": 2.36,
+    "headshot": 70,
+    "degatsBase": 231300,
     "degatsMax": 0,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusilDégâts de coup critique"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "mission": false,
+      "schemasRepresail": false
     },
     "estNomme": false,
     "talents": [
@@ -4572,7 +4591,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "cameleon": {
@@ -4598,7 +4617,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "big_horn": {
@@ -4624,7 +4643,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "capacitor": {
@@ -4650,7 +4669,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "feu_de_saint_elme": {
@@ -4676,7 +4695,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "strega": {
@@ -4702,7 +4721,7 @@
       "viseur",
       "canon",
       "chargeur",
-      "accessoire"
+      "bouche"
     ]
   },
   "pestilence": {
@@ -5098,6 +5117,28 @@
     "estNomme": false,
     "talents": [
       "symbiose"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur"
+    ]
+  },
+  "achille": {
+    "nom": "Achille",
+    "type": "fusil",
+    "fabricant": "todo",
+    "portee": 55,
+    "rpm": 420,
+    "chargeur": 20,
+    "rechargement": 2.62,
+    "headshot": 60,
+    "degatsBase": 97700,
+    "degatsMax": 889852,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "petit_faible"
     ],
     "emplacementsMods": [
       "viseur",
