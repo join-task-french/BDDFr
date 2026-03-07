@@ -4,21 +4,19 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-
     "sync-data": "node scripts/sync-data.mjs",
     "generate-statics": "node scripts/generate-static-pages.mjs",
     "validate": "node scripts/validate-schemas.mjs",
-
     "dev": "vite",
     "prebuild": "npm run sync-data",
     "predev": "npm run sync-data",
-
     "build": "vite build && npm run generate-statics",
     "preview": "vite preview"
-
   },
   "dependencies": {
+    "framer-motion": "^12.35.0",
     "jszip": "^3.10.1",
+    "lucide-react": "^0.577.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.1"

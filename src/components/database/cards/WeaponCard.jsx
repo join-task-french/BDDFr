@@ -2,10 +2,24 @@ import { getWeaponTypeLabel, getWeaponEssentialAttributes } from '../../../utils
 import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
+import {InfoToolTip} from "./InfoToolTip.jsx";
 
 function fmt(n) {
   if (!n) return '—'
   return Number(n).toLocaleString('fr-FR')
+}
+
+function calcMaxDamages(n) {
+  // TODO : retrieve stats from database
+  const gearWeaponMaxPercent = 90
+  const shdWeaponMaxPercent = 10
+  const expWeaponMaxPercent = 30
+  const weaponTypeMaxPercent = 15
+  const specialisationMaxPercent = 15
+
+    const maxPercent = gearWeaponMaxPercent + shdWeaponMaxPercent + expWeaponMaxPercent + weaponTypeMaxPercent + specialisationMaxPercent
+  const max = Math.round(n * (maxPercent / 100))
+  return max > 0 ? max : 1
 }
 
 function hasContent(v) {
@@ -81,7 +95,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         <Stat label="Dégâts base" value={fmt(item.degatsBase)} accent />
         <Stat label="Chargeur" value={item.chargeur || null} />
         <Stat label="Rechargement" value={item.rechargement ? `${item.rechargement}s` : null} />
-        <Stat label="Dégâts max" value={fmt(item.degatsMax)} accent />
+        <Stat label="Dégâts max" value={fmt(calcMaxDamages(item.degatsBase))} accent info="Calcul des Dégâts Max (+160%)\n\n• Équipement : +90%\n• Expertise : +30%\n• Type d'arme : +15%\n• Spécialisation : +15%\n• Montre SHD : +10%\n\nLe total est calculé par l'addition de ces bonus." />
         <Stat label="Headshot" value={item.headshot != null ? `${item.headshot}%` : null} span2={essentialAttrs.length === 0} />
       </div>
 
@@ -140,11 +154,14 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   )
 }
 
-function Stat({ label, value, accent, span2 }) {
+function Stat({ label, value, accent, span2, info }) {
   if (!value || value === '—' || value === '0') return <div className="bg-tactical-bg/50 p-2" />
   return (
     <div className={`bg-tactical-bg/50 p-2 ${span2 ? 'col-span-2' : ''}`}>
-      <div className="text-xs text-gray-600 uppercase tracking-widest">{label}</div>
+      <div className="text-xs text-gray-600 uppercase tracking-widest flex flex-row items-center">
+        {label}
+        {info && <InfoToolTip text={info} />}
+      </div>
       <div className={`text-sm font-bold ${accent ? 'text-red-400' : 'text-gray-200'}`}>{value}</div>
     </div>
   )
