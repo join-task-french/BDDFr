@@ -3618,7 +3618,7 @@
     ]
   },
   "acr_ss": {
-    "nom": "ACR SS todo",
+    "nom": "ACR SS todo", // TODO
     "type": "fusil",
     "fabricant": "AMERICAN DEFENSE MANUFACTURING",
     "portee": 45,
@@ -3880,7 +3880,7 @@
     ]
   },
   "mk17_militaire": {
-    "nom": "Mk17 MILITAIRE TODO",
+    "nom": "Mk17 MILITAIRE TODO", // TODO
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
@@ -4104,7 +4104,7 @@
   "m4_allege": {
     "nom": "M4 ALLÉGÉ",
     "type": "fusil",
-    "fabricant": "COLT TODO",
+    "fabricant": "COLT TODO", // TODO
     "portee": 55,
     "rpm": 360,
     "chargeur": 30,
@@ -4889,7 +4889,7 @@
   "achille": {
     "nom": "Achille",
     "type": "fusil",
-    "fabricant": "todo",
+    "fabricant": "todo", // Todo : ajouter les fabricants
     "portee": 55,
     "rpm": 420,
     "chargeur": 20,
