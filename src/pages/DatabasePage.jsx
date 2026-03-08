@@ -22,11 +22,11 @@ import {
 const CATEGORIES = [
   { key: 'armes', label: 'Armes', icon: '🔫' },
   { key: 'equipements', label: 'Équipements', icon: '🛡️' },
+  { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
+  { key: 'competences', label: 'Compétences', icon: '⚡' },
   { key: 'attributs', label: 'Attributs', icon: '📊' },
   { key: 'talentsArmes', label: "Talents d'Armes", icon: '🎯' },
   { key: 'talentsEquipements', label: "Talents d'Équipements", icon: '🏅' },
-  { key: 'ensembles', label: 'Ensembles', icon: '🔗' },
-  { key: 'competences', label: 'Compétences', icon: '⚡' },
   { key: 'modsArmes', label: "Mods d'Armes", icon: '🔧' },
   { key: 'modsEquipements', label: "Mods d'Équipements", icon: '⚙️' },
   { key: 'modsCompetences', label: 'Mods de Compétences', icon: '💎' },
