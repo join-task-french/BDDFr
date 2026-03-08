@@ -1,7 +1,9 @@
-// Utilitaire pour charger les fichiers JSONC (JSON avec commentaires)
 function stripJsonComments(text) {
-  // Remove BOM + single-line comments
-  return text.replace(/^\uFEFF/, '').replace(/^\s*\/\/.*$/gm, '')
+  text = text.replace(/^\uFEFF/, '');
+  return text.replace(/("(?:\\.|[^\\"])*")|(\/\*[\s\S]*?\*\/)|(\/\/(?:.*)$)/gm, (match, string) => {
+    if (string) return string;
+    return '';
+  });
 }
 
 const cache = {}
