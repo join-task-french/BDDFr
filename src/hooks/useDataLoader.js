@@ -3,6 +3,7 @@ import { loadJsonc } from '../utils/dataLoader'
 import { flattenCompetences } from '../utils/competenceUtils'
 import { getSpecialisations } from '../utils/formatters'
 import { buildLookupMaps } from '../utils/lookupMaps'
+import {slugify} from "../utils/slugify.js";
 
 const BASE = import.meta.env.BASE_URL
 
@@ -85,7 +86,7 @@ export function useDataLoader() {
           if (result.classSpe && result.armes) {
             const specWeapons = result.classSpe.map(spec => ({
               nom: spec.arme.nom,
-              slug: spec.slug || spec.cle,
+              slug: slugify(spec.arme.nom),
               type: 'arme_specifique',
               fabricant: spec.nom,
               portee: spec.arme.portee,
