@@ -578,7 +578,7 @@
     "icone": "coup_de_massue",
     "perfectDescription": "Infliger des dégâts avec une grenade applique une marque sur la cible. Les cibles marquées subissent 15% de dégâts en plus à la protection de la part de l'auteur de la marque, et -20% de vitesse de déplacement.\nLa marque disparaît après 10s.",
     "armesParfaites": [
-      "scene_gauche"
+      "scene_gauche",
       "gaucher"
     ],
     "compatibilite": {
