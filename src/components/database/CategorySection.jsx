@@ -6,6 +6,7 @@ import EnsembleCard from './cards/EnsembleCard'
 import SkillCard from './cards/SkillCard'
 import ModArmeCard from './cards/ModArmeCard'
 import AttributCard from './cards/AttributCard'
+import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
 
 // Layout grids par catégorie
 const GRID_CONFIG = {
@@ -31,6 +32,7 @@ const CARD_COMPONENTS = {
   ensembles: EnsembleCard,
   competences: SkillCard,
   modsArmes: ModArmeCard,
+  modsCompetences: ModCompetencesCard,
 }
 
 // Fallback card générique pour mods équipement / compétences
@@ -96,6 +98,9 @@ export default function CategorySection({ category, items, searchTerm, allData }
   }
   if (category?.key === 'modsArmes') {
     if (allData?.attributs) extraProps.allAttributs = allData.attributs
+  }
+  if (category?.key === 'modsCompetences') {
+    if (allData?.competencesGrouped) extraProps.competencesGrouped = allData.competencesGrouped
   }
 
   return (
