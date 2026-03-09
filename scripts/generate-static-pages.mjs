@@ -14,11 +14,11 @@ const DIVISION_ORANGE = "#ff8000";
 
 const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
 const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
-const ensembleData = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
+const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
 
 const getWpnType = (t) => weaponTypes[t] || { nom: t?.replace('_', ' ') };
 const getGearType = (e) => gearTypes[e] || { nom: e };
-const getBrandName = (slug) => ensembleData[slug]?.nom || slug;
+const getBrandName = (slug) => ensembles[slug]?.nom || slug;
 
 function slugify(name) {
     if (!name) return '';
@@ -63,34 +63,47 @@ const categoryFormatters = {
         const typeInfo = getGearType(item.emplacement);
         const rarete = item.estExotique ? '🔴' : (item.estNomme ? '🟡' : '⚪');
         const brandName = getBrandName(item.marque);
+        const cleanName = (item.nom || '').replace(/\\"/g, '"').replace(/"/g, '');
         return {
-            title: `${rarete} ${item.nom} (${brandName}) — BDDFr`,
+            title: `${rarete} ${cleanName} (${brandName}) — BDDFr`,
             description: item.description || `Emplacement : ${typeInfo.nom}.`
         };
     },
     'ensembles': (item) => {
-        const bonuses = [item.bonus1piece, item.bonus2pieces, item.bonus3pieces, item.bonus4pieces].filter(Boolean);
-        const bonusList = bonuses.map((b, i) => `${i + 1}p : ${b}`).join('\n');
+        const bonuses = [];
+        if (item.bonus1piece) bonuses.push(`1p : ${item.bonus1piece}`);
+        if (item.bonus2pieces) bonuses.push(`2p : ${item.bonus2pieces}`);
+        if (item.bonus3pieces) bonuses.push(`3p : ${item.bonus3pieces}`);
+        if (item.bonus4pieces) bonuses.push(`4p : ${item.bonus4pieces}`);
         return {
             title: `Ensemble : ${item.nom} — BDDFr`,
-            description: `${item.description || ''}\n\n**Bonus :**\n${bonusList}`
+            description: `${item.description || ''}\n\n**Bonus d'ensemble :**\n${bonuses.join('\n')}`
         };
     },
+    'competences': (item) => {
+        let stats = `Statistiques de base :\n${item.statistiques || 'N/A'}\n\n`;
+        const tiers = [];
+        for (let i = 1; i <= 6; i++) {
+            if (item[`tier${i}`]) tiers.push(`Tier ${i} :\n${item[`tier${i}`]}`);
+        }
+        if (tiers.length > 0) stats += `Progression par Tier :\n${tiers.join('\n\n')}\n\n`;
+        if (item.surcharge) stats += `Surcharge :\n${item.surcharge}`;
+        return {
+            title: `Compétence : ${item.competence} (${item.variante}) — BDDFr`,
+            description: stats
+        };
+    },
+    'attributs': (item) => ({
+        title: `Attribut : ${item.nom} — BDDFr`,
+        description: item.description || `Valeurs : ${item.min}-${item.max}${item.unite}.`
+    }),
     'talentsArmes': (item) => ({
         title: `Talent d'arme : ${item.nom} — BDDFr`,
-        description: item.description || item.perfectDescription || "Effets de ce talent d'arme."
+        description: item.description || item.perfectDescription || "Effets du talent."
     }),
     'talentsEquipements': (item) => ({
         title: `Talent d'équipement : ${item.nom} — BDDFr`,
-        description: item.description || item.perfectDescription || "Effets de ce talent d'équipement."
-    }),
-    'competences': (item) => ({
-        title: `Compétence : ${item.competence} (${item.variante}) — BDDFr`,
-        description: item.statistiques || `Variante ${item.variante} de la compétence ${item.competence}.`
-    }),
-    'attributs': (item) => ({
-        title: `Attribut : ${item.nom} — BDDFr`,
-        description: item.description || `Détails de l'attribut ${item.nom}.`
+        description: item.description || item.perfectDescription || "Effets du talent."
     }),
     'modsArmes': (item) => ({
         title: `Mod d'arme : ${item.nom} — BDDFr`,
@@ -102,7 +115,7 @@ const categoryFormatters = {
     }),
     'modsCompetences': (item) => ({
         title: `Mod de compétence : ${item.nom} — BDDFr`,
-        description: `Pour ${item.competence} (${item.emplacement}).`
+        description: `Emplacement : ${item.emplacement}.`
     }),
     'default': (item) => ({
         title: `${item.nom || 'Élément'} — BDDFr`,
@@ -158,7 +171,7 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
 };
 
 async function generate() {
-    const sitemapEntries = [`${BASE_URL}/` || ''];
+    const sitemapEntries = [`${BASE_URL}/`];
     const today = new Date().toISOString().split('T')[0];
 
     for (const page of pages_fixes) {
@@ -184,7 +197,9 @@ async function generate() {
             });
         } else if (!Array.isArray(rawData)) {
             items = Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
-        } else items = rawData;
+        } else {
+            items = rawData;
+        }
 
         for (const item of items) {
             const itemSlug = item.slug || slugify(item.nom || item.variante || 'Element');
@@ -193,7 +208,11 @@ async function generate() {
             const possibleIconKeys = [item.icone, itemSlug, item.skillSlug, item.marque, item.ensemble, item.type, item.emplacement].filter(Boolean).map(k => slugify(k));
             let iconPath = null, resolvedFileName = null;
             for (const key of possibleIconKeys) {
-                if (iconIndex[key]) { iconPath = iconIndex[key]; resolvedFileName = `${key}.png`; break; }
+                if (iconIndex[key]) {
+                    iconPath = iconIndex[key];
+                    resolvedFileName = `${key}.png`;
+                    break;
+                }
             }
 
             let publicImageUrl = 'favicon.png';
@@ -204,7 +223,8 @@ async function generate() {
             }
 
             const pagePath = `db/${categoryKey}/${itemSlug}`;
-            const { title, description } = (categoryFormatters[categoryKey] || categoryFormatters['default'])(item);
+            const formatter = categoryFormatters[categoryKey] || categoryFormatters['default'];
+            const { title, description } = formatter(item);
             const targetDir = path.join(DIST_DIR, pagePath);
             if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
             fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath));
@@ -213,9 +233,10 @@ async function generate() {
     }
 
     fs.writeFileSync(path.join(DIST_DIR, '404.html'), `<!DOCTYPE html><html><head><meta charset="utf-8"><script>var path=window.location.pathname;window.location.replace("${BASE_PATH}/?redirect="+encodeURIComponent(path+window.location.search+window.location.hash));</script></head><body><p>Redirection...</p></body></html>`);
-    fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.map(url => `  <url><loc>${url}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${url.includes('/db/') ? '0.6' : '0.8'}</priority></url>`).join('\n')}</urlset>`);
+    const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.map(url => `  <url><loc>${url}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${url.includes('/db/') ? '0.6' : '0.8'}</priority></url>`).join('\n')}</urlset>`;
+    fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemapContent);
     fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${BASE_URL}/sitemap.xml`);
-    console.log(`✅ Génération terminée : ${sitemapEntries.length} pages.`);
+    console.log(`✅ Terminé : ${sitemapEntries.length} pages.`);
 }
 
 generate().catch(console.error);
