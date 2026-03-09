@@ -3599,7 +3599,7 @@
     ]
   },
   "uic15_mod2": {
-    "nom": "UIC15 MOD2",
+    "nom": "UIC15 MOD2", // TODO check stats
     "type": "fusil",
     "fabricant": "AMERICAN DEFENSE MANUFACTURING",
     "portee": 60,
@@ -3618,7 +3618,7 @@
     ]
   },
   "acr_ss": {
-    "nom": "ACR SS todo", // TODO
+    "nom": "ACR SS", // TODO check stats
     "type": "fusil",
     "fabricant": "AMERICAN DEFENSE MANUFACTURING",
     "portee": 45,
@@ -3662,12 +3662,14 @@
     "portee": 50,
     "rpm": 400,
     "chargeur": 30,
-    "rechargement": 2.94,
+    "rechargement": 2.22,
     "headshot": 60,
-    "degatsBase": 106948,
+    "degatsBase": 107000,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "derriere_toi"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -3726,26 +3728,26 @@
     "degatsBase": 0,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
+    "talents": [
+      "rafraichissement"
+    ],
+    "emplacementsMods": []
   },
   "medecin_de_famille": {
     "nom": "Médecin de famille",
     "type": "fusil",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 60,
+    "rpm": 320,
+    "chargeur": 10,
+    "rechargement": 1.78,
+    "headshot": 60,
+    "degatsBase": 129200,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusilDégâts de coup critique"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": ""
     },
     "estNomme": false,
     "talents": [
@@ -3754,7 +3756,14 @@
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
+    ],
+    "modsPredefinis": [
+      "vision_du_medecin",
+      "chargeur_de_famille",
+      "poigne_du_medecin",
+      "perseverance_du_medecin"
     ]
   },
   "m1a_classique": {
@@ -3777,7 +3786,7 @@
     ]
   },
   "secret_du_chef": {
-    "nom": "SECRET DU CHEF",
+    "nom": "SECRET DU CHEF",// TODO check stats
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -3856,17 +3865,18 @@
   },
   "vindicator": {
     "nom": "Vindicator",
-    "type": "fusil_assaut",
+    "type": "fusil",
     "fabricant": "Exotique",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 60,
+    "rpm": 380,
+    "chargeur": 20,
+    "rechargement": 2.59,
+    "headshot": 60,
+    "degatsBase": 103000,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusilDégâts de coup critique"
+      "mission": true,
+      "description": "Boutique du mode Descent\nCoût : 350 crédits NSA"
     },
     "estNomme": false,
     "talents": [
@@ -3877,10 +3887,16 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "lunette_ra",
+      "chargeur_de_simulation",
+      "poignee_loop",
+      "amplificateur_de_velocite"
     ]
   },
   "mk17_militaire": {
-    "nom": "Mk17 MILITAIRE TODO", // TODO
+    "nom": "Mk17 MILITAIRE", // TODO check stats
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
@@ -3919,7 +3935,7 @@
     ]
   },
   "regard_eternel": {
-    "nom": "REGARD ÉTERNEL",
+    "nom": "REGARD ÉTERNEL",// TODO check stats
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
@@ -3930,7 +3946,9 @@
     "degatsBase": 145815,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "perpetuation"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -3938,7 +3956,7 @@
     ]
   },
   "sig_716_cqb": {
-    "nom": "SIG 716 CQB",
+    "nom": "SIG 716 CQB",// TODO check stats
     "type": "fusil",
     "fabricant": "SIG-SAUER",
     "portee": 45,
@@ -3963,31 +3981,34 @@
     "portee": 45,
     "rpm": 320,
     "chargeur": 20,
-    "rechargement": 2.92,
+    "rechargement": 2.44,
     "headshot": 60,
-    "degatsBase": 121128,
+    "degatsBase": 121300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
-  "outils_d_artiste": {
-    "nom": "OUTILS D'ARTISTE",
+  "outil_d_artiste": {
+    "nom": "OUTIL D'ARTISTE",
     "type": "fusil",
     "fabricant": "SIG-SAUER",
     "portee": 45,
     "rpm": 320,
     "chargeur": 20,
-    "rechargement": 2.92,
+    "rechargement": 2.23,
     "headshot": 60,
-    "degatsBase": 121128,
+    "degatsBase": 125900,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
+    "talents": [
+      "fusilier"
+    ],
     "emplacementsMods": [
       "viseur",
       "canon",
@@ -3998,12 +4019,12 @@
     "nom": "USC .45 ACP",
     "type": "fusil",
     "fabricant": "KECKLER&KOCH",
-    "portee": 50,
+    "portee": 55,
     "rpm": 420,
     "chargeur": 20,
-    "rechargement": 2.99,
+    "rechargement": 2.62,
     "headshot": 60,
-    "degatsBase": 97719,
+    "degatsBase": 97700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -4038,17 +4059,18 @@
     "fabricant": "CMMG",
     "portee": 55,
     "rpm": 300,
-    "chargeur": 30,
-    "rechargement": 2.03,
+    "chargeur": 36,
+    "rechargement": 1.76,
     "headshot": 60,
-    "degatsBase": 121142,
+    "degatsBase": 124900,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur"
+      "chargeur",
+      "bouche"
     ]
   },
   "harmony": {
@@ -4102,9 +4124,9 @@
     ]
   },
   "m4_allege": {
-    "nom": "M4 ALLÉGÉ",
+    "nom": "M4 ALLÉGÉ",// TODO check stats
     "type": "fusil",
-    "fabricant": "COLT TODO", // TODO
+    "fabricant": "COLT",
     "portee": 55,
     "rpm": 360,
     "chargeur": 30,
@@ -4889,7 +4911,7 @@
   "achille": {
     "nom": "Achille",
     "type": "fusil",
-    "fabricant": "todo", // Todo : ajouter les fabricants
+    "fabricant": "", // Todo : ajouter les fabricants
     "portee": 55,
     "rpm": 420,
     "chargeur": 20,
@@ -4905,6 +4927,28 @@
       "viseur",
       "canon",
       "chargeur"
+    ]
+  },
+  "scene_gauche": {
+    "nom": "Scène gauche",
+    "type": "fusil",
+    "fabricant": "", // Todo : ajouter les fabricants
+    "portee": 60,
+    "rpm": 320,
+    "chargeur": 10,
+    "rechargement": 2.11,
+    "headshot": 60,
+    "degatsBase": 129200,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "coup_de_massue"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
     ]
   }
 }
