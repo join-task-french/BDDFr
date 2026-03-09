@@ -15,6 +15,7 @@ const DIVISION_ORANGE = "#ff8000";
 const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
 const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
 const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
+const classSpe = parseJsonc(path.join(DATA_DIR, 'class-spe.jsonc')) || {};
 
 const getWpnType = (t) => weaponTypes[t] || { nom: t?.replace('_', ' ') };
 const getGearType = (e) => gearTypes[e] || { nom: e };
@@ -53,31 +54,34 @@ getAllFiles(ASSETS_DIR).filter(f => f.endsWith('.png')).forEach(file => {
 const categoryFormatters = {
     'armes': (item) => {
         const typeInfo = getWpnType(item.type);
-        const rarete = item.estExotique ? '🔴' : (item.estNomme ? '🟡' : '⚪');
+        const rarete = item.estExotique ? '🔴 ' : (item.estNomme ? '🟡 ' : (item.isSignature ? '🟠 ' : ''));
+        const speSuffix = item.speNom ? ` (${item.speNom})` : '';
         return {
-            title: `${rarete} ${item.nom} (${typeInfo.nom}) — BDDFr`,
-            description: item.description || `Portée : ${item.portee || 0}m | CPM : ${item.rpm || 0} | Chargeur : ${item.chargeur || 0}`
+            title: `${rarete}${item.nom}${speSuffix} (${typeInfo.nom}) — BDDFr`,
+            description: item.description ||
+                `Degats : ${item.degatsBase || 0} | Portee : ${item.portee || 0}m | CPM : ${item.rpm || 0}\n` +
+                `Chargeur : ${item.chargeur || 0} | Rechargement : ${item.rechargement || 0}s | Headshot : +${item.headshot}%`
         };
     },
     'equipements': (item) => {
         const typeInfo = getGearType(item.emplacement);
-        const rarete = item.estExotique ? '🔴' : (item.estNomme ? '🟡' : '⚪');
+        const rarete = item.estExotique ? '🔴 ' : (item.estNomme ? '🟡 ' : '');
         const brandName = getBrandName(item.marque);
         const cleanName = (item.nom || '').replace(/\\"/g, '"').replace(/"/g, '');
         return {
-            title: `${rarete} ${cleanName} (${brandName}) — BDDFr`,
+            title: `${rarete}${cleanName} (${brandName}) — BDDFr`,
             description: item.description || `Emplacement : ${typeInfo.nom}.`
         };
     },
     'ensembles': (item) => {
         const bonuses = [];
-        if (item.bonus1piece) bonuses.push(`1p : ${item.bonus1piece}`);
-        if (item.bonus2pieces) bonuses.push(`2p : ${item.bonus2pieces}`);
-        if (item.bonus3pieces) bonuses.push(`3p : ${item.bonus3pieces}`);
-        if (item.bonus4pieces) bonuses.push(`4p : ${item.bonus4pieces}`);
+        for (let i = 1; i <= 4; i++) {
+            const val = item[`bonus${i}piece`] || item[`bonus${i}pieces`];
+            if (val) bonuses.push(`${i}p : ${val}`);
+        }
         return {
             title: `Ensemble : ${item.nom} — BDDFr`,
-            description: `${item.description || ''}\n\n**Bonus d'ensemble :**\n${bonuses.join('\n')}`
+            description: `${item.description || ''}\n\nBonus d'ensemble :\n${bonuses.join('\n')}`
         };
     },
     'competences': (item) => {
@@ -89,7 +93,7 @@ const categoryFormatters = {
         if (tiers.length > 0) stats += `Progression par Tier :\n${tiers.join('\n\n')}\n\n`;
         if (item.surcharge) stats += `Surcharge :\n${item.surcharge}`;
         return {
-            title: `Compétence : ${item.competence} (${item.variante}) — BDDFr`,
+            title: `Competence : ${item.competence} (${item.variante}) — BDDFr`,
             description: stats
         };
     },
@@ -102,7 +106,7 @@ const categoryFormatters = {
         description: item.description || item.perfectDescription || "Effets du talent."
     }),
     'talentsEquipements': (item) => ({
-        title: `Talent d'équipement : ${item.nom} — BDDFr`,
+        title: `Talent d'equipement : ${item.nom} — BDDFr`,
         description: item.description || item.perfectDescription || "Effets du talent."
     }),
     'modsArmes': (item) => ({
@@ -110,23 +114,23 @@ const categoryFormatters = {
         description: `Type : ${item.type}.`
     }),
     'modsEquipements': (item) => ({
-        title: `Mod d'équipement : ${item.nom} — BDDFr`,
-        description: `Catégorie : ${item.categorie}.`
+        title: `Mod d'equipement : ${item.nom} — BDDFr`,
+        description: `Categorie : ${item.categorie}.`
     }),
     'modsCompetences': (item) => ({
-        title: `Mod de compétence : ${item.nom} — BDDFr`,
+        title: `Mod de competence : ${item.nom} — BDDFr`,
         description: `Emplacement : ${item.emplacement}.`
     }),
     'default': (item) => ({
-        title: `${item.nom || 'Élément'} — BDDFr`,
-        description: item.description || "Détails et statistiques."
+        title: `${item.nom || item.competence || 'Element'} — BDDFr`,
+        description: item.description || "Details et statistiques."
     })
 };
 
 const pages_fixes = [
-    { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
-    { path: 'changelog', title: 'Mises à jour — BDDFr', description: 'Historique des changements.' },
-    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' }
+    { path: 'build', title: 'Build Planner — BDDFr', description: 'Creez et partagez vos configurations d\'equipement.' },
+    { path: 'changelog', title: 'Mises a jour — BDDFr', description: 'Historique des changements.' },
+    { path: 'generator', title: 'Generateur — BDDFr', description: 'Outil de contribution.' }
 ];
 
 const categoryMap = {
@@ -171,6 +175,7 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
 };
 
 async function generate() {
+    if (!fs.existsSync(DIST_DIR)) fs.mkdirSync(DIST_DIR, { recursive: true });
     const sitemapEntries = [`${BASE_URL}/`];
     const today = new Date().toISOString().split('T')[0];
 
@@ -195,6 +200,21 @@ async function generate() {
             Object.entries(rawData).forEach(([skillKey, skill]) => {
                 skill.variantes.forEach(v => items.push({ ...v, competence: skill.competence, skillSlug: skillKey }));
             });
+        } else if (categoryKey === 'armes') {
+            items = Array.isArray(rawData) ? [...rawData] : Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
+            if (classSpe) {
+                Object.values(classSpe).forEach(spe => {
+                    if (spe.arme) {
+                        items.push({
+                            ...spe.arme,
+                            slug: slugify(spe.arme.nom),
+                            isSignature: true,
+                            speNom: spe.nom,
+                            type: 'arme_specifique'
+                        });
+                    }
+                });
+            }
         } else if (!Array.isArray(rawData)) {
             items = Object.entries(rawData).map(([slug, val]) => ({ ...val, slug }));
         } else {
@@ -236,7 +256,7 @@ async function generate() {
     const sitemapContent = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${sitemapEntries.map(url => `  <url><loc>${url}</loc><lastmod>${today}</lastmod><changefreq>weekly</changefreq><priority>${url.includes('/db/') ? '0.6' : '0.8'}</priority></url>`).join('\n')}</urlset>`;
     fs.writeFileSync(path.join(DIST_DIR, 'sitemap.xml'), sitemapContent);
     fs.writeFileSync(path.join(DIST_DIR, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${BASE_URL}/sitemap.xml`);
-    console.log(`✅ Terminé : ${sitemapEntries.length} pages.`);
+    console.log(`✅ Termine : ${sitemapEntries.length} pages.`);
 }
 
 generate().catch(console.error);
