@@ -23,8 +23,7 @@
             "chargeur",
             "canon",
             "viseur",
-            "accessoire",
-            "autre"
+            "bouche"
           ],
           "description": "Type de modification"
         },

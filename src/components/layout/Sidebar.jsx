@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import JTFrLogo from '../common/JTFrLogo.jsx'
+import {InfoToolTip} from "../common/InfoToolTip.jsx";
 
 export default function Sidebar({ open, onClose }) {
   const linkClass = ({ isActive }) =>
@@ -18,7 +19,7 @@ export default function Sidebar({ open, onClose }) {
       {/* Logo */}
       <div className="p-4 sm:p-6 border-b border-tactical-border flex justify-between items-center shrink-0">
         <div className="flex items-center gap-2">
-          <JTFrLogo className="w-7 h-7 sm:w-8 sm:h-8 text-shd" />
+          <JTFrLogo className="w-8 h-8 md:w-10 md:h-10 xl:w-12 xl:h-12" />
           <h1 className="text-xl sm:text-2xl font-bold text-white tracking-widest uppercase">
             Réseau <span className="text-shd">SHD</span>: <span className='text-blue-700'>JT</span><span className='text-white'>F</span><span className='text-red-500'>r</span>
           </h1>
@@ -60,7 +61,10 @@ export default function Sidebar({ open, onClose }) {
 
       {/* Outils — en bas de la sidebar */}
       <div className="px-3 pb-2">
-        <div className="text-xs text-gray-600 uppercase tracking-widest px-3 mb-1.5">Outils</div>
+        <div className="text-xs text-gray-500 uppercase tracking-widest px-3 mb-1.5 flex flex-row">
+          Outils de contribution
+          <InfoToolTip text={"Outils utiles aux contributeurs de la Base de données"} />
+        </div>
         <NavLink to="/generator" className={linkClass} onClick={onClose}>
           <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}

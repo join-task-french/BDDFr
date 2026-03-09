@@ -85,7 +85,6 @@ export const FIELDS = {
       { key: 'rechargement', label: 'Rechargement (s)', type: 'number', step: 0.1, min: 0 },
       { key: 'headshot', label: 'Headshot (%)', type: 'number', step: 1, min: 0 },
       { key: 'degatsBase', label: 'Dégâts base', type: 'number', step: 1, min: 0 },
-      { key: 'degatsMax', label: 'Dégâts max', type: 'number', step: 1, min: 0 },
       { key: '_rarity', label: 'Rareté', type: 'radioGroup', target: { exo: 'estExotique', nom: 'estNomme' }, options: [
         { value: '', label: 'Standard' },
         { value: 'exo', label: 'Exotique' },
@@ -100,17 +99,17 @@ export const FIELDS = {
         { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
         { value: 'canon', label: 'Canon', color: 'red' },
         { value: 'viseur', label: 'Viseur', color: 'blue' },
-        { value: 'accessoire', label: 'Accessoire', color: 'yellow' },
+        { value: 'bouche', label: 'Bouche', color: 'yellow' },
       ]},
       { key: 'modsPredefinis', label: 'Mods prédéfinis (exotiques)', type: 'autocomplete_array', suggestionsKey: 'modsArmes', placeholder: 'Rechercher un mod...', visibleWhen: { key: '_rarity', value: 'exo' } },
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
         { key: 'description', label: 'Description', type: 'textarea' },
         { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
-        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'boolean' },
+        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
         { key: 'mission', label: 'Mission', type: 'triState' },
         { key: 'raid', label: 'Raid', type: 'triState' },
         { key: 'incursion', label: 'Incursion', type: 'triState' },
-        { key: 'schemasRepresail', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
+        { key: 'represailles', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
       ]},
       { key: 'icone', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
     ],
@@ -138,11 +137,11 @@ export const FIELDS = {
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
         { key: 'description', label: 'Description', type: 'textarea' },
         { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
-        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'boolean' },
+        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
         { key: 'mission', label: 'Mission', type: 'triState' },
         { key: 'raid', label: 'Raid', type: 'triState' },
         { key: 'incursion', label: 'Incursion', type: 'triState' },
-        { key: 'schemasRepresail', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
+        { key: 'represailles', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
       ]},
       { key: 'attributUnique', label: 'Attribut unique', type: 'text' },
     ],
@@ -250,7 +249,7 @@ export const FIELDS = {
         { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
         { value: 'canon', label: 'Canon', color: 'red' },
         { value: 'viseur', label: 'Viseur', color: 'blue' },
-        { value: 'accessoire', label: 'Accessoire', color: 'yellow' },
+        { value: 'bouche', label: 'Bouche', color: 'yellow' },
         { value: 'autre', label: 'Autre', color: 'green' },
       ]},
       { key: 'compatible', label: 'Compatible avec', type: 'tagSelect', dynamicOptions: 'armesTypesCompat' },
@@ -259,6 +258,7 @@ export const FIELDS = {
         { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
       ]},
       { key: 'estExotique', label: 'Mod exotique', type: 'boolean' },
+      { key: 'bonus', label: 'Bonus texte (optionnel)', type: 'text', placeholder: 'Effet non lié à un attribut...' },
     ],
   },
 
@@ -504,7 +504,8 @@ export function getDefaults(categoryKey) {
           for (const sf of field.fields) {
             switch (sf.type) {
               case 'boolean':
-              case 'triState': defaults[field.key][sf.key] = false; break
+                defaults[field.key][sf.key] = false; break
+              case 'triState': defaults[field.key][sf.key] = null; break
               case 'number': defaults[field.key][sf.key] = ''; break
               default: defaults[field.key][sf.key] = ''; break
             }
@@ -549,7 +550,8 @@ export function cleanOutput(data, categoryKey) {
       if (field.singleSelect) {
         if (val) result[field.key] = val
       } else {
-        if (Array.isArray(val) && val.length > 0) result[field.key] = val
+        // Toujours inclure les arrays (même vides) pour les champs multi-select
+        if (Array.isArray(val)) result[field.key] = val
       }
       continue
     }
@@ -573,12 +575,15 @@ export function cleanOutput(data, categoryKey) {
             // boolean: n'inclure que si true
             if (sv === true) cleaned[sf.key] = true
           } else if (sf.type === 'triState') {
-            // triState: n'inclure que si true ou string non vide (false = absent)
+            // triState 4 états : null = absent, true = vrai, false = faux, string = texte
             if (typeof sv === 'string' && sv.trim().length > 0) {
               cleaned[sf.key] = sv.trim()
             } else if (sv === true) {
               cleaned[sf.key] = true
+            } else if (sv === false) {
+              cleaned[sf.key] = false
             }
+            // null/undefined → omis
           } else if (sf.type === 'textarea') {
             // textarea: n'inclure que si non vide
             if (sv && String(sv).trim()) cleaned[sf.key] = String(sv).trim()
@@ -739,7 +744,19 @@ export function itemToFormData(categoryKey, item) {
       data[field.key] = Object.entries(item[field.key]).filter(([, v]) => v).map(([k]) => k)
       continue
     }
-    if (item[field.key] !== undefined && item[field.key] !== null) {
+    if (field.type === 'objectGroup' && typeof item[field.key] === 'object' && !Array.isArray(item[field.key])) {
+      // Fusionner les sous-champs au lieu de remplacer l'objet entier
+      const src = item[field.key]
+      const merged = { ...data[field.key] } // commence par les defaults
+      for (const sf of (field.fields || [])) {
+        if (sf.key in src && src[sf.key] !== undefined) {
+          // null dans la source → garder le default (null pour triState = non défini)
+          if (src[sf.key] === null) continue
+          merged[sf.key] = sf.type === 'number' ? String(src[sf.key]) : src[sf.key]
+        }
+      }
+      data[field.key] = merged
+    } else if (item[field.key] !== undefined && item[field.key] !== null) {
       data[field.key] = field.type === 'number' ? String(item[field.key]) : item[field.key]
     }
   }

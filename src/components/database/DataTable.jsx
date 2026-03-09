@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react'
 const COLUMN_LABELS = {
   nom: 'Nom', type: 'Type', fabricant: 'Fabricant', portee: 'Portée', rpm: 'CPM',
   chargeur: 'Chargeur', rechargement: 'Rechargement', headshot: 'Headshot',
-  attributEssentiel: 'Attribut Essentiel', degatsBase: 'Dégâts Base', degatsMax: 'Dégâts Max',
+  attributEssentiel: 'Attribut Essentiel', degatsBase: 'Dégâts Base',
   marque: 'Marque', emplacement: 'Emplacement',
   attributUnique: 'Attribut Unique', talent: 'Talent', mod: 'Mod', estNomme: 'Nommé',
   source: 'Source', description: 'Description', prerequis: 'Prérequis',
@@ -31,12 +31,12 @@ function formatValue(val, col) {
       const methods = { butinCible: 'Butin ciblé', cachesExotiques: 'Caches exotiques', mission: 'Mission', raid: 'Raid', incursion: 'Incursion' }
       for (const [k, label] of Object.entries(methods)) {
         const v = val[k]
-        if (v === undefined) continue
+        if (v === undefined || v === null) continue
         if (v === true) parts.push(`✔ ${label}`)
         else if (typeof v === 'string' && v.length > 0) parts.push(`⚠ ${label}: ${v}`)
-        else parts.push(`✕ ${label}`)
+        else if (v === false) parts.push(`✕ ${label}`)
       }
-      if (val.schemasRepresail) parts.push(`Représailles: ${val.schemasRepresail}`)
+      if (val.represailles) parts.push(`Faction pour schemas Représailles: ${val.represailles}`)
       if (val.description && val.description.trim()) parts.push(val.description)
       return parts.length > 0 ? parts.join(' | ') : '—'
     }
