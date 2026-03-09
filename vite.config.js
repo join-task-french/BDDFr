@@ -8,6 +8,9 @@ export default defineConfig({
   assetsInclude: ['**/*.jsonc'],
   build: {
     assetsInlineLimit: 10240,
+  },
+  define: {
+    __APP_VERSION__: JSON.stringify(Date.now().toString()),
   }
 })
 

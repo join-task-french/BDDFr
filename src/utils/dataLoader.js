@@ -10,7 +10,9 @@ const cache = {}
 
 export async function loadJsonc(path) {
   if (cache[path]) return cache[path]
-  const resp = await fetch(path)
+  const versionedPath = `${path}?v=${__APP_VERSION__}`
+  const resp = await fetch(versionedPath)
+
   if (!resp.ok) {
     throw new Error(`Erreur chargement ${path}: ${resp.status} ${resp.statusText}`)
   }
