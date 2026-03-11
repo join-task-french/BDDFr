@@ -41,7 +41,7 @@ export default function CompactListView({ items, category, CardComponent, extraP
             className="bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden transition-all shadow-lg"
           >
             <div
-              className={`px-4 py-2 flex items-center gap-4 cursor-pointer hover:bg-white/5 transition-colors ${isExpanded ? 'border-b border-tactical-border/50 bg-white/5' : ''}`}
+              className={`px-4 py-2 flex items-center gap-4 hover:bg-white/5 transition-colors ${isExpanded ? 'border-b border-tactical-border/50 bg-white/5' : ''}`}
               onClick={() => toggleExpand(slug)}
             >
               <CompactRow item={item} category={category} extraProps={extraProps} />
@@ -61,11 +61,11 @@ export default function CompactListView({ items, category, CardComponent, extraP
                   transition={{ duration: 0.25, ease: 'easeInOut' }}
                   className="overflow-hidden"
                 >
-                  <div 
-                    className="p-4 bg-black/20 overflow-x-auto"
-                    onClick={() => handleCardClick(slug)}
-                  >
-                    <div className="min-w-fit">
+                  <div className="p-4 bg-black/20 overflow-x-auto">
+                    <div 
+                      className="min-w-fit cursor-pointer hover:ring-1 hover:ring-shd/50 rounded-lg transition-all"
+                      onClick={() => handleCardClick(slug)}
+                    >
                       <CardComponent item={item} {...extraProps} />
                     </div>
                   </div>
