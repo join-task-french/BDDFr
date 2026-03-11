@@ -2141,7 +2141,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "notes": "Présent en tant qu'arme secondaire (pistolet)"
   },
   "allume_feu": {
     "nom": "ALLUME-FEU",
@@ -2160,7 +2161,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "notes": "Présent en tant qu'arme secondaire (pistolet)"
   },
   "baguette_magique_de_secours": {
     "nom": "BAGUETTE MAGIQUE DE SECOURS",
@@ -2179,7 +2181,8 @@
       "viseur",
       "canon",
       "chargeur"
-    ]
+    ],
+    "notes": "Présent en tant qu'arme secondaire (pistolet)"
   },
   "fusil_a_double_canon": {
     "nom": "FUSIL À DOUBLE CANON",
