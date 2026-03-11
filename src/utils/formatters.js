@@ -188,6 +188,30 @@ export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs, e
     .filter(Boolean)
 }
 
+/**
+ * Formate un nombre en français (séparateur de milliers).
+ */
+export function formatNumber(n) {
+  if (!n) return '—'
+  return Number(n).toLocaleString('fr-FR')
+}
+
+/**
+ * Calcule les dégâts maximum d'une arme en appliquant les bonus.
+ */
+export function calculateMaxDamage(n) {
+  // TODO : récupérer ces valeurs depuis la base de données si possible
+  const gearWeaponMaxPercent = 90
+  const shdWeaponMaxPercent = 10
+  const expWeaponMaxPercent = 30
+  const weaponTypeMaxPercent = 15
+  const specialisationMaxPercent = 15
+
+  const maxPercent = gearWeaponMaxPercent + shdWeaponMaxPercent + expWeaponMaxPercent + weaponTypeMaxPercent + specialisationMaxPercent
+  const max = Math.round(n * (maxPercent / 100))
+  return max > 0 ? max : 1
+}
+
 // ================================================================
 // Spécialisations — depuis class-spe.jsonc
 // ================================================================
@@ -220,11 +244,6 @@ export function getSpecFromWeapon(weaponName, classSpeData) {
 // ================================================================
 // Formatage
 // ================================================================
-
-export function formatNumber(n) {
-  if (!n) return '—'
-  return Number(n).toLocaleString('fr-FR')
-}
 
 export function formatText(text) {
   if (!text || text === '-' || text === 'n/a') return null

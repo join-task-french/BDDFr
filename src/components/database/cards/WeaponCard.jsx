@@ -1,27 +1,9 @@
-import { getWeaponTypeLabel, getWeaponEssentialAttributes } from '../../../utils/formatters'
+import { getWeaponTypeLabel, getWeaponEssentialAttributes, formatNumber, calculateMaxDamage } from '../../../utils/formatters'
 import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon } from '../../../utils/gameAssets'
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
 import {InfoToolTip} from "../../common/InfoToolTip.jsx";
-
-function fmt(n) {
-  if (!n) return '—'
-  return Number(n).toLocaleString('fr-FR')
-}
-
-function calcMaxDamages(n) {
-  // TODO : retrieve stats from database
-  const gearWeaponMaxPercent = 90
-  const shdWeaponMaxPercent = 10
-  const expWeaponMaxPercent = 30
-  const weaponTypeMaxPercent = 15
-  const specialisationMaxPercent = 15
-
-    const maxPercent = gearWeaponMaxPercent + shdWeaponMaxPercent + expWeaponMaxPercent + weaponTypeMaxPercent + specialisationMaxPercent
-  const max = Math.round(n * (maxPercent / 100))
-  return max > 0 ? max : 1
-}
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
@@ -93,10 +75,10 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
       <div className="grid grid-cols-3 gap-px bg-tactical-border/30">
         <Stat label="Portée" value={item.portee ? `${item.portee}m` : null} />
         <Stat label="CPM" value={item.rpm || null} />
-        <Stat label="Dégâts base" value={fmt(item.degatsBase)} accent />
+        <Stat label="Dégâts base" value={formatNumber(item.degatsBase)} accent />
         <Stat label="Chargeur" value={item.chargeur || null} />
         <Stat label="Rechargement" value={item.rechargement ? `${item.rechargement}s` : null} />
-        <Stat label="Dégâts max" value={fmt(calcMaxDamages(item.degatsBase))} accent info="Calcul des Dégâts Max (+160%)\n\n• Équipement : +90%\n• Expertise : +30%\n• Type d'arme : +15%\n• Spécialisation : +15%\n• Montre SHD : +10%\n\nLe total est calculé par l'addition de ces bonus." />
+        <Stat label="Dégâts max" value={formatNumber(calculateMaxDamage(item.degatsBase))} accent info="Calcul des Dégâts Max (+160%)\n\n• Équipement : +90%\n• Expertise : +30%\n• Type d'arme : +15%\n• Spécialisation : +15%\n• Montre SHD : +10%\n\nLe total est calculé par l'addition de ces bonus." />
         <Stat label="Headshot" value={item.headshot != null ? `${item.headshot}%` : null} span2={essentialAttrs.length === 0} />
       </div>
 
