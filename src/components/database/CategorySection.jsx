@@ -8,6 +8,7 @@ import ModArmeCard from './cards/ModArmeCard'
 import AttributCard from './cards/AttributCard'
 import ModCompetencesCard from "./cards/ModCompetencesCard.jsx";
 import ModEquipementCard from "./cards/ModEquipementCard.jsx";
+import CompactListView from './CompactListView'
 import {useLocation, useNavigate} from "react-router-dom";
 import {slugify} from "../../utils/slugify.js";
 
@@ -58,7 +59,7 @@ function GenericCard({ item }) {
   )
 }
 
-export default function CategorySection({ category, items, searchTerm, allData }) {
+export default function CategorySection({ category, items, searchTerm, allData, isCompactMode }) {
   if (!items || items.length === 0) {
     return (
       <div className="text-center py-16">
@@ -115,6 +116,26 @@ export default function CategorySection({ category, items, searchTerm, allData }
     const newUrl = `/db/${category.key}/${itemSlug}${location.search}`;
     navigate(newUrl, { replace: true });
   };
+
+  if (isCompactMode) {
+    return (
+      <div className="fade-in">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-lg font-bold text-white uppercase tracking-widest">
+            <span className="mr-2">{category?.icon}</span>
+            {category?.label}
+          </h3>
+          <span className="text-xs text-gray-500 font-bold">{items.length} entrées</span>
+        </div>
+        <CompactListView
+          items={items}
+          category={category}
+          CardComponent={CardComponent}
+          extraProps={extraProps}
+        />
+      </div>
+    )
+  }
 
   return (
     <div className="fade-in">

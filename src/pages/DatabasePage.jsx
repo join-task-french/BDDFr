@@ -1,4 +1,4 @@
-import { useMemo, useCallback, useEffect } from 'react'
+import { useMemo, useCallback, useEffect, useState } from 'react'
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
 import { useDataLoader } from '../hooks/useDataLoader'
 import Loader from '../components/common/Loader'
@@ -77,6 +77,17 @@ export default function DatabasePage() {
   const { category, slug } = useParams()
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
+  const [isCompactMode, setIsCompactMode] = useState(() => {
+    return localStorage.getItem('db_compact_mode') === 'true'
+  })
+
+  const toggleCompactMode = useCallback(() => {
+    setIsCompactMode(prev => {
+      const newVal = !prev
+      localStorage.setItem('db_compact_mode', String(newVal))
+      return newVal
+    })
+  }, [])
 
   // 1. Détermination de la catégorie active
   const activeCategory = category || 'armes'
@@ -265,6 +276,20 @@ export default function DatabasePage() {
                         onChange={handleSortChange}
                     />
                 )}
+                <button
+                    onClick={toggleCompactMode}
+                    className={`px-3 py-2 rounded border transition-all flex items-center gap-2 uppercase tracking-widest text-xs font-bold ${
+                        isCompactMode
+                            ? 'bg-shd/20 text-shd border-shd/40'
+                            : 'bg-tactical-panel text-gray-400 border-tactical-border hover:border-gray-500 hover:text-gray-300'
+                    }`}
+                    title={isCompactMode ? 'Désactiver le mode compact' : 'Activer le mode compact'}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h16M4 18h16" />
+                  </svg>
+                  <span className="hidden sm:inline">Compact</span>
+                </button>
               </div>
               {filterPanel}
             </div>
@@ -276,6 +301,7 @@ export default function DatabasePage() {
             items={filteredData}
             searchTerm={searchTerm}
             allData={data}
+            isCompactMode={isCompactMode}
         />
       </div>
   )
