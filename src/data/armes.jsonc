@@ -4460,19 +4460,22 @@
     ]
   },
   "cameleon": {
-    "nom": "Caméléon",//TODO
+    "nom": "Caméléon",
     "description": "Le caméléon dispose d'une technologie de revêtement réfringent conçu par l'équipe de recherche de la DARPA.",
     "type": "fusil_assaut",
     "fabricant": "TDI",
     "portee": 20,
     "rpm": 900,
-    "chargeur": 50,
-    "rechargement": 2.4,
-    "headshot": 55,
-    "degatsBase": 44660,
+    "chargeur": 30,
+    "rechargement": 2.18,
+    "headshot": 50,
+    "degatsBase": 44700,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts à la santé"
+      "mission": true,
+      "butinCible": true,
+      "represailles": "Hyènes",
+      "description": "Récompense de prime 1/3/5/7% normal/difficile/défi/héroïque"
     },
     "estNomme": false,
     "talents": [
@@ -4483,22 +4486,29 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "optique_de_cameleon",
+      "processeur_activcamo_de_cameleon",
+      "suppresseur_de_cameleon",
+      "poignee_de_cameleon"
     ]
   },
   "bighorn": {
-    "nom": "Bighorn",//TODO
+    "nom": "Bighorn",
     "description": "\"Vise. Inspire. Bloque ton souffle. Concentre-toi. Expire. Apuuie.\"",
     "type": "fusil_assaut",
     "fabricant": "STEYR",
-    "portee": 27,
+    "portee": 40,
     "rpm": 800,
     "chargeur": 42,
-    "rechargement": 2.49,
+    "rechargement": 1.66,
     "headshot": 55,
-    "degatsBase": 57206,
+    "degatsBase": 57200,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts à la santé"
+      "darkZone": true,
+      "description": "Uniquement en difficulté légendaire 5%, boss nommé en forteresse ou summit"
     },
     "estNomme": false,
     "talents": [
@@ -4509,22 +4519,30 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "lunette_de_selection_de_tir",
+      "chargeur_a_ressort_ajuste",
+      "bouche_en_acier_au_carbone",
+      "poignee_de_corne_bighorn"
     ]
   },
   "capacitor": {
-    "nom": "Capacitor",//TODO
+    "nom": "Capacitor",
     "description": "\"Moi ce que je préfère, c'est les câbles dénudés qui se touchent et les incendies électriques. Heureusement, ces deux trucs vont bien ensemble. Une étincelle et on met le feu !\"\n- Ancien technicien des Black Tusks",
     "type": "fusil_assaut",
     "fabricant": "MAGPUL",
     "portee": 31,
     "rpm": 700,
     "chargeur": 30,
-    "rechargement": 2.33,
+    "rechargement": 1.70,
     "headshot": 55,
-    "degatsBase": 57606,
+    "degatsBase": 57600,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts aux protections"
+      "butinCible": true,
+      "mission": true,
+      "description": "Finir 5 défis de Summit en une ascension."
     },
     "estNomme": false,
     "talents": [
@@ -4535,22 +4553,31 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "visee_condutrice",
+      "generateur_de_tension",
+      "electrode_de_decharge",
+      "poignee_securisee_dielectrique"
     ]
   },
   "feu_de_saint_elme": {
-    "nom": "Feu de Saint-Elme",//TODO
+    "nom": "Feu de Saint-Elme",
     "type": "fusil_assaut",
     "description": "\"Parfois, les phénomènes les plus beaux et les plus menaçants sont purement naturels.\" Anonyme",
     "fabricant": "COLT",
     "portee": 31,
     "rpm": 850,
-    "chargeur": 70,
-    "rechargement": 2.3,
+    "chargeur": 40,
+    "rechargement": 1.87,
     "headshot": 55,
-    "degatsBase": 46908,
+    "degatsBase": 46900,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts à la santé"
+      "mission": true,
+      "butinCible": true,
+      "represailles": "True sons, Escouade d'extermination",
+      "description": ""
     },
     "estNomme": false,
     "talents": [
@@ -4561,22 +4588,31 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "rail_conducteur",
+      "chargeur_isolee",
+      "poignee_isolee",
+      "bouche_surchargee"
     ]
   },
   "strega": {
-    "nom": "Strega",//TODO
+    "nom": "Strega",
     "description": "\"On ne peut plus faire de prévention. On limite les dégâts.\"\n- Colonel Antwon Ridgeway",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
     "rpm": 700,
-    "chargeur": 40,
-    "rechargement": 2.3,
+    "chargeur": 20,
+    "rechargement": 1.78,
     "headshot": 55,
-    "degatsBase": 57634,
+    "degatsBase": 57600,
     "estExotique": true,
     "obtention": {
-      "description": "Dégâts de fusil d'assaut Dégâts à la santé"
+      "butinCible": true,
+      "represailles": "Hyène, Escouade d'extermination",
+      "mission": true,
+      "description": ""
     },
     "estNomme": false,
     "talents": [
@@ -4587,6 +4623,12 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "modsPredefinis": [
+      "optique_strega",
+      "chargeur_strega",
+      "poignee_strega",
+      "bouche_strega"
     ]
   },
   "pestilence": {
@@ -5025,7 +5067,7 @@
     ]
   },
   "ak_m_militaire": {
-    "nom": "AK-M militaire",//TODO
+    "nom": "AK-M militaire",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 0,
@@ -5045,7 +5087,7 @@
     ]
   },
   "g36_c": {
-    "nom": "G36 C",//TODO
+    "nom": "G36 C",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 0,
@@ -5065,7 +5107,7 @@
     ]
   },
   "goalie": {
-    "nom": "Goalie",//TODO
+    "nom": "Goalie",//TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 0,
@@ -5090,13 +5132,13 @@
     "nom": "Huntsman",
     "description": "Le chasseur devient la proie.",
     "type": "fusil_assaut",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "GIAT INDUSTRIES",
+    "portee": 26,
+    "rpm": 900,
+    "chargeur": 30,
+    "rechargement": 2.26,
+    "headshot": 55,
+    "degatsBase": 45300,
     "estExotique": false,
     "estNomme": true,
     "talents": [
@@ -5110,10 +5152,10 @@
     ]
   },
   "lexington": {
-    "nom": "Lexington",//TODO : ajout fabricant
+    "nom": "Lexington",
     "description": "\"Négatif, Ramos.\" - Faye Lau",
     "type": "fusil_assaut",
-    "fabricant": "",
+    "fabricant": "COLT",
     "portee": 31,
     "rpm": 850,
     "chargeur": 30,
@@ -5147,7 +5189,7 @@
     ]
   },
   "lud": {
-    "nom": "Lud", //TODO
+    "nom": "Lud", //TODO pas schéma
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 0,
@@ -5167,35 +5209,35 @@
     ]
   },
   "premiere_vue": {
-    "nom": "Première vue",//TODO
+    "nom": "Première vue",
     "type": "fusil_assaut",
     "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 27,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 2.55,
+    "headshot": 85,
+    "notes": "+20% particularité du nommé",
+    "degatsBase": 67200,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": [
       "viseur",
       "canon",
-      "chargeur",
-      "bouche"
+      "chargeur"
     ]
   },
   "protecteur": {
     "nom": "Protecteur",//TODO
     "type": "fusil_assaut",
-    "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 52600,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
@@ -5204,6 +5246,15 @@
       "canon",
       "chargeur",
       "bouche"
+    ],
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_de_precision_es"
+      },
+      {
+        "nom": "degats_de_headshot_es",
+        "valeur": 137
+      }
     ]
   }
 }
