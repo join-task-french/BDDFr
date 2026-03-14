@@ -4517,6 +4517,7 @@
   "feu_de_saint_elme": {
     "nom": "Feu de Saint-Elme",//TODO
     "type": "fusil_assaut",
+    "description": "\"Parfois, les phénomènes les plus beaux et les plus menaçants sont purement naturels.\" Anonyme",
     "fabricant": "COLT",
     "portee": 31,
     "rpm": 850,
