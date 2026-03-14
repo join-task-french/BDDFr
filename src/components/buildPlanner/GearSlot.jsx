@@ -62,6 +62,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
 
   const gearTalentToDisplay = useMemo(() => {
     if (!talent) return null
+    // Un talent sélectionné manuellement ne peut pas être parfait
     return talent
   }, [talent])
 
@@ -111,10 +112,19 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                 {/* Talents exotiques (depuis talents[]) — toujours affichés, non modifiables */}
                 {piece.type === 'exotique' && piece.talents && piece.talents.length > 0 && (
                     <div className="mt-3 pt-3 border-t border-tactical-border">
-                      <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent Exotique</div>
-                      {piece.talents.filter(t => t && t !== 'n/a').map((t, i) => (
-                          <div key={i} className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t}</div>
-                      ))}
+                      {piece.talents.filter(t => t && t !== 'n/a').map((slug, i) => {
+                        const resolved = talentsEquipements?.find(t => t.slug === slug || t.nom === slug)
+                        return (
+                            <div key={i} className={i > 0 ? "mt-3" : ""}>
+                              <div className="text-xs text-shd font-bold uppercase tracking-widest">
+                                {resolved?.nom ? `Talent : ${resolved.nom}` : 'Talent Exotique'}
+                              </div>
+                              <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">
+                                {resolved?.description || slug}
+                              </div>
+                            </div>
+                        )
+                      })}
                     </div>
                 )}
                 {/* Talent gear set résolu depuis l'ensemble — non modifiable */}

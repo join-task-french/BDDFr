@@ -69,10 +69,19 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                         {/* Talents exotiques (depuis talents[]) — non modifiables */}
                         {weapon.talents && weapon.talents.length > 0 && weapon.estExotique ? (
                             <div className="mt-3 pt-3 border-t border-tactical-border">
-                                <div className="text-xs text-shd font-bold uppercase tracking-widest">Talent Exotique</div>
-                                {weapon.talents.filter(t => t && t !== 'n/a').map((t, i) => (
-                                    <div key={i} className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">{t}</div>
-                                ))}
+                                {weapon.talents.filter(t => t && t !== 'n/a').map((slug, i) => {
+                                    const resolved = data?.talentsArmes?.find(t => t.slug === slug || t.nom === slug)
+                                    return (
+                                        <div key={i} className={i > 0 ? "mt-3" : ""}>
+                                            <div className="text-xs text-shd font-bold uppercase tracking-widest">
+                                                {resolved?.nom ? `Talent : ${resolved.nom}` : 'Talent Exotique'}
+                                            </div>
+                                            <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-3">
+                                                {resolved?.description || slug}
+                                            </div>
+                                        </div>
+                                    )
+                                })}
                             </div>
                         ) : weapon.estNomme && weapon.talents && weapon.talents.length > 0 && weapon.talents.some(t => t && t !== 'n/a' && t !== '') && !talent ? (
                             /* Arme nommée avec talent pré-inscrit — affiché si aucun talent n'a été manuellement sélectionné */
