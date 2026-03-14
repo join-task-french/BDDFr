@@ -92,6 +92,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
 
 
         </div>
+        { item.description && <span className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">{item.description}</span> }
       </div>
 
       {/* Attributs */}
