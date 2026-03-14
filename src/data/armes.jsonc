@@ -400,6 +400,7 @@
   },
   "pyromane": {
     "nom": "Pyromane",
+    "description": "Parfois le monde ne brûle pas assez vite.",
     "type": "fusil_assaut",
     "fabricant": "COLT",
     "portee": 31,
@@ -1712,6 +1713,7 @@
   },
   "diceros_special": {
     "nom": "DICEROS SPÉCIAL",
+    "description": "Un revolver .357 Magnum très puissant. Le canon inhabituellement bas tirant depuis la partie inférieure du cylindre lui confère un équilibre rare pour une arme de cette catégorie.",
     "type": "pistolet",
     "fabricant": "CHIAPPA FIREARMS",
     "portee": 18,
@@ -1748,8 +1750,9 @@
       "chargeur"
     ]
   },
-  "orbit": {
-    "nom": "ORBIT",
+  "orbite": {
+    "nom": "Orbite",
+    "description": "Une fois en mouvement, la balle poursuit sa trajectoire jusqu'à sa cible, puis tout mouvement cesse brusquement.",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
@@ -1807,6 +1810,7 @@
   },
   "le_moissonneur": {
     "nom": "LE MOISSONNEUR",
+    "description": "\"Rien ne vaut la récompense a la fin de la récolte.\"",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
@@ -1921,6 +1925,7 @@
   },
   "rock_n_roll": {
     "nom": "ROCK'N'ROLL",
+    "description": "\"Y'a plein de gens qui aiment la guitare mais moi, c'est la batterie que je kiffe... BAN, BAM, BAM ! Ça me fait trop tripper.\"\n- Membre des Hyènes jouant dans un groupe",
     "type": "calibre_12",
     "fabricant": "ATCHISSON",
     "portee": 16,
@@ -2150,6 +2155,7 @@
   },
   "allume_feu": {
     "nom": "ALLUME-FEU",
+    "description": "Les cartouches contiennent une fine poudre augmentant l'inflammibilité des cibles touchées par le fusil",
     "type": "calibre_12",
     "fabricant": "L.C SMITH",
     "portee": 7,
@@ -2247,6 +2253,7 @@
   },
   "l_inhumateur": {
     "nom": "L'INHUMATEUR",
+    "description": "Quand vous quittez ce monde, tout ce que vous entendez c'est un bruit blanc.",
     "type": "calibre_12",
     "fabricant": "KEL-TEC",
     "portee": 16,
@@ -2494,6 +2501,7 @@
   },
   "sacrum_imperium": {
     "nom": "Sacrum Imperium",
+    "description": "\"Par la lumière sacrée, donnez-moi la force d'exécuter la volonté divine.\" Le prêtre",
     "type": "fusil_precision",
     "fabricant": "Exotique",
     "portee": 0,
@@ -2708,6 +2716,7 @@
   },
   "effroyable_sentence": {
     "nom": "Effroyable Sentence",
+    "description": "\"Quand viendra ta sentence, tu ne sauras pas combien de mots ont été prononcés, mais tu sauras quel est le dernier d'entre eux.\"",
     "type": "fusil_precision",
     "fabricant": "Exotique",
     "portee": 0,
@@ -3446,6 +3455,7 @@
   },
   "l_acquis": {
     "nom": "L'ACQUIS",
+    "description": "Les armes ne sont pas sublimes par essence, elles de deviennent.",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
     "portee": 19,
@@ -3737,6 +3747,7 @@
   },
   "rafraichisseur": {
     "nom": "RAFRAÎCHISSEUR",
+    "description": "N'oubliez pas de vous hydrater.",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -3806,6 +3817,7 @@
   },
   "secret_du_chef": {
     "nom": "SECRET DU CHEF",
+    "description": "\"En cuisine, mon secret c'est la générosité: j'en met toujours un peu plus.\"\n- Sergent Rolland T. Baker",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -3845,6 +3857,7 @@
   },
   "surge": {
     "nom": "SURGE",
+    "description": "\"La machine apprend. Pas nous.\"\n- Réflexion transhumaniste sur l'obsolescence programmée",
     "type": "fusil",
     "fabricant": "WAR SPORT",
     "portee": 55,
@@ -3958,6 +3971,7 @@
   },
   "regard_eternel": {
     "nom": "REGARD ÉTERNEL",
+    "description": "\"Regarde toujours la récompense, mon gars. Attention... Vas-y !\"\n- Instructeur du NYCP",
     "type": "fusil",
     "fabricant": "FN HERSTAL",
     "portee": 55,
@@ -4121,6 +4135,7 @@
   },
   "la_vorace": {
     "nom": "La Vorace",
+    "description": "Avides de cadavres, Geri et Freki, les loups d'Odin, rôdent sur le champ de bataille. Chasse pour eux, guerrier d'Odin. Donne-leur de quoi assouvir leur faim.",
     "type": "fusil",
     "fabricant": "Exotique",
     "portee": 50,
@@ -4219,6 +4234,7 @@
   },
   "scorpio": {
     "nom": "Scorpio",
+    "description": "Cette arme tire des munitions empoisonnées débilitantes inspirées du scorpion (de l'espèce Hottentotta, précisément). Développée en collaboration avec la DARPA, elle n'a pas reçu d'autorisation de commercialisation car elle n'est pas conforme aux termes de la Convention de La Haye de 1899.",
     "type": "calibre_12",
     "fabricant": "CRYE PRECISION",
     "portee": 14,
@@ -4379,6 +4395,7 @@
   },
   "bittersweet": {
     "nom": "Bittersweet",
+    "description": "L'arme bigoût.",
     "type": "fusil",
     "fabricant": "Exotique",
     "portee": 60,
@@ -4406,6 +4423,7 @@
   },
   "eagle_bearer": {
     "nom": "Eagle Bearer",
+    "description": "L'inscription indique : \n\"Un présent offert à Odessa Sawyer pour le dévouement sans faille dans la tragédie nationale que nous traversons tous. Puisse-t-elle trouver la force de relever les défis qui l'attendent.\"\n- La communauté du refuge du Théâtre",
     "type": "fusil_assaut",
     "fabricant": "PATRIOT ORDNANCE FACTORY",
     "portee": 26,
@@ -4443,6 +4461,7 @@
   },
   "cameleon": {
     "nom": "Caméléon",//TODO
+    "description": "Le caméléon dispose d'une technologie de revêtement réfringent conçu par l'équipe de recherche de la DARPA.",
     "type": "fusil_assaut",
     "fabricant": "TDI",
     "portee": 20,
@@ -4468,6 +4487,7 @@
   },
   "bighorn": {
     "nom": "Bighorn",//TODO
+    "description": "\"Vise. Inspire. Bloque ton souffle. Concentre-toi. Expire. Apuuie.\"",
     "type": "fusil_assaut",
     "fabricant": "STEYR",
     "portee": 27,
@@ -4493,6 +4513,7 @@
   },
   "capacitor": {
     "nom": "Capacitor",//TODO
+    "description": "\"Moi ce que je préfère, c'est les câbles dénudés qui se touchent et les incendies électriques. Heureusement, ces deux trucs vont bien ensemble. Une étincelle et on met le feu !\"\n- Ancien technicien des Black Tusks",
     "type": "fusil_assaut",
     "fabricant": "MAGPUL",
     "portee": 31,
@@ -4544,6 +4565,7 @@
   },
   "strega": {
     "nom": "Strega",//TODO
+    "description": "\"On ne peut plus faire de prévention. On limite les dégâts.\"\n- Colonel Antwon Ridgeway",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 35,
@@ -4665,6 +4687,7 @@
   },
   "nemesis": {
     "nom": "Nemesis",
+    "description": "\"Je guette les guetteurs.\"\n- Phaedra \"Puck\" Lao, sniper des Black Tusks",
     "type": "fusil_precision",
     "fabricant": "ACCURACY INTERNATIONAL",
     "portee": 60,
@@ -4689,6 +4712,7 @@
   },
   "mantis": {
     "nom": "Mantis",
+    "description": "\"Le camouflage ne consiste pas seulement à se fondre dans l'environement. Vous conmaissez le terme \"mométisme agressif\" ? Tout le monde peut se cacher et attendre le bon moment pour frapper, mais pourquoi attendre quand on peut séduire ?\"\n- Sid \"Maneater\" Madison",
     "type": "fusil_precision",
     "fabricant": "DESERT TACTICAL ARMS",
     "portee": 60,
@@ -4761,6 +4785,7 @@
   },
   "regulus": {
     "nom": "Regulus",
+    "description": "\"Vous pouvez poignarder les puissants dans le dos mais au jugement dernier les rats rongeront vos os.\"\n- Javier Kajika",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
@@ -4771,7 +4796,7 @@
     "degatsBase": 282072,
     "estExotique": true,
     "obtention": {
-      "description": "Terminer le raid 2 « Cheval de fer » une première fois pour obtenir deux projets à réaliser.\nCompléter les différents projets pour obtenir celui permettant l'obtention du schéma (blueprint) du Régulus. Une fois le dernier projet débloqué, vous pourrez terminer une deuxième fois le raid pour obtenir :\n\n- le châssis sur le lieutenant Gray\n- la poignée incurvée sur le capitaine Fieser\n- le barillet gravé sur le major Williams\n- la bouche gravée sur la colonelle Morozova\n- le lingot d'or dans le coffre de butin à la fin du raid.\n\nUne fois les composants obtenus, vous pourrez fabriquer le Régulus sur l'établi."
+      "description": "Terminer le raid 2 « Cheval de fer » une première fois pour obtenir deux projets à réaliser.\nCompléter les différents projets pour obtenir celui permettant l'obtention du schéma (blueprint) du Regulus. Une fois le dernier projet débloqué, vous pourrez terminer une deuxième fois le raid pour obtenir :\n\n- le châssis sur le lieutenant Gray\n- la poignée incurvée sur le capitaine Fieser\n- le barillet gravé sur le major Williams\n- la bouche gravée sur la colonelle Morozova\n- le lingot d'or dans le coffre de butin à la fin du raid.\n\nUne fois les composants obtenus, vous pourrez fabriquer le Regulus sur l'établi."
     },
     "estNomme": false,
     "talents": [
@@ -4833,6 +4858,8 @@
   },
   "flux_continu": {
     "nom": "Flux continu",
+    "description": "\"On dit que je ne sais pas quand il faut la fermer, mais c'est juste l'Épice qui parle.\"\n- Dime, membre de la Commission des Hyènes",
+
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 21,
@@ -4857,6 +4884,7 @@
   },
   "lady_death": {
     "nom": "Lady death",
+    "description": "\"La liberté, inaliénable ? C'est des conneries. On pourra toujours te prendre ta liberté. La seule chose qui te sépare de la tyrannie, c'est le canon de ton flingue.\"\n- Fan du Deuxième Amendement",
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
     "portee": 21,
@@ -4881,6 +4909,7 @@
   },
   "contre_feu": {
     "nom": "Contre-feu",
+    "description": "\"Car seuls ceux qui ont souffert peuvent ordonner la souffrance des autres !\"\n- Credo des Parias",
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
     "portee": 0,
@@ -4974,6 +5003,7 @@
   },
   "scene_gauche": {
     "nom": "Scène gauche",
+    "description": "\"Si vous voulez faire une entrée, utilisez Scène gauche.\" 13",
     "type": "fusil",
     "fabricant": "SPRINGFIELD ARMORY",
     "portee": 60,
@@ -5058,6 +5088,7 @@
   },
   "huntsman": {
     "nom": "Huntsman",
+    "description": "Le chasseur devient la proie.",
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 0,
@@ -5080,6 +5111,7 @@
   },
   "lexington": {
     "nom": "Lexington",//TODO : ajout fabricant
+    "description": "\"Négatif, Ramos.\" - Faye Lau",
     "type": "fusil_assaut",
     "fabricant": "",
     "portee": 31,
