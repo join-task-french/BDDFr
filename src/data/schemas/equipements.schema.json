@@ -45,9 +45,6 @@
             ]
           }
         },
-        "attributUnique": {
-          "type": "string"
-        },
         "attributs": {
           "type": "array",
           "items": {
@@ -65,9 +62,6 @@
               }
             }
           }
-        },
-        "talent": {
-          "type": "string"
         },
         "talents": {
           "type": "array",
