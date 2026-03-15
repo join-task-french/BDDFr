@@ -48,9 +48,9 @@
     "talents": [],
     "type": "gear_set"
   },
-  "masque_cogneur": {
-    "nom": "Masque Cogneur",
-    "marque": "cogneur",
+  "masque_strikers_battlegear": {
+    "nom": "Masque strikers_battlegear",
+    "marque": "strikers_battlegear",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
@@ -218,7 +218,7 @@
   },
   "harnais_striker": {
     "nom": "Harnais Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "torse",
     "mod": true,
     "talents": [],
@@ -386,7 +386,7 @@
   },
   "holster_striker": {
     "nom": "Holster Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "holster",
     "mod": false,
     "talents": [],
@@ -554,7 +554,7 @@
   },
   "sac_a_dos_striker": {
     "nom": "Sac à dos Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
@@ -722,7 +722,7 @@
   },
   "gants_striker": {
     "nom": "Gants Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "gants",
     "mod": false,
     "talents": [],
@@ -890,7 +890,7 @@
   },
   "genoullieres_striker": {
     "nom": "Genoullières Striker",
-    "marque": "cogneur",
+    "marque": "strikers_battlegear",
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
@@ -2548,7 +2548,7 @@
   "sac_a_dos_de_survie_d_acosta": {
     "nom": "Sac à dos de survie d'Acosta",
     "emplacement": "sac_a_dos",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Tier de compétence"
     },
@@ -2561,7 +2561,7 @@
   "masque_de_coyote": {
     "nom": "Masque de Coyote",
     "emplacement": "masque",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Dégâts d'arme"
     },
@@ -2573,7 +2573,7 @@
   "systeme_de_protection_tardigrade": {
     "nom": "Système de protection Tardigrade",
     "emplacement": "torse",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Protection"
     },
@@ -2704,7 +2704,7 @@
       "utilitaire",
       "défensif"
     ],
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Dégâts d'armes Protection Tier de compétence"
     },
@@ -2722,7 +2722,7 @@
       "utilitaire",
       "défensif"
     ],
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Dégâts d'armes Protection Tier de compétence"
     },
@@ -2734,7 +2734,7 @@
   "pack_de_reparation_d_urgence_de_birdie": {
     "nom": "Pack de réparation d'urgence de Birdie",
     "emplacement": "sac_a_dos",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Tier de compétence"
     },
@@ -2746,7 +2746,7 @@
   "vilenie": {
     "nom": "Vilenie",
     "emplacement": "torse",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Tier de compétence"
     },
@@ -2758,7 +2758,7 @@
   "catharsis": {
     "nom": "Catharsis",
     "emplacement": "masque",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Protection"
     },
@@ -2770,7 +2770,7 @@
   "le_catalyseur": {
     "nom": "Le Catalyseur",
     "emplacement": "masque",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Dégâts d'arme"
     },
@@ -2782,7 +2782,7 @@
   "bricoleur": {
     "nom": "Bricoleur",
     "emplacement": "torse",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Dégâts d'arme"
     },
@@ -2794,7 +2794,7 @@
   "la_fierte_de_ridgeway": {
     "nom": "La fierté de Ridgeway",
     "emplacement": "torse",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Dégâts d'arme"
     },
@@ -2806,7 +2806,7 @@
   "collector": {
     "nom": "Collector",
     "emplacement": "sac_a_dos",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Dégâts d'arme"
     },
@@ -2818,7 +2818,7 @@
   "provocateur": {
     "nom": "Provocateur",
     "emplacement": "torse",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Protection"
     },
@@ -2830,7 +2830,7 @@
   "beacon": {
     "nom": "Beacon",
     "emplacement": "torse",
-    "mod": false,
+    "mod": true,
     "obtention": {
       "description": "Dégâts d'arme"
     },
