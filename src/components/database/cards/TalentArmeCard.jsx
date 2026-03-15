@@ -117,9 +117,11 @@ export default function TalentArmeCard({ item, armes }) {
         {compatTypes.length > 0 && !showPerfect && (
             <div className="px-4 py-2 border-t border-tactical-border/50 flex flex-wrap gap-1">
               {compatTypes.map(t => (
+                  <InfoToolTip text={COMPAT_LABELS[t] || t} icon={
             <span key={t} className="text-xs font-bold uppercase tracking-widest bg-shd/10 text-shd/80 px-1.5 py-1.5 rounded flex items-center gap-1">
-              <InfoToolTip text={COMPAT_LABELS[t] || t} icon={<GameIcon src={WEAPON_TYPE_ICONS[t]} alt="" size="w-3 h-3" className="opacity-70" />}/>
+              <GameIcon src={WEAPON_TYPE_ICONS[t]} alt="" size="w-3 h-3" className="opacity-70" />
             </span>
+                  }/>
               ))}
             </div>
         )}
