@@ -70,16 +70,16 @@ export default function TalentArmeCard({ item, armes }) {
 
       {/* Arme(s) nommée(s) portant la version parfaite */}
       {showPerfect && item.armesParfaites?.length > 0 && (
-        <div className="px-4 pb-2 text-xs text-yellow-500/70 flex items-center gap-1">
+        <div className="px-4 pb-2 text-xs text-yellow-500/70 flex flex-col items-start gap-1">
           <span className="text-yellow-400 font-bold uppercase tracking-widest">Arme :</span>
           {item.armesParfaites.map(slug => {
             const arme = armes?.find(a => a.slug === slug)
             return arme?.nom || slug
-          }).join(', ')}
+          }).join('\n- ')}
         </div>
       )}
 
-      {compatTypes.length > 0 && (
+      {compatTypes.length > 0 && !showPerfect && (
         <div className="px-4 py-2 border-t border-tactical-border/50 flex flex-wrap gap-1">
           {compatTypes.map(t => (
             <span key={t} className="text-xs font-bold uppercase tracking-widest bg-shd/10 text-shd/80 px-1.5 py-0.5 rounded flex items-center gap-1">
