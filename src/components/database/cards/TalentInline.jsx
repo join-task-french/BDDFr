@@ -1,16 +1,6 @@
 import { useState } from 'react'
 import { resolveIcon, WEAPON_TYPE_ICONS, GameIcon } from '../../../utils/gameAssets'
 
-const COMPAT_LABELS = {
-  fusil: 'Fusil',
-  calibre_12: 'Cal.12',
-  fusil_assaut: 'FA',
-  fusil_mitrailleur: 'FM',
-  fusil_precision: 'FP',
-  pistolet: 'Pistolet',
-  pistolet_mitrailleur: 'PM',
-}
-
 /**
  * Affiche un talent résolu inline (dans une WeaponCard, GearCard, etc.)
  * Même présentation que TalentArmeCard mais en version compacte.
