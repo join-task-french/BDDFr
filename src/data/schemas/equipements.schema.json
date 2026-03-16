@@ -70,7 +70,10 @@
           }
         },
         "mod": {
-          "type": "boolean"
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "integer" }
+          ]
         },
         "estNomme": {
           "type": "boolean"
