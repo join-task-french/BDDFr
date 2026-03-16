@@ -1,21 +1,21 @@
 // Équipements — The Division 2
 {
-  "protective_tactical_mask": {
-    "nom": "Protective Tactical Mask",
+  "masque_tactique_de_protection": {
+    "nom": "Masque tactique de protection",
     "marque": "5_11_tactical",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
     "type": "standard"
   },
-  "amp24": {
-    "nom": "AMP24",
+  "rush24": {
+    "nom": "RUSH24",
     "marque": "5_11_tactical",
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "porte_plaques_taclite": {
     "nom": "Porte-plaques TacLite",
@@ -24,7 +24,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_station_grip": {
     "nom": "Gants Station Grip",
@@ -65,7 +65,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme":  false
   },
   "veste_athena_missile": {
     "nom": "Veste Athena Missile",
@@ -74,7 +74,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_de_precision_persephone": {
     "nom": "Gants de précision Persephone",
@@ -115,7 +115,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "cage_thoracique_x_treyme_pro": {
     "nom": "Cage thoracique X-TREYME Pro",
@@ -124,7 +124,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_d_escalade": {
     "nom": "Gants d'escalade",
@@ -165,7 +165,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "strong_vest_bauson": {
     "nom": "Strong Vest \"Bauson\"",
@@ -174,7 +174,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_de_longue_duree_meles": {
     "nom": "Gants de longue durée Meles",
@@ -215,7 +215,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "systeme_de_plastron_lancer": {
     "nom": "Système de plastron Lancer",
@@ -224,7 +224,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "ganst_vambrace": {
     "nom": "Ganst Vambrace",
@@ -265,7 +265,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "feugo_campea": {
     "nom": "Feugo Campea",
@@ -274,7 +274,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_caballeria": {
     "nom": "Gants Caballeria",
@@ -315,7 +315,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "holster_de_reconnaissance": {
     "nom": "Holster de reconnaissance",
@@ -348,7 +348,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "ps_282": {
     "nom": "PS 282",
@@ -357,7 +357,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "st_520": {
     "nom": "ST 520",
@@ -398,7 +398,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "systeme_de_poitrine_ericht": {
     "nom": "Système de poitrine \"Ericht\"",
@@ -407,7 +407,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "protege_mains_lochy": {
     "nom": "Protège-mains \"Lochy\"",
@@ -448,7 +448,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "veste_electrique": {
     "nom": "Veste Electrique",
@@ -457,7 +457,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_electrique": {
     "nom": "Gants Electrique",
@@ -498,7 +498,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "protecteur_tendance": {
     "nom": "Protecteur tendance",
@@ -507,7 +507,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "moufles_en_simili_cuir": {
     "nom": "Moufles en simili cuir",
@@ -548,7 +548,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "plaque_de_buste_forstarkt": {
     "nom": "Plaque de buste Förstärkt",
@@ -557,7 +557,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_tassar": {
     "nom": "Gants Tassar",
@@ -598,7 +598,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gilet_armadillo": {
     "nom": "Gilet Armadillo",
@@ -607,7 +607,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_diamondback": {
     "nom": "Gants Diamondback",
@@ -648,7 +648,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_ayal": {
     "nom": "Gants Ayal",
@@ -689,7 +689,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_d_attaque_dusk": {
     "nom": "Gants d'attaque Dusk",
@@ -722,7 +722,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "veste_hg": {
     "nom": "Veste HG",
@@ -731,7 +731,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_hg": {
     "nom": "Gants HG",
@@ -772,7 +772,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gilet_pare_eclats": {
     "nom": "Gilet pare-éclats",
@@ -781,7 +781,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_plaques": {
     "nom": "Gants plaqués",
@@ -814,7 +814,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "veste_langmo_bomb": {
     "nom": "Veste Langmo Bomb",
@@ -823,7 +823,7 @@
     "mod": true,
     "talents": [],
     "type": "standard",
-    "estNomme": true
+    "estNomme": false
   },
   "gants_langmo": {
     "nom": "Gants Langmo",
