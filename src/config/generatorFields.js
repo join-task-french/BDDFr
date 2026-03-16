@@ -1,8 +1,8 @@
 /**
  * Configuration des champs pour le générateur JSONC.
  * Types supportés :
- *   text, textarea, number, boolean, enum, array, objectArray,
- *   checkboxMap, radioGroup, tagSelect, autocomplete, autocomplete_array
+ * text, textarea, number, boolean, enum, array, objectArray,
+ * checkboxMap, radioGroup, tagSelect, autocomplete, autocomplete_array
  */
 import { slugify } from '../utils/slugify'
 
@@ -20,10 +20,6 @@ export const GENERATOR_CATEGORIES = [
   { key: 'modsCompetences', label: 'Mods de Compétences', icon: '💎' },
 ]
 
-/**
- * Clé unique pour détecter les éléments existants par catégorie.
- * String = champ unique, Array = clé composite.
- */
 export const IDENTITY_KEY = {
   armes: 'slug',
   equipements: 'slug',
@@ -38,9 +34,6 @@ export const IDENTITY_KEY = {
   modsCompetences: 'slug',
 }
 
-/**
- * Clé de données dans loadedData correspondant à chaque catégorie.
- */
 export const DATA_KEY = {
   armes: 'armes',
   equipements: 'equipements',
@@ -55,9 +48,6 @@ export const DATA_KEY = {
   modsCompetences: 'modsCompetences',
 }
 
-/**
- * Fichiers JSONC correspondants pour l'export.
- */
 export const FILE_MAP = {
   armes: 'armes.jsonc',
   equipements: 'equipements.jsonc',
@@ -86,31 +76,31 @@ export const FIELDS = {
       { key: 'headshot', label: 'Headshot (%)', type: 'number', step: 1, min: 0 },
       { key: 'degatsBase', label: 'Dégâts base', type: 'number', step: 1, min: 0 },
       { key: '_rarity', label: 'Rareté', type: 'radioGroup', target: { exo: 'estExotique', nom: 'estNomme' }, options: [
-        { value: '', label: 'Standard' },
-        { value: 'exo', label: 'Exotique' },
-        { value: 'nom', label: 'Nommé' },
-      ]},
+          { value: '', label: 'Standard' },
+          { value: 'exo', label: 'Exotique' },
+          { value: 'nom', label: 'Nommé' },
+        ]},
       { key: 'talents', label: 'Talents', type: 'autocomplete_array', suggestionsKey: 'talentsArmes', placeholder: 'Rechercher un talent...' },
       { key: 'attributs', label: 'Attributs fixés', type: 'objectArray', fields: [
-        { key: 'nom', label: 'Nom', type: 'autocomplete', suggestionsKey: 'attributs' },
-        { key: 'valeur', label: 'Valeur', type: 'number' },
-      ]},
+          { key: 'nom', label: 'Nom', type: 'autocomplete', suggestionsKey: 'attributs' },
+          { key: 'valeur', label: 'Valeur', type: 'number' },
+        ]},
       { key: 'emplacementsMods', label: 'Emplacements Mods', type: 'tagSelect', options: [
-        { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
-        { value: 'canon', label: 'Canon', color: 'red' },
-        { value: 'viseur', label: 'Viseur', color: 'blue' },
-        { value: 'bouche', label: 'Bouche', color: 'yellow' },
-      ]},
+          { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
+          { value: 'canon', label: 'Canon', color: 'red' },
+          { value: 'viseur', label: 'Viseur', color: 'blue' },
+          { value: 'bouche', label: 'Bouche', color: 'yellow' },
+        ]},
       { key: 'modsPredefinis', label: 'Mods prédéfinis (exotiques)', type: 'autocomplete_array', suggestionsKey: 'modsArmes', placeholder: 'Rechercher un mod...', visibleWhen: { key: '_rarity', value: 'exo' } },
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
-        { key: 'description', label: 'Description', type: 'textarea' },
-        { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
-        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
-        { key: 'mission', label: 'Mission', type: 'triState' },
-        { key: 'raid', label: 'Raid', type: 'triState' },
-        { key: 'incursion', label: 'Incursion', type: 'triState' },
-        { key: 'represailles', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
-      ]},
+          { key: 'description', label: 'Description', type: 'textarea' },
+          { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
+          { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
+          { key: 'mission', label: 'Mission', type: 'triState' },
+          { key: 'raid', label: 'Raid', type: 'triState' },
+          { key: 'incursion', label: 'Incursion', type: 'triState' },
+          { key: 'represailles', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
+        ]},
       { key: 'icone', label: 'Icône (slug)', type: 'text', placeholder: 'nom_fichier_sans_extension' },
     ],
   },
@@ -123,26 +113,26 @@ export const FIELDS = {
       { key: 'emplacement', label: 'Emplacement', type: 'tagSelect', required: true, singleSelect: true, dynamicOptions: 'equipementsTypes' },
       { key: 'attributEssentiel', label: 'Attribut(s) essentiel(s)', type: 'tagSelect', dynamicOptions: 'attributsTypes' },
       { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
-        { key: 'nom', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
-        { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
-      ]},
+          { key: 'nom', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'attributs' },
+          { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
+        ]},
       { key: 'talents', label: 'Talents', type: 'autocomplete_array', suggestionsKey: 'talentsEquipements', placeholder: 'Rechercher un talent...' },
       { key: 'mod', label: 'Emplacement de mod', type: 'boolean' },
       { key: 'type', label: 'Type', type: 'tagSelect', singleSelect: true, options: [
-        { value: 'standard', label: 'Standard', color: 'blue' },
-        { value: 'exotique', label: 'Exotique', color: 'red' },
-        { value: 'gear_set', label: 'Gear Set', color: 'green' },
-      ]},
+          { value: 'standard', label: 'Standard', color: 'blue' },
+          { value: 'exotique', label: 'Exotique', color: 'red' },
+          { value: 'gear_set', label: 'Gear Set', color: 'green' },
+        ]},
       { key: 'estNomme', label: 'Nommé', type: 'boolean', hiddenWhen: { key: 'type', value: 'exotique' } },
       { key: 'obtention', label: 'Obtention', type: 'objectGroup', fields: [
-        { key: 'description', label: 'Description', type: 'textarea' },
-        { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
-        { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
-        { key: 'mission', label: 'Mission', type: 'triState' },
-        { key: 'raid', label: 'Raid', type: 'triState' },
-        { key: 'incursion', label: 'Incursion', type: 'triState' },
-        { key: 'represailles', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
-      ]},
+          { key: 'description', label: 'Description', type: 'textarea' },
+          { key: 'butinCible', label: 'Butin ciblé', type: 'triState' },
+          { key: 'cachesExotiques', label: 'Caches exotiques', type: 'triState' },
+          { key: 'mission', label: 'Mission', type: 'triState' },
+          { key: 'raid', label: 'Raid', type: 'triState' },
+          { key: 'incursion', label: 'Incursion', type: 'triState' },
+          { key: 'represailles', label: 'Schémas représailles (faction)', type: 'text', placeholder: 'Nom de la faction (optionnel)' },
+        ]},
       { key: 'attributUnique', label: 'Attribut unique', type: 'text' },
     ],
   },
@@ -181,9 +171,9 @@ export const FIELDS = {
     fields: [
       { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsEnsembles', isIdentity: true },
       { key: 'type', label: 'Type', type: 'tagSelect', required: true, singleSelect: true, options: [
-        { value: 'gear_set', label: 'Gear Set', color: 'green' },
-        { value: 'marque', label: 'Marque', color: 'blue' },
-      ]},
+          { value: 'gear_set', label: 'Gear Set', color: 'green' },
+          { value: 'marque', label: 'Marque', color: 'blue' },
+        ]},
       { key: 'logo', label: 'Logo (fichier)', type: 'text', placeholder: 'nom-du-logo.png' },
       { key: 'attributsEssentiels', label: 'Attributs essentiels', type: 'tagSelect', dynamicOptions: 'attributsTypes' },
       { key: 'bonus1piece', label: 'Bonus 1 pièce', type: 'text', hiddenWhen: { key: 'type', value: 'gear_set' } },
@@ -221,9 +211,9 @@ export const FIELDS = {
       { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsAttributs', isIdentity: true },
       { key: 'categorie', label: 'Catégorie', type: 'tagSelect', required: true, singleSelect: true, dynamicOptions: 'attributsTypes' },
       { key: 'cible', label: 'Cible', type: 'tagSelect', options: [
-        { value: 'arme', label: 'Arme', color: 'red' },
-        { value: 'equipement', label: 'Équipement', color: 'blue' },
-      ]},
+          { value: 'arme', label: 'Arme', color: 'red' },
+          { value: 'equipement', label: 'Équipement', color: 'blue' },
+        ]},
       { key: 'unite', label: 'Unité', type: 'text', placeholder: '%, pts, pts/s...' },
       { key: 'min', label: 'Minimum', type: 'number', step: 0.1, min: 0 },
       { key: 'max', label: 'Maximum', type: 'number', step: 0.1, min: 0 },
@@ -246,17 +236,17 @@ export const FIELDS = {
     fields: [
       { key: 'nom', label: 'Nom', type: 'autocomplete', required: true, suggestionsKey: 'nomsModsArmes', isIdentity: true },
       { key: 'type', label: 'Type', type: 'tagSelect', singleSelect: true, options: [
-        { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
-        { value: 'canon', label: 'Canon', color: 'red' },
-        { value: 'viseur', label: 'Viseur', color: 'blue' },
-        { value: 'bouche', label: 'Bouche', color: 'yellow' },
-        { value: 'autre', label: 'Autre', color: 'green' },
-      ]},
+          { value: 'chargeur', label: 'Chargeur', color: 'yellow' },
+          { value: 'canon', label: 'Canon', color: 'red' },
+          { value: 'viseur', label: 'Viseur', color: 'blue' },
+          { value: 'bouche', label: 'Bouche', color: 'yellow' },
+          { value: 'autre', label: 'Autre', color: 'green' },
+        ]},
       { key: 'compatible', label: 'Compatible avec', type: 'tagSelect', dynamicOptions: 'armesTypesCompat' },
       { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
-        { key: 'attribut', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'allAttributsSlugs' },
-        { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
-      ]},
+          { key: 'attribut', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'allAttributsSlugs' },
+          { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
+        ]},
       { key: 'estExotique', label: 'Mod exotique', type: 'boolean' },
       { key: 'bonus', label: 'Bonus texte (optionnel)', type: 'text', placeholder: 'Effet non lié à un attribut...' },
     ],
@@ -269,9 +259,9 @@ export const FIELDS = {
       { key: 'categorie', label: 'Catégorie', type: 'tagSelect', singleSelect: true, dynamicOptions: 'attributsTypes' },
       { key: 'protocole', label: 'Protocole', type: 'text' },
       { key: 'attributs', label: 'Attributs', type: 'objectArray', fields: [
-        { key: 'attribut', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'allAttributsSlugs' },
-        { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
-      ]},
+          { key: 'attribut', label: 'Attribut', type: 'autocomplete', suggestionsKey: 'allAttributsSlugs' },
+          { key: 'valeur', label: 'Valeur', type: 'number', step: 0.1 },
+        ]},
     ],
   },
 
@@ -284,9 +274,9 @@ export const FIELDS = {
       { key: 'compatible', label: 'Compatible avec', type: 'autocomplete_array', suggestionsKey: 'competenceSlugs', placeholder: 'Slug compétence...' },
       { key: 'prerequis', label: 'Spécialisation requise', type: 'tagSelect', singleSelect: true, dynamicOptions: 'specialisations' },
       { key: 'attributs', label: 'Attributs modifiés', type: 'objectArray', fields: [
-        { key: 'attribut', label: 'Statistique', type: 'autocomplete', suggestionsKey: 'statistiques' },
-        { key: 'valeur', label: 'Valeur', type: 'number', step: 1 },
-      ]},
+          { key: 'attribut', label: 'Statistique', type: 'autocomplete', suggestionsKey: 'statistiques' },
+          { key: 'valeur', label: 'Valeur', type: 'number', step: 1 },
+        ]},
       { key: 'bonus', label: 'Bonus texte (optionnel)', type: 'text', placeholder: 'Effet non lié à une statistique...' },
     ],
   },
@@ -295,7 +285,6 @@ export const FIELDS = {
 /** Construit les listes de suggestions. */
 export function buildSuggestions(loadedData, generatorData, savedItems) {
   const s = {}
-  // Merge saved items into loaded data for suggestions
   const merged = {}
   for (const cat of GENERATOR_CATEGORIES) {
     const dk = DATA_KEY[cat.key]
@@ -304,41 +293,55 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
     merged[dk] = [...loaded, ...saved]
   }
 
-  // --- Noms par catégorie (pour autocomplétion du champ nom/identifiant) ---
-  s.nomsArmes = [...new Set((merged.armes || []).map(a => a.nom).filter(Boolean))].sort()
-  s.nomsEquipements = [...new Set((merged.equipements || []).map(e => e.nom).filter(Boolean))].sort()
-  // Prioritize equipements matching selected marque
+  const extractUniqueWithSlugs = (items) => {
+    if (!items) return []
+    const validItems = items.filter(i => i.nom)
+    const counts = validItems.reduce((acc, item) => {
+      acc[item.nom] = (acc[item.nom] || 0) + 1
+      return acc
+    }, {})
+
+    const mapped = validItems.map(item => {
+      if (counts[item.nom] > 1 && item.slug) {
+        return `${item.nom} (${item.slug})`
+      }
+      return item.nom
+    })
+    return [...new Set(mapped)].sort()
+  }
+
+  s.nomsArmes = extractUniqueWithSlugs(merged.armes)
+  s.nomsEquipements = extractUniqueWithSlugs(merged.equipements)
+
   const selectedMarque = generatorData?.equipements?.marque
   if (selectedMarque) {
     const marqueEquips = new Set(
-      (merged.equipements || []).filter(e => e.marque?.toLowerCase() === selectedMarque.toLowerCase()).map(e => e.nom)
+        (merged.equipements || []).filter(e => e.marque?.toLowerCase() === selectedMarque.toLowerCase()).map(e => e.nom)
     )
     s.nomsEquipements = s.nomsEquipements.sort((a, b) => {
-      const aMatch = marqueEquips.has(a) ? 0 : 1
-      const bMatch = marqueEquips.has(b) ? 0 : 1
+      const cleanA = a.replace(/\s\([^)]+\)$/, '')
+      const cleanB = b.replace(/\s\([^)]+\)$/, '')
+      const aMatch = marqueEquips.has(cleanA) ? 0 : 1
+      const bMatch = marqueEquips.has(cleanB) ? 0 : 1
       return aMatch - bMatch || a.localeCompare(b)
     })
   }
-  s.nomsTalentsArmes = [...new Set((merged.talentsArmes || []).map(t => t.nom).filter(Boolean))].sort()
-  s.nomsTalentsEquipements = [...new Set((merged.talentsEquipements || []).map(t => t.nom).filter(Boolean))].sort()
-  s.nomsEnsembles = [...new Set((merged.ensembles || []).map(e => e.nom).filter(Boolean))].sort()
-  s.nomsAttributs = [...new Set((merged.attributs || []).map(a => a.nom).filter(Boolean))].sort()
-  s.nomsModsArmes = [...new Set((merged.modsArmes || []).map(m => m.nom).filter(Boolean))].sort()
-  s.nomsModsEquipements = [...new Set((merged.modsEquipements || []).map(m => m.nom).filter(Boolean))].sort()
-  s.nomsStatistiques = [...new Set((merged.statistiques || []).map(st => st.nom).filter(Boolean))].sort()
 
-  // Statistiques (slug → nom) pour le champ statistiques des attributs et mods
+  s.nomsTalentsArmes = extractUniqueWithSlugs(merged.talentsArmes)
+  s.nomsTalentsEquipements = extractUniqueWithSlugs(merged.talentsEquipements)
+  s.nomsEnsembles = extractUniqueWithSlugs(merged.ensembles)
+  s.nomsAttributs = extractUniqueWithSlugs(merged.attributs)
+  s.nomsModsArmes = extractUniqueWithSlugs(merged.modsArmes)
+  s.nomsModsEquipements = extractUniqueWithSlugs(merged.modsEquipements)
+  s.nomsStatistiques = extractUniqueWithSlugs(merged.statistiques)
+
   s.statistiques = (merged.statistiques || []).filter(st => st.slug && st.nom).map(st => ({ value: st.slug, label: st.nom }))
   s.statistiques.sort((a, b) => a.label.localeCompare(b.label))
 
-  // Tous les attributs par slug (pour les mods d'armes/équipements)
   s.allAttributsSlugs = (merged.attributs || []).filter(a => a.slug && a.nom).map(a => ({ value: a.slug, label: a.nom }))
   s.allAttributsSlugs.sort((a, b) => a.label.localeCompare(b.label))
 
-  // Compétences : flat array (from flattened) or grouped (from raw)
   const flatComps = merged.competences || []
-
-  // Variantes filtrées par la compétence sélectionnée
   const selectedComp = generatorData?.competences?.competence
   if (selectedComp) {
     const compLower = selectedComp.toLowerCase()
@@ -347,28 +350,23 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
     s.variantes = [...new Set(flatComps.map(c => c.variante).filter(Boolean))].sort()
   }
 
-  // Spécialisations (depuis class-spe.jsonc)
   s.specialisations = (loadedData?.classSpe || []).map(sp => ({ value: sp.cle, label: sp.nom })).sort((a, b) => a.label.localeCompare(b.label))
 
-  // Emplacements de mods de compétences (from competencesGrouped or from flat enriched data)
   const groupedComps = loadedData?.competencesGrouped || []
   const emplacementSet = new Set()
   groupedComps.forEach(c => {
     (c.emplacementsMods || []).forEach(em => emplacementSet.add(em.emplacement))
   })
-  // Also from flat data if emplacementsMods is available
   flatComps.forEach(c => {
     (c.emplacementsMods || []).forEach(em => emplacementSet.add(em.emplacement))
   })
   s.emplacementsModsCompetences = Array.from(emplacementSet).sort()
 
-  // Slugs de compétences (pour compatible[] des mods de compétences)
   const compSlugSet = new Set()
   groupedComps.forEach(c => { if (c.slug) compSlugSet.add(c.slug) })
   flatComps.forEach(c => { if (c.competenceSlug) compSlugSet.add(c.competenceSlug) })
   s.competenceSlugs = Array.from(compSlugSet).sort().map(slug => ({ value: slug, label: slug }))
 
-  // --- Fabricants d'armes ---
   const fabSet = new Set()
   merged.armes?.forEach(a => { if (a.fabricant) fabSet.add(a.fabricant) })
   if (generatorData?.armes?.fabricant) fabSet.add(generatorData.armes.fabricant)
@@ -384,8 +382,6 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   }
   s.marques = [...marqueMap.entries()].sort((a, b) => a[1].localeCompare(b[1])).map(([slug, nom]) => ({ value: slug, label: nom }))
 
-  // Cross-reference suggestions: {value: slug, label: name} format
-  // Used by autocomplete_array fields that store slugs
   s.talentsArmes = (merged.talentsArmes || []).filter(t => t.slug && t.nom).map(t => ({ value: t.slug, label: t.nom }))
   s.talentsArmes.sort((a, b) => a.label.localeCompare(b.label))
   if (generatorData?.talentsArmes?.nom) {
@@ -410,7 +406,6 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   s.modsArmes = (merged.modsArmes || []).filter(m => m.slug && m.nom).map(m => ({ value: m.slug, label: m.nom }))
   s.modsArmes.sort((a, b) => a.label.localeCompare(b.label))
 
-  // Slug-keyed lookups for display resolution
   s._slugToName = {}
   const addLookup = (items, nameField = 'nom') => {
     for (const item of (items || [])) {
@@ -446,42 +441,35 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
 
   const compSet = new Set()
   flatComps.forEach(c => { if (c.competence) compSet.add(c.competence) })
-  // Also from grouped if available
   groupedComps.forEach(c => { if (c.competence) compSet.add(c.competence) })
   s.competences = Array.from(compSet).sort()
 
-  // --- Dynamic options from type data ---
   const armesType = loadedData?.armes_type || {}
   const eqType = loadedData?.equipements_type || {}
   const attrType = loadedData?.attributs_type || {}
 
   const colorCycle = ['red', 'yellow', 'blue', 'green']
-  // Weapon types (excluding arme_specifique for compat)
   s.armesTypes = Object.entries(armesType)
-    .filter(([k]) => k !== 'arme_specifique')
-    .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] }))
+      .filter(([k]) => k !== 'arme_specifique')
+      .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] }))
   s.armesTypesCompat = Object.entries(armesType)
-    .filter(([k]) => k !== 'arme_specifique')
-    .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] }))
-  // Equipment types
+      .filter(([k]) => k !== 'arme_specifique')
+      .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] }))
   s.equipementsTypes = Object.entries(eqType)
-    .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] }))
-  // Attribute types
+      .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] }))
   const attrColors = { offensif: 'red', defensif: 'blue', utilitaire: 'yellow' }
   s.attributsTypes = Object.entries(attrType)
-    .map(([value, obj]) => ({ value, label: obj.nom, color: attrColors[value] || 'yellow' }))
-  // Talent equip emplacements
+      .map(([value, obj]) => ({ value, label: obj.nom, color: attrColors[value] || 'yellow' }))
   s.talentEquipEmplacements = [
     ...Object.entries(eqType)
-      .filter(([k]) => k === 'torse' || k === 'sac_a_dos')
-      .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] })),
+        .filter(([k]) => k === 'torse' || k === 'sac_a_dos')
+        .map(([value, obj], i) => ({ value, label: obj.nom, color: colorCycle[i % colorCycle.length] })),
     { value: 'tous', label: 'Tous', color: 'yellow' },
   ]
 
   return s
 }
 
-/** Génère les valeurs par défaut pour une catégorie. */
 export function getDefaults(categoryKey) {
   const config = FIELDS[categoryKey]
   if (!config) return {}
@@ -519,11 +507,16 @@ export function getDefaults(categoryKey) {
   return defaults
 }
 
-/** Nettoie l'objet formulaire pour la sortie JSONC. */
 export function cleanOutput(data, categoryKey) {
   const config = FIELDS[categoryKey]
   if (!config) return data
   const result = {}
+
+  // On préserve explicitement le slug généré ou chargé
+  if (data.slug) {
+    result.slug = data.slug
+  }
+
   for (const field of config.fields) {
     if (field.type === 'radioGroup' && field.target) {
       const val = data[field.key]
@@ -536,10 +529,8 @@ export function cleanOutput(data, categoryKey) {
     if (val === '' || val === undefined || val === null) continue
     if (field.type === 'boolean' && val === false) continue
 
-    // tagSelect
     if (field.type === 'tagSelect') {
       if (field.outputAsObject) {
-        // Convert array → { key: true, ... } for compatibilité
         if (Array.isArray(val) && val.length > 0) {
           const obj = {}
           val.forEach(v => { obj[v] = true })
@@ -550,7 +541,6 @@ export function cleanOutput(data, categoryKey) {
       if (field.singleSelect) {
         if (val) result[field.key] = val
       } else {
-        // Toujours inclure les arrays (même vides) pour les champs multi-select
         if (Array.isArray(val)) result[field.key] = val
       }
       continue
@@ -572,10 +562,8 @@ export function cleanOutput(data, categoryKey) {
           if (sf.type === 'number' && sv !== '' && sv !== undefined) {
             cleaned[sf.key] = Number(sv)
           } else if (sf.type === 'boolean') {
-            // boolean: n'inclure que si true
             if (sv === true) cleaned[sf.key] = true
           } else if (sf.type === 'triState') {
-            // triState 4 états : null = absent, true = vrai, false = faux, string = texte
             if (typeof sv === 'string' && sv.trim().length > 0) {
               cleaned[sf.key] = sv.trim()
             } else if (sv === true) {
@@ -583,19 +571,15 @@ export function cleanOutput(data, categoryKey) {
             } else if (sv === false) {
               cleaned[sf.key] = false
             }
-            // null/undefined → omis
           } else if (sf.type === 'textarea') {
-            // textarea: n'inclure que si non vide
             if (sv && String(sv).trim()) cleaned[sf.key] = String(sv).trim()
           } else {
             if (sv) cleaned[sf.key] = sv
           }
         }
-        // Remove optional string fields that are empty
         for (const sf of (field.fields || [])) {
           if (sf.type === 'text' && !cleaned[sf.key]) delete cleaned[sf.key]
         }
-        // N'inclure le groupe que s'il contient au moins un sous-champ
         if (Object.keys(cleaned).length > 0) {
           result[field.key] = cleaned
         }
@@ -609,20 +593,16 @@ export function cleanOutput(data, categoryKey) {
     result[field.key] = val
   }
 
-
-  // Auto-generate slug si absent ou si nouveau (pas en mode édition)
+  // Création du slug uniquement si l'élément n'en a pas encore (nouvel élément)
   if (!result.slug) {
-    if (categoryKey === 'modsCompetences') {
-      result.slug = slugify((result.competence || '') + '_' + (result.emplacement || ''))
-    } else {
-      result.slug = slugify(result.nom || '')
-    }
+    const idVal = getIdentityValue(categoryKey, result)
+    const fallback = typeof idVal === 'string' ? idVal : (idVal ? Object.values(idVal).join('_') : 'nouvel_element')
+    result.slug = slugify(result.nom || fallback)
   }
 
   return result
 }
 
-/** Génère les 6 pièces d'équipement pré-remplies pour un ensemble. */
 export function generateEquipmentSet(ensembleData, equipementsType) {
   const nom = ensembleData.nom || 'Nouvel Ensemble'
   const ensembleSlug = ensembleData.slug || slugify(nom)
@@ -650,10 +630,6 @@ export function generateEquipmentSet(ensembleData, equipementsType) {
   })
 }
 
-/**
- * Cherche un élément existant dans les données chargées.
- * Supporte les clés simples (string) et composites (array).
- */
 export function findExisting(categoryKey, identityValues, loadedData, savedItems) {
   const dk = DATA_KEY[categoryKey]
   const idKey = IDENTITY_KEY[categoryKey]
@@ -673,10 +649,6 @@ export function findExisting(categoryKey, identityValues, loadedData, savedItems
   return null
 }
 
-/**
- * Récupère la/les valeur(s) d'identité depuis les données du formulaire.
- * Retourne une string (clé simple) ou un objet { key: value } (clé composite), ou null.
- */
 export function getIdentityValue(categoryKey, formData) {
   const idKey = IDENTITY_KEY[categoryKey]
   if (!idKey) return null
@@ -694,25 +666,19 @@ export function getIdentityValue(categoryKey, formData) {
   return v && String(v).trim() ? String(v).trim() : null
 }
 
-/**
- * Retourne le nom affiché de l'identité pour le bandeau d'édition.
- */
 export function getIdentityLabel(categoryKey, identityValues, formData) {
   if (!identityValues) return ''
-  // For slug-based identity, show the nom instead
   if (formData?.nom) return formData.nom
   if (typeof identityValues === 'string') return identityValues
-  // Composite : join values
   return Object.values(identityValues).join(' — ')
 }
 
-/** Construit un matcher function pour chercher un item selon idKey + values. */
 function buildMatcher(idKey, values) {
   if (!values) return null
   if (Array.isArray(idKey)) {
     if (typeof values !== 'object') return null
     return (item) => idKey.every(k =>
-      (item[k] || '').toLowerCase() === (values[k] || '').toLowerCase()
+        (item[k] || '').toLowerCase() === (values[k] || '').toLowerCase()
     )
   }
   const name = typeof values === 'string' ? values : values[idKey]
@@ -721,15 +687,12 @@ function buildMatcher(idKey, values) {
   return (item) => (item[idKey] || '').toLowerCase() === nameLower
 }
 
-/**
- * Convertit un objet chargé en données de formulaire.
- */
 export function itemToFormData(categoryKey, item) {
   const config = FIELDS[categoryKey]
   if (!config || !item) return null
   const data = getDefaults(categoryKey)
 
-  // Always preserve slug from existing item
+  // Conserve le slug immuable
   if (item.slug) data.slug = item.slug
 
   for (const field of config.fields) {
@@ -740,17 +703,14 @@ export function itemToFormData(categoryKey, item) {
       continue
     }
     if (field.type === 'tagSelect' && field.outputAsObject && item[field.key]) {
-      // Convert { fusil: true, pistolet: true } → ['fusil', 'pistolet']
       data[field.key] = Object.entries(item[field.key]).filter(([, v]) => v).map(([k]) => k)
       continue
     }
     if (field.type === 'objectGroup' && typeof item[field.key] === 'object' && !Array.isArray(item[field.key])) {
-      // Fusionner les sous-champs au lieu de remplacer l'objet entier
       const src = item[field.key]
-      const merged = { ...data[field.key] } // commence par les defaults
+      const merged = { ...data[field.key] }
       for (const sf of (field.fields || [])) {
         if (sf.key in src && src[sf.key] !== undefined) {
-          // null dans la source → garder le default (null pour triState = non défini)
           if (src[sf.key] === null) continue
           merged[sf.key] = sf.type === 'number' ? String(src[sf.key]) : src[sf.key]
         }
