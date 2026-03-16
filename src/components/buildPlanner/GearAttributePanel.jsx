@@ -10,6 +10,7 @@ import AttributePicker from './AttributePicker'
 function getClassicSlotCount(piece) {
   if (!piece) return 0
   if (piece.type === 'gear_set') return 1
+  if (piece.type === 'improvise') return 2
   if (piece.type === 'exotique') {
     const essCount = Array.isArray(piece.attributEssentiel) ? piece.attributEssentiel.length : 0
     return essCount >= 3 ? 1 : 2
