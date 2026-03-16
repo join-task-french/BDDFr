@@ -2899,7 +2899,8 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
-    "type": "improvise"
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées"
   },
   "sac_a_dos_improvise": {
     "nom": "Sac à dos improvisé",
@@ -2907,7 +2908,8 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
-    "type": "improvise"
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées"
   },
   "protection_corporelle_improvisee": {
     "nom": "Protection corporelle improvisée",
@@ -2915,7 +2917,8 @@
     "emplacement": "torse",
     "mod": true,
     "talents": [],
-    "type": "improvise"
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées"
   },
   "gants_improvises": {
     "nom": "Gants improvisés",
@@ -2923,7 +2926,8 @@
     "emplacement": "gants",
     "mod": true,
     "talents": [],
-    "type": "improvise"
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées"
   },
   "holster_improvise": {
     "nom": "Holster improvisé",
@@ -2931,7 +2935,8 @@
     "emplacement": "holster",
     "mod": true,
     "talents": [],
-    "type": "improvise"
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées"
   },
   "genouilleres_improvisees": {
     "nom": "Genouillères improvisées",
@@ -2939,6 +2944,7 @@
     "emplacement": "genouilleres",
     "mod": true,
     "talents": [],
-    "type": "improvise"
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées"
   }
 }

@@ -19,7 +19,8 @@
           "type": "string",
           "enum": [
             "gear_set",
-            "marque"
+            "marque",
+            "improvise"
           ]
         },
         "logo": {
