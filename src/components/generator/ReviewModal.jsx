@@ -1,5 +1,4 @@
 import { useMemo, useEffect, useState } from 'react'
-import { applyEdits, modify } from 'jsonc-parser'
 import { slugify } from '../../utils/slugify'
 
 export default function ReviewModal({ loadedData, savedItems, categories, dataKey, identityKey, fileMap, onConfirm, onCancel }) {
@@ -10,33 +9,23 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
 
   const githubUrlInfo = useMemo(() => {
     if (!hasChanges) return { url: null, isTooLong: false }
-
     const patches = []
 
     for (const cat of categories) {
       const items = savedItems[cat.key] || []
       if (items.length === 0) continue
 
-      const dk = dataKey[cat.key]
       const fileName = fileMap[cat.key]
-      const idK = identityKey[cat.key]
-      const loadedObj = loadedData?.[dk] || {}
-
       const upsertsDict = {}
 
       for (const item of items) {
         const clean = { ...item }
+        const currentSlug = item.slug || slugify(item.nom || 'nouvel_element')
 
         Object.keys(clean).forEach(k => k.startsWith('_') && delete clean[k])
         delete clean.slug
 
-        let itemSlug = findInLoadedKey(item, loadedObj, idK)
-
-        if (!itemSlug) {
-          itemSlug = item._slug || slugify(item.nom || 'nouvel_element_' + Math.random().toString(36).substring(2, 9))
-        }
-
-        upsertsDict[itemSlug] = clean
+        upsertsDict[currentSlug] = clean
       }
 
       patches.push({
@@ -52,11 +41,8 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
     const body = encodeURIComponent(markdownBody)
     const url = `${__REPOS_URL__}/issues/new?title=${title}&body=${body}`
 
-    return {
-      url,
-      isTooLong: url.length > 8000
-    }
-  }, [categories, savedItems, dataKey, identityKey, fileMap, loadedData, hasChanges])
+    return { url, isTooLong: url.length > 8000 }
+  }, [categories, savedItems, fileMap, hasChanges])
 
   useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape' && !isProcessing) onCancel() }
@@ -66,17 +52,14 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
 
   const handleGithubIssue = () => {
     if (!githubUrlInfo.url || githubUrlInfo.isTooLong) return
-
     setIsProcessing(true)
     try {
       window.open(githubUrlInfo.url, '_blank')
       onCancel()
     } catch (e) {
       console.error(e)
-      alert("Une erreur est survenue lors de l'ouverture de GitHub.")
-    } finally {
-      setIsProcessing(false)
-    }
+      alert("Erreur lors de l'ouverture de GitHub.")
+    } finally { setIsProcessing(false) }
   }
 
   return (
@@ -114,29 +97,15 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
             ))}
           </div>
 
-          <div className="px-5 py-3 border-t border-tactical-border flex justify-between items-center shrink-0">
-            <button onClick={onCancel} disabled={isProcessing}
-                    className="text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded border border-tactical-border text-gray-400 hover:text-white hover:border-gray-500 transition-colors disabled:opacity-50">
-              Annuler
+          <div className="px-5 py-3 border-t border-tactical-border flex justify-end gap-3 shrink-0">
+            {!githubUrlInfo.isTooLong && hasChanges && (
+                <button onClick={handleGithubIssue} disabled={isProcessing} className="text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded border border-shd/40 text-shd hover:bg-shd/10 transition-colors">
+                  {isProcessing ? 'Ouverture...' : '🐙 Contribuer via GitHub'}
+                </button>
+            )}
+            <button onClick={onConfirm} disabled={!hasChanges || isProcessing} className={`text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded border transition-colors ${hasChanges ? 'border-blue-500/40 text-blue-400 hover:bg-blue-500/10' : 'border-tactical-border text-gray-600 cursor-not-allowed'}`}>
+              📦 Générer l'archive
             </button>
-
-            <div className="flex items-center gap-3">
-              {hasChanges && !githubUrlInfo.isTooLong && (
-                  <button onClick={handleGithubIssue} disabled={isProcessing}
-                          className="text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded border border-shd/40 text-shd hover:bg-shd/10 transition-colors flex items-center gap-2">
-                    {isProcessing ? 'Ouverture...' : '🐙 Contribuer via GitHub'}
-                  </button>
-              )}
-
-              <button onClick={onConfirm} disabled={!hasChanges || isProcessing}
-                      className={`text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded border transition-colors flex items-center gap-2 ${
-                          hasChanges
-                              ? 'border-blue-500/40 text-blue-400 hover:bg-blue-500/10'
-                              : 'border-tactical-border text-gray-600 cursor-not-allowed'
-                      }`}>
-                📦 Générer l'archive
-              </button>
-            </div>
           </div>
         </div>
       </div>
@@ -146,26 +115,19 @@ export default function ReviewModal({ loadedData, savedItems, categories, dataKe
 function DiffCard({ item }) {
   const isNew = item.type === 'new'
   return (
-      <div className={`rounded border p-3 text-xs ${
-          isNew
-              ? 'border-green-500/30 bg-green-500/5'
-              : 'border-yellow-500/30 bg-yellow-500/5'
-      }`}>
+      <div className={`rounded border p-3 text-xs ${isNew ? 'border-green-500/30 bg-green-500/5' : 'border-yellow-500/30 bg-yellow-500/5'}`}>
         <div className="flex items-center gap-2 mb-1.5">
-        <span className={`text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${
-            isNew
-                ? 'bg-green-500/20 text-green-400'
-                : 'bg-yellow-500/20 text-yellow-400'
-        }`}>
+        <span className={`text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${isNew ? 'bg-green-500/20 text-green-400' : 'bg-yellow-500/20 text-yellow-400'}`}>
           {isNew ? '+ Nouveau' : '✎ Modifié'}
         </span>
           <span className="text-white font-bold">{item.name}</span>
+          <span className="ml-auto text-gray-500 font-mono text-[10px]">[{item.slug}]</span>
         </div>
 
         {isNew ? (
             <div className="text-gray-400 mt-1">
               {Object.entries(item.data).map(([k, v]) => {
-                if (k.startsWith('_')) return null
+                if (k.startsWith('_') || k === 'slug') return null
                 return (
                     <div key={k} className="flex gap-2 py-0.5">
                       <span className="text-gray-600 shrink-0 w-28 text-right">{k}</span>
@@ -203,22 +165,26 @@ function buildReport(loadedData, savedItems, categories, dataKey, identityKey) {
   return categories.map(cat => {
     const dk = dataKey[cat.key]
     const idKey = identityKey[cat.key]
-    const loadedObj = loadedData?.[dk] || {}
+    const loadedArray = loadedData?.[dk] || []
     const saved = savedItems?.[cat.key] || []
 
     const items = saved.map(savedItem => {
       const name = getItemLabel(savedItem, idKey)
-      const originalKey = findInLoadedKey(savedItem, loadedObj, idKey)
-      const original = originalKey ? loadedObj[originalKey] : null
+
+      const original = loadedArray.find(item => {
+        if (savedItem.slug && item.slug === savedItem.slug) return true
+        if (Array.isArray(idKey)) return idKey.every(k => (item[k] || '').toLowerCase() === (savedItem[k] || '').toLowerCase())
+        return (item[idKey] || '').toLowerCase() === (savedItem[idKey] || '').toLowerCase()
+      })
 
       if (!original) {
-        return { type: 'new', name, data: savedItem }
+        return { type: 'new', name, slug: savedItem.slug || '?', data: savedItem }
       }
 
       const changes = []
       const allKeys = new Set([...Object.keys(original), ...Object.keys(savedItem)])
       for (const key of allKeys) {
-        if (key.startsWith('_')) continue
+        if (key.startsWith('_') || key === 'slug') continue
         const oldVal = original[key]
         const newVal = savedItem[key]
         if (!deepEqual(oldVal, newVal)) {
@@ -227,7 +193,7 @@ function buildReport(loadedData, savedItems, categories, dataKey, identityKey) {
       }
 
       if (changes.length === 0) return null
-      return { type: 'modified', name, changes }
+      return { type: 'modified', name, slug: savedItem.slug || original.slug || '?', changes }
     }).filter(Boolean)
 
     return { key: cat.key, label: cat.label, icon: cat.icon, items }
@@ -238,23 +204,6 @@ function getItemLabel(item, idKey) {
   if (!idKey) return '?'
   if (Array.isArray(idKey)) return idKey.map(k => item[k] || '?').join(' — ')
   return item.nom || item[idKey] || '?'
-}
-
-function findInLoadedKey(savedItem, loadedObj, idKey) {
-  if (!idKey || !loadedObj || typeof loadedObj !== 'object') return null
-
-  for (const [key, value] of Object.entries(loadedObj)) {
-    if (Array.isArray(idKey)) {
-      if (idKey.every(k => (value[k] || '').toLowerCase() === (savedItem[k] || '').toLowerCase())) {
-        return key
-      }
-    } else {
-      if ((value[idKey] || '').toLowerCase() === (savedItem[idKey] || '').toLowerCase()) {
-        return key
-      }
-    }
-  }
-  return null
 }
 
 function deepEqual(a, b) {
