@@ -519,8 +519,8 @@
     "talentTorse": "",
     "talentSac": ""
   },
-  "airaldi_holding": {
-    "nom": "Airaldi Holding",
+  "airaldi_holdings": {
+    "nom": "Airaldi Holdings",
     "type": "marque",
     "logo": "airaldi_holding",
     "attributsEssentiels": [
