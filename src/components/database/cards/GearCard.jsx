@@ -3,6 +3,7 @@ import { getGearSlotLabel, getAttrCategoryLabel } from '../../../utils/formatter
 import {GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, GameIcon, resolveIcon} from '../../../utils/gameAssets'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
+import type from "ajv/lib/vocabularies/jtd/type.ts";
 
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-' && v !== 'FALSE' && v !== 'TRUE'
@@ -141,10 +142,10 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                 })}
               </div>
           )}
-          {item.mod !== undefined && typeof item.mod !== 'boolean' && hasContent(item.mod) && (
+          {item.mod !== undefined && (
               <div className="flex items-start gap-2 text-xs">
-                <span className="text-gray-500 font-bold shrink-0 uppercase tracking-widest text-xs">Mod</span>
-                <span className="text-gray-400">{String(item.mod)}</span>
+                <span className="text-gray-500 font-bold shrink-0 tracking-widest text-xs">Emplacement de mods: </span>
+                <span className="text-gray-400">{ typeof item.mod === 'number' ? item.mod : item.mod ? 1 : 0 }</span>
               </div>
           )}
         </div>

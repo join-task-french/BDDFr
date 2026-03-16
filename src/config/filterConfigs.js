@@ -51,7 +51,10 @@ export const GEAR_SORT_OPTIONS = [
   { value: 'emplacement_desc', label: 'Emplacement Z→A' },
 ]
 
+// Ajout des tris de rareté pour les ensembles / éléments génériques
 export const GENERIC_SORT_OPTIONS = [
+  { value: 'rarity_asc', label: 'Rareté ↑' },
+  { value: 'rarity_desc', label: 'Rareté ↓' },
   { value: 'alpha_asc', label: 'Alphabétique A→Z' },
   { value: 'alpha_desc', label: 'Alphabétique Z→A' },
 ]
@@ -64,10 +67,13 @@ function weaponRarity(item) {
   return 0
 }
 
+// Permet d'appliquer le tri par rareté à tout le reste (dont les ensembles)
 function genericRarity(item) {
-  if (item.estExotique) return 2
-  if (item.estNomme || item.perfectDescription) return 1
-  return 0
+  if (item.type === 'exotique' || item.estExotique) return 4
+  if (item.estNomme || item.perfectDescription) return 3
+  if (item.type === 'gear_set') return 2
+  if (item.type === 'improvise') return 0
+  return 1 // Standard ou Marque de base
 }
 
 // Equipement improvisé en tant que "moins rare que standard"
