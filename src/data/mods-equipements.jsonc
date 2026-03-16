@@ -51,8 +51,9 @@
     ]
   },
   "reparation_subies": {
-    "categorie": "defensif",
     "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
+    "categorie": "defensif",
+    "protocole": "test",
     "attributs": [
       {
         "attribut": "reparation_subies_mod",
