@@ -840,5 +840,22 @@
     "bonus4pieces": "",
     "talentTorse": "",
     "talentSac": ""
+  },
+  "improvise": {
+    "nom": "Improvisé",
+    "type": "improvise",
+    "logo": "",
+    "attributsEssentiels": [
+      "défensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "bonus1piece": "",
+    "bonus2pieces": "",
+    "bonus3pieces": "",
+    "bonus4pieces": "",
+    "talentTorse": "",
+    "talentSac": "",
+    "notes": "Les équipements improvisé ont la particularité de pouvoir porté un mod sur toutes de leurs pieces."
   }
 }

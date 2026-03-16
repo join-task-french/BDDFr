@@ -1,4 +1,4 @@
-import { getWeaponTypeEntries, getGearSlots, getGearSlotLabel, getAttrCategoryLabel } from '../utils/formatters'
+import { getWeaponTypeEntries } from '../utils/formatters'
 
 // ================================================================
 // Utilitaire : calcul des bornes min/max depuis un tableau de valeurs
@@ -14,33 +14,48 @@ function bounds(items, field, { step = 1, fallbackMin = 0, fallbackMax = 100 } =
 }
 
 // ================================================================
-// Options de tri réutilisables
-// Chaque option inclut directement sa direction (asc/desc).
+// Ordre personnalisé des emplacements
 // ================================================================
-export const RAR_ALPHA_SORT_OPTION = [
-  { value: 'rarity_asc', label: 'Rareté ↑' },
-  { value: 'rarity_desc', label: 'Rareté ↓' },
-  { value: 'alpha_asc', label: 'Alphabétique A→Z' },
-  { value: 'alpha_desc', label: 'Alphabétique Z→A' },
-]
+const SLOT_ORDER = {
+  'masque': 1, 'sac_a_dos': 2, 'torse': 3, 'gants': 4, 'holster': 5, 'genouilleres': 6
+}
+function getSlotOrder(slot) { return SLOT_ORDER[slot] || 99 }
 
-export const GEAR_SORT_OPTIONS = [
-  { value: 'rarity_asc', label: 'Rareté ↑' },
-  { value: 'rarity_desc', label: 'Rareté ↓' },
-  { value: 'alpha_asc', label: 'Alphabétique A→Z' },
-  { value: 'alpha_desc', label: 'Alphabétique Z→A' },
-  { value: 'marque_asc', label: 'Marque A→Z' },
-  { value: 'marque_desc', label: 'Marque Z→A' },
-  { value: 'emplacement_asc', label: 'Emplacement A→Z' },
-  { value: 'emplacement_desc', label: 'Emplacement Z→A' },
-]
+// ================================================================
+// 🛠 MOTEUR DE TRI MULTI-COUCHES
+// ================================================================
+function multiSort(items, sortLayers, getters) {
+  if (!Array.isArray(sortLayers) || sortLayers.length === 0) return items
 
-export const GENERIC_SORT_OPTIONS = [
-  { value: 'alpha_asc', label: 'Alphabétique A→Z' },
-  { value: 'alpha_desc', label: 'Alphabétique Z→A' },
-]
+  return [...items].sort((a, b) => {
+    for (const layer of sortLayers) {
+      const getter = getters[layer.id]
+      if (!getter) continue
 
-// estExotique=true → 2, estNomme=true → 1, arme_specifique → 3
+      const valA = getter(a)
+      const valB = getter(b)
+
+      if (valA !== valB) {
+        // Tri alphabétique pour les chaînes
+        if (typeof valA === 'string' && typeof valB === 'string') {
+          const cmp = valA.localeCompare(valB, 'fr')
+          return layer.desc ? -cmp : cmp
+        }
+        // Tri numérique
+        if (typeof valA === 'number' && typeof valB === 'number') {
+          return layer.desc ? valB - valA : valA - valB
+        }
+        // Fallback
+        return layer.desc ? (valA < valB ? 1 : -1) : (valA > valB ? 1 : -1)
+      }
+    }
+    return 0 // Totalement identiques sur toutes les couches
+  })
+}
+
+// ----------------------------------------------------------------
+// CALCULS DES RARETÉS
+// ----------------------------------------------------------------
 function weaponRarity(item) {
   if (item.type === 'arme_specifique') return 3
   if (item.estExotique) return 2
@@ -48,106 +63,200 @@ function weaponRarity(item) {
   return 0
 }
 
-function genericRarity(item) {
-  if (item.estExotique) return 2
-  if (item.estNomme || item.perfectDescription) return 1
-  return 0
-}
-
 function gearRarity(item) {
-  if (item.type === 'exotique') return 3
-  if (item.estNomme) return 2
-  if (item.type === 'gear_set') return 1
-  return 0
+  if (item.type === 'exotique') return 4
+  if (item.estNomme) return 3
+  if (item.type === 'gear_set') return 2
+  if (item.type === 'standard') return 1
+  if (item.type === 'improvise') return 0
+  return 1 // Fallback
 }
 
-/** Parse "alpha_desc" → { base: "alpha", desc: true } */
-function parseSort(sortKey) {
-  if (!sortKey) return { base: 'alpha', desc: false }
-  const desc = sortKey.endsWith('_desc')
-  const base = sortKey.replace(/_(?:asc|desc)$/, '')
-  return { base, desc }
+function itemRarity(item) {
+  if (item.type === 'exotique' || item.estExotique) return 4
+  if (item.estNomme || item.perfectDescription) return 3
+  if (item.type === 'gear_set') return 2
+  if (item.type === 'improvise') return 0
+  return 1
 }
 
-export function applySortWeapons(items, sortKey) {
-  const { base, desc } = parseSort(sortKey)
+// ----------------------------------------------------------------
+// DÉFINITIONS DES COUCHES DE TRI PAR CATÉGORIE
+// ----------------------------------------------------------------
 
-  return [...items].sort((a, b) => {
-    if (base === 'rarity') {
-      const ra = weaponRarity(a), rb = weaponRarity(b)
-      if (ra !== rb) return desc ? rb - ra : ra - rb
-    }
-
-    const nomA = a.nom || ''
-    const nomB = b.nom || ''
-    const cmpAlpha = nomA.localeCompare(nomB, 'fr')
-    return (base === 'alpha' && desc) ? -cmpAlpha : cmpAlpha
-  })
-}
-
-export function applySortGear(items, sortKey) {
-  const { base, desc } = parseSort(sortKey)
-
-  return [...items].sort((a, b) => {
-    if (base === 'rarity') {
-      const ra = gearRarity(a), rb = gearRarity(b)
-      if (ra !== rb) return desc ? rb - ra : ra - rb
-    } else if (base === 'marque') {
-      const cmp = (a.marque || '').localeCompare(b.marque || '', 'fr')
-      if (cmp !== 0) return desc ? -cmp : cmp
-    } else if (base === 'emplacement') {
-      const cmp = (a.emplacement || '').localeCompare(b.emplacement || '', 'fr')
-      if (cmp !== 0) return desc ? -cmp : cmp
-    }
-
-    const nomA = a.nom || ''
-    const nomB = b.nom || ''
-    const cmpAlpha = nomA.localeCompare(nomB, 'fr')
-    return (base === 'alpha' && desc) ? -cmpAlpha : cmpAlpha
-  })
-}
-
-export function applySortGeneric(items, sortKey) {
-  const { base, desc } = parseSort(sortKey)
-
-  return [...items].sort((a, b) => {
-    if (base === 'rarity') {
-      const ra = genericRarity(a), rb = genericRarity(b)
-      if (ra !== rb) return desc ? rb - ra : ra - rb
-    }
-
-    const nomA = a.nom || a.variante || ''
-    const nomB = b.nom || b.variante || ''
-    const cmpAlpha = nomA.localeCompare(nomB, 'fr')
-    return (base === 'alpha' && desc) ? -cmpAlpha : cmpAlpha
-  })
-}
-
-export function applySortSkills(items, sortKey) {
-  const { base, desc } = parseSort(sortKey)
-
-  return [...items].sort((a, b) => {
-    // Tri primaire : par compétence parente
-    const compA = a.competence || ''
-    const compB = b.competence || ''
-    const cmpComp = compA.localeCompare(compB, 'fr')
-
-    if (cmpComp !== 0) {
-      return (base === 'alpha' && desc) ? -cmpComp : cmpComp
-    }
-
-    // Tri secondaire : par variante (ou nom si la variante n'existe pas)
-    const nomA = a.variante || a.nom || ''
-    const nomB = b.variante || b.nom || ''
-    const cmpAlpha = nomA.localeCompare(nomB, 'fr')
-
-    return (base === 'alpha' && desc) ? -cmpAlpha : cmpAlpha
-  })
-}
-
-// ================================================================
 // ARMES
+export const WEAPON_SORT_OPTIONS = [
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'type', label: "Type d'arme", ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const WEAPON_DEFAULT_SORT = [
+  { id: 'rarity', desc: false },
+  { id: 'type', desc: false },
+  { id: 'alpha', desc: false }
+]
+const weaponGetters = {
+  rarity: weaponRarity,
+  alpha: (item) => item.nom || '',
+  type: (item) => item.type || ''
+}
+export function applySortWeapons(items, sortLayers) { return multiSort(items, sortLayers, weaponGetters) }
+
+// EQUIPEMENTS
+export const GEAR_SORT_OPTIONS = [
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'marque', label: 'Marque / Ensemble', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'emplacement', label: 'Emplacement', ascLabel: '', descLabel: '', hideDirection: true }
+]
+export const GEAR_DEFAULT_SORT = [
+  { id: 'rarity', desc: false },
+  { id: 'marque', desc: false },
+  { id: 'emplacement', desc: false },
+  { id: 'alpha', desc: false }
+]
+const gearGetters = {
+  rarity: gearRarity,
+  alpha: (item) => item.nom || '',
+  marque: (item) => item.marque || '',
+  emplacement: (item) => getSlotOrder(item.emplacement)
+}
+export function applySortGear(items, sortLayers) { return multiSort(items, sortLayers, gearGetters) }
+
+// ENSEMBLES (Gear Sets / Marques)
+export const ENSEMBLE_SORT_OPTIONS = [
+  { id: 'rarity', label: 'Type', ascLabel: '↑', descLabel: '↓' },
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const ENSEMBLE_DEFAULT_SORT = [
+  { id: 'rarity', desc: false },
+  { id: 'alpha', desc: false }
+]
+const ensembleGetters = {
+  rarity: itemRarity,
+  alpha: (item) => item.nom || ''
+}
+export function applySortEnsembles(items, sortLayers) { return multiSort(items, sortLayers, ensembleGetters) }
+
+// TALENTS D'ARMES
+export const TALENT_ARME_SORT_OPTIONS = [
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const TALENT_ARME_DEFAULT_SORT = [
+  { id: 'rarity', desc: false },
+  { id: 'alpha', desc: false }
+]
+const talentArmeGetters = {
+  rarity: itemRarity,
+  alpha: (item) => item.nom || ''
+}
+export function applySortTalentsArmes(items, sortLayers) { return multiSort(items, sortLayers, talentArmeGetters) }
+
+// TALENTS D'ÉQUIPEMENTS
+export const TALENT_EQUIP_SORT_OPTIONS = [
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'emplacement', label: 'Emplacement', ascLabel: '', descLabel: '', hideDirection: true }
+]
+export const TALENT_EQUIP_DEFAULT_SORT = [
+  { id: 'rarity', desc: false },
+  { id: 'emplacement', desc: false },
+  { id: 'alpha', desc: false }
+]
+const talentEquipGetters = {
+  rarity: itemRarity,
+  alpha: (item) => item.nom || '',
+  emplacement: (item) => getSlotOrder(item.emplacement)
+}
+export function applySortTalentsEquip(items, sortLayers) { return multiSort(items, sortLayers, talentEquipGetters) }
+
+// MODS D'ARMES
+export const MOD_ARME_SORT_OPTIONS = [
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'type', label: 'Type', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const MOD_ARME_DEFAULT_SORT = [
+  { id: 'rarity', desc: false },
+  { id: 'type', desc: false },
+  { id: 'alpha', desc: false }
+]
+const modArmeGetters = {
+  rarity: itemRarity,
+  alpha: (item) => item.nom || '',
+  type: (item) => item.type || ''
+}
+export function applySortModsArmes(items, sortLayers) { return multiSort(items, sortLayers, modArmeGetters) }
+
+// MODS D'ÉQUIPEMENTS
+export const MOD_EQUIP_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'categorie', label: 'Catégorie', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const MOD_EQUIP_DEFAULT_SORT = [
+  { id: 'categorie', desc: false },
+  { id: 'alpha', desc: false }
+]
+const modEquipGetters = {
+  alpha: (item) => item.nom || '',
+  categorie: (item) => item.categorie || ''
+}
+export function applySortModsEquip(items, sortLayers) { return multiSort(items, sortLayers, modEquipGetters) }
+
+// MODS DE COMPÉTENCES
+export const MOD_COMP_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'parent', label: 'Compétence parente', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'emplacement', label: 'Emplacement', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const MOD_COMP_DEFAULT_SORT = [
+  { id: 'parent', desc: false },
+  { id: 'emplacement', desc: false },
+  { id: 'alpha', desc: false }
+]
+const modCompGetters = {
+  alpha: (item) => item.nom || '',
+  parent: (item) => item.competence || '',
+  emplacement: (item) => item.emplacement || ''
+}
+export function applySortModsComp(items, sortLayers) { return multiSort(items, sortLayers, modCompGetters) }
+
+// ATTRIBUTS
+export const ATTRIBUT_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'categorie', label: 'Type', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const ATTRIBUT_DEFAULT_SORT = [
+  { id: 'categorie', desc: false },
+  { id: 'alpha', desc: false }
+]
+const attributGetters = {
+  alpha: (item) => item.nom || '',
+  categorie: (item) => item.categorie || ''
+}
+export function applySortAttributs(items, sortLayers) { return multiSort(items, sortLayers, attributGetters) }
+
+// COMPÉTENCES
+export const SKILL_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Variante', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'parent', label: 'Compétence parente', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const SKILL_DEFAULT_SORT = [
+  { id: 'parent', desc: false },
+  { id: 'alpha', desc: false }
+]
+const skillGetters = {
+  alpha: (item) => item.variante || item.nom || '',
+  parent: (item) => item.competence || ''
+}
+export function applySortSkills(items, sortLayers) { return multiSort(items, sortLayers, skillGetters) }
+
+
 // ================================================================
+// FILTRES
+// ================================================================
+
 export function getWeaponFilters(data) {
   const armes = data?.armes || []
   const armesType = data?.armes_type || {}
@@ -209,15 +318,11 @@ export function applyWeaponFilters(items, filters) {
   })
 }
 
-// ================================================================
-// ÉQUIPEMENTS
-// ================================================================
 export function getGearFilters(data) {
   const eqType = data?.equipements_type || {}
   const attrType = data?.attributs_type || {}
   const slotOptions = Object.entries(eqType).map(([value, obj]) => ({ value, label: obj.nom }))
 
-  // Marques uniques depuis les données
   const marques = data?.ensembles
       ? [...new Map(data.ensembles.map(e => [e.slug || e.nom, e.nom])).entries()]
           .sort((a, b) => a[1].localeCompare(b[1]))
@@ -268,9 +373,6 @@ export function applyGearFilters(items, filters) {
   })
 }
 
-// ================================================================
-// TALENTS D'ARMES
-// ================================================================
 export function getTalentArmeFilters(data) {
   const armesType = data?.armes_type || {}
   const typeOptions = Object.entries(armesType)
@@ -303,9 +405,6 @@ export function applyTalentArmeFilters(items, filters) {
   })
 }
 
-// ================================================================
-// TALENTS D'ÉQUIPEMENTS
-// ================================================================
 export function getTalentEquipFilters(data) {
   const eqType = data?.equipements_type || {}
   const options = Object.entries(eqType).map(([key, value]) => ({
@@ -338,9 +437,6 @@ export function applyTalentEquipFilters(items, filters) {
   })
 }
 
-// ================================================================
-// MODS D'ARMES
-// ================================================================
 export function getModArmeFilters() {
   return [
     {
@@ -368,11 +464,7 @@ export function applyModArmeFilters(items, filters) {
   })
 }
 
-// ================================================================
-// ENSEMBLES
-// ================================================================
 export function getEnsembleFilters(data) {
-  // Extraire les attributsEssentiels uniques depuis les ensembles
   const statsSet = new Map()
   const ensembles = data?.ensembles || []
   const statistiques = data?.statistiques || []
@@ -414,9 +506,6 @@ export function applyEnsembleFilters(items, filters) {
   })
 }
 
-// ================================================================
-// ATTRIBUTS
-// ================================================================
 const CIBLE_OPTIONS = [
   { value: 'arme', label: 'Armes' },
   { value: 'equipement', label: 'Équipements' },
@@ -430,7 +519,6 @@ export function getAttributFilters(data) {
   const attrType = data?.attributs_type || {}
   const typeOptions = Object.entries(attrType).map(([value, obj]) => ({ value, label: obj.nom }))
 
-  // Statistiques uniques référencées par les attributs
   const statistiques = data?.statistiques || []
   const statOptions = statistiques
       .map(s => ({ value: s.slug, label: s.nom }))
@@ -467,21 +555,15 @@ export function applyAttributFilters(items, filters) {
   })
 }
 
-// ================================================================
-// COMPÉTENCES
-// ================================================================
 export function getCompetenceFilters(data) {
-  // Extraire les compétences parentes uniques
   const comps = data?.competencesGrouped || data?.competences || []
   let parentOptions = []
   if (Array.isArray(comps) && comps.length > 0) {
-    // Si groupé (a .variantes), extraire les parents
     if (comps[0]?.variantes) {
       parentOptions = comps
           .map(c => ({ value: c.competence, label: c.competence }))
           .sort((a, b) => a.label.localeCompare(b.label, 'fr'))
     } else {
-      // Si aplati, extraire les compétences uniques
       const unique = [...new Set(comps.map(c => c.competence).filter(Boolean))]
       parentOptions = unique
           .sort((a, b) => a.localeCompare(b, 'fr'))
@@ -508,22 +590,15 @@ export function applyCompetenceFilters(items, filters) {
   })
 }
 
-// ================================================================
-// MODS D'ÉQUIPEMENTS
-// ================================================================
 export function getModEquipementFilters(data) {
-  // 1. On utilise camelCase pour cibler la bonne clé
   const rawData = data?.modsEquipements || {}
-
-  // 2. On s'assure de transformer l'objet JSON en tableau pour pouvoir utiliser .map()
   const mods = Array.isArray(rawData) ? rawData : Object.values(rawData)
 
-  // Extraire les catégories uniques (offensif, defensif, utilitaire)
   const categories = [...new Set(mods.map(m => m.categorie).filter(Boolean))]
       .sort()
       .map(c => ({
         value: c,
-        label: c.charAt(0).toUpperCase() + c.slice(1) // Majuscule
+        label: c.charAt(0).toUpperCase() + c.slice(1)
       }))
 
   return [
@@ -545,9 +620,6 @@ export function applyModEquipementFilters(items, filters) {
   })
 }
 
-// ================================================================
-// MODS DE COMPÉTENCES
-// ================================================================
 export function getModCompetenceFilters(data, values = {}) {
   const rawData = data?.modsCompetences || {}
   const mods = Array.isArray(rawData) ? rawData : Object.values(rawData)

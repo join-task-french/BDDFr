@@ -70,7 +70,10 @@
           }
         },
         "mod": {
-          "type": "boolean"
+          "oneOf": [
+            { "type": "boolean" },
+            { "type": "integer" }
+          ]
         },
         "estNomme": {
           "type": "boolean"
@@ -78,6 +81,7 @@
         "type": {
           "type": "string",
           "enum": [
+            "improvise",
             "standard",
             "gear_set",
             "exotique"
