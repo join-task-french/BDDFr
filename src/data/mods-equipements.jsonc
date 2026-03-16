@@ -99,5 +99,16 @@
         "valeur": 10
       }
     ]
+  },
+  "protocole_defensif_endurance": {
+    "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
+    "categorie": "defensif",
+    "protocole": "test",
+    "attributs": [
+      {
+        "attribut": "protection_contre_ennemi_elite_mod",
+        "valeur": 13
+      }
+    ]
   }
 }
