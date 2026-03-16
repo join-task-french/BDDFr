@@ -709,7 +709,7 @@
   },
   "masque_hg": {
     "nom": "Masque HG",
-    "marque": "habsburg_guard",
+    "marque": "hasburg_guard",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
@@ -717,7 +717,7 @@
   },
   "sac_a_dos_hg": {
     "nom": "Sac à dos HG",
-    "marque": "habsburg_guard",
+    "marque": "hasburg_guard",
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
@@ -726,7 +726,7 @@
   },
   "veste_hg": {
     "nom": "Veste HG",
-    "marque": "habsburg_guard",
+    "marque": "hasburg_guard",
     "emplacement": "torse",
     "mod": true,
     "talents": [],
@@ -735,7 +735,7 @@
   },
   "gants_hg": {
     "nom": "Gants HG",
-    "marque": "habsburg_guard",
+    "marque": "hasburg_guard",
     "emplacement": "gants",
     "mod": false,
     "talents": [],
@@ -743,7 +743,7 @@
   },
   "holster_hg": {
     "nom": "Holster HG",
-    "marque": "habsburg_guard",
+    "marque": "hasburg_guard",
     "emplacement": "holster",
     "mod": false,
     "talents": [],
@@ -751,7 +751,7 @@
   },
   "genouilleres_hg": {
     "nom": "Genouillères HG",
-    "marque": "habsburg_guard",
+    "marque": "hasburg_guard",
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
