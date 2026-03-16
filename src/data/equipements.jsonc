@@ -2900,7 +2900,10 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées"
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
   },
   "sac_a_dos_improvise": {
     "nom": "Sac à dos improvisé",
@@ -2909,7 +2912,10 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées"
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
   },
   "protection_corporelle_improvisee": {
     "nom": "Protection corporelle improvisée",
@@ -2918,7 +2924,10 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées"
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
   },
   "gants_improvises": {
     "nom": "Gants improvisés",
@@ -2927,7 +2936,10 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées"
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
   },
   "holster_improvise": {
     "nom": "Holster improvisé",
@@ -2936,7 +2948,10 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées"
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
   },
   "genouilleres_improvisees": {
     "nom": "Genouillères improvisées",
@@ -2945,6 +2960,9 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées"
+    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
   }
 }
