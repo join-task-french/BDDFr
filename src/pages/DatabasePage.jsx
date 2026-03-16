@@ -6,7 +6,7 @@ import CategoryNav from '../components/database/CategoryNav'
 import CategorySection from '../components/database/CategorySection'
 import SearchBar from '../components/database/SearchBar'
 import { useFilterPanel } from '../components/database/FilterPanel'
-import SortSelector from '../components/database/SortSelector'
+import { useSortPanel } from '../components/database/SortSelector'
 import {
   getWeaponFilters, getWeaponDefaults, applyWeaponFilters,
   getGearFilters, getGearDefaults, applyGearFilters,
@@ -18,8 +18,11 @@ import {
   getEnsembleFilters, getEnsembleDefaults, applyEnsembleFilters,
   getAttributFilters, getAttributDefaults, applyAttributFilters,
   getCompetenceFilters, getCompetenceDefaults, applyCompetenceFilters,
-  RAR_ALPHA_SORT_OPTION, GEAR_SORT_OPTIONS, GENERIC_SORT_OPTIONS,
-  applySortWeapons, applySortGear, applySortGeneric, applySortSkills
+  WEAPON_SORT_OPTIONS, WEAPON_DEFAULT_SORT, applySortWeapons,
+  GEAR_SORT_OPTIONS, GEAR_DEFAULT_SORT, applySortGear,
+  ENSEMBLE_SORT_OPTIONS, ENSEMBLE_DEFAULT_SORT, applySortEnsembles,
+  GENERIC_SORT_OPTIONS, GENERIC_DEFAULT_SORT, applySortGeneric,
+  SKILL_DEFAULT_SORT, applySortSkills
 } from '../config/filterConfigs'
 
 const CATEGORIES = [
@@ -42,18 +45,18 @@ const FILTER_CATEGORIES = new Set([
   'modsEquipements', 'modsCompetences'
 ])
 
-// Catégories avec options de tri
+// Catégories avec options de tri multi-couches
 const SORT_CATEGORIES = {
-  armes:              { options: RAR_ALPHA_SORT_OPTION, apply: applySortWeapons },
-  equipements:        { options: GEAR_SORT_OPTIONS, apply: applySortGear },
-  attributs:          { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
-  talentsArmes:       { options: RAR_ALPHA_SORT_OPTION, apply: applySortGeneric },
-  talentsEquipements: { options: RAR_ALPHA_SORT_OPTION, apply: applySortGeneric },
-  ensembles:          { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
-  competences:        { options: GENERIC_SORT_OPTIONS, apply: applySortSkills },
-  modsArmes:          { options: RAR_ALPHA_SORT_OPTION, apply: applySortGeneric },
-  modsEquipements:    { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
-  modsCompetences:    { options: GENERIC_SORT_OPTIONS, apply: applySortGeneric },
+  armes:              { options: WEAPON_SORT_OPTIONS, default: WEAPON_DEFAULT_SORT, apply: applySortWeapons },
+  equipements:        { options: GEAR_SORT_OPTIONS, default: GEAR_DEFAULT_SORT, apply: applySortGear },
+  attributs:          { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
+  talentsArmes:       { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
+  talentsEquipements: { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
+  ensembles:          { options: ENSEMBLE_SORT_OPTIONS, default: ENSEMBLE_DEFAULT_SORT, apply: applySortEnsembles },
+  competences:        { options: GENERIC_SORT_OPTIONS, default: SKILL_DEFAULT_SORT, apply: applySortSkills },
+  modsArmes:          { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
+  modsEquipements:    { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
+  modsCompetences:    { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
 }
 
 function getFiltersConfig(category, data, values) {
@@ -100,7 +103,6 @@ export default function DatabasePage() {
     const rawFilters = searchParams.get('filters')
     if (!rawFilters) return {}
     try {
-      // searchParams.get() décode déjà l'URL. S'il reste des '%', c'est un double-encodage (ex: via un vieux lien copié)
       const decoded = rawFilters.includes('%') ? decodeURIComponent(rawFilters) : rawFilters;
       return JSON.parse(decoded)
     } catch {
@@ -109,7 +111,19 @@ export default function DatabasePage() {
   }, [searchParams])
 
   const sortConfig = SORT_CATEGORIES[activeCategory] || null
-  const currentSort = searchParams.get('sort') || sortConfig?.options?.[0]?.value || 'alpha_asc'
+
+  const currentSort = useMemo(() => {
+    const rawSort = searchParams.get('sort')
+    if (rawSort) {
+      try {
+        const decoded = rawSort.includes('%') ? decodeURIComponent(rawSort) : rawSort;
+        return JSON.parse(decoded)
+      } catch {
+        return sortConfig?.default || []
+      }
+    }
+    return sortConfig?.default || []
+  }, [searchParams, sortConfig])
 
   // Configuration des filtres
   const filterConfig = useMemo(() => getFiltersConfig(activeCategory, data, activeValues), [activeCategory, data, activeValues])
@@ -136,15 +150,17 @@ export default function DatabasePage() {
 
   const handleSortChange = useCallback((val) => {
     setSearchParams(prev => {
-      if (val && val !== sortConfig?.options?.[0]?.value) prev.set('sort', val)
-      else prev.delete('sort')
+      // Si c'est la valeur par défaut exacte, on nettoie l'URL pour garder ça propre
+      if (val && JSON.stringify(val) !== JSON.stringify(sortConfig?.default)) {
+        prev.set('sort', JSON.stringify(val))
+      } else {
+        prev.delete('sort')
+      }
       return prev
     }, { replace: true })
   }, [setSearchParams, sortConfig])
 
   const handleFilterChange = useCallback((key, value) => {
-    // L'utilisation de `prev` assure que les filtres ne s'écrasent pas entre eux
-    // en cas de clics très rapides ou d'utilisation d'un slider.
     setSearchParams(prev => {
       const rawFilters = prev.get('filters')
       let currentVals = {}
@@ -171,7 +187,6 @@ export default function DatabasePage() {
       }
 
       if (Object.keys(cleanValues).length > 0) {
-        // Plus besoin de "encodeURIComponent" ici, le navigateur s'en charge.
         prev.set('filters', JSON.stringify(cleanValues))
       } else {
         prev.delete('filters')
@@ -224,7 +239,7 @@ export default function DatabasePage() {
       )
     }
 
-    if (sortConfig) {
+    if (sortConfig && currentSort.length > 0) {
       items = sortConfig.apply(items, currentSort)
     }
 
@@ -235,10 +250,19 @@ export default function DatabasePage() {
   // RENDU
   // =========================================================
   const hasFilters = FILTER_CATEGORIES.has(activeCategory)
+
+  // Utilisation des hooks de panels (Filtres + Tri)
   const filterProps = hasFilters && filterConfig && currentFilters
       ? { filters: filterConfig.filters, values: currentFilters, onChange: handleFilterChange, onReset: handleFilterReset }
       : { filters: [], values: {}, onChange: () => {}, onReset: () => {} }
   const { button: filterButton, panel: filterPanel } = useFilterPanel(filterProps)
+
+  const { button: sortButton, panel: sortPanel } = useSortPanel({
+    options: sortConfig?.options,
+    value: currentSort,
+    defaultSort: sortConfig?.default,
+    onChange: handleSortChange
+  })
 
   if (loading) return <Loader progress={progress} />
   if (error) return (
@@ -269,13 +293,7 @@ export default function DatabasePage() {
             <div className="mb-4 space-y-2">
               <div className="flex items-center gap-3">
                 {hasFilters && filterConfig && currentFilters && filterButton}
-                {sortConfig && (
-                    <SortSelector
-                        options={sortConfig.options}
-                        value={currentSort}
-                        onChange={handleSortChange}
-                    />
-                )}
+                {sortConfig && sortButton}
                 <button
                     onClick={toggleCompactMode}
                     className={`px-3 py-2 rounded border transition-all flex items-center gap-2 uppercase tracking-widest text-xs font-bold ${
@@ -295,7 +313,10 @@ export default function DatabasePage() {
                   <span className="hidden sm:inline">Compact</span>
                 </button>
               </div>
+
+              {/* Affichage des panneaux sous les boutons */}
               {filterPanel}
+              {sortPanel}
             </div>
         )}
 
