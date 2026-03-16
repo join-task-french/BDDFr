@@ -4,6 +4,9 @@ on:
   issues:
     types: [opened, edited]
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   create-pr:
     if: startsWith(github.event.issue.title, '[Contribution]')
@@ -22,7 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: 24
 
       - name: Appliquer le patch JSON
         id: apply-patch
