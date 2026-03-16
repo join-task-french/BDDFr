@@ -72,7 +72,7 @@ function gearRarity(item) {
   return 1 // Fallback
 }
 
-function genericRarity(item) {
+function itemRarity(item) {
   if (item.type === 'exotique' || item.estExotique) return 4
   if (item.estNomme || item.perfectDescription) return 3
   if (item.type === 'gear_set') return 2
@@ -133,44 +133,124 @@ export const ENSEMBLE_DEFAULT_SORT = [
   { id: 'alpha', desc: false }
 ]
 const ensembleGetters = {
-  rarity: genericRarity,
+  rarity: itemRarity,
   alpha: (item) => item.nom || ''
 }
 export function applySortEnsembles(items, sortLayers) { return multiSort(items, sortLayers, ensembleGetters) }
 
-// GENERIQUE (Talents, Mods, etc.)
-export const GENERIC_SORT_OPTIONS = [
+// TALENTS D'ARMES
+export const TALENT_ARME_SORT_OPTIONS = [
   { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
-  { id: 'alpha', label: 'Nom / Variante', ascLabel: 'A-Z', descLabel: 'Z-A' },
-  { id: 'categorie', label: 'Catégorie / Type', ascLabel: 'A-Z', descLabel: 'Z-A' },
-  { id: 'parent', label: 'Compétence parente', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const TALENT_ARME_DEFAULT_SORT = [
+  { id: 'rarity', desc: false },
+  { id: 'alpha', desc: false }
+]
+const talentArmeGetters = {
+  rarity: itemRarity,
+  alpha: (item) => item.nom || ''
+}
+export function applySortTalentsArmes(items, sortLayers) { return multiSort(items, sortLayers, talentArmeGetters) }
+
+// TALENTS D'ÉQUIPEMENTS
+export const TALENT_EQUIP_SORT_OPTIONS = [
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
   { id: 'emplacement', label: 'Emplacement', ascLabel: '', descLabel: '', hideDirection: true }
 ]
-export const GENERIC_DEFAULT_SORT = [
+export const TALENT_EQUIP_DEFAULT_SORT = [
   { id: 'rarity', desc: false },
+  { id: 'emplacement', desc: false },
+  { id: 'alpha', desc: false }
+]
+const talentEquipGetters = {
+  rarity: itemRarity,
+  alpha: (item) => item.nom || '',
+  emplacement: (item) => getSlotOrder(item.emplacement)
+}
+export function applySortTalentsEquip(items, sortLayers) { return multiSort(items, sortLayers, talentEquipGetters) }
+
+// MODS D'ARMES
+export const MOD_ARME_SORT_OPTIONS = [
+  { id: 'rarity', label: 'Rareté', ascLabel: '↑', descLabel: '↓' },
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'type', label: 'Type', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const MOD_ARME_DEFAULT_SORT = [
+  { id: 'rarity', desc: false },
+  { id: 'type', desc: false },
+  { id: 'alpha', desc: false }
+]
+const modArmeGetters = {
+  rarity: itemRarity,
+  alpha: (item) => item.nom || '',
+  type: (item) => item.type || ''
+}
+export function applySortModsArmes(items, sortLayers) { return multiSort(items, sortLayers, modArmeGetters) }
+
+// MODS D'ÉQUIPEMENTS
+export const MOD_EQUIP_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'categorie', label: 'Catégorie', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const MOD_EQUIP_DEFAULT_SORT = [
   { id: 'categorie', desc: false },
+  { id: 'alpha', desc: false }
+]
+const modEquipGetters = {
+  alpha: (item) => item.nom || '',
+  categorie: (item) => item.categorie || ''
+}
+export function applySortModsEquip(items, sortLayers) { return multiSort(items, sortLayers, modEquipGetters) }
+
+// MODS DE COMPÉTENCES
+export const MOD_COMP_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'parent', label: 'Compétence parente', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'emplacement', label: 'Emplacement', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const MOD_COMP_DEFAULT_SORT = [
   { id: 'parent', desc: false },
   { id: 'emplacement', desc: false },
   { id: 'alpha', desc: false }
 ]
-const genericGetters = {
-  rarity: genericRarity,
-  alpha: (item) => item.variante || item.nom || '',
-  categorie: (item) => item.categorie || item.type || '',
+const modCompGetters = {
+  alpha: (item) => item.nom || '',
   parent: (item) => item.competence || '',
-  emplacement: (item) => item.emplacement ? getSlotOrder(item.emplacement) : 99
+  emplacement: (item) => item.emplacement || ''
 }
-export function applySortGeneric(items, sortLayers) { return multiSort(items, sortLayers, genericGetters) }
+export function applySortModsComp(items, sortLayers) { return multiSort(items, sortLayers, modCompGetters) }
+
+// ATTRIBUTS
+export const ATTRIBUT_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Nom', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'categorie', label: 'Type', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
+export const ATTRIBUT_DEFAULT_SORT = [
+  { id: 'categorie', desc: false },
+  { id: 'alpha', desc: false }
+]
+const attributGetters = {
+  alpha: (item) => item.nom || '',
+  categorie: (item) => item.categorie || ''
+}
+export function applySortAttributs(items, sortLayers) { return multiSort(items, sortLayers, attributGetters) }
 
 // COMPÉTENCES
+export const SKILL_SORT_OPTIONS = [
+  { id: 'alpha', label: 'Variante', ascLabel: 'A-Z', descLabel: 'Z-A' },
+  { id: 'parent', label: 'Compétence parente', ascLabel: 'A-Z', descLabel: 'Z-A' }
+]
 export const SKILL_DEFAULT_SORT = [
   { id: 'parent', desc: false },
-  { id: 'alpha', desc: false },
-  { id: 'rarity', desc: true },
-  { id: 'categorie', desc: false },
-  { id: 'emplacement', desc: false }
+  { id: 'alpha', desc: false }
 ]
-export function applySortSkills(items, sortLayers) { return multiSort(items, sortLayers, genericGetters) }
+const skillGetters = {
+  alpha: (item) => item.variante || item.nom || '',
+  parent: (item) => item.competence || ''
+}
+export function applySortSkills(items, sortLayers) { return multiSort(items, sortLayers, skillGetters) }
 
 
 // ================================================================

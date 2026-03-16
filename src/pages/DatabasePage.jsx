@@ -18,11 +18,17 @@ import {
   getEnsembleFilters, getEnsembleDefaults, applyEnsembleFilters,
   getAttributFilters, getAttributDefaults, applyAttributFilters,
   getCompetenceFilters, getCompetenceDefaults, applyCompetenceFilters,
+
   WEAPON_SORT_OPTIONS, WEAPON_DEFAULT_SORT, applySortWeapons,
   GEAR_SORT_OPTIONS, GEAR_DEFAULT_SORT, applySortGear,
   ENSEMBLE_SORT_OPTIONS, ENSEMBLE_DEFAULT_SORT, applySortEnsembles,
-  GENERIC_SORT_OPTIONS, GENERIC_DEFAULT_SORT, applySortGeneric,
-  SKILL_DEFAULT_SORT, applySortSkills
+  TALENT_ARME_SORT_OPTIONS, TALENT_ARME_DEFAULT_SORT, applySortTalentsArmes,
+  TALENT_EQUIP_SORT_OPTIONS, TALENT_EQUIP_DEFAULT_SORT, applySortTalentsEquip,
+  MOD_ARME_SORT_OPTIONS, MOD_ARME_DEFAULT_SORT, applySortModsArmes,
+  MOD_EQUIP_SORT_OPTIONS, MOD_EQUIP_DEFAULT_SORT, applySortModsEquip,
+  MOD_COMP_SORT_OPTIONS, MOD_COMP_DEFAULT_SORT, applySortModsComp,
+  ATTRIBUT_SORT_OPTIONS, ATTRIBUT_DEFAULT_SORT, applySortAttributs,
+  SKILL_SORT_OPTIONS, SKILL_DEFAULT_SORT, applySortSkills
 } from '../config/filterConfigs'
 
 const CATEGORIES = [
@@ -49,14 +55,14 @@ const FILTER_CATEGORIES = new Set([
 const SORT_CATEGORIES = {
   armes:              { options: WEAPON_SORT_OPTIONS, default: WEAPON_DEFAULT_SORT, apply: applySortWeapons },
   equipements:        { options: GEAR_SORT_OPTIONS, default: GEAR_DEFAULT_SORT, apply: applySortGear },
-  attributs:          { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
-  talentsArmes:       { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
-  talentsEquipements: { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
+  attributs:          { options: ATTRIBUT_SORT_OPTIONS, default: ATTRIBUT_DEFAULT_SORT, apply: applySortAttributs },
+  talentsArmes:       { options: TALENT_ARME_SORT_OPTIONS, default: TALENT_ARME_DEFAULT_SORT, apply: applySortTalentsArmes },
+  talentsEquipements: { options: TALENT_EQUIP_SORT_OPTIONS, default: TALENT_EQUIP_DEFAULT_SORT, apply: applySortTalentsEquip },
   ensembles:          { options: ENSEMBLE_SORT_OPTIONS, default: ENSEMBLE_DEFAULT_SORT, apply: applySortEnsembles },
-  competences:        { options: GENERIC_SORT_OPTIONS, default: SKILL_DEFAULT_SORT, apply: applySortSkills },
-  modsArmes:          { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
-  modsEquipements:    { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
-  modsCompetences:    { options: GENERIC_SORT_OPTIONS, default: GENERIC_DEFAULT_SORT, apply: applySortGeneric },
+  competences:        { options: SKILL_SORT_OPTIONS, default: SKILL_DEFAULT_SORT, apply: applySortSkills },
+  modsArmes:          { options: MOD_ARME_SORT_OPTIONS, default: MOD_ARME_DEFAULT_SORT, apply: applySortModsArmes },
+  modsEquipements:    { options: MOD_EQUIP_SORT_OPTIONS, default: MOD_EQUIP_DEFAULT_SORT, apply: applySortModsEquip },
+  modsCompetences:    { options: MOD_COMP_SORT_OPTIONS, default: MOD_COMP_DEFAULT_SORT, apply: applySortModsComp },
 }
 
 function getFiltersConfig(category, data, values) {
