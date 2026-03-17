@@ -800,7 +800,7 @@
   "masque_filtrant": {
     "nom": "Masque filtrant",
     "marque": "hana_u_corporation",
-    "emplacement": "sac_a_dos",
+    "emplacement": "masque",
     "mod": true,
     "talents": [],
     "type": "standard"
@@ -826,13 +826,21 @@
   "gants_plaques": {
     "nom": "Gants plaqués",
     "marque": "hana_u_corporation",
-    "emplacement": "holster",
+    "emplacement": "gants",
     "mod": false,
     "talents": [],
     "type": "standard"
   },
   "holster_duel": {
     "nom": "Holster Duel",
+    "marque": "hana_u_corporation",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_hana_u": { // TODO : changer le nom ici
+    "nom": "Genouilleres Hana U",
     "marque": "hana_u_corporation",
     "emplacement": "genouilleres",
     "mod": false,
@@ -841,7 +849,7 @@
   },
   "masque_langmo": {
     "nom": "Masque Langmo",
-    "marque": "langmo",
+    "marque": "lengmo",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
@@ -849,7 +857,7 @@
   },
   "sac_a_dos_langmo": {
     "nom": "Sac à dos Langmo",
-    "marque": "langmo",
+    "marque": "lengmo",
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
@@ -858,7 +866,7 @@
   },
   "veste_langmo_bomb": {
     "nom": "Veste Langmo Bomb",
-    "marque": "langmo",
+    "marque": "lengmo",
     "emplacement": "torse",
     "mod": true,
     "talents": [],
@@ -867,7 +875,7 @@
   },
   "gants_langmo": {
     "nom": "Gants Langmo",
-    "marque": "langmo",
+    "marque": "lengmo",
     "emplacement": "gants",
     "mod": false,
     "talents": [],
@@ -875,7 +883,7 @@
   },
   "holster_langmo": {
     "nom": "Holster Langmo",
-    "marque": "langmo",
+    "marque": "lengmo",
     "emplacement": "holster",
     "mod": false,
     "talents": [],
@@ -883,7 +891,7 @@
   },
   "genouilleres_lengmo": {
     "nom": "Genouillères Lengmo",
-    "marque": "langmo",
+    "marque": "lengmo",
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
@@ -1469,6 +1477,14 @@
     "type": "standard"
   },
   "masque_cascades": {
+    "nom": "Masque Cascades",
+    "marque": "yaahl_gear",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_yaahl_gear": { // TODO : renomé le sac
     "nom": "Masque Cascades",
     "marque": "yaahl_gear",
     "emplacement": "sac_a_dos",
@@ -2233,7 +2249,7 @@
   },
   "masque_anti_chaleur": {
     "nom": "Masque anti-chaleur",
-    "marque": "rempart_de_la_founderie",
+    "marque": "foundry_bullwark",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
@@ -2241,7 +2257,7 @@
   },
   "support_de_bouclier": {
     "nom": "Support de bouclier",
-    "marque": "rempart_de_la_founderie",
+    "marque": "foundry_bullwark",
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
@@ -2249,7 +2265,7 @@
   },
   "armure_de_plates_forgees": {
     "nom": "Armure de plates forgées",
-    "marque": "rempart_de_la_founderie",
+    "marque": "foundry_bullwark",
     "emplacement": "torse",
     "mod": true,
     "talents": [],
@@ -2257,7 +2273,7 @@
   },
   "gants_de_creuset": {
     "nom": "Gants de creuset",
-    "marque": "rempart_de_la_founderie",
+    "marque": "foundry_bullwark",
     "emplacement": "gants",
     "mod": false,
     "talents": [],
@@ -2265,7 +2281,7 @@
   },
   "ceinture_a_outils": {
     "nom": "Ceinture à outils",
-    "marque": "rempart_de_la_founderie",
+    "marque": "foundry_bullwark",
     "emplacement": "holster",
     "mod": false,
     "talents": [],
@@ -2273,7 +2289,7 @@
   },
   "genouilleres_de_forge": {
     "nom": "Genouillères de forge",
-    "marque": "rempart_de_la_founderie",
+    "marque": "foundry_bullwark",
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
@@ -2377,7 +2393,7 @@
   },
   "masque_vecteur_d_attaque": {
     "nom": "Masque Vecteur d'attaque",
-    "marque": "systeme_corrompu",
+    "marque": "corruption_systeme",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
@@ -2385,7 +2401,7 @@
   },
   "conteneur_de_surcharge": {
     "nom": "Conteneur de surcharge",
-    "marque": "systeme_corrompu",
+    "marque": "corruption_systeme",
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
@@ -2393,7 +2409,7 @@
   },
   "armure_menace_combinee": {
     "nom": "Armure menace combinée",
-    "marque": "systeme_corrompu",
+    "marque": "corruption_systeme",
     "emplacement": "torse",
     "mod": true,
     "talents": [],
@@ -2401,7 +2417,7 @@
   },
   "gants_de_controle_haptique": {
     "nom": "Gants de contrôle Haptique",
-    "marque": "systeme_corrompu",
+    "marque": "corruption_systeme",
     "emplacement": "gants",
     "mod": false,
     "talents": [],
@@ -2409,7 +2425,7 @@
   },
   "holster_moule": {
     "nom": "Holster moulé",
-    "marque": "systeme_corrompu",
+    "marque": "corruption_systeme",
     "emplacement": "holster",
     "mod": false,
     "talents": [],
@@ -2417,7 +2433,7 @@
   },
   "genouilliere_zero_day": {
     "nom": "Genouillière Zero-day",
-    "marque": "systeme_corrompu",
+    "marque": "corruption_systeme",
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
@@ -2425,7 +2441,7 @@
   },
   "masque_cavalier": {
     "nom": "Masque Cavalier",
-    "marque": "the_cavalier",
+    "marque": "cavalier",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
@@ -2433,7 +2449,7 @@
   },
   "sac_a_dos_cavalier": {
     "nom": "Sac à dos Cavalier",
-    "marque": "the_cavalier",
+    "marque": "cavalier",
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
@@ -2441,7 +2457,7 @@
   },
   "veste_cavalier": {
     "nom": "Veste Cavalier",
-    "marque": "the_cavalier",
+    "marque": "cavalier",
     "emplacement": "torse",
     "mod": true,
     "talents": [],
@@ -2449,7 +2465,7 @@
   },
   "gants_cavalier": {
     "nom": "Gants Cavalier",
-    "marque": "the_cavalier",
+    "marque": "cavalier",
     "emplacement": "gants",
     "mod": false,
     "talents": [],
@@ -2457,7 +2473,7 @@
   },
   "holster_cavalier": {
     "nom": "Holster Cavalier",
-    "marque": "the_cavalier",
+    "marque": "cavalier",
     "emplacement": "holster",
     "mod": false,
     "talents": [],
@@ -2465,7 +2481,7 @@
   },
   "genouilleres_cavalier": {
     "nom": "Genouillères Cavalier",
-    "marque": "the_cavalier",
+    "marque": "cavalier",
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
@@ -2521,7 +2537,7 @@
   },
   "masque_virtuose": {
     "nom": "Masque Virtuose",
-    "marque": "virtuose",
+    "marque": "virtuoso",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
@@ -2529,7 +2545,7 @@
   },
   "sac_a_dos_virtuose": {
     "nom": "Sac à dos Virtuose",
-    "marque": "virtuose",
+    "marque": "virtuoso",
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
@@ -2537,7 +2553,7 @@
   },
   "veste_virtuose": {
     "nom": "Veste Virtuose",
-    "marque": "virtuose",
+    "marque": "virtuoso",
     "emplacement": "torse",
     "mod": true,
     "talents": [],
@@ -2545,7 +2561,7 @@
   },
   "gants_virtuose": {
     "nom": "Gants Virtuose",
-    "marque": "virtuose",
+    "marque": "virtuoso",
     "emplacement": "gants",
     "mod": false,
     "talents": [],
@@ -2553,7 +2569,7 @@
   },
   "holster_virtuose": {
     "nom": "Holster Virtuose",
-    "marque": "virtuose",
+    "marque": "virtuoso",
     "emplacement": "holster",
     "mod": false,
     "talents": [],
@@ -2561,7 +2577,7 @@
   },
   "genouilleres_virtuose": {
     "nom": "Genouillères Virtuose",
-    "marque": "virtuose",
+    "marque": "virtuoso",
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
