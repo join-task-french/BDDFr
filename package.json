@@ -5,9 +5,8 @@
   "type": "module",
   "scripts": {
     "prepare": "git config core.hooksPath .githooks",
-
-    "prebuild": "npm run sync-data",
-    "predev": "npm run sync-data",
+    "prebuild": "npm run prepare && npm run sync-data",
+    "predev": "npm run prepare && npm run sync-data",
 
     "sync-data": "node scripts/sync-data.mjs",
     "generate-statics": "node scripts/generate-static-pages.mjs",
