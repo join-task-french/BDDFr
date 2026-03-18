@@ -2071,16 +2071,16 @@
     "talents": [],
     "type": "gear_set"
   },
-  "torse": {
-    "nom": "torse",//TODO
+  "plaque_fixee": {
+    "nom": "Plaque fixée",
     "marque": "concentrated_company",
     "emplacement": "torse",
     "mod": true,
     "talents": [],
     "type": "gear_set"
   },
-  "gants_": {
-    "nom": "Gants",//TODO
+  "gants_de_pointage": {
+    "nom": "Gants de pointage",
     "marque": "concentrated_company",
     "emplacement": "gants",
     "mod": false,
@@ -2119,8 +2119,8 @@
     "talents": [],
     "type": "standard"
   },
-  "torse_unit": {//TODO
-    "nom": "Torse unit",
+  "plastron_desequilibre": {
+    "nom": "Plastron déséquilibré",
     "marque": "unit_alloys",
     "emplacement": "torse",
     "mod": true,
