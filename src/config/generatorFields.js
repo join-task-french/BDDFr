@@ -150,20 +150,20 @@ export const FIELDS = {
       { key: 'armesParfaites', label: 'Armes parfaites', type: 'autocomplete_array', suggestionsKey: 'armesNommees', placeholder: "Rechercher une arme nommée...", hiddenWhen: { key: 'estExotique', value: true } },
 
       // --- MODE DESCENTE ---
-      { key: 'hasDecente', label: 'Disponible en mode Descente', type: 'boolean' },
-      { key: 'decente_boucles', label: 'Boucles (Descente)', type: 'array', visibleWhen: { key: 'hasDecente', value: true } },
-      { key: 'decente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', options: [
+      { key: 'hasDescente', label: 'Disponible en mode Descente', type: 'boolean' },
+      { key: 'descente_boucles', label: 'Boucles (Descente)', type: 'array', visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', options: [
           { value: 'offensif', label: 'Offensif' },
           { value: 'défensif', label: 'Défensif' },
           { value: 'utilitaire', label: 'Utilitaire' },
           { value: 'exotique', label: 'Exotique' },
-        ], visibleWhen: { key: 'hasDecente', value: true } },
-      { key: 'decente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDecente', value: true } },
-      { key: 'decente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
+        ], visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
           { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
           { key: 'variable', label: 'Variable (ex: degats)', type: 'text' },
           { key: 'valeur', label: 'Valeur (ex: 10%)', type: 'text' }
-        ], visibleWhen: { key: 'hasDecente', value: true } },
+        ], visibleWhen: { key: 'hasDescente', value: true } },
     ],
   },
 
@@ -180,20 +180,20 @@ export const FIELDS = {
       { key: 'equipementsParfaits', label: 'Équipements parfaits', type: 'autocomplete_array', suggestionsKey: 'equipementsNommes', placeholder: "Rechercher un équipement nommé...", hiddenWhen: { key: 'estExotique', value: true } },
 
       // --- MODE DESCENTE ---
-      { key: 'hasDecente', label: 'Disponible en mode Descente', type: 'boolean' },
-      { key: 'decente_boucles', label: 'Boucles (Descente)', type: 'array', visibleWhen: { key: 'hasDecente', value: true } },
-      { key: 'decente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', options: [
+      { key: 'hasDescente', label: 'Disponible en mode Descente', type: 'boolean' },
+      { key: 'descente_boucles', label: 'Boucles (Descente)', type: 'array', visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_categorie', label: 'Catégorie (Descente)', type: 'radioGroup', options: [
           { value: 'offensif', label: 'Offensif' },
           { value: 'défensif', label: 'Défensif' },
           { value: 'utilitaire', label: 'Utilitaire' },
           { value: 'exotique', label: 'Exotique' },
-        ], visibleWhen: { key: 'hasDecente', value: true } },
-      { key: 'decente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDecente', value: true } },
-      { key: 'decente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
+        ], visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
           { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
           { key: 'variable', label: 'Variable (ex: degats)', type: 'text' },
           { key: 'valeur', label: 'Valeur (ex: 10%)', type: 'text' }
-        ], visibleWhen: { key: 'hasDecente', value: true } },
+        ], visibleWhen: { key: 'hasDescente', value: true } },
     ],
   },
 
@@ -633,23 +633,23 @@ export function cleanOutput(data, categoryKey) {
   }
 
   // --- TRAITEMENT SPÉCIFIQUE POUR LE MODE DESCENTE ---
-  if (data.hasDecente) {
-    result.decente = {
-      boucles: data.decente_boucles || [],
-      categorie: data.decente_categorie || 'offensif',
+  if (data.hasDescente) {
+    result.descente = {
+      boucles: data.descente_boucles || [],
+      categorie: data.descente_categorie || 'offensif',
       levels: {
-        base: data.decente_base || ''
+        base: data.descente_base || ''
       }
     }
 
     // Reconstruction de la hiérarchie imbriquée des niveaux
-    if (Array.isArray(data.decente_vars)) {
-      data.decente_vars.forEach(v => {
+    if (Array.isArray(data.descente_vars)) {
+      data.descente_vars.forEach(v => {
         if (v.niveau && v.variable) {
-          if (!result.decente.levels[v.niveau]) {
-            result.decente.levels[v.niveau] = {}
+          if (!result.descente.levels[v.niveau]) {
+            result.descente.levels[v.niveau] = {}
           }
-          result.decente.levels[v.niveau][v.variable] = v.valeur
+          result.descente.levels[v.niveau][v.variable] = v.valeur
         }
       })
     }
@@ -657,11 +657,11 @@ export function cleanOutput(data, categoryKey) {
 
   // Nettoyage des champs virtuels liés au formulaire
   // On s'assure qu'ils n'apparaissent pas dans le JSONC final, qu'ils soient vides ou remplis
-  delete result.hasDecente
-  delete result.decente_boucles
-  delete result.decente_categorie
-  delete result.decente_base
-  delete result.decente_vars
+  delete result.hasDescente
+  delete result.descente_boucles
+  delete result.descente_categorie
+  delete result.descente_base
+  delete result.descente_vars
 
   return result
 }
@@ -785,19 +785,19 @@ export function itemToFormData(categoryKey, item) {
   }
 
   // --- MAPPING INVERSE POUR LE MODE DESCENTE ---
-  if (item.decente) {
-    data.hasDecente = true
-    data.decente_boucles = item.decente.boucles || []
-    data.decente_categorie = item.decente.categorie || 'offensif'
-    data.decente_base = item.decente.levels?.base || ''
-    data.decente_vars = []
+  if (item.descente) {
+    data.hasDescente = true
+    data.descente_boucles = item.descente.boucles || []
+    data.descente_categorie = item.descente.categorie || 'offensif'
+    data.descente_base = item.descente.levels?.base || ''
+    data.descente_vars = []
 
     // Déconstruction de la hiérarchie imbriquée vers un tableau plat pour le formulaire
-    if (item.decente.levels) {
-      for (const [niv, vars] of Object.entries(item.decente.levels)) {
+    if (item.descente.levels) {
+      for (const [niv, vars] of Object.entries(item.descente.levels)) {
         if (niv === 'base') continue
         for (const [varName, varVal] of Object.entries(vars)) {
-          data.decente_vars.push({ niveau: niv, variable: varName, valeur: varVal })
+          data.descente_vars.push({ niveau: niv, variable: varName, valeur: varVal })
         }
       }
     }

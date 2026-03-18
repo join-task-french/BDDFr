@@ -54,7 +54,7 @@
           "type": "string",
           "description": "Notes libres sur le talent"
         },
-        "decente": {
+        "descente": {
           "type": "object",
           "description": "Données spécifiques au mode de jeu Descente",
           "required": ["boucles", "categorie", "levels"],

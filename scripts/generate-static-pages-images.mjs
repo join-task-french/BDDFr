@@ -78,7 +78,7 @@ const categoryFormatters = {
     }),
     'descente': (item, level) => ({
         title: `🧬 ${item.nom} (Niv. ${level || 1}) — BDDFr`,
-        description: `Talent du mode Descente : ${item.decente?.categorie || 'Spécial'}`
+        description: `Talent du mode Descente : ${item.descente?.categorie || 'Spécial'}`
     }),
     'default': (item) => ({
         title: `${item.nom || item.competence || 'Élément'} — BDDFr`,
@@ -373,7 +373,7 @@ async function generate() {
                 items = [
                     ...Object.entries(wTalents).map(([s, v]) => ({ ...v, slug: s })),
                     ...Object.entries(gTalents).map(([s, v]) => ({ ...v, slug: s }))
-                ].filter(i => i.decente);
+                ].filter(i => i.descente);
             } else {
                 const filePath = path.join(DATA_DIR, categoryMap[categoryKey]);
                 if (!fs.existsSync(filePath)) continue;
@@ -403,7 +403,7 @@ async function generate() {
                 const formatter = categoryFormatters[categoryKey] || categoryFormatters['default'];
 
                 if (categoryKey === 'descente') {
-                    const levels = Object.keys(item.decente.levels).filter(k => k !== 'base').sort((a,b)=>parseInt(a)-parseInt(b));
+                    const levels = Object.keys(item.descente.levels).filter(k => k !== 'base').sort((a,b)=>parseInt(a)-parseInt(b));
 
                     for (const level of levels) {
                         const res = formatter(item, level);

@@ -965,7 +965,7 @@
     "icone": "deluge_de_feu",
     "description": "Cette arme ne nécessite pas de rechargement.Pour chaque 100 balles qui touchent un ennemi, des munitions sont ajoutées dans votre réserve et celles de vos alliés",
     "estExotique": true,
-    "decente": {
+    "descente": {
       "boucles": [
         "Colère",
         "Envie"

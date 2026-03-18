@@ -677,7 +677,7 @@ export const DESCENTE_DEFAULT_SORT = [
 ]
 const descenteGetters = {
   alpha: (item) => item.nom || '',
-  categorie: (item) => item.decente?.categorie || ''
+  categorie: (item) => item.descente?.categorie || ''
 }
 export function applySortDescente(items, sortLayers) { return multiSort(items, sortLayers, descenteGetters) }
 
@@ -686,10 +686,10 @@ export function getDescenteFilters(data) {
   const wTalents = Array.isArray(data?.talentsArmes) ? data.talentsArmes : Object.values(data?.talentsArmes || {})
   const gTalents = Array.isArray(data?.talentsEquipements) ? data.talentsEquipements : Object.values(data?.talentsEquipements || {})
 
-  const descentTalents = [...wTalents, ...gTalents].filter(t => t.decente)
+  const descentTalents = [...wTalents, ...gTalents].filter(t => t.descente)
 
   const bouclesSet = new Set()
-  descentTalents.forEach(t => t.decente.boucles.forEach(b => bouclesSet.add(b)))
+  descentTalents.forEach(t => t.descente.boucles.forEach(b => bouclesSet.add(b)))
   const boucleOptions = Array.from(bouclesSet)
       .sort()
       .map(b => ({ value: b, label: b }))
@@ -717,8 +717,8 @@ export function getDescenteDefaults() {
 
 export function applyDescenteFilters(items, filters) {
   return items.filter(item => {
-    if (filters.boucle && !item.decente.boucles.includes(filters.boucle)) return false
-    if (filters.categorie && item.decente.categorie !== filters.categorie) return false
+    if (filters.boucle && !item.descente.boucles.includes(filters.boucle)) return false
+    if (filters.categorie && item.descente.categorie !== filters.categorie) return false
     return true
   })
 }

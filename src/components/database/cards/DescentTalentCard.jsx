@@ -3,8 +3,8 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { slugify } from '../../../utils/slugify.js';
 
 export default function DescentTalentCard({ item }) {
-    const { nom, icone, decente, isWeaponTalent } = item;
-    const { boucles, categorie, levels } = decente;
+    const { nom, icone, descente, isWeaponTalent } = item;
+    const { boucles, categorie, levels } = descente;
     const { category, slug, modifier } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
