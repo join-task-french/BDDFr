@@ -178,17 +178,57 @@
           }
         },
         "emplacementsMods": {
-          "type": "array",
-          "description": "Types de mods acceptés par l'arme (chargeur, canon, viseur, bouche)",
-          "items": {
-            "type": "string",
-            "enum": [
-              "chargeur",
-              "canon",
-              "viseur",
-              "bouche"
-            ]
-          }
+          "type": "object",
+          "description": "Détail des emplacements spécifiques disponibles sur l'arme",
+          "properties": {
+            "chargeur": {
+              "type": "string",
+              "description": "Ex: chargeur_556",
+              "enum": [
+                "chargeur_556",
+                "chargeur_762",
+                "chargeur_762_precision",
+                "chargeur_integre",
+                "chargeur_pistolet",
+                "barillet",
+                "bande_munitions",
+                "chargeur_45_acp",
+                "chargeur_9mm",
+                "magasin_tubulaire"
+              ]
+            },
+            "canon": {
+              "type": "string",
+              "description": "Ex: rail_sous_canon_long",
+              "enum": [
+                "rail_sous_canon_long",
+                "rail_sous_canon_court",
+                "gadget"
+              ]
+            },
+            "viseur": {
+              "type": "string",
+              "description": "Ex: rail_optique_court",
+              "enum": [
+                "rail_optique_court",
+                "rail_optique_long",
+                "micro_rail_optique",
+                "rail_optique"
+              ]
+            },
+            "bouche": {
+              "type": "string",
+              "description": "Ex: bouche_556",
+              "enum": [
+                "bouche_45_acp",
+                "bouche_9mm",
+                "bouche_556",
+                "bouche_762",
+                "bouche"
+              ]
+            }
+          },
+          "additionalProperties": false
         },
         "modsPredefinis": {
           "type": "array",

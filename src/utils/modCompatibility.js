@@ -4,16 +4,21 @@
  */
 
 /**
- * Vérifie si un mod d'arme est compatible avec un type d'arme donné.
- * @param {Object} mod - Le mod (avec champ compatible: string[])
- * @param {string} weaponType - Le slug du type d'arme (ex: 'fusil_assaut')
+ * Vérifie si un mod d'arme est compatible avec une arme donnée.
+ * @param {Object} mod - Le mod (avec champ compatible contenant les slugs d'emplacements)
+ * @param {Object} weapon - L'objet arme complet (avec l'objet emplacementsMods)
  * @returns {boolean}
  */
-export function isWeaponModCompatible(mod, weaponType) {
-  if (!mod || !weaponType) return false
-  // compatible vide = universel pour ce type de mod
+export function isWeaponModCompatible(mod, weapon) {
+  if (!mod || !weapon || !weapon.emplacementsMods) return false
+
+  // compatible vide = universel pour ce type de mod (ex: s'adapte à tous les viseurs)
   if (!mod.compatible || mod.compatible.length === 0) return true
-  return mod.compatible.includes(weaponType)
+
+  // Extraction des valeurs de l'objet emplacementsMods (ex: ["rail_optique", "emplacement_bouche_556", ...])
+  // Compatible si l'arme possède au moins un emplacement requis par le mod
+  const weaponSlots = Object.values(weapon.emplacementsMods).filter(Boolean)
+  return mod.compatible.some(slotType => weaponSlots.includes(slotType))
 }
 
 /**
@@ -127,5 +132,3 @@ export function resolveModAttrName(slug, allAttributs, statistiques) {
   // Fallback: humaniser le slug
   return slug.replace(/_arm$|_eqp$|_mod$/, '').replace(/_/g, ' ')
 }
-
-
