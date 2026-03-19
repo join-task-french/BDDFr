@@ -2,7 +2,7 @@
  * Validation de la présence des assets graphiques (icônes) appelés dans les fichiers JSONC.
  * Utilisé en CI (GitHub Actions) pour éviter les images manquantes en production.
  *
- * Usage: node scripts/validate-icons.mjs
+ * Usage: node scripts/validate/validate-icons.mjs
  * Exit code 0 = OK, 1 = erreurs trouvées
  */
 import { readFileSync, readdirSync, existsSync, statSync } from 'fs'
@@ -10,12 +10,13 @@ import { join, dirname, relative, basename } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const DATA_DIR = join(__dirname, '..', 'src', 'data')
-const IMG_DIR = join(__dirname, '..', 'src', 'img', 'game_assets')
+const DATA_DIR = join(__dirname, '..', '..', 'src', 'data')
+const IMG_DIR = join(__dirname, '..', '..', 'src', 'img', 'game_assets')
 
 // -----------------------------------------------------------------------------
 // UTILITAIRES
 // -----------------------------------------------------------------------------
+
 function stripComments(text) {
     text = text.replace(/^\uFEFF/, '');
     return text.replace(/("(?:\\.|[^\\"])*")|(\/\*[\s\S]*?\*\/)|(\/\/(?:.*)$)/gm, (match, string) => {

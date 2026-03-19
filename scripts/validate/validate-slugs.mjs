@@ -2,7 +2,7 @@
  * Validation des références croisées (clés primaires) entre les fichiers JSONC.
  * Utilisé en CI (GitHub Actions) pour garantir l'intégrité relationnelle des données.
  *
- * Usage: node scripts/validate-slugs.mjs
+ * Usage: node scripts/validate/validate-slugs.mjs
  * Exit code 0 = OK, 1 = erreurs trouvées
  */
 import { readFileSync } from 'fs'
@@ -10,7 +10,7 @@ import { join, dirname } from 'path'
 import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const DATA_DIR = join(__dirname, '..', 'src', 'data')
+const DATA_DIR = join(__dirname, '..', '..', 'src', 'data')
 
 // -----------------------------------------------------------------------------
 // CONFIGURATION DES RELATIONS À VALIDER

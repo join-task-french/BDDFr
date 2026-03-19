@@ -2,7 +2,7 @@
  * Validation des fichiers JSONC contre les schémas JSON.
  * Utilisé en CI (GitHub Actions) pour valider les données lors des PR.
  *
- * Usage: node scripts/validate-schemas.mjs
+ * Usage: node scripts/validate/validate-schemas.mjs
  * Exit code 0 = OK, 1 = erreurs trouvées
  */
 import { readFileSync, readdirSync } from 'fs'
@@ -12,8 +12,8 @@ import Ajv from 'ajv'
 import addFormats from 'ajv-formats'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const DATA_DIR = join(__dirname, '..', 'src', 'data')
-const SCHEMA_DIR = join(__dirname, '..', 'src', 'data', 'schemas')
+const DATA_DIR = join(__dirname, '..', '..', 'src', 'data')
+const SCHEMA_DIR = join(__dirname, '..', '..', 'src', 'data', 'schemas')
 
 function stripComments(text) {
   text = text.replace(/^\uFEFF/, '');
@@ -22,7 +22,6 @@ function stripComments(text) {
     return '';
   });
 }
-
 
 // Mapping fichier JSONC → fichier schema
 const VALIDATIONS = [
@@ -99,10 +98,10 @@ for (const { data: dataFile, schema: schemaFile } of VALIDATIONS) {
 
   if (valid) {
     const count = Array.isArray(data)
-      ? `${data.length} entrées`
-      : typeof data === 'object' && data !== null
-        ? `${Object.keys(data).length} entrées`
-        : 'objet'
+        ? `${data.length} entrées`
+        : typeof data === 'object' && data !== null
+            ? `${Object.keys(data).length} entrées`
+            : 'objet'
     console.log(`  ✅ ${dataFile} — OK (${count})`)
     passedFiles++
   } else {
@@ -137,5 +136,3 @@ if (hasErrors) {
   console.log('✅ Toutes les données sont valides !\n')
   process.exit(0)
 }
-
-
