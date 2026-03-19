@@ -11,13 +11,11 @@ import { fileURLToPath } from 'url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const DATA_DIR = join(__dirname, '..', 'src', 'data')
-// Basé sur vos chemins précédents, le dossier s'appelle "img", modifiez si c'est bien "images"
 const IMG_DIR = join(__dirname, '..', 'src', 'img', 'game_assets')
 
 // -----------------------------------------------------------------------------
 // UTILITAIRES
 // -----------------------------------------------------------------------------
-
 function stripComments(text) {
     text = text.replace(/^\uFEFF/, '');
     return text.replace(/("(?:\\.|[^\\"])*")|(\/\*[\s\S]*?\*\/)|(\/\/(?:.*)$)/gm, (match, string) => {
@@ -64,33 +62,26 @@ function extractIcons(data, results = []) {
 // -----------------------------------------------------------------------------
 // PRÉPARATION DES DONNÉES DE VALIDATION
 // -----------------------------------------------------------------------------
-
 console.log('🖼️  Validation des icônes entre fichiers JSONC et game_assets...\n')
 
 if (!existsSync(IMG_DIR)) {
     console.error(`❌ Le dossier d'images est introuvable : ${IMG_DIR}`);
     process.exit(1);
 }
-
-// 1. Indexation des images disponibles
 const availableImagesPaths = getAllImages(IMG_DIR)
 const validIconIdentifiers = new Set()
 
 availableImagesPaths.forEach(filepath => {
-    // On normalise les chemins (slashes) pour éviter les soucis Windows/Linux
     const relPath = relative(IMG_DIR, filepath).replace(/\\/g, '/');
     const relPathNoExt = relPath.replace(/\.png$/, '');
     const baseName = basename(filepath);
     const baseNameNoExt = basename(filepath, '.png');
-
-    // On stocke toutes les variantes possibles qui pourraient être utilisées dans le JSONC
     validIconIdentifiers.add(relPath);
     validIconIdentifiers.add(relPathNoExt);
     validIconIdentifiers.add(baseName);
     validIconIdentifiers.add(baseNameNoExt);
 });
 
-// 2. Indexation des fichiers JSONC
 const jsoncFiles = []
 if (existsSync(DATA_DIR)) {
     const files = readdirSync(DATA_DIR);
@@ -107,7 +98,6 @@ if (existsSync(DATA_DIR)) {
 // -----------------------------------------------------------------------------
 // EXÉCUTION DE LA VALIDATION
 // -----------------------------------------------------------------------------
-
 let hasErrors = false
 let totalFiles = 0
 let passedFiles = 0
@@ -129,8 +119,6 @@ for (const filename of jsoncFiles) {
 
     const iconsInFile = extractIcons(data);
     totalIconsChecked += iconsInFile.length;
-
-    // S'il n'y a aucune icône dans ce fichier, on le compte comme valide et on passe au suivant
     if (iconsInFile.length === 0) {
         console.log(`  ✅ [${filename}] — OK (Aucun champ "icon")`);
         passedFiles++;
@@ -149,8 +137,6 @@ for (const filename of jsoncFiles) {
         passedFiles++;
     } else {
         console.log(`  ❌ [${filename}] — ${invalidIcons.length} icône(s) introuvable(s) :`);
-
-        // Affichage limité pour la lisibilité de la console CI
         invalidIcons.slice(0, 10).forEach(icon => {
             console.log(`     → Image introuvable pour la valeur : "${icon}"`);
         });
@@ -165,7 +151,6 @@ for (const filename of jsoncFiles) {
 // -----------------------------------------------------------------------------
 // RÉSULTATS
 // -----------------------------------------------------------------------------
-
 console.log(`\n${'─'.repeat(50)}`);
 console.log(`📊 Résultat : ${passedFiles}/${totalFiles} fichiers validés`);
 console.log(`🏷️  Total des champs "icon" vérifiés : ${totalIconsChecked}`);
