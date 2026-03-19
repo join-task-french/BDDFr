@@ -2218,25 +2218,6 @@
     ],
     "emplacementsMods": []
   },
-  "ksg": {
-    "nom": "KSG",
-    "type": "calibre_12",
-    "fabricant": "KEL-TEC",
-    "portee": 16,
-    "rpm": 70,
-    "chargeur": 12,
-    "rechargement": 7.99,
-    "headshot": 45,
-    "degatsBase": 678672,
-    "estExotique": false,
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
-  },
   "l_inhumateur": {
     "nom": "L'Inhumateur",
     "description": "Quand vous quittez ce monde, tout ce que vous entendez c'est un bruit blanc.",
@@ -2269,25 +2250,6 @@
     "rechargement": 3.35,
     "headshot": 45,
     "degatsBase": 703700,
-    "estExotique": false,
-    "estNomme": false,
-    "talents": [],
-    "emplacementsMods": [
-      "viseur",
-      "canon",
-      "chargeur"
-    ]
-  },
-  "m870_police": {
-    "nom": "M870 POLICE",
-    "type": "calibre_12",
-    "fabricant": "REMINGTON",
-    "portee": 11,
-    "rpm": 75,
-    "chargeur": 5,
-    "rechargement": 3.35,
-    "headshot": 45,
-    "degatsBase": 703527,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -3042,45 +3004,45 @@
     ]
   },
   "smg_9_converti": {
-    "nom": "SMG-9 CONVERTI",
+    "nom": "SMG-9 converti",
     "type": "pistolet_mitrailleur",
     "fabricant": "INTRACTEC",
     "portee": 15,
-    "rpm": 875,
+    "rpm": 1000,
     "chargeur": 32,
-    "rechargement": 2.46,
+    "rechargement": 2.26,
     "headshot": 50,
-    "degatsBase": 48501,
+    "degatsBase": 48500,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
-      "canon",
+      "bouche",
       "chargeur"
     ]
   },
   "smg_9_a2_converti": {
-    "nom": "SMG-9 A2 CONVERTI",
+    "nom": "SMG-9 A2 converti",
     "type": "pistolet_mitrailleur",
     "fabricant": "INTRACTEC",
     "portee": 15,
-    "rpm": 875,
+    "rpm": 1000,
     "chargeur": 32,
-    "rechargement": 2.46,
+    "rechargement": 2.30,
     "headshot": 50,
-    "degatsBase": 46726,
+    "degatsBase": 46700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": [
       "viseur",
-      "canon",
+      "bouche",
       "chargeur"
     ]
   },
   "mp5a2": {
-    "nom": "MP5A2",
+    "nom": "MP5A2",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
@@ -3099,7 +3061,7 @@
     ]
   },
   "mp5_n": {
-    "nom": "MP5-N",
+    "nom": "MP5-N",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
@@ -3118,7 +3080,7 @@
     ]
   },
   "mp5_st": {
-    "nom": "MP5 ST",
+    "nom": "MP5 ST",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
@@ -3137,7 +3099,7 @@
     ]
   },
   "cabaret": {
-    "nom": "CABARET",
+    "nom": "CABARET",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
@@ -3156,7 +3118,7 @@
     ]
   },
   "pp_19": {
-    "nom": "PP-19",
+    "nom": "PP-19",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "IZHMASH",
     "portee": 21,
@@ -3175,7 +3137,7 @@
     ]
   },
   "pp_19_ameliore": {
-    "nom": "PP-19 AMÉLIORÉ",
+    "nom": "PP-19 AMÉLIORÉ",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "IZHMASH",
     "portee": 21,
@@ -3194,7 +3156,7 @@
     ]
   },
   "coup_de_froid": {
-    "nom": "COUP DE FROID",
+    "nom": "COUP DE FROID",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "IZHMASH",
     "portee": 21,
@@ -3213,7 +3175,7 @@
     ]
   },
   "aug_a3_para_xs": {
-    "nom": "AUG A3 PARA XS",
+    "nom": "AUG A3 PARA XS",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
     "portee": 22,
@@ -3231,8 +3193,8 @@
       "chargeur"
     ]
   },
-  "aug_a3_para_xs_ameliore": {
-    "nom": "AUG A3 PARA XS AMÉLIORÉ",
+  "aug_a3_ameliore": {
+    "nom": "AUG A3 AMÉLIORÉ",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
     "portee": 22,
@@ -3251,7 +3213,7 @@
     ]
   },
   "aug_a3_tactique": {
-    "nom": "AUG A3 TACTIQUE",
+    "nom": "AUG A3 TACTIQUE",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
     "portee": 22,
@@ -3269,8 +3231,8 @@
       "chargeur"
     ]
   },
-  "vector_tactique_sbr_9mm": {
-    "nom": "VECTOR TACTIQUE SBR 9MM",
+  "vector_sbr_9_mm_tactique": {
+    "nom": "VECTOR SBR 9 MM TACTIQUE ",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
@@ -3289,7 +3251,7 @@
     ]
   },
   "vector_sbr_9mm": {
-    "nom": "VECTOR SBR 9MM",
+    "nom": "VECTOR SBR 9MM",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
@@ -3308,7 +3270,7 @@
     ]
   },
   "vector_45_acp": {
-    "nom": "VECTOR .45 ACP",
+    "nom": "VECTOR .45 ACP",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
@@ -3327,7 +3289,7 @@
     ]
   },
   "hiver_funeste": {
-    "nom": "HIVER FUNESTE",
+    "nom": "HIVER FUNESTE",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
@@ -3346,7 +3308,7 @@
     ]
   },
   "mp7": {
-    "nom": "MP7",
+    "nom": "MP7",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
@@ -3364,8 +3326,8 @@
       "chargeur"
     ]
   },
-  "l_echangeur": {
-    "nom": "L'ÉCHANGEUR",
+  "echangeur": {
+    "nom": "ÉCHANGEUR",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 21,
@@ -3384,7 +3346,7 @@
     ]
   },
   "t821_du_marche_noir": {
-    "nom": "T821 DU MARCHÉ NOIR",
+    "nom": "T821 DU MARCHÉ NOIR",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "SOCIMI",
     "portee": 20,
@@ -3403,7 +3365,7 @@
     ]
   },
   "t821_police": {
-    "nom": "T821 POLICE",
+    "nom": "T821 POLICE",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "SOCIMI",
     "portee": 20,
@@ -3422,7 +3384,7 @@
     ]
   },
   "ump_45_police": {
-    "nom": "UMP-45 POLICE",
+    "nom": "UMP-45 POLICE",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 16,
@@ -3441,7 +3403,7 @@
     ]
   },
   "ump_45_tactique": {
-    "nom": "UMP-45 TACTIQUE",
+    "nom": "UMP-45 TACTIQUE",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "HECKLER&KOCH",
     "portee": 16,
@@ -3460,7 +3422,7 @@
     ]
   },
   "m1928": {
-    "nom": "M1928",
+    "nom": "M1928",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
     "portee": 19,
@@ -3479,7 +3441,7 @@
     ]
   },
   "tommy_gun": {
-    "nom": "TOMMY GUN",
+    "nom": "TOMMY GUN",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
     "portee": 19,
@@ -3498,7 +3460,7 @@
     ]
   },
   "l_acquis": {
-    "nom": "L'ACQUIS",
+    "nom": "L'ACQUIS",//TODO
     "description": "Les armes ne sont pas sublimes par essence, elles de deviennent.",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
@@ -3518,7 +3480,7 @@
     ]
   },
   "l_enneigeur": {
-    "nom": "L'ENNEIGEUR",
+    "nom": "L'ENNEIGEUR",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
     "portee": 19,
@@ -3537,7 +3499,7 @@
     ]
   },
   "p90": {
-    "nom": "P90",
+    "nom": "P90",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 21,
@@ -3556,7 +3518,7 @@
     ]
   },
   "bouclier_d_emeline": {
-    "nom": "BOUCLIER D'EMELINE",
+    "nom": "BOUCLIER D'EMELINE",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "FN HERSTAL",
     "portee": 21,
@@ -3593,8 +3555,8 @@
       "chargeur"
     ]
   },
-  "l_ecarteur": {
-    "nom": "L'ÉCARTEUR",
+  "ecarteur": {
+    "nom": "ÉCARTEUR",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "SIG-SAUER",
     "portee": 22,
@@ -3613,7 +3575,7 @@
     ]
   },
   "l_appartement": {
-    "nom": "L'APPARTEMENT",
+    "nom": "L'APPARTEMENT",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "SIG-SAUER",
     "portee": 22,
@@ -3632,7 +3594,7 @@
     ]
   },
   "cmmg_banshee": {
-    "nom": "CMMG BANSHEE",
+    "nom": "CMMG BANSHEE",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
     "portee": 21,
@@ -3651,7 +3613,7 @@
     ]
   },
   "rancune": {
-    "nom": "RANCUNE",
+    "nom": "RANCUNE",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
     "portee": 21,
@@ -5025,7 +4987,7 @@
     ]
   },
   "flux_continu": {
-    "nom": "Flux continu",
+    "nom": "Flux continu",//TODO
     "description": "\"On dit que je ne sais pas quand il faut la fermer, mais c'est juste l'Épice qui parle.\"\n- Dime, membre de la Commission des Hyènes",
 
     "type": "pistolet_mitrailleur",
@@ -5051,7 +5013,7 @@
     ]
   },
   "lady_death": {
-    "nom": "Lady death",
+    "nom": "Lady death",//TODO
     "description": "\"La liberté, inaliénable ? C'est des conneries. On pourra toujours te prendre ta liberté. La seule chose qui te sépare de la tyrannie, c'est le canon de ton flingue.\"\n- Fan du Deuxième Amendement",
     "type": "pistolet_mitrailleur",
     "fabricant": "CMMG",
@@ -5076,7 +5038,7 @@
     ]
   },
   "contre_feu": {
-    "nom": "Contre-feu",
+    "nom": "Contre-feu",//TODO
     "description": "\"Car seuls ceux qui ont souffert peuvent ordonner la souffrance des autres !\"\n- Credo des Parias",
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
@@ -5101,7 +5063,7 @@
     ]
   },
   "ouroboros": {
-    "nom": "Ouroboros",
+    "nom": "Ouroboros",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
@@ -5125,7 +5087,7 @@
     ]
   },
   "oxpecker": {
-    "nom": "Oxpecker",
+    "nom": "Oxpecker",//TODO
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
     "portee": 0,
@@ -5528,6 +5490,87 @@
     "emplacementsMods": [
       "viseur",
       "canon"
+    ]
+  },
+  "fronde": {
+    "nom": "Fronde",//TODO
+    "type": "pistolet_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "puriste": {
+    "nom": "Puriste",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "INTRACTEC",
+    "portee": 15,
+    "rpm": 1000,
+    "chargeur": 32,
+    "rechargement": 2.30,
+    "headshot": 50,
+    "degatsBase": 46700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "rationalisation"
+    ],
+    "emplacementsMods": [
+      "viseur",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "sig_mpx": {
+    "nom": "SIG MPX",//TODO
+    "type": "pistolet_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": false,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
+    ]
+  },
+  "ecume": {
+    "nom": "Écume",//TODO
+    "type": "pistolet_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": [
+      "viseur",
+      "canon",
+      "chargeur",
+      "bouche"
     ]
   }
 }
