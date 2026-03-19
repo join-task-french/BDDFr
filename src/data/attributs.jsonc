@@ -600,6 +600,21 @@
       "recup_competence"
     ]
   },
+  "recup_impulsion_scanner_eqp": {
+      "nom": "Récup d'impulsion de scanner",
+      "categorie": "utilitaire",
+      "cible": [
+        "equipement"
+      ],
+      "unite": "%",
+      "min": 90,
+      "max": 100,
+      "description": "Réduit le temps de recharge de l'impulsion de scanner",
+      "estEssentiel": false,
+      "statistiques": [
+        "recup_impulsion_scanner"
+      ]
+  },
   "effets_d_etat_eqp": {
     "nom": "Effets d'état",
     "categorie": "utilitaire",

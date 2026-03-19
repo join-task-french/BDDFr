@@ -607,6 +607,36 @@
     "talents": [],
     "type": "standard"
   },
+  "refroidissement": {
+    "nom": "Refroidissement",
+    "description": "\"La vengeance est un plat qui se mange froid. -Quelqu'un qui se souvient de vous\"",
+    "emplacement": "masque",
+    "marque": "gila_guard",
+    "mod": 2,
+    "estNomme": true,
+    "attributEssentiel": [
+      "défensif"
+    ],
+    "type": "standard"
+  },
+  "veilleur_de_nuit": {
+    "nom": "Veilleur de nuit",
+    "description": "\"Dans le verre et l'acier; Je te regarde; Une vision si cruelle\"",
+    "emplacement": "masque",
+    "marque": "gila_guard",
+    "mod": true,
+    "estNomme": true,
+    "attributEssentiel": [
+      "défensif"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_impulsion_scanner_eqp",
+        "valeur": 100
+      }
+    ],
+    "type": "standard"
+  },
   "sac_big_horn": {
     "nom": "Sac Big Horn",
     "marque": "gila_guard",
@@ -1482,6 +1512,24 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
+    "type": "standard"
+  },
+  "l_homme_sans_ombre": {
+    "nom": "L'homme sans ombre",
+    "description": "\"Aucun gémissement.Aucun éclat.Juste le silence.La fin de toute chose.\"",
+    "emplacement": "masque",
+    "marque": "yaahl_gear",
+    "mod": true,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_a_la_sante_es",
+        "valeur": 14
+      }
+    ],
     "type": "standard"
   },
   "sac_garibaldi": {
