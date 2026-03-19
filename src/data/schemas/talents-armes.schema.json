@@ -82,7 +82,10 @@
                 "type": "object",
                 "description": "Valeurs des variables pour un niveau donné (ex: '1', '2', etc.)",
                 "additionalProperties": {
-                  "type": "string"
+                  "oneOf": [
+                    {"type": "string"},
+                    {"type": "number"}
+                  ]
                 }
               }
             }
