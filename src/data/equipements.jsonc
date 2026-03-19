@@ -407,6 +407,24 @@
     "talents": [],
     "type": "standard"
   },
+  "sonne": {
+    "nom": "Sonné",
+    "description": "\"Si le premier tir ne le tue pas, le deuxième l'achèvera. Ou le troisième. Le troisième, c'est souvent le bon\"",
+    "emplacement": "masque",
+    "marque": "douglas_harding",
+    "mod": true,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_headshot_eqp",
+        "valeur": 20
+      }
+    ],
+    "type": "standard"
+  },
   "sac_a_dos_maree": {
     "nom": "Sac à dos \"Maree\"",
     "marque": "douglas_harding",
@@ -933,6 +951,24 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
+    "type": "standard"
+  },
+  "visionario": {
+    "nom": "Visionario",
+    "description": "\"Tiens-toi à cette distance; et bonsoir, mon bien-aimé -Le Songe d'une nuit d'été\"",
+    "emplacement": "masque",
+    "marque": "legatus_s_p_a",
+    "mod": true,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "portee_optimale_eqp",
+        "valeur": 50
+      }
+    ],
     "type": "standard"
   },
   "sac_a_dos_legatus_s_p_a": {

@@ -630,6 +630,21 @@
       "effets_etat"
     ]
   },
+  "portee_optimale_eqp": {
+    "nom": "Portée optimale",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 50,
+    "description": "Augmente la portée optimale.",
+    "estEssentiel": false,
+    "statistiques": [
+      "portee_optimale_eqp"
+    ]
+  },
   "munitions_mod": {
     "nom": "munitions",
     "categorie": "utilitaire",
