@@ -5042,6 +5042,7 @@
     "description": "\"Car seuls ceux qui ont souffert peuvent ordonner la souffrance des autres !\"\n- Credo des Parias",
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
+    "notes": "#BackfireForever",
     "portee": 0,
     "rpm": 0,
     "chargeur": 0,
