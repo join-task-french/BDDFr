@@ -2103,16 +2103,16 @@
     "talents": [],
     "type": "gear_set"
   },
-  "masque_unit": {//TODO
-    "nom": "Masque unit",
+  "masque_imperturbable": {
+    "nom": "Masque imperturbable",
     "marque": "unit_alloys",
     "emplacement": "masque",
     "mod": true,
     "talents": [],
     "type": "standard"
   },
-  "sac_a_dos_unit": {//TODO
-    "nom": "Sac à dos Unit",
+  "sac_a_dos_inegale": {
+    "nom": "Sac à dos inégalé",
     "marque": "unit_alloys",
     "emplacement": "sac_a_dos",
     "mod": true,
@@ -2127,24 +2127,24 @@
     "talents": [],
     "type": "standard"
   },
-  "gants_unit": {//TODO
-    "nom": "Gants unit",
+  "gants_ininflammables": {
+    "nom": "Gants ininflammables",
     "marque": "unit_alloys",
     "emplacement": "gants",
     "mod": false,
     "talents": [],
     "type": "standard"
   },
-  "holster_unit": {//TODO
-    "nom": "Holster unit",
+  "holster_inconteste": {
+    "nom": "Holster incontesté",
     "marque": "unit_alloys",
     "emplacement": "holster",
     "mod": false,
     "talents": [],
     "type": "standard"
   },
-  "genouilleres_unit": {//TODO
-    "nom": "Genouillères unit",
+  "genouilleres_sans_pareilles": {
+    "nom": "Genouillères sans pareilles",
     "marque": "unit_alloys",
     "emplacement": "genouilleres",
     "mod": false,
