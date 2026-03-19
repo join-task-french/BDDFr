@@ -1051,7 +1051,8 @@
     "icon": "rationalisation",
     "perfectDescription": "Augmente les dégâts d'arme de 47% quand il n'y a aucune compétence déployée ou en recharge.",
     "armesParfaites": [
-      "lud"
+      "lud",
+      "puriste"
     ],
     "compatibilite": {
       "fusil": true,

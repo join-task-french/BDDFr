@@ -10,6 +10,7 @@ A Faire :
 - Holsters
 - Genouilleres
 - descritpion exo + nommé (pas prioritaire)
+- Talent descente (pas prio)
 
 Check mise en forme :
 - Talent armes
@@ -29,4 +30,6 @@ Images :
 - Exotic
 
 Revoir :
--La Totalite des temps de rechargement
+- La Totalite des temps de rechargement
+- Mod arme sous canon court/long
+- Mod arme en general
