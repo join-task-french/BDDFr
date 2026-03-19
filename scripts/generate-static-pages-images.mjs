@@ -19,7 +19,7 @@ const BASE_URL = process.env.PUBLIC_URL || (process.env.GITHUB_ACTIONS ? `https:
 const BASE_PATH = process.env.PUBLIC_PATH || (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr');
 const DIVISION_ORANGE = "#ff8000";
 
-const WATERMARK_URL = `${BASE_PATH}/favicon.png`;
+const WATERMARK_URL = `${BASE_PATH}/favicon_150x150.png`;
 const WATERMARK_OPACITY = 0.15;
 const WATERMARK_SIZE = '60px';
 
@@ -125,13 +125,13 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
     const mainImageUrl = `${BASE_URL}/${imagePath}`;
     const safeDesc = (description || '').replace(/"/g, '&quot;');
 
-    const cardType = imagePath === 'favicon.png' ? 'summary' : 'summary_large_image';
+    const cardType = imagePath === 'favicon_150x150.png' ? 'summary' : 'summary_large_image';
 
     return `<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="${BASE_URL}/favicon.png">
+    <link rel="icon" type="image/png" href="${BASE_URL}/favicon_150x150.png">
     <title>${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="canonical" href="${fullUrl}" />
@@ -200,7 +200,7 @@ async function generate() {
         for (const p of pages_fixes) {
             const targetDir = path.join(DIST_DIR, p.path);
             if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-            fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(p.title, p.description, 'favicon.png', p.path));
+            fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(p.title, p.description, 'favicon_150x150.png', p.path));
             sitemapEntries.push(`${BASE_URL}/${p.path}`);
         }
 
@@ -359,7 +359,7 @@ async function generate() {
 
             fs.writeFileSync(
                 path.join(targetDir, 'index.html'),
-                stubTemplate(title, description, 'favicon.png', pagePath)
+                stubTemplate(title, description, 'favicon_150x150.png', pagePath)
             );
             sitemapEntries.push(`${BASE_URL}/${pagePath}`);
         }
@@ -410,7 +410,7 @@ async function generate() {
                         const pagePath = `db/descente/${itemSlug}/${level}`;
                         const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-${level}.jpg`))
                             ? `og-images/${categoryKey}/${itemSlug}-${level}.jpg`
-                            : 'favicon.png';
+                            : 'favicon_150x150.png';
 
                         const targetDir = path.join(DIST_DIR, pagePath);
                         if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
@@ -428,7 +428,7 @@ async function generate() {
                     }
                 } else {
                     const res = formatter(item);
-                    const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}.jpg`)) ? `og-images/${categoryKey}/${itemSlug}.jpg` : 'favicon.png';
+                    const imagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}.jpg`)) ? `og-images/${categoryKey}/${itemSlug}.jpg` : 'favicon_150x150.png';
                     const pagePath = `db/${categoryKey}/${itemSlug}`;
 
                     const targetDir = path.join(DIST_DIR, pagePath);
@@ -440,7 +440,7 @@ async function generate() {
                         const parfaitPath = `db/${categoryKey}/${itemSlug}/parfait`;
                         const parfaitImagePath = fs.existsSync(path.join(exportOgImagesDir, categoryKey, `${itemSlug}-parfait.jpg`))
                             ? `og-images/${categoryKey}/${itemSlug}-parfait.jpg`
-                            : 'favicon.png';
+                            : 'favicon_150x150.png';
 
                         const targetDirParfait = path.join(DIST_DIR, parfaitPath);
                         if (!fs.existsSync(targetDirParfait)) fs.mkdirSync(targetDirParfait, { recursive: true });

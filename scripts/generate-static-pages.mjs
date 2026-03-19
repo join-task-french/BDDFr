@@ -137,7 +137,7 @@ const stubTemplate = (title, description, imagePath, pagePath) => {
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/png" href="${BASE_URL}/favicon.png">
+    <link rel="icon" type="image/png" href="${BASE_URL}/favicon_150x150.png">
     <link rel="shortcut icon" href="${BASE_URL}/favicon.ico">
     <title>${title}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -165,7 +165,7 @@ async function generate() {
     for (const page of pages_fixes) {
         const targetDir = path.join(DIST_DIR, page.path);
         if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
-        fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(page.title, page.description, 'favicon.png', page.path));
+        fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(page.title, page.description, 'favicon_150x150.png', page.path));
         sitemapEntries.push(`${BASE_URL}/${page.path}`);
     }
 
@@ -229,7 +229,7 @@ async function generate() {
                 }
             }
 
-            let publicImageUrl = 'favicon.png';
+            let publicImageUrl = 'favicon_150x150.png';
             if (iconPath && resolvedFileName) {
                 const dest = path.join(exportIconsDir, resolvedFileName);
                 if (!fs.existsSync(dest)) fs.copyFileSync(iconPath, dest);
