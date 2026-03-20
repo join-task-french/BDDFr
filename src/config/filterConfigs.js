@@ -437,16 +437,23 @@ export function applyTalentEquipFilters(items, filters) {
   })
 }
 
-export function getModArmeFilters() {
+export function getModArmeFilters(data) {
+  const types = data?.modsArmesType || {}
+  const typeOptions = Object.entries(types)
+    .filter(([slug]) => !slug.includes('_')) // On ne garde que les types principaux pour le filtre global si on veut, ou tout
+    .map(([value, obj]) => ({ value, label: obj.nom }))
+
+  // Si on veut vraiment limiter aux 4 de base (enum du schema) :
+  const mainTypes = ['chargeur', 'canon', 'viseur', 'bouche']
+  const filteredOptions = mainTypes.map(slug => ({
+    value: slug,
+    label: types[slug]?.nom || slug
+  }))
+
   return [
     {
       key: 'type', type: 'checkboxes', label: 'Type de mod',
-      options: [
-        { value: 'chargeur', label: 'Chargeur' },
-        { value: 'canon', label: 'Canon' },
-        { value: 'viseur', label: 'Viseur' },
-        { value: 'bouche', label: 'bouche' },
-      ],
+      options: filteredOptions,
     },
     { key: 'estExotique', type: 'tri-state', label: 'Exotique' },
   ]

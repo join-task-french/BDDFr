@@ -19,6 +19,7 @@ const DATA_FILES = {
   equipements_type: 'equipements-type.jsonc',
   metadata: 'metadata.jsonc',
   modsArmes: 'mods-armes.jsonc',
+  modsArmesType: 'mods-armes-type.jsonc',
   modsCompetences: 'mods-competences.jsonc',
   modsEquipements: 'mods-equipements.jsonc',
   statistiques: 'statistiques.jsonc',
