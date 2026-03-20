@@ -24,7 +24,8 @@ function getClassicSlotCount(piece) {
  */
 function findDefaultEssentialAttr(allAttributs, categorie) {
   if (!allAttributs || !categorie) return null
-  const ref = allAttributs.find(a =>
+  const attrList = Array.isArray(allAttributs) ? allAttributs : Object.values(allAttributs || {})
+  const ref = attrList.find(a =>
       a.cible?.includes('equipement') &&
       a.categorie === categorie &&
       a.estEssentiel === true
@@ -54,7 +55,9 @@ function resolveInitialEssentialCategory(piece, ensembles) {
   }
   // Sinon chercher dans l'ensemble lié pour pré-remplir
   if (piece.marque && piece.marque !== '*' && ensembles) {
-    const ens = ensembles.find(e => e.slug === piece.marque || e.nom === piece.marque)
+    const ens = (ensembles && !Array.isArray(ensembles))
+      ? ensembles[piece.marque]
+      : ensembles.find(e => e.slug === piece.marque || e.nom === piece.marque)
     if (ens?.attributsEssentiels && ens.attributsEssentiels.length > 0) {
       return mapEssentialNames(ens.attributsEssentiels)
     }
@@ -71,14 +74,21 @@ function mapEssentialNames(names) {
   const map = {
     // Slugs utilisés dans ensembles.jsonc
     'degats_arme': 'offensif',
+    'degats_armes': 'offensif',
     'protection': 'défensif',
     'tiers_de_competence': 'utilitaire',
-    // Noms textuels (rétrocompatibilité)
+    'tier_de_competence': 'utilitaire',
+    // Noms textuels
     "Dégâts d'armes": 'offensif',
     "Dégâts d'arme": 'offensif',
     'Protection': 'défensif',
     'Tier de compétence': 'utilitaire',
     'Tiers de compétence': 'utilitaire',
+    // Valeurs directes
+    'offensif': 'offensif',
+    'defensif': 'défensif',
+    'défensif': 'défensif',
+    'utilitaire': 'utilitaire'
   }
   return names.map(n => map[n] || n).filter(Boolean)
 }
@@ -132,30 +142,59 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
   const essentiels = attributes?.essentiels || []
   const classiques = attributes?.classiques || []
 
-  // Pré-remplir les attributs essentiels par défaut
+  // Pré-remplir les attributs par défaut (essentiels et classiques pour nommés/exos)
   useEffect(() => {
-    if (!piece || !allAttributs || !allAttributs.length) return
-    if (essentiels.length > 0 && essentiels[0]) return
+    if (!piece || !allAttributs) return
+    const hasData = Array.isArray(allAttributs) ? allAttributs.length > 0 : Object.keys(allAttributs).length > 0
+    if (!hasData) return
 
-    if (isEssentialFixedByPiece) {
-      // Exotiques : pré-remplir avec les catégories fixées
-      const newEss = fixedEssentialCategories
-          .map(cat => findDefaultEssentialAttr(allAttributs, cat))
-          .filter(Boolean)
-      if (newEss.length > 0) {
-        onChange({ essentiels: newEss, classiques })
-      }
-    } else {
-      // Résoudre la catégorie depuis l'ensemble
-      const cats = initialCategories
-      if (cats && cats.length > 0) {
-        const defaultAttr = findDefaultEssentialAttr(allAttributs, cats[0])
-        if (defaultAttr) {
-          onChange({ essentiels: [defaultAttr], classiques })
+    let nextEss = [...essentiels]
+    let nextCls = [...classiques]
+    let changed = false
+
+    // 1. Initialisation des essentiels si vide
+    if (nextEss.length === 0) {
+      if (isEssentialFixedByPiece) {
+        nextEss = fixedEssentialCategories
+            .map(cat => findDefaultEssentialAttr(allAttributs, cat))
+            .filter(Boolean)
+        if (nextEss.length > 0) changed = true
+      } else {
+        const cats = initialCategories
+        if (cats && cats.length > 0) {
+          const defaultAttr = findDefaultEssentialAttr(allAttributs, cats[0])
+          if (defaultAttr) {
+            nextEss = [defaultAttr]
+            changed = true
+          }
         }
       }
     }
-  }, [piece?.nom, allAttributs?.length, ensembles?.length]) // eslint-disable-line react-hooks/exhaustive-deps
+
+    // 2. Initialisation des classiques si vide et présents sur la pièce (exotiques/nommés)
+    if (nextCls.length === 0 && piece.attributs?.length > 0) {
+      nextCls = piece.attributs.map(pa => {
+        // Recherche par slug direct d'abord, puis par nom
+        const ref = allAttributs[pa.nom] || Object.values(allAttributs).find(a => a.nom === pa.nom || a.slug === pa.nom)
+        if (!ref) return null
+        return {
+          nom: ref.nom,
+          slug: ref.slug,
+          valeur: pa.valeur ?? (isPrototype && ref.prototypeMax !== undefined ? ref.prototypeMax : ref.max),
+          min: ref.min,
+          max: ref.max,
+          prototypeMax: ref.prototypeMax,
+          unite: ref.unite,
+          categorie: ref.categorie,
+        }
+      }).filter(Boolean)
+      if (nextCls.length > 0) changed = true
+    }
+
+    if (changed) {
+      onChange({ essentiels: nextEss, classiques: nextCls })
+    }
+  }, [piece?.nom, allAttributs, ensembles]) // eslint-disable-line react-hooks/exhaustive-deps
 
   // Noms déjà utilisés
   const usedNames = useMemo(() => {
@@ -321,9 +360,10 @@ function GearModPicker({ mods, allAttributs, onSelect, onClose }) {
 
   const filtered = useMemo(() => {
     if (!mods) return []
-    if (!search) return mods
+    const modsList = Array.isArray(mods) ? mods : Object.values(mods)
+    if (!search) return modsList
     const s = search.toLowerCase()
-    return mods.filter(m =>
+    return modsList.filter(m =>
         (m.nom || '').toLowerCase().includes(s) ||
         (m.categorie || '').toLowerCase().includes(s) ||
         formatModAttributs(m, allAttributs).toLowerCase().includes(s)

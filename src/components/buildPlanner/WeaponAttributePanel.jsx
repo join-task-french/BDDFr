@@ -103,10 +103,9 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
               {modSlots.map(([globalType, specificSlot], i) => {
                 if (isExotic) {
                   const predefName = predefMods[i]
-                  const predefMod = predefName ? (
-                      modsArmes?.find(m => m.slug === predefName) ||
-                      modsArmes?.find(m => m.nom.toLowerCase() === predefName.toLowerCase())
-                  ) : null
+                  const predefMod = (modsArmes && !Array.isArray(modsArmes))
+                    ? modsArmes[predefName]
+                    : (modsArmes?.find(m => m.slug === predefName) || modsArmes?.find(m => m.nom.toLowerCase() === predefName.toLowerCase()))
                   return (
                       <div key={i} className="flex items-center gap-1.5 py-0.5">
                         <span className="text-xs text-gray-600 uppercase w-16 shrink-0">{globalType}</span>
@@ -205,12 +204,13 @@ function ModPicker({ mods, type, weapon, allAttributs, onSelect, onClose }) {
 
   const filtered = useMemo(() => {
     if (!mods) return []
-    let list = mods.filter(m => m.type === type)
+    const modsList = Array.isArray(mods) ? mods : Object.values(mods)
+    let list = modsList.filter(m => m.type === type)
     list = list.filter(m => isWeaponModCompatible(m, weapon))
     if (search) {
       const s = search.toLowerCase()
       list = list.filter(m =>
-          m.nom.toLowerCase().includes(s) ||
+          (m.nom || '').toLowerCase().includes(s) ||
           formatModAttributs(m, allAttributs).toLowerCase().includes(s)
       )
     }

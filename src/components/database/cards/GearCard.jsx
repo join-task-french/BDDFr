@@ -14,11 +14,15 @@ function hasContent(v) {
  */
 function resolveTalents(item, talentsEquipements) {
   if (!item.talents || item.talents.length === 0) return []
-  if (!talentsEquipements || talentsEquipements.length === 0) {
-    return item.talents.filter(t => hasContent(t))
-  }
+  if (!talentsEquipements) return item.talents.filter(t => hasContent(t))
+
+  const isArray = Array.isArray(talentsEquipements)
+  const talentsList = isArray ? talentsEquipements : Object.values(talentsEquipements)
+
   return item.talents.filter(t => hasContent(t)).map(slug => {
-    const found = talentsEquipements.find(te => te.slug === slug) || talentsEquipements.find(te => te.nom.toLowerCase() === slug.toLowerCase())
+    if (!isArray && talentsEquipements[slug]) return talentsEquipements[slug]
+    const found = talentsList.find(te => te.slug === slug) ||
+        talentsList.find(te => te.nom?.toLowerCase() === slug.toLowerCase())
     return found || slug
   })
 }
@@ -73,24 +77,31 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
   const nameColor = isPrototype ? 'text-cyan-400' : isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : isImprovised ? 'text-indigo-400' : 'text-shd'
   const borderColor = isPrototype ? 'border-l-cyan-500' : isExotic ? 'border-l-red-500' : isNamed ? 'border-l-yellow-500' : isGearSet ? 'border-l-emerald-500' : isImprovised ? 'border-l-indigo-500' : 'border-l-shd/50'
 
+  const ensemble = useMemo(() => {
+    if (!ensembles || !item.marque) return null
+    if (!Array.isArray(ensembles)) {
+      const e = ensembles[item.marque]
+      if (e) return e
+    }
+    const ensemblesList = Array.isArray(ensembles) ? ensembles : Object.values(ensembles)
+    return ensemblesList.find(e => e.slug === item.marque || e.nom?.toLowerCase() === item.marque.toLowerCase())
+  }, [item.marque, ensembles])
+
   // Résoudre les attributs essentiels : array direct ou fallback depuis l'ensemble
   const attrsEssentiels = useMemo(() => {
     if (Array.isArray(item.attributEssentiel) && item.attributEssentiel.length > 0) return item.attributEssentiel
-    if (!ensembles || !item.marque) return []
-    const ensemble = ensembles.find(e => e.slug === item.marque || e.nom.toLowerCase() === item.marque.toLowerCase())
     return ensemble?.attributsEssentiels || []
-  }, [item, ensembles])
-
-  const BASE = import.meta.env.BASE_URL
-  const ensemble = ensembles?.find(e => e.slug === (item.marque || '') || e.nom.toLowerCase() === (item.marque || '').toLowerCase())
+  }, [item.attributEssentiel, ensemble])
 
   // Résoudre le talent gear set pour torse/sac depuis l'ensemble (slug → objet talent)
   const gearSetTalent = useMemo(() => {
     if (!isGearSet || !ensemble) return null
     const findTalent = (slug) => {
       if (!slug || !hasContent(slug)) return null
-      return talentsEquipements?.find(t => t.slug === slug) ||
-          talentsEquipements?.find(t => t.nom.toLowerCase() === slug.toLowerCase())
+      if (talentsEquipements && !Array.isArray(talentsEquipements) && talentsEquipements[slug]) return talentsEquipements[slug]
+      const tList = Array.isArray(talentsEquipements) ? talentsEquipements : Object.values(talentsEquipements || {})
+      return tList.find(t => t.slug === slug) ||
+          tList.find(t => t.nom?.toLowerCase() === slug.toLowerCase())
     }
     if (item.emplacement === 'torse' && hasContent(ensemble.talentTorse)) return findTalent(ensemble.talentTorse)
     if (item.emplacement === 'sac_a_dos' && hasContent(ensemble.talentSac)) return findTalent(ensemble.talentSac)
@@ -181,7 +192,9 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
               <div className="space-y-1 mt-1">
                 <span className="text-purple-400 font-bold uppercase tracking-widest text-xs">Attributs</span>
                 {item.attributs.map((attr, i) => {
-                  const ref = allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
+                  const ref = allAttributs && !Array.isArray(allAttributs)
+                    ? allAttributs[attr.nom]
+                    : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
                   const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
                   const max = isPrototype && ref?.prototypeMax !== undefined ? ref.prototypeMax : ref?.max
                   const isOverMax = ref && val > max

@@ -20,7 +20,8 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
 
   const compatibleTalents = useMemo(() => {
     if (!wType || !data.talentsArmes) return []
-    return data.talentsArmes.filter(t => {
+    const list = Array.isArray(data.talentsArmes) ? data.talentsArmes : Object.values(data.talentsArmes || {})
+    return list.filter(t => {
       if (!t.compatibilite) return true
       return t.compatibilite[wType] === true
     })

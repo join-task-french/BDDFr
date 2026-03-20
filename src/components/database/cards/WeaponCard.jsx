@@ -17,14 +17,20 @@ function hasContent(v) {
  */
 function resolveTalents(item, talentsArmes) {
   if (!item.talents || item.talents.length === 0) return []
-  if (!talentsArmes || talentsArmes.length === 0) {
+  if (!talentsArmes) {
     return item.talents.filter(t => hasContent(t))
   }
 
+  const isArray = Array.isArray(talentsArmes)
+  const talentsList = isArray ? talentsArmes : Object.values(talentsArmes)
+
   return item.talents.filter(t => hasContent(t)).map(slug => {
+    // Accès direct par slug si c'est un objet
+    if (!isArray && talentsArmes[slug]) return talentsArmes[slug]
+
     // Chercher par slug d'abord, puis par nom (rétrocompatibilité)
-    const found = talentsArmes.find(ta => ta.slug === slug) ||
-        talentsArmes.find(ta => ta.nom.toLowerCase() === slug.toLowerCase())
+    const found = talentsList.find(ta => ta.slug === slug) ||
+        talentsList.find(ta => ta.nom?.toLowerCase() === slug.toLowerCase())
     return found || slug // retourne l'objet talent ou le texte brut
   })
 }
@@ -177,7 +183,9 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         {item.attributs?.length > 0 && (
             <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1">
               {item.attributs.map((attr, i) => {
-                const ref = allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
+                const ref = allAttributs && !Array.isArray(allAttributs) 
+                  ? allAttributs[attr.nom] 
+                  : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
                 const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
                 const max = isPrototype && ref?.prototypeMax !== undefined ? ref.prototypeMax : ref?.max
                 const isOverMax = ref && val > max
@@ -213,7 +221,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
             <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1.5">
               <div className="text-xs text-gray-600 uppercase tracking-widest font-bold">Mods prédéfinis</div>
               {item.modsPredefinis.map((slug, i) => {
-                const mod = modsArmes.find(m => m.slug === slug)
+                const mod = modsArmes && !Array.isArray(modsArmes) ? modsArmes[slug] : modsArmes.find(m => m.slug === slug)
                 if (!mod) return (
                     <div key={i} className="text-xs text-gray-500 italic">{slug}</div>
                 )

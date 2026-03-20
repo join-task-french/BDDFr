@@ -28,7 +28,8 @@ export default function AttributePicker({ attributs, cible, categorie, essentiel
 
   const filtered = useMemo(() => {
     if (!attributs) return []
-    let list = attributs.filter(a => a.cible?.includes(cible))
+    const listRaw = Array.isArray(attributs) ? attributs : Object.values(attributs)
+    let list = listRaw.filter(a => a.cible?.includes(cible))
     // Séparer attributs essentiels et classiques
     if (essentiel === true) list = list.filter(a => a.estEssentiel === true)
     else if (essentiel === false) list = list.filter(a => !a.estEssentiel)

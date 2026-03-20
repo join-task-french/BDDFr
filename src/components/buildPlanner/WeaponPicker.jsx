@@ -27,10 +27,13 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
   const classicTypes = useMemo(() => getClassicWeaponTypes(data.armes_type), [data.armes_type])
 
   const allWeapons = useMemo(() => {
-    const armes = data.armes || []
+    const rawArmes = data.armes || {}
+    const armes = Array.isArray(rawArmes) ? rawArmes : Object.values(rawArmes)
     switch (mode) {
       case 'special':
-        return (data.classSpe || []).map(spec => ({
+        const rawClassSpe = data.classSpe || {}
+        const classSpeList = Array.isArray(rawClassSpe) ? rawClassSpe : Object.values(rawClassSpe)
+        return classSpeList.map(spec => ({
           nom: spec.arme.nom,
           type: 'arme_specifique',
           portee: spec.arme.portee,

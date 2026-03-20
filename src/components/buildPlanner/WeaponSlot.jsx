@@ -102,7 +102,9 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                         {weapon.talents && weapon.talents.length > 0 && weapon.estExotique ? (
                             <div className="mt-3 pt-3 border-t border-tactical-border">
                                 {weapon.talents.filter(t => t && t !== 'n/a').map((slug, i) => {
-                                    const resolved = data?.talentsArmes?.find(t => t.slug === slug || t.nom === slug)
+                                    const resolved = data?.talentsArmes && !Array.isArray(data.talentsArmes)
+                                      ? data.talentsArmes[slug]
+                                      : data?.talentsArmes?.find(t => t.slug === slug || t.nom === slug)
                                     return (
                                         <div key={i} className={i > 0 ? "mt-3" : ""}>
                                             <div className="text-xs text-shd font-bold uppercase tracking-widest">
@@ -119,7 +121,9 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                             /* Arme nommée avec talent pré-inscrit — affiché si aucun talent n'a été manuellement sélectionné */
                             (() => {
                                 const slug = weapon.talents.find(t => t && t !== 'n/a' && t !== '')
-                                const resolved = data?.talentsArmes?.find(t => t.slug === slug || t.nom === slug)
+                                const resolved = data?.talentsArmes && !Array.isArray(data.talentsArmes)
+                                  ? data.talentsArmes[slug]
+                                  : data?.talentsArmes?.find(t => t.slug === slug || t.nom === slug)
                                 const isPerfect = weapon.estNomme && resolved?.perfectDescription
                                 return (
                                     <div className="mt-3 pt-3 border-t border-tactical-border">

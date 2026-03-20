@@ -6,7 +6,10 @@ export default function PrototypeTalentPicker({ data, slotKey, onClose }) {
   const { dispatch } = useBuild()
   const [search, setSearch] = useState('')
 
-  const talents = data?.talentsPrototypes || []
+  const talents = useMemo(() => {
+    if (!data?.talentsPrototypes) return []
+    return Array.isArray(data.talentsPrototypes) ? data.talentsPrototypes : Object.values(data.talentsPrototypes)
+  }, [data?.talentsPrototypes])
 
   const filtered = useMemo(() => {
     if (!search) return talents

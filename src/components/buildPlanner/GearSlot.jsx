@@ -19,14 +19,18 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
   const gearSetTalent = useMemo(() => {
     if (!piece || piece.type !== 'gear_set') return null
     if (!ensembles || !piece.marque) return null
-    const ens = ensembles.find(e => e.slug === piece.marque || e.nom.toLowerCase() === piece.marque.toLowerCase())
+    const ens = (ensembles && !Array.isArray(ensembles))
+      ? ensembles[piece.marque]
+      : ensembles?.find(e => e.slug === piece.marque || e.nom?.toLowerCase() === piece.marque.toLowerCase())
     if (!ens) return null
     let slug = null
     if (slotKey === 'torse' && hasContent(ens.talentTorse)) slug = ens.talentTorse
     if (slotKey === 'sac_a_dos' && hasContent(ens.talentSac)) slug = ens.talentSac
     if (!slug) return null
     // Resolve slug to full talent object
-    const resolved = talentsEquipements?.find(t => t.slug === slug)
+    const resolved = (talentsEquipements && !Array.isArray(talentsEquipements))
+      ? talentsEquipements[slug]
+      : talentsEquipements?.find(t => t.slug === slug)
     return resolved || { nom: slug, description: slug }
   }, [piece, ensembles, slotKey, talentsEquipements])
 
@@ -34,7 +38,9 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
   const marqueLabel = useMemo(() => {
     if (!piece?.marque || !ensembles) return piece?.marque || ''
     if (piece.marque === '*') return ''
-    const ens = ensembles.find(e => e.slug === piece.marque || e.nom.toLowerCase() === piece.marque.toLowerCase())
+    const ens = (ensembles && !Array.isArray(ensembles))
+      ? ensembles[piece.marque]
+      : ensembles?.find(e => e.slug === piece.marque || e.nom?.toLowerCase() === piece.marque.toLowerCase())
     return ens?.nom || piece.marque
   }, [piece, ensembles])
 
@@ -48,7 +54,9 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
     if (!hasPredefinedTalent || !talentsEquipements) return null
     const slug = piece.talents.find(t => t && t !== 'n/a' && t !== '')
     if (!slug) return null
-    const base = talentsEquipements.find(t => t.slug === slug || t.nom === slug)
+    const base = (talentsEquipements && !Array.isArray(talentsEquipements))
+      ? talentsEquipements[slug]
+      : talentsEquipements.find(t => t.slug === slug || t.nom === slug)
     if (!base) return { nom: slug, description: '' }
     if (piece.estNomme && base.perfectDescription) {
       return {
@@ -142,7 +150,9 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                 {piece.type === 'exotique' && piece.talents && piece.talents.length > 0 && (
                     <div className="mt-3 pt-3 border-t border-tactical-border">
                       {piece.talents.filter(t => t && t !== 'n/a').map((slug, i) => {
-                        const resolved = talentsEquipements?.find(t => t.slug === slug || t.nom === slug)
+                        const resolved = (talentsEquipements && !Array.isArray(talentsEquipements))
+                            ? talentsEquipements[slug]
+                            : talentsEquipements?.find(t => t.slug === slug || t.nom === slug)
                         return (
                             <div key={i} className={i > 0 ? "mt-3" : ""}>
                               <div className="text-xs text-shd font-bold uppercase tracking-widest">
