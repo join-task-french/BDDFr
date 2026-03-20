@@ -13,7 +13,7 @@ const CAT_COLORS = {
  * - readOnly: valeur ET attribut non modifiables (tout grisé)
  * - locked: attribut non remplaçable/supprimable, mais la valeur reste ajustable dans la range
  */
-export default function AttributeSlider({ attribute, onChange, onPick, onRemove, readOnly = false, locked = false, label }) {
+export default function AttributeSlider({ attribute, onChange, onPick, onRemove, readOnly = false, locked = false, label, isPrototype = false }) {
   if (!attribute) {
     if (locked || readOnly) return null
     return (
@@ -27,7 +27,7 @@ export default function AttributeSlider({ attribute, onChange, onPick, onRemove,
   }
 
   const icon = resolveAttributeIcon(attribute.categorie || attribute.nom)
-  const color = CAT_COLORS[attribute.categorie] || 'text-gray-400'
+  const color = isPrototype ? 'text-cyan-400' : (CAT_COLORS[attribute.categorie] || 'text-gray-400')
 
   // La valeur est ajustable sauf en readOnly
   const canAdjustValue = !readOnly
@@ -39,6 +39,8 @@ export default function AttributeSlider({ attribute, onChange, onPick, onRemove,
     const v = parseFloat(e.target.value)
     onChange?.({ ...attribute, valeur: v })
   }
+
+  const max = isPrototype && attribute.prototypeMax != null ? attribute.prototypeMax : attribute.max
 
   return (
     <div className="py-1">
@@ -63,13 +65,13 @@ export default function AttributeSlider({ attribute, onChange, onPick, onRemove,
           <button onClick={onRemove} className="text-gray-600 hover:text-red-400 text-xs ml-0.5" title="Retirer">✕</button>
         )}
       </div>
-      {!readOnly && attribute.min != null && attribute.max != null && attribute.min !== attribute.max && (
+      {!readOnly && attribute.min != null && max != null && attribute.min !== max && (
         <input
           type="range"
           min={attribute.min}
-          max={attribute.max}
+          max={max}
           step={attribute.unite === 'pts' || attribute.unite === 'pts/s' ? 1 : 0.1}
-          value={attribute.valeur ?? attribute.max}
+          value={attribute.valeur ?? max}
           onChange={handleSlider}
           className="attr-slider mt-1"
         />

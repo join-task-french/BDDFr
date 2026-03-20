@@ -36,6 +36,7 @@ function findDefaultEssentialAttr(allAttributs, categorie) {
     valeur: ref.max,
     min: ref.min,
     max: ref.max,
+    prototypeMax: ref.prototypeMax,
     unite: ref.unite,
     categorie: ref.categorie,
   }
@@ -92,7 +93,7 @@ function mapEssentialNames(names) {
  * Pour les exotiques avec attributEssentiel fixé par la pièce, l'attribut
  * est pré-rempli et non remplaçable.
  */
-export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMods, onChange, onChangeMod, attributsType, ensembles }) {
+export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMods, onChange, onChangeMod, attributsType, ensembles, isPrototype }) {
   const [pickerOpen, setPickerOpen] = useState(null)
   const [modPickerIndex, setModPickerIndex] = useState(null)
 
@@ -209,6 +210,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
                 onPick={() => setPickerOpen('essential-0')}
                 onRemove={() => setEssential(0, null)}
                 label="Essentiel"
+                isPrototype={isPrototype}
             />
         )}
 
@@ -221,6 +223,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
                 onPick={() => setPickerOpen(`classic-${i}`)}
                 onRemove={() => setClassic(i, null)}
                 label={`Attribut ${i + 1}`}
+                isPrototype={isPrototype}
             />
         ))}
 

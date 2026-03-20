@@ -14,7 +14,7 @@ import AttributePicker from './AttributePicker'
  * - Attribut classique libre : remplaçable et modifiable (si l'arme n'est pas exotique
  * et n'a pas d'attributs prédéfinis qui occupent tous les slots).
  */
-export default function WeaponAttributePanel({ weapon, attribute, allAttributs, modsArmes, weaponMods, onChangeAttribute, onChangeMods, armesType, essentialSlotKey, essentialValues, dispatch }) {
+export default function WeaponAttributePanel({ weapon, attribute, allAttributs, modsArmes, weaponMods, onChangeAttribute, onChangeMods, armesType, essentialSlotKey, essentialValues, dispatch, isPrototype }) {
   const [pickerOpen, setPickerOpen] = useState(false)
   const [modPickerSlot, setModPickerSlot] = useState(null)
 
@@ -54,24 +54,26 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
           if (!attr) return null
           const hasPredefValue = attr.value != null
           // Utiliser la valeur personnalisée du state, sinon la valeur prédéfinie, sinon max
-          const currentValue = essVals[attr.slug] != null ? essVals[attr.slug] : (hasPredefValue ? attr.value : attr.max)
+          const currentValue = essVals[attr.slug] != null ? essVals[attr.slug] : (hasPredefValue ? (isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.value) : (isPrototype && attr.prototypeMax !== undefined ? attr.prototypeMax : attr.max))
           const sliderAttr = {
             nom: attr.nom,
             slug: attr.slug,
             valeur: currentValue,
             min: attr.min,
             max: attr.max,
+            prototypeMax: attr.prototypeMax,
             unite: attr.unite || '%',
             categorie: attr.categorie,
           }
           // readOnly uniquement si l'arme définit explicitement une valeur fixe
-          const isReadOnly = hasPredefValue
+          const isReadOnly = hasPredefValue && (!isPrototype || attr.prototypeValue === undefined)
           return (
               <AttributeSlider
                   key={`ess-${i}`}
                   attribute={sliderAttr}
                   locked
                   readOnly={isReadOnly}
+                  isPrototype={isPrototype}
                   onChange={isReadOnly ? undefined : (updated) => {
                     if (dispatch && essentialSlotKey) {
                       dispatch({ type: 'SET_WEAPON_ESSENTIAL_VALUE', slotKey: essentialSlotKey, slug: attr.slug, valeur: updated.valeur })
@@ -90,6 +92,7 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
                 onPick={() => setPickerOpen(true)}
                 onRemove={() => onChangeAttribute(null)}
                 label="Attribut"
+                isPrototype={isPrototype}
             />
         )}
 

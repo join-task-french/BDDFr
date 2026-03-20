@@ -173,7 +173,7 @@ export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs, e
     const weaponEssentialsAttributs = essentials.map(essential => {
       const attr = allAttributs.find(a => a.slug === essential.nom)
       if (!attr) return null
-      return { slug: essential.nom, nom: attr.nom, min: attr.min, max: attr.max, unite: attr.unite, categorie: attr.categorie, value: essential.valeur }
+      return { slug: essential.nom, nom: attr.nom, min: attr.min, max: attr.max, prototypeMax: attr.prototypeMax, unite: attr.unite, categorie: attr.categorie, value: essential.valeur, prototypeValue: essential.prototypeValue }
     })
     return weaponEssentialsAttributs.filter(Boolean)
   }
@@ -183,7 +183,7 @@ export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs, e
     .map(slug => {
       const attr = allAttributs.find(a => a.slug === slug)
       if (!attr) return null
-      return { slug, nom: attr.nom, min: attr.min, max: attr.max, unite: attr.unite, categorie: attr.categorie }
+      return { slug, nom: attr.nom, min: attr.min, max: attr.max, prototypeMax: attr.prototypeMax, unite: attr.unite, categorie: attr.categorie }
     })
     .filter(Boolean)
 }
