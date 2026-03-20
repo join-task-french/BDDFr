@@ -1311,9 +1311,9 @@
     "description": "Abattre un ennemi applique une marque à tous les ennemis situés à moins de 20m de lui.\nIl est possible d'appliquer plusieurs marques au même ennemi (max 5).\nToutes les marques disparaissent 10s après la dernière application.\nVous infligez +15% de dégâts par marque aux ennemis marqués.",
     "estExotique": true
   },
-  "fleo_des_parias": {
+  "fleau_des_parias": {
     "nom": "Fléau des Parias",
-    "icon": "fleo_des_parias",
+    "icon": "fleau_des_parias",
     "description": "Les coups au but appliquent un débuff qui inflige 100% des dégâts d'arme sur 10s (max 50).\nQuand un ennemi subissant ce débuff meurt, le cumul d'effets est transféré à un ennemi situé dans un rayon de 25m.",
     "estExotique": true,
     "descente": {
