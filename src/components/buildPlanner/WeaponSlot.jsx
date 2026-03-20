@@ -9,9 +9,12 @@ const HEADER_COLORS = {
     gray:   { bg: 'bg-gray-500/10',   border: 'border-gray-500/30',   text: 'text-gray-400',   hover: 'group-hover:text-gray-500/50' },
 }
 
-export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data }) {
+export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype }) {
     const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
+    const isExotic = weapon?.estExotique
     const isSpecific = weapon?.type === 'arme_specifique'
+    const nameColor = isPrototype ? 'text-cyan-400' : 'text-white'
+    const borderColor = isPrototype ? 'border-cyan-500/50' : 'border-tactical-border'
 
     return (
         <div className="build-slot group" onClick={weapon ? undefined : onSelect}>
@@ -20,17 +23,37 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                     <span className={`${colors.text} text-xs font-bold uppercase tracking-widest`}>🔫 {label}</span>
                     {badge}
                 </div>
-                {weapon && (
-                    <button onClick={(e) => { e.stopPropagation(); onRemove?.() }} className={`${colors.text} hover:text-white text-xs p-1`}>✕</button>
-                )}
+                <div className="flex items-center gap-2">
+                    {weapon && !isExotic && !isSpecific && (
+                        <button
+                            onClick={(e) => {
+                                e.stopPropagation()
+                                dispatch({ type: 'SET_PROTOTYPE', slot: expertiseSlot, active: !isPrototype })
+                            }}
+                            className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1 py-0.5 rounded border transition-all ${
+                                isPrototype
+                                    ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40'
+                                    : 'bg-tactical-bg/50 text-gray-500 border-tactical-border hover:border-gray-500'
+                            }`}
+                        >
+                            <span className="w-4 h-2.5 relative rounded-full border border-current inline-block">
+                              <span className={`absolute top-0.5 w-1.5 h-1.5 rounded-full bg-current transition-all ${isPrototype ? 'left-2' : 'left-0.5'}`} />
+                            </span>
+                            Prototype
+                        </button>
+                    )}
+                    {weapon && (
+                        <button onClick={(e) => { e.stopPropagation(); onRemove?.() }} className={`${colors.text} hover:text-white text-xs p-1`}>✕</button>
+                    )}
+                </div>
             </div>
             <div className="p-3 min-h-25">
                 {weapon ? (
                     <div>
                         <div className="flex justify-between items-start">
                             <div>
-                                <div className="font-bold text-white text-sm uppercase tracking-wide">
-                                    {weapon.estExotique && <span className="text-shd mr-1">★</span>}
+                                <div className={`font-bold ${nameColor} text-sm uppercase tracking-wide`}>
+                                    {isExotic && <span className="text-shd mr-1">★</span>}
                                     {weapon.nom}
                                 </div>
                                 <div className="text-xs text-gray-500">
@@ -42,10 +65,12 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                         {/* Stats (pas pour les armes spécifiques si pas de données) */}
                         {!isSpecific && (
                             <div className="flex flex-wrap gap-1.5 mt-2">
-                                <StatChip icon="⚡" value={weapon.rpm ? `${weapon.rpm} CPM` : null} />
-                                <StatChip icon="📦" value={weapon.chargeur || null} />
-                                <StatChip icon="💥" value={weapon.degatsBase ? weapon.degatsBase.toLocaleString('fr-FR') : null} color="text-red-400" />
-                                <StatChip icon="🎯" value={weapon.headshot ? `${weapon.headshot}% HS` : null} color="text-yellow-400" />
+                                <StatChip icon="💥" value={(isPrototype && weapon.prototypeDegatsBase !== undefined ? weapon.prototypeDegatsBase : weapon.degatsBase)?.toLocaleString('fr-FR')} color={isPrototype && weapon.prototypeDegatsBase !== undefined ? "text-cyan-400" : "text-red-400"} />
+                                <StatChip icon="⚡" value={(isPrototype && weapon.prototypeRpm !== undefined ? weapon.prototypeRpm : weapon.rpm) ? `${isPrototype && weapon.prototypeRpm !== undefined ? weapon.prototypeRpm : weapon.rpm} CPM` : null} color={isPrototype && weapon.prototypeRpm !== undefined ? "text-cyan-400" : ""} />
+                                <StatChip icon="📦" value={(isPrototype && weapon.prototypeChargeur !== undefined ? weapon.prototypeChargeur : weapon.chargeur) || null} color={isPrototype && weapon.prototypeChargeur !== undefined ? "text-cyan-400" : ""} />
+                                <StatChip icon="🎯" value={(isPrototype && weapon.prototypeHeadshot !== undefined ? weapon.prototypeHeadshot : weapon.headshot) ? `${isPrototype && weapon.prototypeHeadshot !== undefined ? weapon.prototypeHeadshot : weapon.headshot}% HS` : null} color={isPrototype && weapon.prototypeHeadshot !== undefined ? "text-cyan-400" : "text-yellow-400"} />
+                                <StatChip icon="📏" value={(isPrototype && weapon.prototypePortee !== undefined ? weapon.prototypePortee : weapon.portee) ? `${isPrototype && weapon.prototypePortee !== undefined ? weapon.prototypePortee : weapon.portee}m` : null} color={isPrototype && weapon.prototypePortee !== undefined ? "text-cyan-400" : ""} />
+                                <StatChip icon="⏳" value={(isPrototype && weapon.prototypeRechargement !== undefined ? weapon.prototypeRechargement : weapon.rechargement) ? `${isPrototype && weapon.prototypeRechargement !== undefined ? weapon.prototypeRechargement : weapon.rechargement}s` : null} color={isPrototype && weapon.prototypeRechargement !== undefined ? "text-cyan-400" : ""} />
                             </div>
                         )}
                         {/* Attributs */}
@@ -61,10 +86,17 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                             essentialSlotKey={essentialSlotKey}
                             essentialValues={essentialValues}
                             dispatch={dispatch}
+                            isPrototype={isPrototype}
                         />
                         {/* Expertise */}
                         {expertiseSlot && onExpertiseChange && (
-                            <ExpertiseSlider slot={expertiseSlot} level={expertiseLevel || 0} onChange={onExpertiseChange} maxLevel={maxExpertiseLevel} />
+                            <ExpertiseSlider
+                                slot={expertiseSlot}
+                                level={expertiseLevel || 0}
+                                onChange={onExpertiseChange}
+                                maxLevel={maxExpertiseLevel}
+                                disabled={isPrototype}
+                            />
                         )}
                         {/* Talents exotiques (depuis talents[]) — non modifiables */}
                         {weapon.talents && weapon.talents.length > 0 && weapon.estExotique ? (

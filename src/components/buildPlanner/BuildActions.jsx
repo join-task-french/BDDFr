@@ -8,6 +8,7 @@ export default function BuildActions() {
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods,
+    expertise, prototypes, weaponEssentialValues,
     dispatch
   } = useBuild()
   const [showSaves, setShowSaves] = useState(false)
@@ -18,6 +19,7 @@ export default function BuildActions() {
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods,
+    expertise, prototypes, weaponEssentialValues,
   }
 
   const shareBuild = async () => {

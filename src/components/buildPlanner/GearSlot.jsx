@@ -7,7 +7,7 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMods, onSetMod, attributsType, expertiseLevel, onExpertiseChange, maxExpertiseLevel }) {
+export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalentSlot, onSelect, onSelectTalent, ensembles, talentsEquipements, allAttributs, gearAttributes, onSetAttributes, modsEquipements, gearMods, onSetMod, attributsType, expertiseLevel, onExpertiseChange, maxExpertiseLevel, isPrototype }) {
   const { dispatch } = useBuild()
 
   const remove = (e) => {
@@ -66,19 +66,41 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
     return talent
   }, [talent])
 
-  const borderColor = piece?.type === 'exotique'
-      ? 'border-l-shd'
-      : piece?.estNomme
-          ? 'border-l-yellow-500'
-          : piece?.type === 'gear_set'
-              ? 'border-l-emerald-500'
-              : 'border-l-blue-500'
+  const borderColor = isPrototype
+      ? 'border-l-cyan-500'
+      : piece?.type === 'exotique'
+          ? 'border-l-shd'
+          : piece?.estNomme
+              ? 'border-l-yellow-500'
+              : piece?.type === 'gear_set'
+                  ? 'border-l-emerald-500'
+                  : 'border-l-blue-500'
 
   return (
       <div className="build-slot group" onClick={piece ? undefined : onSelect}>
         <div className="px-3 py-2 bg-blue-500/10 border-b border-blue-500/30 flex justify-between items-center">
           <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">{icon} {label}</span>
-          {piece && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1">✕</button>}
+          <div className="flex items-center gap-2">
+            {piece && piece.type !== 'exotique' && (
+                <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      dispatch({ type: 'SET_PROTOTYPE', slot: slotKey, active: !isPrototype })
+                    }}
+                    className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1 py-0.5 rounded border transition-all ${
+                        isPrototype
+                            ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40'
+                            : 'bg-tactical-bg/50 text-gray-500 border-tactical-border hover:border-gray-500'
+                    }`}
+                >
+                  <span className="w-4 h-2.5 relative rounded-full border border-current inline-block">
+                    <span className={`absolute top-0.5 w-1.5 h-1.5 rounded-full bg-current transition-all ${isPrototype ? 'left-2' : 'left-0.5'}`} />
+                  </span>
+                  Prototype
+                </button>
+            )}
+            {piece && <button onClick={remove} className="text-red-400 hover:text-red-300 text-xs p-1">✕</button>}
+          </div>
         </div>
         <div className="p-3 min-h-25">
           {piece ? (
@@ -104,10 +126,17 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                     onChangeMod={onSetMod}
                     attributsType={attributsType}
                     ensembles={ensembles}
+                    isPrototype={isPrototype}
                 />
                 {/* Expertise */}
                 {onExpertiseChange && (
-                    <ExpertiseSlider slot={slotKey} level={expertiseLevel || 0} onChange={onExpertiseChange} maxLevel={maxExpertiseLevel} />
+                  <ExpertiseSlider
+                      slot={slotKey}
+                      level={expertiseLevel || 0}
+                      onChange={onExpertiseChange}
+                      maxLevel={maxExpertiseLevel}
+                      disabled={isPrototype}
+                  />
                 )}
                 {/* Talents exotiques (depuis talents[]) — toujours affichés, non modifiables */}
                 {piece.type === 'exotique' && piece.talents && piece.talents.length > 0 && (

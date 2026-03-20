@@ -6,7 +6,7 @@ import GearPicker from './GearPicker'
 import GearTalentPicker from './GearTalentPicker'
 
 export default function GearSection({ data }) {
-    const { gear, gearTalents, gearAttributes, gearMods, expertise, maxExpertiseLevel, dispatch } = useBuild()
+    const { gear, gearTalents, gearAttributes, gearMods, expertise, maxExpertiseLevel, prototypes, dispatch } = useBuild()
     const [pickerSlot, setPickerSlot] = useState(null)
     const [talentSlot, setTalentSlot] = useState(null)
 
@@ -40,6 +40,8 @@ export default function GearSection({ data }) {
                         expertiseLevel={expertise?.[slot] || 0}
                         onExpertiseChange={handleExpertise}
                         maxExpertiseLevel={maxExpertiseLevel}
+                        isPrototype={prototypes?.[slot]}
+                        dispatch={dispatch}
                     />
                 ))}
             </div>

@@ -5,7 +5,7 @@ import WeaponPicker from './WeaponPicker'
 import WeaponTalentPicker from './WeaponTalentPicker'
 
 export default function WeaponSection({ data }) {
-  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, expertise, maxExpertiseLevel, weaponEssentialValues, dispatch } = useBuild()
+  const { specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods, sidearm, sidearmTalent, sidearmAttribute, sidearmMods, specialisation, SPECIALISATIONS, expertise, maxExpertiseLevel, weaponEssentialValues, prototypes, dispatch } = useBuild()
   const [pickerOpen, setPickerOpen] = useState(null)
   const [talentPickerSlot, setTalentPickerSlot] = useState(null)
 
@@ -57,6 +57,7 @@ export default function WeaponSection({ data }) {
           essentialSlotKey="weapon0"
           essentialValues={weaponEssentialValues?.weapon0}
           dispatch={dispatch}
+          isPrototype={prototypes?.weapon0}
         />
 
         {/* Arme secondaire */}
@@ -82,6 +83,7 @@ export default function WeaponSection({ data }) {
           essentialSlotKey="weapon1"
           essentialValues={weaponEssentialValues?.weapon1}
           dispatch={dispatch}
+          isPrototype={prototypes?.weapon1}
         />
 
         {/* Arme de poing */}
@@ -108,6 +110,7 @@ export default function WeaponSection({ data }) {
           essentialSlotKey="sidearm"
           essentialValues={weaponEssentialValues?.sidearm}
           dispatch={dispatch}
+          isPrototype={prototypes?.sidearm}
         />
       </div>
 
