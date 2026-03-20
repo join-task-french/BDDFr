@@ -193,6 +193,23 @@
             </SchemaInfo>
           </value>
         </entry>
+        <entry key="mods-type.schema">
+          <value>
+            <SchemaInfo>
+              <option name="generatedName" value="New Schema" />
+              <option name="name" value="mods-type.schema" />
+              <option name="relativePathToSchema" value="src/data/schemas/mods-type.schema.json" />
+              <option name="schemaVersion" value="JSON Schema 7" />
+              <option name="patterns">
+                <list>
+                  <Item>
+                    <option name="path" value="src/data/mods-type.jsonc" />
+                  </Item>
+                </list>
+              </option>
+            </SchemaInfo>
+          </value>
+        </entry>
         <entry key="mods-armes.schema">
           <value>
             <SchemaInfo>

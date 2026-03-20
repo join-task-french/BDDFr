@@ -135,6 +135,22 @@ const RELATIONS = [
         sourceFile: 'statistiques.jsonc',
         targetFile: 'attributs.jsonc',
         targetKey: 'statistiques'
+    },
+
+    // ==========================================
+    // 🛠️ MODS
+    // ==========================================
+    {
+        name: "Mods d'armes (Type) -> Types de mods",
+        sourceFile: 'mods-type.jsonc',
+        targetFile: 'mods-armes.jsonc',
+        targetKey: 'type'
+    },
+    {
+        name: "Mods d'armes (Compatibilité) -> Types de mods",
+        sourceFile: 'mods-type.jsonc',
+        targetFile: 'mods-armes.jsonc',
+        targetKey: 'compatible'
     }
 ]
 

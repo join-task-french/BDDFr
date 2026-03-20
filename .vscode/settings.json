@@ -63,6 +63,10 @@
         {
             "fileMatch": ["/src/data/statistiques.jsonc"],
             "url": "./src/data/schemas/statistiques.schema.json"
+        },
+        {
+            "fileMatch": ["/src/data/mods-type.jsonc"],
+            "url": "./src/data/schemas/mods-type.schema.json"
         }
     ]
 }
