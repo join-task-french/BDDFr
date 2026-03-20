@@ -40,11 +40,16 @@ const SLUG_KEYED_FILES = new Set([
 ])
 
 /**
- * Convertit un objet { slug: { ...props } } en array [{ slug, ...props }]
+ * Injecte le slug dans chaque valeur de l'objet (si c'est un objet).
  */
-function objectToArray(obj) {
+function injectSlugs(obj) {
   if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return obj
-  return Object.entries(obj).map(([slug, value]) => ({ slug, ...value }))
+  Object.entries(obj).forEach(([slug, value]) => {
+    if (value && typeof value === 'object' && !Array.isArray(value)) {
+      value.slug = slug
+    }
+  })
+  return obj
 }
 
 export function useDataLoader() {
@@ -63,9 +68,9 @@ export function useDataLoader() {
           const [key, file] = entries[i]
           const raw = await loadJsonc(`${BASE}data/${file}`)
 
-          // Convertir les fichiers à clé slug en arrays
-          if (SLUG_KEYED_FILES.has(key) && raw && typeof raw === 'object' && !Array.isArray(raw)) {
-            result[key] = objectToArray(raw)
+          // Injecter les slugs mais garder la structure objet
+          if (SLUG_KEYED_FILES.has(key)) {
+            result[key] = injectSlugs(raw)
           } else {
             result[key] = raw
           }
@@ -76,7 +81,7 @@ export function useDataLoader() {
           // Post-process: flatten competences for consumers, keep grouped for generator
           if (result.competences) {
             result.competencesGrouped = result.competences
-            result.competences = flattenCompetences(result.competences)
+            result.competences = flattenCompetences(Object.values(result.competences))
           }
           // Extract changelog from metadata
           if (result.metadata?.changelog) {
@@ -86,7 +91,7 @@ export function useDataLoader() {
           }
           // Merge specific weapons from classSpe into armes for display
           if (result.classSpe && result.armes) {
-            const specWeapons = result.classSpe.map(spec => ({
+            const specWeapons = Object.values(result.classSpe).map(spec => ({
               nom: spec.arme.nom,
               slug: slugify(spec.arme.nom),
               type: 'arme_specifique',
@@ -103,11 +108,15 @@ export function useDataLoader() {
               talents: [],
               specialisation: spec.nom,
             }))
-            result.armes = [...result.armes, ...specWeapons]
+            
+            // Injecter les armes de spé dans l'objet armes
+            specWeapons.forEach(sw => {
+              result.armes[sw.slug] = sw
+            })
           }
           // Initialize specialisations cache for components outside BuildProvider
           if (result.classSpe) {
-            getSpecialisations(result.classSpe)
+            getSpecialisations(Object.values(result.classSpe))
           }
           // Build slug → object lookup maps
           result.lookups = buildLookupMaps(result)

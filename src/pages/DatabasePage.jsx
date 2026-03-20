@@ -239,18 +239,19 @@ export default function DatabasePage() {
     let items = []
 
     if (activeCategory === 'descente') {
-      const wTalents = Array.isArray(data?.talentsArmes) ? data.talentsArmes : Object.values(data?.talentsArmes || {})
-      const gTalents = Array.isArray(data?.talentsEquipements) ? data.talentsEquipements : Object.values(data?.talentsEquipements || {})
+      const wTalents = Object.values(data?.talentsArmes || {})
+      const gTalents = Object.values(data?.talentsEquipements || {})
 
       const descentWeapons = wTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: true }))
       const descentGear = gTalents.filter(t => t.descente).map(t => ({ ...t, isWeaponTalent: false }))
 
       items = [...descentWeapons, ...descentGear]
     } else {
-      items = data[activeCategory]
+      const raw = data[activeCategory]
+      items = (raw && !Array.isArray(raw)) ? Object.values(raw) : (raw || [])
     }
 
-    if (!items || !Array.isArray(items)) return []
+    if (!items || items.length === 0) return []
 
     if (filterConfig && currentFilters) {
       items = filterConfig.apply(items, currentFilters)
@@ -262,15 +263,12 @@ export default function DatabasePage() {
       const slugDict = {}
       const populateDict = (source, nameField = 'nom') => {
         if (!source) return
-        if (Array.isArray(source)) {
-          source.forEach(item => {
-            if (item.slug && item[nameField]) slugDict[item.slug] = String(item[nameField]).toLowerCase()
-          })
-        } else {
-          Object.entries(source).forEach(([key, val]) => {
-            if (val && val[nameField]) slugDict[key] = String(val[nameField]).toLowerCase()
-          })
-        }
+        const items = Array.isArray(source) ? source : Object.values(source)
+        items.forEach(item => {
+          if (item && item.slug && item[nameField]) {
+            slugDict[item.slug] = String(item[nameField]).toLowerCase()
+          }
+        })
       }
 
       populateDict(data?.ensembles)

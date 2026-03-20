@@ -346,9 +346,10 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
   const merged = {}
   for (const cat of GENERATOR_CATEGORIES) {
     const dk = DATA_KEY[cat.key]
-    const loaded = loadedData?.[dk] || []
+    const loaded = loadedData?.[dk] || {}
+    const loadedArray = Array.isArray(loaded) ? loaded : Object.values(loaded)
     const saved = savedItems?.[cat.key] || []
-    merged[dk] = [...loaded, ...saved]
+    merged[dk] = [...loadedArray, ...saved]
   }
 
   const extractUniqueWithSlugs = (items) => {
@@ -409,9 +410,12 @@ export function buildSuggestions(loadedData, generatorData, savedItems) {
     s.variantes = [...new Set(flatComps.map(c => c.variante).filter(Boolean))].sort()
   }
 
-  s.specialisations = (loadedData?.classSpe || []).map(sp => ({ value: sp.cle, label: sp.nom })).sort((a, b) => a.label.localeCompare(b.label))
+  const rawSpe = loadedData?.classSpe || {}
+  const speList = Array.isArray(rawSpe) ? rawSpe : Object.values(rawSpe)
+  s.specialisations = speList.map(sp => ({ value: sp.cle, label: sp.nom })).sort((a, b) => a.label.localeCompare(b.label))
 
-  const groupedComps = loadedData?.competencesGrouped || []
+  const rawGrouped = loadedData?.competencesGrouped || {}
+  const groupedComps = Array.isArray(rawGrouped) ? rawGrouped : Object.values(rawGrouped)
   const emplacementSet = new Set()
   groupedComps.forEach(c => {
     (c.emplacementsMods || []).forEach(em => emplacementSet.add(em.emplacement))

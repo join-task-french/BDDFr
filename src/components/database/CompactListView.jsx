@@ -144,12 +144,16 @@ function GearRow({ item, ensembles, equipementsType, attributsType }) {
   const isNamed = item.estNomme && !isExotic
   const isGearSet = item.type === 'gear_set'
   const nameColor = isExotic ? 'text-red-400' : isNamed ? 'text-yellow-400' : isGearSet ? 'text-emerald-400' : 'text-shd'
-  const ensemble = ensembles?.find(e => e.slug === item.marque )
+  const ensemble = (ensembles && !Array.isArray(ensembles)) 
+    ? ensembles[item.marque] 
+    : ensembles?.find(e => e.slug === item.marque )
 
   const attrsEssentiels = React.useMemo(() => {
     if (Array.isArray(item.attributEssentiel) && item.attributEssentiel.length > 0) return item.attributEssentiel
     if (!ensembles || !item.marque) return []
-    const ensemble = ensembles.find(e => e.slug === item.marque || e.nom.toLowerCase() === item.marque.toLowerCase())
+    const ensemble = (ensembles && !Array.isArray(ensembles))
+      ? ensembles[item.marque]
+      : ensembles.find(e => e.slug === item.marque || e.nom.toLowerCase() === item.marque.toLowerCase())
     return ensemble?.attributsEssentiels || []
   }, [item, ensembles])
 

@@ -7,17 +7,25 @@ import { useBuild } from '../context/BuildContext'
  */
 function resolveCoreCategory(essentialName, attributs) {
   if (!essentialName) return null
-  // Mapping direct des slugs utilisés dans les ensembles
+  const norm = essentialName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+
+  // Mapping direct des slugs et catégories courants
   const slugMap = {
     'degats_arme': 'offensif',
+    'degats_armes': 'offensif',
     'protection': 'défensif',
     'tiers_de_competence': 'utilitaire',
+    'tier_de_competence': 'utilitaire',
+    'offensif': 'offensif',
+    'defensif': 'défensif',
+    'utilitaire': 'utilitaire',
+    'défensif': 'défensif'
   }
-  if (slugMap[essentialName]) return slugMap[essentialName]
+  if (slugMap[norm] || slugMap[essentialName]) return slugMap[norm] || slugMap[essentialName]
+
   // Fallback : chercher par nom dans les attributs
   if (!attributs) return null
-  const norm = essentialName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  const match = attributs.find(a => {
+  const match = Object.values(attributs).find(a => {
     if (!a.estEssentiel || !a.cible?.includes('equipement')) return false
     const aNorm = a.nom.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
     return aNorm === norm || aNorm.includes(norm) || norm.includes(aNorm)
@@ -43,13 +51,7 @@ export function useBuildStats(data) {
 
   // Ensembles indexés par slug
   const ensemblesMap = useMemo(() => {
-    const map = {}
-    if (data.ensembles) {
-      for (const e of data.ensembles) {
-        if (e.slug) map[e.slug] = e
-      }
-    }
-    return map
+    return data.ensembles || {}
   }, [data.ensembles])
 
   // Comptage des cores — basé sur l'attribut essentiel réellement sélectionné
@@ -123,9 +125,9 @@ export function useBuildStats(data) {
 
   // Helper: résoudre unité + nom depuis le référentiel d'attributs ou statistiques
   const resolveAttrInfo = (attrSlug) => {
-    const def = data.attributs?.find(a => a.slug === attrSlug)
+    const def = data.attributs?.[attrSlug]
     if (def) return { nom: def.nom, unite: def.unite || '%', categorie: def.categorie || '' }
-    const stat = data.statistiques?.find(s => s.slug === attrSlug)
+    const stat = data.statistiques?.[attrSlug]
     if (stat) return { nom: stat.nom, unite: '%', categorie: '' }
     return { nom: attrSlug.replace(/_arm$|_eqp$|_mod$/, '').replace(/_/g, ' '), unite: '%', categorie: '' }
   }
@@ -176,10 +178,10 @@ export function useBuildStats(data) {
    */
   const resolveStatSlugs = (attrSlug) => {
     // D'abord chercher dans attributs.jsonc
-    const attrDef = data.attributs?.find(a => a.slug === attrSlug)
+    const attrDef = data.attributs?.[attrSlug]
     if (attrDef?.statistiques?.length) return attrDef.statistiques
     // Vérifier si c'est directement un slug de statistique
-    const stat = data.statistiques?.find(s => s.slug === attrSlug)
+    const stat = data.statistiques?.[attrSlug]
     if (stat) return [attrSlug]
     return [attrSlug] // fallback
   }
@@ -193,7 +195,7 @@ export function useBuildStats(data) {
     for (const [attrKey, entry] of Object.entries(totalStats)) {
       const statSlugs = resolveStatSlugs(attrKey)
       for (const statSlug of statSlugs) {
-        const statDef = data.statistiques?.find(s => s.slug === statSlug)
+        const statDef = data.statistiques?.[statSlug]
         const statName = statDef?.nom || entry.nom
         if (!grouped[statSlug]) {
           grouped[statSlug] = {
@@ -245,7 +247,7 @@ export function useBuildStats(data) {
       const essentials = weapon.attributs_essentiels || []
       for (const ess of essentials) {
         if (!ess?.nom) continue
-        const attrDef = data.attributs?.find(a => a.slug === ess.nom)
+        const attrDef = data.attributs?.[ess.nom]
         if (!attrDef) continue
         const hasPredef = ess.valeur != null
         const val = hasPredef ? ess.valeur : (slotEssVals[ess.nom] != null ? slotEssVals[ess.nom] : attrDef.max)
@@ -258,7 +260,7 @@ export function useBuildStats(data) {
         const typeData = data.armes_type[weapon.type]
         if (typeData?.attributs_essentiels) {
           for (const slug of typeData.attributs_essentiels) {
-            const attrDef = data.attributs?.find(a => a.slug === slug)
+            const attrDef = data.attributs?.[slug]
             if (!attrDef) continue
             const val = slotEssVals[slug] != null ? slotEssVals[slug] : attrDef.max
             if (!allStats[slug]) allStats[slug] = { nom: attrDef.nom, total: 0, unite: attrDef.unite || '%', categorie: attrDef.categorie || '' }

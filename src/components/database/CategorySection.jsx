@@ -115,6 +115,7 @@ export default function CategorySection({ category, items, searchTerm, allData, 
   }
   if (category?.key === 'modsCompetences') {
     if (allData?.competencesGrouped) extraProps.competencesGrouped = allData.competencesGrouped
+    if (allData?.attributs) extraProps.allAttributs = allData.attributs
   }
 
   const navigate = useNavigate();

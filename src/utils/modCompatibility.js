@@ -71,8 +71,8 @@ export function formatModAttributs(mod, allAttributs, statistiques) {
   const parts = []
   if (mod.attributs && Array.isArray(mod.attributs)) {
     for (const entry of mod.attributs) {
-      const attrDef = allAttributs?.find(a => a.slug === entry.attribut)
-      const statDef = !attrDef && statistiques ? statistiques.find(s => s.slug === entry.attribut) : null
+      const attrDef = (allAttributs && !Array.isArray(allAttributs)) ? allAttributs[entry.attribut] : allAttributs?.find(a => a.slug === entry.attribut)
+      const statDef = !attrDef && statistiques ? ((!Array.isArray(statistiques)) ? statistiques[entry.attribut] : statistiques.find(s => s.slug === entry.attribut)) : null
       const name = attrDef?.nom || statDef?.nom || resolveModAttrName(entry.attribut, allAttributs, statistiques)
       const unite = attrDef?.unite || ''
       const sign = entry.valeur >= 0 ? '+' : ''
@@ -122,11 +122,11 @@ export function formatModBonus(bonusOrMalus, allAttributs, isMalus = false) {
 export function resolveModAttrName(slug, allAttributs, statistiques) {
   if (!slug) return ''
   if (allAttributs) {
-    const attr = allAttributs.find(a => a.slug === slug)
+    const attr = (!Array.isArray(allAttributs)) ? allAttributs[slug] : allAttributs.find(a => a.slug === slug)
     if (attr) return attr.nom
   }
   if (statistiques) {
-    const stat = statistiques.find(s => s.slug === slug)
+    const stat = (!Array.isArray(statistiques)) ? statistiques[slug] : statistiques.find(s => s.slug === slug)
     if (stat) return stat.nom
   }
   // Fallback: humaniser le slug

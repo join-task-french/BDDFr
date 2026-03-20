@@ -154,7 +154,7 @@ export function getWeaponMainAttributeName(armesType, typeKey, allAttributs) {
   const typeData = armesType[typeKey]
   if (!typeData?.attributs_essentiels?.length) return null
   const mainSlug = typeData.attributs_essentiels[0]
-  const attr = allAttributs.find(a => a.slug === mainSlug)
+  const attr = allAttributs[mainSlug]
   return attr?.nom || null
 }
 
@@ -171,7 +171,7 @@ export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs, e
   if (!armesType || !typeKey || !allAttributs) return []
   if (essentials && essentials.length > 0) {
     const weaponEssentialsAttributs = essentials.map(essential => {
-      const attr = allAttributs.find(a => a.slug === essential.nom)
+      const attr = allAttributs[essential.nom]
       if (!attr) return null
       return { slug: essential.nom, nom: attr.nom, min: attr.min, max: attr.max, prototypeMax: attr.prototypeMax, unite: attr.unite, categorie: attr.categorie, value: essential.valeur, prototypeValue: essential.prototypeValue }
     })
@@ -181,7 +181,7 @@ export function getWeaponEssentialAttributes(armesType, typeKey, allAttributs, e
   if (!typeData?.attributs_essentiels?.length) return []
   return typeData.attributs_essentiels
     .map(slug => {
-      const attr = allAttributs.find(a => a.slug === slug)
+      const attr = allAttributs[slug]
       if (!attr) return null
       return { slug, nom: attr.nom, min: attr.min, max: attr.max, prototypeMax: attr.prototypeMax, unite: attr.unite, categorie: attr.categorie }
     })
@@ -218,9 +218,10 @@ export function calculateMaxDamage(n) {
 // ================================================================
 
 export function buildSpecialisations(classSpeData) {
-  if (!classSpeData || !Array.isArray(classSpeData)) return {}
+  if (!classSpeData) return {}
+  const list = Array.isArray(classSpeData) ? classSpeData : Object.values(classSpeData)
   const map = {}
-  for (const spec of classSpeData) {
+  for (const spec of list) {
     map[spec.cle] = { label: spec.nom, arme: spec.arme?.nom || '', icon: spec.icon || '🎖️' }
   }
   return map
