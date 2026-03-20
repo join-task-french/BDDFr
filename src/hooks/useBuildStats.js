@@ -223,7 +223,8 @@ export function useBuildStats(data) {
 
     const buildWeaponStat = (weapon, weaponMods, expertiseKey, slotLabel, weaponAttr) => {
       if (!weapon) return null
-      const base = weapon.degatsBase || 0
+      const isProto = build.prototypes?.[expertiseKey] || false
+      const base = (isProto && weapon.prototypeDegatsBase) ? weapon.prototypeDegatsBase : (weapon.degatsBase || 0)
       const lvl = exp[expertiseKey] || 0
       // Mods spécifiques à cette arme
       const ownModStats = computeModStats(weaponMods)

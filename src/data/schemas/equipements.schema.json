@@ -60,6 +60,10 @@
               },
               "valeur": {
                 "type": "number"
+              },
+              "prototypeValue": {
+                "type": "number",
+                "description": "Valeur de l'attribut sur cet équipement si prototype"
               }
             }
           }

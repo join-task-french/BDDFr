@@ -46,21 +46,41 @@
           "type": "number",
           "description": "Portée optimale en mètres"
         },
+        "prototypePortee": {
+          "type": "number",
+          "description": "Portée optimale en mètres si prototype"
+        },
         "rpm": {
           "type": "integer",
           "description": "Coups par minute"
+        },
+        "prototypeRpm": {
+          "type": "integer",
+          "description": "Coups par minute si prototype"
         },
         "chargeur": {
           "type": "integer",
           "description": "Taille du chargeur"
         },
+        "prototypeChargeur": {
+          "type": "integer",
+          "description": "Taille du chargeur si prototype"
+        },
         "rechargement": {
           "type": "number",
           "description": "Temps de rechargement en secondes"
         },
+        "prototypeRechargement": {
+          "type": "number",
+          "description": "Temps de rechargement en secondes si prototype"
+        },
         "headshot": {
           "type": "number",
           "description": "Multiplicateur de headshot en pourcentage (ex: 60 pour 60%)"
+        },
+        "prototypeHeadshot": {
+          "type": "number",
+          "description": "Multiplicateur de headshot en pourcentage si prototype"
         },
         "attributs": {
           "type": "array",
@@ -79,6 +99,10 @@
               "valeur": {
                 "type": "number",
                 "description": "Valeur de l'attribut sur cette arme"
+              },
+              "prototypeValue": {
+                "type": "number",
+                "description": "Valeur de l'attribut sur cette arme si prototype"
               }
             }
           }
@@ -100,6 +124,10 @@
               "valeur": {
                 "type": "number",
                 "description": "Valeur de l'attribut sur cette arme"
+              },
+              "prototypeValue": {
+                "type": "number",
+                "description": "Valeur de l'attribut sur cette arme si prototype"
               }
             }
           }
@@ -107,6 +135,10 @@
         "degatsBase": {
           "type": "integer",
           "description": "Dégâts de base"
+        },
+        "prototypeDegatsBase": {
+          "type": "integer",
+          "description": "Dégâts de base si prototype"
         },
         "estExotique": {
           "type": "boolean",
