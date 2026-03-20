@@ -34,12 +34,12 @@ export const WEAPON_TYPE_ICONS = {
 // ================================================================
 // ICÔNES TYPE D'ÉQUIPEMENT (fixes, peu nombreux)
 // ================================================================
-import equip_masque from '../img/game_assets/equipements/masque.png'
-import equip_torse from '../img/game_assets/equipements/torse.png'
-import equip_holster from '../img/game_assets/equipements/holster.png'
-import equip_sac from '../img/game_assets/equipements/sac.png'
-import equip_gants from '../img/game_assets/equipements/gants.png'
-import equip_genouilleres from '../img/game_assets/equipements/genouilleres.png'
+import equip_masque from '../img/game_assets/equipements-type/masque.png'
+import equip_torse from '../img/game_assets/equipements-type/torse.png'
+import equip_holster from '../img/game_assets/equipements-type/holster.png'
+import equip_sac from '../img/game_assets/equipements-type/sac.png'
+import equip_gants from '../img/game_assets/equipements-type/gants.png'
+import equip_genouilleres from '../img/game_assets/equipements-type/genouilleres.png'
 
 export const GEAR_SLOT_ICONS_IMG = {
   masque: equip_masque,
