@@ -83,6 +83,10 @@
     "nom": "Santé",
     "description": "Valeur totale de santé"
   },
+  "sante_bouclier": {
+    "nom": "Santé de bouclier",
+    "description": "Valeur totale de la santé de bouclier"
+  },
   "regeneration_protection": {
     "nom": "Régénération de protection",
     "description": "Régénération d'armure par seconde"

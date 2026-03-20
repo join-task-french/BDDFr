@@ -1397,6 +1397,24 @@
     "talents": [],
     "type": "standard"
   },
+  "forge": {
+    "nom": "Forge",
+    "description": "\"Tu dois emplir l'espace. Tu n'es ni le marteau, ni l'enclume. Tu es l'impact ; l'énergie. Le potentiel. Plie ou brise-toi, tu trouveras ton but. Et dans le but se trouve la vérité.\"",
+    "emplacement": "holster",
+    "marque": "richter_kaiser_gmbh",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "sante_bouclier_eqp",
+        "valeur": 50
+      }
+    ],
+    "type": "standard"
+  },
   "renforts_d_articulation_hulian": {
     "nom": "Renforts d'articulation Hulian",
     "marque": "richter_kaiser_gmbh",
