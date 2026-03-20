@@ -338,6 +338,23 @@
     "talents": [],
     "type": "standard"
   },
+  "holster_de_picaro": {
+    "nom": "Holster de Picaro",
+    "emplacement": "holster",
+    "marque": "brazos_de_arcabuz",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "défensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_arme_eqp",
+        "valeur": 10
+      }
+    ],
+    "type": "standard"
+  },
   "genouilleres_cerinola": {
     "nom": "Genouillères Cerinola",
     "marque": "brazos_de_arcabuz",
