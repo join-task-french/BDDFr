@@ -119,8 +119,16 @@ export default function CategorySection({ category, items, searchTerm, allData, 
 
   const handleItemClick = (item) => {
     const itemSlug = item.slug || item.nom;
-    const newUrl = `/db/${category.key}/${itemSlug}${location.search}`;
-    navigate(newUrl, { replace: true });
+    const pathParts = location.pathname.split('/');
+    const currentSlug = pathParts[3];
+    const currentModifier = pathParts[4];
+
+    let newPath = `/db/${category.key}/${itemSlug}`;
+    if (currentSlug === itemSlug && currentModifier) {
+      newPath += `/${currentModifier}`;
+    }
+
+    navigate(`${newPath}${location.search}`, { replace: true });
   };
 
   if (isCompactMode) {
