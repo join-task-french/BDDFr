@@ -141,14 +141,8 @@ const RELATIONS = [
     // 🛠️ MODS
     // ==========================================
     {
-        name: "Mods d'armes (Type) -> Types de mods",
-        sourceFile: 'mods-type.jsonc',
-        targetFile: 'mods-armes.jsonc',
-        targetKey: 'type'
-    },
-    {
         name: "Mods d'armes (Compatibilité) -> Types de mods",
-        sourceFile: 'mods-type.jsonc',
+        sourceFile: 'mods-armes-type.jsonc',
         targetFile: 'mods-armes.jsonc',
         targetKey: 'compatible'
     }
