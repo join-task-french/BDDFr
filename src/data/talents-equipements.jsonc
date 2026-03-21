@@ -404,6 +404,8 @@
     "nom": "Sous le choc",
     "description": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de 20% pendant 20s.",
     "emplacement": "sac_a_dos",
+    "perfectDescription": "Infliger un effet d'état à un ennemi augmente les totaux de dégâts et de réparation des compétences de 20% pendant 27s.",
+    "equipementsParfaits": ["alignement_strategique"],
     "descente": {
       "boucles": [
         "Envie",
@@ -444,7 +446,9 @@
   "overclock": {
     "nom": "Overclock",
     "description": "Les alliés situés à moins de 7m des objets déployés par vos compétences bénéficient de +25% à la vitesse de rechargement.\nLeurs temps de recharge en cours sont diminués de 0.2s",
-    "emplacement": "sac_a_dos"
+    "emplacement": "sac_a_dos",
+    "perfectDescription": "Les alliés situés à moins de 15m des objets déployés par vos compétences bénéficient de +30% à la vitesse de rechargement.\nLeurs temps de recharge en cours sont diminués de 0.6s",
+    "equipementsParfaits": ["hermano"]
   },
   "rafale": {
     "nom": "Rafale",
@@ -506,6 +510,8 @@
     "nom": "Vigilance",
     "description": "Augmente le total des dégâts d'arme de 25%.\nSubir des dégâts désactive ce buff pendant 4s.",
     "emplacement": "sac_a_dos",
+    "perfectDescription": "Augmente le total des dégâts d'arme de 25%.\nSubir des dégâts désactive ce buff pendant 3s.",
+    "equipementsParfaits": ["le_don"],
     "descente": {
       "boucles": [
         "Avidité",
@@ -582,7 +588,9 @@
   "force_irresistible": {
     "nom": "Force irrésistible",
     "description": "Éliminer un ennemi augmente le total de dégâts d'arme de 5% pendant 15s.\nPeut se cumuler jusqu'à 5 fois.",
-    "emplacement": "sac_a_dos"
+    "emplacement": "sac_a_dos",
+    "perfectDescription": "Éliminer un ennemi augmente le total de dégâts d'arme de 7% pendant 15s.\nPeut se cumuler jusqu'à 5 fois.Les éliminations par grenade ajoutent 2 effets au cumul.",
+    "equipementsParfaits": ["armature"]
   },
   "compagnon": {
     "nom": "Compagnon",
@@ -646,17 +654,23 @@
   "mort_rampante": {
     "nom": "Mort rampante",
     "description": "Quand vous infligez un effet d'état, il s'applique également à tous les ennemis situés à moins de 8m de votre cible.\nTemps de recharge : 15s",
-    "emplacement": "sac_a_dos"
+    "emplacement": "sac_a_dos",
+    "perfectDescription": "Quand vous infligez un effet d'état, il s'applique également à tous les ennemis situés à moins de 10m de votre cible.\nTemps de recharge : 10s",
+    "equipementsParfaits": ["the_courier"]
   },
   "mechancete": {
     "nom": "Méchanceté",
     "description": "Infliger un effet d'état augmente le total de dégâts d'arme de 18% pendant 20s.",
-    "emplacement": "sac_a_dos"
+    "emplacement": "sac_a_dos",
+    "perfectDescription": "Infliger un effet d'état augmente le total de dégâts d'arme de 18% pendant 27s.",
+    "equipementsParfaits": ["livre_de_cuisine_de_l_anarchiste"]
   },
   "galvanisation": {
     "nom": "Galvanisation",
     "description": "Infliger aveuglement, entrave, confusion ou électrocution à un ennemi confère aux alliés situés à moins de 20m de cet ennemi 40% de votre protection en protection bonus pendant 10s.",
-    "emplacement": "sac_a_dos"
+    "emplacement": "sac_a_dos",
+    "perfectDescription": "Infliger aveuglement, entrave, confusion ou électrocution à un ennemi confère aux alliés situés à moins de 30m de cet ennemi 50% de votre protection en protection bonus pendant 10s.",
+    "equipementsParfaits": ["lavoisier"]
   },
   "serrement": {
     "nom": "Serrement",
@@ -685,8 +699,10 @@
   },
   "poussee_d_adrenaline": {
     "nom": "Poussée d'adrénaline",
-    "description": "Quand vous vous trouvez à 10m d'un ennemi, vous gagnez un bonus de protection de 20% (10%) pendant 5s.\nCet effet peut se cumuler jusqu'à 3 fois.\nTemps de recharge : 5s",
+    "description": "Quand vous vous trouvez à 10m d'un ennemi, vous gagnez un bonus de protection de 20% pendant 5s.\nCet effet peut se cumuler jusqu'à 3 fois.\nTemps de recharge : 5s",
     "emplacement": "sac_a_dos",
+    "perfectDescription": "Quand vous vous trouvez à 10m d'un ennemi, vous gagnez un bonus de protection de 23% pendant 5s.\nCet effet peut se cumuler jusqu'à 3 fois.\nTemps de recharge : 5s",
+    "equipementsParfaits": ["matador"],
     "descente": {
       "boucles": [
         "Avidité",
