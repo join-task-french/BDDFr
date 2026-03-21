@@ -400,7 +400,9 @@
   "calcule": {
     "nom": "Calculé",
     "description": "Les éliminations réalisées en étant à couvert réduisent de 10% le temps de recharge des compétences.",
-    "emplacement": "sac_a_dos"
+    "emplacement": "sac_a_dos",
+    "perfectDescription": "Les éliminations réalisées en étant à couvert réduisent de 15% le temps de recharge des compétences.",
+    "equipementsParfaits": ["bloc_batterie"]
   },
   "sous_le_choc": {
     "nom": "Sous le choc",

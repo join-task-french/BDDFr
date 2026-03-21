@@ -440,6 +440,9 @@
     "marque": "ceska_vyroba_s_r_o",
     "emplacement": "sac_a_dos",
     "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
     "talents": ["serrement"],
     "type": "standard",
     "estNomme": true
@@ -695,6 +698,15 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "bloc_batterie": {
+    "nom": "Bloc Batterie",
+    "marque": "empress_international",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["calcule"],
+    "type": "standard",
+    "estNomme": true
   },
   "protecteur_tendance": {
     "nom": "Protecteur tendance",
@@ -1851,7 +1863,12 @@
       {
         "nom": "degats_corps_a_corps_eqp",
         "valeur": 500
+      },
+      {
+        "nom": "degats_pistolet_eqp",
+        "valeur": 11
       }
+
     ],
     "type": "standard"
   },
@@ -1882,7 +1899,7 @@
     },
     "estNomme": true,
     "attributEssentiel": [
-      "offensif"
+      "défensif"
     ],
     "attributs": [
       {

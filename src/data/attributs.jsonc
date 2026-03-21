@@ -573,6 +573,22 @@
       "degats_arme"
     ]
   },
+  "degats_pistolet_eqp": {
+    "nom": "Dégâts Pistolet",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 11,
+    "description": "Augmente les dégâts du pistolet.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_pistolet"
+    ]
+  },
   "degats_sur_cible_non_abritee_eqp": {
     "nom": "Dégâts sur cible non abritée",
     "categorie": "offensif",
