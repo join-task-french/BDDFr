@@ -955,6 +955,16 @@
     "talents": [],
     "type": "standard"
   },
+  "livraison_festive": {
+    "nom": "Livraison festive",
+    "description": "\"J'ai mon feu d'artifice, vous avez votre feu d'artifice. Tout le monde a son feu d'artifice !\"",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["spectacle_pyrotechnique"],
+    "type": "standard",
+    "estNomme": true
+  },
   "gants_d_attaque_dusk": {
     "nom": "Gants d'attaque Dusk",
     "marque": "grupo_sombra_s_a",
@@ -1055,6 +1065,16 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "multiplicateur_de_force": {
+    "nom": "Multiplicateur de force",
+    "description": "\"Dans ce job, il faut penser en termes de multiplicateur de force. On n'a pas toujours de renforts, alors il faut faire avec ce qu'on a. - Instructeur de la SHD\"",
+    "marque": "hana_u_corporation",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["armement_combine"],
+    "type": "standard",
+    "estNomme": true
   },
   "gilet_pare_eclats": {
     "nom": "Gilet pare-éclats",
@@ -1383,6 +1403,16 @@
     "type": "standard",
     "estNomme": false
   },
+  "proxy": {
+    "nom": "Proxy",
+    "description": "\"Ennemi détecté. Ennemi éliminé. - Alexander Ortiz\"",
+    "marque": "palisade_steelworks",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["zone_de_defense"],
+    "type": "standard",
+    "estNomme": true
+  },
   "plastron_steelworks": {
     "nom": "Plastron Steelworks",
     "marque": "palisade_steelworks",
@@ -1710,6 +1740,15 @@
     "talents": [],
     "type": "standard",
     "estNomme": false
+  },
+  "de_pres_ou_de_loin": {
+    "nom": "De près ou de loin",
+    "marque": "uzina_getica",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["opportuniste"],
+    "type": "standard",
+    "estNomme": true
   },
   "protection_parascheva": {
     "nom": "Protection Parascheva",
@@ -2759,6 +2798,16 @@
     "mod": true,
     "talents": [],
     "type": "standard"
+  },
+  "axel": {
+    "nom": "Axel",
+    "description": "\"Je ne suis pas en danger. C'est toi qui es en danger\"",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["afflux_d_energie"],
+    "type": "standard",
+    "estNomme": true
   },
   "gilet_de_service": {
     "nom": "Gilet de service",

@@ -299,7 +299,9 @@
   "zone_de_defense": {
     "nom": "Zone de défense",
     "description": "Les ennemis qui passent à moins de 3m de votre ruche, votre tourelle, ou votre impulsion télécommandée subissent une électrocution.\nArmement : 2s\nTemps de recharge par compétence : 10s",
-    "emplacement": "torse"
+    "emplacement": "sac_a_dos",
+    "perfectDescription": "Les ennemis qui passent à moins de 3m de votre ruche, votre tourelle, ou votre impulsion télécommandée subissent une électrocution.\nArmement : 2s\nTemps de recharge par compétence : 8s",
+    "equipementsParfaits": ["proxy"]
   },
   "efficace": {
     "nom": "Efficace",
@@ -356,12 +358,16 @@
   "armement_combine": {
     "nom": "Armement Combiné",
     "description": "Tirer sur un ennemi augmente le total de dégâts de compétence de 25% pendant 3s.",
-    "emplacement": "sac_a_dos"
+    "emplacement": "sac_a_dos",
+    "perfectDescription": "Tirer sur un ennemi augmente le total de dégâts de compétence de 30% pendant 3s.",
+    "equipementsParfaits": ["multiplicateur_de_force"]
   },
   "afflux_d_energie": {
     "nom": "Afflux d'énergie",
-    "description": "Utiliser un kit de protection confère +1 en Tier de compétence pendant 15s.\nSi vous êtes déjà au Tier de compétence 6, donne surcharge.\nTemps de recharge : 60s",
+    "description": "Utiliser un kit de protection confère +1 en Tier de compétence pendant 15s.\nSi vous êtes déjà au Tier de compétence 6, donne surcharge.\nTemps de recharge : 60s.",
     "emplacement": "sac_a_dos",
+    "perfectDescription": "Utiliser un kit de protection confère +1 en Tier de compétence pendant 15s.\nSi vous êtes déjà au Tier de compétence 6, donne surcharge.\nTemps de recharge : 30s.",
+    "equipementsParfaits": ["axel"],
     "descente": {
       "boucles": [
         "Paresse"
@@ -403,6 +409,13 @@
     "emplacement": "sac_a_dos",
     "perfectDescription": "Les éliminations réalisées en étant à couvert réduisent de 15% le temps de recharge des compétences.",
     "equipementsParfaits": ["bloc_batterie"]
+  },
+  "spectacle_pyrotechnique": {
+    "nom": "Spectacle pyrotechnique",
+    "description": "Parfait Uniquement",
+    "emplacement": "sac_a_dos",
+    "perfectDescription": "Les grenades offensives deviennent des grenades festives. Toucher un ennemi avec une grenade festive provoque des explosions à proximité de deux autres ennemis situés dans un rayon de 20m.",
+    "equipementsParfaits": ["livraison_festive"]
   },
   "sous_le_choc": {
     "nom": "Sous le choc",
@@ -576,6 +589,8 @@
     "description": "Les ennemis que vous touchez au calibre 12 et au fusil de précision subissent des dégâts accrus de 10% de toutes les sources pendant 5s.",
     "prerequis": "Fusil de précision ou calibre 12 seulement.",
     "emplacement": "sac_a_dos",
+    "perfectDescription": "Les ennemis que vous touchez au calibre 12 et au fusil de précision subissent des dégâts accrus de 15% de toutes les sources pendant 5s.",
+    "equipementsParfaits": ["de_pres_ou_de_loin"],
     "descente": {
       "boucles": [
         "Avidité",
