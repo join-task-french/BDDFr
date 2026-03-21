@@ -59,16 +59,12 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
           if (!attr) return null
           const hasPredefValue = attr.value != null
           // Utiliser la valeur personnalisée du state, sinon la valeur prédéfinie, sinon max
-          const currentValue = essVals[attr.slug] != null ? essVals[attr.slug] : (hasPredefValue ? (isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.value) : (isPrototype && attr.prototypeMax !== undefined ? attr.prototypeMax : attr.max))
+          const pMax = attr.maxPrototype ?? attr.prototypeMax ?? attr.max
+          const pValue = attr.prototypeValue !== undefined ? attr.prototypeValue : attr.value
+          const currentValue = essVals[attr.slug] != null ? essVals[attr.slug] : (hasPredefValue ? (isPrototype ? pValue : attr.value) : (isPrototype ? pMax : attr.max))
           const sliderAttr = {
-            nom: attr.nom,
-            slug: attr.slug,
+            ...attr,
             valeur: currentValue,
-            min: attr.min,
-            max: attr.max,
-            prototypeMax: attr.prototypeMax,
-            unite: attr.unite || '%',
-            categorie: attr.categorie,
           }
           // readOnly uniquement si l'arme définit explicitement une valeur fixe
           const isReadOnly = hasPredefValue && (!isPrototype || attr.prototypeValue === undefined)

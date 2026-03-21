@@ -165,14 +165,17 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
               <div className="text-xs text-gray-600 uppercase tracking-widest font-bold mb-1">Attributs essentiels</div>
               {essentialAttrs.map((attr, i) => {
                 const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.value
+                const pMax = attr.maxPrototype ?? attr.prototypeMax ?? attr.max
+                const pMin = attr.minPrototype ?? attr.prototypeMin ?? attr.min
+                const range = isPrototype ? `${pMin}--${pMax}` : `${attr.min}--${attr.max}`
                 return (
                   <div key={i} className="flex items-center justify-between text-xs">
               <span className="flex items-center gap-1.5 text-gray-400">
                 <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-3 h-3" />
                 {attr.nom}
               </span>
-                    <span className={`font-bold ${isPrototype && attr.prototypeValue !== undefined ? 'text-cyan-400' : 'text-shd'}`}>
-                {val ? val : `${attr.min}--${attr.max}`}{attr.unite || ''}
+                    <span className={`font-bold ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
+                {val ? val : range}{attr.unite || ''}
               </span>
                   </div>
               )})}
@@ -187,7 +190,8 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                   ? allAttributs[attr.nom] 
                   : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
                 const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
-                const max = isPrototype && ref?.prototypeMax !== undefined ? ref.prototypeMax : ref?.max
+                const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
+                const max = isPrototype ? pMax : ref?.max
                 const isOverMax = ref && val > max
                 const displayName = ref?.nom || attr.nom
 
@@ -197,7 +201,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                   <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
                   {displayName}
                 </span>
-                      <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype && attr.prototypeValue !== undefined ? 'text-cyan-400' : 'text-shd'}`}>
+                      <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
                   {val}{ref?.unite || ''}
                         {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {max}{ref.unite})</span>}
                 </span>

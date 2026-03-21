@@ -1,9 +1,8 @@
 {
-  // "slug": {
-  //   "nom": "Nom du talent",
-  //   "description": "Description du talent",
-  //   "statMin": 1,
-  //   "statMax": 10,
-  //   "icon": "icon_name"
-  // }
+    "synesthesie": {
+        "nom": "Synesthésie",
+        "description": "Pourcentage de chances que chaque coup qui touche la cible reduise vos temps de recharge actifs de 0.2s.",
+        "statMin": 2.5,
+        "statMax": 5
+    }
 }

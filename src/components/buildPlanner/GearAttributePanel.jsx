@@ -32,14 +32,8 @@ function findDefaultEssentialAttr(allAttributs, categorie) {
   )
   if (!ref) return null
   return {
-    nom: ref.nom,
-    slug: ref.slug,
+    ...ref,
     valeur: ref.max,
-    min: ref.min,
-    max: ref.max,
-    prototypeMax: ref.prototypeMax,
-    unite: ref.unite,
-    categorie: ref.categorie,
   }
 }
 
@@ -184,15 +178,10 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
         // Recherche par slug direct d'abord, puis par nom
         const ref = allAttributs[pa.nom] || Object.values(allAttributs).find(a => a.nom === pa.nom || a.slug === pa.nom)
         if (!ref) return null
+        const pMax = ref.maxPrototype ?? ref.prototypeMax ?? ref.max
         return {
-          nom: ref.nom,
-          slug: ref.slug,
-          valeur: pa.valeur ?? (isPrototype && ref.prototypeMax !== undefined ? ref.prototypeMax : ref.max),
-          min: ref.min,
-          max: ref.max,
-          prototypeMax: ref.prototypeMax,
-          unite: ref.unite,
-          categorie: ref.categorie,
+          ...ref,
+          valeur: pa.valeur ?? (isPrototype ? pMax : ref.max),
         }
       }).filter(Boolean)
       if (nextCls.length > 0) changed = true

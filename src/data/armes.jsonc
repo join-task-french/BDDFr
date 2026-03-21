@@ -2865,7 +2865,8 @@
       },
       {
         "nom": "degats_de_headshot_es",
-        "valeur": 137
+        "valeur": 137,
+        "prototypeValue": 190
       }
     ],
     "emplacementsMods": {

@@ -15,12 +15,15 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
     const isSpecific = weapon?.type === 'arme_specifique'
     const nameColor = isPrototype ? 'text-cyan-400' : 'text-white'
     const borderColor = isPrototype ? 'border-cyan-500/50' : 'border-tactical-border'
+    const headerBg = isPrototype ? 'bg-cyan-500/10' : colors.bg
+    const headerBorder = isPrototype ? 'border-cyan-500/30' : colors.border
+    const headerText = isPrototype ? 'text-cyan-400' : colors.text
 
     return (
         <div className="build-slot group" onClick={weapon ? undefined : onSelect}>
-            <div className={`px-3 py-2 ${colors.bg} ${colors.border} border-b flex justify-between items-center`}>
+            <div className={`px-3 py-2 ${headerBg} ${headerBorder} border-b flex justify-between items-center`}>
                 <div className="flex items-center gap-2 flex-wrap">
-                    <span className={`${colors.text} text-xs font-bold uppercase tracking-widest`}>🔫 {label}</span>
+                    <span className={`${headerText} text-xs font-bold uppercase tracking-widest`}>🔫 {label}</span>
                     {badge}
                 </div>
                 <div className="flex items-center gap-2">
@@ -43,7 +46,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                         </button>
                     )}
                     {weapon && (
-                        <button onClick={(e) => { e.stopPropagation(); onRemove?.() }} className={`${colors.text} hover:text-white text-xs p-1`}>✕</button>
+                        <button onClick={(e) => { e.stopPropagation(); onRemove?.() }} className={`${headerText} hover:text-white text-xs p-1`}>✕</button>
                     )}
                 </div>
             </div>
@@ -65,12 +68,12 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                         {/* Stats (pas pour les armes spécifiques si pas de données) */}
                         {!isSpecific && (
                             <div className="flex flex-wrap gap-1.5 mt-2">
-                                <StatChip icon="💥" value={(isPrototype && weapon.prototypeDegatsBase !== undefined ? weapon.prototypeDegatsBase : weapon.degatsBase)?.toLocaleString('fr-FR')} color={isPrototype && weapon.prototypeDegatsBase !== undefined ? "text-cyan-400" : "text-red-400"} />
-                                <StatChip icon="⚡" value={(isPrototype && weapon.prototypeRpm !== undefined ? weapon.prototypeRpm : weapon.rpm) ? `${isPrototype && weapon.prototypeRpm !== undefined ? weapon.prototypeRpm : weapon.rpm} CPM` : null} color={isPrototype && weapon.prototypeRpm !== undefined ? "text-cyan-400" : ""} />
-                                <StatChip icon="📦" value={(isPrototype && weapon.prototypeChargeur !== undefined ? weapon.prototypeChargeur : weapon.chargeur) || null} color={isPrototype && weapon.prototypeChargeur !== undefined ? "text-cyan-400" : ""} />
-                                <StatChip icon="🎯" value={(isPrototype && weapon.prototypeHeadshot !== undefined ? weapon.prototypeHeadshot : weapon.headshot) ? `${isPrototype && weapon.prototypeHeadshot !== undefined ? weapon.prototypeHeadshot : weapon.headshot}% HS` : null} color={isPrototype && weapon.prototypeHeadshot !== undefined ? "text-cyan-400" : "text-yellow-400"} />
-                                <StatChip icon="📏" value={(isPrototype && weapon.prototypePortee !== undefined ? weapon.prototypePortee : weapon.portee) ? `${isPrototype && weapon.prototypePortee !== undefined ? weapon.prototypePortee : weapon.portee}m` : null} color={isPrototype && weapon.prototypePortee !== undefined ? "text-cyan-400" : ""} />
-                                <StatChip icon="⏳" value={(isPrototype && weapon.prototypeRechargement !== undefined ? weapon.prototypeRechargement : weapon.rechargement) ? `${isPrototype && weapon.prototypeRechargement !== undefined ? weapon.prototypeRechargement : weapon.rechargement}s` : null} color={isPrototype && weapon.prototypeRechargement !== undefined ? "text-cyan-400" : ""} />
+                                <StatChip icon="💥" value={(isPrototype && weapon.prototypeDegatsBase !== undefined ? weapon.prototypeDegatsBase : weapon.degatsBase)?.toLocaleString('fr-FR')} color={isPrototype ? "text-cyan-400" : "text-red-400"} />
+                                <StatChip icon="⚡" value={(isPrototype && weapon.prototypeRpm !== undefined ? weapon.prototypeRpm : weapon.rpm) ? `${isPrototype && weapon.prototypeRpm !== undefined ? weapon.prototypeRpm : weapon.rpm} CPM` : null} color={isPrototype ? "text-cyan-400" : ""} />
+                                <StatChip icon="📦" value={(isPrototype && weapon.prototypeChargeur !== undefined ? weapon.prototypeChargeur : weapon.chargeur) || null} color={isPrototype ? "text-cyan-400" : ""} />
+                                <StatChip icon="🎯" value={(isPrototype && weapon.prototypeHeadshot !== undefined ? weapon.prototypeHeadshot : weapon.headshot) ? `${isPrototype && weapon.prototypeHeadshot !== undefined ? weapon.prototypeHeadshot : weapon.headshot}% HS` : null} color={isPrototype ? "text-cyan-400" : "text-yellow-400"} />
+                                <StatChip icon="📏" value={(isPrototype && weapon.prototypePortee !== undefined ? weapon.prototypePortee : weapon.portee) ? `${isPrototype && weapon.prototypePortee !== undefined ? weapon.prototypePortee : weapon.portee}m` : null} color={isPrototype ? "text-cyan-400" : ""} />
+                                <StatChip icon="⏳" value={(isPrototype && weapon.prototypeRechargement !== undefined ? weapon.prototypeRechargement : weapon.rechargement) ? `${isPrototype && weapon.prototypeRechargement !== undefined ? weapon.prototypeRechargement : weapon.rechargement}s` : null} color={isPrototype ? "text-cyan-400" : ""} />
                             </div>
                         )}
                         {/* Attributs */}

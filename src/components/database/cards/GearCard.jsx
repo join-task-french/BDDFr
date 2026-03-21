@@ -196,7 +196,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                     ? allAttributs[attr.nom]
                     : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
                   const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
-                  const max = isPrototype && ref?.prototypeMax !== undefined ? ref.prototypeMax : ref?.max
+                  const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
+                  const max = isPrototype ? pMax : ref?.max
                   const isOverMax = ref && val > max
                   return (
                       <div key={i} className="flex items-center justify-between text-xs">
@@ -204,7 +205,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                     <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
                     {ref?.nom || attr.nom}
                   </span>
-                        <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype && attr.prototypeValue !== undefined ? 'text-cyan-400' : 'text-gray-200'}`}>
+                        <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-gray-200'}`}>
                     {val}{ref?.unite || ''}
                           {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {max}{ref.unite})</span>}
                   </span>

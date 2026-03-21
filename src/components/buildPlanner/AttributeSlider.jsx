@@ -40,7 +40,8 @@ export default function AttributeSlider({ attribute, onChange, onPick, onRemove,
     onChange?.({ ...attribute, valeur: v })
   }
 
-  const max = isPrototype && attribute.prototypeMax != null ? attribute.prototypeMax : attribute.max
+  const max = isPrototype ? (attribute.maxPrototype ?? attribute.prototypeMax ?? attribute.max) : attribute.max
+  const min = isPrototype ? (attribute.minPrototype ?? attribute.prototypeMin ?? attribute.min) : attribute.min
 
   return (
     <div className="py-1">
@@ -65,15 +66,15 @@ export default function AttributeSlider({ attribute, onChange, onPick, onRemove,
           <button onClick={onRemove} className="text-gray-600 hover:text-red-400 text-xs ml-0.5" title="Retirer">✕</button>
         )}
       </div>
-      {!readOnly && attribute.min != null && max != null && attribute.min !== max && (
+      {!readOnly && min != null && max != null && min !== max && (
         <input
           type="range"
-          min={attribute.min}
+          min={min}
           max={max}
           step={attribute.unite === 'pts' || attribute.unite === 'pts/s' ? 1 : 0.1}
           value={attribute.valeur ?? max}
           onChange={handleSlider}
-          className="attr-slider mt-1"
+          className={`attr-slider mt-1 ${isPrototype ? 'accent-cyan-400' : ''}`}
         />
       )}
     </div>

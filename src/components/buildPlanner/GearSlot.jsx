@@ -84,10 +84,14 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                   ? 'border-l-emerald-500'
                   : 'border-l-blue-500'
 
+  const headerBg = isPrototype ? 'bg-cyan-500/10' : 'bg-blue-500/10'
+  const headerBorder = isPrototype ? 'border-cyan-500/30' : 'border-blue-500/30'
+  const headerText = isPrototype ? 'text-cyan-400' : 'text-blue-400'
+
   return (
       <div className="build-slot group" onClick={piece ? undefined : onSelect}>
-        <div className="px-3 py-2 bg-blue-500/10 border-b border-blue-500/30 flex justify-between items-center">
-          <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">{icon} {label}</span>
+        <div className={`px-3 py-2 ${headerBg} ${headerBorder} border-b flex justify-between items-center`}>
+          <span className={`${headerText} text-xs font-bold uppercase tracking-widest`}>{icon} {label}</span>
           <div className="flex items-center gap-2">
             {piece && piece.type !== 'exotique' && (
                 <button

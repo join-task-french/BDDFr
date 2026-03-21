@@ -74,7 +74,7 @@ export default function AttributePicker({ attributs, cible, categorie, essentiel
           {filtered.map(attr => (
             <button
               key={attr.slug || attr.nom}
-              onClick={() => onSelect({ nom: attr.nom, slug: attr.slug, valeur: attr.max, min: attr.min, max: attr.max, prototypeMax: attr.prototypeMax, unite: attr.unite, categorie: attr.categorie })}
+              onClick={() => onSelect({ ...attr, valeur: attr.max })}
               className="w-full text-left px-3 py-2.5 rounded hover:bg-shd/10 transition-colors flex items-center gap-3 group"
             >
               <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-4 h-4" className="opacity-60" />
