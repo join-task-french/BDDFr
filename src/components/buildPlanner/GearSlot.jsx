@@ -97,7 +97,16 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                 <button
                     onClick={(e) => {
                       e.stopPropagation()
-                      dispatch({ type: 'SET_PROTOTYPE', slot: slotKey, active: !isPrototype })
+                      const newActive = !isPrototype
+                      dispatch({ type: 'SET_PROTOTYPE', slot: slotKey, active: newActive })
+                      if (!newActive && gearAttributes) {
+                        const clamp = (a) => (a && a.max != null && a.valeur > a.max) ? { ...a, valeur: a.max } : a
+                        const newAttrs = {
+                          essentiels: gearAttributes.essentiels?.map(clamp),
+                          classiques: gearAttributes.classiques?.map(clamp)
+                        }
+                        onSetAttributes(newAttrs)
+                      }
                     }}
                     className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1 py-0.5 rounded border transition-all ${
                         isPrototype
@@ -237,26 +246,51 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                 {isPrototype && (
                     <div className="mt-3 pt-3 border-t border-cyan-500/30">
                         {prototypeTalent ? (
-                            <div className="flex items-center justify-between gap-2">
-                                <div>
-                                    <div className="text-[10px] text-cyan-500 font-bold uppercase tracking-widest mb-0.5">Talent Prototype</div>
-                                    <div className="text-xs text-cyan-400 font-bold uppercase tracking-wide">{prototypeTalent.nom}</div>
-                                    {prototypeTalent.description && (
-                                        <div className="text-[11px] text-gray-400 mt-0.5 leading-relaxed line-clamp-2">{prototypeTalent.description}</div>
+                            <div className="py-1">
+                                <div className="flex items-center justify-between gap-2 mb-0.5">
+                                    <div className="text-[10px] text-gray-600 uppercase tracking-widest">Talent Prototype</div>
+                                    {onSelectPrototypeTalent && (
+                                        <button
+                                            onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
+                                            className="text-xs text-gray-600 hover:text-cyan-400 transition-colors"
+                                            title="Changer le talent prototype"
+                                        >✎</button>
                                     )}
                                 </div>
-                                {onSelectPrototypeTalent && (
-                                    <button
-                                        onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
-                                        className="text-xs text-gray-600 hover:text-cyan-400 transition-colors"
-                                        title="Changer le talent prototype"
-                                    >✎</button>
+                                <div className="flex items-center gap-1.5">
+                                    <div className="text-xs text-cyan-400 font-bold uppercase truncate" title={prototypeTalent.nom}>
+                                        {prototypeTalent.nom}
+                                    </div>
+                                    <span className="text-xs font-bold ml-auto shrink-0 text-cyan-400">
+                                        {prototypeTalent.valeur !== undefined ? prototypeTalent.valeur.toFixed(1) : prototypeTalent.statMax}
+                                    </span>
+                                </div>
+                                {prototypeTalent.statMin != null && prototypeTalent.statMax != null && prototypeTalent.statMin !== prototypeTalent.statMax && (
+                                    <input
+                                        type="range"
+                                        min={prototypeTalent.statMin}
+                                        max={prototypeTalent.statMax}
+                                        step={0.1}
+                                        value={prototypeTalent.valeur ?? prototypeTalent.statMax}
+                                        onChange={(e) => {
+                                            e.stopPropagation();
+                                            dispatch({
+                                                type: 'SET_PROTOTYPE_TALENT',
+                                                slot: slotKey,
+                                                talent: { ...prototypeTalent, valeur: parseFloat(e.target.value) }
+                                            })
+                                        }}
+                                        className="attr-slider mt-1 accent-cyan-400"
+                                    />
+                                )}
+                                {prototypeTalent.description && (
+                                    <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-2 italic">{prototypeTalent.description}</div>
                                 )}
                             </div>
                         ) : (
                             <button
                                 onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
-                                className="text-xs text-cyan-500/60 hover:text-cyan-400 uppercase tracking-widest flex items-center gap-1"
+                                className="text-xs text-cyan-500/60 hover:text-cyan-400 uppercase tracking-widest flex items-center gap-1 py-1"
                             >
                                 <span className="text-lg leading-none">+</span> Talent Prototype
                             </button>

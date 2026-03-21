@@ -226,10 +226,13 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
     if (action.type === 'SET_PROTOTYPE') {
       const prototypes = { ...state.prototypes, [action.slot]: action.active }
       const expertise = { ...state.expertise }
+      const prototypeTalents = { ...state.prototypeTalents }
       if (action.active) {
         expertise[action.slot] = maxExpertiseLevel
+      } else {
+        prototypeTalents[action.slot] = null
       }
-      return { ...state, prototypes, expertise }
+      return { ...state, prototypes, expertise, prototypeTalents }
     }
     return buildReducer(state, action)
   }, INITIAL_STATE)

@@ -21,7 +21,7 @@ export default function PrototypeTalentPicker({ data, slotKey, onClose }) {
   }, [talents, search])
 
   const select = (talent) => {
-    dispatch({ type: 'SET_PROTOTYPE_TALENT', slot: slotKey, talent })
+    dispatch({ type: 'SET_PROTOTYPE_TALENT', slot: slotKey, talent: { ...talent, valeur: talent.statMax } })
     onClose()
   }
 
