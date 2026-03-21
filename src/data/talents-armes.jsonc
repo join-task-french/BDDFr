@@ -1157,7 +1157,6 @@
   },
   "autentico": {
     "nom": "Autentico",
-    "icon": "autentico",
     "description": "Dégâts d'arme +35%\nPrécision +100%\nPas de diminution des dégâts.\nCes bonus sont intégrés aux statistiques de base de l'arme.",
     "estExotique": true
   },
@@ -1225,7 +1224,6 @@
   },
   "transfusion": {
     "nom": "Transfusion",
-    "icon": "transfusion",
     "description": "Réaliser des headshots cumule des effets jusqu'à un maximum de 8.\nQuand vous tirez sur un allié ou un proxy de compétence, vous les réparez de 50% de la valeur totale des dégâts de l'arme par effet.\nLes alliés soignés recevront 50% du bonus de vos compétences de réparation en protection bonus par effet pendant 10s.\nAprès avoir soigné un allié, tous les tirs assurent des headshots pendant 8s si vous aviez le maximum d'effets.",
     "estExotique": true
   },
@@ -1360,7 +1358,6 @@
   },
   "pakhan": {
     "nom": "Pakhan",
-    "icon": "pakhan",
     "description": "Chaque élimination avec cette arme augmente de +75% la capacité du prochain chargeur.\nCumulable jusqu'à un maximum de 4 effets.",
     "estExotique": true
   },
@@ -1390,7 +1387,6 @@
   },
   "cible_de_priorite_elevee": {
     "nom": "Cible de priorité élevée",
-    "icon": "cible_de_priorite_elevee",
     "description": "Dégâts d'arme accrus de 125% contre les ennemis des rangs les plus élevés actuellement en combat.\nTier 1 : chasseur, renégat, chef, tank, bouclier, armes lourdes, lance-roquettes, médecin, contrôleur, chien de guerre, maraudeur\nTier 2 : support, ingénieur, garde du corps, immobilisateur, poseur de bombe, mini-char, opérateur de drone\nTier 3 : tout autre ennemi ou proxy de compétence",
     "estExotique": true
   },
@@ -1534,19 +1530,16 @@
   },
   "symbiose": {
     "nom": "Symbiose",
-    "icon": "symbiose",
     "description": "Quand vous avez un bouclier déployé, vous perdez de la santé de bouclier de 10% par seconde.\nVotre bouclier reçoit des réparations équivalant à 25% des dégâts infligés par cette arme.",
     "estExotique": true
   },
   "courant_alternatif": {
     "nom": "Courant alternatif",
-    "icon": "courant_alternatif",
     "description": "Génère un effet de 3% de dégâts de compétences à chaque seconde (max 10).\nAu bout de 10s max, les effets sont transférés à votre autre compétence.\nLe processus se répète indéfiniment.",
     "estExotique": true
   },
   "defibrillator": {
     "nom": "Defibrillator",
-    "icon": "defibrillator",
     "description": "Lorsqu' \"Électrochoc\" est équipé, l'étourdissement par électrocution est réduit de 50%.\nL'utilisation d'un bouclier augmente les dégâts au corps à corps de 100%.\nLe Holster et le Saint-Elme ajoutent 100% de dégâts CàC et électrocutent la cible.\nAvec les 3 objets : électrocution en zone (5m). Recharge : 15s.",
     "estExotique": true
   },
@@ -1632,7 +1625,6 @@
   },
   "mode_vitesse": {
     "nom": "Mode vitesse",
-    "icon": "mode_vitesse",
     "description": "Uniquement en version parfaite",
     "perfectDescription": "+20% vitesse de déplacement.\nCe bonus ne peut pas se cumuler avec d'autres bonus de vitesse de déplacement",
     "armesParfaites": [
@@ -1667,7 +1659,6 @@
   "critique": {
     "nom": "Critique",
     "description": "TODO: Description du talent",
-    "icon": "critique",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1695,7 +1686,6 @@
   "chirurgical": {
     "nom": "Chirurgical",
     "description": "TODO: Description du talent",
-    "icon": "chirurgical",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1723,7 +1713,6 @@
   "optimise": {
     "nom": "Optimisé",
     "description": "TODO: Description du talent",
-    "icon": "optimise",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1751,7 +1740,6 @@
   "determination": {
     "nom": "Détermination",
     "description": "TODO: Description du talent",
-    "icon": "determination",
     "estExotique": true,
     "compatibilite": {
       "fusil": true,
@@ -1775,7 +1763,6 @@
   },
   "munitions_catalysantes": {
     "nom": "munitions_catalysantes",
-    "icon": "munitions_catalysantes",
     "description": "Version parfaite uniquement",
     "estExotique": false,
     "perfectDescription": "Les ennemis touchés perdent 50% de résistance aux brûlures pendant 5s.",
@@ -1785,7 +1772,6 @@
   },
   "mouvements_jazz": {
     "nom": "Mouvements jazz",
-    "icon": "mouvements_jazz",
     "description": "Version parfaite uniquement",
     "estExotique": false,
     "perfectDescription": "+50% à la vitesse de rechargement.",
