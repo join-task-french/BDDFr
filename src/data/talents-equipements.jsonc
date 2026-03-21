@@ -446,6 +446,15 @@
     "description": "Les alliés situés à moins de 7m des objets déployés par vos compétences bénéficient de +25% à la vitesse de rechargement.\nLeurs temps de recharge en cours sont diminués de 0.2s",
     "emplacement": "sac_a_dos"
   },
+  "rafale": {
+    "nom": "Rafale",
+    "description": "Talent parfait uniquement",
+    "perfectDescription": "Tous les effets d'état que vous appliquez appliquent également l'effet Chute de neige à la cible.",
+    "emplacement": "genouilleres",
+    "equipementsParfaits": [
+      "canon_a_neige"
+    ]
+  },
   "sangsue": {
     "nom": "Sangsue",
     "description": "Éliminer un ennemi augmente ou renouvelle un effet cumulé de +10% de protection bonus pendant 10s.\nPeut se cumuler jusqu'à 10 fois.",
@@ -514,6 +523,15 @@
         }
       }
     }
+  },
+  "perplexite": {
+    "nom": "Perplexité",
+    "description": "Talent parfait uniquement",
+    "perfectDescription": "Quand vous infligez des dégâts d'arme à un ennemi, 50% des dégâts sont redirigés vers un autre ennemi se trouvant à moins de 30 mètres. S'il n'y a pas d'autre ennemi à proximité, les dégâts s'infligent normalement. Ne s'applique pas aux plaques de protection",
+    "emplacement": "genouilleres",
+    "equipementsParfaits": [
+      "tourmente"
+    ]
   },
   "polyvalence": {
     "nom": "Polyvalence",

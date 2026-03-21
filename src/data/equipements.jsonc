@@ -430,6 +430,16 @@
     "talents": [],
     "type": "standard"
   },
+  "tourmente": {
+    "nom": "Tourmente",
+    "description": "\"Ne dévoilez jamais votre prochain coup.\"",
+    "emplacement": "genouilleres",
+    "marque": "ceska_vyroba_s_r_o",
+    "mod": false,
+    "talents": ["perplexite"],
+    "estNomme": true,
+    "type": "standard"
+  },
   "mj_54": {
     "nom": "MJ 54",
     "marque": "china_light_industries_corporation",
@@ -596,6 +606,16 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
+    "type": "standard"
+  },
+  "canon_a_neige": {
+    "nom": "Canon à neige",
+    "description": "\"Comme nos amis australiens, si on veut de la neige à Noël, on doit la fabriquer nous-mêmes.\"",
+    "emplacement": "genouilleres",
+    "marque": "electrique",
+    "mod": false,
+    "talents": ["rafale"],
+    "estNomme": true,
     "type": "standard"
   },
   "respirateur_new_face": {
@@ -1144,6 +1164,24 @@
     "talents": [],
     "type": "standard"
   },
+  "genouillere_imperiale": {
+    "nom": "Genouillères impériales",
+    "description": "\"À terre sept fois, relève-toi huit fois.\"",
+    "emplacement": "genouilleres",
+    "marque": "murakami_industries",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "poucentage_regeneration_de_protection_eqp",
+        "valeur": 1
+      }
+    ],
+    "type": "standard"
+  },
   "masque_de_protection_deadstick": {
     "nom": "Masque de protection \"Deadstick\"",
     "marque": "overlord_armaments",
@@ -1192,6 +1230,24 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_astucieuses": {
+    "nom": "Genouillères astucieuses",
+    "description": "\"Qui a déjà vu un athée compter sur autre chose que son matos ?\"",
+    "emplacement": "genouilleres",
+    "marque": "overlord_armaments",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_sur_cible_non_abritee_eqp",
+        "valeur": 8
+      }
+    ],
     "type": "standard"
   },
   "masque_steelworks": {
@@ -2520,6 +2576,24 @@
     "talents": [],
     "type": "standard"
   },
+  "cloak": {
+    "nom": "Cloak",
+    "description": "\"Pas de mouvements brusques.\"",
+    "emplacement": "genouilleres",
+    "marque": "imminence_armaments",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "menace_reduite_eqp",
+        "valeur": -50
+      }
+    ],
+    "type": "standard"
+  },
   "masque_de_machiniste": {
     "nom": "Masque de machiniste",
     "marque": "shiny_monkey_gear",
@@ -2566,6 +2640,24 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
+    "type": "standard"
+  },
+  "grease": {
+    "nom": "Grease",
+    "description": "\"Je ne suis pas en danger. C'est toi qui es en danger.\"",
+    "emplacement": "genouilleres",
+    "marque": "shiny_monkey_gear",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp",
+        "valeur": 16
+      }
+    ],
     "type": "standard"
   },
   "masque_de_discretion": {

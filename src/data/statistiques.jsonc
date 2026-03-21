@@ -91,6 +91,10 @@
     "nom": "Régénération de protection",
     "description": "Régénération d'armure par seconde"
   },
+  "pourcentage_regeneration_protection": {
+    "nom": "Régénération de protection",
+    "description": "Régénération d'armure par seconde"
+  },
   "protection_alterations_etat": {
     "nom": "Protection contre altérations d'état",
     "description": "Réduit la durée des effets d'état subis"
@@ -178,6 +182,10 @@
   "capacite_munitions": {
     "nom": "Capacité munitions",
     "description": "Augmente la capacité totale de munitions"
+  },
+  "menace": {
+    "nom": "Menace",
+    "description": "Augmente ou réduit la menace"
   }
 }
 

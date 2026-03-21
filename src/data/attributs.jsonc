@@ -573,6 +573,38 @@
       "degats_arme"
     ]
   },
+  "degats_sur_cible_non_abritee_eqp": {
+    "nom": "Dégâts sur cible non abritée",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Augmente les dégâts infligés aux cibles non abritées",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_cible_non_abritee"
+    ]
+  },
+  "menace_reduite_eqp": {
+    "nom": "Menace réduite",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": -50,
+    "max": 100,
+    "description": "Réduit la menace.",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "menace"
+    ]
+  },
   "regeneration_de_protection_eqp": {
     "nom": "Régénération de protection",
     "categorie": "défensif",
@@ -587,6 +619,22 @@
     "selectionable": true,
     "statistiques": [
       "regeneration_protection"
+    ]
+  },
+  "poucentage_regeneration_de_protection_eqp": {
+    "nom": "Régénération de protection",
+    "categorie": "défensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 1,
+    "description": "Régénère l'armure au fil du temps",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "pourcentage_regeneration_protection"
     ]
   },
   "protection_contre_alterations_d_etat_eqp": {
@@ -616,7 +664,7 @@
     "max": 500,
     "description": "Augmente les dégâts de corps à corps",
     "estEssentiel": false,
-    "selectionable": true,
+    "selectionable": false,
     "statistiques": [
       "degats_corps_a_corps"
     ]
