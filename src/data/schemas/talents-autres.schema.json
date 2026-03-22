@@ -34,6 +34,10 @@
               "type": "string",
               "enum": ["offensif", "defensif", "utilitaire", "exotique"]
             },
+            "notes": {
+              "type": "string",
+              "description": "Notes spécifiques au mode Descente"
+            },
             "levels": {
               "type": "object",
               "required": ["base"],

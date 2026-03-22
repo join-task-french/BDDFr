@@ -99,7 +99,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const headshot = isPrototype && item.prototypeHeadshot !== undefined ? item.prototypeHeadshot : item.headshot
 
   return (
-      <div className={`bg-tactical-panel border ${borderColor || 'border-tactical-border'} rounded-lg overflow-hidden hover:border-tactical-border/80 transition-colors`}>
+      <div className={`bg-tactical-panel border ${borderColor || 'border-tactical-border'} rounded-lg overflow-hidden hover:border-tactical-border/80 transition-colors flex flex-col h-full`}>
         {/* Header : Nom + Type + Fabricant */}
         <div className={`px-4 py-3 border-b ${isPrototype ? 'border-cyan-500/30 bg-cyan-500/5' : 'border-tactical-border/50'} flex flex-col gap-1`}>
           <div className="flex flex-row gap-2">
@@ -248,6 +248,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         )}
 
         {/* Obtention */}
+        <div className="flex-1" />
         <ObtentionDisplay obtention={item.obtention} />
 
         {/* Notes */}

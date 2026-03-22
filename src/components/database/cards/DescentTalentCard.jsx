@@ -4,7 +4,7 @@ import { slugify } from '../../../utils/slugify.js';
 
 export default function DescentTalentCard({ item }) {
     const { nom, icon, descente, isWeaponTalent } = item;
-    const { boucles, categorie, levels } = descente;
+    const { boucles, categorie, levels, notes } = descente;
     const { category, slug, modifier } = useParams();
     const navigate = useNavigate();
     const location = useLocation();
@@ -119,6 +119,17 @@ export default function DescentTalentCard({ item }) {
                     ))}
                 </div>
             </div>
+
+            {notes && (
+                <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
+                    <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">
+                        Notes
+                    </div>
+                    <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
+                        {notes}
+                    </div>
+                </div>
+            )}
 
         </div>
     );

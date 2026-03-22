@@ -54,7 +54,7 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
   const description = showPerfect && hasPerfect ? item.perfectDescription : item.description
 
   return (
-      <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden ${borderColor ? `border-l-2 ${borderColor}` : ''}`}>
+      <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex flex-col h-full ${borderColor ? `border-l-2 ${borderColor}` : ''}`}>
         <div className="px-4 py-3 border-b border-tactical-border/50">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -94,7 +94,7 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
         </div>
 
         {description && (
-            <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed whitespace-pre-line">
+            <div className="px-4 py-2.5 text-xs text-gray-400 leading-relaxed whitespace-pre-line flex-1">
               {description}
             </div>
         )}
