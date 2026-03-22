@@ -17,6 +17,7 @@ const DATA_FILES = {
   ensembles: 'ensembles.jsonc',
   equipements: 'equipements.jsonc',
   equipements_type: 'equipements-type.jsonc',
+  maps: 'maps.jsonc',
   metadata: 'metadata.jsonc',
   modsArmes: 'mods-armes.jsonc',
   modsArmesType: 'mods-armes-type.jsonc',
@@ -24,7 +25,6 @@ const DATA_FILES = {
   modsEquipements: 'mods-equipements.jsonc',
   statistiques: 'statistiques.jsonc',
   talentsArmes: 'talents-armes.jsonc',
-  talentsAutres: 'talents-autres.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
   talentsPrototypes: 'talents-prototypes.jsonc',
 }
@@ -37,7 +37,7 @@ const DATA_FILES = {
 const SLUG_KEYED_FILES = new Set([
   'armes', 'attributs', 'classSpe', 'competences', 'ensembles',
   'equipements', 'modsArmes', 'modsCompetences', 'modsEquipements',
-  'statistiques', 'talentsArmes', 'talentsAutres', 'talentsEquipements', 'talentsPrototypes',
+  'statistiques', 'talentsArmes', 'talentsEquipements', 'talentsPrototypes',
 ])
 
 /**
@@ -109,7 +109,7 @@ export function useDataLoader() {
               talents: [],
               specialisation: spec.nom,
             }))
-            
+
             // Injecter les armes de spé dans l'objet armes
             specWeapons.forEach(sw => {
               result.armes[sw.slug] = sw
@@ -137,4 +137,3 @@ export function useDataLoader() {
 
   return { data, loading, error, progress }
 }
-

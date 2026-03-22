@@ -7,9 +7,10 @@ const DatabasePage = lazy(() => import('./pages/DatabasePage'))
 const BuildPlannerPage = lazy(() => import('./pages/BuildPlannerPage'))
 const ChangelogPage = lazy(() => import('./pages/ChangelogPage'))
 const GeneratorPage = lazy(() => import('./pages/GeneratorPage'))
+const MapPage = lazy(() => import('./pages/MapPage'))
 
 function SuspensePage({ children }) {
-  return <Suspense fallback={<Loader />}>{children}</Suspense>
+    return <Suspense fallback={<Loader />}>{children}</Suspense>
 }
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
             import('./pages/BuildPlannerPage');
             import('./pages/ChangelogPage');
             import('./pages/GeneratorPage');
+            import('./pages/MapPage');
         };
         if ('requestIdleCallback' in window) {
             requestIdleCallback(preloadPages);
@@ -27,13 +29,13 @@ export default function App() {
         }
     }, []);
 
-
     return (
         <Routes>
             <Route element={<Layout />}>
                 <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
                 <Route path="db/:category/:slug?/:modifier?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
                 <Route path="build" element={<SuspensePage><BuildPlannerPage /></SuspensePage>} />
+                <Route path="map/:mapId?/:subMapId?" element={<SuspensePage><MapPage /></SuspensePage>} />
                 <Route path="changelog" element={<SuspensePage><ChangelogPage /></SuspensePage>} />
                 <Route path="generator" element={<SuspensePage><GeneratorPage /></SuspensePage>} />
             </Route>

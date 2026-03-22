@@ -110,28 +110,8 @@ function buildIndex(globResult) {
 }
 
 // Talents d'armes (classiques + exotiques)
-const _talentsArmeGlob = import.meta.glob('../img/game_assets/talents/arme/**/*.png', { eager: true })
-export const WEAPON_TALENT_ICONS = buildIndex(_talentsArmeGlob)
-
-// Talents d'équipements (torse + sac)
-const _talentsEquipGlob = import.meta.glob('../img/game_assets/talents/equipements/**/*.png', { eager: true })
-export const GEAR_TALENT_ICONS = buildIndex(_talentsEquipGlob)
-
-// Talents Prototypes
-const _talentsPrototypesGlob = import.meta.glob('../img/game_assets/talents/prototypes/**/*.png', { eager: true })
-export const PROTOTYPE_TALENT_ICONS = buildIndex(_talentsPrototypesGlob)
-
-// Compétences
-const _competencesGlob = import.meta.glob('../img/game_assets/competences/**/*.png', { eager: true })
-export const SKILL_ICONS = buildIndex(_competencesGlob)
-
-// Marques / Ensembles
-const _marquesGlob = import.meta.glob('../img/game_assets/marques/**/*.png', { eager: true })
-export const BRAND_ICONS = buildIndex(_marquesGlob)
-
-// Icônes d'armes spécifiques (exotiques, spé, etc.)
-const _armesGlob = import.meta.glob('../img/game_assets/armes/**/*.png', { eager: true })
-export const WEAPON_ICONS = buildIndex(_armesGlob)
+const _allAssets = import.meta.glob('../img/game_assets/**/*.{png,jpg,jpeg,webp}', { eager: true })
+export const ALL_ASSETS = buildIndex(_allAssets)
 
 /**
  * Résout l'icône d'un talent/compétence/marque/arme par son slug.
@@ -139,13 +119,7 @@ export const WEAPON_ICONS = buildIndex(_armesGlob)
  */
 export function resolveIcon(slug) {
   if (!slug) return null
-  return WEAPON_ICONS[slug]
-    || WEAPON_TALENT_ICONS[slug]
-    || GEAR_TALENT_ICONS[slug]
-    || PROTOTYPE_TALENT_ICONS[slug]
-    || SKILL_ICONS[slug]
-    || BRAND_ICONS[slug]
-    || null
+  return ALL_ASSETS[slug] || null
 }
 
 /**
@@ -163,4 +137,18 @@ export function GameIcon({ src, alt = '', size = 'w-5 h-5', className = '' }) {
       onError={(e) => { e.target.style.display = 'none' }}
     />
   )
+}
+
+// ================================================================
+// CARTES INTERACTIVES
+// ================================================================
+const _mapsGlob = import.meta.glob('../img/maps/**/*.{png,jpg,jpeg,webp}', { eager: true })
+export const MAP_IMAGES = buildIndex(_mapsGlob)
+
+/**
+ * Résout l'image d'une carte à partir de son nom de fichier (sans extension)
+ */
+export function resolveMapImage(slug) {
+  if (!slug) return null
+  return MAP_IMAGES[slug] || null
 }

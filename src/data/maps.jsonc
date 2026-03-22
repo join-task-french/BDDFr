@@ -1,0 +1,34 @@
+[
+    {
+        "id": "brooklyn",
+        "name": "Brooklyn",
+        "icon": "calibre12",
+        "bounds": [[0, 0], [2600, 4100]],
+        "imageSlug": "brooklyn",
+        "minZoom": -4,
+        "maxZoom": 3,
+        "categories": [
+            {
+                "id": "boss",
+                "name": "Cibles (Boss)",
+                "icon": "calibre12",
+                "color": "#ef4444"
+            },
+            {
+                "id": "loot",
+                "name": "Caisses de Butin",
+                "icon": "calibre12",
+                "color": "#22c55e"
+            }
+        ],
+        "markers": [
+            {
+                "id": "boss_keener",
+                "coords": [1300, 2050],
+                "category": "boss",
+                "label": "Aaron Keener",
+                "description": "Boss final de la zone."
+            }
+        ]
+    }
+]
