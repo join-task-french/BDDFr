@@ -121,7 +121,7 @@ export const GEAR_DEFAULT_SORT = [
 const gearGetters = {
   rarity: gearRarity,
   alpha: (item) => item.nom || '',
-  marque: (item) => item.marque || '',
+  marque: (item) => (item.marque === '*' ? '' : (item.marque || '').replace(/\*/g, '')),
   emplacement: (item) => getSlotOrder(item.emplacement)
 }
 export function applySortGear(items, sortLayers) { return multiSort(items, sortLayers, gearGetters) }
