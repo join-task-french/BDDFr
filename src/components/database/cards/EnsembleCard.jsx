@@ -36,7 +36,7 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques })
   }
 
   return (
-      <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
+      <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor} flex flex-col h-full`}>
         {/* Header : icon + nom + type + attributs essentiels */}
         <div className="px-4 py-3 border-b border-tactical-border/50">
           <div className="flex items-start gap-3">
@@ -121,6 +121,7 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques })
         )}
 
         {/* Notes */}
+        <div className="flex-1" />
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
               <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>

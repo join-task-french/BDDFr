@@ -176,6 +176,7 @@ export const FIELDS = {
           { value: 'utilitaire', label: 'Utilitaire' },
           { value: 'exotique', label: 'Exotique' },
         ], visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_notes', label: 'Notes (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
           { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
@@ -206,6 +207,7 @@ export const FIELDS = {
           { value: 'utilitaire', label: 'Utilitaire' },
           { value: 'exotique', label: 'Exotique' },
         ], visibleWhen: { key: 'hasDescente', value: true } },
+      { key: 'descente_notes', label: 'Notes (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', visibleWhen: { key: 'hasDescente', value: true } },
       { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
           { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
@@ -229,6 +231,7 @@ export const FIELDS = {
           { value: 'utilitaire', label: 'Utilitaire' },
           { value: 'exotique', label: 'Exotique' },
         ]},
+      { key: 'descente_notes', label: 'Notes (Descente)', type: 'textarea' },
       { key: 'descente_base', label: 'Description avec variables {var} (Descente)', type: 'textarea', required: true },
       { key: 'descente_vars', label: 'Variables par niveau (Descente)', type: 'objectArray', fields: [
           { key: 'niveau', label: 'Niveau (1, 2...)', type: 'text' },
@@ -701,10 +704,11 @@ export function cleanOutput(data, categoryKey) {
   }
 
   // --- TRAITEMENT SPÉCIFIQUE POUR LE MODE DESCENTE ---
-  if (data.hasDescente) {
+  if (data.hasDescente || categoryKey === 'talentsAutres') {
     result.descente = {
       boucles: data.descente_boucles || [],
       categorie: data.descente_categorie || 'offensif',
+      notes: data.descente_notes || '',
       levels: {
         base: data.descente_base || ''
       }
@@ -728,6 +732,7 @@ export function cleanOutput(data, categoryKey) {
   delete result.hasDescente
   delete result.descente_boucles
   delete result.descente_categorie
+  delete result.descente_notes
   delete result.descente_base
   delete result.descente_vars
 
@@ -857,6 +862,7 @@ export function itemToFormData(categoryKey, item) {
     data.hasDescente = true
     data.descente_boucles = item.descente.boucles || []
     data.descente_categorie = item.descente.categorie || 'offensif'
+    data.descente_notes = item.descente.notes || ''
     data.descente_base = item.descente.levels?.base || ''
     data.descente_vars = []
 

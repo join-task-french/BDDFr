@@ -134,7 +134,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
   const hasGearSetTalent = !hasResolvedTalents && gearSetTalent
 
   return (
-      <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor}`}>
+      <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden border-l-2 ${borderColor} flex flex-col h-full`}>
         {/* Header */}
         <div className={`px-4 py-3 border-b ${isPrototype ? 'border-cyan-500/30 bg-cyan-500/5' : 'border-tactical-border/50'}`}>
           <div className="flex items-start gap-2">
@@ -276,6 +276,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         )}
 
         {/* Obtention */}
+        <div className="flex-1" />
         <ObtentionDisplay obtention={item.obtention} />
 
         {/* Notes */}

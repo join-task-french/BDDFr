@@ -473,8 +473,10 @@
   "protecteur": {
     "nom": "Protecteur",
     "description": "Quand votre protection est intacte, augmente la réparation de compétence de 130%.",
+    "notes": "Le jeu comporte deux talents de sac avec le nom \"Protecteur\"",
     "emplacement": "sac_a_dos",
     "descente": {
+      "notes": "Le jeu comporte deux talents de sac avec le nom \"Protecteur\"",
       "boucles": [
         "Avidité",
         "Colère",
@@ -494,8 +496,10 @@
   "protecteur_bouclier": {
     "nom": "Protecteur",
     "description": "Quand votre bouclier est emdommagé, vous gagnez +5% de protection bonus et tous vos alliés gagnent 15% de votre protection bonus pendant 3s.\n\n Temps de rechargment : 3s.",
+    "notes": "Le jeu comporte deux talents de sac avec le nom \"Protecteur\"",
     "emplacement": "sac_a_dos",
     "descente": {
+      "notes": "Le jeu comporte deux talents de sac avec le nom \"Protecteur\"",
       "boucles": [
         "Avidité",
         "Colère",
