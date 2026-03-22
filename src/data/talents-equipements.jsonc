@@ -129,7 +129,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "Déployer un bouclier le rend invulnérable pendant {invulnerability}s ({invulnerability_pvp}s) et donne à tous les autres alliés {bonus_armor}% ({bonus_armor_pvp}%) de votre protection en protection bonus pendant {duration}s.\nTemps de recharge : {cooldown}s.",
         "1": {
@@ -155,7 +155,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "Confère +{self_bonus_armor}% de protection bonus quand vous rechargez.\nConfère 0-{ally_bonus_armor_max}% de votre protection en protection bonus pour tout vos alliés quand ceux-ci rechargent, en fonction de votre attribut essentiel bleu",
         "1": {
@@ -343,7 +343,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "Employer un kit de protection à {save_chance}% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de {bonus_kit}% ({bonus_kit_pvp}%).\n{arm_time} secondes sont nécessaires pour armer le talent.",
         "1": {
@@ -369,7 +369,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "Si vous êtes à moins de {threshold}% de votre protection, les headshots effectués depuis un abri réparent {repair}% de votre protection.\nTemps de recharge : {cooldown}s.",
         "1": {
@@ -483,7 +483,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "Quand votre protection est intacte, augmente la réparation de compétence de {skill_repair}%.",
         "1": {
@@ -543,7 +543,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "Réaliser un changement d'abri confère +{bonus_armor}% de votre protection en protection bonus pour vous et vos alliés pendant {duration}s.\nCe bonus est doublé si vous finissez à moins de {range}m d'un ennemi.\nTemps de recharge : {cooldown}s",
         "1": {
@@ -741,7 +741,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "Si vous êtes à moins de {threshold}% de votre protection, les coups critiques réparent {crit_repair}% de la protection détruite.\nLes éliminations vous permettent de réparer jusqu'à {max_repair}% de protection sur {repair_duration_min}-{repair_duration_max}s, en fonction de votre attribut essentiel rouge",
         "1": {
@@ -768,7 +768,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "Quand vous vous trouvez à {range}m d'un ennemi, vous gagnez un bonus de protection de {bonus_armor}% ({bonus_armor_pvp}%) pendant {duration}s.\nCet effet peut se cumuler jusqu'à {max_stacks} fois.\nTemps de recharge : {cooldown}s",
         "1": {
@@ -1332,7 +1332,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "TODO: Description du talent",
         "1": {}

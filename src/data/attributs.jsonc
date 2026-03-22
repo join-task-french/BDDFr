@@ -408,6 +408,22 @@
       "portee_optimale"
     ]
   },
+  "portee_optimale_mod": {
+    "nom": "Portée optimale",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 24,
+    "description": "Augmente la portée optimale de l'arme",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "portee_optimale"
+    ]
+  },
   "cadence_de_tir_arm": {
     "nom": "Cadence de tir",
     "categorie": "utilitaire",
@@ -459,7 +475,7 @@
   },
   "protection": {
     "nom": "Protection",
-    "categorie": "défensif",
+    "categorie": "defensif",
     "cible": [
       "equipement"
     ],
@@ -623,7 +639,7 @@
   },
   "regeneration_de_protection_eqp": {
     "nom": "Régénération de protection",
-    "categorie": "défensif",
+    "categorie": "defensif",
     "cible": [
       "equipement"
     ],
@@ -639,7 +655,7 @@
   },
   "poucentage_regeneration_de_protection_eqp": {
     "nom": "Régénération de protection",
-    "categorie": "défensif",
+    "categorie": "defensif",
     "cible": [
       "equipement"
     ],
@@ -655,7 +671,7 @@
   },
   "protection_contre_alterations_d_etat_eqp": {
     "nom": "Protection contre altérations d'état",
-    "categorie": "défensif",
+    "categorie": "defensif",
     "cible": [
       "equipement"
     ],
@@ -667,6 +683,38 @@
     "selectionable": true,
     "statistiques": [
       "protection_alterations_etat"
+    ]
+  },
+  "protection_contre_alterations_d_etat_mod": {
+    "nom": "Protection contre altérations d'état",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10, // TODO
+    "description": "Réduit la durée des effets d'état subis",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "protection_alterations_etat"
+    ]
+  },
+  "reparation_subies_mod": {
+    "nom": "Réparations subies",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10, // TODO
+    "description": "Augmente les réparations d'armure reçues",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "reparation_subies"
     ]
   },
   "degats_corps_a_corps_eqp": {
@@ -687,7 +735,7 @@
   },
   "sante_eqp": {
     "nom": "Santé",
-    "categorie": "défensif",
+    "categorie": "defensif",
     "cible": [
       "equipement"
     ],
@@ -719,7 +767,7 @@
   },
   "resistance_explosions_eqp": {
     "nom": "Résistance - Explosions",
-    "categorie": "défensif",
+    "categorie": "defensif",
     "cible": [
       "equipement"
     ],
@@ -750,6 +798,23 @@
       "degats_competence"
     ]
   },
+  "degats_de_competence_mod": {
+    "nom": "Dégâts de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "prototypeMax": 15,
+    "description": "Augmente les dégâts infligés par les compétences",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
   "competences_de_reparation_eqp": {
     "nom": "Compétences de réparation",
     "categorie": "utilitaire",
@@ -766,6 +831,38 @@
       "competence_reparation"
     ]
   },
+  "competences_de_reparation_mod": {
+    "nom": "Compétences de réparation",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente les soins prodigués par les compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "competence_reparation"
+    ]
+  },
+  "santee_de_competence_mod": {
+    "nom": "Santé de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente la santé des compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
   "recup_de_competence_eqp": {
     "nom": "Récup de compétence",
     "categorie": "utilitaire",
@@ -779,6 +876,23 @@
     "description": "Réduit le temps de recharge des compétences",
     "estEssentiel": false,
     "selectionable": true,
+    "statistiques": [
+      "recup_competence"
+    ]
+  },
+  "recup_de_competence_mod": {
+    "nom": "Récup de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "prototypeMax": 18,
+    "description": "Réduit le temps de recharge des compétences",
+    "estEssentiel": false,
+    "selectionable": false,
     "statistiques": [
       "recup_competence"
     ]
@@ -945,7 +1059,7 @@
   },
   "protection_pour_eliminations_arm": {
     "nom": "Protection pour éliminations",
-    "categorie": "défensif",
+    "categorie": "defensif",
     "cible": [
       "arme"
     ],
@@ -977,7 +1091,7 @@
   },
   "protection_pour_eliminations_eqp": {
     "nom": "Protection pour éliminations",
-    "categorie": "défensif",
+    "categorie": "defensif",
     "cible": [
       "equipement"
     ],
@@ -989,6 +1103,55 @@
     "selectionable": true,
     "statistiques": [
       "protection_elimination"
+    ]
+  },
+  "protection_pour_elimination_mod": {
+    "nom": "Protection pour éliminations",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Apporte de la protection lors de l'éliminations d'un ennemi",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection_elimination"
+    ]
+  },
+  "protection_contre_ennemi_elite_mod": {
+    "nom": "Protection contre ennemi élite",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 13,
+    "description": "Réduit les dégâts subis par les ennemis élites",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection_elite"
+    ]
+  },
+  "duree_de_competence_mod": {
+    "nom": "Durée de compétences",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement",
+      "mod_arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 13, // TODO
+    "description": "Augmente la durée des compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
     ]
   },
   "degats_corps_a_corps_mod": {

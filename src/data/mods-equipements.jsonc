@@ -5,7 +5,7 @@
     "nom": "PROTOCOLE UTILITAIRE : INTENSITÉ",
     "attributs": [
       {
-        "attribut": "duree_de_competence_eqp_mod",
+        "attribut": "duree_de_competence_mod",
         "valeur": 10
       }
     ]
@@ -60,12 +60,12 @@
       }
     ]
   },
-  "resistance_aux_effets_d_etat_saignements_electrocutions_brulures_aveug_assour_desactivation_desorientation_entrave_impulsion": {
+  "protection_contre_alterations_d_etat": {
     "categorie": "defensif",
     "nom": "PROTOCOLE DÉFENSIF : ENDURANCE",
     "attributs": [
       {
-        "attribut": "resistance_aux_effets_d_etat_saignements_electrocutions_brulures_aveug_assour_desactivation_desorientation_entrave_impulsion",
+        "attribut": "protection_contre_alterations_d_etat_mod",
         "valeur": 0
       }
     ]

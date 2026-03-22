@@ -118,7 +118,7 @@
     ],
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 70
       }
     ]
@@ -157,7 +157,7 @@
     "compatible": [],
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 20
       }
     ]
@@ -301,7 +301,7 @@
     "compatible": [],
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 30
       }
     ]
@@ -494,7 +494,7 @@
     ],
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 50
       }
     ]
@@ -576,7 +576,7 @@
         "valeur": 40
       },
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": -10
       }
     ]
@@ -602,7 +602,7 @@
     ],
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 50
       }
     ]
@@ -645,7 +645,7 @@
         "valeur": 40
       },
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": -10
       }
     ]
@@ -697,7 +697,7 @@
     ],
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 50
       }
     ]
@@ -781,7 +781,7 @@
     ],
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 50
       }
     ]
@@ -807,7 +807,7 @@
     "compatible": [],
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 50
       }
     ]
@@ -966,7 +966,7 @@
         "valeur": 15
       },
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": -25
       }
     ]
@@ -1222,7 +1222,7 @@
     "type": "bouche",
     "attributs": [
       {
-        "attribut": "portee_optimale",
+        "attribut": "portee_optimale_mod",
         "valeur": 10
       }
     ],
@@ -1558,7 +1558,7 @@
     "type": "bouche",
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 20
       }
     ],
@@ -1870,7 +1870,7 @@
     "type": "canon",
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 25
       }
     ],
@@ -1894,7 +1894,7 @@
     "type": "canon",
     "attributs": [
       {
-        "attribut": "portee_optimale_arm",
+        "attribut": "portee_optimale_mod",
         "valeur": 25
       }
     ],

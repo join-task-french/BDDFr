@@ -5,8 +5,8 @@
     "competence": "impulsion",
     "emplacement": "BOBINE",
     "attributs": [
-      { "attribut": "duree_competence", "valeur": 20 },
-      { "attribut": "recup_competence", "valeur": 10 }
+      { "attribut": "duree_de_competence_mod", "valeur": 20 },
+      { "attribut": "recup_de_competence_mod", "valeur": 10 }
     ]
   },
   "impulsion_artilleur_bobine": {
@@ -15,8 +15,8 @@
     "emplacement": "BOBINE",
     "prerequis": "artilleur",
     "attributs": [
-      { "attribut": "duree_competence", "valeur": 40 },
-      { "attribut": "recup_competence", "valeur": 20 }
+      { "attribut": "duree_de_competence_mod", "valeur": 40 },
+      { "attribut": "recup_de_competence_mod", "valeur": 20 }
     ]
   },
   "tourelle_mecanisme_de_tir": {
@@ -24,8 +24,8 @@
     "competence": "tourelle",
     "emplacement": "MÉCANISME DE TIR",
     "attributs": [
-      { "attribut": "degats_competence", "valeur": 20 },
-      { "attribut": "duree_competence", "valeur": 25 }
+      { "attribut": "degats_de_competence_mod", "valeur": 20 },
+      { "attribut": "duree_de_competence_mod", "valeur": 25 }
     ]
   },
   "tourelle_demolisseur_mecanisme_de_tir": {
@@ -34,8 +34,8 @@
     "emplacement": "MÉCANISME DE TIR",
     "prerequis": "demolisseur",
     "attributs": [
-      { "attribut": "degats_competence", "valeur": 40 },
-      { "attribut": "duree_competence", "valeur": 50 }
+      { "attribut": "degats_de_competence_mod", "valeur": 40 },
+      { "attribut": "duree_de_competence_mod", "valeur": 50 }
     ]
   },
   "ruche_drones": {
@@ -43,8 +43,8 @@
     "competence": "ruche",
     "emplacement": "DRONES",
     "attributs": [
-      { "attribut": "competence_reparation", "valeur": 20 },
-      { "attribut": "recup_competence", "valeur": 10 }
+      { "attribut": "competences_de_reparation_mod", "valeur": 20 },
+      { "attribut": "recup_de_competence_mod", "valeur": 10 }
     ]
   },
   "ruche_technicien_lanceur": {
@@ -53,8 +53,8 @@
     "emplacement": "LANCEUR",
     "prerequis": "technicien",
     "attributs": [
-      { "attribut": "competence_reparation", "valeur": 40 },
-      { "attribut": "recup_competence", "valeur": 20 }
+      { "attribut": "competences_de_reparation_mod", "valeur": 40 },
+      { "attribut": "recup_de_competence_mod", "valeur": 20 }
     ]
   },
   "lanceur_chimique_agitateur": {
@@ -62,8 +62,8 @@
     "competence": "lanceur_chimique",
     "emplacement": "AGITATEUR",
     "attributs": [
-      { "attribut": "duree_competence", "valeur": 20 },
-      { "attribut": "degats_competence", "valeur": 10 }
+      { "attribut": "duree_de_competence_mod", "valeur": 20 },
+      { "attribut": "degats_de_competence_mod", "valeur": 10 }
     ]
   },
   "luciole_charge_utile": {
@@ -71,8 +71,8 @@
     "competence": "luciole",
     "emplacement": "CHARGE UTILE",
     "attributs": [
-      { "attribut": "degats_competence", "valeur": 20 },
-      { "attribut": "duree_competence", "valeur": 20 }
+      { "attribut": "degats_de_competence_mod", "valeur": 20 },
+      { "attribut": "duree_de_competence_mod", "valeur": 20 }
     ]
   },
   "mine_teleguidee_entrainement": {
@@ -80,8 +80,8 @@
     "competence": "mine_teleguide",
     "emplacement": "ENTRAÎNEMENT",
     "attributs": [
-      { "attribut": "degats_competence", "valeur": 20 },
-      { "attribut": "recup_competence", "valeur": 10 }
+      { "attribut": "degats_de_competence_mod", "valeur": 20 },
+      { "attribut": "recup_de_competence_mod", "valeur": 10 }
     ]
   },
   "mine_teleguidee_survivaliste_designation": {
@@ -90,8 +90,8 @@
     "emplacement": "DÉSIGNATION",
     "prerequis": "survivaliste",
     "attributs": [
-      { "attribut": "degats_competence", "valeur": 40 },
-      { "attribut": "recup_competence", "valeur": 20 }
+      { "attribut": "degats_de_competence_mod", "valeur": 40 },
+      { "attribut": "recup_de_competence_mod", "valeur": 20 }
     ]
   },
   "drone_batterie": {
@@ -99,8 +99,8 @@
     "competence": "drone",
     "emplacement": "BATTERIE",
     "attributs": [
-      { "attribut": "degats_competence", "valeur": 20 },
-      { "attribut": "duree_competence", "valeur": 20 }
+      { "attribut": "degats_de_competence_mod", "valeur": 20 },
+      { "attribut": "duree_de_competence_mod", "valeur": 20 }
     ]
   },
   "drone_tireur_d_elite_batterie": {
@@ -109,8 +109,8 @@
     "emplacement": "BATTERIE",
     "prerequis": "tireur_d_elite",
     "attributs": [
-      { "attribut": "degats_competence", "valeur": 40 },
-      { "attribut": "duree_competence", "valeur": 40 }
+      { "attribut": "degats_de_competence_mod", "valeur": 40 },
+      { "attribut": "duree_de_competence_mod", "valeur": 40 }
     ]
   },
   "bouclier_circuit_imprime": {
@@ -118,8 +118,8 @@
     "competence": "bouclier",
     "emplacement": "CIRCUIT IMPRIMÉ",
     "attributs": [
-      { "attribut": "sante_competence", "valeur": 20 },
-      { "attribut": "duree_competence", "valeur": 20 }
+      { "attribut": "santee_de_competence_mod", "valeur": 20 },
+      { "attribut": "duree_de_competence_mod", "valeur": 20 }
     ]
   },
   "bouclier_incendiaire_revetement_dur": {
@@ -128,8 +128,8 @@
     "emplacement": "REVÊTEMENT DUR",
     "prerequis": "incendiaire",
     "attributs": [
-      { "attribut": "sante_competence", "valeur": 40 },
-      { "attribut": "duree_competence", "valeur": 40 }
+      { "attribut": "santee_de_competence_mod", "valeur": 40 },
+      { "attribut": "duree_de_competence_mod", "valeur": 40 }
     ]
   },
   "piege_electronique": {
@@ -137,8 +137,8 @@
     "competence": "piege",
     "emplacement": "ÉLECTRONIQUE",
     "attributs": [
-      { "attribut": "degats_competence", "valeur": 20 },
-      { "attribut": "recup_competence", "valeur": 10 }
+      { "attribut": "degats_de_competence_mod", "valeur": 20 },
+      { "attribut": "recup_de_competence_mod", "valeur": 10 }
     ]
   },
   "bombe_adhesive_lanceur": {
@@ -146,8 +146,8 @@
     "competence": "bombe_adhesive",
     "emplacement": "LANCEUR",
     "attributs": [
-      { "attribut": "degats_competence", "valeur": 20 },
-      { "attribut": "recup_competence", "valeur": 10 }
+      { "attribut": "degats_de_competence_mod", "valeur": 20 },
+      { "attribut": "recup_de_competence_mod", "valeur": 10 }
     ]
   },
   "leurre_logement": {
@@ -155,8 +155,8 @@
     "competence": "leurre",
     "emplacement": "LOGEMENT",
     "attributs": [
-      { "attribut": "duree_competence", "valeur": 20 },
-      { "attribut": "recup_competence", "valeur": 10 }
+      { "attribut": "duree_de_competence_mod", "valeur": 20 },
+      { "attribut": "recup_de_competence_mod", "valeur": 10 }
     ]
   },
   "abri_intelligent_lanceur_intelligent": {
@@ -164,8 +164,8 @@
     "competence": "abri_intelligent",
     "emplacement": "LANCEUR INTELLIGENT",
     "attributs": [
-      { "attribut": "duree_competence", "valeur": 20 },
-      { "attribut": "competence_reparation", "valeur": 10 }
+      { "attribut": "duree_de_competence_mod", "valeur": 20 },
+      { "attribut": "competences_de_reparation_mod", "valeur": 10 }
     ]
   }
 }

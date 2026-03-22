@@ -18,7 +18,7 @@
     "type": "gear_set",
     "icon": "true_patriot",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus2pieces": "+30% Capacité Munitions",
     "bonus3pieces": "+30% Taille du chargeur",
@@ -122,7 +122,7 @@
     "type": "gear_set",
     "icon": "foundry_bullwark",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus2pieces": "+10% de défensif totale",
     "bonus3pieces": "+1% de régénération de défensif +50% santé de bouclier",
@@ -174,7 +174,7 @@
     "type": "gear_set",
     "icon": "heartbreaker",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus2pieces": "+15% Dégâts - fusil d'assaut +15% Dégâts - Fusil-mitrailleur",
     "bonus3pieces": "+15% Maniement d'arme",
@@ -213,7 +213,7 @@
     "type": "gear_set",
     "icon": "cavalier",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus2pieces": "+30% Résistance aux altérations d'états",
     "bonus3pieces": "+40% Compétences de réparation",
@@ -239,7 +239,7 @@
     "type": "gear_set",
     "icon": "aegis",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus2pieces": "+70% Santé",
     "bonus3pieces": "+15% défensif totale",
@@ -364,7 +364,7 @@
     "type": "marque",
     "icon": "5_11_tactical",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+30% Santé",
     "bonus2pieces": "+30% Réparations subies",
@@ -430,7 +430,7 @@
     "type": "marque",
     "icon": "gila_guard",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+5% défensif totale",
     "bonus2pieces": "+60% Santé",
@@ -485,7 +485,7 @@
     "type": "marque",
     "icon": "yaahl_gear",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+10% défensif contre les altérations d'état",
     "bonus2pieces": "+10% Dégâts d'arme",
@@ -496,7 +496,7 @@
     "type": "marque",
     "icon": "badger_tuff",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+10% Dégâts fusils calibre 12",
     "bonus2pieces": "+5% défensif totale",
@@ -529,7 +529,7 @@
     "type": "marque",
     "icon": "golan_gear",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+10% Effets d'état",
     "bonus2pieces": "+1,5% Régénération de défensif",
@@ -562,7 +562,7 @@
     "type": "marque",
     "icon": "belstone_armory",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+1% Régénération de défensif",
     "bonus2pieces": "+10% défensif pour élimination",
@@ -584,7 +584,7 @@
     "type": "marque",
     "icon": "uzina_getica",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+5% défensif totale",
     "bonus2pieces": "+10% défensif pour élimination",
@@ -595,7 +595,7 @@
     "type": "marque",
     "icon": "brazos_de_arcabuz",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+10% Récupération de compétence",
     "bonus2pieces": "+1 utilitaire",
@@ -606,7 +606,7 @@
     "type": "marque",
     "icon": "hasburg_guard",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+13% Dégâts de headshot",
     "bonus2pieces": "+20% Dégâts - Fusil de précision",
@@ -628,7 +628,7 @@
     "type": "marque",
     "icon": "palisade_steelworks",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+10% défensif pour élimination",
     "bonus2pieces": "+60% Santé",
@@ -705,7 +705,7 @@
     "type": "marque",
     "icon": "lengmo",
     "attributsEssentiels": [
-      "défensif"
+      "defensif"
     ],
     "bonus1piece": "+20% Résistance - Explosions",
     "bonus2pieces": "+20% Santé pour compétence",
@@ -716,7 +716,7 @@
     "type": "improvise",
     "icon": "improvise",
     "attributsEssentiels": [
-      "défensif",
+      "defensif",
       "offensif",
       "utilitaire"
     ],

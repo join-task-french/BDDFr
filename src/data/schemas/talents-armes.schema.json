@@ -67,7 +67,7 @@
             },
             "categorie": {
               "type": "string",
-              "enum": ["offensif", "défensif", "utilitaire", "exotique"]
+              "enum": ["offensif", "defensif", "utilitaire", "exotique"]
             },
             "levels": {
               "type": "object",

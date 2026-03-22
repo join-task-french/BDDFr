@@ -119,6 +119,10 @@
     "nom": "Résistance aux effets d'état",
     "description": "Réduit la durée et les dégâts des effets d'état"
   },
+  "santee_competence": {
+    "nom": "Santé de compétence",
+    "description": "Bonus à la santé des objets de compétence"
+  },
   "tiers_competence": {
     "nom": "Tiers de compétence",
     "description": "Niveau de tier de compétence"

@@ -41,7 +41,7 @@
             "type": "string",
             "enum": [
               "offensif",
-              "défensif",
+              "defensif",
               "utilitaire"
             ]
           }

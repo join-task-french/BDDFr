@@ -45,7 +45,7 @@
     },
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "attributs": [
       {
@@ -270,7 +270,7 @@
     "mod": false,
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "attributs": [
       {
@@ -385,7 +385,7 @@
     "talents": ["overclock"],
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "type": "standard"
   },
@@ -421,7 +421,7 @@
     "mod": false,
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "attributs": [
       {
@@ -871,7 +871,7 @@
     "mod": 2,
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "type": "standard"
   },
@@ -883,7 +883,7 @@
     "mod": true,
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "attributs": [
       {
@@ -2094,7 +2094,7 @@
     },
     "estNomme": true,
     "attributEssentiel": [
-      "défensif"
+      "defensif"
     ],
     "attributs": [
       {
@@ -3765,7 +3765,7 @@
     "attributEssentiel": [
       "offensif",
       "utilitaire",
-      "défensif"
+      "defensif"
     ],
     "mod": true,
     "obtention": {
@@ -3808,7 +3808,7 @@
     "attributEssentiel": [
       "offensif",
       "utilitaire",
-      "défensif"
+      "defensif"
     ],
     "mod": true,
     "obtention": {
@@ -4064,7 +4064,7 @@
     "emplacement": "genouilleres",
     "attributEssentiel": [
       "offensif",
-      "défensif",
+      "defensif",
       "utilitaire"
     ],
     "mod": false,

@@ -69,7 +69,7 @@
         "Gourmandise",
         "Paresse"
       ],
-      "categorie": "défensif",
+      "categorie": "defensif",
       "levels": {
         "base": "Éliminer un ennemi répare {repa_base} de votre protection sur {duree}.\nLes éliminations par headshot améliorent la réparation de {repa_headshot} supplémentaires.",
         "1": {
