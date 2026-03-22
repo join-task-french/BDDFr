@@ -44,5 +44,51 @@
         }
       }
     }
+  },
+  "critique": {
+    "nom": "Critique",
+    "descente": {
+      "boucles": [
+        "Avidité",
+        "Colère",
+        "Envie",
+        "Gourmandise",
+        "Paresse"
+      ],
+      "categorie": "offensif",
+      "levels": {
+        "base": "Equipé, ce talent confère +{degats_critique}% aux dégâts de coup critique",
+        "1": {
+          "degats_critique": 10
+        },
+        "2": {
+          "degats_critique": 20
+        },
+        "3": {
+          "degats_critique": 30
+        },
+        "4": {
+          "degats_critique": 40
+        },
+        "5": {
+          "degats_critique": 50
+        },
+        "6": {
+          "degats_critique": 60
+        },
+        "7": {
+          "degats_critique": 70
+        },
+        "8": {
+          "degats_critique": 80
+        },
+        "9": {
+          "degats_critique": 90
+        },
+        "10": {
+          "degats_critique": 100
+        }
+      }
+    }
   }
 }
