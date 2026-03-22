@@ -11,6 +11,9 @@ A Faire :
 - Genouilleres
 - descritpion exo + nommé (pas prioritaire)
 - Talent descente (pas prio)
+- Talent proto
+- Marque new season
+- Gear set new season
 
 Check mise en forme :
 - Talent armes

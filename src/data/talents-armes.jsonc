@@ -35,7 +35,8 @@
     "icon": "tueur",
     "perfectDescription": "Éliminer un ennemi par coup critique augmente de +90% les dégâts de coup critique pendant 10s.",
     "armesParfaites": [
-      "protecteur"
+      "protecteur",
+      "hiver_funeste"
     ],
     "compatibilite": {
       "fusil": true,
@@ -115,6 +116,10 @@
     "nom": "Contrainte",
     "description": "Vous gagnez +10% aux dégâts de coup critique toutes les 0.5s pendant que vous tirez.\nPeut se cumuler jusqu'à 5 fois.",
     "icon": "contrainte",
+    "perfectDescription": "Vous gagnez +10% aux dégâts de coup critique toutes les 0.5s pendant que vous tirez.\nPeut se cumuler jusqu'à 8 fois.",
+    "armesParfaites": [
+      "coup_de_froid"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -637,6 +642,10 @@
     "nom": "Mesure",
     "description": "Pour la moitié supérieure du chargeur :\naugmente la cadence de tir de 25% et diminue les dégâts d'arme de 25%.\nPour la moitié inférieure du chargeur :\nla cadence de tir diminue de 18% et les dégâts d'arme augmentent de 30%.",
     "icon": "mesure",
+    "perfectDescription": "Pour la moitié supérieure du chargeur :\naugmente la cadence de tir de 25% et diminue les dégâts d'arme de -30%.\nPour la moitié inférieure du chargeur :\nla cadence de tir diminue de -18% et les dégâts d'arme augmentent de 38%.",
+    "armesParfaites": [
+      "l_appartement"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -759,6 +768,10 @@
     "nom": "Outsider",
     "description": "Après avoir tué un ennemi, confère 100% de portée optimale et +100% de précision pendant 10s.",
     "icon": "outsider",
+    "perfectDescription": "Après avoir tué un ennemi, confère 150% de portée optimale et +125% de précision pendant 10s.",
+    "armesParfaites": [
+      "ecarteur"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -773,6 +786,10 @@
     "nom": "Indéfectible",
     "description": "Changer d'arme pour celle-ci confère +300% au maniement d'arme pendant 5s.\nLes éliminations renouvellent ce buff.\nChanger une nouvelle fois d'arme désactive cet effet pour toutes les armes pendant 5s.",
     "icon": "indefectible",
+    "perfectDescription": "Changer d'arme pour celle-ci confère +400% au maniement d'arme pendant 5s.\nLes éliminations renouvellent ce buff.\nChanger une nouvelle fois d'arme désactive cet effet pour toutes les armes pendant 5s.",
+    "armesParfaites": [
+      "echangeur"
+    ],
     "compatibilite": {
       "fusil": false,
       "calibre_12": false,
@@ -785,7 +802,7 @@
   },
   "desequilibre": {
     "nom": "Déséquilibre",
-    "description": "Confère +18% de dégâts d'arme\naux prix de -25% de stabilité et de -25% de précision.",
+    "description": "Confère +18% de dégâts d'arme aux prix de -25% de stabilité et de -25% de précision.",
     "icon": "desequilibre",
     "compatibilite": {
       "fusil": false,
@@ -941,6 +958,10 @@
     "nom": "Coup de tonnerre",
     "description": "Inflige 30% de dégâts supplémentaires aux cibles électrocutées.\nAu bout de 4 éliminations, inflige électrocution au prochain ennemi touché.",
     "icon": "coup_de_tonnerre",
+    "perfectDescription": "Inflige 35% de dégâts supplémentaires aux cibles électrocutées.\nAu bout de 3 éliminations, inflige électrocution au prochain ennemi touché.",
+    "armesParfaites": [
+      "cabaret"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -957,7 +978,8 @@
     "icon": "stabilisation",
     "perfectDescription": "Tirer augmente la précision d'arme +1% et la stabilité d'arme +1% par tir, jusqu'à 75%.\nSi vous arrêtez de tirer, les bonus se réinitialisent au bout de 6s.",
     "armesParfaites": [
-      "l_inne"
+      "l_inne",
+      "l_acquis"
     ],
     "compatibilite": {
       "fusil": false,
@@ -1085,11 +1107,12 @@
   },
   "immobilisation": {
     "nom": "Immobilisation",
-    "description": "Dégâts d'arme accrus de 20% (10%) contre les ennemis entravés.\nAu bout de 4 éliminations, inflige Entrave au prochain ennemi touché.",
+    "description": "Dégâts d'arme accrus de 20% contre les ennemis entravés.\nAu bout de 4 éliminations, inflige Entrave au prochain ennemi touché.",
     "icon": "immobilisation",
-    "perfectDescription": "Dégâts d'arme accrus de 25% (10%) contre les ennemis entravés.\nAu bout de 3 éliminations, inflige Entrave au prochain ennemi touché.",
+    "perfectDescription": "Dégâts d'arme accrus de 25% contre les ennemis entravés.\nAu bout de 3 éliminations, inflige Entrave au prochain ennemi touché.",
     "armesParfaites": [
-      "confinement"
+      "confinement",
+      "ecume"
     ],
     "notes": "PVP : 10%/15% normal/Parfait",
     "compatibilite": {
@@ -1460,7 +1483,7 @@
   "conversation_ininterrompue": {
     "nom": "Conversation ininterrompue",
     "icon": "conversation_ininterrompue",
-    "description": "Quand vous rechargez, la cadence de tir augmente de 25% pour chaque ennemi à moins de 15m.\nCumulable 5 fois maximum.\nLes éliminations remplissent 50% de votre chargeur.",
+    "description": "Quand vous rechargez, la cadence de tir pour l'intégralité du chargeur augmente de 25% pour chaque ennemi à moins de 15m.\nCumulable 5 fois maximum.\nLes éliminations remplissent 50% de votre chargeur.",
     "estExotique": true,
     "descente": {
       "boucles": [
@@ -1469,7 +1492,7 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "Quand vous rechargez, la cadence de tir augmente de {bonus_cadence} pour chaque ennemi à moins de {rayon}.\nCumulable {cumul_max} fois maximum.\nLes éliminations remplissent {remplissage_chargeur} de votre chargeur.",
+        "base": "Quand vous rechargez, la cadence de tir pour l'intégralité du chargeur augmente de {bonus_cadence} pour chaque ennemi à moins de {rayon}.\nCumulable {cumul_max} fois maximum.\nLes éliminations remplissent {remplissage_chargeur} de votre chargeur.",
         "1": {
           "bonus_cadence": "25%",
           "rayon": "15m",
@@ -1482,7 +1505,8 @@
   "souffle_ultime": {
     "nom": "Souffle ultime",
     "icon": "souffle_ultime",
-    "description": "Quand vous vous déplacez, confère 4 bonus par seconde (8 si vous sprintez).\nChaque munition tirée consomme un bonus qui augmente les dégâts de 75% (60%).\nLes éliminations confèrent +20% en vitesse de déplacement pendant 10s.",
+    "description": "Quand vous vous déplacez, confère 4 bonus par seconde, ou 8 effets cumulables si vous sprintez. Le nombre max. d'effets cumulés est égal à la taille du chargeur de l'arme\nChaque munition tirée consomme un effet qui augmente les dégâts de 75%.\nLes éliminations confèrent +20% en vitesse de déplacement pendant 10s.",
+    "notes": "PVP :\n60% de dégâts par effet",
     "estExotique": true,
     "descente": {
       "boucles": [
@@ -1504,7 +1528,7 @@
   "paiement_en_nature": {
     "nom": "Paiement en nature",
     "icon": "paiement_en_nature",
-    "description": "Infliger des dégâts ajoute +2% de dégâts critiques (max 100) pendant 10s.\nAu rechargement, vous subissez un saignement infligeant 0,5% de dégâts à la protection par effet cumulé.",
+    "description": "Infliger des dégâts ajoute +2% de dégâts critiques. Le cumul d'effets peut atteindre 100 effets et dure 10s.\nAu rechargement, vous subissez un saignement de 10s infligeant 0,5% des dégâts de la protection par effet cumulé.",
     "estExotique": true,
     "descente": {
       "boucles": [
@@ -1522,10 +1546,10 @@
       }
     }
   },
-  "rule_them_all": {
-    "nom": "Rule them all",
-    "icon": "rule_them_all",
-    "description": "Quand l'agent subit un effet d'état, le prochain chargeur sera rempli à 50% du dernier effet d'état subi.\nNe fonctionne qu'en combat.",
+  "lien_des_tenebres": {
+    "nom": "Lien des ténèbres",
+    "icon": "lien_des_tenebres",
+    "description": "Quand l'agent subit un effet d'état, 50% des munitions de son chargeur suivant infligent le même effet d'état aux cibles.\nCet effet s'applique uniquement lors du combat.",
     "estExotique": true
   },
   "symbiose": {
@@ -1788,5 +1812,11 @@
     "armesParfaites": [
       "l_inhumateur"
     ]
+  },
+  "pierre_cachee": {
+    "nom": "Pierre cachée",
+    "icon": "pierre_cachee",
+    "description": "Les headshots infligent confusion.\nTemps de recharge : 20s.",
+    "estExotique": false
   }
 }

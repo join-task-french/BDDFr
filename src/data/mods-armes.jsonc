@@ -2032,5 +2032,149 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "bouche_flux_continu": {
+    "nom": "Bouche Flux continu",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "optique_modifiee": {
+    "nom": "Optique modifiée",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_flux_continu": {
+    "nom": "Chargeur Flux continu",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "conteneur_flux_continu": {
+    "nom": "Conteneur Flux continu",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "maniement_d_arme_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "regard_de_la_mort": {
+    "nom": "Regard de la mort",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "visage_de_la_mort": {
+    "nom": "Visage de la mort",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "gueule_de_la_mort": {
+    "nom": "Gueule de la mort",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "baiser_de_la_mort": { //TODO stats pas bon
+    "nom": "Baiser de la mort",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "degats_corps_a_corps_arm",
+        "valeur": 500
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "visee_rapide": {
+    "nom": "Visée rapide",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_a_prise_barbelee": {
+    "nom": "Chargeur à prise barbelée",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 20
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chassis_barbele": {
+    "nom": "Châssis barbelé",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "stabilite_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_dentelee": {
+    "nom": "Bouche dentelée",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
   }
 }
