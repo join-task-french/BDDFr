@@ -103,17 +103,17 @@ export default function MapPage() {
             })
     }, [])
 
-    let currentMapConfig = null
-    if (mapsConfig) {
+    const currentMapConfig = useMemo(() => {
+        if (!mapsConfig) return null
         const activeMapId = mapId || mapsConfig[0]?.id
         const parentMapConfig = mapsConfig.find(m => m.id === activeMapId) || mapsConfig[0]
 
-        currentMapConfig = parentMapConfig
         if (parentMapConfig?.subMaps) {
             const activeSubMapId = subMapId || parentMapConfig.subMaps[0].id
-            currentMapConfig = parentMapConfig.subMaps.find(sm => sm.id === activeSubMapId) || parentMapConfig.subMaps[0]
+            return parentMapConfig.subMaps.find(sm => sm.id === activeSubMapId) || parentMapConfig.subMaps[0]
         }
-    }
+        return parentMapConfig
+    }, [mapsConfig, mapId, subMapId])
 
     useEffect(() => {
         if (currentMapConfig?.categories) {
@@ -159,7 +159,8 @@ export default function MapPage() {
         z: searchParams.get('z')
     }
 
-    const resolvedImageUrl = resolveMapImage(currentMapConfig.map)
+    const resolvedSingleImageUrl = !currentMapConfig.mapParts ? resolveMapImage(currentMapConfig.map) : null
+    const hasImageContent = resolvedSingleImageUrl || (currentMapConfig.mapParts && currentMapConfig.mapParts.length > 0)
 
     return (
         <div className="h-full w-full relative bg-[#0a0a0a] overflow-hidden z-0">
@@ -218,7 +219,7 @@ export default function MapPage() {
                 </div>
             )}
 
-            {resolvedImageUrl ? (
+            {hasImageContent ? (
                 <MapContainer
                     key={currentMapConfig.id}
                     crs={L.CRS.Simple}
@@ -248,10 +249,20 @@ export default function MapPage() {
                     <MapMouseCoordinatesHUD />
                     <ZoomControl position="bottomright" />
 
-                    <ImageOverlay
-                        url={resolvedImageUrl}
-                        bounds={currentMapConfig.bounds}
-                    />
+                    {currentMapConfig.mapParts ? (
+                        currentMapConfig.mapParts.map((part, idx) => (
+                            <ImageOverlay
+                                key={`${currentMapConfig.id}-part-${idx}`}
+                                url={resolveMapImage(part.slug)}
+                                bounds={part.bounds}
+                            />
+                        ))
+                    ) : (
+                        <ImageOverlay
+                            url={resolvedSingleImageUrl}
+                            bounds={currentMapConfig.bounds}
+                        />
+                    )}
 
                     {visibleMarkers.map(marker => {
                         const catDef = currentMapConfig.categories?.find(c => c.id === marker.category) || {}
@@ -300,9 +311,10 @@ export default function MapPage() {
                     <svg className="w-12 h-12 mb-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span>[ERROR] Image introuvable pour "{currentMapConfig.map}" (vérifie l'extension et le slug)</span>
+                    <span>[ERROR] Image introuvable pour "{currentMapConfig.map || 'collages'}" (vérifie l'extension et le slug)</span>
                 </div>
             )}
+
             <div className="absolute top-4 left-4 text-[10px] text-shd/70 font-mono uppercase tracking-widest pointer-events-none z-[400]">
                 SYS.COORD: {currentMapConfig.id.toUpperCase()}_SEC_01<br/>
                 CRS: SIMPLE (FLAT)

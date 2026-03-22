@@ -8,27 +8,21 @@
         "minZoom": -4,
         "maxZoom": 3,
         "categories": [
-            {
-                "id": "boss",
-                "name": "Cibles (Boss)",
-                "icon": "calibre12",
-                "color": "#ef4444"
-            },
-            {
-                "id": "loot",
-                "name": "Caisses de Butin",
-                "icon": "calibre12",
-                "color": "#22c55e"
-            }
+//            { // Sample category
+//                "id": "boss",
+//                "name": "Cibles (Boss)",
+//                "icon": "calibre12",
+//                "color": "#ef4444"
+//            }
         ],
         "markers": [
-            {
-                "id": "boss_keener",
-                "coords": [1300, 2050],
-                "category": "boss",
-                "label": "Aaron Keener",
-                "description": "Boss final de la zone."
-            }
+//            { // Sample marker
+//                "id": "boss_keener",
+//                "coords": [1300, 2050],
+//                "category": "boss",
+//                "label": "Aaron Keener",
+//                "description": "Boss final de la zone."
+//            }
         ]
     }
 ]
