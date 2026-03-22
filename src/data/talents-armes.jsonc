@@ -934,7 +934,7 @@
       "levels": {
         "base": "Éliminer une cible offre +{probabilite}% de probabilité de remplir le chargeur.",
         "1": {
-          "probabilite": 20,
+          "probabilite": 20
         }//TODO vérifier les valeurs en descente.
       }
     }
