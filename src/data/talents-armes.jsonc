@@ -1603,9 +1603,36 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "{bonus_precision} à la précision",
+        "base": "+{bonus_precision}% à la précision",
         "1": {
-          "bonus_precision": "+80%"
+          "bonus_precision": 10
+        },
+        "2": {
+          "bonus_precision": 20
+        },
+        "3": {
+          "bonus_precision": 30
+        },
+        "4": {
+          "bonus_precision": 40
+        },
+        "5": {
+          "bonus_precision": 50
+        },
+        "6": {
+          "bonus_precision": 60
+        },
+        "7": {
+          "bonus_precision": 70
+        },
+        "8": {
+          "bonus_precision": 80
+        },
+        "9": {
+          "bonus_precision": 90
+        },
+        "10": {
+          "bonus_precision": 100
         }
       }
     }
@@ -1708,7 +1735,7 @@
   },
   "critique": {
     "nom": "Critique",
-    "description": "TODO: Description du talent",
+    "description": "Equipé, ce talent confère +10% aux dégâts de coup critique",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,

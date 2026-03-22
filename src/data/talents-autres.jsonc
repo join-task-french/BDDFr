@@ -11,9 +11,36 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "TODO: Description du talent",
+        "base": "Equipé ce talent confère +{proba_critique}% à la probabilité de coup critique.",
         "1": {
-
+          "proba_critique": 5
+        },
+        "2": {
+          "proba_critique": 10
+        },
+        "3": {
+          "proba_critique": 15
+        },
+        "4": {
+          "proba_critique": 20
+        },
+        "5": {
+          "proba_critique": 25
+        },
+        "6": {
+          "proba_critique": 30
+        },
+        "7": {
+          "proba_critique": 35
+        },
+        "8": {
+          "proba_critique": 40
+        },
+        "9": {
+          "proba_critique": 45
+        },
+        "10": {
+          "proba_critique": 50
         }
       }
     }
