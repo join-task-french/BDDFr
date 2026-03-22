@@ -150,7 +150,7 @@ export default function MapPage() {
         z: searchParams.get('z')
     }
 
-    const resolvedImageUrl = resolveMapImage(currentMapConfig.imageSlug)
+    const resolvedImageUrl = resolveMapImage(currentMapConfig.map)
 
     const visibleMarkers = (currentMapConfig.markers || []).filter(marker =>
         activeCategories.includes(marker.category)
@@ -285,7 +285,7 @@ export default function MapPage() {
                     <svg className="w-12 h-12 mb-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span>[ERROR] Image introuvable pour "{currentMapConfig.imageSlug}" (vérifie l'extension et le slug)</span>
+                    <span>[ERROR] Image introuvable pour "{currentMapConfig.map}" (vérifie l'extension et le slug)</span>
                 </div>
             )}
             <div className="absolute top-4 left-4 text-[10px] text-shd/70 font-mono uppercase tracking-widest pointer-events-none z-[400]">

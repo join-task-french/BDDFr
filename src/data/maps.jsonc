@@ -4,7 +4,7 @@
         "name": "Brooklyn",
         "icon": "calibre12",
         "bounds": [[0, 0], [2600, 4100]],
-        "imageSlug": "brooklyn",
+        "map": "brooklyn",
         "minZoom": -4,
         "maxZoom": 3,
         "categories": [
