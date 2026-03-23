@@ -116,12 +116,57 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Éliminer un ennemi répare {repa_base} de votre protection sur {duree}.\nLes éliminations par headshot améliorent la réparation de {repa_headshot} supplémentaires.",
+        "base": "Éliminer un ennemi répare {repa_base}% de votre protection sur {duree}s.\nLes éliminations par headshot améliorent la réparation de {repa_headshot}% supplémentaires.",
         "1": {
-          "repa_base": "7%",
-          "duree": "5s",
-          "repa_headshot": "+5%"
-        }//TODO chercher valeurs en descente.
+          "repa_base": 7,
+          "duree": 5,
+          "repa_headshot": 5
+        },
+        "1": {
+          "repa_base": 14,
+          "duree": 5,
+          "repa_headshot": 10
+        },
+        "1": {
+          "repa_base": 21,
+          "duree": 5,
+          "repa_headshot": 15
+        },
+        "1": {
+          "repa_base": 28,
+          "duree": 5,
+          "repa_headshot": 20
+        },
+        "1": {
+          "repa_base": 35,
+          "duree": 5,
+          "repa_headshot": 25
+        },
+        "1": {
+          "repa_base": 42,
+          "duree": 5,
+          "repa_headshot": 30
+        },
+        "1": {
+          "repa_base": 49,
+          "duree": 5,
+          "repa_headshot": 35
+        },
+        "1": {
+          "repa_base": 56,
+          "duree": 5,
+          "repa_headshot": 40
+        },
+        "1": {
+          "repa_base": 63,
+          "duree": 5,
+          "repa_headshot": 45
+        },
+        "1": {
+          "repa_base": 70,
+          "duree": 5,
+          "repa_headshot": 50
+        }
       }
     }
   },

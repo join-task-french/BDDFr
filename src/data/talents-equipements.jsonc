@@ -187,13 +187,67 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Déployer un bouclier le rend invulnérable pendant {invulnerability}s ({invulnerability_pvp}s) et donne à tous les autres alliés {bonus_armor}% ({bonus_armor_pvp}%) de votre protection en protection bonus pendant {duration}s.\nTemps de recharge : {cooldown}s.",
+        "base": "Déployer un bouclier le rend invulnérable pendant {invulnerability}s et donne à tous les autres alliés {bonus_armor}% ({bonus_armor_pvp}%) de votre protection en protection bonus pendant {duration}s.\nTemps de recharge : {cooldown}s.",
         "1": {
           "invulnerability": 5,
           "bonus_armor": 10,
           "duration": 20,
           "cooldown": 25
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "invulnerability": 5,
+          "bonus_armor": 20,
+          "duration": 20,
+          "cooldown": 24
+        },
+        "3": {
+          "invulnerability": 5,
+          "bonus_armor": 30,
+          "duration": 20,
+          "cooldown": 23
+        },
+        "4": {
+          "invulnerability": 5,
+          "bonus_armor": 40,
+          "duration": 20,
+          "cooldown": 22
+        },
+        "5": {
+          "invulnerability": 5,
+          "bonus_armor": 50,
+          "duration": 20,
+          "cooldown": 21
+        },
+        "6": {
+          "invulnerability": 5,
+          "bonus_armor": 60,
+          "duration": 20,
+          "cooldown": 20
+        },
+        "7": {
+          "invulnerability": 5,
+          "bonus_armor": 70,
+          "duration": 20,
+          "cooldown": 19
+        },
+        "8": {
+          "invulnerability": 5,
+          "bonus_armor": 80,
+          "duration": 20,
+          "cooldown": 18
+        },
+        "9": {
+          "invulnerability": 5,
+          "bonus_armor": 90,
+          "duration": 20,
+          "cooldown": 17
+        },
+        "10": {
+          "invulnerability": 5,
+          "bonus_armor": 100,
+          "duration": 20,
+          "cooldown": 16
+        }
       }
     }
   },
@@ -216,6 +270,33 @@
         "base": "Confère +{self_bonus_armor}% de protection bonus quand vous rechargez.",
         "1": {
           "self_bonus_armor": 10
+        },
+        "2": {
+          "self_bonus_armor": 20
+        },
+        "3": {
+          "self_bonus_armor": 30
+        },
+        "4": {
+          "self_bonus_armor": 40
+        },
+        "5": {
+          "self_bonus_armor": 50
+        },
+        "6": {
+          "self_bonus_armor": 60
+        },
+        "7": {
+          "self_bonus_armor": 70
+        },
+        "8": {
+          "self_bonus_armor": 80
+        },
+        "9": {
+          "self_bonus_armor": 90
+        },
+        "10": {
+          "self_bonus_armor": 100
         }
       }
     }
@@ -671,7 +752,34 @@
         "base": "Quand votre protection est intacte, augmente la réparation de compétence de {skill_repair}%.",
         "1": {
           "skill_repair": 40
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "skill_repair": 80
+        },
+        "3": {
+          "skill_repair": 120
+        },
+        "4": {
+          "skill_repair": 160
+        },
+        "5": {
+          "skill_repair": 200
+        },
+        "6": {
+          "skill_repair": 240
+        },
+        "7": {
+          "skill_repair": 280
+        },
+        "8": {
+          "skill_repair": 320
+        },
+        "9": {
+          "skill_repair": 360
+        },
+        "10": {
+          "skill_repair": 400
+        }
       }
     }
   },
@@ -697,7 +805,61 @@
           "protection_allies": 7,
           "time": 3,
           "rechargement": 3
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "protection_bonus": 10,
+          "protection_allies": 14,
+          "time": 3,
+          "rechargement": 3
+        },
+        "3": {
+          "protection_bonus": 15,
+          "protection_allies": 21,
+          "time": 3,
+          "rechargement": 3
+        },
+        "4": {
+          "protection_bonus": 20,
+          "protection_allies": 28,
+          "time": 3,
+          "rechargement": 3
+        },
+        "5": {
+          "protection_bonus": 25,
+          "protection_allies": 35,
+          "time": 3,
+          "rechargement": 3
+        },
+        "6": {
+          "protection_bonus": 30,
+          "protection_allies": 42,
+          "time": 3,
+          "rechargement": 3
+        },
+        "7": {
+          "protection_bonus": 35,
+          "protection_allies": 49,
+          "time": 3,
+          "rechargement": 3
+        },
+        "8": {
+          "protection_bonus": 40,
+          "protection_allies": 56,
+          "time": 3,
+          "rechargement": 3
+        },
+        "9": {
+          "protection_bonus": 45,
+          "protection_allies": 63,
+          "time": 3,
+          "rechargement": 3
+        },
+        "10": {
+          "protection_bonus": 50,
+          "protection_allies": 70,
+          "time": 3,
+          "rechargement": 3
+        }
       }
     }
   },
@@ -762,7 +924,61 @@
           "duration": 10,
           "range": 10,
           "cooldown": 10
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "bonus_armor": 20,
+          "duration": 11,
+          "range": 10,
+          "cooldown": 11
+        },
+        "3": {
+          "bonus_armor": 30,
+          "duration": 12,
+          "range": 10,
+          "cooldown": 12
+        },
+        "4": {
+          "bonus_armor": 40,
+          "duration": 13,
+          "range": 10,
+          "cooldown": 13
+        },
+        "5": {
+          "bonus_armor": 50,
+          "duration": 14,
+          "range": 10,
+          "cooldown": 14
+        },
+        "6": {
+          "bonus_armor": 60,
+          "duration": 15,
+          "range": 10,
+          "cooldown": 15
+        },
+        "7": {
+          "bonus_armor": 70,
+          "duration": 16,
+          "range": 10,
+          "cooldown": 16
+        },
+        "8": {
+          "bonus_armor": 80,
+          "duration": 17,
+          "range": 10,
+          "cooldown": 17
+        },
+        "9": {
+          "bonus_armor": 90,
+          "duration": 18,
+          "range": 10,
+          "cooldown": 18
+        },
+        "10": {
+          "bonus_armor": 100,
+          "duration": 19,
+          "range": 10,
+          "cooldown": 19
+        }
       }
     }
   },
