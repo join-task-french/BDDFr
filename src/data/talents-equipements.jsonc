@@ -1133,7 +1133,7 @@
         "10": {
           "damage_amplification": 50,
           "duration": 5
-        }//TODO vérifier les valeurs en descente.
+        }
       }
     }
   },
