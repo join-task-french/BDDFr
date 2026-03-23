@@ -2042,7 +2042,34 @@
         "base": "+{protection_alteration}% à la protection contre les altérations d'état.",
         "1": {
           "protection_alteration" : 10
-        }//TODO chercher valeurs en descente.
+        },
+        "1": {
+          "protection_alteration" : 15
+        },
+        "1": {
+          "protection_alteration" : 20
+        },
+        "1": {
+          "protection_alteration" : 25
+        },
+        "1": {
+          "protection_alteration" : 30
+        },
+        "1": {
+          "protection_alteration" : 35
+        },
+        "1": {
+          "protection_alteration" : 40
+        },
+        "1": {
+          "protection_alteration" : 45
+        },
+        "1": {
+          "protection_alteration" : 50
+        },
+        "1": {
+          "protection_alteration" : 55
+        }
       }
     }
   },

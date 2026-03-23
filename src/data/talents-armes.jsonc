@@ -122,47 +122,47 @@
           "duree": 5,
           "repa_headshot": 5
         },
-        "1": {
+        "2": {
           "repa_base": 14,
           "duree": 5,
           "repa_headshot": 10
         },
-        "1": {
+        "3": {
           "repa_base": 21,
           "duree": 5,
           "repa_headshot": 15
         },
-        "1": {
+        "4": {
           "repa_base": 28,
           "duree": 5,
           "repa_headshot": 20
         },
-        "1": {
+        "5": {
           "repa_base": 35,
           "duree": 5,
           "repa_headshot": 25
         },
-        "1": {
+        "6": {
           "repa_base": 42,
           "duree": 5,
           "repa_headshot": 30
         },
-        "1": {
+        "7": {
           "repa_base": 49,
           "duree": 5,
           "repa_headshot": 35
         },
-        "1": {
+        "8": {
           "repa_base": 56,
           "duree": 5,
           "repa_headshot": 40
         },
-        "1": {
+        "9": {
           "repa_base": 63,
           "duree": 5,
           "repa_headshot": 45
         },
-        "1": {
+        "10": {
           "repa_base": 70,
           "duree": 5,
           "repa_headshot": 50
