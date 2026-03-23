@@ -100,13 +100,67 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Quand vous disposez d'une protection bonus, vous gagnez {stacks_per_sec} effets chaque seconde jusqu'à un max de {max_stacks}.\nChaque effet cumulé augmente les dégâts d'arme de +{damage_per_stack}% contre les ennemis situés à moins de {range}m.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
+        "base": "Quand vous disposez d'une protection bonus, vous gagnez {stacks_per_sec} effets chaque seconde jusqu'à un max de {max_stacks}.\nChaque effet cumulé augmente les dégâts d'arme de +{damage_per_stack}% contre les ennemis situés à moins de {range}mètres.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
         "1": {
           "stacks_per_sec": 1,
           "max_stacks": 5,
           "damage_per_stack": 3,
           "range": 25
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 6,
+          "range": 25
+        },
+        "3": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 3,
+          "range": 25
+        },
+        "4": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 9,
+          "range": 25
+        },
+        "5": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 12,
+          "range": 25
+        },
+        "6": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 15,
+          "range": 25
+        },
+        "7": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 18,
+          "range": 25
+        },
+        "8": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 21,
+          "range": 25
+        },
+        "9": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 24,
+          "range": 25
+        },
+        "10": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 27,
+          "range": 25
+        }
       }
     }
   },
@@ -827,12 +881,75 @@
       "levels": {
         "base": "Les headshots augmentent le total de dégâts d'arme de {hs_damage}% pendant {hs_duration}s ({hs_duration_mmr}s avec les fusils de précision).\nLes éliminations par headshot augmentent le total de dégâts d'arme de {kill_damage}% pendant {kill_duration}s.",
         "1": {
-          "hs_damage": 10,
-          "hs_duration": 1.5,
+          "hs_damage": 5,
+          "hs_duration": 1,
           "hs_duration_mmr": 5,
-          "kill_damage": 15,
+          "kill_damage": 10,
           "kill_duration": 10
-        }//TODO chercher les valeurs en descente.
+        },
+        "2": {
+          "hs_damage": 10,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.05,
+          "kill_damage": 20,
+          "kill_duration": 10
+        },
+        "3": {
+          "hs_damage": 15,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.10,
+          "kill_damage": 30,
+          "kill_duration": 10
+        },
+        "4": {
+          "hs_damage": 20,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.15,
+          "kill_damage": 40,
+          "kill_duration": 10
+        },
+        "5": {
+          "hs_damage": 25,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.20,
+          "kill_damage": 50,
+          "kill_duration": 10
+        },
+        "6": {
+          "hs_damage": 30,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.25,
+          "kill_damage": 60,
+          "kill_duration": 10
+        },
+        "7": {
+          "hs_damage": 35,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.30,
+          "kill_damage": 70,
+          "kill_duration": 10
+        },
+        "8": {
+          "hs_damage": 40,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.35,
+          "kill_damage": 80,
+          "kill_duration": 10
+        },
+        "9": {
+          "hs_damage": 45,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.40,
+          "kill_damage": 90,
+          "kill_duration": 10
+        },
+        "10": {
+          "hs_damage": 50,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.45,
+          "kill_damage": 100,
+          "kill_duration": 10
+        }
       }
     }
   },
