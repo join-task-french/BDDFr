@@ -100,13 +100,67 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Quand vous disposez d'une protection bonus, vous gagnez {stacks_per_sec} effets chaque seconde jusqu'à un max de {max_stacks}.\nChaque effet cumulé augmente les dégâts d'arme de +{damage_per_stack}% contre les ennemis situés à moins de {range}m.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
+        "base": "Quand vous disposez d'une protection bonus, vous gagnez {stacks_per_sec} effets chaque seconde jusqu'à un max de {max_stacks}.\nChaque effet cumulé augmente les dégâts d'arme de +{damage_per_stack}% contre les ennemis situés à moins de {range}mètres.\nTous les effets cumulés sont perdus si vous n'avez plus de protection bonus.",
         "1": {
           "stacks_per_sec": 1,
           "max_stacks": 5,
           "damage_per_stack": 3,
           "range": 25
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 6,
+          "range": 25
+        },
+        "3": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 3,
+          "range": 25
+        },
+        "4": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 9,
+          "range": 25
+        },
+        "5": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 12,
+          "range": 25
+        },
+        "6": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 15,
+          "range": 25
+        },
+        "7": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 18,
+          "range": 25
+        },
+        "8": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 21,
+          "range": 25
+        },
+        "9": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 24,
+          "range": 25
+        },
+        "10": {
+          "stacks_per_sec": 1,
+          "max_stacks": 5,
+          "damage_per_stack": 27,
+          "range": 25
+        }
       }
     }
   },
@@ -133,13 +187,67 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Déployer un bouclier le rend invulnérable pendant {invulnerability}s ({invulnerability_pvp}s) et donne à tous les autres alliés {bonus_armor}% ({bonus_armor_pvp}%) de votre protection en protection bonus pendant {duration}s.\nTemps de recharge : {cooldown}s.",
+        "base": "Déployer un bouclier le rend invulnérable pendant {invulnerability}s et donne à tous les autres alliés {bonus_armor}% ({bonus_armor_pvp}%) de votre protection en protection bonus pendant {duration}s.\nTemps de recharge : {cooldown}s.",
         "1": {
           "invulnerability": 5,
           "bonus_armor": 10,
           "duration": 20,
           "cooldown": 25
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "invulnerability": 5,
+          "bonus_armor": 20,
+          "duration": 20,
+          "cooldown": 24
+        },
+        "3": {
+          "invulnerability": 5,
+          "bonus_armor": 30,
+          "duration": 20,
+          "cooldown": 23
+        },
+        "4": {
+          "invulnerability": 5,
+          "bonus_armor": 40,
+          "duration": 20,
+          "cooldown": 22
+        },
+        "5": {
+          "invulnerability": 5,
+          "bonus_armor": 50,
+          "duration": 20,
+          "cooldown": 21
+        },
+        "6": {
+          "invulnerability": 5,
+          "bonus_armor": 60,
+          "duration": 20,
+          "cooldown": 20
+        },
+        "7": {
+          "invulnerability": 5,
+          "bonus_armor": 70,
+          "duration": 20,
+          "cooldown": 19
+        },
+        "8": {
+          "invulnerability": 5,
+          "bonus_armor": 80,
+          "duration": 20,
+          "cooldown": 18
+        },
+        "9": {
+          "invulnerability": 5,
+          "bonus_armor": 90,
+          "duration": 20,
+          "cooldown": 17
+        },
+        "10": {
+          "invulnerability": 5,
+          "bonus_armor": 100,
+          "duration": 20,
+          "cooldown": 16
+        }
       }
     }
   },
@@ -162,6 +270,33 @@
         "base": "Confère +{self_bonus_armor}% de protection bonus quand vous rechargez.",
         "1": {
           "self_bonus_armor": 10
+        },
+        "2": {
+          "self_bonus_armor": 20
+        },
+        "3": {
+          "self_bonus_armor": 30
+        },
+        "4": {
+          "self_bonus_armor": 40
+        },
+        "5": {
+          "self_bonus_armor": 50
+        },
+        "6": {
+          "self_bonus_armor": 60
+        },
+        "7": {
+          "self_bonus_armor": 70
+        },
+        "8": {
+          "self_bonus_armor": 80
+        },
+        "9": {
+          "self_bonus_armor": 90
+        },
+        "10": {
+          "self_bonus_armor": 100
         }
       }
     }
@@ -373,13 +508,67 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Employer un kit de protection à {save_chance}% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de {bonus_kit}% ({bonus_kit_pvp}%).\n{arm_time} secondes sont nécessaires pour armer le talent.",
+        "base": "Employer un kit de protection a {save_chance}% de probabilité de ne pas consommer le kit de protection.\nLes bonus de kit de protection de spécialisation sont accrus de {bonus_kit}% ({bonus_kit_pvp}%).\n{arm_time} secondes sont nécessaires pour armer le talent.",
         "1": {
-          "save_chance": 50,
+          "save_chance": 30,
           "bonus_kit": 30,
           "bonus_kit_pvp": 50,
           "arm_time": 10
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "save_chance": 37,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "3": {
+          "save_chance": 44,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "4": {
+          "save_chance": 51,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "5": {
+          "save_chance": 58,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "6": {
+          "save_chance": 65,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "7": {
+          "save_chance": 72,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "8": {
+          "save_chance": 79,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "9": {
+          "save_chance": 86,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        },
+        "10": {
+          "save_chance": 93,
+          "bonus_kit": 30,
+          "bonus_kit_pvp": 50,
+          "arm_time": 10
+        }
       }
     }
   },
@@ -404,7 +593,52 @@
           "threshold": 30,
           "repair": 10,
           "cooldown": 3
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "threshold": 30,
+          "repair": 20,
+          "cooldown": 3
+        },
+        "3": {
+          "threshold": 30,
+          "repair": 30,
+          "cooldown": 3
+        },
+        "4": {
+          "threshold": 30,
+          "repair": 40,
+          "cooldown": 3
+        },
+        "5": {
+          "threshold": 30,
+          "repair": 50,
+          "cooldown": 3
+        },
+        "6": {
+          "threshold": 30,
+          "repair": 60,
+          "cooldown": 3
+        },
+        "7": {
+          "threshold": 30,
+          "repair": 70,
+          "cooldown": 3
+        },
+        "8": {
+          "threshold": 30,
+          "repair": 80,
+          "cooldown": 3
+        },
+        "9": {
+          "threshold": 30,
+          "repair": 90,
+          "cooldown": 3
+        },
+        "10": {
+          "threshold": 30,
+          "repair": 100,
+          "cooldown": 3
+        }
       }
     }
   },
@@ -518,7 +752,34 @@
         "base": "Quand votre protection est intacte, augmente la réparation de compétence de {skill_repair}%.",
         "1": {
           "skill_repair": 40
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "skill_repair": 80
+        },
+        "3": {
+          "skill_repair": 120
+        },
+        "4": {
+          "skill_repair": 160
+        },
+        "5": {
+          "skill_repair": 200
+        },
+        "6": {
+          "skill_repair": 240
+        },
+        "7": {
+          "skill_repair": 280
+        },
+        "8": {
+          "skill_repair": 320
+        },
+        "9": {
+          "skill_repair": 360
+        },
+        "10": {
+          "skill_repair": 400
+        }
       }
     }
   },
@@ -544,7 +805,61 @@
           "protection_allies": 7,
           "time": 3,
           "rechargement": 3
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "protection_bonus": 10,
+          "protection_allies": 14,
+          "time": 3,
+          "rechargement": 3
+        },
+        "3": {
+          "protection_bonus": 15,
+          "protection_allies": 21,
+          "time": 3,
+          "rechargement": 3
+        },
+        "4": {
+          "protection_bonus": 20,
+          "protection_allies": 28,
+          "time": 3,
+          "rechargement": 3
+        },
+        "5": {
+          "protection_bonus": 25,
+          "protection_allies": 35,
+          "time": 3,
+          "rechargement": 3
+        },
+        "6": {
+          "protection_bonus": 30,
+          "protection_allies": 42,
+          "time": 3,
+          "rechargement": 3
+        },
+        "7": {
+          "protection_bonus": 35,
+          "protection_allies": 49,
+          "time": 3,
+          "rechargement": 3
+        },
+        "8": {
+          "protection_bonus": 40,
+          "protection_allies": 56,
+          "time": 3,
+          "rechargement": 3
+        },
+        "9": {
+          "protection_bonus": 45,
+          "protection_allies": 63,
+          "time": 3,
+          "rechargement": 3
+        },
+        "10": {
+          "protection_bonus": 50,
+          "protection_allies": 70,
+          "time": 3,
+          "rechargement": 3
+        }
       }
     }
   },
@@ -609,7 +924,61 @@
           "duration": 10,
           "range": 10,
           "cooldown": 10
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "bonus_armor": 20,
+          "duration": 11,
+          "range": 10,
+          "cooldown": 11
+        },
+        "3": {
+          "bonus_armor": 30,
+          "duration": 12,
+          "range": 10,
+          "cooldown": 12
+        },
+        "4": {
+          "bonus_armor": 40,
+          "duration": 13,
+          "range": 10,
+          "cooldown": 13
+        },
+        "5": {
+          "bonus_armor": 50,
+          "duration": 14,
+          "range": 10,
+          "cooldown": 14
+        },
+        "6": {
+          "bonus_armor": 60,
+          "duration": 15,
+          "range": 10,
+          "cooldown": 15
+        },
+        "7": {
+          "bonus_armor": 70,
+          "duration": 16,
+          "range": 10,
+          "cooldown": 16
+        },
+        "8": {
+          "bonus_armor": 80,
+          "duration": 17,
+          "range": 10,
+          "cooldown": 17
+        },
+        "9": {
+          "bonus_armor": 90,
+          "duration": 18,
+          "range": 10,
+          "cooldown": 18
+        },
+        "10": {
+          "bonus_armor": 100,
+          "duration": 19,
+          "range": 10,
+          "cooldown": 19
+        }
       }
     }
   },
@@ -827,12 +1196,75 @@
       "levels": {
         "base": "Les headshots augmentent le total de dégâts d'arme de {hs_damage}% pendant {hs_duration}s ({hs_duration_mmr}s avec les fusils de précision).\nLes éliminations par headshot augmentent le total de dégâts d'arme de {kill_damage}% pendant {kill_duration}s.",
         "1": {
-          "hs_damage": 10,
-          "hs_duration": 1.5,
+          "hs_damage": 5,
+          "hs_duration": 1,
           "hs_duration_mmr": 5,
-          "kill_damage": 15,
+          "kill_damage": 10,
           "kill_duration": 10
-        }//TODO chercher les valeurs en descente.
+        },
+        "2": {
+          "hs_damage": 10,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.05,
+          "kill_damage": 20,
+          "kill_duration": 10
+        },
+        "3": {
+          "hs_damage": 15,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.10,
+          "kill_damage": 30,
+          "kill_duration": 10
+        },
+        "4": {
+          "hs_damage": 20,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.15,
+          "kill_damage": 40,
+          "kill_duration": 10
+        },
+        "5": {
+          "hs_damage": 25,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.20,
+          "kill_damage": 50,
+          "kill_duration": 10
+        },
+        "6": {
+          "hs_damage": 30,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.25,
+          "kill_damage": 60,
+          "kill_duration": 10
+        },
+        "7": {
+          "hs_damage": 35,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.30,
+          "kill_damage": 70,
+          "kill_duration": 10
+        },
+        "8": {
+          "hs_damage": 40,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.35,
+          "kill_damage": 80,
+          "kill_duration": 10
+        },
+        "9": {
+          "hs_damage": 45,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.40,
+          "kill_damage": 90,
+          "kill_duration": 10
+        },
+        "10": {
+          "hs_damage": 50,
+          "hs_duration": 1,
+          "hs_duration_mmr": 5.45,
+          "kill_damage": 100,
+          "kill_duration": 10
+        }
       }
     }
   },
@@ -880,7 +1312,70 @@
           "max_repair": 100,
           "repair_duration_min": 4,
           "repair_duration_max": 10
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "threshold": 16,
+          "crit_repair": 10,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "3": {
+          "threshold": 17,
+          "crit_repair": 15,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "4": {
+          "threshold": 18,
+          "crit_repair": 20,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "5": {
+          "threshold": 19,
+          "crit_repair": 25,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "6": {
+          "threshold": 20,
+          "crit_repair": 30,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "7": {
+          "threshold": 21,
+          "crit_repair": 35,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "8": {
+          "threshold": 22,
+          "crit_repair": 40,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "9": {
+          "threshold": 23,
+          "crit_repair": 45,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        },
+        "10": {
+          "threshold": 24,
+          "crit_repair": 50,
+          "max_repair": 100,
+          "repair_duration_min": 4,
+          "repair_duration_max": 10
+        }
       }
     }
   },
@@ -908,7 +1403,79 @@
           "duration": 5,
           "max_stacks": 3,
           "cooldown": 5
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "range": 10,
+          "bonus_armor": 6,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 4.7
+        },
+        "3": {
+          "range": 10,
+          "bonus_armor": 9,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 4.4
+        },
+        "4": {
+          "range": 10,
+          "bonus_armor": 12,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 4.1
+        },
+        "5": {
+          "range": 10,
+          "bonus_armor": 15,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 3.8
+        },
+        "6": {
+          "range": 10,
+          "bonus_armor": 18,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 3.5
+        },
+        "7": {
+          "range": 10,
+          "bonus_armor": 21,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 3.2
+        },
+        "8": {
+          "range": 10,
+          "bonus_armor": 24,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 2.9
+        },
+        "9": {
+          "range": 10,
+          "bonus_armor": 27,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 2.6
+        },
+        "10": {
+          "range": 10,
+          "bonus_armor": 30,
+          "bonus_armor_pvp": 10,
+          "duration": 5,
+          "max_stacks": 3,
+          "cooldown": 2.3
+        }
       }
     }
   },
@@ -1475,7 +2042,34 @@
         "base": "+{protection_alteration}% à la protection contre les altérations d'état.",
         "1": {
           "protection_alteration" : 10
-        }//TODO chercher valeurs en descente.
+        },
+        "2": {
+          "protection_alteration" : 15
+        },
+        "3": {
+          "protection_alteration" : 20
+        },
+        "4": {
+          "protection_alteration" : 25
+        },
+        "5": {
+          "protection_alteration" : 30
+        },
+        "6": {
+          "protection_alteration" : 35
+        },
+        "7": {
+          "protection_alteration" : 40
+        },
+        "8": {
+          "protection_alteration" : 45
+        },
+        "9": {
+          "protection_alteration" : 50
+        },
+        "10": {
+          "protection_alteration" : 55
+        }
       }
     }
   },

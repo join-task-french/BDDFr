@@ -20,12 +20,57 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Toucher un ennemi au corps augmente de {bonus_degats} les dégâts du headshot suivant pendant {duree}.\nPeut se cumuler jusqu'à {cumul_max} fois.",
+        "base": "Toucher un ennemi au corps augmente de +{bonus_degats}% les dégâts du headshot suivant pendant {duree}.\nPeut se cumuler jusqu'à {cumul_max} fois.",
         "1": {
-          "bonus_degats": "+15%",
-          "duree": "3s",
-          "cumul_max": "3"
-        }//TODO chercher valeurs en descente.
+          "bonus_degats": 15,
+          "duree": 3,
+          "cumul_max": 3
+        },
+        "2": {
+          "bonus_degats": 30,
+          "duree": 3,
+          "cumul_max": 3
+        },
+        "3": {
+          "bonus_degats": 45,
+          "duree": 3,
+          "cumul_max": 3
+        },
+        "4": {
+          "bonus_degats": 60,
+          "duree": 3,
+          "cumul_max": 3
+        },
+        "5": {
+          "bonus_degats": 75,
+          "duree": 3,
+          "cumul_max": 3
+        },
+        "6": {
+          "bonus_degats": 90,
+          "duree": 3,
+          "cumul_max": 3
+        },
+        "7": {
+          "bonus_degats": 105,
+          "duree": 3,
+          "cumul_max": 3
+        },
+        "8": {
+          "bonus_degats": 120,
+          "duree": 3,
+          "cumul_max": 3
+        },
+        "9": {
+          "bonus_degats": 135,
+          "duree": 3,
+          "cumul_max": 3
+        },
+        "10": {
+          "bonus_degats": 150,
+          "duree": 3,
+          "cumul_max": 3
+        }
       }
     }
   },
@@ -71,12 +116,57 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Éliminer un ennemi répare {repa_base} de votre protection sur {duree}.\nLes éliminations par headshot améliorent la réparation de {repa_headshot} supplémentaires.",
+        "base": "Éliminer un ennemi répare {repa_base}% de votre protection sur {duree}s.\nLes éliminations par headshot améliorent la réparation de {repa_headshot}% supplémentaires.",
         "1": {
-          "repa_base": "7%",
-          "duree": "5s",
-          "repa_headshot": "+5%"
-        }//TODO chercher valeurs en descente.
+          "repa_base": 7,
+          "duree": 5,
+          "repa_headshot": 5
+        },
+        "2": {
+          "repa_base": 14,
+          "duree": 5,
+          "repa_headshot": 10
+        },
+        "3": {
+          "repa_base": 21,
+          "duree": 5,
+          "repa_headshot": 15
+        },
+        "4": {
+          "repa_base": 28,
+          "duree": 5,
+          "repa_headshot": 20
+        },
+        "5": {
+          "repa_base": 35,
+          "duree": 5,
+          "repa_headshot": 25
+        },
+        "6": {
+          "repa_base": 42,
+          "duree": 5,
+          "repa_headshot": 30
+        },
+        "7": {
+          "repa_base": 49,
+          "duree": 5,
+          "repa_headshot": 35
+        },
+        "8": {
+          "repa_base": 56,
+          "duree": 5,
+          "repa_headshot": 40
+        },
+        "9": {
+          "repa_base": 63,
+          "duree": 5,
+          "repa_headshot": 45
+        },
+        "10": {
+          "repa_base": 70,
+          "duree": 5,
+          "repa_headshot": 50
+        }
       }
     }
   },
@@ -104,11 +194,47 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Les dégâts d'arme augmentent de {bonus_degats} pour chaque tranche de {tranche_munitions} de munitions manquantes dans le chargeur.",
+        "base": "Les dégâts d'arme augmentent de +{bonus_degats}% pour chaque tranche de {tranche_munitions}% de munitions manquantes dans le chargeur.",
         "1": {
-          "bonus_degats": "+3%",
-          "tranche_munitions": "10%"
-        }//TODO chercher valeurs en descente.
+          "bonus_degats": 3,
+          "tranche_munitions": 10
+        },
+        "2": {
+          "bonus_degats": 6,
+          "tranche_munitions": 10
+        },
+        "3": {
+          "bonus_degats": 9,
+          "tranche_munitions": 10
+        },
+        "4": {
+          "bonus_degats": 12,
+          "tranche_munitions": 10
+        },
+        "5": {
+          "bonus_degats": 15,
+          "tranche_munitions": 10
+        },
+        "6": {
+          "bonus_degats": 18,
+          "tranche_munitions": 10
+        },
+        "7": {
+          "bonus_degats": 21,
+          "tranche_munitions": 10
+        },
+        "8": {
+          "bonus_degats": 24,
+          "tranche_munitions": 10
+        },
+        "9": {
+          "bonus_degats": 27,
+          "tranche_munitions": 10
+        },
+        "10": {
+          "bonus_degats": 30,
+          "tranche_munitions": 10
+        }
       }
     }
   },
@@ -169,12 +295,57 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Tuer une cible située dans un rayon de {rayon} augmente les dégâts d'arme de {bonus_degats} pendant {duree}.",
+        "base": "Tuer une cible située dans un rayon de {rayon}mètres augmente les dégâts d'arme de +{bonus_degats}% pendant {duree}s.",
         "1": {
-          "rayon": "3 mètres",
-          "bonus_degats": "+10%",
-          "duree": "5 secondes"
-        }//TODO chercher valeurs en descente.
+          "rayon": 3,
+          "bonus_degats": 10,
+          "duree": 5
+        },
+        "2": {
+          "rayon": 3.5,
+          "bonus_degats": 20,
+          "duree": 6
+        },
+        "3": {
+          "rayon": 4,
+          "bonus_degats": 30,
+          "duree": 7
+        },
+        "4": {
+          "rayon": 4.5,
+          "bonus_degats": 40,
+          "duree": 8
+        },
+        "5": {
+          "rayon": 5,
+          "bonus_degats": 50,
+          "duree": 9
+        },
+        "6": {
+          "rayon": 5.5,
+          "bonus_degats": 60,
+          "duree": 10
+        },
+        "7": {
+          "rayon": 6,
+          "bonus_degats": 70,
+          "duree": 11
+        },
+        "8": {
+          "rayon": 6.5,
+          "bonus_degats": 80,
+          "duree": 12
+        },
+        "9": {
+          "rayon": 7,
+          "bonus_degats": 90,
+          "duree": 13
+        },
+        "10": {
+          "rayon": 7.5,
+          "bonus_degats": 100,
+          "duree": 14
+        }
       }
     }
   },
@@ -583,12 +754,57 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Placer un headshot ajoute un bonus de {bonus_degats} de dégâts d'arme pendant {duree}.\nPeut se cumuler jusqu'à {cumul_max} fois. Les headshots ultérieurs renouvellent la durée du bonus.",
+        "base": "Placer un headshot ajoute un bonus de +{bonus_degats}% de dégâts d'arme pendant {duree}s.\nPeut se cumuler jusqu'à {cumul_max} fois. Les headshots ultérieurs renouvellent la durée du bonus.",
         "1": {
-          "bonus_degats": "+5%",
-          "duree": "5s",
-          "cumul_max": "5"
-        }//TODO chercher valeurs en descente.
+          "bonus_degats": 5,
+          "duree": 5,
+          "cumul_max": 5
+        },
+        "2": {
+          "bonus_degats": 6,
+          "duree": 5,
+          "cumul_max": 5
+        },
+        "3": {
+          "bonus_degats": 7,
+          "duree": 5,
+          "cumul_max": 5
+        },
+        "4": {
+          "bonus_degats": 8,
+          "duree": 5,
+          "cumul_max": 5
+        },
+        "5": {
+          "bonus_degats": 9,
+          "duree": 5,
+          "cumul_max": 5
+        },
+        "6": {
+          "bonus_degats": 10,
+          "duree": 5,
+          "cumul_max": 5
+        },
+        "7": {
+          "bonus_degats": 11,
+          "duree": 5,
+          "cumul_max": 5
+        },
+        "8": {
+          "bonus_degats": 12,
+          "duree": 5,
+          "cumul_max": 5
+        },
+        "9": {
+          "bonus_degats": 13,
+          "duree": 5,
+          "cumul_max": 5
+        },
+        "10": {
+          "bonus_degats": 14,
+          "duree": 5,
+          "cumul_max": 5
+        }
       }
     }
   },
@@ -773,12 +989,47 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Après {elims_requises} éliminations consécutives, le chargeur se remplit et les dégâts de l'arme sont augmentés de {bonus_degats} pendant {duree}.",
+        "base": "Après 3 éliminations consécutives, le chargeur se remplit et les dégâts de l'arme sont augmentés de +{bonus_degats}% pendant {duree}s.",
         "1": {
-          "elims_requises": "3",
-          "bonus_degats": "+10%",
-          "duree": "10 secondes"
-        }//TODO chercher valeurs en descente.
+          "bonus_degats": 10,
+          "duree": 10
+        },
+        "2": {
+          "bonus_degats": 14,
+          "duree": 11
+        },
+        "3": {
+          "bonus_degats": 18,
+          "duree": 12
+        },
+        "4": {
+          "bonus_degats": 22,
+          "duree": 13
+        },
+        "5": {
+          "bonus_degats": 26,
+          "duree": 14
+        },
+        "6": {
+          "bonus_degats": 30,
+          "duree": 15
+        },
+        "7": {
+          "bonus_degats": 34,
+          "duree": 16
+        },
+        "8": {
+          "bonus_degats": 38,
+          "duree": 17
+        },
+        "9": {
+          "bonus_degats": 42,
+          "duree": 18
+        },
+        "10": {
+          "bonus_degats": 46,
+          "duree": 19
+        }
       }
     }
   },
