@@ -685,7 +685,7 @@
       "protection_alterations_etat"
     ]
   },
-  "protection_contre_alterations_d_etat_mod": {
+  "protection_contre_alterations_d_etat_mod": { //TODO n'existe pas
     "nom": "Protection contre altérations d'état",
     "categorie": "defensif",
     "cible": [
@@ -693,7 +693,7 @@
     ],
     "unite": "%",
     "min": 1,
-    "max": 10, // TODO
+    "max": 10,
     "description": "Réduit la durée des effets d'état subis",
     "estEssentiel": false,
     "selectionable": true,
@@ -1146,7 +1146,7 @@
     ],
     "unite": "%",
     "min": 1,
-    "max": 13, // TODO
+    "max": 12, // TODO
     "description": "Augmente la durée des compétences",
     "estEssentiel": false,
     "selectionable": false,

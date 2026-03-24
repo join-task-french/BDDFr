@@ -89,7 +89,9 @@
   "charg_5_56_tactique": {
     "nom": "Charg. 5.56 tactique",
     "type": "chargeur",
-    "compatible": [],
+    "compatible": [
+      "chargeur_556"
+    ],
     "attributs": [
       {
         "attribut": "degats_de_coup_critique_arm",
@@ -1040,7 +1042,9 @@
   "pointeur_laser": {
     "nom": "Pointeur laser",
     "type": "bouche",
-    "compatible": [],
+    "compatible": [
+      "lateral"
+    ],
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_arm",
@@ -2117,7 +2121,7 @@
     "estExotique": true,
     "compatible": []
   },
-  "baiser_de_la_mort": { //TODO stats pas bon
+  "baiser_de_la_mort": {
     "nom": "Baiser de la mort",
     "type": "canon",
     "attributs": [
@@ -2172,6 +2176,90 @@
       {
         "attribut": "degats_de_coup_critique_arm",
         "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "visee_infinity": {
+    "nom": "Visée Infinity",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_serpent": {
+    "nom": "Chargeur Serpent",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 25
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "poignee_resistante_legere": {
+    "nom": "Poignée résistante légère",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_resistante_aux_intemperies": {
+    "nom": "Bouche résistante aux intempéries",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "cadence_de_tir_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "optique_d_oxpecker": {
+    "nom": "Optique d'Oxpecker",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "portee_optimale_arm",
+        "valeur": 50
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "accessoire_sous_canon_d_oxpecker": {
+    "nom": "Accessoire sous canon d'Oxpecker",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 15
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_d_oxpecker": {
+    "nom": "Bouche d'Oxpecker",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 10
       }
     ],
     "estExotique": true,
