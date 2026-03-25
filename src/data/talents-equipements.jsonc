@@ -80,8 +80,44 @@
       "levels": {
         "base": "Au bout de {activation_time}s à couvert, augmente les totaux de dégâts d'arme et de dégâts de compétence de {damage_bonus}% pour vous et vos alliés.\nCet effet dure tant que vous restez à couvert ou que vous vous déplacez d'un abri à l'autre.",
         "1": {
-          "activation_time": 10,
-          "damage_bonus": 12
+          "activation_time": 6,
+          "damage_bonus": 10
+        },
+        "2": {
+          "activation_time": 5.8,
+          "damage_bonus": 20
+        },
+        "3": {
+          "activation_time": 5.6,
+          "damage_bonus": 30
+        },
+        "4": {
+          "activation_time": 5.4,
+          "damage_bonus": 40
+        },
+        "5": {
+          "activation_time": 5.2,
+          "damage_bonus": 50
+        },
+        "6": {
+          "activation_time": 5,
+          "damage_bonus": 60
+        },
+        "7": {
+          "activation_time": 4.8,
+          "damage_bonus": 70
+        },
+        "8": {
+          "activation_time": 4.6,
+          "damage_bonus": 80
+        },
+        "9": {
+          "activation_time": 4.2,
+          "damage_bonus": 90
+        },
+        "10": {
+          "activation_time": 4,
+          "damage_bonus": 100
         }
       }
     }
@@ -335,8 +371,53 @@
       "levels": {
         "base": "Changer d'arme augmente le total de dégâts d'arme de {weapon_damage}% pendant {duration}s.\nCe buff se dissipe pendant {dissipation}s si vous changez d'arme pendant qu'il est actif.",
         "1": {
-          "weapon_damage": 23,
+          "weapon_damage": 15,
           "duration": 5,
+          "dissipation": 5
+        },
+        "2": {
+          "weapon_damage": 30,
+          "duration": 6,
+          "dissipation": 5
+        },
+        "3": {
+          "weapon_damage": 45,
+          "duration": 7,
+          "dissipation": 5
+        },
+        "4": {
+          "weapon_damage": 60,
+          "duration": 8,
+          "dissipation": 5
+        },
+        "5": {
+          "weapon_damage": 75,
+          "duration": 9,
+          "dissipation": 5
+        },
+        "6": {
+          "weapon_damage": 90,
+          "duration": 10,
+          "dissipation": 5
+        },
+        "7": {
+          "weapon_damage": 105,
+          "duration": 11,
+          "dissipation": 5
+        },
+        "8": {
+          "weapon_damage": 120,
+          "duration": 12,
+          "dissipation": 5
+        },
+        "9": {
+          "weapon_damage": 135,
+          "duration": 13,
+          "dissipation": 5
+        },
+        "10": {
+          "weapon_damage": 150,
+          "duration": 14,
           "dissipation": 5
         }
       }
@@ -412,8 +493,44 @@
       "levels": {
         "base": "Blesser des ennemis avec une compétence augmente le total de dégâts d'arme de {weapon_damage}% pendant {duration}s.",
         "1": {
-          "weapon_damage": 15,
+          "weapon_damage": 10,
+          "duration": 10
+        },
+        "2": {
+          "weapon_damage": 20,
+          "duration": 11
+        },
+        "3": {
+          "weapon_damage": 30,
+          "duration": 12
+        },
+        "4": {
+          "weapon_damage": 40,
+          "duration": 13
+        },
+        "5": {
+          "weapon_damage": 50,
+          "duration": 14
+        },
+        "6": {
+          "weapon_damage": 60,
           "duration": 15
+        },
+        "7": {
+          "weapon_damage": 70,
+          "duration": 16
+        },
+        "8": {
+          "weapon_damage": 80,
+          "duration": 17
+        },
+        "9": {
+          "weapon_damage": 90,
+          "duration": 18
+        },
+        "10": {
+          "weapon_damage": 100,
+          "duration": 19
         }
       }
     }
@@ -1066,12 +1183,111 @@
       "levels": {
         "base": "Augmente le total de dégâts d'arme pendant {duration}s quand vous passez d'une arme principale à une arme secondaire et inversement si ces armes sont différentes.\n{close_damage}% contre les ennemis situés à moins de {close_range}m pour les fusils calibre 12 et les PM.\n{far_damage}% contre les ennemis situés à plus de {far_range}m pour les fusils et les fusils de précision.\n{mid_damage}% contre les ennemis situés à {mid_range_min}-{mid_range_max}m pour les FM et les fusils d'assaut.\nAu maximum une fois toutes les {cooldown}s par type d'arme.",
         "1": {
-          "duration": 10,
-          "close_damage": 35,
+          "duration": 5,
+          "close_damage": 10,
           "close_range": 15,
-          "far_damage": 35,
+          "far_damage": 10,
           "far_range": 25,
-          "mid_damage": 10,
+          "mid_damage": 5,
+          "mid_range_min": 15,
+          "mid_range_max": 25,
+          "cooldown": 5
+        },
+        "2": {
+          "duration": 5,
+          "close_damage": 20,
+          "close_range": 15,
+          "far_damage": 20,
+          "far_range": 25,
+          "mid_damage": 5,
+          "mid_range_min": 15,
+          "mid_range_max": 25,
+          "cooldown": 5
+        },
+        "3": {
+          "duration": 5,
+          "close_damage": 30,
+          "close_range": 15,
+          "far_damage": 30,
+          "far_range": 25,
+          "mid_damage": 5,
+          "mid_range_min": 15,
+          "mid_range_max": 25,
+          "cooldown": 5
+        },
+        "4": {
+          "duration": 5,
+          "close_damage": 40,
+          "close_range": 15,
+          "far_damage": 40,
+          "far_range": 25,
+          "mid_damage": 5,
+          "mid_range_min": 15,
+          "mid_range_max": 25,
+          "cooldown": 5
+        },
+        "5": {
+          "duration": 5,
+          "close_damage": 50,
+          "close_range": 15,
+          "far_damage": 50,
+          "far_range": 25,
+          "mid_damage": 5,
+          "mid_range_min": 15,
+          "mid_range_max": 25,
+          "cooldown": 5
+        },
+        "6": {
+          "duration": 5,
+          "close_damage": 60,
+          "close_range": 15,
+          "far_damage": 60,
+          "far_range": 25,
+          "mid_damage": 5,
+          "mid_range_min": 15,
+          "mid_range_max": 25,
+          "cooldown": 5
+        },
+        "7": {
+          "duration": 5,
+          "close_damage": 70,
+          "close_range": 15,
+          "far_damage": 70,
+          "far_range": 25,
+          "mid_damage": 5,
+          "mid_range_min": 15,
+          "mid_range_max": 25,
+          "cooldown": 5
+        },
+        "8": {
+          "duration": 5,
+          "close_damage": 80,
+          "close_range": 15,
+          "far_damage": 80,
+          "far_range": 25,
+          "mid_damage": 5,
+          "mid_range_min": 15,
+          "mid_range_max": 25,
+          "cooldown": 5
+        },
+        "9": {
+          "duration": 5,
+          "close_damage": 90,
+          "close_range": 15,
+          "far_damage": 90,
+          "far_range": 25,
+          "mid_damage": 5,
+          "mid_range_min": 15,
+          "mid_range_max": 25,
+          "cooldown": 5
+        },
+        "10": {
+          "duration": 5,
+          "close_damage": 100,
+          "close_range": 15,
+          "far_damage": 100,
+          "far_range": 25,
+          "mid_damage": 5,
           "mid_range_min": 15,
           "mid_range_max": 25,
           "cooldown": 5
@@ -1160,7 +1376,43 @@
         "base": "Quand vous êtes à moins de {range}m d'un allié ou d'un objet de compétence, le total de dégâts d'arme est augmenté de {weapon_damage}%.",
         "1": {
           "range": 5,
-          "weapon_damage": 15
+          "weapon_damage": 10
+        },
+        "2": {
+          "range": 5,
+          "weapon_damage": 20
+        },
+        "3": {
+          "range": 5,
+          "weapon_damage": 30
+        },
+        "4": {
+          "range": 5,
+          "weapon_damage": 40
+        },
+        "5": {
+          "range": 5,
+          "weapon_damage": 50
+        },
+        "6": {
+          "range": 5,
+          "weapon_damage": 60
+        },
+        "7": {
+          "range": 5,
+          "weapon_damage": 70
+        },
+        "8": {
+          "range": 5,
+          "weapon_damage": 80
+        },
+        "9": {
+          "range": 5,
+          "weapon_damage": 90
+        },
+        "10": {
+          "range": 5,
+          "weapon_damage": 100
         }
       }
     }
@@ -1178,7 +1430,34 @@
       "levels": {
         "base": "À couvert, augmente le total de dégâts d'arme de +{weapon_damage}%.",
         "1": {
-          "weapon_damage": 15
+          "weapon_damage": 10
+        },
+        "2": {
+          "weapon_damage": 20
+        },
+        "3": {
+          "weapon_damage": 30
+        },
+        "4": {
+          "weapon_damage": 40
+        },
+        "5": {
+          "weapon_damage": 50
+        },
+        "6": {
+          "weapon_damage": 60
+        },
+        "7": {
+          "weapon_damage": 70
+        },
+        "8": {
+          "weapon_damage": 80
+        },
+        "9": {
+          "weapon_damage": 90
+        },
+        "10": {
+          "weapon_damage": 100
         }
       }
     }
