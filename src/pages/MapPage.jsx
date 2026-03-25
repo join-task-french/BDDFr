@@ -223,12 +223,29 @@ export default function MapPage() {
     if (!currentMapConfig) return <div className="flex h-full w-full items-center justify-center bg-[#0a0a0a] text-gray-500 font-mono text-sm uppercase">[ERROR] Carte introuvable</div>
 
     const urlParams = { x: searchParams.get('x'), y: searchParams.get('y'), z: searchParams.get('z') }
+    const targetX = parseFloat(urlParams.x)
+    const targetY = parseFloat(urlParams.y)
+    const isValidTarget = !isNaN(targetX) && !isNaN(targetY) &&
+        currentMapConfig.bounds &&
+        targetX >= currentMapConfig.bounds[0][1] && targetX <= currentMapConfig.bounds[1][1] &&
+        targetY >= currentMapConfig.bounds[0][0] && targetY <= currentMapConfig.bounds[1][0];
+
     const resolvedSingleImageUrl = !currentMapConfig.mapParts ? resolveMapImage(currentMapConfig.map || currentMapConfig.imageSlug) : null
     const hasImageContent = resolvedSingleImageUrl || (currentMapConfig.mapParts && currentMapConfig.mapParts.length > 0)
 
     return (
         <div className="h-full w-full relative bg-[#0a0a0a] overflow-hidden z-0">
-            <style>{`.leaflet-tooltip.tactical-map-tooltip { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; } .leaflet-tooltip.tactical-map-tooltip::before, .leaflet-tooltip.tactical-map-tooltip::after { display: none !important; }`}</style>
+            <style>{`
+                .leaflet-tooltip.tactical-map-tooltip { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
+                .leaflet-tooltip.tactical-map-tooltip::before, .leaflet-tooltip.tactical-map-tooltip::after { display: none !important; }
+                @keyframes ping-slow {
+                    0% { transform: scale(1); opacity: 0.8; }
+                    70%, 100% { transform: scale(2.5); opacity: 0; }
+                }
+                .animate-ping-slow {
+                    animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+                }
+            `}</style>
 
             {/* PANNEAU DE FILTRES */}
             {currentMapConfig.categories?.length > 0 && (
@@ -280,6 +297,32 @@ export default function MapPage() {
                         resolvedSingleImageUrl && (
                             <ImageOverlay url={resolvedSingleImageUrl} bounds={currentMapConfig.bounds} />
                         )
+                    )}
+
+                    {isValidTarget && (
+                        <Marker
+                            position={[targetY, targetX]}
+                            icon={L.divIcon({
+                                html: `
+                                    <div class="relative w-10 h-10 flex items-center justify-center pointer-events-none">
+                                        <div class="absolute inset-0 rounded-full bg-[#ff6d00]/40 animate-ping-slow"></div>
+                                        <div class="relative w-3 h-3 rounded-full bg-[#ff6d00] border-2 border-white shadow-[0_0_15px_rgba(255,109,0,0.9)]"></div>
+                                        <div class="absolute w-6 h-6 border border-[#ff6d00]/50 rounded-full"></div>
+                                        <div class="absolute w-px h-8 bg-[#ff6d00]/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                                        <div class="absolute w-8 h-px bg-[#ff6d00]/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                                    </div>
+                                `,
+                                className: 'bg-transparent border-0',
+                                iconSize: [40, 40], iconAnchor: [20, 20]
+                            })}
+                            zIndexOffset={1000}
+                        >
+                            <Tooltip direction="bottom" offset={[0, 20]} opacity={1} permanent className="tactical-map-tooltip">
+                                <div className="bg-[#ff6d00]/90 text-white font-bold text-[10px] px-2 py-0.5 rounded shadow-lg uppercase tracking-widest border border-white/20 backdrop-blur-sm">
+                                    Localisation pointée
+                                </div>
+                            </Tooltip>
+                        </Marker>
                     )}
 
                     {visibleMarkers.map(marker => {
