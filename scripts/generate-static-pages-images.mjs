@@ -27,6 +27,7 @@ const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
 const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
 const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
 const classSpe = parseJsonc(path.join(DATA_DIR, 'class-spe.jsonc')) || {};
+const mapsData = parseJsonc(path.join(DATA_DIR, 'maps.jsonc')) || [];
 
 const getWpnType = (t) => weaponTypes[t] || { nom: t?.replace('_', ' ') };
 const getGearType = (e) => gearTypes[e] || { nom: e };
@@ -84,6 +85,10 @@ const categoryFormatters = {
         title: `🧬 ${item.nom} (Niv. ${level || 1}) — BDDFr`,
         description: `Talent du mode Descente : ${item.descente?.categorie || 'Spécial'}`
     }),
+    'maps': (map) => ({
+        title: `Carte interactive : ${map.name} — BDDFr`,
+        description: `Consultez la carte interactive de ${map.name} pour The Division 2. Points d'intérêt, objets à collectionner et plus.`
+    }),
     'default': (item) => ({
         title: `${item.nom || item.competence || 'Élément'} — BDDFr`,
         description: "Élément de la base de données"
@@ -109,7 +114,8 @@ const pages_fixes = [
     { path: 'db', title: 'Base de données — BDDFr', description: 'Base de données française pour The Division 2.' },
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
     { path: 'changelog', title: 'Mises à jour — BDDFr', description: 'Historique des changements.' },
-    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' }
+    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
+    { path: 'map', title: 'Carte Interactive — BDDFr', description: 'Explorez Washington D.C., New York et d\'autres zones avec notre carte interactive.' }
 ];
 
 const categoryMap = {
@@ -208,6 +214,27 @@ async function generate() {
             if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
             fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(p.title, p.description, 'favicon_150x150.png', p.path));
             sitemapEntries.push(`${BASE_URL}/${p.path}`);
+        }
+
+        // Génération des pages pour les cartes (Maps)
+        for (const map of mapsData) {
+            const processMap = (m, parentId = null) => {
+                const formatter = categoryFormatters['maps'];
+                const { title, description } = formatter(m);
+                const pagePath = parentId ? `map/${parentId}/${m.id}` : `map/${m.id}`;
+                const targetDir = path.join(DIST_DIR, pagePath);
+
+                if (!fs.existsSync(targetDir)) fs.mkdirSync(targetDir, { recursive: true });
+                fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, 'favicon_150x150.png', pagePath));
+                sitemapEntries.push(`${BASE_URL}/${pagePath}`);
+
+                if (m.subMaps) {
+                    for (const subMap of m.subMaps) {
+                        processMap(subMap, m.id);
+                    }
+                }
+            };
+            processMap(map);
         }
 
         console.log("📸 Début des captures d'écran...");
