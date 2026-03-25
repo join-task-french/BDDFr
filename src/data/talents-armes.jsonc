@@ -1828,13 +1828,13 @@
       ],
       "categorie": "exotique",
       "levels": {
-        "base": "En mouvement, gagnez {bonus_sec_mouv} bonus/s ({bonus_sec_sprint} si sprint).\nChaque tir consomme un bonus pour augmenter les dégâts de {bonus_degats}.\nLes éliminations confèrent {buff_vitesse} en vitesse de déplacement pendant {duree_buff}.",
+        "base": "En mouvement, gagnez {bonus_sec_mouv} bonus/s ({bonus_sec_sprint} si sprint).\nChaque tir consomme un bonus pour augmenter les dégâts de {bonus_degats}%.\nLes éliminations confèrent {buff_vitesse}% en vitesse de déplacement pendant {duree_buff}%.",
         "1": {
-          "bonus_sec_mouv": "4",
-          "bonus_sec_sprint": "8",
-          "bonus_degats": "75%",
-          "buff_vitesse": "+20%",
-          "duree_buff": "10s"
+          "bonus_sec_mouv": 4,
+          "bonus_sec_sprint": 8,
+          "bonus_degats": 75,
+          "buff_vitesse": 20,
+          "duree_buff": 10
         }
       }
     }
