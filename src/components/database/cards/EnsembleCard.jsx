@@ -203,7 +203,7 @@ function BonusRow({ level, bonus, color, talents, statistiques, allAttributs }) 
           {talent && (
               <div className="mt-0.5">
                 <div className="text-shd font-bold uppercase tracking-widest text-xs mb-0.5">{talent.nom}</div>
-                <div className="text-gray-400 leading-normal italic text-xs">{talent.description}</div>
+                <div className="text-gray-400 leading-normal italic text-xs whitespace-pre-line">{talent.description}</div>
               </div>
           )}
         </div>
