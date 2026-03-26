@@ -9,7 +9,7 @@ function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
 
-export default function TalentEquipCard({ item, equipements, equipementsType }) {
+export default function TalentEquipCard({ item, equipements, equipementsType, isStatic }) {
   const params = useParams()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -29,10 +29,12 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
   const [showPerfect, setShowPerfect] = useState(isUrlPerfect || forcePerfect)
 
   useEffect(() => {
-    if (params.slug === item.slug) {
+    if (isStatic) {
+      setShowPerfect(forcePerfect)
+    } else if (params.slug === item.slug) {
       setShowPerfect(params.modifier === 'parfait')
     }
-  }, [params.modifier, params.slug, item.slug])
+  }, [params.modifier, params.slug, item.slug, isStatic])
 
   const togglePerfect = (e) => {
     e.preventDefault()
@@ -40,6 +42,8 @@ export default function TalentEquipCard({ item, equipements, equipementsType }) 
 
     const nextState = !showPerfect
     setShowPerfect(nextState)
+
+    if (isStatic) return
 
     const category = params.category || 'talentsEquipements'
     const basePath = `/db/${category}/${item.slug}`

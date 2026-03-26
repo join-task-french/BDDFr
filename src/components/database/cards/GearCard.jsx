@@ -28,7 +28,7 @@ function resolveTalents(item, talentsEquipements) {
   })
 }
 
-export default function GearCard({ item, ensembles, talentsEquipements, allAttributs, equipementsType, attributsType }) {
+export default function GearCard({ item, ensembles, talentsEquipements, allAttributs, equipementsType, attributsType, isStatic }) {
   const params = useParams()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -42,12 +42,14 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
   const [isPrototype, setIsPrototype] = useState(isUrlPrototype || forcePrototype)
 
   useEffect(() => {
-    if (params.slug === item.slug) {
+    if (isStatic) {
+      setIsPrototype(forcePrototype)
+    } else if (params.slug === item.slug) {
       setIsPrototype(params.modifier === 'prototype' || forcePrototype)
     } else if (forcePrototype) {
       setIsPrototype(true)
     }
-  }, [params.modifier, params.slug, item.slug, forcePrototype])
+  }, [params.modifier, params.slug, item.slug, forcePrototype, isStatic])
 
   const togglePrototype = (e) => {
     e.preventDefault()
@@ -57,6 +59,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
 
     const nextState = !isPrototype
     setIsPrototype(nextState)
+
+    if (isStatic) return
 
     const category = params.category || 'equipements'
     const itemSlug = item.slug || item.nom

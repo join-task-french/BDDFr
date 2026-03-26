@@ -36,7 +36,7 @@ function resolveTalents(item, talentsArmes) {
   })
 }
 
-export default function WeaponCard({ item, talentsArmes, allAttributs, armesType, modsArmes }) {
+export default function WeaponCard({ item, talentsArmes, allAttributs, armesType, modsArmes, isStatic }) {
   const params = useParams()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -52,12 +52,14 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const [isPrototype, setIsPrototype] = useState((isUrlPrototype || forcePrototype) && !isExotic && !isSpecific)
 
   useEffect(() => {
-    if (params.slug === item.slug) {
+    if (isStatic) {
+      setIsPrototype(forcePrototype && !isExotic && !isSpecific)
+    } else if (params.slug === item.slug) {
       setIsPrototype((params.modifier === 'prototype' || forcePrototype) && !isExotic && !isSpecific)
     } else if (forcePrototype && !isExotic && !isSpecific) {
       setIsPrototype(true)
     }
-  }, [params.modifier, params.slug, item.slug, forcePrototype, isExotic, isSpecific])
+  }, [params.modifier, params.slug, item.slug, forcePrototype, isExotic, isSpecific, isStatic])
 
   const togglePrototype = (e) => {
     e.preventDefault()
@@ -67,6 +69,8 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
 
     const nextState = !isPrototype
     setIsPrototype(nextState)
+
+    if (isStatic) return
 
     const category = params.category || 'armes'
     const itemSlug = item.slug || item.nom

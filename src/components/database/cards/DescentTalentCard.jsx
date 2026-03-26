@@ -3,7 +3,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { slugify } from '../../../utils/slugify.js';
 import MarkdownText from '../../common/MarkdownText'
 
-export default function DescentTalentCard({ item }) {
+export default function DescentTalentCard({ item, isStatic }) {
     const { nom, icon, descente, isWeaponTalent } = item;
     const { boucles, categorie, levels, notes } = descente;
     const { category, slug, modifier } = useParams();
@@ -24,14 +24,19 @@ export default function DescentTalentCard({ item }) {
     });
 
     useEffect(() => {
-        if (isThisCardActive && modifier && availableLevels.includes(modifier)) {
+        if (isStatic) {
+            setSelectedLevel(availableLevels[0] || "1");
+        } else if (isThisCardActive && modifier && availableLevels.includes(modifier)) {
             setSelectedLevel(modifier);
         }
-    }, [isThisCardActive, modifier, availableLevels]);
+    }, [isThisCardActive, modifier, availableLevels, isStatic]);
 
     const handleLevelChange = (e) => {
         const newLevel = e.target.value;
         setSelectedLevel(newLevel);
+
+        if (isStatic) return;
+
         const currentCategory = category || 'descente';
         navigate(`/db/${currentCategory}/${itemSlug}/${newLevel}${location.search}`, { replace: true });
     };

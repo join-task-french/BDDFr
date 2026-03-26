@@ -18,7 +18,7 @@ const COMPAT_LABELS = {
   pistolet_mitrailleur: 'Pistolet mitrailleur',
 }
 
-export default function TalentArmeCard({ item, armes }) {
+export default function TalentArmeCard({ item, armes, isStatic }) {
   const params = useParams()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -39,10 +39,12 @@ export default function TalentArmeCard({ item, armes }) {
   const [showPerfect, setShowPerfect] = useState(isUrlPerfect || forcePerfect)
 
   useEffect(() => {
-    if (params.slug === item.slug) {
+    if (isStatic) {
+      setShowPerfect(forcePerfect)
+    } else if (params.slug === item.slug) {
       setShowPerfect(params.modifier === 'parfait')
     }
-  }, [params.modifier, params.slug, item.slug])
+  }, [params.modifier, params.slug, item.slug, isStatic])
 
   const togglePerfect = (e) => {
     e.preventDefault()
@@ -50,6 +52,8 @@ export default function TalentArmeCard({ item, armes }) {
 
     const nextState = !showPerfect
     setShowPerfect(nextState)
+
+    if (isStatic) return
 
     const category = params.category || 'talentsArmes'
     const basePath = `/db/${category}/${item.slug}`
