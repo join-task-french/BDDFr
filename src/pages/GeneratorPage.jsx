@@ -330,7 +330,7 @@ export default function GeneratorPage() {
                       />
                       {editMode && <span className="text-xs text-yellow-500/60 ml-auto">🔒 Fixe</span>}
                     </div>
-                    {slugConflict && <p className="text-[10px] text-yellow-400">⚠ Conflit : correspond à « {slugConflict.nom} »</p>}
+                    {slugConflict && <p className="text-xs text-yellow-400">⚠ Conflit : correspond à « {slugConflict.nom} »</p>}
                   </div>
               )}
               <GeneratorForm fields={config.fields} data={data} onChange={handleChange} suggestions={suggestions} onIdentitySelect={handleIdentitySelect} />

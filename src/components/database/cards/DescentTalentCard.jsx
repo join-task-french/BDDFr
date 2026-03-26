@@ -75,13 +75,13 @@ export default function DescentTalentCard({ item }) {
                             <div className="font-bold text-sm uppercase tracking-wide text-gray-100">
                                 {nom}
                             </div>
-                            <div className={`inline-block px-1.5 py-0.5 mt-1 text-[10px] font-bold uppercase tracking-widest rounded border ${categoryStyle}`}>
+                            <div className={`inline-block px-1.5 py-0.5 mt-1 text-xs font-bold uppercase tracking-widest rounded border ${categoryStyle}`}>
                                 {categorie}
                             </div>
                         </div>
                     </div>
                     <div className="flex items-center gap-2 shrink-0">
-                        <label htmlFor={`level-select-${nom}`} className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">
+                        <label htmlFor={`level-select-${nom}`} className="text-xs font-bold text-gray-500 uppercase tracking-widest">
                             Niv.
                         </label>
                         <select
@@ -105,14 +105,14 @@ export default function DescentTalentCard({ item }) {
             />
 
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10 mt-auto">
-                <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1.5">
+                <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1.5">
                     Boucles compatibles
                 </div>
                 <div className="flex flex-wrap gap-1.5">
                     {boucles.map(boucle => (
                         <span
                             key={boucle}
-                            className="bg-tactical-bg border border-tactical-border text-gray-400 text-[10px] px-1.5 py-0.5 rounded font-bold uppercase tracking-widest"
+                            className="bg-tactical-bg border border-tactical-border text-gray-400 text-xs px-1.5 py-0.5 rounded font-bold uppercase tracking-widest"
                         >
               {boucle}
             </span>
@@ -122,7 +122,7 @@ export default function DescentTalentCard({ item }) {
 
             {notes && (
                 <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-                    <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">
+                    <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">
                         Notes
                     </div>
                     <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">

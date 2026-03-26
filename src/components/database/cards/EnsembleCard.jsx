@@ -133,7 +133,7 @@ export default function EnsembleCard({ item, talentsEquipements, statistiques, a
         <div className="flex-1" />
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-              <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+              <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
               <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
                 {item.notes}
               </div>
@@ -176,7 +176,7 @@ function BonusRow({ level, bonus, color, talents, statistiques, allAttributs }) 
 
   return (
       <div className="flex items-start gap-2 text-xs">
-        <span className={`shrink-0 text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${color}`}>
+        <span className={`shrink-0 text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded ${color}`}>
           {level}
         </span>
         <div className="flex flex-col gap-1">
@@ -195,8 +195,8 @@ function BonusRow({ level, bonus, color, talents, statistiques, allAttributs }) 
           ))}
           {talent && (
               <div className="mt-0.5">
-                <div className="text-shd font-bold uppercase tracking-widest text-[10px] mb-0.5">{talent.nom}</div>
-                <div className="text-gray-400 leading-normal italic text-[11px]">{talent.description}</div>
+                <div className="text-shd font-bold uppercase tracking-widest text-xs mb-0.5">{talent.nom}</div>
+                <div className="text-gray-400 leading-normal italic text-xs">{talent.description}</div>
               </div>
           )}
         </div>

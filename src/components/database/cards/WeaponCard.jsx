@@ -115,7 +115,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                   {!isExotic && !isSpecific && (
                       <button
                           onClick={togglePrototype}
-                          className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
+                          className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
                               isPrototype
                                   ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40'
                                   : 'bg-tactical-bg text-gray-500 border-tactical-border hover:border-gray-500'
@@ -203,7 +203,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                 </span>
                       <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
                   {val}{ref?.unite || ''}
-                        {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {max}{ref.unite})</span>}
+                        {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {max}{ref.unite})</span>}
                 </span>
                     </div>
                 )
@@ -237,7 +237,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                         {stats && <span className="text-emerald-400/80">{stats}</span>}
                       </div>
                       {hasContent(mod.notes) && (
-                          <div className="mt-0.5 text-[10px] text-gray-500 italic leading-relaxed whitespace-pre-line border-l border-tactical-border/30 pl-2 ml-1">
+                          <div className="mt-0.5 text-xs text-gray-500 italic leading-relaxed whitespace-pre-line border-l border-tactical-border/30 pl-2 ml-1">
                             {mod.notes}
                           </div>
                       )}
@@ -254,7 +254,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         {/* Notes */}
         {(hasContent(item.notes) || item.armePoing) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-              <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+              <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
               <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
                 {hasContent(item.notes) && item.notes}
                 {hasContent(item.notes) && item.armePoing && '\n'}

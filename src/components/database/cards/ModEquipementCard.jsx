@@ -34,8 +34,8 @@ export default function ModEquipementCard({ item, allAttributs }) {
           {/* Notes */}
           {hasContent(item.notes) && (
               <div className="mt-2 pt-2 border-t border-tactical-border/50">
-                <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-0.5">Notes</div>
-                <div className="text-[11px] text-gray-400 italic leading-relaxed whitespace-pre-line">
+                <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-0.5">Notes</div>
+                <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
                   {item.notes}
                 </div>
               </div>

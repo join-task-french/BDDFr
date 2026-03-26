@@ -239,8 +239,8 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
         {pb > 0 && (
             <div className="flex items-center justify-between text-xs py-0.5 mb-1 px-1 bg-blue-500/5 rounded border border-blue-500/10">
                 <div className="flex flex-col">
-                    <span className="text-gray-400 font-bold uppercase tracking-widest text-[10px]">Protection de base</span>
-                    {expertiseLevel > 0 && <span className="text-[9px] text-blue-400/60 font-medium">Inclut Expertise (+{expertiseLevel}%)</span>}
+                    <span className="text-gray-400 font-bold uppercase tracking-widest text-xs">Protection de base</span>
+                    {expertiseLevel > 0 && <span className="text-xs text-blue-400/60 font-medium">Inclut Expertise (+{expertiseLevel}%)</span>}
                 </div>
                 <span className="text-blue-300 font-bold">{pb.toLocaleString('fr-FR')} pts</span>
             </div>

@@ -63,7 +63,7 @@ export default function GearTalentPicker({ data, slotKey, onClose }) {
                       {t.nom}
                     </div>
                     {isPerfect && (
-                        <span className="text-[10px] font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
+                        <span className="text-xs font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
                     ★ Parfait
                   </span>
                     )}

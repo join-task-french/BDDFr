@@ -108,7 +108,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                         onSetAttributes(newAttrs)
                       }
                     }}
-                    className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1 py-0.5 rounded border transition-all ${
+                    className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest px-1 py-0.5 rounded border transition-all ${
                         isPrototype
                             ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40'
                             : 'bg-tactical-bg/50 text-gray-500 border-tactical-border hover:border-gray-500'
@@ -200,7 +200,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                           Talent : {resolvedPredefinedTalent?.nom || piece.talents[0]}
                         </div>
                         {resolvedPredefinedTalent?.isPerfect && (
-                            <span className="text-[10px] font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
+                            <span className="text-xs font-bold text-shd-dark bg-shd/20 px-1 py-0.5 rounded uppercase tracking-widest leading-none">
                       ★ Parfait
                     </span>
                         )}
@@ -248,7 +248,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                         {prototypeTalent ? (
                             <div className="py-1">
                                 <div className="flex items-center justify-between gap-2 mb-0.5">
-                                    <div className="text-[10px] text-gray-600 uppercase tracking-widest">Talent Prototype</div>
+                                    <div className="text-xs text-gray-600 uppercase tracking-widest">Talent Prototype</div>
                                     {onSelectPrototypeTalent && (
                                         <button
                                             onClick={(e) => { e.stopPropagation(); onSelectPrototypeTalent() }}
@@ -284,7 +284,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                                     />
                                 )}
                                 {prototypeTalent.description && (
-                                    <div className="text-[11px] text-gray-400 mt-1 leading-relaxed line-clamp-2 italic">{prototypeTalent.description}</div>
+                                    <div className="text-xs text-gray-400 mt-1 leading-relaxed line-clamp-2 italic">{prototypeTalent.description}</div>
                                 )}
                             </div>
                         ) : (

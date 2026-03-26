@@ -157,7 +157,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                   {(!isExotic && !isImprovised) && (
                       <button
                           onClick={togglePrototype}
-                          className={`flex items-center gap-1 text-[10px] font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
+                          className={`flex items-center gap-1 text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
                               isPrototype
                                   ? 'bg-cyan-500/20 text-cyan-400 border-cyan-500/40'
                                   : 'bg-tactical-bg text-gray-500 border-tactical-border hover:border-gray-500'
@@ -244,7 +244,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                   </span>
                         <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
                     {typeof val === 'number' ? formatNumber(val) : val}{ref?.unite || ''}
-                          {isOverMax && <span className="ml-1 text-[8px] text-yellow-500">(max {formatNumber(max)}{ref.unite})</span>}
+                          {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {formatNumber(max)}{ref.unite})</span>}
                   </span>
                       </div>
                   )
@@ -282,7 +282,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         {/* Notes */}
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-              <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+              <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
               <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
                 {item.notes}
               </div>

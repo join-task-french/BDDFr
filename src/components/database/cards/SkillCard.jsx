@@ -100,7 +100,7 @@ export default function SkillCard({ item }) {
             {/* Notes */}
             {(hasContent(item.notes) || hasContent(item.notesType)) && (
                 <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-                    <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+                    <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
                     <div className="flex flex-col gap-2">
                         {hasContent(item.notes) && (
                             <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
@@ -108,8 +108,8 @@ export default function SkillCard({ item }) {
                             </div>
                         )}
                         {hasContent(item.notesType) && (
-                            <div className="text-[11px] text-gray-500 italic leading-relaxed whitespace-pre-line border-t border-tactical-border/30 pt-1">
-                                <span className="not-italic font-bold text-[9px] text-yellow-500/50 mr-1 uppercase">{item.competence}:</span>
+                            <div className="text-xs text-gray-500 italic leading-relaxed whitespace-pre-line border-t border-tactical-border/30 pt-1">
+                                <span className="not-italic font-bold text-xs text-yellow-500/50 mr-1 uppercase">{item.competence}:</span>
                                 {item.notesType}
                             </div>
                         )}

@@ -131,7 +131,7 @@ export default function TalentArmeCard({ item, armes }) {
         {/* Notes */}
         {hasContent(item.notes) && (
             <div className="px-4 py-2 border-t border-tactical-border/50 bg-black/10">
-              <div className="text-[10px] text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
+              <div className="text-xs text-gray-500 font-bold uppercase tracking-widest mb-1">Notes</div>
               <div className="text-xs text-gray-400 italic leading-relaxed whitespace-pre-line">
                 {item.notes}
               </div>
