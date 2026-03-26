@@ -2,7 +2,7 @@
 {
   "tir_destabilisant": {
     "nom": "Tir déstabilisant",
-    "description": "Toucher un ennemi au corps augmente de +55% les dégâts du headshot suivant pendant 10s.\nPeut se cumuler jusqu'à 3 fois.",
+    "description": "Toucher un ennemi au corps augmente de **+55%** les dégâts du headshot suivant pendant **10s**.\nPeut se cumuler jusqu'à **3** fois.",
     "icon": "tir_destabilisant",
     "compatibilite": {
       "fusil": true,
@@ -20,7 +20,7 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Toucher un ennemi au corps augmente de +{bonus_degats}% les dégâts du headshot suivant pendant {duree}.\nPeut se cumuler jusqu'à {cumul_max} fois.",
+        "base": "Toucher un ennemi au corps augmente de **+{bonus_degats}%** les dégâts du headshot suivant pendant **{duree}s**.\nPeut se cumuler jusqu'à **{cumul_max}** fois.",
         "1": {
           "bonus_degats": 15,
           "duree": 3,
@@ -76,9 +76,9 @@
   },
   "tueur": {
     "nom": "Tueur",
-    "description": "Éliminer un ennemi par coup critique augmente de +50% les dégâts de coup critique pendant 10s.",
+    "description": "Éliminer un ennemi par coup critique augmente de **+50%** les dégâts de coup critique pendant **10s**.",
     "icon": "tueur",
-    "perfectDescription": "Éliminer un ennemi par coup critique augmente de +90% les dégâts de coup critique pendant 10s.",
+    "perfectDescription": "Éliminer un ennemi par coup critique augmente de **+90%** les dégâts de coup critique pendant **10s**.",
     "armesParfaites": [
       "protecteur",
       "hiver_funeste"
@@ -95,7 +95,7 @@
   },
   "preservation": {
     "nom": "Préservation",
-    "description": "Éliminer un ennemi répare 10% de votre protection sur 5s.\nLes éliminations par headshot améliorent la réparation de +10% supplémentaires.",
+    "description": "Éliminer un ennemi répare **10%** de votre protection sur **5s**.\nLes éliminations par headshot améliorent la réparation de **+10%** supplémentaires.",
     "icon": "preservation",
     "compatibilite": {
       "fusil": true,
@@ -116,7 +116,7 @@
       ],
       "categorie": "defensif",
       "levels": {
-        "base": "Éliminer un ennemi répare {repa_base}% de votre protection sur {duree}s.\nLes éliminations par headshot améliorent la réparation de {repa_headshot}% supplémentaires.",
+        "base": "Éliminer un ennemi répare **{repa_base}%** de votre protection sur **{duree}s**.\nLes éliminations par headshot améliorent la réparation de **{repa_headshot}%** supplémentaires.",
         "1": {
           "repa_base": 7,
           "duree": 5,
@@ -172,9 +172,9 @@
   },
   "optimiste": {
     "nom": "Optimiste",
-    "description": "Les dégâts d'arme augmentent de +3,5% pour chaque tranche de 10% de munitions manquantes dans le chargeur.",
+    "description": "Les dégâts d'arme augmentent de **+3,5%** pour chaque tranche de **10%** de munitions manquantes dans le chargeur.",
     "icon": "optimiste",
-    "perfectDescription": "Les dégâts d'arme augmentent de +4,5% pour chaque tranche de 10% de munitions manquantes dans le chargeur.",
+    "perfectDescription": "Les dégâts d'arme augmentent de **+4,5%** pour chaque tranche de **10%** de munitions manquantes dans le chargeur.",
     "armesParfaites": [
       "shield_splinterer"
     ],
@@ -194,7 +194,7 @@
       ],
       "categorie": "offensif",
       "levels": {
-        "base": "Les dégâts d'arme augmentent de +{bonus_degats}% pour chaque tranche de {tranche_munitions}% de munitions manquantes dans le chargeur.",
+        "base": "Les dégâts d'arme augmentent de **+{bonus_degats}%** pour chaque tranche de **{tranche_munitions}%** de munitions manquantes dans le chargeur.",
         "1": {
           "bonus_degats": 3,
           "tranche_munitions": 10
