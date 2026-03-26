@@ -3,6 +3,7 @@ import { getAttrCategoryLabel } from '../../utils/formatters'
 import { formatModAttributs } from '../../utils/modCompatibility'
 import AttributeSlider from './AttributeSlider'
 import AttributePicker from './AttributePicker'
+import { useBuild } from '../../context/BuildContext'
 
 /**
  * Determine le nombre d'attributs classiques autorisés.
@@ -98,6 +99,7 @@ function mapEssentialNames(names) {
  * est pré-rempli et non remplaçable.
  */
 export default function GearAttributePanel({ piece, attributes, allAttributs, modsEquipements, gearMods, onChange, onChangeMod, attributsType, ensembles, isPrototype, slotKey, equipementsType, expertiseLevel }) {
+  const { dispatch, modValues } = useBuild()
   const [pickerOpen, setPickerOpen] = useState(null)
   const [modPickerIndex, setModPickerIndex] = useState(null)
 
@@ -298,6 +300,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
                 return (
                     <div key={`mod-${idx}`} className="mb-1">
                       {currentMod ? (
+                          <>
                           <div className="flex items-center gap-1.5 py-0.5">
                     <span className="text-xs text-gray-300 truncate relative group/gmod cursor-default">
                       {modCount > 1 && <span className="text-gray-500 mr-1">{idx + 1}.</span>}
@@ -314,6 +317,33 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
                                 className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
                             >✕</button>
                           </div>
+                          {currentMod.attributs && currentMod.attributs.map((entry) => {
+                            if (entry.valeur != null) return null
+                            const attrDef = allAttributs?.[entry.attribut]
+                            if (!attrDef || attrDef.min == null || attrDef.max == null || attrDef.min === attrDef.max) return null
+                            const userVal = modValues?.gearMods?.[slotKey]?.[idx]?.[entry.attribut]
+                            const val = userVal != null ? userVal : attrDef.max
+                            const unite = attrDef.unite || '%'
+                            const step = unite === 'pts' || unite === 'pts/s' ? 1 : 0.1
+                            return (
+                              <div key={entry.attribut} className="mt-1">
+                                <div className="flex items-center justify-between text-xs">
+                                  <span className="text-gray-400 truncate">{attrDef.nom}</span>
+                                  <span className="text-green-400 font-bold shrink-0">{unite === 'pts' || unite === 'pts/s' ? val.toLocaleString('fr-FR') : val}{unite}</span>
+                                </div>
+                                <input
+                                  type="range"
+                                  min={attrDef.min}
+                                  max={attrDef.max}
+                                  step={step}
+                                  value={val}
+                                  onChange={(e) => dispatch({ type: 'SET_GEAR_MOD_VALUE', slot: slotKey, modIndex: idx, attrSlug: entry.attribut, valeur: parseFloat(e.target.value) })}
+                                  className="attr-slider mt-0.5"
+                                />
+                              </div>
+                            )
+                          })}
+                          </>
                       ) : (
                           <button
                               onClick={() => setModPickerIndex(idx)}

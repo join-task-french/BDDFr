@@ -52,7 +52,7 @@ export function useBuildStats(data) {
   // Helper: résoudre unité + nom depuis le référentiel d'attributs ou statistiques
   const resolveAttrInfo = (attrSlug) => {
     const def = data.attributs?.[attrSlug]
-    if (def) return { nom: def.nom, unite: def.unite || '%', categorie: def.categorie || '' }
+    if (def) return { nom: def.nom, unite: def.unite || '%', categorie: def.categorie || '', min: def.min, max: def.max }
     const stat = data.statistiques?.[attrSlug]
     if (stat) return { nom: stat.nom, unite: '%', categorie: '' }
     return { nom: attrSlug.replace(/_arm$|_eqp$|_mod$/, '').replace(/_/g, ' '), unite: '%', categorie: '' }
@@ -277,21 +277,27 @@ export function useBuildStats(data) {
   // Bonus de mods d'équipement (affectent le joueur globalement → s'appliquent à toutes les armes)
   const gearModTotals = useMemo(() => {
     const totals = {}
-    for (const slotMods of Object.values(build.gearMods || {})) {
+    const gmv = build.modValues?.gearMods || {}
+    for (const [slot, slotMods] of Object.entries(build.gearMods || {})) {
       const modArray = Array.isArray(slotMods) ? slotMods : [slotMods]
-      for (const mod of modArray) {
+      for (let modIdx = 0; modIdx < modArray.length; modIdx++) {
+        const mod = modArray[modIdx]
         if (!mod?.attributs || !Array.isArray(mod.attributs)) continue
         for (const entry of mod.attributs) {
-          if (!entry.attribut || entry.valeur == null) continue
+          if (!entry.attribut) continue
           const info = resolveAttrInfo(entry.attribut)
+          // Utiliser la valeur fixe si présente, sinon la valeur utilisateur du curseur, sinon le max de l'attribut
+          const userVal = gmv[slot]?.[modIdx]?.[entry.attribut]
+          const val = entry.valeur != null ? entry.valeur : (userVal != null ? userVal : (info.max != null ? info.max : null))
+          if (val == null) continue
           const key = entry.attribut
           if (!totals[key]) totals[key] = { nom: info.nom, total: 0, unite: info.unite, categorie: info.categorie }
-          totals[key].total += entry.valeur
+          totals[key].total += val
         }
       }
     }
     return totals
-  }, [build.gearMods, data.attributs])
+  }, [build.gearMods, build.modValues, data.attributs])
 
   /**
    * Statistiques PAR ARME : chaque arme a ses propres mods d'arme + les mods d'équipement +
