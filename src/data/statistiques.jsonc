@@ -59,6 +59,10 @@
     "nom": "Dégâts sur cible non abritée",
     "description": "Bonus de dégâts aux cibles non abritées"
   },
+  "degats_arme_specifique": {
+    "nom": "Dégâts d'arme spécialisée",
+    "description": "Bonus aux dégâts des armes spécialisées"
+  },
   "degats_corps_a_corps": {
     "nom": "Dégâts Corps à coprs",
     "description": "Bonus de dégâts au corps à corps"

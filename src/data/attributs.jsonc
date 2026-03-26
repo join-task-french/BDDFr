@@ -1227,17 +1227,17 @@
     ]
   },
   "degats_arme_specifique_eqp": {
-    "nom": "Degats arme specifique eqp",
+    "nom": "Dégâts d'arme spécialisée",
     "categorie": "offensif",
     "cible": [
       "equipement"
     ],
     "unite": "%",
-    "description": "Augmente degats arme specifique eqp",
+    "description": "Bonus aux dégâts de l'arme spécialisée",
     "estEssentiel": false,
     "selectionable": true,
     "statistiques": [
-      "degats_arme_specifique_eqp"
+      "degats_arme_specifique"
     ]
   },
   "duree_competence_eqp": {
@@ -1367,17 +1367,17 @@
     ]
   },
   "utilitaire": {
-    "nom": "Utilitaire",
+    "nom": "Tiers de compétence",
     "categorie": "utilitaire",
     "cible": [
       "equipement"
     ],
-    "unite": "%",
-    "description": "Augmente utilitaire",
+    "unite": "",
+    "description": "Augmente le tiers de compétence",
     "estEssentiel": false,
     "selectionable": true,
     "statistiques": [
-      "utilitaire"
+      "tiers_competence"
     ]
   },
   "degats_de_fusil": {
