@@ -1935,12 +1935,6 @@
       "offensif",
       "utilitaire"
     ],
-    "bonus2pieces": {
-      "attributs": []
-    },
-    "bonus3pieces": {
-      "attributs": []
-    },
     "notes": "Les équipements improvisé ont la particularité de pouvoir porté un mod sur toutes de leurs pieces."
   }
 }
