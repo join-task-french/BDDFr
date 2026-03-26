@@ -34,7 +34,7 @@
           "type": "array",
           "items": {
             "type": "object",
-            "required": ["attribut", "valeur"],
+            "required": ["attribut"],
             "properties": {
               "attribut": {
                 "type": "string",

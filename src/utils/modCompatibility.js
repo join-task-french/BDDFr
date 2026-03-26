@@ -75,11 +75,32 @@ export function formatModAttributs(mod, allAttributs, statistiques) {
       const statDef = !attrDef && statistiques ? ((!Array.isArray(statistiques)) ? statistiques[entry.attribut] : statistiques.find(s => s.slug === entry.attribut)) : null
       const name = attrDef?.nom || statDef?.nom || resolveModAttrName(entry.attribut, allAttributs, statistiques)
       const unite = attrDef?.unite || ''
-      const sign = entry.valeur >= 0 ? '+' : ''
-      if (unite === 'pts' || unite === 'pts/s') {
-        parts.push(`${sign}${entry.valeur} ${name}`)
+      if (entry.valeur != null) {
+        // Valeur fixe définie sur le mod
+        const sign = entry.valeur >= 0 ? '+' : ''
+        if (unite === 'pts' || unite === 'pts/s') {
+          parts.push(`${sign}${entry.valeur} ${name}`)
+        } else {
+          parts.push(`${sign}${entry.valeur}${unite} ${name}`)
+        }
+      } else if (attrDef && attrDef.min != null && attrDef.max != null) {
+        // Pas de valeur fixe → afficher la range min–max de l'attribut
+        if (unite === 'pts' || unite === 'pts/s') {
+          parts.push(`+${attrDef.min}–${attrDef.max} ${name}`)
+        } else {
+          parts.push(`+${attrDef.min}–${attrDef.max}${unite} ${name}`)
+        }
+      } else if (attrDef && attrDef.max != null) {
+        // Seulement un max connu
+        const sign = attrDef.max >= 0 ? '+' : ''
+        if (unite === 'pts' || unite === 'pts/s') {
+          parts.push(`${sign}${attrDef.max} ${name}`)
+        } else {
+          parts.push(`${sign}${attrDef.max}${unite} ${name}`)
+        }
       } else {
-        parts.push(`${sign}${entry.valeur}${unite} ${name}`)
+        // Aucune info de valeur
+        parts.push(name)
       }
     }
   }
