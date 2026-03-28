@@ -123,6 +123,10 @@
     "nom": "Résistance aux explosions",
     "description": "Réduit les dégâts subis par les explosions"
   },
+  "rayon": {
+    "nom": "Rayon de compétence",
+    "description": "Augmente le rayon de compétence"
+  },
   "protection_elite": {
     "nom": "Protection contre ennemi d'élite",
     "description": "Réduit les dégâts subis par les ennemis d'élite"
@@ -170,6 +174,10 @@
   "temps_rechargement_comp": {
     "nom": "Temps de rechargement compétence",
     "description": "Réduit le temps de rechargement de la compétence"
+  },
+  "protection_bonus_comp": {
+    "nom": "Protection bonus",
+    "description": "Donne de la protection bonus"
   },
   "sante_pour_competence": {
     "nom": "Santé de compétence",

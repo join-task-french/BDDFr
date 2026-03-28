@@ -749,6 +749,22 @@
       "resistance_impulsion"
     ]
   },
+  "protection_impulsion_mod_comp": {
+    "nom": "Protection contre l'impulsion",
+    "categorie": "defensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Résistance à l'impulsion",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "resistance_impulsion"
+    ]
+  },
   "protection_entrave_mod": {
     "nom": "Protection contre l'entrave",
     "categorie": "defensif",
@@ -763,6 +779,22 @@
     "selectionable": true,
     "statistiques": [
       "resistance_entrave"
+    ]
+  },
+  "protection_bonus_mod_comp": {
+    "nom": "Protection bonus",
+    "categorie": "defensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Protection bonus",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "protection_bonus_comp"
     ]
   },
   "reparation_subies_mod": {
@@ -838,6 +870,22 @@
     "unite": "%",
     "min": 1,
     "max": 10,
+    "description": "Réduit les dégâts subis par les explosions",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "resistance_explosions"
+    ]
+  },
+  "resistance_explosions_mod_comp": {
+    "nom": "Résistance - Explosions",
+    "categorie": "defensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
     "description": "Réduit les dégâts subis par les explosions",
     "estEssentiel": false,
     "selectionable": true,
@@ -1089,6 +1137,22 @@
       "maniement_arme"
     ]
   },
+  "maniement_d_arme_mod_comp": {
+    "nom": "Maniement d'arme",
+    "categorie": "offensif",
+    "cible": [
+      "competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "maniement_arme"
+    ]
+  },
   "maniement_d_arme_arm": {
     "nom": "Maniement d'arme",
     "categorie": "offensif",
@@ -1103,6 +1167,38 @@
     "selectionable": true,
     "statistiques": [
       "maniement_arme"
+    ]
+  },
+  "rayon_mod_comp": {
+    "nom": "Maniement d'arme",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "rayon"
+    ]
+  },
+  "degats_cible_non_abritees_mod_comp": {
+    "nom": "Dégâts sur cibles non abritées",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente les dégâts sur les cibles non abritées.",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_cible_non_abritee"
     ]
   },
   "degats_aux_protections_eqp": {

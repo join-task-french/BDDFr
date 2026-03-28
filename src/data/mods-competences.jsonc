@@ -159,12 +159,60 @@
       { "attribut": "recup_de_competence_mod" }
     ]
   },
-  "abri_intelligent_lanceur_intelligent": {
+  "abri_intelligent_lanceur_recharge": {
     "nom": "Lanceur d'abri intelligent amélioré",
     "competence": "abri_intelligent",
     "emplacement": "LANCEUR INTELLIGENT",
     "attributs": [
       { "attribut": "recharge_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_protection_bonus": {
+    "nom": "Éclat de placage réactif",
+    "competence": "abri_intelligent",
+    "emplacement": "LANCEUR INTELLIGENT",
+    "attributs": [
+      { "attribut": "protection_bonus_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_resistance_explo": {
+    "nom": "Éclat de placage réactif",
+    "competence": "abri_intelligent",
+    "emplacement": "LANCEUR INTELLIGENT",
+    "attributs": [
+      { "attribut": "resistance_explosions_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_resistance_impulsion": {
+    "nom": "Membrane de brouilleur de fréquences",
+    "competence": "abri_intelligent",
+    "emplacement": "LANCEUR INTELLIGENT",
+    "attributs": [
+      { "attribut": "protection_impulsion_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_maniement_arme": {
+    "nom": "Noeud de relai balistique",
+    "competence": "abri_intelligent",
+    "emplacement": "LANCEUR INTELLIGENT",
+    "attributs": [
+      { "attribut": "maniement_d_arme_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_rayon": {
+    "nom": "Lanceur d'abri intelligent amélioré",
+    "competence": "abri_intelligent",
+    "emplacement": "LANCEUR INTELLIGENT",
+    "attributs": [
+      { "attribut": "rayon_mod_comp" }
+    ]
+  },
+  "abri_intelligent_lanceur_dcna": {
+    "nom": "Noeud de relai balistique",
+    "competence": "abri_intelligent",
+    "emplacement": "LANCEUR INTELLIGENT",
+    "attributs": [
+      { "attribut": "degats_cible_non_abritees_mod_comp" }
     ]
   }
 }
