@@ -29,18 +29,30 @@
         "Projet open-source permettant a tout le monde de proposer des modifications",
         {
           "titre": "Ajout des marques",
-          "description": ""
+          "description": [
+            "Concentrated Company",
+            "Unit Alloys",
+            "Urban Lookout"
+          ]
         },
         {
           "titre": "Ajout des équipements",
-          "description": ""
+          "description": [
+            "Égalisatrice",
+            "Salve",
+            "Dans le mille",
+            "Élan",
+            "Fierté Harrier"
+          ]
         },
         {
           "titre": "Ajout des armes",
           "description": [
             "Vitesse supérieure",
             "Quickstep",
-            "Big Alejandro"
+            "Big Alejandro",
+            "Confinement",
+            "Écume"
           ]
         },
         {
@@ -48,10 +60,13 @@
           "description": [
             "Tireur à couvert *(Big Alejandro)*",
             "Mesure parfaite *(Vitesse supérieure)*",
-            "Mode vitesse *(Quickstep)*"
+            "Mode vitesse *(Quickstep)*",
+            "Immobilisation parfaite *(Confinement + Écume)*",
+            "Rééquilibre *(Fierté Harrier)*"
           ]
         },
-        "Ajout de la gestion des équipements de qualité prototypes"
+        "Ajout de la gestion des équipements de qualité prototypes",
+        "Ajout des talents prototypes"
       ]
     },
     {
