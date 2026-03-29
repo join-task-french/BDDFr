@@ -28,7 +28,7 @@
         },
         "prerequis": {
           "type": "string",
-          "description": "Clé de spécialisation requise pour utiliser ce mod (optionnel)"
+          "description": "Spécialisation requise pour utiliser ce mod (optionnel)"
         },
         "attributs": {
           "type": "array",
