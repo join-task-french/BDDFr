@@ -440,6 +440,22 @@
       "portee_scan"
     ]
   },
+  "portee_ruche_mod_comp": {
+    "nom": "Portée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la portée de la ruche",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "portee_ruche"
+    ]
+  },
   "cadence_de_tir_arm": {
     "nom": "Cadence de tir",
     "categorie": "utilitaire",
@@ -1554,6 +1570,22 @@
       "duree_competence"
     ]
   },
+  "duree_mod_comp_ruche": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
   "duree_entrave_mod_comp": {
     "nom": "Durée entrave",
     "categorie": "utilitaire",
@@ -1932,6 +1964,70 @@
       "soin"
     ]
   },
+  "soins_mod_comp_ruche": {
+    "nom": "Soins",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente les soins.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "soin"
+    ]
+  },
+  "charges_reparation_mod_comp": {
+    "nom": "Charges de réparation",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 4,
+    "description": "Augmente les charges.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "charges"
+    ]
+  },
+  "charges_stimulant_mod_comp": {
+    "nom": "Charges de stimulant",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 4,
+    "description": "Augmente les charges.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "charges"
+    ]
+  },
+  "charges_aiguillon_mod_comp": {
+    "nom": "Charges d'aiguillon",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 4,
+    "description": "Augmente les charges.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "charges"
+    ]
+  },
   "cibles_max_mod_comp_luciole": {
     "nom": "Cibles max",
     "categorie": "utilitaire",
@@ -1977,6 +2073,38 @@
     "selectionable": false,
     "statistiques": [
       "degats_competence"
+    ]
+  },
+  "degat_mod_comp_ruche": {
+    "nom": "Dégâts",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente les dégâts de la ruche",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "reparation_par_ruche_mod_comp": {
+    "nom": "Réparation par ruche ranimation",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les réparations de la ruche",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "reparation_ruche"
     ]
   },
   "mines_a_sous_munitions_mod_comp": {
