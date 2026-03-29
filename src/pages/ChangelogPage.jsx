@@ -4,6 +4,37 @@ import Loader from '../components/common/Loader'
 import { ChevronDown, ChevronRight } from 'lucide-react'
 import MarkdownText from "../components/common/MarkdownText.jsx";
 
+function parseDate(dateObj) {
+  // Accepte soit une string (YYYY-MM-DD), soit un objet {from, to}
+  if (!dateObj) return null
+  if (typeof dateObj === 'string') {
+    const [year, month, day] = dateObj.split('-').map(Number)
+    if (!year || !month || !day) return null
+    return new Date(year, month - 1, day)
+  }
+  if (typeof dateObj === 'object' && dateObj.from) {
+    const [year, month, day] = dateObj.from.split('-').map(Number)
+    if (!year || !month || !day) return null
+    return new Date(year, month - 1, day)
+  }
+  return null
+}
+
+function formatDateFr(dateObj) {
+  if (!dateObj) return ''
+  if (typeof dateObj === 'string') {
+    const d = parseDate(dateObj)
+    if (!d) return dateObj
+    return d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })
+  }
+  if (typeof dateObj === 'object' && dateObj.from && dateObj.to) {
+    const dFrom = parseDate(dateObj.from)
+    const dTo = parseDate(dateObj.to)
+    if (!dFrom || !dTo) return `${dateObj.from} - ${dateObj.to}`
+    return `${dFrom.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })} au ${dTo.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' })}`
+  }
+  return ''
+}
 
 export default function ChangelogPage() {
   const { data, loading, error, progress } = useDataLoader()
@@ -16,8 +47,18 @@ export default function ChangelogPage() {
     </div>
   )
 
-  const changelog = data.changelog || []
+  let changelog = data.changelog || []
   const meta = data.metadata || {}
+
+  // Trie le changelog par date décroissante (plus récente en premier)
+  changelog = changelog.slice().sort((a, b) => {
+    const da = parseDate(a.date)
+    const db = parseDate(b.date)
+    if (!da && !db) return 0
+    if (!da) return 1
+    if (!db) return -1
+    return db - da
+  })
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto">
@@ -97,7 +138,7 @@ function ChangelogEntry({ entry, isFirst, isLatest }) {
             >
               {open ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
             </button>
-            <span className={`text-sm font-bold uppercase tracking-wide ${isFirst ? 'text-shd' : 'text-gray-300'}`}>📅 {entry.date}</span>
+            <span className={`text-sm font-bold uppercase tracking-wide ${isFirst ? 'text-shd' : 'text-gray-300'}`}>📅 {formatDateFr(entry.date)}</span>
           </div>
           {hasPatch && (
             <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded uppercase tracking-widest">
