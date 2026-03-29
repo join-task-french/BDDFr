@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
 import {resolveIcon} from "../../utils/gameAssets.jsx";
 
 export default function MarkdownText({ children, className = "" }) {
+    const [zoomedImage, setZoomedImage] = useState(null);
+
     if (!children) return null
 
     const content = Array.isArray(children)
@@ -60,9 +63,10 @@ export default function MarkdownText({ children, className = "" }) {
                             if (!imageUrl) return null;
                         }
 
+                        // On n'active le zoom que pour les images de type "bloc" pour ne pas gêner la lecture des inline
                         const classes = isInline
-                            ? "h-[1.2em] w-auto inline-block align-middle object-contain"
-                            : "max-w-full h-auto rounded border border-tactical-border my-4 block mx-auto";
+                            ? "h-[1.2em] w-auto inline-block align-middle mx-1 -mt-1 rounded-sm object-contain"
+                            : "max-w-full h-auto rounded border border-tactical-border my-4 block mx-auto cursor-zoom-in hover:border-shd transition-colors";
 
                         return (
                             <img
@@ -70,6 +74,7 @@ export default function MarkdownText({ children, className = "" }) {
                                 loading="lazy"
                                 alt={alt || ''}
                                 src={imageUrl}
+                                onClick={isInline ? undefined : () => setZoomedImage(imageUrl)}
                                 {...props}
                             />
                         );
@@ -78,6 +83,20 @@ export default function MarkdownText({ children, className = "" }) {
             >
                 {content}
             </ReactMarkdown>
+
+            {/* Modal de zoom */}
+            {zoomedImage && (
+                <div
+                    className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 p-4 sm:p-8 cursor-zoom-out backdrop-blur-sm transition-all duration-300"
+                    onClick={() => setZoomedImage(null)}
+                >
+                    <img
+                        src={zoomedImage}
+                        alt="Zoomed preview"
+                        className="max-w-full max-h-full object-contain rounded shadow-2xl"
+                    />
+                </div>
+            )}
         </div>
     )
 }
