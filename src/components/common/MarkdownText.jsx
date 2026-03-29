@@ -42,23 +42,35 @@ export default function MarkdownText({ children, className = "" }) {
                     table: ({node, ...props}) => <div className="overflow-x-auto my-4"><table className="w-full text-left border-collapse text-sm text-gray-300" {...props} /></div>,
                     th: ({node, ...props}) => <th className="border-b border-tactical-border p-2 font-bold text-gray-200 uppercase tracking-wider bg-tactical-hover/50" {...props} />,
                     td: ({node, ...props}) => <td className="border-b border-tactical-border/30 p-2" {...props} />,
-                    img: ({node, ...props}) => {
-                        const src = props.src || '';
-                        let imageUrl = src;
+                    img: ({node, src, alt, ...props}) => {
+                        if (!src) return null;
 
-                        if (src.startsWith('slug:')) {
-                            const imageSlug = src.substring(5);
-                            console.log('icon : ' + imageSlug + " -> " + resolveIcon(imageSlug))
+                        const forceInline = src.includes('#inline');
+                        const forceBlock = src.includes('#block');
+
+                        const cleanSrc = src.replace('#inline', '').replace('#block', '');
+
+                        let isInline = forceInline || (cleanSrc.startsWith('slug:') && !forceBlock);
+                        let imageUrl = cleanSrc;
+
+                        if (cleanSrc.startsWith('slug:')) {
+                            const imageSlug = cleanSrc.substring(5);
                             imageUrl = resolveIcon(imageSlug);
+
+                            if (!imageUrl) return null;
                         }
+
+                        const classes = isInline
+                            ? "h-[1.2em] w-auto inline-block align-middle object-contain"
+                            : "max-w-full h-auto rounded border border-tactical-border my-4 block mx-auto";
 
                         return (
                             <img
-                                className="max-w-full h-auto rounded border border-tactical-border my-4"
+                                className={classes}
                                 loading="lazy"
-                                alt={props.alt || ''}
-                                {...props}
+                                alt={alt || ''}
                                 src={imageUrl}
+                                {...props}
                             />
                         );
                     },
