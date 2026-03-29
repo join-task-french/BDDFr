@@ -255,6 +255,10 @@
     "nom": "Vitesse de rechargement",
     "description": "Réduit le temps de rechargement"
   },
+  "vitesse_mod_comp": {
+    "nom": "Vitesse",
+    "description": "Augmente la vitesse de la compétence"
+  },
   "cadence_tir": {
     "nom": "Cadence de tir",
     "description": "Augmente la cadence de tir"
@@ -270,6 +274,10 @@
   "menace": {
     "nom": "Menace",
     "description": "Augmente ou réduit la menace"
+  },
+  "cibles_max": {
+    "nom": "Cibles max",
+    "description": "Augmente le nombre de cibles"
   },
   "bombes_supplementaires": {
     "nom": "Bombes supplémentaires",

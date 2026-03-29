@@ -1073,6 +1073,22 @@
       "recup_competence"
     ]
   },
+  "recup_de_competence_mod_comp_luciole": {
+    "nom": "Récup de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Réduit le temps de recharge de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "recup_competence"
+    ]
+  },
   "sante_pour_competence_eqp": {
     "nom": "Santé pour compétence",
     "categorie": "utilitaire",
@@ -1329,6 +1345,22 @@
       "degats_competence"
     ]
   },
+  "degats_mod_comp_luciole": {
+    "nom": "Dégâts",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente les dégâts de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
   "degats_aux_protections_eqp": {
     "nom": "Dégâts aux protections",
     "categorie": "offensif",
@@ -1458,6 +1490,22 @@
       "duree_competence"
     ]
   },
+  "duree_mod_comp_leurre": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
   "duree_mod_comp_lanceur_chimique": {
     "nom": "Durée",
     "categorie": "utilitaire",
@@ -1504,6 +1552,38 @@
     "selectionable": false,
     "statistiques": [
       "duree_effet"
+    ]
+  },
+  "duree_effet_aveuglement_mod_comp_luciole": {
+    "nom": "Durée effet aveuglement",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la durée de l'effet",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_effet"
+    ]
+  },
+  "vitesse_mod_comp": {
+    "nom": "Vitesse",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la vitesse de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "vitesse_mod_comp"
     ]
   },
   "duree_de_la_deviation_mod_comp": {
@@ -1740,6 +1820,22 @@
       "santee_competence"
     ]
   },
+  "sante_mod_comp_leurre": {
+    "nom": "Santé",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la santé de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
   "sante_mod_comp_impulsion": {
     "nom": "Santé",
     "categorie": "utilitaire",
@@ -1786,6 +1882,21 @@
     "selectionable": false,
     "statistiques": [
       "soin"
+    ]
+  },
+  "cibles_max_mod_comp_luciole": {
+    "nom": "Cibles max",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "description": "Augmente de nombre de cibles",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "cibles_max"
     ]
   },
   "degat_du_deflecteur_mod_comp": {

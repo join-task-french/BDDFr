@@ -150,13 +150,46 @@
       { "attribut": "intensite_brulure_mod_comp"}
     ]
   },
-  "luciole_charge_utile": {
-    "nom": "Charge utile de luciole",
+  "luciole_degats": {
+    "nom": "Dégâts",
     "competence": "luciole",
     "emplacement": "CHARGE UTILE",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "duree_de_competence_mod" }
+      { "attribut": "degats_mod_comp_luciole" }
+    ]
+  },
+  "luciole_duree_effet_aveuglement": {
+    "nom": "Durée effet aveuglement",
+    "competence": "luciole",
+    "emplacement": "CHARGE UTILE",
+    "attributs": [
+      { "attribut": "duree_effet_aveuglement_mod_comp_luciole" }
+    ]
+  },
+  "luciole_vitesse": {
+    "nom": "Vitesse",
+    "competence": "luciole",
+    "emplacement": "PROPULSION",
+    "attributs": [
+      { "attribut": "vitesse_mod_comp" }
+    ]
+  },
+  "luciole_recup_de_competence": {
+    "nom": "Récup de compétence",
+    "competence": "luciole",
+    "emplacement": "PROPULSION",
+    "attributs": [
+      { "attribut": "recup_de_competence_mod_comp_luciole" }
+    ]
+  },
+  "luciole_cibles_max": {
+    "nom": "Cibles max",
+    "competence": "luciole",
+    "emplacement": "DÉSIGNATION",
+    "attributs": [
+      { "attribut": "cibles_max_mod_comp_luciole",
+        "valeur": 1
+      }
     ]
   },
   "mine_teleguidee_entrainement": {
@@ -355,13 +388,20 @@
       { "attribut": "degats_mod_comp" }
     ]
   },
-  "leurre_logement": {
-    "nom": "Logement de leurre",
+  "leurre_sante": {
+    "nom": "Santé",
     "competence": "leurre",
     "emplacement": "LOGEMENT",
     "attributs": [
-      { "attribut": "duree_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "sante_mod_comp_leurre" }
+    ]
+  },
+  "leurre_duree": {
+    "nom": "Durée",
+    "competence": "leurre",
+    "emplacement": "PROJECTEUR",
+    "attributs": [
+      { "attribut": "duree_mod_comp_leurre" }
     ]
   },
   "abri_intelligent_lanceur_recharge": {
