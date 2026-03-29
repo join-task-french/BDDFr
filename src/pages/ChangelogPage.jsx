@@ -65,6 +65,7 @@ export default function ChangelogPage() {
 
 function ChangelogEntry({ entry, isFirst }) {
   const hasPatch = entry.patch && entry.patch.trim() !== ''
+  const [open, setOpen] = useState(true)
 
   return (
     <div className="relative pl-10 fade-in">
@@ -81,11 +82,20 @@ function ChangelogEntry({ entry, isFirst }) {
           ? 'border-shd/30'
           : 'border-tactical-border'
       }`}>
-        {/* En-tête date + patch */}
         <div className="px-4 py-2.5 border-b border-tactical-border/50 flex items-center justify-between flex-wrap gap-2">
-          <span className={`text-sm font-bold uppercase tracking-wide ${isFirst ? 'text-shd' : 'text-gray-300'}`}>
-            📅 {entry.date}
-          </span>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              aria-label={open ? 'Replier' : 'Déplier'}
+              className="text-shd/60 hover:text-shd transition-colors focus:outline-none"
+              onClick={() => setOpen(v => !v)}
+            >
+              {open ? <ChevronDown size={18} /> : <ChevronRight size={18} />}
+            </button>
+            <span className={`text-sm font-bold uppercase tracking-wide ${isFirst ? 'text-shd' : 'text-gray-300'}`}>
+              📅 {entry.date}
+            </span>
+          </div>
           {hasPatch && (
             <span className="text-xs font-bold text-emerald-400 bg-emerald-500/15 px-2 py-0.5 rounded uppercase tracking-widest">
               {entry.patch}
@@ -94,7 +104,7 @@ function ChangelogEntry({ entry, isFirst }) {
         </div>
 
         {/* Liste des changements */}
-        {entry.changements && entry.changements.length > 0 && (
+        {open && entry.changements && entry.changements.length > 0 && (
           <ul className="px-4 py-3 space-y-1.5">
             {entry.changements.map((change, i) => (
               <ChangeItem key={i} change={change} />
@@ -111,7 +121,6 @@ function ChangeItem({ change }) {
   const isObject = typeof change === 'object' && change !== null
   const [open, setOpen] = useState(true)
 
-  // Si c'est une chaîne, on l'affiche simplement (non repliable) avec rendu Markdown
   if (!isObject) {
     const raw = String(change || '').trim()
     return (
@@ -144,4 +153,3 @@ function ChangeItem({ change }) {
     </li>
   )
 }
-
