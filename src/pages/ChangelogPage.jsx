@@ -2,57 +2,8 @@ import { useMemo, useState } from 'react'
 import { useDataLoader } from '../hooks/useDataLoader'
 import Loader from '../components/common/Loader'
 import { ChevronDown, ChevronRight } from 'lucide-react'
+import MarkdownText from "../components/common/MarkdownText.jsx";
 
-// Convertit un sous-ensemble de Markdown en HTML sécurisé pour notre usage interne (données maîtrisées)
-function markdownToHtml(md = '') {
-  if (!md) return ''
-  let html = md
-    // Échapper les caractères HTML de base pour éviter l'injection
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    // Titres
-    .replace(/^###\s+(.+)$/gm, '<h3 class="text-sm font-bold text-gray-200 mt-3 mb-1">$1</h3>')
-    .replace(/^##\s+(.+)$/gm, '<h2 class="text-base font-bold text-gray-200 mt-3 mb-1">$1</h2>')
-    .replace(/^#\s+(.+)$/gm, '<h1 class="text-lg font-bold text-gray-200 mt-3 mb-1">$1</h1>')
-    // Gras / italique / code inline
-    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-gray-200">$1</strong>')
-    .replace(/(?<!\*)\*(?!\*)(.+?)(?<!\*)\*(?!\*)/g, '<em>$1</em>')
-    .replace(/`([^`]+)`/g, '<code class="px-1 py-0.5 bg-black/40 border border-tactical-border/50 rounded text-gray-200">$1</code>')
-    // Liens [txt](url)
-    .replace(/\[([^\]]+)\]\((https?:[^\)]+)\)/g, '<a href="$2" target="_blank" rel="noopener" class="text-shd hover:underline">$1</a>')
-
-  // Listes à puces et numérotées (très simple)
-  html = html
-    .replace(/(^|\n)(-\s+.+(?:\n-\s+.+)*)/g, (m) => {
-      const items = m
-        .trim()
-        .split(/\n/)
-        .map(l => l.replace(/^-\s+/, ''))
-        .map(li => `<li class="ml-4">${li}</li>`) // eslint-disable-line
-        .join('')
-      return `\n<ul class="list-disc text-gray-300">${items}</ul>`
-    })
-    .replace(/(^|\n)(\d+\.\s+.+(?:\n\d+\.\s+.+)*)/g, (m) => {
-      const items = m
-        .trim()
-        .split(/\n/)
-        .map(l => l.replace(/^\d+\.\s+/, ''))
-        .map(li => `<li class="ml-4">${li}</li>`) // eslint-disable-line
-        .join('')
-      return `\n<ol class="list-decimal text-gray-300">${items}</ol>`
-    })
-
-  // Sauts de ligne -> <br> (hors listes et titres déjà gérés)
-  html = html.replace(/\n/g, '<br/>')
-
-  return html
-}
-
-function MarkdownText({ text }) {
-  const html = useMemo(() => markdownToHtml(text), [text])
-  return <span dangerouslySetInnerHTML={{ __html: html }} />
-}
 
 export default function ChangelogPage() {
   const { data, loading, error, progress } = useDataLoader()
@@ -158,14 +109,14 @@ function ChangelogEntry({ entry, isFirst }) {
 
 function ChangeItem({ change }) {
   const isObject = typeof change === 'object' && change !== null
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(true)
 
   // Si c'est une chaîne, on l'affiche simplement (non repliable) avec rendu Markdown
   if (!isObject) {
     const raw = String(change || '').trim()
     return (
       <li className="flex flex-col gap-1 text-sm text-gray-300 leading-relaxed">
-        <MarkdownText text={raw} />
+        <MarkdownText>{raw}</MarkdownText>
       </li>
     )
   }
@@ -187,7 +138,7 @@ function ChangeItem({ change }) {
       </button>
       {open && (
         <div className="pl-6 text-gray-300">
-          <MarkdownText text={description} />
+            <MarkdownText>{description}</MarkdownText>
         </div>
       )}
     </li>
