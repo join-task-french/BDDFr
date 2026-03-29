@@ -1016,12 +1016,66 @@
       ],
       "categorie": "utilitaire",
       "levels": {
-        "base": "Toucher un ennemi confère {bonus_degats_comp} de dégâts de compétence pendant {duree_comp}.\nUtiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère {bonus_degats_arme} aux dégâts d'arme pendant {duree_arme}.\nLes augmentations sont doublées quand les deux buffs sont activés en même temps.",
+        "base": "Toucher un ennemi confère {bonus_degats_comp}% de dégâts de compétence pendant {duree_comp}s.\nUtiliser une compétence non-bouclier ou endommager un ennemi avec une compétence confère {bonus_degats_arme}% aux dégâts d'arme pendant {duree_arme}s.\nLes augmentations sont doublées quand les deux buffs sont activés en même temps.",
         "1": {
-          "bonus_degats_comp": "+15%",
-          "duree_comp": "5s",
-          "bonus_degats_arme": "+15%",
-          "duree_arme": "5s"
+          "bonus_degats_comp": 10,
+          "duree_comp": 5,
+          "bonus_degats_arme": 5,
+          "duree_arme": 5
+        },
+        "2": {
+          "bonus_degats_comp": 12,
+          "duree_comp": 5,
+          "bonus_degats_arme": 7,
+          "duree_arme": 5
+        },
+        "3": {
+          "bonus_degats_comp": 14,
+          "duree_comp": 5,
+          "bonus_degats_arme": 9,
+          "duree_arme": 5
+        },
+        "4": {
+          "bonus_degats_comp": 16,
+          "duree_comp": 5,
+          "bonus_degats_arme": 11,
+          "duree_arme": 5
+        },
+        "5": {
+          "bonus_degats_comp": 18,
+          "duree_comp": 5,
+          "bonus_degats_arme": 13,
+          "duree_arme": 5
+        },
+        "6": {
+          "bonus_degats_comp": 20,
+          "duree_comp": 5,
+          "bonus_degats_arme": 15,
+          "duree_arme": 5
+        },
+        "7": {
+          "bonus_degats_comp": 22,
+          "duree_comp": 5,
+          "bonus_degats_arme": 17,
+          "duree_arme": 5
+        },
+        "8": {
+          "bonus_degats_comp": 24,
+          "duree_comp": 5,
+          "bonus_degats_arme": 19,
+          "duree_arme": 5
+        },
+        "9": {
+          "bonus_degats_comp": 26,
+          "duree_comp": 5,
+          "bonus_degats_arme": 21,
+          "duree_arme": 5
+        },
+        "10": {
+          "bonus_degats_comp": 28,
+          "duree_comp": 5,
+          "bonus_degats_arme": 23,
+          "duree_arme": 5
         }
       }
     }
