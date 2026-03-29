@@ -192,23 +192,68 @@
       }
     ]
   },
-  "mine_teleguidee_entrainement": {
-    "nom": "Entraînement de mine téléguidée",
+  "mine_teleguidee_degats_entrainement": {
+    "nom": "Dégâts",
     "competence": "mine_teleguide",
     "emplacement": "ENTRAÎNEMENT",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "degat_mod_comp_mine" }
     ]
   },
-  "mine_teleguidee_survivaliste_designation": {
-    "nom": "Désignation de mine (Survivaliste)",
+  "mine_teleguidee_degats_charge_utile": {
+    "nom": "Dégâts",
+    "competence": "mine_teleguide",
+    "emplacement": "CHARGE UTILE",
+    "attributs": [
+      { "attribut": "degat_mod_comp_mine" }
+    ]
+  },
+  "mine_teleguidee_mines_a_sous_munitions": {
+    "nom": "Mines à sous-munitions",
+    "competence": "mine_teleguide",
+    "emplacement": "DÉSIGNATION",
+    "attributs": [
+      { "attribut": "mines_a_sous_munitions_mod_comp",
+        "valeur": 1
+      }
+    ]
+  },
+  "mine_teleguidee_sante": {
+    "nom": "Santé",
+    "competence": "mine_teleguide",
+    "emplacement": "DÉSIGNATION",
+    "attributs": [
+      { "attribut": "sante_mod_comp_mines_teleguidees" }
+    ]
+  },
+  "mine_teleguidee_recup_de_competence": {
+    "nom": "Récup de compétence",
+    "competence": "mine_teleguide",
+    "emplacement": "CHARGE UTILE",
+    "attributs": [
+      { "attribut": "recup_de_competence_mod_comp" }
+    ]
+  },
+  "mine_teleguidee_survivaliste_sante": {
+    "nom": "Santé",
     "competence": "mine_teleguide",
     "emplacement": "DÉSIGNATION",
     "prerequis": "survivaliste",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "sante_mod_comp_mines_teleguidees",
+        "valeur": 15
+      }
+    ]
+  },
+  "mine_teleguidee_survivaliste_soins": {
+    "nom": "Soins",
+    "competence": "mine_teleguide",
+    "emplacement": "CHARGE UTILE",
+    "prerequis": "survivaliste",
+    "attributs": [
+      { "attribut": "soin_mod_comp",
+        "valeur": 15
+      }
     ]
   },
   "drone_portee_scan": {
@@ -355,13 +400,20 @@
       { "attribut": "bonus_de_degats_mod_comp" }
     ]
   },
-  "piege_electronique": {
-    "nom": "Électronique de piège",
+  "piege_duree": {
+    "nom": "Durée",
+    "competence": "piege",
+    "emplacement": "CHARGE",
+    "attributs": [
+      { "attribut": "duree_mod_comp_piege" }
+    ]
+  },
+  "piege_rayon_electrocution": {
+    "nom": "Rayon d'électrocution",
     "competence": "piege",
     "emplacement": "ÉLECTRONIQUE",
     "attributs": [
-      { "attribut": "degats_de_competence_mod" },
-      { "attribut": "recup_de_competence_mod" }
+      { "attribut": "rayon_electrocution_mod_comp" }
     ]
   },
   "bombe_adhesive_lanceur_rayon_souffle": {

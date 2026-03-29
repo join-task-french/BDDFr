@@ -1281,6 +1281,22 @@
       "rayon"
     ]
   },
+  "rayon_electrocution_mod_comp": {
+    "nom": "Rayon",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente le rayon d'électrocution de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "rayon"
+    ]
+  },
   "rayon_mod_comp_lanceur_chimique": {
     "nom": "Rayon",
     "categorie": "utilitaire",
@@ -1515,6 +1531,22 @@
     "unite": "%",
     "min": 1,
     "max": 6,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "duree_mod_comp_piege": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
     "description": "Augmente la durée de la compétence",
     "estEssentiel": false,
     "selectionable": false,
@@ -1836,6 +1868,22 @@
       "santee_competence"
     ]
   },
+  "sante_mod_comp_mines_teleguidees": {
+    "nom": "Santé",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la santé de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
   "sante_mod_comp_impulsion": {
     "nom": "Santé",
     "categorie": "utilitaire",
@@ -1913,6 +1961,37 @@
     "selectionable": false,
     "statistiques": [
       "degats_du_deflecteur"
+    ]
+  },
+  "degat_mod_comp_mine": {
+    "nom": "Dégâts",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente les dégâts des mines téléguidées",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "mines_a_sous_munitions_mod_comp": {
+    "nom": "Mines à sous-munitions",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "",
+    "min": 1,
+    "description": "Augmente le nombres de mines téléguidées",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "mines_a_sous_munitions"
     ]
   },
   "regeneration_active_mod_comp": {
