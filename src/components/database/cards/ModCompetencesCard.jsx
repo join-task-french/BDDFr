@@ -17,7 +17,12 @@ export default function ModCompetencesCard({ item, allAttributs, competencesGrou
       <div className="w-1.5 shrink-0 bg-shd/30" />
       <div className="px-3 py-2.5 flex-1 min-w-0">
         <div className="flex flex-col gap-1 font-bold text-xs uppercase tracking-widest">
-          <span className="text-xs self-start font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">{ nomCompetence }</span>
+          <div className='flex flex-row gap-1'>
+            <span className="text-xs self-start font-bold text-yellow-400 bg-yellow-500/15 px-1.5 py-0.5 rounded uppercase tracking-widest">{ nomCompetence }</span>
+            { item.prerequis && (
+                <span className="text-xs self-start font-bold text-shd bg-shd-dark/15 px-1.5 py-0.5 rounded uppercase tracking-widest">{ item.prerequis }</span>
+            ) }
+          </div>
           <div className={"text-shd"}>
             <span className='truncate'>{item.nom || item.slug}</span>
           </div>
