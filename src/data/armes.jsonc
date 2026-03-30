@@ -4881,18 +4881,16 @@
     "headshot": 100,
     "degatsBase": 62700,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
-      "description": "Dégâts de pistolet"
+      "mission": true,
+      "description": "Récompense de Traque :\nTidal Basin : Le pacte\nMaître - 100% (la 1er fois)."
     },
     "estNomme": false,
     "talents": [
       "mesure"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
-    }
+    "emplacementsMods": {}
   },
   "flux_continu": {
     "nom": "Flux continu",
@@ -4901,11 +4899,12 @@
     "fabricant": "FN HERSTAL",
     "portee": 21,
     "rpm": 850,
-    "chargeur": 50,
+    "chargeur": 60,
     "rechargement": 1.43,
     "headshot": 50,
     "degatsBase": 39500,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
@@ -4915,12 +4914,7 @@
     "talents": [
       "conversation_ininterrompue"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court",
-      "bouche": "bouche"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "bouche_flux_continu",
       "optique_modifiee",
@@ -4940,6 +4934,7 @@
     "headshot": 50,
     "degatsBase": 35400,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
@@ -4950,12 +4945,7 @@
     "talents": [
       "souffle_ultime"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court",
-      "bouche": "bouche"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "regard_de_la_mort",
       "visage_de_la_mort",
@@ -4968,10 +4958,10 @@
     "description": "\"Car seuls ceux qui ont souffert peuvent ordonner la souffrance des autres !\"\n- Credo des Parias",
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
-    "notes": "#BackfireForever",
+    "notes": "#BackfireForever\nLes mods sont inclus dans les stats.",
     "portee": 22,
     "rpm": 850,
-    "chargeur": 30,
+    "chargeur": 50,
     "rechargement": 2.09,
     "headshot": 50,
     "degatsBase": 51000,
@@ -4985,12 +4975,7 @@
     "talents": [
       "paiement_en_nature"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court",
-      "bouche": "bouche"
-    },
+    "emplacementsMods": {},
     "modsPredefinis": [
       "visee_rapide",
       "chargeur_a_prise_barbelee",
@@ -5003,12 +4988,13 @@
     "type": "pistolet_mitrailleur",
     "fabricant": "TDI",
     "portee": 15,
-    "rpm": 1275,
+    "rpm": 1403,
     "chargeur": 50,
-    "rechargement": 2.2, //ok
+    "rechargement": 1.65,
     "headshot": 50,
     "degatsBase": 38300,
     "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
     "obtention": {
       "incursion": true,
       "represailles": "Black Tusk, Fin de mission",
@@ -5031,7 +5017,7 @@
     "type": "pistolet_mitrailleur",
     "fabricant": "Exotique",
     "portee": 32,
-    "notes": "Les mods sont inclus dans les stats",
+    "notes": "Les mods sont inclus dans les stats.",
     "rpm": 950,
     "chargeur": 50,
     "rechargement": 1.6,
@@ -5040,7 +5026,7 @@
     "estExotique": true,
     "obtention": {
       "butinCible": true,
-      "mission": true,
+      "cachesExotiques": true,
       "represailles": "Hyène, Escouade d'extermination"
     },
     "estNomme": false,
@@ -5518,86 +5504,69 @@
       "bouche": "bouche_9mm",
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_court"
-    },
-    "big_alejandro": {
-      "nom": "Big Alejandro",//TODO
-      "type": "fusil_mitrailleur",
-      "fabricant": "",
-      "portee": 0,
-      "rpm": 0,
-      "chargeur": 0,
-      "rechargement": 0,
-      "headshot": 0,
-      "degatsBase": 0,
-      "estExotique": true,
-      "estNomme": false,
-      "talents": [],
-      "emplacementsMods": [
-        "viseur",
-        "canon",
-        "chargeur",
-        "bouche"
-      ]
-    },
-    "rusty": {
-      "nom": "Rusty",
-      "type": "fusil_mitrailleur",
-      "fabricant": "",
-      "portee": 0,
-      "rpm": 0,
-      "chargeur": 0,
-      "rechargement": 0,
-      "headshot": 0,
-      "degatsBase": 0,
-      "estExotique": false,
-      "estNomme": true,
-      "talents": [],
-      "emplacementsMods": [
-        "viseur",
-        "canon",
-        "chargeur",
-        "bouche"
-      ]
-    },
-    "sonneur_de_cloches": {
-      "nom": "Sonneur de cloches",//TODO
-      "type": "fusil_mitrailleur",
-      "fabricant": "",
-      "portee": 0,
-      "rpm": 0,
-      "chargeur": 0,
-      "rechargement": 0,
-      "headshot": 0,
-      "degatsBase": 0,
-      "estExotique": false,
-      "estNomme": true,
-      "talents": [],
-      "emplacementsMods": [
-        "viseur",
-        "canon",
-        "chargeur",
-        "bouche"
-      ]
-    },
-    "vitesse_superieure": {
-      "nom": "Vitesse supérieure",//TODO
-      "type": "fusil_mitrailleur",
-      "fabricant": "",
-      "portee": 0,
-      "rpm": 0,
-      "chargeur": 0,
-      "rechargement": 0,
-      "headshot": 0,
-      "degatsBase": 0,
-      "estExotique": false,
-      "estNomme": true,
-      "talents": [],
-      "emplacementsMods": [
-        "viseur",
-        "canon",
-        "chargeur",
-        "bouche"
-      ]
     }
+  },
+  "big_alejandro": {
+    "nom": "Big Alejandro",//TODO
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": true,
+    "estNomme": false,
+    "talents": [],
+    "obtention": {
+      "description": "Evenement 10 ans de The division"
+    },
+    "emplacementsMods": {}
+  },
+  "rusty": {
+    "nom": "Rusty",
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": {}
+  },
+  "sonneur_de_cloches": {
+    "nom": "Sonneur de cloches",//TODO
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": {}
+  },
+  "vitesse_superieure": {
+    "nom": "Vitesse supérieure",//TODO
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 0,
+    "rpm": 0,
+    "chargeur": 0,
+    "rechargement": 0,
+    "headshot": 0,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [],
+    "emplacementsMods": {}
   }
 }
