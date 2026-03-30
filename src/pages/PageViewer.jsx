@@ -41,10 +41,14 @@ const availablePages = Object.entries(markdownFiles).map(([path, rawContent]) =>
     };
 });
 
+// Extraction de tous les tags uniques pour générer les boutons de filtre
+const allTags = Array.from(new Set(availablePages.flatMap(page => page.tags))).sort();
+
 export default function PageViewer() {
     const { pageId } = useParams();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
+    const [selectedTag, setSelectedTag] = useState(''); // État pour le tag sélectionné
 
     if (pageId) {
         const currentPage = availablePages.find(p => p.id === pageId);
@@ -100,18 +104,55 @@ export default function PageViewer() {
 
     const filteredPages = availablePages.filter(p => {
         const searchLower = searchTerm.toLowerCase();
-        return (
+
+        // Vérifie la recherche textuelle
+        const matchesSearch = searchTerm === '' ||
             p.title.toLowerCase().includes(searchLower) ||
             p.description.toLowerCase().includes(searchLower) ||
-            p.tags.some(tag => tag.toLowerCase().includes(searchLower))
-        );
+            p.tags.some(tag => tag.toLowerCase().includes(searchLower));
+
+        // Vérifie le tag sélectionné
+        const matchesTag = selectedTag === '' || p.tags.includes(selectedTag);
+
+        return matchesSearch && matchesTag;
     });
 
     return (
         <div className="p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto w-full flex flex-col h-full">
             <div className="mb-6 shrink-0">
                 <h2 className="text-2xl font-bold text-white uppercase tracking-widest mb-4">Bibliothèque de Documents</h2>
-                <SearchBar value={searchTerm} onChange={setSearchTerm} />
+
+                <div className="mb-4">
+                    <SearchBar value={searchTerm} onChange={setSearchTerm} />
+                </div>
+
+                {allTags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                        <button
+                            onClick={() => setSelectedTag('')}
+                            className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 ${
+                                selectedTag === ''
+                                    ? 'bg-shd/20 text-shd border-shd/40'
+                                    : 'bg-tactical-panel text-gray-400 border-tactical-border hover:border-gray-500 hover:text-gray-300'
+                            }`}
+                        >
+                            Tous
+                        </button>
+                        {allTags.map(tag => (
+                            <button
+                                key={tag}
+                                onClick={() => setSelectedTag(tag === selectedTag ? '' : tag)}
+                                className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 ${
+                                    selectedTag === tag
+                                        ? 'bg-shd/20 text-shd border-shd/40'
+                                        : 'bg-tactical-panel text-gray-400 border-tactical-border hover:border-gray-500 hover:text-gray-300'
+                                }`}
+                            >
+                                {tag}
+                            </button>
+                        ))}
+                    </div>
+                )}
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-max">
@@ -154,7 +195,7 @@ export default function PageViewer() {
                 ) : (
                     <div className="col-span-full py-12 text-center border border-dashed border-tactical-border rounded bg-tactical-panel/50">
                         <p className="text-gray-500 uppercase tracking-widest font-bold">
-                            Aucun document trouvé{searchTerm ? ` pour "${searchTerm}"` : ''}
+                            Aucun document trouvé
                         </p>
                     </div>
                 )}
