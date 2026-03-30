@@ -1004,6 +1004,9 @@
     "degatsBase": 48300,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Programme de parrainage"
+    },
     "talents": [
       "vif"
     ],
@@ -1901,6 +1904,9 @@
     "degatsBase": 256545,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
@@ -2217,6 +2223,9 @@
     "degatsBase": 389900,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
     "talents": [
       "martelement"
     ],
@@ -2988,6 +2997,9 @@
     "degatsBase": 433600,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de Lutins"
+    },
     "talents": [
       "lumieres_scintillantes"
     ],
@@ -3605,6 +3617,9 @@
     "degatsBase": 93000,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de Lutins"
+    },
     "talents": [
       "pierre_cachee"
     ],
@@ -5331,8 +5346,7 @@
     "headshot": 55,
     "degatsBase": 48700,
     "obtention": {
-      "butinCible": false,
-      "description": "Lors d'évenement"
+      "description": "Évènement limité"
     },
     "estExotique": false,
     "estNomme": true,
@@ -5396,6 +5410,9 @@
     "estExotique": false,
     "estNomme": true,
     "talents": [],
+    "obtention": {
+      "description": "Évènement limité"
+    },
     "emplacementsMods": {
       "chargeur": "chargeur_556",
       "viseur": "rail_optique",
@@ -5496,6 +5513,7 @@
     "headshot": 100,
     "degatsBase": 117400,
     "estNomme": true,
+
     "talents": [
       "mode_vitesse"
     ],
@@ -5506,7 +5524,7 @@
       "canon": "gadget"
     },
     "obtention": {
-      "description": "Évènement uniquement"
+      "description": "Évènement limité/Prime \"Houndsman\""
     }
   },
   "confinement": {
@@ -5592,6 +5610,9 @@
     "degatsBase": 63700,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_45_acp",
