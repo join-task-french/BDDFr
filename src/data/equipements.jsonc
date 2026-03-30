@@ -3807,6 +3807,17 @@
       "cachesExotiques": true,
       "represailles": "True sons, Escouade d'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "reparation_subies_eqp"
+      },
+      {
+        "nom": "regeneration_de_protection_eqp"
+      }
+    ],
     "talents": [
       "cercle_vicieux"
     ],
@@ -3821,6 +3832,17 @@
       "mission": true,
       "description": "Tuer l'un des boss nommés de Brooklyn ou dans la mission \"Army Terminal\""
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      },
+      {
+        "nom": "effets_d_etat_eqp"
+      }
+    ],
     "talents": [
       "agent_chimique"
     ],
@@ -3838,6 +3860,17 @@
       "represailles": "Hyènes, Escouade d'extermination",
       "description": "Tuer Coyote, boss de la mission Jefferson Trade Center"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "instinct_de_meute"
     ],
@@ -3853,6 +3886,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, Escouade d'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "hoarder"
     ],
@@ -3867,6 +3911,7 @@
       "utilitaire",
       "defensif"
     ],
+    "attributs": [],
     "mod": true,
     "obtention": {
       "butinCible": true,
@@ -3887,6 +3932,12 @@
       "butinCible": true,
       "cachesExotiques": true
     },
+    "attributEssentiel": [
+      "offensif",
+      "defensif",
+      "utilitaire"
+    ],
+    "attributs": [],
     "talents": [
       "reequilibre"
     ],
@@ -3901,6 +3952,17 @@
       "mission": true,
       "description": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "competences_de_reparation_eqp"
+      }
+    ],
     "talents": [
       "medecin_de_combat"
     ],
@@ -3916,6 +3978,17 @@
       "butinCible": true,
       "represailles": "Parias, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "degats_de_competence_eqp"
+      }
+    ],
     "talents": [
       "un_tiens_vaut_mieux",
       "que_deux_tu_l_auras"
@@ -3932,6 +4005,7 @@
       "utilitaire",
       "defensif"
     ],
+    "attributs": [],
     "mod": true,
     "obtention": {
       "butinCible": true,
@@ -3952,6 +4026,17 @@
       "cachesExotiques": true,
       "butinCible": true
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "lien"
     ],
@@ -3966,6 +4051,17 @@
       "mission": true,
       "description": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "abrege"
     ],
@@ -3981,6 +4077,17 @@
       "cachesExotiques": true,
       "description": "Obtenir 5 pièces lors de votre ascencion du summit dans les coffres à ouvrir avec une clef.\n\n33% de chance d'obtenir la pièce \"Protection corporelle 120\" lors des niveaux 1-20\n33% de chance d'obtenir la pièce \"Épaulières 2140\" lors des niveaux 21-40\n33% de chance d'obtenir \"Couteau de chasse 4160\" lors des niveaux 41-60\n33% de chance d'obtenir la pièce \"Drapeau 6180\" lors des niveaux 61-80\n33% de chance d'obtenir la pièce \"Plaques d'identité 81100\" lors des niveaux 81-100\nRendez-vous à l'étage 100 du summit, tuez les hunters pour valider le projet.\n\nComplétez le nouveau projet (prévoir un torse nommé Rien à foutre) pour obtenir le blueprint du torse"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "avantage_sanglant"
     ],
@@ -3995,6 +4102,17 @@
       "mission": true,
       "description": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "regeneration_de_protection_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "challenger"
     ],
@@ -4010,6 +4128,17 @@
       "butinCible": true,
       "represailles": "True Sons, fin de mission"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "regeneration_de_protection_eqp"
+      }
+    ],
     "talents": [
       "nano_plaquage_ablatif"
     ],
@@ -4025,6 +4154,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "charge_toxique"
     ],
@@ -4040,6 +4180,17 @@
       "butinCible": true,
       "represailles": "Hyènes, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "maillon_faible"
     ],
@@ -4055,6 +4206,17 @@
       "butinCible": true,
       "represailles": "True Sons, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "ecran_de_fumee"
     ],
@@ -4070,6 +4232,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "poigne_de_fer"
     ],
@@ -4085,6 +4258,17 @@
       "butinCible": true,
       "represailles": "True Sons, fin de mission"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "competences_de_reparation_eqp"
+      }
+    ],
     "talents": [
       "optimisation_de_transfert"
     ],
@@ -4100,6 +4284,17 @@
       "cachesExotiques": true,
       "represailles": "Rikers, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "exuberant"
     ],
@@ -4117,6 +4312,17 @@
       "mission": true,
       "description": "Récompense lors de l'élimination d'un boss Nettoyeurs, mission/summit"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "eclat_du_dragon"
     ],
@@ -4132,6 +4338,17 @@
       "cachesExotiques": true,
       "represailles": "True Sons, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "defibrillateur"
     ],
@@ -4147,6 +4364,17 @@
       "butinCible": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_competence_eqp"
+      },
+      {
+        "nom": "recup_de_competence_eqp"
+      }
+    ],
     "talents": [
       "courant_alternatif"
     ],
@@ -4162,6 +4390,17 @@
       "cachesExotiques": true,
       "represailles": "Hyènes, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "maniement_d_arme_eqp"
+      }
+    ],
     "talents": [
       "contre"
     ],
@@ -4177,6 +4416,17 @@
       "butinCible": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "esquive_reparatrice"
     ],
@@ -4192,6 +4442,17 @@
       "cachesExotiques": true,
       "description": "Achetez le projet à la vendeuse Inaya al-khaliq à côté de l'établi de fabrication [projet Holster: va vers l'ouest, Jeune Agent.]\n\nSe rendre au point contrôle \"station-service Riverside\" (situé à l'extrême ouest de la carte). Récuperez la \"Ceinture en cuir à blocage  rapide\" dans la caisse jaune de la réserve.\nDonnez la pièce à Inaya pour obtenir la suite.\n\n100% d'obtenir la pièce \"Holster en cuir travaillé\" sur un point de contrôle hyène de niveau 4.\n100% de chance d'obtenir la pièce \"Holster en cuir inversé\" sur un point de contrôle True sons de niveau 4.\n100% d'obtenir la pièce \"Protection antichoc huilé\" sur un point de contrôle Paria de niveau 4.\nDonnez les pièces à Inaya pour avoir la suite.\n\n100% de chance d'obtenir la pièce \"Rind\" sur un nommé Black Tusk.\nRendez vous dans le bar situé à l'est de la maison blanche. Le bar se situe sur la 15th St NW (il y a un ECHO dans le bar). Allez y après 12h00 ingame pour faire apparaitre le nommé en question (l'heure est dispo dans le mode photo. Echap -> maintenir F pour activer le mode)"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_headshot_eqp"
+      },
+      {
+        "nom": "maniement_d_arme_eqp"
+      }
+    ],
     "talents": [
       "gachette_facile"
     ],
@@ -4206,6 +4467,17 @@
       "mission": true,
       "description": "Traque Le pacte <Le sommet> Tidal Basin "
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "ostracisation"
     ],
@@ -4221,6 +4493,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "maniement_d_arme_eqp"
+      },
+      {
+        "nom": "sante_eqp"
+      }
+    ],
     "talents": [
       "plan_de_fuite"
     ],
@@ -4236,6 +4519,17 @@
       "butinCible": true,
       "represailles": "Hyènes, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "sante_eqp"
+      }
+    ],
     "talents": [
       "inflexibilite"
     ],
@@ -4246,9 +4540,15 @@
     "description": "\"Parkour ! Parkour !\"- Un messager NinjaBike enthousiaste",
     "emplacement": "genouilleres",
     "attributEssentiel": [
-      "offensif",
-      "defensif",
-      "utilitaire"
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
     ],
     "mod": false,
     "obtention": {
