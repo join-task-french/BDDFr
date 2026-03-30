@@ -5521,7 +5521,7 @@
     },
     "big_alejandro": {
       "nom": "Big Alejandro",//TODO
-      "type": "",
+      "type": "fusil_mitrailleur",
       "fabricant": "",
       "portee": 0,
       "rpm": 0,
@@ -5541,7 +5541,7 @@
     },
     "rusty": {
       "nom": "Rusty",
-      "type": "",
+      "type": "fusil_mitrailleur",
       "fabricant": "",
       "portee": 0,
       "rpm": 0,
@@ -5561,7 +5561,7 @@
     },
     "sonneur_de_cloches": {
       "nom": "Sonneur de cloches",//TODO
-      "type": "",
+      "type": "fusil_mitrailleur",
       "fabricant": "",
       "portee": 0,
       "rpm": 0,
@@ -5581,7 +5581,7 @@
     },
     "vitesse_superieure": {
       "nom": "Vitesse supérieure",//TODO
-      "type": "",
+      "type": "fusil_mitrailleur",
       "fabricant": "",
       "portee": 0,
       "rpm": 0,
