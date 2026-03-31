@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import { getWeaponTypeLabel, getWeaponEssentialAttributes, formatNumber, calculateMaxDamage } from '../../../utils/formatters'
-import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveIcon } from '../../../utils/gameAssets'
+import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveIcon } from '../../common/gameAssets.jsx'
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
