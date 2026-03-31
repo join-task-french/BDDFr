@@ -260,10 +260,9 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
             </div>
         )}
 
-        {/* Emplacements de mods disponibles (affiché seulement s'il n'y a PAS de mods prédéfinis) */}
         {(!item.modsPredefinis || item.modsPredefinis.length === 0) && item.emplacementsMods && Object.values(item.emplacementsMods).filter(Boolean).length > 0 && (
             <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1.5">
-              <div className="text-xs text-gray-600 uppercase tracking-widest font-bold">EMPLACEMENTS DE MODS DISPONIBLES</div>
+              <div className="text-xs text-gray-600 uppercase tracking-widest font-bold">Emplacements de mods</div>
               <div className="flex flex-col gap-2 mt-1">
                 {Object.keys(item.emplacementsMods).map((key, i) => {
                   const slotSlug = item.emplacementsMods[key]
