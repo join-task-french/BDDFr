@@ -2,10 +2,12 @@ import { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
+import { useNavigate } from 'react-router-dom'
 import {resolveIcon} from "./gameAssets.jsx";
 
 export default function MarkdownText({ children, className = "" }) {
     const [zoomedImage, setZoomedImage] = useState(null);
+    const navigate = useNavigate();
 
     if (!children) return null
 
@@ -28,7 +30,16 @@ export default function MarkdownText({ children, className = "" }) {
                     h5: ({node, ...props}) => <h5 className="text-base font-bold text-gray-300 mt-2 mb-2 uppercase tracking-wide" {...props} />,
                     h6: ({node, ...props}) => <h6 className="text-sm font-bold text-gray-400 mt-2 mb-2 uppercase tracking-wide" {...props} />,
                     p: ({node, ...props}) => <p className="mb-4 text-gray-300 leading-relaxed last:mb-0" {...props} />,
-                    a: ({node, ...props}) => <a className="text-shd underline hover:opacity-80 transition-opacity" {...props} />,
+                    a: ({node, href, children, ...props}) => {
+                        const isExternal = /^https?:\/\//.test(href || '');
+                        const linkClass = "text-shd underline hover:opacity-80 transition-opacity cursor-pointer";
+                        if (isExternal) {
+                            return <a className={linkClass} href={href} target="_blank" rel="noopener noreferrer" {...props}>{children}</a>;
+                        }
+                        const basePath = (import.meta.env.BASE_URL || '/').replace(/\/$/, '');
+                        const displayHref = basePath + (href || '');
+                        return <a className={linkClass} href={displayHref} onClick={(e) => { e.preventDefault(); navigate(href || ''); }} {...props}>{children}</a>;
+                    },
                     strong: ({node, ...props}) => <strong className="text-shd font-bold" {...props} />,
                     em: ({node, ...props}) => <em className="italic text-gray-400" {...props} />,
                     del: ({node, ...props}) => <del className="line-through text-gray-600" {...props} />,
@@ -36,8 +47,7 @@ export default function MarkdownText({ children, className = "" }) {
                     ol: ({node, ...props}) => <ol className="list-decimal pl-5 mb-4 text-gray-300 space-y-1 last:mb-0" {...props} />,
                     li: ({node, ...props}) => <li className="mb-0.5" {...props} />,
                     blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-shd pl-4 py-1 italic text-gray-400 bg-tactical-hover/30 my-4 rounded-r" {...props} />,
-                    code: ({node, inline, ...props}) =>
-                        inline
+                    code: ({node, inline, ...props}) => inline
                             ? <code className="bg-tactical-hover text-shd px-1.5 py-0.5 rounded text-sm font-mono" {...props} />
                             : <code className="block bg-transparent text-gray-300 p-0 text-sm font-mono overflow-x-auto" {...props} />,
                     pre: ({node, ...props}) => <pre className="bg-tactical-hover p-4 rounded my-4 overflow-x-auto border border-tactical-border" {...props} />,

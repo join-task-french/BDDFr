@@ -29,7 +29,7 @@
           "titre": "Correction de bugs",
           "description": [
             "Correction de l'URL de partage dans le build planner",
-            "Correction page blanche dans les outils de contributeurs : [Générateur Jsonc](./generator)",
+            "Correction page blanche dans les outils de contributeurs : [Générateur Jsonc](/generator)",
             "Correction de la génération d'images pour les embeds de réseaux sociaux"
           ]
         },
