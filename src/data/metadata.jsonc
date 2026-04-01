@@ -1,7 +1,7 @@
 // Métadonnées — The Division 2
 {
   "titre": "Base de données française — The Division 2",
-  "version": "TU : Y7S3.3",
+  "version": "TU : Y8S1",
   "maxExpertiseLevel": 30,
   "credits": [
     "Raven",
@@ -29,7 +29,9 @@
           "description": [
             "Correction de l'URL de partage dans le build planner",
             "Correction page blanche dans les outils de contributeurs : [Générateur Jsonc](/generator)",
-            "Correction de la génération d'images pour les embeds de réseaux sociaux"
+            "Correction de la génération d'images pour les embeds de réseaux sociaux",
+            "Correction de la barre de recherche qui perdait certains caractères écrit",
+            "Correction de l'affichage des armes avec des emplacement de mods pré-remplis ET emplacement de mods libres"
           ]
         },
         "### Changements saisonniers :",
