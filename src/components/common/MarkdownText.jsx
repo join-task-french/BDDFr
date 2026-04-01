@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
 import { useNavigate } from 'react-router-dom'
 import {resolveIcon} from "./gameAssets.jsx";
+import MermaidDiagram from "./MermaidDiagram.jsx";
 
 export default function MarkdownText({ children, className = "" }) {
     const [zoomedImage, setZoomedImage] = useState(null);
@@ -47,10 +48,22 @@ export default function MarkdownText({ children, className = "" }) {
                     ol: ({node, ...props}) => <ol className="list-decimal pl-5 mb-4 text-gray-300 space-y-1 last:mb-0" {...props} />,
                     li: ({node, ...props}) => <li className="mb-0.5" {...props} />,
                     blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-shd pl-4 py-1 italic text-gray-400 bg-tactical-hover/30 my-4 rounded-r" {...props} />,
-                    code: ({node, inline, ...props}) => inline
-                            ? <code className="bg-tactical-hover text-shd px-1.5 py-0.5 rounded text-sm font-mono" {...props} />
-                            : <code className="block bg-transparent text-gray-300 p-0 text-sm font-mono overflow-x-auto" {...props} />,
-                    pre: ({node, ...props}) => <pre className="bg-tactical-hover p-4 rounded my-4 overflow-x-auto border border-tactical-border" {...props} />,
+                    code: ({node, inline, className: codeClassName, children: codeChildren, ...props}) => {
+                        const match = /language-(\w+)/.exec(codeClassName || '')
+                        if (!inline && match && match[1] === 'mermaid') {
+                            return <MermaidDiagram chart={String(codeChildren).replace(/\n$/, '')} />
+                        }
+                        return inline
+                            ? <code className="bg-tactical-hover text-shd px-1.5 py-0.5 rounded text-sm font-mono" {...props}>{codeChildren}</code>
+                            : <code className="block bg-transparent text-gray-300 p-0 text-sm font-mono overflow-x-auto" {...props}>{codeChildren}</code>
+                    },
+                    pre: ({node, children: preChildren, ...props}) => {
+                        const child = Array.isArray(preChildren) ? preChildren[0] : preChildren
+                        if (child?.type === MermaidDiagram) {
+                            return child
+                        }
+                        return <pre className="bg-tactical-hover p-4 rounded my-4 overflow-x-auto border border-tactical-border" {...props}>{preChildren}</pre>
+                    },
                     hr: ({node, ...props}) => <hr className="my-8 border-t border-tactical-border/50" {...props} />,
                     table: ({node, ...props}) => <div className="overflow-x-auto my-4"><table className="w-full text-left border-collapse text-sm text-gray-300" {...props} /></div>,
                     th: ({node, ...props}) => <th className="border-b border-tactical-border p-2 font-bold text-gray-200 uppercase tracking-wider bg-tactical-hover/50" {...props} />,
@@ -73,7 +86,6 @@ export default function MarkdownText({ children, className = "" }) {
                             if (!imageUrl) return null;
                         }
 
-                        // On n'active le zoom que pour les images de type "bloc" pour ne pas gêner la lecture des inline
                         const classes = isInline
                             ? "h-[1.2em] w-auto inline-block align-middle mx-1 -mt-1 rounded-sm object-contain"
                             : "max-w-full h-auto rounded border border-tactical-border my-4 block mx-auto cursor-zoom-in hover:border-shd transition-colors";
