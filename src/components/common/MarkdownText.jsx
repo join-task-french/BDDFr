@@ -21,12 +21,12 @@ export default function MarkdownText({ children, className = "" }) {
                 remarkPlugins={[remarkGfm, remarkBreaks]}
                 urlTransform={(url) => url}
                 components={{
-                    h1: ({node, ...props}) => <h1 className="text-3xl font-bold text-white uppercase tracking-widest mt-8 mb-4 border-b border-tactical-border pb-2" {...props} />,
-                    h2: ({node, ...props}) => <h2 className="text-2xl font-bold text-gray-200 uppercase tracking-widest mt-8 mb-4 border-b border-tactical-border/50 pb-1" {...props} />,
-                    h3: ({node, ...props}) => <h3 className="text-xl font-bold text-shd mt-6 mb-3" {...props} />,
-                    h4: ({node, ...props}) => <h4 className="text-lg font-bold text-gray-300 mt-4 mb-2" {...props} />,
-                    h5: ({node, ...props}) => <h5 className="text-base font-bold text-gray-300 mt-4 mb-2 uppercase tracking-wide" {...props} />,
-                    h6: ({node, ...props}) => <h6 className="text-sm font-bold text-gray-400 mt-4 mb-2 uppercase tracking-wide" {...props} />,
+                    h1: ({node, ...props}) => <h1 className="text-3xl font-bold text-white uppercase tracking-widest mt-2 mb-4 border-b border-tactical-border pb-2" {...props} />,
+                    h2: ({node, ...props}) => <h2 className="text-2xl font-bold text-gray-200 uppercase tracking-widest mt-2 mb-4 border-b border-tactical-border/50 pb-1" {...props} />,
+                    h3: ({node, ...props}) => <h3 className="text-xl font-bold text-shd mt-2 mb-3" {...props} />,
+                    h4: ({node, ...props}) => <h4 className="text-lg font-bold text-gray-300 mt-2 mb-2" {...props} />,
+                    h5: ({node, ...props}) => <h5 className="text-base font-bold text-gray-300 mt-2 mb-2 uppercase tracking-wide" {...props} />,
+                    h6: ({node, ...props}) => <h6 className="text-sm font-bold text-gray-400 mt-2 mb-2 uppercase tracking-wide" {...props} />,
                     p: ({node, ...props}) => <p className="mb-4 text-gray-300 leading-relaxed last:mb-0" {...props} />,
                     a: ({node, ...props}) => <a className="text-shd underline hover:opacity-80 transition-opacity" {...props} />,
                     strong: ({node, ...props}) => <strong className="text-shd font-bold" {...props} />,

@@ -22,6 +22,45 @@
   ],
   "changelog": [
     {
+      "date": "2026-04-02",
+      "changements": [
+        "### Changements BDDFr :",
+        {
+          "titre": "Correction de bugs",
+          "description": [
+            "Correction de l'URL de partage dans le build planner",
+            "Correction page blanche dans les outils de contributeurs : [Générateur Jsonc](./generator)",
+            "Correction de la génération d'images pour les embeds de réseaux sociaux"
+          ]
+        },
+        "### Changements saisonniers :",
+        {
+          "titre": "Ajout des marques",
+          "description": [
+            ""
+          ]
+        },
+        {
+          "titre": "Ajout des équipements",
+          "description": [
+            ""
+          ]
+        },
+        {
+          "titre": "Ajout des armes",
+          "description": [
+            ""
+          ]
+        },
+        {
+          "titre": "Ajout des talents",
+          "description": [
+            ""
+          ]
+        }
+      ]
+    },
+    {
       "date": "2026-03-31",
       "patch": "Refonte total BDDFr",
       "changements": [
