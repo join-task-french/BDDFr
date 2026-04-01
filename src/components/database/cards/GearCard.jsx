@@ -204,9 +204,13 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                 <div className="flex flex-col gap-1 flex-1">
                   {resolvedEssentialAttrs.map((attr, i) => {
                     const ref = attr.ref;
-                    const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
-                    const val = isPrototype ? pMax : ref?.max;
+                    const pMax = ref?.prototypeMax ?? ref?.prototypeMax ?? ref?.max
+                    const maxVal = isPrototype ? pMax : ref?.max;
+
                     const min = ref?.min || 0;
+                    const pMin = ref?.prototypeMin ?? ref?.prototypeMin ?? ref?.max
+                    const minVal = isPrototype ? pMin : min;
+
                     const isSkillTier = attr.targetSlug === 'tiers_de_competence' || attr.slug === 'utilitaire';
                     return (
                         <div key={i} className="text-xs flex items-center gap-1.5 justify-between">
@@ -216,9 +220,9 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                           </div>
                           <span className={`font-bold ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
                             {isSkillTier ? (
-                                `+${val}`
+                                `+${maxVal}`
                             ) : (
-                                `${formatNumber(min)}${ref?.unite || ''} à ${formatNumber(val)}${ref?.unite || ''}`
+                                `${formatNumber(minVal)}${ref?.unite || ''} à ${formatNumber(maxVal)}${ref?.unite || ''}`
                             )}
                           </span>
                         </div>
@@ -242,9 +246,11 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                     ? allAttributs[attr.nom]
                     : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
                   const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
-                  const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
+                  const pMax = ref?.prototypeMax ?? ref?.prototypeMax ?? ref?.max
                   const max = isPrototype ? pMax : ref?.max
-                  const min = ref?.min || 0;
+
+                  const pMin = ref?.prototypeMin ?? ref?.prototypeMin ?? ref?.max
+                  const min = isPrototype ? pMin : ref?.min || 0;
                   const isOverMax = ref && val > max
                   return (
                     <div key={i} className="flex items-center justify-between text-xs">

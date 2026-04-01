@@ -175,7 +175,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
               {essentialAttrs.map((attr, i) => {
                 const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.value
                 const pMax = attr.maxPrototype ?? attr.prototypeMax ?? attr.max
-                const pMin = attr.minPrototype ?? attr.prototypeMin ?? attr.min
+                const pMin = attr.minPrototype ?? attr.prototypeMin ?? attr.max
                 const range = isPrototype ? `${pMin} à ${pMax}` : `${attr.min} à ${attr.max}`
                 return (
                   <div key={i} className="flex items-center justify-between text-xs">
