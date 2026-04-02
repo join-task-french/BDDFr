@@ -33,17 +33,16 @@ _note : le but de ce mode de jeu est la collecte de butin, utilisez tout le temp
 ```mermaid
 ---
 config:
-layout: elk
-look: handDrawn
-theme: dark
-flowchart:
-curve: linear
-elk:
-mergeEdges: true
-nodePlacementStrategy: NETWORK_SIMPLEX
-crossingMinimizationStrategy: LAYER_SWEEP
-nodeNode: 40
-nodeNodeBetweenLayers: 80
+    layout: elk
+    look: classic
+    flowchart:
+        curve: linear
+    elk:
+        mergeEdges: true
+        nodePlacementStrategy: NETWORK_SIMPLEX
+        crossingMinimizationStrategy: LAYER_SWEEP
+        nodeNode: 40
+        nodeNodeBetweenLayers: 80
 ---
 graph TD
     
