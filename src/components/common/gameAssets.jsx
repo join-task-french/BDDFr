@@ -110,14 +110,14 @@ function buildIndex(globResult) {
 }
 
 // Talents d'armes (classiques + exotiques)
-const _allAssets = import.meta.glob('../../img/game_assets/**/*.{png,jpg,jpeg,webp}', { eager: true })
+const _allAssets = import.meta.glob('../../img/**/*.{png,jpg,jpeg,webp}', { eager: true })
 export const ALL_ASSETS = buildIndex(_allAssets)
 
 /**
  * Résout l'icône d'un talent/compétence/marque/arme par son slug.
  * Cherche dans tous les index disponibles.
  */
-export function resolveIcon(slug) {
+export function resolveAsset(slug) {
   if (!slug) return null
   return ALL_ASSETS[slug] || null
 }

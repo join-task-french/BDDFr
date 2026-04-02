@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import { getWeaponTypeLabel, getWeaponEssentialAttributes, formatNumber, calculateMaxDamage } from '../../../utils/formatters'
-import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveIcon } from '../../common/gameAssets.jsx'
+import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveAsset } from '../../common/gameAssets.jsx'
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
@@ -88,7 +88,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const borderColor = isPrototype ? 'border-cyan-500/50' : ''
 
   // Priorité : icône personnalisée de l'arme > icône par défaut du type d'arme
-  const customIcon = resolveIcon(item.icon)
+  const customIcon = resolveAsset(item.icon)
   const typeIcon = customIcon || WEAPON_TYPE_ICONS[item.type]
 
   // Résoudre les attributs essentiels hérités du type d'arme

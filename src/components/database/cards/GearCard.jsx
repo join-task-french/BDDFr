@@ -1,7 +1,7 @@
 import {useMemo, useState, useEffect} from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import {getAttrCategoryLabel, getGearSlotLabel, formatNumber} from '../../../utils/formatters'
-import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveIcon} from '../../common/gameAssets.jsx'
+import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveAsset} from '../../common/gameAssets.jsx'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
 import MarkdownText from '../../common/MarkdownText'
@@ -144,8 +144,8 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
         <div className={`px-4 py-3 border-b ${isPrototype ? 'border-cyan-500/30 bg-cyan-500/5' : 'border-tactical-border/50'}`}>
           <div className="flex items-start gap-2">
             {/* Logo de la marque */}
-            {resolveIcon(ensemble?.icon) && (
-                <GameIcon src={resolveIcon(ensemble.icon)} alt="" size="w-10 h-10" className="rounded" />
+            {resolveAsset(ensemble?.icon) && (
+                <GameIcon src={resolveAsset(ensemble.icon)} alt="" size="w-10 h-10" className="rounded" />
             )}
 
             <div className='w-full'>

@@ -3,7 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
 import { useNavigate } from 'react-router-dom'
-import {resolveIcon} from "./gameAssets.jsx";
+import {resolveAsset} from "./gameAssets.jsx";
 import MermaidDiagram from "./MermaidDiagram.jsx";
 
 export default function MarkdownText({ children, className = "" }) {
@@ -81,7 +81,7 @@ export default function MarkdownText({ children, className = "" }) {
 
                         if (cleanSrc.startsWith('slug:')) {
                             const imageSlug = cleanSrc.substring(5);
-                            imageUrl = resolveIcon(imageSlug);
+                            imageUrl = resolveAsset(imageSlug);
 
                             if (!imageUrl) return null;
                         }
