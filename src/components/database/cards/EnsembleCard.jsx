@@ -1,4 +1,4 @@
-import {resolveAttributeIcon, GameIcon, resolveAsset} from '../../common/gameAssets.jsx'
+import {resolveAttributeIcon, GameIcon, resolveAsset} from '../../common/GameAssets.jsx'
 import TalentInline from './TalentInline'
 import MarkdownText from '../../common/MarkdownText'
 

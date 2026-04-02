@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation, Link } from 'react-router-dom'
 import Badge from '../../common/Badge'
 import { getGearSlotLabel } from '../../../utils/formatters'
-import { GEAR_SLOT_ICONS_IMG, resolveAsset, GameIcon } from '../../common/gameAssets.jsx'
+import { GEAR_SLOT_ICONS_IMG, resolveAsset, GameIcon } from '../../common/GameAssets.jsx'
 import MarkdownText from '../../common/MarkdownText'
 
 function hasContent(v) {

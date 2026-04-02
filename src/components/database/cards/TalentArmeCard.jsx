@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import {useParams, useSearchParams, useNavigate, useLocation, Link} from 'react-router-dom'
-import { resolveAsset, WEAPON_TYPE_ICONS, GameIcon } from '../../common/gameAssets.jsx'
+import { resolveAsset, WEAPON_TYPE_ICONS, GameIcon } from '../../common/GameAssets.jsx'
 import {InfoToolTip} from "../../common/InfoToolTip.jsx";
 import MarkdownText from '../../common/MarkdownText'
 

@@ -1,4 +1,4 @@
-import { resolveAsset, GameIcon } from '../../common/gameAssets.jsx'
+import { resolveAsset, GameIcon } from '../../common/GameAssets.jsx'
 import MarkdownText from '../../common/MarkdownText'
 
 export default function TalentPrototypeCard({ item }) {
