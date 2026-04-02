@@ -2723,5 +2723,10 @@
     "nom": "Mesure",
     "description": "Vous infligez 25% de dégâts accrus pendant 20s aprés que votre bouclier a été détruit.",
     "estExotique": true
+  },
+  "perturbation": {
+    "nom": "Perturbation",
+    "description": "Lorsque cette arme est **en étui**, vous générez **50% de menace en moins** quand vous tirez. Garder l'arme rangée pendant **10s** vous permet de l'armer. Une fois armée, le fait de prendre cette arme vous confère **+25% de cadence de tir**, **+30% de dégâts** et vous générez **+100% de menace en plus** pendant **20s**.\n\nChanger d'arme avant la fin de cet effet annule les bonus.",
+    "estExotique": true
   }
 }

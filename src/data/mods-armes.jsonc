@@ -2789,5 +2789,41 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "bouche_agitateur": {
+    "nom": "Bouche d'Agitateur",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_rechargement_arm",
+        "valeur": 50
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_agitateur": {
+    "nom": "Chargeur d'Agitateur",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 20
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "lunette_agitateur": {
+    "nom": "Chargeur d'Agitateur",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
   }
 }

@@ -5831,5 +5831,26 @@
       "chargeur": "bande_munitions",
       "bouche":"bouche"
     }
+  },
+  "agitateur": {
+    "nom": "Agitateur",//TODO a vérifier
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 31,
+    "rpm": 850,
+    "chargeur": 70,
+    "rechargement": 1.69,
+    "headshot": 88,
+    "degatsBase": 49100,
+    "estExotique": true,
+    "estNomme": false,
+    "talents": [
+      "perturbation"
+    ],
+    "modsPredefinis": [
+      "lunette_agitateur",
+      "chargeur_agitateur",
+      "bouche_agitateur"
+    ]
   }
 }
