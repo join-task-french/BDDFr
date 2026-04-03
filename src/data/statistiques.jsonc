@@ -75,6 +75,10 @@
     "nom": "Taille du chargeur",
     "description": "Augmente la capacité du chargeur"
   },
+  "taille_cone": {
+    "nom": "Taille cône",
+    "description": "Augmente la taille du cône de la compétence"
+  },
   "munitions_supplementaires": {
     "nom": "Munitions supplémentaires",
     "description": "Nombre de munitions supplémentaires dans le chargeur"
@@ -139,6 +143,22 @@
     "nom": "Résistance aux explosions",
     "description": "Réduit les dégâts subis par les explosions"
   },
+  "resistance_aveuglement_assourdissement": {
+    "nom": "Protection contre les aveuglements et assourdissements",
+    "description": "Résistance aux aveuglements et assourdissements"
+  },
+  "resistance_brulure": {
+    "nom": "Protection contre les brûlures",
+    "description": "Résistance aux brûlures"
+  },
+  "resistance_desorientation": {
+    "nom": "Protection contre les désorientations",
+    "description": "Résistance aux désorientations"
+  },
+  "resistance_saignement": {
+    "nom": "Protection contre les saignements",
+    "description": "Résistance aux saignements"
+  },
   "rayon": {
     "nom": "Rayon de compétence",
     "description": "Augmente le rayon de compétence"
@@ -191,6 +211,14 @@
     "nom": "Durée de compétence",
     "description": "Augmente la durée des compétences"
   },
+  "duree_effet": {
+    "nom": "Durée effet",
+    "description": "Augmente la durée de l'effet"
+  },
+  "duree_entrave": {
+    "nom": "Durée entrave",
+    "description": "Augmente la durée de l'entrave"
+  },
   "duree_de_la_deviation": {
     "nom": "Durée de la déviation",
     "description": "Augmente la durée de la déviation"
@@ -207,9 +235,17 @@
     "nom": "Santé de compétence",
     "description": "Augmente la santé des objets de compétence"
   },
+  "soin": {
+    "nom": "Soin",
+    "description": "Augmente les soins"
+  },
   "effets_etat": {
     "nom": "Effets d'état",
     "description": "Augmente la durée des effets d'état infligés"
+  },
+  "intensite_brulure": {
+    "nom": "Intensité de brûlure",
+    "description": "Augmente l'intensité de brûlure"
   },
   "portee_optimale_eqp": {
     "nom": "Portée optimale",
@@ -231,9 +267,17 @@
     "nom": "Portée scan",
     "description": "Augmente la portée du scan"
   },
+  "portee_ruche": {
+    "nom": "Portée de la ruche",
+    "description": "Augmente la portée de la ruche"
+  },
   "vitesse_rechargement": {
     "nom": "Vitesse de rechargement",
     "description": "Réduit le temps de rechargement"
+  },
+  "vitesse_mod_comp": {
+    "nom": "Vitesse",
+    "description": "Augmente la vitesse de la compétence"
   },
   "cadence_tir": {
     "nom": "Cadence de tir",
@@ -251,9 +295,29 @@
     "nom": "Menace",
     "description": "Augmente ou réduit la menace"
   },
+  "cibles_max": {
+    "nom": "Cibles max",
+    "description": "Augmente le nombre de cibles"
+  },
   "bombes_supplementaires": {
     "nom": "Bombes supplémentaires",
     "description": "Augmente le nombre de bombes"
+  },
+  "munitions_mortier_supplementaires": {
+    "nom": "mortier supplémentaires",
+    "description": "Augmente le nombre de munitions de mortier"
+  },
+  "mines_a_sous_munitions": {
+    "nom": "Mines à sous-munitions",
+    "description": "Augmente le nombre de mines à sous-munitions"
+  },
+  "reparation_ruche": {
+    "nom": "Réparation par ruches",
+    "description": "Augmente les réparations de la ruche"
+  },
+  "charges": {
+    "nom": "charges",
+    "description": "Augmente le nombre de charges de la ruche"
   }
 }
 

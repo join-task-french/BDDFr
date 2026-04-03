@@ -46,6 +46,33 @@
         "1": {
           "reset_chance": 25
         },
+        "2": {
+          "reset_chance": 30
+        },
+        "3": {
+          "reset_chance": 35
+        },
+        "4": {
+          "reset_chance": 40
+        },
+        "5": {
+          "reset_chance": 45
+        },
+        "6": {
+          "reset_chance": 50
+        },
+        "7": {
+          "reset_chance": 55
+        },
+        "8": {
+          "reset_chance": 60
+        },
+        "9": {
+          "reset_chance": 65
+        },
+        "10": {
+          "reset_chance": 70
+        },
         "base": "Les éliminations par compétence ont {reset_chance}% de probabilité de réinitialiser les recharges de compétence."
       }
     }
@@ -381,6 +408,10 @@
     "nom": "Dégaineur",
     "description": "Changer d'arme augmente le total de dégâts d'arme de 23% pendant 5s.\nCe buff se dissipe pendant 5s si vous changez d'arme pendant qu'il est actif.",
     "emplacement": "torse",
+    "perfectDescription": "Changer d'arme augmente le total de dégâts d'arme de 28% pendant 5s.\nCe buff se dissipe pendant 5s si vous changez d'arme pendant qu'il est actif.",
+    "equipementsParfaits": [
+      "robin"
+    ],
     "descente": {
       "boucles": [
         "Paresse"
@@ -624,7 +655,6 @@
           "duration": 14,
           "max_stacks": 30
         },
-
         "base": "Les coups critiques augmentent le total de dégâts d'arme de {damage_per_crit}% pendant {duration}s.\nPeut se cumuler jusqu'à {max_stacks} fois."
       }
     }
@@ -951,6 +981,51 @@
           "duration": 15,
           "cooldown": 60
         },
+        "2": {
+          "skill_tier": 1,
+          "duration": 16,
+          "cooldown": 58
+        },
+        "3": {
+          "skill_tier": 1,
+          "duration": 17,
+          "cooldown": 56
+        },
+        "4": {
+          "skill_tier": 1,
+          "duration": 18,
+          "cooldown": 54
+        },
+        "5": {
+          "skill_tier": 1,
+          "duration": 19,
+          "cooldown": 52
+        },
+        "6": {
+          "skill_tier": 1,
+          "duration": 20,
+          "cooldown": 50
+        },
+        "7": {
+          "skill_tier": 1,
+          "duration": 21,
+          "cooldown": 48
+        },
+        "8": {
+          "skill_tier": 1,
+          "duration": 22,
+          "cooldown": 46
+        },
+        "9": {
+          "skill_tier": 1,
+          "duration": 23,
+          "cooldown": 44
+        },
+        "10": {
+          "skill_tier": 1,
+          "duration": 24,
+          "cooldown": 42
+        },
         "base": "Utiliser un kit de protection confère +{skill_tier} en Tier de compétence pendant {duration}s.\nSi vous êtes déjà au Tier de compétence 6, donne surcharge.\nTemps de recharge : {cooldown}s"
       }
     }
@@ -970,8 +1045,44 @@
       "categorie": "utilitaire",
       "levels": {
         "1": {
-          "skill_damage": 25,
+          "skill_damage": 10,
+          "duration": 15
+        },
+        "2": {
+          "skill_damage": 20,
+          "duration": 16
+        },
+        "3": {
+          "skill_damage": 30,
+          "duration": 17
+        },
+        "4": {
+          "skill_damage": 40,
+          "duration": 18
+        },
+        "5": {
+          "skill_damage": 50,
+          "duration": 19
+        },
+        "6": {
+          "skill_damage": 60,
           "duration": 20
+        },
+        "7": {
+          "skill_damage": 70,
+          "duration": 21
+        },
+        "8": {
+          "skill_damage": 80,
+          "duration": 22
+        },
+        "9": {
+          "skill_damage": 90,
+          "duration": 23
+        },
+        "10": {
+          "skill_damage": 100,
+          "duration": 24
         },
         "base": "Les éliminations par compétence augmente le total de dégâts de compétence de {skill_damage}% pendant {duration}s."
       }
@@ -1648,6 +1759,10 @@
   "maitrise_de_soi": {
     "nom": "Maîtrise de soi",
     "description": "À couvert, augmente le total de dégâts d'arme de +15%.",
+    "perfectDescription": "À couvert, augmente le total de dégâts d'arme de +20%.",
+    "equipementsParfaits": [
+      "bulldog"
+    ],
     "emplacement": "sac_a_dos",
     "descente": {
       "boucles": [
@@ -2103,7 +2218,7 @@
   },
   "elimination_confirmee": {
     "nom": "Élimination confirmée",
-    "description": "Les ennemis éliminés génèrent un trophée. La récupération des trophées fournit à la fois un buff à court terme et à long terme.\nLe premier buff dépend du nombre d'attributs essentiels équipés et dure 10s :\n- Offensif : +5% de dégâts d'arme\n- Défensif : +10% de protection bonus\n- Utilitaire : +5% d'efficacité de compétence\nPour chaque trophée récupéré, vous obtenez en plus +1% de dégâts d'arme, +1% d'efficacité de compétence et 0,1% de régénération de protection pendant 300s.\nEffet cumulable 30 fois.",
+    "description": "Les ennemis éliminés génèrent un trophée. La récupération des trophées fournit à la fois un buff à court terme et à long terme.\nLe premier buff dépend du nombre d'attributs essentiels équipés et dure 10s :\n- ![offensif](slug:offensif)Offensif : +5% de dégâts d'arme\n- ![défensif](slug:defensif)Défensif : +10% de protection bonus\n- ![Utilitaire](slug:utilitaire)Utilitaire : +5% d'efficacité de compétence\nPour chaque trophée récupéré, vous obtenez en plus +1% de dégâts d'arme, +1% d'efficacité de compétence et 0,1% de régénération de protection pendant 300s.\nEffet cumulable 30 fois.",
     "emplacement": "sac_a_dos",
     "estExotique": true
   },
@@ -2832,5 +2947,27 @@
     "description": "Tirer sur un ennemi le marque pendant 7s.\nQuand un ennemi marqué meurt, vous recevez +3% de dégâts d'arme et +2% de dégâts de coup critique pour chaque allié ou compétence, y compris vous-même, ayant participé à l'élimination de cet ennemi.\nCumul maximum : 35.\nLes effets se dissipent toutes les 10s.\nMaximum de marques pouvant être appliquées : 4.",
     "emplacement": "gear_set",
     "gearSet": "concentrated_company"
+  },
+  "exercice_cordial": {
+    "nom": "Exercice cordial",
+    "description": "Pour chaque coeur sur vos pièces d'équipement, vous recevez **+40%** des deux autres bonus de doeur. Les Tiers de compétence comptent pour **15% d'efficacité de compétence** quand ces bonus sont appliqués.",
+    "emplacement": "gear_set"
+  },
+  "coeur_externe": {
+    "nom": "Coeur externe",
+    "description": "Ce talent ne modifie pas directement le talent **Exercice cordial**. Ce sac à dos comprend trois attributs essentiels",
+    "emplacement": "sac_a_dos"
+  },
+  "coeur_interne": {
+    "nom": "Coeur interne",
+    "description": "Augmente le pourcentage des bonus que vous recevez des autres coeurs de 40% à 75%.",
+    "emplacement": "torse"
+  },
+  "triple_emplacement": {
+    "nom": "Triple emplacement",
+    "description": "Vous recevez des bonus pour **chaque attribut non essentiel** de cet objet, selon la couleur :\n![offensif](slug:offensif)Offensif : **+10% de dégâts de coup critique**\n![Utilitaire](slug:utilitaire)Utilitaire : **+5% d'efficacité de compétence**\n![défensif](slug:defensif)Défensif : **+1% de régénération de protection**\n\nCet objet peut posséder n'importe quel attribut essentiel. Cet objet possède un troisième attribut aléatoire à la place d'un emplacement de mod d'équipement.\nCet objet ne peut pas posséder les attributs Dégâts de headshot, Santé ou Réparation de compétence.",
+    "notes": "PVP :\n![défensif](slug:defensif)Défensif : **+0.5% de régénération de protection**",
+    "emplacement": "masque",
+    "estExotique": true
   }
 }

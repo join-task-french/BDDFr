@@ -39,6 +39,9 @@
   "gadget": {
     "nom": "Gadget"
   },
+  "lateral": {
+    "nom": "latéral"
+  },
 
   "rail_optique_court": {
     "nom": "Rail optique court"
@@ -56,6 +59,9 @@
   "bouche_45_acp": {
     "nom": "Bouche .45 ACP"
   },
+  "bouche_45": {
+  "nom": "Bouche .45"
+},
   "bouche_9mm": {
     "nom": "Bouche 9mm"
   },
@@ -67,5 +73,8 @@
   },
   "bouche": {
     "nom": "Bouche"
+  },
+  "bouche_45": {
+    "nom": "Bouche .45"
   }
 }

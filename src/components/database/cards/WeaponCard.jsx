@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import { getWeaponTypeLabel, getWeaponEssentialAttributes, formatNumber, calculateMaxDamage } from '../../../utils/formatters'
-import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveIcon } from '../../../utils/gameAssets'
+import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveAsset } from '../../common/GameAssets.jsx'
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
@@ -36,7 +36,7 @@ function resolveTalents(item, talentsArmes) {
   })
 }
 
-export default function WeaponCard({ item, talentsArmes, allAttributs, armesType, modsArmes, isStatic }) {
+export default function WeaponCard({ item, talentsArmes, allAttributs, armesType, modsArmes, modsArmesType, isStatic }) {
   const params = useParams()
   const [searchParams] = useSearchParams()
   const navigate = useNavigate()
@@ -88,7 +88,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
   const borderColor = isPrototype ? 'border-cyan-500/50' : ''
 
   // Priorité : icône personnalisée de l'arme > icône par défaut du type d'arme
-  const customIcon = resolveIcon(item.icon)
+  const customIcon = resolveAsset(item.icon)
   const typeIcon = customIcon || WEAPON_TYPE_ICONS[item.type]
 
   // Résoudre les attributs essentiels hérités du type d'arme
@@ -175,7 +175,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
               {essentialAttrs.map((attr, i) => {
                 const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.value
                 const pMax = attr.maxPrototype ?? attr.prototypeMax ?? attr.max
-                const pMin = attr.minPrototype ?? attr.prototypeMin ?? attr.min
+                const pMin = attr.minPrototype ?? attr.prototypeMin ?? attr.max
                 const range = isPrototype ? `${pMin} à ${pMax}` : `${attr.min} à ${attr.max}`
                 return (
                   <div key={i} className="flex items-center justify-between text-xs">
@@ -191,34 +191,45 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
             </div>
         )}
 
-        {/* Attributs fixés */}
-        {item.attributs?.length > 0 && (
-            <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1">
-              {item.attributs.map((attr, i) => {
-                const ref = allAttributs && !Array.isArray(allAttributs) 
-                  ? allAttributs[attr.nom] 
-                  : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
-                const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
-                const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
-                const max = isPrototype ? pMax : ref?.max
-                const isOverMax = ref && val > max
-                const displayName = ref?.nom || attr.nom
+        {/* Attributs fixés + attributs aléatoires */}
+        {(() => {
+          const fixedAttrs = item.attributs?.length > 0 ? item.attributs : []
+          const randomSlots = Math.max(0, 1 - fixedAttrs.length)
+          if (fixedAttrs.length === 0 && randomSlots === 0) return null
 
-                return (
-                    <div key={i} className="flex items-center justify-between text-xs">
-                <span className="flex items-center gap-1.5 text-gray-400">
-                  <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
-                  {displayName}
-                </span>
-                      <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
-                  {val}{ref?.unite || ''}
-                        {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {max}{ref.unite})</span>}
-                </span>
+          return (
+              <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1">
+                {fixedAttrs.map((attr, i) => {
+                  const ref = allAttributs && !Array.isArray(allAttributs)
+                      ? allAttributs[attr.nom]
+                      : allAttributs?.find(a => a.slug === attr.nom || a.nom.toLowerCase() === attr.nom.toLowerCase())
+                  const val = isPrototype && attr.prototypeValue !== undefined ? attr.prototypeValue : attr.valeur
+                  const pMax = ref?.maxPrototype ?? ref?.prototypeMax ?? ref?.max
+                  const max = isPrototype ? pMax : ref?.max
+                  const isOverMax = ref && val > max
+                  const displayName = ref?.nom || attr.nom
+
+                  return (
+                      <div key={i} className="flex items-center justify-between text-xs">
+                        <span className="flex items-center gap-1.5 text-gray-400">
+                          <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
+                          {displayName}
+                        </span>
+                        <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
+                          {val}{ref?.unite || ''}
+                          {isOverMax && <span className="ml-1 text-xs text-yellow-500">(max {max}{ref.unite})</span>}
+                        </span>
+                      </div>
+                  )
+                })}
+                {randomSlots > 0 && (
+                    <div className="flex items-center text-xs">
+                      <span className="text-gray-500 italic">{randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}</span>
                     </div>
-                )
-              })}
-            </div>
-        )}
+                )}
+              </div>
+          )
+        })()}
 
         {/* Talents résolus */}
         {resolvedTalents.length > 0 && (
@@ -233,28 +244,84 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         {item.modsPredefinis?.length > 0 && modsArmes && (
             <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1.5">
               <div className="text-xs text-gray-600 uppercase tracking-widest font-bold">Mods prédéfinis</div>
-              {item.modsPredefinis.map((slug, i) => {
-                const mod = modsArmes && !Array.isArray(modsArmes) ? modsArmes[slug] : modsArmes.find(m => m.slug === slug)
-                if (!mod) return (
-                    <div key={i} className="text-xs text-gray-500 italic">{slug}</div>
-                )
-                const stats = formatModAttributs(mod, allAttributs)
-                return (
-                    <div key={i} className="flex flex-col text-xs">
-                      <div className="flex items-start gap-2">
-                        <span className="text-shd font-bold shrink-0">{mod.nom}</span>
-                        {stats && <span className="text-emerald-400/80">{stats}</span>}
+              <div className="flex flex-col gap-2 mt-1">
+                {item.modsPredefinis.map((slug, i) => {
+                  const mod = modsArmes && !Array.isArray(modsArmes) ? modsArmes[slug] : modsArmes.find(m => m.slug === slug)
+                  if (!mod) return (
+                      <div key={i} className="text-xs text-gray-500 italic">{slug}</div>
+                  )
+                  const stats = formatModAttributs(mod, allAttributs)
+                  return (
+                      <div key={i} className="flex items-center justify-between text-xs">
+                        <span className="text-shd font-bold">{mod.nom}</span>
+                        {stats ? <span className="text-emerald-400/80">{stats}</span> : null}
                       </div>
-                      {hasContent(mod.notes) && (
-                          <MarkdownText className="mt-0.5 text-xs text-gray-500 italic leading-relaxed border-l border-tactical-border/30 pl-2 ml-1">
-                            {mod.notes}
-                          </MarkdownText>
-                      )}
-                    </div>
-                )
-              })}
+                  )
+                })}
+                {item.modsPredefinis.map((slug, i) => {
+                  const mod = modsArmes && !Array.isArray(modsArmes) ? modsArmes[slug] : modsArmes.find(m => m.slug === slug)
+                  if (!mod) return null
+                  return hasContent(mod.notes) ? (
+                      <MarkdownText key={`notes-${i}`} className="mt-0.5 text-xs text-gray-500 italic leading-relaxed border-l border-tactical-border/30 pl-2 ml-1">
+                        {mod.notes}
+                      </MarkdownText>
+                  ) : null
+                })}
+              </div>
             </div>
         )}
+
+        {/* Emplacements de mods sans valeur par défaut */}
+        {(() => {
+          const slots = item.emplacementsMods
+          if (!slots || Object.values(slots).filter(Boolean).length === 0) return null
+
+          // Compter combien de mods prédéfinis remplissent chaque catégorie d'emplacement
+          const filledCount = {}
+          if (item.modsPredefinis?.length > 0 && modsArmes) {
+            item.modsPredefinis.forEach(slug => {
+              const mod = modsArmes && !Array.isArray(modsArmes) ? modsArmes[slug] : modsArmes?.find(m => m.slug === slug)
+              if (mod?.type) {
+                filledCount[mod.type] = (filledCount[mod.type] || 0) + 1
+              }
+            })
+          }
+
+          // Déterminer les emplacements restants (non couverts par les mods prédéfinis)
+          const remaining = {}
+          const usedCount = {}
+          Object.keys(slots).forEach(key => {
+            if (!slots[key]) return
+            const category = key
+            usedCount[category] = (usedCount[category] || 0) + 1
+            const alreadyFilled = filledCount[category] || 0
+            if (usedCount[category] > alreadyFilled) {
+              remaining[key] = slots[key]
+            }
+          })
+
+          if (Object.keys(remaining).length === 0) return null
+
+          return (
+            <div className="px-4 py-2 border-t border-tactical-border/50 space-y-1.5">
+              <div className="text-xs text-gray-600 uppercase tracking-widest font-bold">Emplacements de mods</div>
+              <div className="flex flex-col gap-2 mt-1">
+                {Object.keys(remaining).map((key, i) => {
+                  const slotSlug = remaining[key]
+                  const slotDef = modsArmesType && !Array.isArray(modsArmesType) ? modsArmesType[slotSlug] : (modsArmesType || []).find(m => m.slug === slotSlug)
+                  const slotName = slotDef?.nom || (slotSlug ? slotSlug.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : '')
+                  const slotTypeLabel = key ? String(key).replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase()) : ''
+                  return (
+                      <div key={i} className="flex items-center justify-between text-xs">
+                        <span className="text-shd font-bold">{slotTypeLabel}</span>
+                        {slotName ? <span className="text-gray-400">{slotName}</span> : null}
+                      </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })()}
 
         {/* Obtention */}
         <div className="flex-1" />

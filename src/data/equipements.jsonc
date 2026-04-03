@@ -727,7 +727,10 @@
     "mod": false,
     "talents": ["rafale"],
     "estNomme": true,
-    "type": "standard"
+    "type": "standard",
+    "obtention": {
+      "description": "Eliminations de lutins"
+    }
   },
   "respirateur_new_face": {
     "nom": "Respirateur \"New Face\"",
@@ -875,6 +878,12 @@
     "marque": "gila_guard",
     "mod": 2,
     "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de lutins"
+    },
+    "attributs": [
+      {}
+    ],
     "attributEssentiel": [
       "defensif"
     ],
@@ -976,7 +985,10 @@
     "mod": true,
     "talents": ["intimidation"],
     "type": "standard",
-    "estNomme": true
+    "estNomme": true,
+    "obtention": {
+      "description": "Coffre Blanchâtre via Hunter New York\nDisponible ensuite chez Cassie Mendoza"
+    }
   },
   "sac_a_dos_chemar": {
     "nom": "Sac à dos Chemar",
@@ -1066,7 +1078,10 @@
     "mod": true,
     "talents": ["spectacle_pyrotechnique"],
     "type": "standard",
-    "estNomme": true
+    "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de lutins"
+    }
   },
   "gants_d_attaque_dusk": {
     "nom": "Gants d'attaque Dusk",
@@ -1436,7 +1451,7 @@
     ],
     "attributs": [
       {
-        "nom": "poucentage_regeneration_de_protection_eqp",
+        "nom": "pourcentage_regeneration_de_protection_eqp",
         "valeur": 1
       },
       {}
@@ -1966,7 +1981,10 @@
     "mod": true,
     "talents": ["poussee_d_adrenaline"],
     "type": "standard",
-    "estNomme": true
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    }
   },
   "gilet_balistique": {
     "nom": "Gilet balistique",
@@ -2581,7 +2599,10 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "masque_remodele": {
     "nom": "Masque remodelé",
@@ -2589,7 +2610,10 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
   },
   "sac_a_dos_reorganise": {
     "nom": "Sac à dos réorganisé",
@@ -2597,7 +2621,10 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "gilet_optimise": {
     "nom": "Gilet optimisé",
@@ -2605,7 +2632,10 @@
     "emplacement": "torse",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
   },
   "gants_revisite": {
     "nom": "Gants revisités",
@@ -2613,7 +2643,10 @@
     "emplacement": "gants",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "holster_corrige": {
     "nom": "Holster corrigé",
@@ -2621,7 +2654,10 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
   },
   "genouilleres_remodelees": {
     "nom": "Genouillères remodelées",
@@ -2629,7 +2665,10 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "masque_final": {
     "nom": "Masque Final",
@@ -3569,7 +3608,10 @@
     "emplacement": "masque",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
   },
   "conteneur_de_surcharge": {
     "nom": "Conteneur de surcharge",
@@ -3577,7 +3619,10 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "armure_menace_combinee": {
     "nom": "Armure menace combinée",
@@ -3585,7 +3630,10 @@
     "emplacement": "torse",
     "mod": true,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "gants_de_controle_haptique": {
     "nom": "Gants de contrôle Haptique",
@@ -3593,7 +3641,10 @@
     "emplacement": "gants",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
   },
   "holster_moule": {
     "nom": "Holster moulé",
@@ -3601,7 +3652,10 @@
     "emplacement": "holster",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
   },
   "genouilliere_zero_day": {
     "nom": "Genouillière Zero-day",
@@ -3609,7 +3663,10 @@
     "emplacement": "genouilleres",
     "mod": false,
     "talents": [],
-    "type": "gear_set"
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
   },
   "masque_cavalier": {
     "nom": "Masque Cavalier",
@@ -3763,9 +3820,19 @@
     "obtention": {
       "butinCible": true,
       "cachesExotiques": true,
-      "mission": true,
       "represailles": "True sons, Escouade d'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "reparation_subies_eqp"
+      },
+      {
+        "nom": "regeneration_de_protection_eqp"
+      }
+    ],
     "talents": [
       "cercle_vicieux"
     ],
@@ -3777,9 +3844,20 @@
     "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "mission": "Army Terminal"
-
+      "mission": true,
+      "description": "Tuer l'un des boss nommés de Brooklyn ou dans la mission \"Army Terminal\""
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      },
+      {
+        "nom": "effets_d_etat_eqp"
+      }
+    ],
     "talents": [
       "agent_chimique"
     ],
@@ -3794,8 +3872,20 @@
       "butinCible": true,
       "cachesExotiques": true,
       "mission": true,
-      "represailles": "Hyènes, Escouade d'extermination"
+      "represailles": "Hyènes, Escouade d'extermination",
+      "description": "Tuer Coyote, boss de la mission Jefferson Trade Center"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "instinct_de_meute"
     ],
@@ -3811,6 +3901,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, Escouade d'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "hoarder"
     ],
@@ -3825,6 +3926,7 @@
       "utilitaire",
       "defensif"
     ],
+    "attributs": [],
     "mod": true,
     "obtention": {
       "butinCible": true,
@@ -3845,6 +3947,12 @@
       "butinCible": true,
       "cachesExotiques": true
     },
+    "attributEssentiel": [
+      "offensif",
+      "defensif",
+      "utilitaire"
+    ],
+    "attributs": [],
     "talents": [
       "reequilibre"
     ],
@@ -3856,8 +3964,20 @@
     "emplacement": "sac_a_dos",
     "mod": true,
     "obtention": {
-     "mission": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island"
+      "mission": true,
+      "description": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "competences_de_reparation_eqp"
+      }
+    ],
     "talents": [
       "medecin_de_combat"
     ],
@@ -3873,6 +3993,17 @@
       "butinCible": true,
       "represailles": "Parias, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "degats_de_competence_eqp"
+      }
+    ],
     "talents": [
       "un_tiens_vaut_mieux",
       "que_deux_tu_l_auras"
@@ -3889,6 +4020,7 @@
       "utilitaire",
       "defensif"
     ],
+    "attributs": [],
     "mod": true,
     "obtention": {
       "butinCible": true,
@@ -3909,6 +4041,17 @@
       "cachesExotiques": true,
       "butinCible": true
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "lien"
     ],
@@ -3920,8 +4063,20 @@
     "emplacement": "masque",
     "mod": true,
     "obtention": {
-      "mission": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
+      "mission": true,
+      "description": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "abrege"
     ],
@@ -3933,8 +4088,21 @@
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "mission": "Projet du Summit"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Obtenir 5 pièces lors de votre ascencion du summit dans les coffres à ouvrir avec une clef.\n\n33% de chance d'obtenir la pièce \"Protection corporelle 120\" lors des niveaux 1-20\n33% de chance d'obtenir la pièce \"Épaulières 2140\" lors des niveaux 21-40\n33% de chance d'obtenir \"Couteau de chasse 4160\" lors des niveaux 41-60\n33% de chance d'obtenir la pièce \"Drapeau 6180\" lors des niveaux 61-80\n33% de chance d'obtenir la pièce \"Plaques d'identité 81100\" lors des niveaux 81-100\nRendez-vous à l'étage 100 du summit, tuez les hunters pour valider le projet.\n\nComplétez le nouveau projet (prévoir un torse nommé Rien à foutre) pour obtenir le blueprint du torse"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "avantage_sanglant"
     ],
@@ -3946,8 +4114,20 @@
     "emplacement": "torse",
     "mod": true,
     "obtention": {
-      "mission": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
+      "mission": true,
+      "description": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "regeneration_de_protection_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "challenger"
     ],
@@ -3963,6 +4143,17 @@
       "butinCible": true,
       "represailles": "True Sons, fin de mission"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "regeneration_de_protection_eqp"
+      }
+    ],
     "talents": [
       "nano_plaquage_ablatif"
     ],
@@ -3978,6 +4169,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "charge_toxique"
     ],
@@ -3993,6 +4195,17 @@
       "butinCible": true,
       "represailles": "Hyènes, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "maillon_faible"
     ],
@@ -4008,6 +4221,17 @@
       "butinCible": true,
       "represailles": "True Sons, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "ecran_de_fumee"
     ],
@@ -4023,6 +4247,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "poigne_de_fer"
     ],
@@ -4038,6 +4273,17 @@
       "butinCible": true,
       "represailles": "True Sons, fin de mission"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "competences_de_reparation_eqp"
+      }
+    ],
     "talents": [
       "optimisation_de_transfert"
     ],
@@ -4053,6 +4299,17 @@
       "cachesExotiques": true,
       "represailles": "Rikers, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "exuberant"
     ],
@@ -4066,8 +4323,21 @@
     "obtention": {
       "cachesExotiques": true,
       "butinCible": true,
-      "represailles": "Nettoyeurs, Escouade D'extermination"
+      "represailles": "Nettoyeurs, Escouade D'extermination",
+      "mission": true,
+      "description": "Récompense lors de l'élimination d'un boss Nettoyeurs, mission/summit"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "eclat_du_dragon"
     ],
@@ -4083,6 +4353,17 @@
       "cachesExotiques": true,
       "represailles": "True Sons, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
     "talents": [
       "defibrillateur"
     ],
@@ -4098,6 +4379,17 @@
       "butinCible": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_competence_eqp"
+      },
+      {
+        "nom": "recup_de_competence_eqp"
+      }
+    ],
     "talents": [
       "courant_alternatif"
     ],
@@ -4113,6 +4405,17 @@
       "cachesExotiques": true,
       "represailles": "Hyènes, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "maniement_d_arme_eqp"
+      }
+    ],
     "talents": [
       "contre"
     ],
@@ -4128,6 +4431,17 @@
       "butinCible": true,
       "represailles": "Parias, fin de mission"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "esquive_reparatrice"
     ],
@@ -4139,8 +4453,21 @@
     "emplacement": "holster",
     "mod": false,
     "obtention": {
-      "mission": "Project donné par le vendeur de schéma"
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Achetez le projet à la vendeuse Inaya al-khaliq à côté de l'établi de fabrication [projet Holster: va vers l'ouest, Jeune Agent.]\n\nSe rendre au point contrôle \"station-service Riverside\" (situé à l'extrême ouest de la carte). Récuperez la \"Ceinture en cuir à blocage  rapide\" dans la caisse jaune de la réserve.\nDonnez la pièce à Inaya pour obtenir la suite.\n\n100% d'obtenir la pièce \"Holster en cuir travaillé\" sur un point de contrôle hyène de niveau 4.\n100% de chance d'obtenir la pièce \"Holster en cuir inversé\" sur un point de contrôle True sons de niveau 4.\n100% d'obtenir la pièce \"Protection antichoc huilé\" sur un point de contrôle Paria de niveau 4.\nDonnez les pièces à Inaya pour avoir la suite.\n\n100% de chance d'obtenir la pièce \"Rind\" sur un nommé Black Tusk.\nRendez vous dans le bar situé à l'est de la maison blanche. Le bar se situe sur la 15th St NW (il y a un ECHO dans le bar). Allez y après 12h00 ingame pour faire apparaitre le nommé en question (l'heure est dispo dans le mode photo. Echap -> maintenir F pour activer le mode)"
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_headshot_eqp"
+      },
+      {
+        "nom": "maniement_d_arme_eqp"
+      }
+    ],
     "talents": [
       "gachette_facile"
     ],
@@ -4152,8 +4479,20 @@
     "emplacement": "genouilleres",
     "mod": false,
     "obtention": {
-      "mission": "Traque Le pacte <Le sommet> Tidal Basin "
+      "mission": true,
+      "description": "Traque Le pacte <Le sommet> Tidal Basin "
     },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
     "talents": [
       "ostracisation"
     ],
@@ -4169,6 +4508,17 @@
       "cachesExotiques": true,
       "represailles": "Parias, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "maniement_d_arme_eqp"
+      },
+      {
+        "nom": "sante_eqp"
+      }
+    ],
     "talents": [
       "plan_de_fuite"
     ],
@@ -4184,6 +4534,17 @@
       "butinCible": true,
       "represailles": "Hyènes, Escouade D'extermination"
     },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "sante_eqp"
+      }
+    ],
     "talents": [
       "inflexibilite"
     ],
@@ -4194,9 +4555,15 @@
     "description": "\"Parkour ! Parkour !\"- Un messager NinjaBike enthousiaste",
     "emplacement": "genouilleres",
     "attributEssentiel": [
-      "offensif",
-      "defensif",
-      "utilitaire"
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
     ],
     "mod": false,
     "obtention": {
@@ -4216,7 +4583,7 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
@@ -4228,7 +4595,7 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
@@ -4240,7 +4607,7 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
@@ -4252,7 +4619,7 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
@@ -4264,10 +4631,86 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
+  },
+  "masque_core_strength": {
+    "nom": "Masque Core Strength",
+    "marque": "core_strength",
+    "emplacement": "masque",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": true,
+    "type": "gear_set"
+  },
+  "sac_a_dos_core_strength": {
+    "nom": "Sac à dos Core Strength",
+    "marque": "core_strength",
+    "emplacement": "sac_a_dos",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "mod": true,
+    "type": "gear_set"
+  },
+  "torse_core_strength": {
+    "nom": "Torse Core Strength",
+    "marque": "core_strength",
+    "emplacement": "torse",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "mod": true,
+    "type": "gear_set"
+  },
+  "gants_core_strength": {
+    "nom": "Gants Core Strength",
+    "marque": "core_strength",
+    "emplacement": "gants",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": false,
+    "type": "gear_set"
+  },
+  "holster_core_strength": {
+    "nom": "Holster Core Strength",
+    "marque": "core_strength",
+    "emplacement": "holster",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": false,
+    "type": "gear_set"
+  },
+  "genouilleres_core_strength": {
+    "nom": "Genouillères Core Strength",
+    "marque": "core_strength",
+    "emplacement": "genouilleres",
+    "attributEssentiel": [
+      "defensif",
+      "offensif",
+      "utilitaire"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": false,
+    "type": "gear_set"
   },
   "genouilleres_improvisees": {
     "nom": "Genouillères improvisées",
@@ -4276,9 +4719,129 @@
     "mod": true,
     "talents": [],
     "type": "improvise",
-    "notes": "Un attribut essentiel parmis la liste des possibilitées",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
     "obtention": {
       "description": "Fabriqué dans l'établis"
     }
+  },
+  "robin": {
+    "nom": "Robin",
+    "marque": "style_royal",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [
+      "degaineur"
+    ],
+    "type": "standard",
+    "notes": "",
+    "estNomme": true,
+    "obtention": {
+    }
+  },
+  "bulldog": {
+    "nom": "Bulldog",
+    "marque": "style_royal",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [
+      "maitrise_de_soi"
+    ],
+    "type": "standard",
+    "notes": "",
+    "estNomme": true,
+    "obtention": {
+    }
+  },
+  "masque_de_lin": {
+    "nom": "Masque de lin",
+    "marque": "style_royal",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "plaque_de_la_jacobee": {
+    "nom": "Plaque de la Jacobée",
+    "marque": "style_royal",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "sacs_a_dos_du_chardon": {
+    "nom": "Sacs à dos du chardon",
+    "marque": "style_royal",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "gants_du_lion": {
+    "nom": "Gants du lion",
+    "marque": "style_royal",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "holster_de_la_jonquille": {
+    "nom": "Holster de la jonquille",
+    "marque": "style_royal",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "genouilleres_de_la_rose": {
+    "nom": "Genouillères de la rose",
+    "marque": "style_royal",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "investisseur": {
+    "nom": "Investisseur",
+    "emplacement": "masque",
+    "mod": false,
+    "talents": [
+      "triple_emplacement"
+    ],
+    "type": "exotique",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "description": "Quand ils s'y attendent le moins.",
+
+    "obtention": {
+      "description": "Passe de saison Mobilisation : Niveau 1 (payant), Niveau 69 (gratuit)."
+    },
+    "attributEssentiel": [
+      "offensif",
+      "utilitaire",
+      "defensif"
+    ],
+    "attributs": [
+      {},
+      {},
+      {}
+    ]
   }
+
 }

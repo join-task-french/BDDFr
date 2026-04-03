@@ -4,6 +4,7 @@ import path from 'path';
 const DIST_DIR = './dist';
 const DATA_DIR = './src/data';
 const ASSETS_DIR = './src/img/game_assets';
+const PAGES_DIR = './src/content/pages';
 
 const repoFullName = process.env.GITHUB_REPOSITORY || 'localhost/BDDFr';
 const [owner, repo] = repoFullName.split('/');
@@ -14,11 +15,20 @@ const BASE_URL = VITE_BASE_PATH ? (DOMAIN ? (DOMAIN.startsWith('http') ? DOMAIN 
 const BASE_PATH = VITE_BASE_PATH || (DOMAIN ? '' : (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr'));
 const DIVISION_ORANGE = "#ff8000";
 
+function parseJsonc(filePath) {
+    try {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const stripped = content.replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m);
+        return JSON.parse(stripped);
+    } catch (e) { return null; }
+}
+
 const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
 const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
 const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
 const classSpe = parseJsonc(path.join(DATA_DIR, 'class-spe.jsonc')) || {};
 const mapsData = parseJsonc(path.join(DATA_DIR, 'maps.jsonc')) || [];
+const metadata = parseJsonc(path.join(DATA_DIR, 'metadata.jsonc')) || {};
 
 const getWpnType = (t) => weaponTypes[t] || { nom: t?.replace('_', ' ') };
 const getGearType = (e) => gearTypes[e] || { nom: e };
@@ -29,12 +39,25 @@ function slugify(name) {
     return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
 }
 
-function parseJsonc(filePath) {
-    try {
-        const content = fs.readFileSync(filePath, 'utf-8');
-        const stripped = content.replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m);
-        return JSON.parse(stripped);
-    } catch (e) { return null; }
+function parseFrontmatter(rawContent) {
+    const regex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
+    const match = rawContent.match(regex);
+    if (!match) return { metadata: {}, content: rawContent };
+
+    const metadata = {};
+    match[1].split('\n').forEach(line => {
+        const [key, ...rest] = line.split(':');
+        if (key && rest.length) {
+            let value = rest.join(':').trim();
+            if (value.startsWith('[') && value.endsWith(']')) {
+                value = value.slice(1, -1).split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''));
+            } else {
+                value = value.replace(/^['"]|['"]$/g, '');
+            }
+            metadata[key.trim()] = value;
+        }
+    });
+    return { metadata, content: match[2] };
 }
 
 function getAllFiles(dirPath, arrayOfFiles = []) {
@@ -121,11 +144,35 @@ const categoryFormatters = {
     })
 };
 
+let changelogDesc = 'Historique des changements.';
+if (metadata.changelog && metadata.changelog.length > 0) {
+    const latest = metadata.changelog.reduce((prev, current) => {
+        const getDateStr = (entry) => typeof entry.date === 'string' ? entry.date : (entry.date?.to || entry.date?.from || '');
+        const prevDate = getDateStr(prev);
+        const currDate = getDateStr(current);
+        return (currDate > prevDate) ? current : prev;
+    });
+
+    let rawText = '';
+    if (latest.patch) rawText += latest.patch + " - ";
+    latest.changements.forEach(ch => {
+        if (typeof ch === 'string') rawText += ch + " ";
+        else if (typeof ch === 'object') {
+            if (ch.titre) rawText += ch.titre + " ";
+            if (Array.isArray(ch.description)) rawText += ch.description.join(" ") + " ";
+            else if (typeof ch.description === 'string') rawText += ch.description + " ";
+        }
+    });
+    changelogDesc = rawText.replace(/[*_~`#\[\]]/g, '').replace(/-\s/g, '').replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    if (changelogDesc.length > 250) changelogDesc = changelogDesc.substring(0, 247) + '...';
+}
+
 const pages_fixes = [
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
-    { path: 'changelog', title: 'Mises à jour — BDDFr', description: 'Historique des changements.' },
-    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
     { path: 'map', title: 'Carte Interactive — BDDFr', description: 'Explorez Washington D.C., New York et d\'autres zones avec notre carte interactive.' }
+    { path: 'changelog', title: 'Mises à jour — BDDFr', description: changelogDesc },
+    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
+    { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' }
 ];
 
 const categoryMap = {
@@ -284,7 +331,6 @@ async function generate() {
                     fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(title, description, publicImageUrl, pagePath));
                     sitemapEntries.push(`${BASE_URL}/${pagePath}`);
 
-                    // Création de la page par défaut (niveau 1)
                     if (level === levels[0]) {
                         const defaultPath = `db/descente/${itemSlug}`;
                         const defaultDir = path.join(DIST_DIR, defaultPath);
@@ -322,6 +368,28 @@ async function generate() {
                     sitemapEntries.push(`${BASE_URL}/${prototypePath}`);
                 }
             }
+        }
+    }
+
+    if (fs.existsSync(PAGES_DIR)) {
+        const mdFiles = fs.readdirSync(PAGES_DIR).filter(f => f.endsWith('.md'));
+        for (const file of mdFiles) {
+            const pageId = file.replace('.md', '');
+            const rawContent = fs.readFileSync(path.join(PAGES_DIR, file), 'utf-8');
+            const { metadata } = parseFrontmatter(rawContent);
+
+            const title = (metadata.title || pageId) + ' — BDDFr';
+            const description = metadata.description || `Document: ${metadata.title || pageId}`;
+            const pagePath = `pages/${pageId}`;
+
+            const targetDirPage = path.join(DIST_DIR, pagePath);
+            if (!fs.existsSync(targetDirPage)) fs.mkdirSync(targetDirPage, { recursive: true });
+
+            fs.writeFileSync(
+                path.join(targetDirPage, 'index.html'),
+                stubTemplate(title, description, 'favicon_150x150.png', pagePath)
+            );
+            sitemapEntries.push(`${BASE_URL}/${pagePath}`);
         }
     }
 

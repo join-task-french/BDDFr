@@ -9,6 +9,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const DIST_DIR = './dist';
 const DATA_DIR = './src/data';
+const PAGES_DIR = './src/content/pages';
 
 const DEV_SERVER_URL = 'http://localhost:5173/BDDFr';
 
@@ -21,15 +22,24 @@ const BASE_URL = VITE_BASE_PATH ? (DOMAIN ? (DOMAIN.startsWith('http') ? DOMAIN 
 const BASE_PATH = VITE_BASE_PATH || (DOMAIN ? '' : (process.env.PUBLIC_PATH || (process.env.GITHUB_ACTIONS ? `/${repo}` : '/BDDFr')));
 const DIVISION_ORANGE = "#ff8000";
 
-const WATERMARK_URL = `${BASE_PATH}/favicon_150x150.png`;
+const WATERMARK_URL = `${DEV_SERVER_URL}/favicon_150x150.png`;
 const WATERMARK_OPACITY = 0.15;
 const WATERMARK_SIZE = '60px';
+
+function parseJsonc(filePath) {
+    try {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const stripped = content.replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m);
+        return JSON.parse(stripped);
+    } catch (e) { return null; }
+}
 
 const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
 const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
 const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
 const classSpe = parseJsonc(path.join(DATA_DIR, 'class-spe.jsonc')) || {};
 const mapsData = parseJsonc(path.join(DATA_DIR, 'maps.jsonc')) || [];
+const metadata = parseJsonc(path.join(DATA_DIR, 'metadata.jsonc')) || {};
 
 const getWpnType = (t) => weaponTypes[t] || { nom: t?.replace('_', ' ') };
 const getGearType = (e) => gearTypes[e] || { nom: e };
@@ -40,12 +50,25 @@ function slugify(name) {
     return name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
 }
 
-function parseJsonc(filePath) {
-    try {
-        const content = fs.readFileSync(filePath, 'utf-8');
-        const stripped = content.replace(/\\"|"(?:\\"|[^"])*"|(\/\/.*|\/\*[\s\S]*?\*\/)/g, (m, g) => g ? "" : m);
-        return JSON.parse(stripped);
-    } catch (e) { return null; }
+function parseFrontmatter(rawContent) {
+    const regex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
+    const match = rawContent.match(regex);
+    if (!match) return { metadata: {}, content: rawContent };
+
+    const metadata = {};
+    match[1].split('\n').forEach(line => {
+        const [key, ...rest] = line.split(':');
+        if (key && rest.length) {
+            let value = rest.join(':').trim();
+            if (value.startsWith('[') && value.endsWith(']')) {
+                value = value.slice(1, -1).split(',').map(s => s.trim().replace(/^['"]|['"]$/g, ''));
+            } else {
+                value = value.replace(/^['"]|['"]$/g, '');
+            }
+            metadata[key.trim()] = value;
+        }
+    });
+    return { metadata, content: match[2] };
 }
 
 const categoryFormatters = {
@@ -112,12 +135,36 @@ const categoryTitles = {
     'descente': 'Descente'
 };
 
+let changelogDesc = 'Historique des changements.';
+if (metadata.changelog && metadata.changelog.length > 0) {
+    const latest = metadata.changelog.reduce((prev, current) => {
+        const getDateStr = (entry) => typeof entry.date === 'string' ? entry.date : (entry.date?.to || entry.date?.from || '');
+        const prevDate = getDateStr(prev);
+        const currDate = getDateStr(current);
+        return (currDate > prevDate) ? current : prev;
+    });
+
+    let rawText = '';
+    if (latest.patch) rawText += latest.patch + " - ";
+    latest.changements.forEach(ch => {
+        if (typeof ch === 'string') rawText += ch + " ";
+        else if (typeof ch === 'object') {
+            if (ch.titre) rawText += ch.titre + " ";
+            if (Array.isArray(ch.description)) rawText += ch.description.join(" ") + " ";
+            else if (typeof ch.description === 'string') rawText += ch.description + " ";
+        }
+    });
+    changelogDesc = rawText.replace(/[*_~`#\[\]]/g, '').replace(/-\s/g, '').replace(/\n/g, ' ').replace(/\s{2,}/g, ' ').trim();
+    if (changelogDesc.length > 250) changelogDesc = changelogDesc.substring(0, 247) + '...';
+}
+
 const pages_fixes = [
     { path: 'db', title: 'Base de données — BDDFr', description: 'Base de données française pour The Division 2.' },
     { path: 'build', title: 'Build Planner — BDDFr', description: 'Créez et partagez vos configurations d\'équipement.' },
-    { path: 'changelog', title: 'Mises à jour — BDDFr', description: 'Historique des changements.' },
-    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
     { path: 'map', title: 'Carte Interactive — BDDFr', description: 'Explorez Washington D.C., New York et d\'autres zones avec notre carte interactive.' }
+    { path: 'changelog', title: 'Mises à jour — BDDFr', description: changelogDesc },
+    { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
+    { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' }
 ];
 
 const categoryMap = {
@@ -242,7 +289,7 @@ async function generate() {
         console.log("📸 Début des captures d'écran...");
         const categoriesToProcess = Object.keys(categoryTitles);
 
-        const capturePromises = categoriesToProcess.map(async (categoryKey) => {
+        for (const categoryKey of categoriesToProcess) {
             const categoryOgDir = path.join(exportOgImagesDir, categoryKey);
             if (!fs.existsSync(categoryOgDir)) fs.mkdirSync(categoryOgDir, { recursive: true });
 
@@ -266,12 +313,49 @@ async function generate() {
                             }
                             .watermark-overlay {
                                 position: absolute !important; bottom: 15px !important; right: 15px !important;
-                                width: ${WATERMARK_SIZE} !important; opacity: ${WATERMARK_OPACITY} !important;
+                                width: ${WATERMARK_SIZE} !important; height: auto !important;
+                                opacity: ${WATERMARK_OPACITY} !important;
                                 z-index: 1000000 !important; pointer-events: none !important;
+                                display: block !important;
                             }
                         `
                     });
-                    await new Promise(r => setTimeout(r, 5000));
+
+                    await page.evaluate(() => {
+                        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                            img.setAttribute('loading', 'eager');
+                        });
+                    });
+
+                    await page.evaluate((wmUrl) => {
+                        const link = document.createElement('link');
+                        link.rel = 'preload';
+                        link.as = 'image';
+                        link.href = wmUrl;
+                        document.head.appendChild(link);
+                        const preImg = new Image();
+                        preImg.src = wmUrl;
+                    }, WATERMARK_URL);
+
+                    await page.evaluate(async () => {
+                        await new Promise((resolve) => {
+                            let totalHeight = 0;
+                            const distance = 300;
+                            const timer = setInterval(() => {
+                                const scrollHeight = document.documentElement.scrollHeight;
+                                window.scrollBy(0, distance);
+                                totalHeight += distance;
+
+                                if (totalHeight >= scrollHeight - window.innerHeight) {
+                                    clearInterval(timer);
+                                    window.scrollTo(0, 0);
+                                    resolve();
+                                }
+                            }, 50);
+                        });
+                    });
+
+                    await new Promise(r => setTimeout(r, 2000));
 
                     const cards = await page.$$('.og-target-card');
                     for (const card of cards) {
@@ -292,7 +376,7 @@ async function generate() {
                             if (!hasPrototypeBtn) continue;
                         }
 
-                        let levelsToProcess = ['']; // Chaîne vide pour les cartes standards
+                        let levelsToProcess = [''];
                         if (isDescente) {
                             levelsToProcess = await page.evaluate(el => {
                                 const select = el.querySelector('select');
@@ -302,7 +386,6 @@ async function generate() {
 
                         for (const level of levelsToProcess) {
                             if (isDescente) {
-                                // Simulation d'un événement React pour changer de niveau
                                 await page.evaluate((el, lvl) => {
                                     const select = el.querySelector('select');
                                     if (select && select.value !== lvl) {
@@ -311,18 +394,45 @@ async function generate() {
                                         select.dispatchEvent(new Event('change', { bubbles: true }));
                                     }
                                 }, card, level);
-                                await new Promise(r => setTimeout(r, 150)); // Attendre le re-render React
+                                await new Promise(r => setTimeout(r, 400));
                             }
 
                             const levelSuffix = isDescente ? `-${level}` : suffix;
                             const levelSuffixLog = isDescente ? ` (Niv. ${level})` : suffixLog;
 
-                            const cardHtml = await page.evaluate(el => el.innerHTML, card);
+                            const cardHtml = await page.evaluate(el => {
+                                const clone = el.cloneNode(true);
+                                const allElements = clone.getElementsByTagName('*');
+                                for (let i = 0; i < allElements.length; i++) {
+                                    const node = allElements[i];
+                                    node.removeAttribute('id');
+                                    node.removeAttribute('for');
+                                    node.removeAttribute('style');
+                                    node.removeAttribute('class');
+                                    node.removeAttribute('tabindex');
+
+                                    Array.from(node.attributes).forEach(attr => {
+                                        if (attr.name.startsWith('data-') || attr.name.startsWith('aria-')) {
+                                            node.removeAttribute(attr.name);
+                                        }
+                                        if (attr.value && /:[a-z0-9]+:/i.test(attr.value)) {
+                                            node.removeAttribute(attr.name);
+                                        }
+                                    });
+
+                                    if (node.tagName === 'OPTION') node.removeAttribute('selected');
+                                    if (node.tagName === 'SELECT') node.removeAttribute('value');
+                                }
+                                return clone.innerHTML;
+                            }, card);
+
                             const currentHash = crypto.createHash('md5').update(cardHtml).digest('hex');
                             const hashKey = `${categoryKey}_${slug}${levelSuffix}`;
                             const imageOutputPath = path.join(categoryOgDir, `${slug}${levelSuffix}.jpg`);
 
-                            if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) continue;
+                            if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) {
+                                continue;
+                            }
 
                             let attempts = 3;
                             let success = false;
@@ -340,6 +450,16 @@ async function generate() {
                                         }
                                     }, card, WATERMARK_URL);
 
+                                    await page.evaluate(el => {
+                                        return new Promise((resolve) => {
+                                            const wm = el.querySelector('.watermark-overlay');
+                                            if (!wm) return resolve();
+                                            if (wm.complete && wm.naturalWidth > 0) return resolve();
+                                            wm.onload = resolve;
+                                            wm.onerror = resolve;
+                                            setTimeout(resolve, 3000);
+                                        });
+                                    }, card);
                                     await new Promise(r => setTimeout(r, 300));
                                     await card.screenshot({ path: imageOutputPath, type: 'jpeg', quality: 85 });
 
@@ -387,9 +507,8 @@ async function generate() {
                 }
 
             } finally { await page.close(); }
-        });
+        }
 
-        await Promise.all(capturePromises);
         fs.writeFileSync(hashFilePath, JSON.stringify(imageHashes, null, 2));
 
         console.log("\n🔗 Génération des fichiers HTML et du Sitemap...");
@@ -462,7 +581,6 @@ async function generate() {
                         fs.writeFileSync(path.join(targetDir, 'index.html'), stubTemplate(res.title, res.description, imagePath, pagePath));
                         sitemapEntries.push(`${BASE_URL}/${pagePath}`);
 
-                        // Création de la page par défaut (niveau 1)
                         if (level === levels[0]) {
                             const defaultPath = `db/descente/${itemSlug}`;
                             const defaultDir = path.join(DIST_DIR, defaultPath);
@@ -509,6 +627,28 @@ async function generate() {
                         sitemapEntries.push(`${BASE_URL}/${prototypePath}`);
                     }
                 }
+            }
+        }
+
+        if (fs.existsSync(PAGES_DIR)) {
+            const mdFiles = fs.readdirSync(PAGES_DIR).filter(f => f.endsWith('.md'));
+            for (const file of mdFiles) {
+                const pageId = file.replace('.md', '');
+                const rawContent = fs.readFileSync(path.join(PAGES_DIR, file), 'utf-8');
+                const { metadata } = parseFrontmatter(rawContent);
+
+                const title = (metadata.title || pageId) + ' — BDDFr';
+                const description = metadata.description || `Document: ${metadata.title || pageId}`;
+                const pagePath = `pages/${pageId}`;
+
+                const targetDirPage = path.join(DIST_DIR, pagePath);
+                if (!fs.existsSync(targetDirPage)) fs.mkdirSync(targetDirPage, { recursive: true });
+
+                fs.writeFileSync(
+                    path.join(targetDirPage, 'index.html'),
+                    stubTemplate(title, description, 'favicon_150x150.png', pagePath)
+                );
+                sitemapEntries.push(`${BASE_URL}/${pagePath}`);
             }
         }
 
