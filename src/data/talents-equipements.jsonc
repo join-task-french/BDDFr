@@ -2962,5 +2962,12 @@
     "nom": "Coeur interne",
     "description": "Augmente le pourcentage des bonus que vous recevez des autres coeurs de 40% à 75%.",
     "emplacement": "torse"
+  },
+  "triple_emplacement": {
+    "nom": "Triple emplacement",
+    "description": "Vous recevez des bonus pour **chaque attribut non essentiel** de cet objet, selon la couleur :\n![offensif](slug:offensif)Offensif : **+10% de dégâts de coup critique**\n![Utilitaire](slug:utilitaire)Utilitaire : **+5% d'efficacité de compétence**\n![défensif](slug:defensif)Défensif : **+1% de régénération de protection**\n\nCet objet peut posséder n'importe quel attribut essentiel. Cet objet possède un troisième attribut aléatoire à la place d'un emplacement de mod d'équipement.\nCet objet ne peut pas posséder les attributs Dégâts de headshot, Santé ou Réparation de compétence.",
+    "notes": "PVP :\n![défensif](slug:defensif)Défensif : **+0.5% de régénération de protection**",
+    "emplacement": "masque",
+    "estExotique": true
   }
 }
