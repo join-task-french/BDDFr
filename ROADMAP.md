@@ -2,8 +2,7 @@ A Faire :
 - Pistolet
 - description exo + nommé (pas prioritaire)
 - Talent proto
-- Marque new season
-- Gear set new season
+- Spécialisation
 
 Check mise en forme :
 - Talent armes
