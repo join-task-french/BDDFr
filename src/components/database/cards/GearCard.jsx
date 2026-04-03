@@ -295,59 +295,13 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
             const classicCount = getClassicSlotCount(item)
             const fixedCount = item.attributs?.filter(a => !!a.nom).length || 0
             const randomSlots = classicCount - fixedCount
-            if (randomSlots <= 0 || !allAttributs) return null
-
-            const attrList = Array.isArray(allAttributs) ? allAttributs : Object.values(allAttributs)
-            const fixedNames = (item.attributs || []).filter(a => !!a.nom).map(a => a.nom)
-            const available = attrList.filter(a =>
-                a.cible?.includes('equipement') &&
-                !a.estEssentiel &&
-                a.selectionable &&
-                !fixedNames.includes(a.slug)
-            )
-            if (available.length === 0) return null
-
-            const grouped = {}
-            available.forEach(a => {
-              const cat = a.categorie || 'autre'
-              if (!grouped[cat]) grouped[cat] = []
-              grouped[cat].push(a)
-            })
-            const catOrder = ['offensif', 'defensif', 'utilitaire']
-            const catColors = {
-              offensif: 'text-red-400',
-              defensif: 'text-blue-400',
-              utilitaire: 'text-yellow-400',
-            }
+            if (randomSlots <= 0) return null
 
             return (
-                <div className="space-y-1 mt-1">
-                  <span className="text-gray-500 font-bold uppercase tracking-widest text-xs">
+                <div className="flex items-center text-xs mt-1">
+                  <span className="text-gray-500 italic">
                     {randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}
                   </span>
-                  {catOrder.filter(cat => grouped[cat]).map(cat => (
-                      <div key={cat} className="space-y-0.5">
-                        <span className={`text-xs font-semibold uppercase tracking-wider ${catColors[cat] || 'text-gray-400'}`}>
-                          {getAttrCategoryLabel(attributsType, cat)}
-                        </span>
-                        {grouped[cat].map((a, i) => {
-                          const pMax = a.prototypeMax ?? a.max
-                          const max = isPrototype ? pMax : a.max
-                          const min = a.min || 0
-                          return (
-                              <div key={i} className="flex items-center justify-between text-xs pl-2">
-                                <span className="flex items-center gap-1.5 text-gray-400">
-                                  <GameIcon src={resolveAttributeIcon(a.categorie)} alt="" size="w-3 h-3" />
-                                  {a.nom}
-                                </span>
-                                <span className={`font-bold ${isPrototype ? 'text-cyan-400/60' : 'text-gray-500'}`}>
-                                  {formatNumber(min)}{a.unite || ''} à {formatNumber(max)}{a.unite || ''}
-                                </span>
-                              </div>
-                          )
-                        })}
-                      </div>
-                  ))}
                 </div>
             )
           })()}

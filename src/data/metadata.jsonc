@@ -28,7 +28,8 @@
           "titre": "Ajouts :",
           "description": [
             "Ajout du support de la syntaxe mermaid dans les elements markdown",
-            "Ajout du champ \"craft\" pour l'obtention des armes et équiements"
+            "Ajout du champ \"craft\" pour l'obtention des armes et équiements",
+            "Ajout de l'affichage du nombre d'attributs aléatoires sur les armes et équipements"
           ]
         },
         {
@@ -39,7 +40,8 @@
             "Correction de la génération d'images pour les embeds de réseaux sociaux",
             "Correction de la barre de recherche qui perdait certains caractères écrit",
             "Correction de l'affichage des armes avec des emplacement de mods pré-remplis ET emplacement de mods libres",
-            "Correction du générateur Jsonc"
+            "Correction du générateur Jsonc",
+            "Correction attribut secondaire manquant dans le build planner pour les armes exotiques"
           ]
         },
         "### Changements saisonniers :",
