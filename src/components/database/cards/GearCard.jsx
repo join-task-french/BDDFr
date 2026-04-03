@@ -28,6 +28,21 @@ function resolveTalents(item, talentsEquipements) {
   })
 }
 
+/**
+ * Calcule le nombre de slots d'attributs classiques (aléatoires) autorisés.
+ */
+function getClassicSlotCount(piece) {
+  if (!piece) return 0
+  if (piece.attributs && Array.isArray(piece.attributs)) return piece.attributs.length
+  if (piece.type === 'gear_set') return 1
+  if (piece.type === 'improvise') return 2
+  if (piece.type === 'exotique') {
+    const essCount = Array.isArray(piece.attributEssentiel) ? piece.attributEssentiel.length : 0
+    return essCount >= 3 ? 1 : 2
+  }
+  return 2
+}
+
 export default function GearCard({ item, ensembles, talentsEquipements, allAttributs, equipementsType, attributsType, isStatic }) {
   const params = useParams()
   const [searchParams] = useSearchParams()
@@ -238,7 +253,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
               </div>
           )}
           {/* Attributs fixés (référençant attributs.jsonc) */}
-          {item.attributs?.length > 0 && (
+          {item.attributs?.length > 0 && item.attributs.some(attr => !!attr.nom) && (
               <div className="space-y-1 mt-1">
                 <span className="text-purple-400 font-bold uppercase tracking-widest text-xs">Attributs</span>
                 {item.attributs.filter(attr => !!attr.nom).map((attr, i) => {
@@ -275,6 +290,21 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                 })}
               </div>
           )}
+          {/* Attributs aléatoires possibles */}
+          {(() => {
+            const classicCount = getClassicSlotCount(item)
+            const fixedCount = item.attributs?.filter(a => !!a.nom).length || 0
+            const randomSlots = classicCount - fixedCount
+            if (randomSlots <= 0) return null
+
+            return (
+                <div className="flex items-center text-xs mt-1">
+                  <span className="text-gray-500 italic">
+                    {randomSlots} attribut{randomSlots > 1 ? 's' : ''} aléatoire{randomSlots > 1 ? 's' : ''}
+                  </span>
+                </div>
+            )
+          })()}
           {item.mod !== undefined && (
               <div className="flex items-start gap-2 text-xs">
                 <span className="text-gray-500 font-bold shrink-0 tracking-widest text-xs">Emplacement de mods: </span>
