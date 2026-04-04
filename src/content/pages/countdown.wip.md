@@ -79,15 +79,15 @@ Ces contre-mesures enemies vous affecte de différentes façons, vous devez les 
 
 **Liste des contre-mesures :**
 
-| icon                                  | Contre mesure active      | Description                          | icon                                 | Contre mesure désactivé          | description                              |
-|---------------------------------------|---------------------------|--------------------------------------|--------------------------------------|----------------------------------|------------------------------------------|
-| ![icon contremesure](slug:calibre12)  | Hostil Hazard Resistance  | Enemies gain 100% Hazard Resistance  | ![icon contremesure](slug:calibre12) | Status Effect Incrased           | Agents gain +25% status effects duration |
-| ![icon contremesure](slug:calibre12)  | nom contre-mesure 2       | effet contre-mesure 2 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 2 désactivé  |                                          |
-| ![icon contremesure](slug:calibre12)  | nom contre-mesure 3       | effet contre-mesure 3 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 3 désactivé  |                                          |
-| ![icon contremesure](slug:calibre12)  | nom contre-mesure 4       | effet contre-mesure 4 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 4 désactivé  |                                          |
-| ![icon contremesure](slug:calibre12)  | nom contre-mesure 5       | effet contre-mesure 5 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 5 désactivé  |                                          |
-| ![icon contremesure](slug:calibre12)  | nom contre-mesure 6       | effet contre-mesure 6 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 6 désactivé  |                                          |
-| ![icon contremesure](slug:calibre12)  | nom contre-mesure 7       | effet contre-mesure 7 activé         | ![icon contremesure](slug:calibre12) | effet contre-mesure 7 désactivé  |                                          |
+| icon                                                          | Contre mesure active      | Description                          | icon                                                        | Contre mesure désactivé          | description                              |
+|---------------------------------------------------------------|---------------------------|--------------------------------------|-------------------------------------------------------------|----------------------------------|------------------------------------------|
+| ![icon contremesure](slug:hostile_hazard_resistance#inline-2) | Hostil Hazard Resistance  | Enemies gain 100% Hazard Resistance  | ![icon contremesure](slug:status_effect_increased#inline-2) | Status Effect Incrased           | Agents gain +25% status effects duration |
+| ![icon contremesure](slug:calibre12)                          | nom contre-mesure 2       | effet contre-mesure 2 activé         | ![icon contremesure](slug:calibre12)                        | effet contre-mesure 2 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)                          | nom contre-mesure 3       | effet contre-mesure 3 activé         | ![icon contremesure](slug:calibre12)                        | effet contre-mesure 3 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)                          | nom contre-mesure 4       | effet contre-mesure 4 activé         | ![icon contremesure](slug:calibre12)                        | effet contre-mesure 4 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)                          | nom contre-mesure 5       | effet contre-mesure 5 activé         | ![icon contremesure](slug:calibre12)                        | effet contre-mesure 5 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)                          | nom contre-mesure 6       | effet contre-mesure 6 activé         | ![icon contremesure](slug:calibre12)                        | effet contre-mesure 6 désactivé  |                                          |
+| ![icon contremesure](slug:calibre12)                          | nom contre-mesure 7       | effet contre-mesure 7 activé         | ![icon contremesure](slug:calibre12)                        | effet contre-mesure 7 désactivé  |                                          |
 
 Il est extrêmement recommandé de désactiver les terminaux affin de continuer la mission dans des conditions optimales.
 
@@ -101,5 +101,9 @@ Vous trouverez ci-joint une carte tactique des emplacements de coffres accessibl
 
 La centrale a été sécurisé, vous devez maintenant vous extraire. Cependant, des chasseurs accompagné de Black-Tusks se sont re-introduit dans la zone pour vous empêcher d'en sortir vivant.
 Leur élimination sera nécessaire pour vous extraire en un seul morceau !
+
+Une fois votre mission terminée, vous gagnerez un certain nombre de ![crédits de countdown](slug:credits_countdown)Crédits de countdown.
+Ces crédits vous permettront d'acheter divers items au poste de countdown a la maison blanche.
+Ce poste de countdown peux vendre des items normalement réserver a la Darkzone.
 
 ### FIN DE TRANSMISSION
