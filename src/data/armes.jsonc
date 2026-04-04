@@ -5876,5 +5876,27 @@
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique"
     }
+  },
+  "trader": {
+    "nom": "Interchange",
+    "type": "fusil",
+    "fabricant": "",
+    "portee": 45,
+    "rpm": 420,
+    "chargeur": 30,
+    "rechargement": 2.33,//TODO a verif
+    "headshot": 60,
+    "degatsBase": 92400,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "aller_retour"
+    ],
+    "emplacementsMods": {
+      "bouche": "bouche_762",
+      "canon": "rail_sous_canon_long",
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long"
+    }
   }
 }
