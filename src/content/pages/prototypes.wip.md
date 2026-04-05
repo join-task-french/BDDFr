@@ -1,7 +1,8 @@
 ---
 title: Escalade et équipement Prototypes
 description: Introduction aux nouveaux équipements de qualité prototype.
-tags: [guide]
+date: 2026-04-05
+tags: [guide, prototypes]
 authors: [ocelus_ftnl]
 ---
 
@@ -128,4 +129,9 @@ Si l'Augmentation présente sur votre pièce ne correspond pas à votre build, v
 * **3ème essai :** 6 Cœurs
 * **4ème essai :** 10 Cœurs
 * **5ème essai :** 16 Cœurs
-* **6ème essai et suivants :** 25 Cœurs
+* **6ème essai et suivants :** 25 Cœurs 
+
+
+*Sources :*
+- *[Poste Reddit de dognuttz](https://www.reddit.com/r/thedivision/comments/1safynu/psa_escalation_prototype_gear_drop_chances_roll/)*
+- Expérimentations en jeu

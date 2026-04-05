@@ -1,7 +1,8 @@
 ---
 title: COMPTE À REBOURS
 description: Briefing tactique sur l'Opération Compte à Rebours (Centrale Pentco).
-tags: [guide]
+date: 2026-04-02
+tags: [guide, countdown]
 authors: [ocelus_ftnl]
 ---
 
