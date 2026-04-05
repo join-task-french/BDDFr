@@ -212,7 +212,7 @@ export default function PageViewer() {
                 <h2 className="text-2xl font-bold text-white uppercase tracking-widest mb-4">Bibliothèque de Documents</h2>
 
                 <div className="mb-4">
-                    <SearchBar value={searchTerm} onChange={setSearchTerm} />
+                    <SearchBar value={searchTerm} onChange={setSearchTerm} placeholder="Rechercher dans les documents..." />
                 </div>
 
                 <div className="flex flex-col gap-3">
