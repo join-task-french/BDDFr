@@ -1,7 +1,7 @@
 import {useMemo, useState, useEffect} from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import {getAttrCategoryLabel, getGearSlotLabel, formatNumber} from '../../../utils/formatters'
-import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveAsset} from '../../common/GameAssets.jsx'
+import {GameIcon, GEAR_SLOT_ICONS_IMG, resolveAttribut, resolveAsset} from '../../common/GameAssets.jsx'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
 import MarkdownText from '../../common/MarkdownText'
@@ -230,7 +230,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                     return (
                         <div key={i} className="text-xs flex items-center gap-1.5 justify-between">
                           <div className="flex items-center gap-1.5 text-shd">
-                            <GameIcon src={resolveAttributeIcon(attr.slug)} alt="" size="w-3.5 h-3.5" />
+                            <GameIcon src={resolveAsset(resolveAttribut(attr.ref || { categorie: attr.slug, estEssentiel: true }))} alt="" size="w-3.5 h-3.5" />
                             <span className="opacity-80">{attr.label} :</span>
                           </div>
                           <span className={`font-bold ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
@@ -281,7 +281,7 @@ export default function GearCard({ item, ensembles, talentsEquipements, allAttri
                     return (
                       <div key={i} className="flex items-center justify-between text-xs">
           <span className="flex items-center gap-1.5 text-shd">
-            <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
+            <GameIcon src={resolveAsset(resolveAttribut(ref || { categorie: attr.nom }))} alt="" size="w-3 h-3" />
             {ref?.nom || attr.nom}
           </span>
           <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
