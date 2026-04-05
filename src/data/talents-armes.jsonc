@@ -97,6 +97,10 @@
     "nom": "Préservation",
     "description": "Éliminer un ennemi répare **10%** de votre protection sur **5s**.\nLes éliminations par headshot améliorent la réparation de **+10%** supplémentaires.",
     "icon": "preservation",
+    "perfectDescription": "Éliminer un ennemi répare **15%** de votre protection sur **5s**.\nLes éliminations par headshot améliorent la réparation de **+15%** supplémentaires.",
+    "armesParfaites": [
+      "p320_xcompact"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -705,7 +709,8 @@
     "icon": "pointe",
     "perfectDescription": "Les headshots confèrent +25% de dégâts de compétence pendant 15s.",
     "armesParfaites": [
-      "surge"
+      "surge",
+      "maxim_9"
     ],
     "compatibilite": {
       "fusil": true,
