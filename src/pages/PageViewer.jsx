@@ -45,8 +45,16 @@ const availablePages = Object.entries(markdownFiles)
     };
 });
 
-// Extraction de tous les tags uniques pour générer les boutons de filtre
-const allTags = Array.from(new Set(availablePages.flatMap(page => page.tags))).sort();
+// Extraction de tous les tags triés par fréquence (plus utilisé en premier), puis alphabétique
+const tagCounts = availablePages.flatMap(page => page.tags).reduce((acc, tag) => {
+    acc[tag] = (acc[tag] || 0) + 1;
+    return acc;
+}, {});
+const allTags = Array.from(new Set(Object.keys(tagCounts))).sort((a, b) => {
+    const diff = tagCounts[b] - tagCounts[a];
+    if (diff !== 0) return diff;
+    return a.localeCompare(b, 'fr');
+});
 
 const SORT_OPTIONS = [
     { id: 'date-desc', label: 'Date (récent)', icon: '↓' },
@@ -86,7 +94,7 @@ export default function PageViewer() {
     const { pageId } = useParams();
     const navigate = useNavigate();
     const [searchTerm, setSearchTerm] = useState('');
-    const [selectedTag, setSelectedTag] = useState(''); // État pour le tag sélectionné
+    const [selectedTags, setSelectedTags] = useState([]); // Tags sélectionnés (filtre cumulatif)
     const [sortBy, setSortBy] = useState('date-desc');
     const [sortOpen, setSortOpen] = useState(false);
 
@@ -144,7 +152,7 @@ export default function PageViewer() {
                         {currentPage.authors.length > 0 && (
                             <div className="flex flex-wrap gap-2">
                                 {currentPage.authors.map(author => (
-                                    <span key={author} className="px-2.5 py-1 bg-tactical-hover text-shd text-xs font-bold uppercase tracking-widest rounded border border-shd/30">
+                                    <span key={author} className="px-2.5 py-1 bg-emerald-500/10 text-emerald-500 text-xs font-bold tracking-widest rounded border border-emerald-500/50">
                                     {author}
                                 </span>
                                 ))}
@@ -170,20 +178,33 @@ export default function PageViewer() {
         );
     }
 
-    const filteredPages = sortPages(availablePages.filter(p => {
+    // Pages filtrées par recherche textuelle uniquement (pour calculer les compteurs de tags dynamiques)
+    const searchFilteredPages = availablePages.filter(p => {
+        if (searchTerm === '') return true;
         const searchLower = searchTerm.toLowerCase();
-
-        // Vérifie la recherche textuelle
-        const matchesSearch = searchTerm === '' ||
-            p.title.toLowerCase().includes(searchLower) ||
+        return p.title.toLowerCase().includes(searchLower) ||
             p.description.toLowerCase().includes(searchLower) ||
             p.tags.some(tag => tag.toLowerCase().includes(searchLower));
+    });
 
-        // Vérifie le tag sélectionné
-        const matchesTag = selectedTag === '' || p.tags.includes(selectedTag);
+    // Pages correspondant aux tags sélectionnés (base pour les compteurs dynamiques)
+    const pagesMatchingSelectedTags = searchFilteredPages.filter(p =>
+        selectedTags.length === 0 || selectedTags.every(tag => p.tags.includes(tag))
+    );
 
-        return matchesSearch && matchesTag;
-    }), sortBy);
+    // Compteurs dynamiques : pour chaque tag, nombre d'articles parmi ceux déjà filtrés par les tags sélectionnés
+    const dynamicTagCounts = {};
+    allTags.forEach(tag => {
+        if (selectedTags.includes(tag)) {
+            // Pour un tag déjà sélectionné, compter les articles qui matchent tous les autres tags sélectionnés + celui-ci
+            dynamicTagCounts[tag] = pagesMatchingSelectedTags.filter(p => p.tags.includes(tag)).length;
+        } else {
+            // Pour un tag non sélectionné, compter combien d'articles matcheraient si on l'ajoutait
+            dynamicTagCounts[tag] = pagesMatchingSelectedTags.filter(p => p.tags.includes(tag)).length;
+        }
+    });
+
+    const filteredPages = sortPages(pagesMatchingSelectedTags, sortBy);
 
     return (
         <div className="p-4 sm:p-6 lg:p-8 max-w-5xl mx-auto w-full flex flex-col h-full">
@@ -197,33 +218,47 @@ export default function PageViewer() {
                 <div className="flex flex-wrap items-center gap-2">
                     {allTags.length > 0 && (
                         <>
-                            <button
-                                onClick={() => setSelectedTag('')}
-                                className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 ${
-                                    selectedTag === ''
-                                        ? 'bg-shd/20 text-shd border-shd/40'
-                                        : 'bg-tactical-panel text-gray-400 border-tactical-border hover:border-gray-500 hover:text-gray-300'
-                                }`}
-                            >
-                                Tous
-                            </button>
-                            {allTags.map(tag => (
+                            <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Tags :</span>
+                            {selectedTags.length > 0 && (
                                 <button
-                                    key={tag}
-                                    onClick={() => setSelectedTag(tag === selectedTag ? '' : tag)}
-                                    className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 ${
-                                        selectedTag === tag
-                                            ? 'bg-shd/20 text-shd border-shd/40'
-                                            : 'bg-tactical-panel text-gray-400 border-tactical-border hover:border-gray-500 hover:text-gray-300'
-                                    }`}
+                                    onClick={() => setSelectedTags([])}
+                                    className="px-2 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 bg-red-500/10 text-red-400 border-red-500/30 hover:bg-red-500/20"
+                                    title="Réinitialiser les filtres"
                                 >
-                                    {tag}
+                                    ✕
                                 </button>
-                            ))}
+                            )}
+                            {allTags.map(tag => {
+                                const isSelected = selectedTags.includes(tag);
+                                const count = dynamicTagCounts[tag] || 0;
+                                const isDisabled = !isSelected && count === 0;
+
+                                return (
+                                    <button
+                                        key={tag}
+                                        onClick={() => !isDisabled && setSelectedTags(prev =>
+                                            prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
+                                        )}
+                                        className={`px-3 py-1.5 text-xs font-bold uppercase tracking-widest rounded border transition-all duration-200 ${
+                                            isSelected
+                                                ? 'bg-shd/20 text-shd border-shd/40'
+                                                : isDisabled
+                                                    ? 'bg-tactical-panel/50 text-gray-600 border-tactical-border/50 cursor-not-allowed opacity-50'
+                                                    : 'bg-tactical-panel text-gray-400 border-tactical-border hover:border-gray-500 hover:text-gray-300'
+                                        }`}
+                                        disabled={isDisabled}
+                                    >
+                                        {tag} <span className="text-[10px] opacity-60">({count})</span>
+                                    </button>
+                                );
+                            })}
                         </>
                     )}
+                </div>
 
-                    <div className="relative ml-auto">
+                <div className="flex items-center gap-2 mt-3">
+                    <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Tri :</span>
+                    <div className="relative">
                         <button
                             onClick={() => setSortOpen(!sortOpen)}
                             className={`flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest border transition-all duration-200 ${
@@ -235,14 +270,14 @@ export default function PageViewer() {
                             <svg className={`w-4 h-4 ${sortBy !== 'date-desc' ? 'text-shd' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4h13M3 8h9m-9 4h6m4 0l4-4m0 0l4 4m-4-4v12" />
                             </svg>
-                            <span>Tri{sortBy !== 'date-desc' ? '*' : ''}</span>
+                            <span>{SORT_OPTIONS.find(o => o.id === sortBy)?.label || 'Tri'}</span>
                             <svg className={`w-3 h-3 transition-transform ${sortOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
 
                         {sortOpen && (
-                            <div className="absolute right-0 mt-2 z-10 bg-tactical-panel border border-tactical-border rounded-lg p-2 animate-fade-in min-w-[200px]">
+                            <div className="absolute left-0 mt-2 z-10 bg-tactical-panel border border-tactical-border rounded-lg p-2 animate-fade-in min-w-[200px]">
                                 {SORT_OPTIONS.map(option => (
                                     <button
                                         key={option.id}
