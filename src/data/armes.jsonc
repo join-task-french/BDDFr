@@ -1674,7 +1674,7 @@
     }
   },
   "first_wave_pf45": {
-    "nom": "First Wave PF45",//TODO
+    "nom": "First Wave PF45",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 14,
@@ -1687,47 +1687,48 @@
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
       "canon": "gadget"
     }
   },
   "pf45_personnalise": {
-    "nom": "PF45 personnalisé",//TODO
+    "nom": "PF45 personnalisé",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 14,
     "rpm": 370,
     "chargeur": 10,
-    "rechargement": 1.91,
+    "rechargement": 1.77,
     "headshot": 100,
-    "degatsBase": 93941,
+    "degatsBase": 94000,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "canon": "gadget",
+      "bouche": "bouche"
     }
   },
   "paratonnerre": {
-    "nom": "Paratonnerre",//TODO
+    "nom": "Paratonnerre",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 14,
     "rpm": 370,
     "chargeur": 10,
-    "rechargement": 1.91,
+    "rechargement": 1.77,
     "headshot": 100,
-    "degatsBase": 93941,
+    "degatsBase": 94000,
     "estExotique": false,
     "estNomme": true,
     "talents": [],
     "emplacementsMods": {
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "canon": "gadget",
+      "bouche": "bouche"
     }
   },
   "petite_abeille_ouvriere": {
@@ -1833,22 +1834,21 @@
     ]
   },
   "586_magnum": {
-    "nom": "586 Magnum",//TODO
+    "nom": "586 Magnum",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
     "rpm": 160,
     "chargeur": 6,
-    "rechargement": 2.78,
+    "rechargement": 2.54,
     "headshot": 100,
-    "degatsBase": 233223,
+    "degatsBase": 233300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//ok
       "chargeur": "barillet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "viseur": "rail_optique_court"
     }
   },
   "orbite": {
@@ -1876,22 +1876,21 @@
     }
   },
   "686_magnum_police": {
-    "nom": "686_Magnum_Police",//TODO
+    "nom": "686_Magnum_Police",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
     "rpm": 160,
     "chargeur": 6,
-    "rechargement": 2.78,
+    "rechargement": 2.54,
     "headshot": 100,
-    "degatsBase": 233223,
+    "degatsBase": 233300,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "barillet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "viseur": "rail_optique_court"
     }
   },
   "prophete": {
@@ -1915,26 +1914,25 @@
     }
   },
   "le_moissonneur": {
-    "nom": "Le Moissonneur",//TODO
-    "description": "\"Rien ne vaut la récompense a la fin de la récolte.\"",
+    "nom": "Le Moissonneur",
+    "description": "\"Rien ne vaut la récompense à la fin de la récolte.\"",
     "type": "pistolet",
     "fabricant": "SMITH&WESSON",
     "portee": 16,
     "rpm": 149,
     "chargeur": 6,
-    "rechargement": 2.78,
+    "rechargement": 2.54,
     "headshot": 100,
-    "degatsBase": 256545,
+    "degatsBase": 256600,
     "estExotique": false,
     "estNomme": true,
     "obtention": {
       "description": "Évènement limité"
     },
     "talents": [],
-    "emplacementsMods": {
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
+    "emplacementsMods": {//OK
+      "chargeur": "barillet",
+      "viseur": "rail_optique_court"
     }
   },
   "kard_45": {
@@ -2001,12 +1999,27 @@
     "degatsBase": 125400,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],//TODO
-    "emplacementsMods": {//TODO
-      "chargeur": "chargeur_pistolet",
-      "viseur": "micro_rail_optique",
-      "canon": "gadget"
-    }
+    "obtention": {
+      "description": "Spécialisation : Technicien"
+    },
+    "talents": [
+      "pointe"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_headshot_arm",
+        "valeur": 9
+      }
+    ]
   },
   "p320_xcompact": {
     "nom": "P320 Xcompact",
@@ -2015,16 +2028,22 @@
     "portee": 12,
     "rpm": 380,
     "chargeur": 17,
-    "rechargement": 2.09,
+    "rechargement": 1.77,
     "headshot": 100,
-    "degatsBase": 87522,
+    "degatsBase": 87500,
     "estExotique": false,
     "estNomme": true,
-    "talents": [],
-    "emplacementsMods": {
+    "talents": [
+      "preservation"
+    ],
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "viseur": "micro_rail_optique",
-      "canon": "gadget"
+      "canon": "gadget",
+      "bouche":  "bouche_9mm"
+    },
+    "obtention": {
+      "description": "Spécialisation : Artilleur"
     }
   },
   "acs_12": {
@@ -2303,6 +2322,9 @@
     ],
     "emplacementsMods": {},
     "armePoing": true,
+    "obtention": {
+      "description": "Spécialisation : Incendiaire"
+    },
     "attributs_essentiels": [
       {
         "nom": "degats_fusil_calibre_12_es",
@@ -5387,12 +5409,12 @@
     "headshot": 55,
     "degatsBase": 48700,
     "obtention": {
-      "description": "Évènement limité"
+      "description": "Évènement limité + Lootable en Escalade (prototype)"
     },
     "estExotique": false,
     "estNomme": true,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
       "viseur": "rail_optique_long",
@@ -5815,15 +5837,15 @@
     }
   },
   "m9_a1_officier": {
-    "nom": "M9 A1 officier",//TODO
+    "nom": "M9 A1 officier",
     "type": "pistolet",
     "fabricant": "",
-    "portee": 0,
-    "rpm": 0,
-    "chargeur": 0,
-    "rechargement": 0,
-    "headshot": 0,
-    "degatsBase": 0,
+    "portee": 16,
+    "rpm": 350,
+    "chargeur": 15,
+    "rechargement": 1.96,
+    "headshot": 100,
+    "degatsBase": 95700,
     "estExotique": false,
     "estNomme": false,
     "talents": [],
@@ -5862,7 +5884,7 @@
     "portee": 22,
     "rpm": 725,
     "chargeur": 24,
-    "rechargement": 1.83,//TODO a verif
+    "rechargement": 2.31,
     "headshot": 83,
     "degatsBase": 58700,
     "estExotique": false,
@@ -5875,6 +5897,28 @@
       "canon": "rail_sous_canon_long",
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique"
+    }
+  },
+  "trader": {
+    "nom": "Trader",
+    "type": "fusil",
+    "fabricant": "",
+    "portee": 45,
+    "rpm": 420,
+    "chargeur": 30,
+    "rechargement": 2.63,
+    "headshot": 60,
+    "degatsBase": 92400,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "aller_retour"
+    ],
+    "emplacementsMods": {
+      "bouche": "bouche_762",
+      "canon": "rail_sous_canon_long",
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long"
     }
   }
 }
