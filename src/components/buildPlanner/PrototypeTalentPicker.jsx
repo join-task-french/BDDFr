@@ -45,11 +45,12 @@ export default function PrototypeTalentPicker({ data, slotKey, onClose }) {
                     <span>{t.statMin}</span>
                     <span>→</span>
                     <span>{t.statMax}</span>
+                    {t.pas && <span className="text-cyan-600/50">(±{t.pas})</span>}
                   </div>
                 </div>
                 {t.description && (
                   <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
-                    {t.description}
+                    {t.description.replace(/\{value\}/g, `(${t.statMin} à ${t.statMax})`)}
                   </MarkdownText>
                 )}
               </div>

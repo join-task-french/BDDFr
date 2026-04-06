@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useSearchParams, useNavigate, useLocation } from 'react-router-dom'
 import { getWeaponTypeLabel, getWeaponEssentialAttributes, formatNumber, calculateMaxDamage } from '../../../utils/formatters'
-import { WEAPON_TYPE_ICONS, resolveAttributeIcon, GameIcon, resolveAsset } from '../../common/GameAssets.jsx'
+import { WEAPON_TYPE_ICONS, resolveAttribut, GameIcon, resolveAsset } from '../../common/GameAssets.jsx'
 import { formatModAttributs } from '../../../utils/modCompatibility'
 import TalentInline from './TalentInline'
 import ObtentionDisplay from './ObtentionDisplay'
@@ -108,7 +108,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
         {/* Header : Nom + Type + Fabricant */}
         <div className={`px-4 py-3 border-b ${isPrototype ? 'border-cyan-500/30 bg-cyan-500/5' : 'border-tactical-border/50'} flex flex-col gap-1`}>
           <div className="flex flex-row gap-2">
-            <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className={ isSpecific ? '' : 'opacity-60' } />
+            <GameIcon src={typeIcon} alt={item.type} size="w-10 h-10" className={ isSpecific ? '' : 'opacity-60' }  color={ isSpecific ? 'text-shd' : ''} />
             <div className="w-full">
               <div className={`font-bold text-base uppercase tracking-wide ${nameColor} flex items-center gap-2 justify-between`}>
             <span>
@@ -180,7 +180,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                 return (
                   <div key={i} className="flex items-center justify-between text-xs">
               <span className="flex items-center gap-1.5 text-gray-400">
-                <GameIcon src={resolveAttributeIcon(attr.categorie)} alt="" size="w-3 h-3" />
+                <GameIcon src={resolveAsset(resolveAttribut(attr))} alt="" size="w-3 h-3" />
                 {attr.nom}
               </span>
                     <span className={`font-bold ${isPrototype ? 'text-cyan-400' : 'text-shd'}`}>
@@ -193,8 +193,8 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
 
         {/* Attributs fixés + attributs aléatoires */}
         {(() => {
-          const fixedAttrs = item.attributs?.length > 0 ? item.attributs : []
-          const randomSlots = Math.max(0, 1 - fixedAttrs.length)
+          const fixedAttrs = Array.isArray(item.attributs) ? item.attributs : []
+          const randomSlots = Array.isArray(item.attributs) ? 0 : 1
           if (fixedAttrs.length === 0 && randomSlots === 0) return null
 
           return (
@@ -212,7 +212,7 @@ export default function WeaponCard({ item, talentsArmes, allAttributs, armesType
                   return (
                       <div key={i} className="flex items-center justify-between text-xs">
                         <span className="flex items-center gap-1.5 text-gray-400">
-                          <GameIcon src={resolveAttributeIcon(ref?.categorie || attr.nom)} alt="" size="w-3 h-3" />
+                          <GameIcon src={resolveAsset(resolveAttribut(ref || { categorie: attr.nom }))} alt="" size="w-3 h-3" />
                           {displayName}
                         </span>
                         <span className={`font-bold ${isOverMax ? 'text-yellow-400' : isPrototype ? 'text-cyan-400' : 'text-shd'}`}>

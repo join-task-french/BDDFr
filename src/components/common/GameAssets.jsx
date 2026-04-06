@@ -51,42 +51,28 @@ export const GEAR_SLOT_ICONS_IMG = {
 }
 
 // ================================================================
-// ICÔNES ATTRIBUTS (offensif / défensif / compétences)
+// RÉSOLUTION D'ICÔNES D'ATTRIBUTS
 // ================================================================
-import attr_offensif from '../../img/game_assets/equipements/attribute/offensif.png'
-import attr_defensif from '../../img/game_assets/equipements/attribute/defensif.png'
-import attr_competences from '../../img/game_assets/equipements/attribute/utilitaire.png'
-
-export const ATTRIBUTE_ICONS = {
-  offensif: attr_offensif,
-  degats: attr_offensif,
-  'défensif': attr_defensif,
-  defensif: attr_defensif,
-  protection: attr_defensif,
-  utilitaire: attr_competences,
-  competences: attr_competences,
-}
 
 /**
- * Résout l'icône d'attribut à partir d'un texte (enum ou texte libre).
+ * Détermine le slug d'asset pour un attribut à partir de ses propriétés.
+ *
+ * Règles :
+ *  - Attribut essentiel        → "essentiel_{categorie}"  (ex: essentiel_offensif)
+ *  - Attribut mod               → "mod_{categorie}"       (ex: mod_utilitaire)
+ *  - Attribut classique         → "attribut_{categorie}"  (ex: attribut_defensif)
+ *
+ * @param {{ categorie?: string, estEssentiel?: boolean, estMod?: boolean }} attr
+ * @returns {string|null} slug utilisable avec resolveAsset()
  */
-export function resolveAttributeIcon(text) {
-  if (!text) return null
-  // Match direct par enum
-  const direct = ATTRIBUTE_ICONS[text]
-  if (direct) return direct
-  // Fallback texte libre
-  const t = text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-  if (t.includes('degat') || t.includes('offensi') || t.includes('critique') || t.includes('headshot') || t.includes('arme')) {
-    return attr_offensif
-  }
-  if (t.includes('protect') || t.includes('armure') || t.includes('defensi') || t.includes('vie') || t.includes('sante')) {
-    return attr_defensif
-  }
-  if (t.includes('competence') || t.includes('hate') || t.includes('reparation') || t.includes('utilitaire')) {
-    return attr_competences
-  }
-  return null
+export function resolveAttribut(attr) {
+  if (!attr) return null
+  const cat = attr.categorie
+  if (!cat) return null
+  const normalizedCat = cat.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+  if (attr.estEssentiel) return `essentiel_${normalizedCat}`
+  if (attr.estMod) return `mod_${normalizedCat}`
+  return `attribut_${normalizedCat}`
 }
 
 // ================================================================
@@ -124,9 +110,45 @@ export function resolveAsset(slug) {
 
 /**
  * Composant image réutilisable avec fallback transparent si l'image n'est pas trouvée.
+ *
+ * @param {string}  src        — URL de l'image
+ * @param {string}  [alt]      — texte alternatif
+ * @param {string}  [size]     — classes Tailwind de taille (ex: 'w-5 h-5')
+ * @param {string}  [className] — classes CSS supplémentaires
+ * @param {string}  [color]    — filtre de couleur appliqué à l'icône :
+ *                                 • classe Tailwind (ex: 'text-red-500', 'text-amber-300')
+ *                                 • couleur hex arbitraire (ex: '#ff6600', '#fff')
+ *                                Utilise CSS mask-image : l'image sert de masque,
+ *                                la couleur remplit la forme visible.
  */
-export function GameIcon({ src, alt = '', size = 'w-5 h-5', className = '' }) {
+export function GameIcon({ src, alt = '', size = 'w-5 h-5', className = '', color }) {
   if (!src) return null
+
+  if (color) {
+    const isHex = color.startsWith('#')
+    // Classe Tailwind : on convertit text-* en bg-* pour le background
+    const colorClass = !isHex ? color.replace(/^text-/, 'bg-') : ''
+
+    return (
+        <span
+            role="img"
+            aria-label={alt}
+            className={`${size} shrink-0 inline-block ${colorClass} ${className}`}
+            style={{
+              maskImage: `url(${src})`,
+              WebkitMaskImage: `url(${src})`,
+              maskSize: 'contain',
+              WebkitMaskSize: 'contain',
+              maskRepeat: 'no-repeat',
+              WebkitMaskRepeat: 'no-repeat',
+              maskPosition: 'center',
+              WebkitMaskPosition: 'center',
+              ...(isHex ? { backgroundColor: color } : {}),
+            }}
+        />
+    )
+  }
+
   return (
       <img
           src={src}
