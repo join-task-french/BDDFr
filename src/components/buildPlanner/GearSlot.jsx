@@ -285,7 +285,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                                     />
                                 )}
                                 {prototypeTalent.description && (
-                                    <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed italic">{prototypeTalent.description}</MarkdownText>
+                                    <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed italic">{prototypeTalent.description.replace(/\{value\}/g, prototypeTalent.valeur !== undefined ? prototypeTalent.valeur : prototypeTalent.statMax)}</MarkdownText>
                                 )}
                             </div>
                         ) : (

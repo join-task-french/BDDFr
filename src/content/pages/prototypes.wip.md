@@ -128,7 +128,7 @@ Voici les 9 Augmentations disponibles, avec leur évolution par niveau :
 * **Paradoxe :** Chance de récupérer 2 balles dans le chargeur à chaque tir. *(Base : 1,5 % | Max : 6,0 % | +0,5 % par niveau)*
 * **Quantum :** Chance de devenir immunisé aux dégâts pendant 2 secondes (non rafraichissable tant qu'actif). *(Base : 1,0 % | Max : 2,8 % | +0,2 % par niveau)*
 * **Synesthésie :** Chaque tir réussi a une chance de réduire le temps de recharge de vos compétences de 0,2s. *(Base : 2,5 % | Max : 4,3 % | +0,2 % par niveau)*
-* **Traqueur :** Augmente la durée des effets d'état que vous appliquez. *(Base : 4,0 % | Max : 14,0 % | +1,0 % par niveau)*
+* **Traqueur :** Augmente la durée des effets d'état que vous appliquez. *(Base : 5,0 % | Max : 14,0 % | +1,0 % par niveau)*
 
 ---
 

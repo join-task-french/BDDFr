@@ -261,7 +261,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                             />
                                         )}
                                         {prototypeTalent.description && (
-                                            <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed italic">{prototypeTalent.description}</MarkdownText>
+                                            <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed italic">{prototypeTalent.description.replace(/\{value\}/g, prototypeTalent.valeur !== undefined ? prototypeTalent.valeur : prototypeTalent.statMax)}</MarkdownText>
                                         )}
                                     </div>
                                 ) : (
