@@ -1,9 +1,7 @@
 A Faire :
-- Pistolet
 - description exo + nommé (pas prioritaire)
 - Talent proto
 - Ajout valeur proto (a verif)
-- Spécialisation
 
 Check mise en forme :
 - Talent armes

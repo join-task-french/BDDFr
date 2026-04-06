@@ -1680,7 +1680,11 @@
   },
   "debarras": {
     "nom": "Débarras",
-    "description": "Éliminer une cible offre +70% de probabilité de remplir le chargeur.",
+    "description": "Éliminer une cible offre **+70%** de probabilité de remplir le chargeur.",
+    "perfectDescription": "Éliminer une cible offre **+85%** de probabilité de remplir le chargeur.",
+    "armesParfaites": [
+      "paratonnerre"
+    ],
     "icon": "debarras",
     "compatibilite": {
       "fusil": false,
