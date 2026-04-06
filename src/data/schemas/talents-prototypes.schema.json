@@ -11,7 +11,8 @@
         "nom",
         "description",
         "statMin",
-        "statMax"
+        "statMax",
+        "pas"
       ],
       "properties": {
         "nom": {
@@ -24,6 +25,9 @@
           "type": "number"
         },
         "statMax": {
+          "type": "number"
+        },
+        "pas": {
           "type": "number"
         },
         "icon": {
