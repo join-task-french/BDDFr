@@ -247,7 +247,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                                 type="range"
                                                 min={prototypeTalent.statMin}
                                                 max={prototypeTalent.statMax}
-                                                step={0.1}
+                                                step={prototypeTalent.pas || 0.1}
                                                 value={prototypeTalent.valeur ?? prototypeTalent.statMax}
                                                 onChange={(e) => {
                                                     e.stopPropagation();
