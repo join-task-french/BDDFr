@@ -43,6 +43,7 @@ const DATA_FILES_MAP = {
   talentsAutres: 'talents-autres.jsonc',
   talentsEquipements: 'talents-equipements.jsonc',
   talentsPrototypes: 'talents-prototypes.jsonc',
+  builds: 'builds.jsonc',
 }
 
 const SLUG_KEYED_FILES = new Set([

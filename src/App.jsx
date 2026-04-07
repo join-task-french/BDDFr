@@ -6,6 +6,7 @@ import PageViewer from "./pages/PageViewer.jsx";
 
 const DatabasePage = lazy(() => import('./pages/DatabasePage'))
 const BuildPlannerPage = lazy(() => import('./pages/BuildPlannerPage'))
+const BuildLibraryPage = lazy(() => import('./pages/BuildLibraryPage'))
 const ChangelogPage = lazy(() => import('./pages/ChangelogPage'))
 const GeneratorPage = lazy(() => import('./pages/GeneratorPage'))
 const MarkdownViewerPage = lazy(() => import('./pages/PageViewer'))
@@ -19,6 +20,7 @@ export default function App() {
         const preloadPages = () => {
             import('./pages/DatabasePage');
             import('./pages/BuildPlannerPage');
+            import('./pages/BuildLibraryPage');
             import('./pages/ChangelogPage');
             import('./pages/GeneratorPage');
             import('./pages/PageViewer');
@@ -36,6 +38,8 @@ export default function App() {
             <Route element={<Layout />}>
                 <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
                 <Route path="db/:category/:slug?/:modifier?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
+                <Route path="planner" element={<SuspensePage><BuildPlannerPage /></SuspensePage>} />
+                <Route path="library" element={<SuspensePage><BuildLibraryPage /></SuspensePage>} />
                 <Route path="build" element={<SuspensePage><BuildPlannerPage /></SuspensePage>} />
                 <Route path="changelog" element={<SuspensePage><ChangelogPage /></SuspensePage>} />
                 <Route path="generator" element={<SuspensePage><GeneratorPage /></SuspensePage>} />

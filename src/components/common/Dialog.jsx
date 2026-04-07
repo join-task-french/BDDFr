@@ -10,14 +10,18 @@ export default function Dialog({
   onCancel,
   confirmLabel = 'Confirmer',
   cancelLabel = 'Annuler',
-  placeholder = ''
+  placeholder = '',
+  showDescription = false,
+  defaultDescription = ''
 }) {
   const [inputValue, setInputValue] = useState(defaultValue)
+  const [description, setDescription] = useState(defaultDescription)
   const inputRef = useRef(null)
 
   useEffect(() => {
     if (open) {
       setInputValue(defaultValue)
+      setDescription(defaultDescription)
       document.body.style.overflow = 'hidden'
       if (type === 'prompt') {
         setTimeout(() => {
@@ -29,13 +33,21 @@ export default function Dialog({
       document.body.style.overflow = 'unset'
     }
     return () => { document.body.style.overflow = 'unset' }
-  }, [open, defaultValue, type])
+  }, [open, defaultValue, defaultDescription, type])
 
   if (!open) return null
 
   const handleConfirm = (e) => {
     e?.preventDefault()
-    onConfirm(type === 'prompt' ? inputValue : true)
+    if (type === 'prompt') {
+      if (showDescription) {
+        onConfirm({ name: inputValue, description })
+      } else {
+        onConfirm(inputValue)
+      }
+    } else {
+      onConfirm(true)
+    }
   }
 
   return (
@@ -58,15 +70,37 @@ export default function Dialog({
           </p>
 
           {type === 'prompt' && (
-            <form onSubmit={handleConfirm}>
-              <input
-                ref={inputRef}
-                type="text"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                placeholder={placeholder}
-                className="w-full px-4 py-3 bg-tactical-bg border border-tactical-border rounded text-white focus:outline-none focus:ring-1 focus:ring-shd focus:border-shd transition-all"
-              />
+            <form onSubmit={handleConfirm} className="space-y-4">
+              <div>
+                {showDescription && (
+                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
+                    Nom du build
+                  </label>
+                )}
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  placeholder={placeholder || (showDescription ? 'Entrez un nom' : '')}
+                  className="w-full px-4 py-3 bg-tactical-bg border border-tactical-border rounded text-white focus:outline-none focus:ring-1 focus:ring-shd focus:border-shd transition-all"
+                />
+              </div>
+              
+              {showDescription && (
+                <div>
+                  <label className="block text-[10px] text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
+                    Description (optionnelle)
+                  </label>
+                  <textarea
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    placeholder="Détails sur l'utilisation, spécialisation..."
+                    rows="3"
+                    className="w-full px-4 py-3 bg-tactical-bg border border-tactical-border rounded text-white focus:outline-none focus:ring-1 focus:ring-shd focus:border-shd transition-all resize-none"
+                  />
+                </div>
+              )}
             </form>
           )}
         </div>

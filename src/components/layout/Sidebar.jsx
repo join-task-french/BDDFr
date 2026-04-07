@@ -1,9 +1,11 @@
 // src/components/layout/Sidebar.jsx
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import JTFrLogo from '../common/JTFrLogo.jsx'
 import {InfoToolTip} from "../common/InfoToolTip.jsx";
 
 export default function Sidebar({ open, onClose }) {
+  const [buildsExpanded, setBuildsExpanded] = useState(true)
   const linkClass = ({ isActive }) =>
       `flex items-center gap-3 px-3 py-2.5 rounded text-sm font-bold uppercase tracking-widest transition-all duration-200 border ${
           isActive
@@ -33,7 +35,7 @@ export default function Sidebar({ open, onClose }) {
         </div>
 
         {/* Navigation */}
-        <nav className="px-3 py-4 space-y-2">
+        <nav className="px-3 py-4 space-y-1">
           <NavLink to="/" end className={linkClass} onClick={onClose}>
             <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
@@ -41,29 +43,79 @@ export default function Sidebar({ open, onClose }) {
             </svg>
             Base de Données
           </NavLink>
-          <NavLink to="/build" className={linkClass} onClick={onClose}>
-            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
-            </svg>
-            Build Planner
-          </NavLink>
 
-          <NavLink to="/pages" className={linkClass} onClick={onClose}>
-            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
-            Documents
-          </NavLink>
+          <div className="pt-2">
+            <NavLink 
+              to="/build"
+              className={nav => `${linkClass(nav)} flex justify-between items-center group`}
+              onClick={(e) => {
+                e.preventDefault();
+                setBuildsExpanded(!buildsExpanded);
+              }}
+            >
+              <div className="flex items-center gap-3">
+                <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.77 3.77z" />
+                </svg>
+                Builds
+              </div>
+              <svg 
+                className={`w-4 h-4 transition-transform duration-200 ${buildsExpanded ? 'rotate-180' : ''}`} 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </NavLink>
 
-          <NavLink to="/changelog" className={linkClass} onClick={onClose}>
-            <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            Changelog
-          </NavLink>
+            <div className={`mt-1 space-y-1 overflow-hidden transition-all duration-300 ${buildsExpanded ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+              <NavLink 
+                to="/library" 
+                className={({ isActive }) => 
+                  `flex items-center gap-3 px-3 py-2 rounded text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
+                    isActive
+                        ? 'bg-shd/5 text-shd border-shd/20'
+                        : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
+                  }`
+                } 
+                onClick={onClose}
+              >
+                Buildothèque
+              </NavLink>
+              <NavLink 
+                to="/build"
+                className={({ isActive }) => 
+                  `flex items-center gap-3 px-3 py-2 rounded text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
+                    isActive
+                        ? 'bg-shd/5 text-shd border-shd/20'
+                        : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
+                  }`
+                } 
+                onClick={onClose}
+              >
+                Build Planner
+              </NavLink>
+            </div>
+          </div>
+
+          <div className="pt-2 space-y-1">
+            <NavLink to="/pages" className={linkClass} onClick={onClose}>
+              <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              Documents
+            </NavLink>
+
+            <NavLink to="/changelog" className={linkClass} onClick={onClose}>
+              <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              Changelog
+            </NavLink>
+          </div>
         </nav>
 
         {/* Spacer pushes outils + footer to bottom */}
