@@ -268,7 +268,10 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
   }
 
   return (
-    <div className="group bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden hover:border-shd/50 transition-all flex flex-col h-full shadow-lg">
+    <div 
+      onClick={onView}
+      className="group bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden hover:border-shd/50 transition-all flex flex-col h-full shadow-lg cursor-pointer"
+    >
       <div className="p-5 flex-1">
         <div className="flex justify-between items-start mb-4">
           <div className="flex items-center gap-3">
@@ -363,7 +366,7 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
       </div>
 
       <button 
-        onClick={onView}
+        onClick={(e) => { e.stopPropagation(); onView(); }}
         className="w-full py-3 bg-tactical-bg hover:bg-shd/10 text-xs font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-shd border-t border-tactical-border transition-all flex items-center justify-center gap-2"
       >
         Consulter le build
