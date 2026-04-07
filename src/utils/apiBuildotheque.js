@@ -36,11 +36,29 @@ class ApiBuildotheque {
     window.location.href = `${url}/auth/discord`;
   }
 
+  handleAuthCallback(token, user) {
+    if (token) {
+      this.token = token;
+      localStorage.setItem('buildLibrary_token', token);
+    }
+    if (user) {
+      try {
+        const userData = typeof user === 'string' ? JSON.parse(decodeURIComponent(user)) : user;
+        this.user = userData;
+        localStorage.setItem('buildLibrary_user', JSON.stringify(userData));
+      } catch (e) {
+        console.error("Erreur lors du parsing de l'utilisateur:", e);
+      }
+    }
+    window.dispatchEvent(new CustomEvent('auth-change', { detail: { user: this.user } }));
+  }
+
   async logout() {
     this.token = null;
     this.user = null;
     localStorage.removeItem('buildLibrary_token');
     localStorage.removeItem('buildLibrary_user');
+    window.dispatchEvent(new CustomEvent('auth-change', { detail: { user: null } }));
   }
 
   async toggleLike(buildId, metadataBaseUrl) {

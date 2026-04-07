@@ -1,8 +1,9 @@
 import {lazy, Suspense, useEffect} from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Loader from './components/common/Loader'
 import PageViewer from "./pages/PageViewer.jsx";
+import { apiBuildotheque } from './utils/apiBuildotheque'
 
 const DatabasePage = lazy(() => import('./pages/DatabasePage'))
 const BuildPlannerPage = lazy(() => import('./pages/BuildPlannerPage'))
@@ -16,6 +17,25 @@ function SuspensePage({ children }) {
 }
 
 export default function App() {
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search)
+        const token = params.get('token')
+        const userParam = params.get('user')
+
+        if (token) {
+            apiBuildotheque.handleAuthCallback(token, userParam)
+            
+            // Nettoyer l'URL
+            params.delete('token')
+            params.delete('user')
+            const newSearch = params.toString()
+            navigate(`${location.pathname}${newSearch ? `?${newSearch}` : ''}`, { replace: true })
+        }
+    }, [location, navigate])
+
     useEffect(() => {
         const preloadPages = () => {
             import('./pages/DatabasePage');
