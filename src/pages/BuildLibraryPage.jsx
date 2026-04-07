@@ -109,6 +109,14 @@ export default function BuildLibraryPage() {
   const [apiUrl, setApiUrl] = useState(localStorage.getItem('buildLibraryApiUrl_override') || '')
   const [showSettings, setShowSettings] = useState(false)
   const [remoteBuilds, setRemoteBuilds] = useState([])
+  const [localSearchTerm, setLocalSearchTerm] = useState('')
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setSearchTerm(localSearchTerm)
+    }, 300)
+    return () => clearTimeout(timeoutId)
+  }, [localSearchTerm])
   const [user, setUser] = useState(apiBuildotheque.user)
   const [isApiLoading, setIsApiLoading] = useState(false)
   const [publishingBuild, setPublishingBuild] = useState(null)
@@ -350,17 +358,17 @@ export default function BuildLibraryPage() {
                   type="text"
                   placeholder="Rechercher un build par nom, description ou auteur..."
                   className="w-full bg-tactical-panel/50 border border-tactical-border rounded-lg pl-11 pr-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  value={localSearchTerm}
+                  onChange={(e) => setLocalSearchTerm(e.target.value)}
               />
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                 </svg>
               </div>
-              {searchTerm && (
+              {localSearchTerm && (
                   <button
-                      onClick={() => setSearchTerm('')}
+                      onClick={() => setLocalSearchTerm('')}
                       className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
