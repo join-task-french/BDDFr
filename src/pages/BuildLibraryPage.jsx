@@ -9,16 +9,30 @@ function ItemMini({ item, ensemble, slot }) {
   const isWeapon = slot === 'w1' || slot === 'w2' || slot === 'sa'
   const isSkill = slot === 's1' || slot === 's2'
   
-  // Résolution d'icône
+  // Résolution d'icône et décision de coloration
   let icon = null
+  let shouldColor = true
+  
   if (isWeapon) {
     // Priorité absolue au type d'arme pour les icônes (comme dans la DB)
     icon = WEAPON_TYPE_ICONS[item?.type] || resolveAsset(item?.slug)
+    // On ne colore que les icônes de type (qui sont blanches)
+    shouldColor = !!WEAPON_TYPE_ICONS[item?.type]
   } else if (isSkill) {
     icon = resolveAsset(item?.icon)
+    shouldColor = false // Les icônes de compétences sont déjà colorées
   } else {
     // Équipement : Priorité à l'icône de la marque/set (comme dans la DB)
-    icon = resolveAsset(ensemble?.icon) || resolveAsset(item?.marque) || resolveAsset(item?.slug) || GEAR_SLOT_ICONS_IMG[slot]
+    if (ensemble?.icon) {
+      icon = resolveAsset(ensemble.icon)
+      shouldColor = false
+    } else if (item?.marque) {
+      icon = resolveAsset(item.marque)
+      shouldColor = false
+    } else {
+      icon = GEAR_SLOT_ICONS_IMG[slot]
+      shouldColor = true
+    }
   }
 
   const name = isSkill ? item?.variante : item?.nom
@@ -66,7 +80,7 @@ function ItemMini({ item, ensemble, slot }) {
         <GameIcon 
           src={icon} 
           size="w-5 h-5" 
-          color={colorClass} 
+          color={shouldColor ? colorClass : null} 
         />
       </div>
       <div className="flex flex-col min-w-0 leading-tight">
@@ -74,17 +88,17 @@ function ItemMini({ item, ensemble, slot }) {
           {name || '-'}
         </span>
         {ensemble?.nom && !isWeapon && (
-           <span className="text-xs text-gray-500 truncate uppercase tracking-tighter">
+           <span className="text-[9px] text-gray-500 truncate uppercase tracking-tighter">
              {ensemble.nom}
            </span>
         )}
         {isWeapon && item?.type && (
-           <span className="text-xs text-gray-500 truncate uppercase tracking-tighter">
+           <span className="text-[9px] text-gray-500 truncate uppercase tracking-tighter">
              {item.type.replace('_', ' ')}
            </span>
         )}
         {isSkill && item?.competence && (
-           <span className="text-xs text-gray-500 truncate uppercase tracking-tighter">
+           <span className="text-[9px] text-gray-500 truncate uppercase tracking-tighter">
              {item.competence}
            </span>
         )}
@@ -248,17 +262,32 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
     <div className="group bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden hover:border-shd/50 transition-all flex flex-col h-full shadow-lg">
       <div className="p-5 flex-1">
         <div className="flex justify-between items-start mb-4">
-          <div>
-            <h4 className="text-lg font-bold text-white uppercase tracking-wider group-hover:text-shd transition-colors line-clamp-1">
-              {build.nom}
-            </h4>
-            <div className="text-xs text-gray-500 font-bold uppercase tracking-widest flex items-center gap-2">
-              <span className="text-blue-400">{spec}</span>
-              <span className="text-gray-700">|</span>
-              <div className="flex gap-1">
-                <span className="text-red-500">{statsCount.offensif}</span>
-                <span className="text-blue-500">{statsCount.defensif}</span>
-                <span className="text-yellow-500">{statsCount.utilitaire}</span>
+          <div className="flex items-center gap-3">
+            {mainBrandIcon && (
+              <GameIcon 
+                src={mainBrandIcon} 
+                size="w-10 h-10" 
+                className="rounded bg-black/20 p-1 border border-white/5" 
+              />
+            )}
+            <div>
+              <h4 className="text-lg font-bold text-white uppercase tracking-wider group-hover:text-shd transition-colors line-clamp-1">
+                {build.nom}
+              </h4>
+              <div className="text-xs text-gray-500 font-bold uppercase tracking-widest flex items-center gap-2">
+                <span className="text-blue-400">{spec}</span>
+                {mainBrand && (
+                  <>
+                    <span className="text-gray-700">|</span>
+                    <span className="text-gray-400">{mainBrand}</span>
+                  </>
+                )}
+                <span className="text-gray-700">|</span>
+                <div className="flex gap-1">
+                  <span className="text-red-500">{statsCount.offensif}</span>
+                  <span className="text-blue-500">{statsCount.defensif}</span>
+                  <span className="text-yellow-500">{statsCount.utilitaire}</span>
+                </div>
               </div>
             </div>
           </div>
@@ -280,18 +309,19 @@ function BuildCard({ build, data, onView, onDelete, isLocal }) {
         </p>
 
         {/* Vue Rapide Elements */}
-        <div className="bg-black/20 p-3 rounded border border-white/5 space-y-4">
+        <div>
           {/* Ligne principale : Armes (Principal 1, 2 + Pistolet) */}
-          <div className="grid grid-cols-3 gap-2">
+          <div className="grid grid-cols-3 gap-2 pb-3">
             <ItemMini item={resolved.weapons[0]} slot="w1" />
             <ItemMini item={resolved.weapons[1]} slot="w2" />
             <ItemMini item={resolved.sidearm} slot="sa" />
           </div>
+          
           {/* Grille d'équipement (2 colonnes, 3 lignes) */}
-          <div className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-white/5 pt-3">
+          <div className="grid grid-cols-2 gap-x-4 gap-y-3 border-t border-white/5 pt-3 pb-3">
             <ItemMini item={resolved.gear.masque} ensemble={resolvedEnsembles.masque} slot="masque" />
             <ItemMini item={resolved.gear.sac_a_dos} ensemble={resolvedEnsembles.sac_a_dos} slot="sac_a_dos" />
-            
+
             <ItemMini item={resolved.gear.torse} ensemble={resolvedEnsembles.torse} slot="torse" />
             <ItemMini item={resolved.gear.gants} ensemble={resolvedEnsembles.gants} slot="gants" />
 
