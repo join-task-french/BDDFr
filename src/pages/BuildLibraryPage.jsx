@@ -9,15 +9,21 @@ function ItemMini({ item, ensemble, slot }) {
   const isWeapon = slot === 'w1' || slot === 'w2' || slot === 'sa'
   const isSkill = slot === 's1' || slot === 's2'
   
-  // Résolution d'icône et décision de coloration
+  const isExotic = item?.qualite === 'exotique' || item?.type === 'exotique' || item?.estExotique
+  const isNamed = item?.estNomme
+  const isGearSet = item?.type === 'gear_set' || ensemble?.type === 'gear_set'
+  const isSkillItem = isSkill && item
+  const isClassic = item && !isExotic && !isNamed && !isGearSet && !isSkillItem
+
   let icon = null
   let shouldColor = true
   
   if (isWeapon) {
-    // Priorité absolue au type d'arme pour les icônes (comme dans la DB)
-    icon = WEAPON_TYPE_ICONS[item?.type] || resolveAsset(item?.slug)
-    // On ne colore que les icônes de type (qui sont blanches)
-    shouldColor = !!WEAPON_TYPE_ICONS[item?.type]
+    icon = resolveAsset(item?.icon) || WEAPON_TYPE_ICONS[item?.type]
+    shouldColor = !!WEAPON_TYPE_ICONS[item?.type] && !resolveAsset(item?.icon) && !resolveAsset(item?.slug)
+    
+    // Pour les armes classiques, on ne force pas la coloration si c'est du blanc pour utiliser l'image d'origine
+    if (isClassic) shouldColor = false
   } else if (isSkill) {
     icon = resolveAsset(item?.icon)
     shouldColor = false // Les icônes de compétences sont déjà colorées
@@ -32,14 +38,12 @@ function ItemMini({ item, ensemble, slot }) {
     } else {
       icon = GEAR_SLOT_ICONS_IMG[slot]
       shouldColor = true
+      // Idem pour l'équipement classique
+      if (isClassic) shouldColor = false
     }
   }
 
   const name = isSkill ? item?.variante : item?.nom
-  const isExotic = item?.qualite === 'exotique' || item?.type === 'exotique' || item?.estExotique
-  const isNamed = item?.estNomme
-  const isGearSet = item?.type === 'gear_set' || ensemble?.type === 'gear_set'
-  const isSkillItem = isSkill && item
   
   // Détermination des couleurs unifiées selon la rareté
   let colorClass = 'text-gray-400'
@@ -64,10 +68,10 @@ function ItemMini({ item, ensemble, slot }) {
       borderColor = 'border-blue-400/30'
       bgColor = 'bg-blue-400/5'
     } else {
-      // Haut de gamme (High-end) par défaut
-      colorClass = 'text-amber-400'
-      borderColor = 'border-amber-400/20'
-      bgColor = 'bg-amber-400/5'
+      // Arme ou équipement classique -> Blanc (demande utilisateur)
+      colorClass = 'text-white'
+      borderColor = 'border-white/10'
+      bgColor = 'bg-white/5'
     }
   } else {
     colorClass = 'text-gray-600'
