@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDataLoader } from '../../hooks/useDataLoader.js'
 import { decodeBuild, resolveBuild } from '../../utils/buildShare.js'
@@ -6,6 +6,61 @@ import Loader from '../../components/common/Loader.jsx'
 import { GameIcon, resolveAsset, GEAR_SLOT_ICONS_IMG, WEAPON_TYPE_ICONS } from '../../components/common/GameAssets.jsx'
 import { apiBuildotheque } from '../../utils/apiBuildotheque.js'
 import Dialog from '../../components/common/Dialog.jsx'
+
+function SortDropdown({ value, onChange, options }) {
+  const [isOpen, setIsOpen] = useState(false)
+  const dropdownRef = useRef(null)
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false)
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside)
+    return () => document.removeEventListener('mousedown', handleClickOutside)
+  }, [])
+
+  const selectedOption = options.find(opt => opt.value === value) || options[0]
+
+  return (
+      <div className="relative flex-1 md:flex-initial" ref={dropdownRef}>
+        <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="w-full flex items-center justify-between bg-tactical-panel/50 border border-tactical-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20 font-bold text-sm min-w-[160px]"
+        >
+          <span className="truncate mr-2 uppercase tracking-tight">{selectedOption.label}</span>
+          <svg
+              className={`w-4 h-4 text-shd transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        {isOpen && (
+            <div className="absolute z-50 mt-2 w-full bg-tactical-panel border border-tactical-border rounded-lg shadow-xl overflow-hidden animate-fade-in">
+              {options.map((option) => (
+                  <button
+                      key={option.value}
+                      onClick={() => {
+                        onChange(option.value)
+                        setIsOpen(false)
+                      }}
+                      className={`w-full text-left px-4 py-3 text-sm font-bold uppercase tracking-tight transition-colors hover:bg-shd/10 ${
+                          value === option.value ? 'text-shd bg-shd/5' : 'text-gray-300 hover:text-white'
+                      }`}
+                  >
+                    {option.label}
+                  </button>
+              ))}
+            </div>
+        )}
+      </div>
+  )
+}
 
 function ItemMini({ item, ensemble, slot }) {
   const isWeapon = slot === 'w1' || slot === 'w2' || slot === 'sa'
@@ -438,17 +493,17 @@ export default function BuildLibraryPage() {
             </div>
 
             <div className="flex gap-2 w-full md:w-auto">
-              <select
+              <SortDropdown
                   value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="flex-1 md:flex-initial bg-tactical-panel/50 border border-tactical-border rounded-lg px-4 py-3 text-white focus:outline-none focus:border-shd transition-all focus:ring-1 focus:ring-shd/20 font-bold text-sm"
-              >
-                <option value="default">Tri par défaut</option>
-                <option value="recent">Plus récents</option>
-                <option value="old">Moins récents</option>
-                <option value="likes_desc">Plus likés</option>
-                <option value="likes_asc">Moins likés</option>
-              </select>
+                  onChange={setSortBy}
+                  options={[
+                    { value: 'default', label: 'Tri par défaut' },
+                    { value: 'recent', label: 'Plus récents' },
+                    { value: 'old', label: 'Moins récents' },
+                    { value: 'likes_desc', label: 'Plus likés' },
+                    { value: 'likes_asc', label: 'Moins likés' }
+                  ]}
+              />
 
               <button
                   onClick={() => setShowSettings(!showSettings)}
