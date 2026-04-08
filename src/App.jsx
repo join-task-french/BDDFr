@@ -6,8 +6,8 @@ import PageViewer from "./pages/PageViewer.jsx";
 import { apiBuildotheque } from './utils/apiBuildotheque'
 
 const DatabasePage = lazy(() => import('./pages/DatabasePage'))
-const BuildPlannerPage = lazy(() => import('./pages/BuildPlannerPage'))
-const BuildLibraryPage = lazy(() => import('./pages/BuildLibraryPage'))
+const BuildPlannerPage = lazy(() => import('./pages/build/BuildPlannerPage.jsx'))
+const BuildLibraryPage = lazy(() => import('./pages/build/BuildLibraryPage.jsx'))
 const ChangelogPage = lazy(() => import('./pages/ChangelogPage'))
 const GeneratorPage = lazy(() => import('./pages/GeneratorPage'))
 
@@ -39,8 +39,8 @@ export default function App() {
     useEffect(() => {
         const preloadPages = () => {
             import('./pages/DatabasePage');
-            import('./pages/BuildPlannerPage');
-            import('./pages/BuildLibraryPage');
+            import('./pages/build/BuildPlannerPage.jsx');
+            import('./pages/build/BuildLibraryPage.jsx');
             import('./pages/ChangelogPage');
             import('./pages/GeneratorPage');
             import('./pages/PageViewer');

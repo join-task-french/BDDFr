@@ -1,11 +1,11 @@
 import { useState, useEffect, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useDataLoader } from '../hooks/useDataLoader'
-import { decodeBuild, resolveBuild } from '../utils/buildShare'
-import Loader from '../components/common/Loader'
-import { GameIcon, resolveAsset, GEAR_SLOT_ICONS_IMG, WEAPON_TYPE_ICONS } from '../components/common/GameAssets'
-import { apiBuildotheque } from '../utils/apiBuildotheque'
-import Dialog from '../components/common/Dialog'
+import { useDataLoader } from '../../hooks/useDataLoader.js'
+import { decodeBuild, resolveBuild } from '../../utils/buildShare.js'
+import Loader from '../../components/common/Loader.jsx'
+import { GameIcon, resolveAsset, GEAR_SLOT_ICONS_IMG, WEAPON_TYPE_ICONS } from '../../components/common/GameAssets.jsx'
+import { apiBuildotheque } from '../../utils/apiBuildotheque.js'
+import Dialog from '../../components/common/Dialog.jsx'
 
 function ItemMini({ item, ensemble, slot }) {
   const isWeapon = slot === 'w1' || slot === 'w2' || slot === 'sa'

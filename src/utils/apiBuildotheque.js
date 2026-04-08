@@ -90,6 +90,28 @@ class ApiBuildotheque {
     }
   }
 
+  async fetchBuildById(buildId, metadataBaseUrl) {
+    const url = this.getBaseUrl(metadataBaseUrl);
+    try {
+      console.log(`Fetching build by id: ${url}/builds/${buildId}`);
+      const response = await fetch(`${url}/builds/${buildId}`, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          'Accept': 'application/json',
+        }
+      });
+      if (!response.ok) {
+        console.error(`HTTP error! status: ${response.status}`);
+        throw new Error('Erreur lors de la récupération du build');
+      }
+      return await response.json();
+    } catch (e) {
+      console.error("API Fetch By ID Error:", e);
+      return null;
+    }
+  }
+
   async loginDiscord(metadataBaseUrl) {
     const url = this.getBaseUrl(metadataBaseUrl);
     console.log(`Redirecting to Discord login at: ${url}/auth/discord`);
