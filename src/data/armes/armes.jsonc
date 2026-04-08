@@ -2575,9 +2575,9 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
@@ -2689,7 +2689,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
       "viseur": "rail_optique_long",
@@ -2709,7 +2709,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
       "bouche": "bouche_762",
       "viseur": "rail_optique_long",
@@ -2771,9 +2771,9 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_integre",
+      "bouche": "bouche_762",
       "viseur": "rail_optique_long"
     }
   },
@@ -3007,8 +3007,8 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_integre",
       "bouche": "bouche_762",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
@@ -3445,11 +3445,11 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
+      "viseur": "rail_optique",
       "canon": "rail_sous_canon_court",
-      "bouche": "bouche"
+      "bouche": "bouche_9mm"
     }
   },
   "vector_45_acp": {
@@ -3664,7 +3664,7 @@
     "talents": [
       "stabilisation"
     ],
-    "emplacementsMods": {}
+    "emplacementsMods": {}//OK
   },
   "l_enneigeur": {
     "nom": "L'Eneigeur",
@@ -3862,10 +3862,10 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
-      "viseur": "rail_optique"
+      "viseur": "rail_optique_court"
     }
   },
   "murmure": {
@@ -4119,7 +4119,7 @@
     "estExotique": false,
     "estNomme": false,
     "talents": [],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
       "viseur": "rail_optique_long",
@@ -5726,7 +5726,7 @@
     "emplacementsMods": {
       "chargeur": "chargeur_9mm",
       "bouche": "bouche_9mm",
-      "viseur": "rail_optique_court",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_court"
     }
   },
@@ -5788,7 +5788,7 @@
     "talents": [
       "point_de_pression"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long",
