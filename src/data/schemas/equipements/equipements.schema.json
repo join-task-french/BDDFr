@@ -51,7 +51,7 @@
           "items": {
             "anyOf": [
               {
-                "$ref": "attribut-applique.schema.json"
+                "$ref": "../common/attribut-applique.schema.json"
               },
               {
                 "type": "object",
@@ -93,7 +93,7 @@
           ]
         },
         "obtention": {
-          "$ref": "obtention.schema.json"
+          "$ref": "../common/obtention.schema.json"
         },
         "notes": {
           "type": "string",

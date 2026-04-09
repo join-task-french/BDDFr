@@ -86,14 +86,14 @@
           "type": "array",
           "description": "Attributs fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
           "items": {
-            "$ref": "attribut-applique.schema.json"
+            "$ref": "../common/attribut-applique.schema.json"
           }
         },
         "attributs_essentiels": {
           "type": "array",
           "description": "Écrase les attributs essentiels fixés par défaut sur cette arme, avec leur valeur spécifique. Le nom référence un attribut dans attributs.jsonc.",
           "items": {
-            "$ref": "attribut-applique.schema.json"
+            "$ref": "../common/attribut-applique.schema.json"
           }
         },
         "degatsBase": {
@@ -133,7 +133,7 @@
           }
         },
         "obtention": {
-          "$ref": "obtention.schema.json"
+          "$ref": "../common/obtention.schema.json"
         },
         "emplacementsMods": {
           "type": "object",

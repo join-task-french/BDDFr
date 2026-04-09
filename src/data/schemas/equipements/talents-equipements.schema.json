@@ -65,7 +65,7 @@
           "description": "Notes libres sur le talent"
         },
         "descente": {
-          "$ref": "descente.schema.json"
+          "$ref": "../common/descente.schema.json"
         }
       }
     }
