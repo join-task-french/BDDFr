@@ -15,6 +15,11 @@
     "color": "#eab308"
   },
   {
+    "id": "healer ",
+    "label": "Healer ",
+    "color": "#eab308"
+  },
+  {
     "id": "hybrid",
     "label": "Hybride",
     "color": "#22c55e"
