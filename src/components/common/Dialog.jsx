@@ -1,5 +1,19 @@
 import { useEffect, useRef, useState } from 'react'
 
+/**
+ * Calcule si la couleur du texte doit être noire ou blanche selon la luminosité de l'arrière-plan.
+ * @param {string} hex - Couleur au format hexadécimal (ex: #ffffff)
+ * @returns {string} 'white' ou 'black'
+ */
+const getContrastColor = (hex) => {
+  if (!hex) return 'white'
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000
+  return (yiq >= 128) ? 'black' : 'white'
+}
+
 export default function Dialog({ 
   open, 
   title, 
@@ -72,18 +86,6 @@ export default function Dialog({
     )
   }
 
-  const colorClasses = {
-    red: 'bg-red-500/20 text-red-400 border-red-500/50',
-    blue: 'bg-blue-500/20 text-blue-400 border-blue-500/50',
-    yellow: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/50',
-    green: 'bg-green-500/20 text-green-400 border-green-500/50',
-    gray: 'bg-gray-500/20 text-gray-400 border-gray-500/50',
-    orange: 'bg-orange-500/20 text-orange-400 border-orange-500/50',
-    purple: 'bg-purple-500/20 text-purple-400 border-purple-500/50',
-    indigo: 'bg-indigo-500/20 text-indigo-400 border-indigo-500/50',
-    pink: 'bg-pink-500/20 text-pink-400 border-pink-500/50',
-    cyan: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/50',
-  };
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
@@ -145,16 +147,18 @@ export default function Dialog({
                   <div className="flex flex-wrap gap-2">
                     {availableTags.map(tag => {
                       const isSelected = selectedTags.includes(tag.id);
+                      const tagColor = tag.color || '#6b7280';
                       return (
                         <button
                           key={tag.id}
                           type="button"
                           onClick={() => toggleTag(tag.id)}
-                          className={`px-3 py-1 rounded text-[10px] font-bold uppercase transition-all border ${
-                            isSelected 
-                              ? (colorClasses[tag.color] || 'bg-shd/20 text-shd border-shd/50')
-                              : 'bg-white/5 text-gray-500 border-white/10 hover:border-white/20'
-                          }`}
+                          style={{
+                            backgroundColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.05)',
+                            color: isSelected ? getContrastColor(tagColor) : '#6b7280',
+                            borderColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.1)'
+                          }}
+                          className="px-3 py-1 rounded text-[10px] font-bold uppercase transition-all border hover:border-white/20"
                         >
                           {tag.label}
                         </button>

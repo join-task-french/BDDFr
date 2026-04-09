@@ -2,51 +2,51 @@
   {
     "id": "dps",
     "label": "DPS",
-    "color": "red"
+    "color": "#ef4444"
   },
   {
     "id": "tank",
     "label": "Tank",
-    "color": "blue"
+    "color": "#3b82f6"
   },
   {
     "id": "support",
     "label": "Support",
-    "color": "yellow"
+    "color": "#eab308"
   },
   {
     "id": "hybrid",
     "label": "Hybride",
-    "color": "green"
+    "color": "#22c55e"
   },
   {
     "id": "pve",
     "label": "PvE",
-    "color": "gray"
+    "color": "#6b7280"
   },
   {
     "id": "pvp",
     "label": "PvP",
-    "color": "orange"
+    "color": "#f97316"
   },
   {
     "id": "raid",
     "label": "Raid",
-    "color": "purple"
+    "color": "#a855f7"
   },
   {
     "id": "legendary",
     "label": "Légendaire",
-    "color": "indigo"
+    "color": "#6366f1"
   },
   {
     "id": "incursion",
     "label": "Incursion",
-    "color": "pink"
+    "color": "#ec4899"
   },
   {
     "id": "countdown",
     "label": "Compte à rebours",
-    "color": "cyan"
+    "color": "#06b6d4"
   }
 ]

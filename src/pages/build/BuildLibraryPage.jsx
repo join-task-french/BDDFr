@@ -7,6 +7,20 @@ import { GameIcon, resolveAsset, GEAR_SLOT_ICONS_IMG, WEAPON_TYPE_ICONS } from '
 import { apiBuildotheque } from '../../utils/apiBuildotheque.js'
 import Dialog from '../../components/common/Dialog.jsx'
 
+/**
+ * Calcule si la couleur du texte doit être noire ou blanche selon la luminosité de l'arrière-plan.
+ * @param {string} hex - Couleur au format hexadécimal (ex: #ffffff)
+ * @returns {string} 'white' ou 'black'
+ */
+const getContrastColor = (hex) => {
+  if (!hex) return 'white'
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000
+  return (yiq >= 128) ? 'black' : 'white'
+}
+
 function SortDropdown({ value, onChange, options }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
@@ -562,15 +576,19 @@ export default function BuildLibraryPage() {
                 <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mr-2">Filtrer par tags :</span>
                 {data.buildsTags.map(tag => {
                   const isSelected = selectedTags.includes(tag.id)
-                  const colorBase = tag.color || 'gray'
+                  const tagColor = tag.color || '#6b7280'
                   return (
                       <button
                           key={tag.id}
                           onClick={() => toggleTag(tag.id)}
+                          style={{
+                              backgroundColor: isSelected ? `${tagColor}` : 'rgba(30, 41, 59, 0.4)',
+                              color: isSelected ? getContrastColor(tagColor) : '#9ca3af',
+                              borderColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.1)',
+                              boxShadow: isSelected ? `0 10px 15px -3px ${tagColor}33` : 'none'
+                          }}
                           className={`px-3 py-1.5 rounded text-xs font-black uppercase border transition-all duration-200 tracking-tighter ${
-                              isSelected
-                                  ? `bg-${colorBase}-500 text-white border-${colorBase}-500 shadow-lg shadow-${colorBase}-500/20 scale-105`
-                                  : `bg-tactical-panel/40 text-gray-400 border-tactical-border hover:border-gray-600`
+                              isSelected ? 'scale-105' : 'hover:border-gray-600'
                           }`}
                       >
                         {tag.label}
@@ -879,7 +897,12 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
                       {buildTags.map(tag => (
                           <span
                               key={tag.id}
-                              className={`px-1.5 py-0.5 rounded-xs text-xs font-bold border bg-${tag.color}-500/10 text-${tag.color}-400 border-${tag.color}-500/30`}
+                              style={{
+                                  backgroundColor: tag.color || '#6b7280',
+                                  color: getContrastColor(tag.color || '#6b7280'),
+                                  borderColor: `${tag.color || '#6b7280'}4d`
+                              }}
+                              className="px-1.5 py-0.5 rounded-xs text-xs font-bold border"
                           >
                       {tag.label}
                     </span>
