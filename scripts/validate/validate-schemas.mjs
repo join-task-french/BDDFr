@@ -48,6 +48,18 @@ const VALIDATIONS = [
 const ajv = new Ajv({ allErrors: true, strict: false })
 addFormats(ajv)
 
+// Précharger tous les schémas pour permettre les $ref
+const schemaFiles = readdirSync(SCHEMA_DIR).filter(f => f.endsWith('.schema.json'))
+for (const f of schemaFiles) {
+  const content = JSON.parse(readFileSync(join(SCHEMA_DIR, f), 'utf8'))
+  if (content.$id) {
+    ajv.addSchema(content)
+  } else {
+    // Si pas d'id, on l'ajoute avec son nom de fichier comme clé
+    ajv.addSchema(content, f)
+  }
+}
+
 let hasErrors = false
 let totalFiles = 0
 let passedFiles = 0

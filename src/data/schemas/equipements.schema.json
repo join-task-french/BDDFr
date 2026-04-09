@@ -51,22 +51,7 @@
           "items": {
             "anyOf": [
               {
-                "type": "object",
-                "required": [
-                  "nom"
-                ],
-                "properties": {
-                  "nom": {
-                    "type": "string"
-                  },
-                  "valeur": {
-                    "type": "number"
-                  },
-                  "prototypeValue": {
-                    "type": "number",
-                    "description": "Valeur de l'attribut sur cet équipement si prototype"
-                  }
-                }
+                "$ref": "attribut-applique.schema.json"
               },
               {
                 "type": "object",
@@ -108,64 +93,7 @@
           ]
         },
         "obtention": {
-          "type": "object",
-          "description": "Comment obtenir l'équipement",
-          "properties": {
-            "description": {
-              "type": "string",
-              "description": "Description de comment obtenir l'objet (peut être vide)"
-            },
-            "butinCible": {
-              "oneOf": [
-                { "type": "boolean" },
-                { "type": "string", "minLength": 1 }
-              ],
-              "description": "Disponible via butin ciblé — true/false ou string décrivant les conditions"
-            },
-            "cachesExotiques": {
-              "type": "boolean",
-              "description": "Disponible via caches exotiques"
-            },
-            "mission": {
-              "oneOf": [
-                { "type": "boolean" },
-                { "type": "string", "minLength": 1 }
-              ],
-              "description": "Disponible via une mission — true/false ou string décrivant les conditions"
-            },
-            "darkZone": {
-              "oneOf": [
-                { "type": "boolean" },
-                { "type": "string", "minLength": 1 }
-              ],
-              "description": "Disponible dans la Darkzone"
-            },
-            "raid": {
-              "oneOf": [
-                { "type": "boolean" },
-                { "type": "string", "minLength": 1 }
-              ],
-              "description": "Disponible via un raid — true/false ou string décrivant les conditions"
-            },
-            "craft": {
-              "oneOf": [
-                { "type": "boolean" },
-                { "type": "string", "minLength": 1 }
-              ],
-              "description": "Disponible au craft — true/false ou string décrivant les conditions"
-            },
-            "incursion": {
-              "oneOf": [
-                { "type": "boolean" },
-                { "type": "string", "minLength": 1 }
-              ],
-              "description": "Disponible via une incursion — true/false ou string décrivant les conditions"
-            },
-            "represailles": {
-              "type": "string",
-              "description": "Nom de la faction pour schémas représailles (optionnel)"
-            }
-          }
+          "$ref": "obtention.schema.json"
         },
         "notes": {
           "type": "string",
