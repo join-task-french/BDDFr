@@ -40,6 +40,16 @@
     "color": "#a855f7"
   },
   {
+    "id": "raid_1",
+    "label": "Raid 1 : Heures Sombres",
+    "color": "#a855f7"
+  },
+  {
+    "id": "raid_2",
+    "label": "Raid 2 : Cheval de fer",
+    "color": "#a855f7"
+  },
+  {
     "id": "legendary",
     "label": "Légendaire",
     "color": "#6366f1"
