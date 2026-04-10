@@ -7,6 +7,20 @@ import { GameIcon, resolveAsset, GEAR_SLOT_ICONS_IMG, WEAPON_TYPE_ICONS } from '
 import { apiBuildotheque } from '../../utils/apiBuildotheque.js'
 import Dialog from '../../components/common/Dialog.jsx'
 
+/**
+ * Calcule si la couleur du texte doit être noire ou blanche selon la luminosité de l'arrière-plan.
+ * @param {string} hex - Couleur au format hexadécimal (ex: #ffffff)
+ * @returns {string} 'white' ou 'black'
+ */
+const getContrastColor = (hex) => {
+  if (!hex) return 'white'
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000
+  return (yiq >= 128) ? 'black' : 'white'
+}
+
 function SortDropdown({ value, onChange, options }) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef(null)
@@ -238,23 +252,26 @@ export default function BuildLibraryPage() {
     setIsApiLoading(false)
   }
 
+  const executeSearch = async (term = localSearchTerm.trim()) => {
+    setSearchTerm(term)
+    
+    if (term || selectedTags.length > 0) {
+      setIsSearchingApi(true)
+      const result = await apiBuildotheque.fetchBuilds({
+        text: term,
+        tags: selectedTags,
+        limit: 50
+      }, effectiveApiUrl)
+      setSearchResults(result?.builds || [])
+      setIsSearchingApi(false)
+    } else {
+      setSearchResults([])
+    }
+  }
+
   const handleSearch = async (e) => {
     if (e.key === 'Enter') {
-      const term = localSearchTerm.trim()
-      setSearchTerm(term)
-      
-      if (term || selectedTags.length > 0) {
-        setIsSearchingApi(true)
-        const result = await apiBuildotheque.fetchBuilds({
-          text: term,
-          tags: selectedTags,
-          limit: 50
-        }, effectiveApiUrl)
-        setSearchResults(result?.builds || [])
-        setIsSearchingApi(false)
-      } else {
-        setSearchResults([])
-      }
+      executeSearch()
     }
   }
 
@@ -320,6 +337,12 @@ export default function BuildLibraryPage() {
     }
   }
 
+  const sortedTags = useMemo(() => {
+    if (!data.buildsTags) return []
+    const tagsArray = Object.values(data.buildsTags)
+    return [...tagsArray].sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
+  }, [data.buildsTags])
+
   const handlePublish = (build) => {
     if (!apiBuildotheque.isAuthenticated() || !user) {
       alert("Connectez-vous via Discord pour publier un build.")
@@ -341,7 +364,7 @@ export default function BuildLibraryPage() {
       showDescription: true,
       showTags: true,
       showAuthor: true,
-      availableTags: data?.buildsTags || [],
+      availableTags: sortedTags,
       onConfirm: (val) => {
         setDialog(p => ({ ...p, open: false }))
         confirmPublish(build, val)
@@ -474,6 +497,7 @@ export default function BuildLibraryPage() {
                   value={localSearchTerm}
                   onChange={(e) => setLocalSearchTerm(e.target.value)}
                   onKeyDown={handleSearch}
+                  onBlur={() => executeSearch()}
               />
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -482,7 +506,10 @@ export default function BuildLibraryPage() {
               </div>
               {localSearchTerm && (
                   <button
-                      onClick={() => setLocalSearchTerm('')}
+                      onClick={() => {
+                          setLocalSearchTerm('')
+                          executeSearch('')
+                      }}
                       className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 hover:text-white"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -544,26 +571,31 @@ export default function BuildLibraryPage() {
                     </button>
                   </div>
                 </div>
-                <p className="mt-2 text-[10px] text-gray-500 italic">
+                <p className="mt-2 text-xs text-gray-500 italic">
                   Laissez vide pour utiliser l'API par défaut : {data.metadata?.buildLibraryApiUrl}
                 </p>
               </div>
           )}
 
-          {data.buildsTags && (
+          {sortedTags.length > 0 && (
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-bold text-gray-500 uppercase tracking-widest mr-2">Filtrer par tags :</span>
-                {data.buildsTags.map(tag => {
-                  const isSelected = selectedTags.includes(tag.id)
-                  const colorBase = tag.color || 'gray'
+                {sortedTags.map(tag => {
+                  const tagId = tag.slug || tag.id
+                  const isSelected = selectedTags.includes(tagId)
+                  const tagColor = tag.color || '#6b7280'
                   return (
                       <button
-                          key={tag.id}
-                          onClick={() => toggleTag(tag.id)}
+                          key={tagId}
+                          onClick={() => toggleTag(tagId)}
+                          style={{
+                              backgroundColor: isSelected ? `${tagColor}` : 'rgba(30, 41, 59, 0.4)',
+                              color: isSelected ? getContrastColor(tagColor) : '#9ca3af',
+                              borderColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.1)',
+                              boxShadow: isSelected ? `0 10px 15px -3px ${tagColor}33` : 'none'
+                          }}
                           className={`px-3 py-1.5 rounded text-xs font-black uppercase border transition-all duration-200 tracking-tighter ${
-                              isSelected
-                                  ? `bg-${colorBase}-500 text-white border-${colorBase}-500 shadow-lg shadow-${colorBase}-500/20 scale-105`
-                                  : `bg-tactical-panel/40 text-gray-400 border-tactical-border hover:border-gray-600`
+                              isSelected ? 'scale-105' : 'hover:border-gray-600'
                           }`}
                       >
                         {tag.label}
@@ -783,7 +815,10 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
 
   const buildTags = useMemo(() => {
     if (!build.tags || !data.buildsTags) return []
-    return build.tags.map(tagId => data.buildsTags.find(t => t.id === tagId)).filter(Boolean)
+    return build.tags
+        .map(tagId => data.buildsTags[tagId])
+        .filter(Boolean)
+        .sort((a, b) => (a.label || '').trim().localeCompare((b.label || '').trim()))
   }, [build.tags, data.buildsTags])
 
   if (resolved.gearAttributes) {
@@ -828,11 +863,11 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
                       <button
                           onClick={handleLike}
                           disabled={isLiking}
-                          className={`flex items-center gap-1 px-1.5 py-0.5 rounded border text-[10px] font-black transition-all ${
+                          className={`flex items-center gap-1 px-1.5 py-0.5 rounded border text-xs font-black transition-all ${
                               isLiking ? 'opacity-50 cursor-wait' : 'hover:scale-110'
                           } text-shd/80 bg-shd/5 border-shd/20`}
                       >
-                        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                         </svg>
                         {likes}
@@ -841,12 +876,12 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
                 </div>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
                   {build.auteur && (
-                      <div className="text-[10px] text-shd/80 font-bold tracking-[0.2em] uppercase">
+                      <div className="text-xs text-shd/80 font-bold tracking-[0.2em] uppercase">
                         Par {build.auteur}
                       </div>
                   )}
                   {build.timestamp && (
-                      <div className="text-[10px] text-gray-500 font-bold tracking-widest uppercase">
+                      <div className="text-xs text-gray-500 font-bold tracking-widest uppercase">
                         {formatDate(build.timestamp)}
                       </div>
                   )}
@@ -869,14 +904,22 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
 
                 {buildTags.length > 0 && (
                     <div className="flex flex-wrap gap-1 mt-2">
-                      {buildTags.map(tag => (
-                          <span
-                              key={tag.id}
-                              className={`px-1.5 py-0.5 rounded-xs text-xs font-bold border bg-${tag.color}-500/10 text-${tag.color}-400 border-${tag.color}-500/30`}
-                          >
+                      {buildTags.map(tag => {
+                  const tagId = tag.slug || tag.id
+                  return (
+                      <span
+                          key={tagId}
+                          style={{
+                              backgroundColor: tag.color || '#6b7280',
+                              color: getContrastColor(tag.color || '#6b7280'),
+                              borderColor: `${tag.color || '#6b7280'}4d`
+                          }}
+                          className="px-1.5 py-0.5 rounded-xs text-xs font-bold border"
+                      >
                       {tag.label}
                     </span>
-                      ))}
+                  )
+                })}
                     </div>
                 )}
               </div>
