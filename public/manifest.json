@@ -1,0 +1,15 @@
+{
+    "short_name": "BDDFr",
+    "name": "BDDFr",
+    "icons": [
+        {
+            "src": "favicon_150x150.png",
+            "type": "image/png",
+            "sizes": "150x150"
+        }
+    ],
+    "start_url": "/BDDFr",
+    "display": "standalone",
+    "theme_color": "#15181d",
+    "background_color": "#0d0f12"
+}
