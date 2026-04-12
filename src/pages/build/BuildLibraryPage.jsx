@@ -337,6 +337,43 @@ export default function BuildLibraryPage() {
     }
   }
 
+  const handleEditLocal = (build) => {
+    setDialog(prev => ({
+      ...prev,
+      open: true,
+      title: 'Modifier le build',
+      message: 'Modifiez le nom, la description et les tags de votre build local.',
+      type: 'prompt',
+      defaultValue: build.nom || '',
+      defaultDescription: build.description || '',
+      defaultTags: build.tags || [],
+      showDescription: true,
+      showTags: true,
+      availableTags: sortedTags,
+      maxInputLength: 25,
+      maxDescriptionLength: 500,
+      onConfirm: (val) => {
+        const name = typeof val === 'object' ? val.name?.trim() : val?.trim()
+        const description = typeof val === 'object' ? val.description?.trim() : ''
+        const tags = typeof val === 'object' ? val.tags : []
+
+        if (!name) return
+
+        const newBuilds = localBuilds.map(b => {
+          if (b.encoded === build.encoded) {
+            return { ...b, nom: name, description, tags }
+          }
+          return b
+        })
+
+        setLocalBuilds(newBuilds)
+        localStorage.setItem('div2_builds_v2', JSON.stringify(newBuilds))
+        setDialog(p => ({ ...p, open: false }))
+      },
+      onCancel: () => setDialog(p => ({ ...p, open: false }))
+    }))
+  }
+
   const sortedTags = useMemo(() => {
     if (!data.buildsTags) return []
     const tagsArray = Object.values(data.buildsTags)
@@ -365,6 +402,8 @@ export default function BuildLibraryPage() {
       showTags: true,
       showAuthor: true,
       availableTags: sortedTags,
+      maxInputLength: 25,
+      maxDescriptionLength: 500,
       onConfirm: (val) => {
         setDialog(p => ({ ...p, open: false }))
         confirmPublish(build, val)
@@ -639,24 +678,30 @@ export default function BuildLibraryPage() {
                               data={data}
                               onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
                               onPublish={() => handlePublish(b)}
+                              onEdit={() => handleEditLocal(b)}
                               onDelete={() => handleDeleteLocal(b.encoded)}
                               isLocal
                               currentUser={user}
                               userHash={user?.id}
                           />
                       ))}
-                      {searchResults.map((b, i) => (
-                          <BuildCard
-                              key={'api-' + (b.id || b.encoded || i)}
-                              build={b}
-                              data={data}
-                              onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
-                              onDelete={b.id ? () => handleDeleteRemote(b.id) : null}
-                              apiUrl={effectiveApiUrl}
-                              currentUser={user}
-                              userHash={user?.id}
-                          />
-                      ))}
+                      {searchResults.map((b, i) => {
+                          const isLocalBuild = localBuilds.some(lb => lb.encoded === b.encoded);
+                          return (
+                              <BuildCard
+                                  key={'api-' + (b.id || b.encoded || i)}
+                                  build={b}
+                                  data={data}
+                                  onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
+                                  onEdit={isLocalBuild ? () => handleEditLocal(b) : null}
+                                  onDelete={b.id ? () => handleDeleteRemote(b.id) : isLocalBuild ? () => handleDeleteLocal(b.encoded) : null}
+                                  isLocal={isLocalBuild}
+                                  apiUrl={effectiveApiUrl}
+                                  currentUser={user}
+                                  userHash={user?.id}
+                              />
+                          );
+                      })}
                     </div>
                 )}
               </section>
@@ -669,18 +714,23 @@ export default function BuildLibraryPage() {
                         Top Builds de la communauté
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {topBuilds.map((b, i) => (
-                            <BuildCard
-                                key={'top-' + (b.id || i)}
-                                build={b}
-                                data={data}
-                                onView={() => navigate(`/build?build-id=${b.id}`)}
-                                onDelete={() => handleDeleteRemote(b.id)}
-                                apiUrl={effectiveApiUrl}
-                                currentUser={user}
-                                userHash={user?.id}
-                            />
-                        ))}
+                        {topBuilds.map((b, i) => {
+                            const isLocalBuild = localBuilds.some(lb => lb.encoded === b.encoded);
+                            return (
+                                <BuildCard
+                                    key={'top-' + (b.id || i)}
+                                    build={b}
+                                    data={data}
+                                    onView={() => navigate(`/build?build-id=${b.id}`)}
+                                    onEdit={isLocalBuild ? () => handleEditLocal(b) : null}
+                                    onDelete={b.id ? () => handleDeleteRemote(b.id) : isLocalBuild ? () => handleDeleteLocal(b.encoded) : null}
+                                    isLocal={isLocalBuild}
+                                    apiUrl={effectiveApiUrl}
+                                    currentUser={user}
+                                    userHash={user?.id}
+                                />
+                            );
+                        })}
                       </div>
                     </section>
                 )}
@@ -692,18 +742,23 @@ export default function BuildLibraryPage() {
                         Dernières publications
                       </h3>
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {recentBuilds.map((b, i) => (
-                            <BuildCard
-                                key={'recent-' + (b.id || i)}
-                                build={b}
-                                data={data}
-                                onView={() => navigate(`/build?build-id=${b.id}`)}
-                                onDelete={() => handleDeleteRemote(b.id)}
-                                apiUrl={effectiveApiUrl}
-                                currentUser={user}
-                                userHash={user?.id}
-                            />
-                        ))}
+                        {recentBuilds.map((b, i) => {
+                            const isLocalBuild = localBuilds.some(lb => lb.encoded === b.encoded);
+                            return (
+                                <BuildCard
+                                    key={'recent-' + (b.id || i)}
+                                    build={b}
+                                    data={data}
+                                    onView={() => navigate(`/build?build-id=${b.id}`)}
+                                    onEdit={isLocalBuild ? () => handleEditLocal(b) : null}
+                                    onDelete={b.id ? () => handleDeleteRemote(b.id) : isLocalBuild ? () => handleDeleteLocal(b.encoded) : null}
+                                    isLocal={isLocalBuild}
+                                    apiUrl={effectiveApiUrl}
+                                    currentUser={user}
+                                    userHash={user?.id}
+                                />
+                            );
+                        })}
                       </div>
                     </section>
                 )}
@@ -748,7 +803,7 @@ export default function BuildLibraryPage() {
   )
 }
 
-function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, userHash }) {
+function BuildCard({ build, data, onView, onPublish, onEdit, onDelete, isLocal, apiUrl, userHash }) {
   const [likes, setLikes] = useState(build.likes || 0)
   const [isLiking, setIsLiking] = useState(false)
 
@@ -926,6 +981,18 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
             </div>
 
             <div className="flex gap-2">
+              {isLocal && onEdit && (
+                  <button
+                      onClick={(e) => { e.stopPropagation(); onEdit(); }}
+                      className="text-gray-600 hover:text-blue-500 p-1 transition-colors"
+                      title="Modifier le build"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                    </svg>
+                  </button>
+              )}
+
               {isLocal && onPublish && apiBuildotheque.isAuthenticated() && (
                   <button
                       onClick={(e) => { e.stopPropagation(); onPublish(); }}
@@ -952,7 +1019,7 @@ function BuildCard({ build, data, onView, onPublish, onDelete, isLocal, apiUrl, 
             </div>
           </div>
 
-          <p className="text-sm text-gray-400 mb-6 line-clamp-2 h-10 italic">
+          <p className="text-sm text-gray-400 mb-6 italic">
             {build.description || "Aucune description fournie."}
           </p>
 

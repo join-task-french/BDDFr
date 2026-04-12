@@ -123,7 +123,13 @@ export default function BuildActions({ data }) {
       saves.push(buildToSave)
       localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
       showAlert('Succès', `Build "${name}" sauvegardé dans la Buildothèque !`)
-    }, { showDescription: true, showTags: true, availableTags: data?.buildsTags ? Object.values(data.buildsTags) : [] })
+    }, { 
+      showDescription: true, 
+      showTags: true, 
+      availableTags: data?.buildsTags ? Object.values(data.buildsTags) : [],
+      maxInputLength: 25,
+      maxDescriptionLength: 500
+    })
   }
 
   const loadBuild = (index) => {
@@ -203,6 +209,36 @@ export default function BuildActions({ data }) {
     })
   }
 
+  const editBuild = (index) => {
+    const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+    const build = saves[index]
+    if (!build) return
+
+    showPrompt('Modifier le build', 'Modifiez le nom, la description et les tags de votre build.', build.nom, (val) => {
+      const name = typeof val === 'object' ? val.name?.trim() : val?.trim()
+      const description = typeof val === 'object' ? val.description?.trim() : ''
+      const tags = typeof val === 'object' ? val.tags : []
+      
+      if (!name) return
+
+      const newSaves = [...saves]
+      newSaves[index] = { ...build, nom: name, description, tags }
+      localStorage.setItem('div2_builds_v2', JSON.stringify(newSaves))
+      
+      // Force refresh of the saves list in UI
+      setShowSaves(false)
+      setTimeout(() => setShowSaves(true), 10)
+    }, { 
+      showDescription: true, 
+      showTags: true, 
+      defaultDescription: build.description || '',
+      defaultTags: build.tags || [],
+      availableTags: data?.buildsTags ? Object.values(data.buildsTags) : [],
+      maxInputLength: 25,
+      maxDescriptionLength: 500
+    })
+  }
+
   const reset = () => {
     showConfirm('Réinitialiser', 'Voulez-vous vraiment réinitialiser tout le build ?', () => {
       dispatch({ type: 'RESET' })
@@ -261,10 +297,13 @@ export default function BuildActions({ data }) {
                     </div>
                   </div>
                   <div className="flex gap-1">
-                    <button onClick={() => loadBuild(i)} className="px-2 py-1 rounded text-[10px] font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20">
-                      Charger
+                    <button onClick={() => loadBuild(i)} className="px-2 py-1 rounded text-[10px] font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20" title="Charger">
+                      📂
                     </button>
-                    <button onClick={() => deleteBuild(i)} className="px-2 py-1 rounded text-[10px] font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30">
+                    <button onClick={() => editBuild(i)} className="px-2 py-1 rounded text-[10px] font-bold text-blue-400 bg-blue-900/10 border border-blue-500/20 hover:bg-blue-900/30" title="Modifier">
+                      ✏️
+                    </button>
+                    <button onClick={() => deleteBuild(i)} className="px-2 py-1 rounded text-[10px] font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30" title="Supprimer">
                       ✕
                     </button>
                   </div>
