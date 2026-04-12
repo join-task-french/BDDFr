@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { getAttrCategoryLabel } from '../../utils/formatters'
 import { formatModAttributs } from '../../utils/modCompatibility'
 import AttributeSlider from './AttributeSlider'
@@ -84,7 +85,8 @@ function mapEssentialNames(names) {
     'offensif': 'offensif',
     'defensif': 'defensif',
     'défensif': 'defensif',
-    'utilitaire': 'utilitaire'
+    'utilitaire': 'utilitaire',
+    'random': 'random'
   }
   return names.map(n => map[n] || n).filter(Boolean)
 }
@@ -418,11 +420,11 @@ function GearModPicker({ mods, allAttributs, onSelect, onClose }) {
     const modsList = Array.isArray(mods) ? mods : Object.values(mods)
     let list = modsList.filter(m => !m.estExotique)
     if (!search) return list
-    const s = search.toLowerCase()
+    const s = normalizeText(search)
     return list.filter(m =>
-        (m.nom || '').toLowerCase().includes(s) ||
-        (m.categorie || '').toLowerCase().includes(s) ||
-        formatModAttributs(m, allAttributs).toLowerCase().includes(s)
+        normalizeText(m.nom || '').includes(s) ||
+        normalizeText(m.categorie || '').includes(s) ||
+        normalizeText(formatModAttributs(m, allAttributs)).includes(s)
     )
   }, [mods, allAttributs, search])
 

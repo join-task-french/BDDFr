@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import { getGearSlotLabel } from '../../utils/formatters'
 import { getGearFilters, getGearDefaults, applyGearFilters } from '../../config/filterConfigs'
@@ -62,10 +63,10 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
   const filtered = useMemo(() => {
     let list = afterFilters
     if (search) {
-      const term = search.toLowerCase()
+      const term = normalizeText(search)
       list = list.filter(p =>
-          p.nom.toLowerCase().includes(term) ||
-          (p.marque || '').toLowerCase().includes(term)
+          normalizeText(p.nom).includes(term) ||
+          normalizeText(p.marque || '').includes(term)
       )
     }
     // Sort: exotics (0) > named (1) > gear sets (2) > standard (3) > improvise (4)
@@ -153,7 +154,9 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
                   </div>
                   <div className="text-xs text-gray-500">{resolveMarque(p.marque)}</div>
                   {Array.isArray(p.attributEssentiel) && p.attributEssentiel.length > 0 && (
-                      <div className="text-xs text-blue-400 mt-1">{p.attributEssentiel.join(', ')}</div>
+                      <div className="text-xs text-blue-400 mt-1">
+                        {p.attributEssentiel.includes('random') ? 'Aléatoire' : p.attributEssentiel.join(', ')}
+                      </div>
                   )}
                   {p.talents && p.talents.length > 0 && (
                       <div className="text-xs text-shd/70 mt-1">🏅 {p.talents[0]}</div>

@@ -30,12 +30,13 @@ export default function BuildPlannerPage() {
 }
 
 function BuildPlannerContent({ data }) {
-  const { dispatch } = useBuild()
+  const { editingInfo, dispatch } = useBuild()
   const location = useLocation()
 
   // Charger un build depuis l'URL au montage
   useEffect(() => {
     const params = new URLSearchParams(location.search)
+    const isEditing = params.get('edit') === 'true'
 
     const apiBuildId = params.get('build-id')
     if (apiBuildId) {
@@ -48,7 +49,16 @@ function BuildPlannerContent({ data }) {
         if (!compact) return
         const build = resolveBuild(compact, data)
         if (build) {
-          dispatch({ type: 'LOAD_BUILD', build })
+          const editingInfo = isEditing ? {
+            type: 'api',
+            id: apiBuildId,
+            originalMetadata: {
+              nom: result?.nom || result?.build?.nom,
+              description: result?.description || result?.build?.description,
+              tags: result?.tags || result?.build?.tags || []
+            }
+          } : null
+          dispatch({ type: 'LOAD_BUILD', build, editingInfo })
         }
       })()
       return
@@ -62,7 +72,22 @@ function BuildPlannerContent({ data }) {
 
     const build = resolveBuild(compact, data)
     if (build) {
-      dispatch({ type: 'LOAD_BUILD', build })
+      let editingInfo = null
+      if (isEditing) {
+        // Tenter de retrouver les métadonnées locales si c'est un build local
+        const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+        const localBuild = saves.find(s => s.encoded === encoded)
+        editingInfo = {
+          type: 'local',
+          id: encoded,
+          originalMetadata: {
+            nom: localBuild?.nom || 'Nouveau Build',
+            description: localBuild?.description || '',
+            tags: localBuild?.tags || []
+          }
+        }
+      }
+      dispatch({ type: 'LOAD_BUILD', build, editingInfo })
     }
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -71,8 +96,13 @@ function BuildPlannerContent({ data }) {
       {/* Header */}
       <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1">
-            Build <span className="text-shd">Planner</span>
+          <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1 flex items-baseline gap-3">
+            <span>Build <span className="text-shd">Planner</span></span>
+            {editingInfo && (
+              <span className="text-xs text-shd/60 normal-case font-black italic bg-shd/5 px-2 py-1 rounded border border-shd/20 animate-pulse">
+                Mode Édition : {editingInfo.originalMetadata.nom}
+              </span>
+            )}
           </h2>
           <p className="text-sm text-gray-500">Concevez votre build The Division 2</p>
         </div>

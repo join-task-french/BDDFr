@@ -14,7 +14,8 @@
     "validate-schemas": "node scripts/validate/validate-schemas.mjs",
     "validate-slugs": "node scripts/validate/validate-slugs.mjs",
     "validate-icons": "node scripts/validate/validate-icons.mjs",
-    "validate": "npm run validate-schemas && npm run validate-slugs && npm run validate-ensembles-pieces ",
+    "validate-skill-mods": "node scripts/validate/validate-skill-mods.mjs",
+    "validate": "npm run validate-schemas && npm run validate-slugs && npm run validate-ensembles-pieces && npm run validate-skill-mods",
     "validate-all": "node scripts/validate/validate.mjs",
     "dev": "vite",
     "build": "vite build && npm run generate-statics",
@@ -44,6 +45,12 @@
     "ajv-formats": "^3.0.1",
     "jsonc-parser": "^3.3.1",
     "tailwindcss": "^4.2.2",
-    "vite": "^8.0.7"
+    "vite": "^8.0.7",
+    "vite-plugin-pwa": "^1.2.0"
+  },
+  "overrides": {
+    "vite-plugin-pwa": {
+      "vite": "$vite"
+    }
   }
 }
