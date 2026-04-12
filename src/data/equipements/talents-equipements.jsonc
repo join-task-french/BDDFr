@@ -2861,7 +2861,7 @@
   },
   "stoique": {
     "nom": "Stoïque",
-    "description": "Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible.\nLe bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.",
+    "description": "Confère +4% de résistance aux dégâts pour chaque ennemi qui vous cible.\nLe bonus est multiplié par 1,x ou X est le nombre de d'agents dans votre groupe.\nNe fonctionne pas en PVP.",
     "emplacement": "gear_set",
     "gearSet": "aegis"
   },
@@ -2904,7 +2904,7 @@
   "exercice_cordial": {
     "nom": "Exercice cordial",
     "description": "Pour chaque coeur sur vos pièces d'équipement, vous recevez **+40%** des deux autres bonus de doeur. Les Tiers de compétence comptent pour **15% d'efficacité de compétence** quand ces bonus sont appliqués.",
-    "emplacement": "gear_set"
+    "emplacement": "torse"
   },
   "coeur_externe": {
     "nom": "Coeur externe",
