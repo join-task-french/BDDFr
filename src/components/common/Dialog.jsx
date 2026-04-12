@@ -31,7 +31,9 @@ export default function Dialog({
   availableTags = [],
   defaultTags = [],
   showAuthor = false,
-  defaultAuthor = ''
+  defaultAuthor = '',
+  maxInputLength = null,
+  maxDescriptionLength = null
 }) {
   const [inputValue, setInputValue] = useState(defaultValue)
   const [description, setDescription] = useState(defaultDescription)
@@ -119,30 +121,46 @@ export default function Dialog({
                     Nom du build
                   </label>
                 )}
-                <input
-                  ref={inputRef}
-                  type="text"
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  placeholder={placeholder || (showDescription ? 'Entrez un nom' : '')}
-                  className="w-full px-4 py-3 bg-tactical-bg border border-tactical-border rounded text-white focus:outline-none focus:ring-1 focus:ring-shd focus:border-shd transition-all"
-                />
-              </div>
-              
-              {showDescription && (
-                <div>
-                  <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
-                    Description (optionnelle)
-                  </label>
-                  <textarea
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    placeholder="Détails sur l'utilisation, spécialisation..."
-                    rows="3"
-                    className="w-full px-4 py-3 bg-tactical-bg border border-tactical-border rounded text-white focus:outline-none focus:ring-1 focus:ring-shd focus:border-shd transition-all resize-none"
+                  <input
+                    ref={inputRef}
+                    type="text"
+                    value={inputValue}
+                    maxLength={maxInputLength}
+                    onChange={(e) => setInputValue(e.target.value)}
+                    placeholder={placeholder || (showDescription ? 'Entrez un nom' : '')}
+                    className="w-full px-4 py-3 bg-tactical-bg border border-tactical-border rounded text-white focus:outline-none focus:ring-1 focus:ring-shd focus:border-shd transition-all"
                   />
+                  {maxInputLength && (
+                    <div className="flex justify-end mt-1">
+                      <span className={`text-[10px] uppercase font-bold tracking-tighter ${inputValue.length >= maxInputLength ? 'text-red-400' : 'text-gray-600'}`}>
+                        {inputValue.length} / {maxInputLength}
+                      </span>
+                    </div>
+                  )}
                 </div>
-              )}
+                
+                {showDescription && (
+                  <div>
+                    <label className="block text-xs text-gray-500 uppercase tracking-widest font-bold mb-1 ml-1">
+                      Description (optionnelle)
+                    </label>
+                    <textarea
+                      value={description}
+                      maxLength={maxDescriptionLength}
+                      onChange={(e) => setDescription(e.target.value)}
+                      placeholder="Détails sur l'utilisation, spécialisation..."
+                      rows="3"
+                      className="w-full px-4 py-3 bg-tactical-bg border border-tactical-border rounded text-white focus:outline-none focus:ring-1 focus:ring-shd focus:border-shd transition-all resize-none"
+                    />
+                    {maxDescriptionLength && (
+                      <div className="flex justify-end mt-1">
+                        <span className={`text-[10px] uppercase font-bold tracking-tighter ${description.length >= maxDescriptionLength ? 'text-red-400' : 'text-gray-600'}`}>
+                          {description.length} / {maxDescriptionLength}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                )}
 
               {showTags && sortedAvailableTags.length > 0 && (
                 <div>
