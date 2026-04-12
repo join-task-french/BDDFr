@@ -74,7 +74,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                         <div className="flex justify-between items-start">
                             <div>
                                 <div className={`font-bold ${nameColor} text-sm uppercase tracking-wide`}>
-                                    {isExotic && <span className="text-shd mr-1">★</span>}
+                                    {isExotic && <span className="text-red-400 mr-1">★</span>}
                                     {weapon.nom}
                                 </div>
                                 <div className="text-xs text-gray-500">
@@ -128,7 +128,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                                       : data?.talentsArmes?.find(t => t.slug === slug || t.nom === slug)
                                     return (
                                         <div key={i} className={i > 0 ? "mt-3" : ""}>
-                                            <div className="text-xs text-shd font-bold uppercase tracking-widest">
+                                            <div className="text-xs text-red-400 font-bold uppercase tracking-widest">
                                                 {resolved?.nom ? `Talent : ${resolved.nom}` : 'Talent Exotique'}
                                             </div>
                                             <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
