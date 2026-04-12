@@ -281,6 +281,28 @@ class ApiBuildotheque {
     }
   }
 
+  async updateBuild(buildId, buildData, metadataBaseUrl) {
+    if (!this.token) return null;
+    const url = this.getBaseUrl(metadataBaseUrl);
+    try {
+      const response = await fetch(`${url}/builds/${buildId}`, {
+        method: 'PATCH',
+        mode: 'cors',
+        headers: {
+          'Authorization': `Bearer ${this.token}`,
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(buildData)
+      });
+      if (!response.ok) throw new Error('Erreur lors de la mise à jour du build');
+      return await response.json();
+    } catch (e) {
+      console.error("API Update Error:", e);
+      return null;
+    }
+  }
+
   async deleteBuild(buildId, metadataBaseUrl) {
     if (!this.token) return null;
     const url = this.getBaseUrl(metadataBaseUrl);

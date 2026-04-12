@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useBuild } from '../../context/BuildContext'
 import { generateShareUrl, decodeBuild, resolveBuild } from '../../utils/buildShare'
 import Dialog from '../common/Dialog'
+import { apiBuildotheque } from '../../utils/apiBuildotheque'
 
 export default function BuildActions({ data }) {
   const {
@@ -10,7 +11,7 @@ export default function BuildActions({ data }) {
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods, modValues,
     expertise, prototypes, prototypeTalents, weaponEssentialValues,
-    dispatch
+    editingInfo, dispatch
   } = useBuild()
   const [showSaves, setShowSaves] = useState(false)
   const [shareStatus, setShareStatus] = useState(null) // null | 'copied' | 'error'
@@ -96,12 +97,91 @@ export default function BuildActions({ data }) {
   }
 
   const saveBuild = () => {
-    showPrompt('Sauvegarder le build', 'Donnez un nom et une description pour retrouver votre build plus tard.', 'Mon Build', (val) => {
+    const isEditing = !!editingInfo
+    const title = isEditing ? 'Mettre à jour le build' : 'Sauvegarder le build'
+    const message = isEditing 
+      ? 'Confirmez les informations pour mettre à jour votre build.' 
+      : 'Donnez un nom et une description pour retrouver votre build plus tard.'
+    
+    const defaultNom = isEditing ? editingInfo.originalMetadata.nom : 'Mon Build'
+    const defaultDesc = isEditing ? editingInfo.originalMetadata.description : ''
+    const defaultTags = isEditing ? editingInfo.originalMetadata.tags : []
+
+    showPrompt(title, message, defaultNom, async (val) => {
       const name = typeof val === 'object' ? val.name?.trim() : val?.trim()
       const description = typeof val === 'object' ? val.description?.trim() : ''
       const tags = typeof val === 'object' ? val.tags : []
       
       if (!name) return
+
+      const encoded = generateShareUrl(buildState).split('b=')[1]
+      
+      if (isEditing) {
+        if (editingInfo.type === 'local') {
+          const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+          const index = saves.findIndex(b => b.encoded === editingInfo.id)
+          
+          if (index !== -1) {
+            const updatedBuild = {
+              ...saves[index],
+              nom: name,
+              description: description,
+              tags: tags,
+              encoded: encoded,
+              timestamp: Date.now()
+            }
+            saves[index] = updatedBuild
+            localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
+            
+            dispatch({ 
+              type: 'SET_EDITING_INFO', 
+              editingInfo: { ...editingInfo, id: encoded, originalMetadata: { nom: name, description, tags } } 
+            })
+            
+            showAlert('Succès', `Build "${name}" mis à jour localement !`)
+          } else {
+            // Si on ne le trouve plus par son ancien ID (encoded), on l'ajoute comme nouveau
+            const buildToSave = {
+              nom: name,
+              description: description,
+              tags: tags,
+              encoded: encoded,
+              timestamp: Date.now(),
+              likes: 0
+            }
+            saves.push(buildToSave)
+            localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
+            showAlert('Succès', `Build "${name}" sauvegardé !`)
+          }
+        } else if (editingInfo.type === 'api') {
+           const baseUrl = apiBuildotheque.getBaseUrl(data.metadata?.buildLibraryApiUrl)
+           const result = await apiBuildotheque.updateBuild(editingInfo.id, {
+             nom: name,
+             description,
+             tags,
+             encoded
+           }, baseUrl)
+
+           if (result) {
+             // Mise à jour locale du cache si présent
+             const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+             const localIndex = saves.findIndex(s => s.id === editingInfo.id || (s.encoded === encoded))
+             if (localIndex !== -1) {
+               saves[localIndex] = { ...saves[localIndex], nom: name, description, tags, encoded, timestamp: Date.now() }
+               localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
+             }
+
+             dispatch({ 
+                type: 'SET_EDITING_INFO', 
+                editingInfo: { ...editingInfo, originalMetadata: { nom: name, description, tags } } 
+             })
+             showAlert('Succès', `Build "${name}" mis à jour dans la Buildothèque !`)
+           } else {
+             showAlert('Erreur', 'Impossible de mettre à jour le build sur le serveur.')
+           }
+        }
+        return
+      }
 
       const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
       const exists = saves.some(b => b.nom.toLowerCase() === name.toLowerCase())
@@ -115,7 +195,7 @@ export default function BuildActions({ data }) {
         nom: name,
         description: description,
         tags: tags,
-        encoded: generateShareUrl(buildState).split('b=')[1],
+        encoded: encoded,
         timestamp: Date.now(),
         likes: 0
       }
@@ -126,6 +206,8 @@ export default function BuildActions({ data }) {
     }, { 
       showDescription: true, 
       showTags: true, 
+      defaultDescription: defaultDesc,
+      defaultTags: defaultTags,
       availableTags: data?.buildsTags ? Object.values(data.buildsTags) : [],
       maxInputLength: 25,
       maxDescriptionLength: 500
@@ -261,7 +343,7 @@ export default function BuildActions({ data }) {
       </button>
       <button onClick={saveBuild}
         className="px-4 py-2 rounded text-xs font-bold uppercase tracking-widest bg-shd/20 text-shd border border-shd/40 hover:bg-shd/30 transition-all">
-        💾 Sauvegarder
+        {editingInfo ? '📝 Mettre à jour' : '💾 Sauvegarder'}
       </button>
       <button onClick={() => setShowSaves(!showSaves)}
         className="px-4 py-2 rounded text-xs font-bold uppercase tracking-widest bg-blue-900/20 text-blue-400 border border-blue-500/30 hover:bg-blue-900/40 transition-all">

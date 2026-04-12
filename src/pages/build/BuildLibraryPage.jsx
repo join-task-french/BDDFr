@@ -330,6 +330,14 @@ export default function BuildLibraryPage() {
     setShowSettings(false)
   }
 
+  const handleEditInPlanner = (build) => {
+    if (build.id) {
+      navigate(`/build?edit=true&build-id=${build.id}`)
+    } else {
+      navigate(`/build?edit=true&b=${build.encoded}`)
+    }
+  }
+
   const handleDeleteLocal = (encoded) => {
     if (window.confirm('Supprimer ce build de votre bibliothèque locale ?')) {
       const newBuilds = localBuilds.filter(b => b.encoded !== encoded)
@@ -681,7 +689,7 @@ export default function BuildLibraryPage() {
                               data={data}
                               onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
                               onPublish={() => handlePublish(b)}
-                              onEdit={() => handleEditLocal(b)}
+                              onEdit={() => handleEditInPlanner(b)}
                               onDelete={() => handleDeleteLocal(b.encoded)}
                               isLocal
                               currentUser={user}
@@ -696,7 +704,7 @@ export default function BuildLibraryPage() {
                                   build={b}
                                   data={data}
                                   onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
-                                  onEdit={isLocalBuild ? () => handleEditLocal(b) : null}
+                                  onEdit={() => handleEditInPlanner(b)}
                                   onDelete={b.id ? () => handleDeleteRemote(b.id) : isLocalBuild ? () => handleDeleteLocal(b.encoded) : null}
                                   isLocal={isLocalBuild}
                                   apiUrl={effectiveApiUrl}
@@ -725,7 +733,7 @@ export default function BuildLibraryPage() {
                                     build={b}
                                     data={data}
                                     onView={() => navigate(`/build?build-id=${b.id}`)}
-                                    onEdit={isLocalBuild ? () => handleEditLocal(b) : null}
+                                    onEdit={() => handleEditInPlanner(b)}
                                     onDelete={b.id ? () => handleDeleteRemote(b.id) : isLocalBuild ? () => handleDeleteLocal(b.encoded) : null}
                                     isLocal={isLocalBuild}
                                     apiUrl={effectiveApiUrl}
@@ -753,7 +761,7 @@ export default function BuildLibraryPage() {
                                     build={b}
                                     data={data}
                                     onView={() => navigate(`/build?build-id=${b.id}`)}
-                                    onEdit={isLocalBuild ? () => handleEditLocal(b) : null}
+                                    onEdit={() => handleEditInPlanner(b)}
                                     onDelete={b.id ? () => handleDeleteRemote(b.id) : isLocalBuild ? () => handleDeleteLocal(b.encoded) : null}
                                     isLocal={isLocalBuild}
                                     apiUrl={effectiveApiUrl}
@@ -788,6 +796,7 @@ export default function BuildLibraryPage() {
                                 data={data}
                                 onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
                                 onPublish={() => handlePublish(b)}
+                                onEdit={() => handleEditInPlanner(b)}
                                 onDelete={() => handleDeleteLocal(b.encoded)}
                                 isLocal
                                 currentUser={user}
@@ -984,7 +993,7 @@ function BuildCard({ build, data, onView, onPublish, onEdit, onDelete, isLocal, 
             </div>
 
             <div className="flex gap-2">
-              {isLocal && onEdit && (
+              {isAuthor && onEdit && (
                   <button
                       onClick={(e) => { e.stopPropagation(); onEdit(); }}
                       className="text-gray-600 hover:text-blue-500 p-1 transition-colors"

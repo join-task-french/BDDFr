@@ -48,6 +48,8 @@ const INITIAL_STATE = {
       weapon0: null, weapon1: null, sidearm: null,
       masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null,
     },
+    // Infos sur le build en cours d'édition (si chargé depuis la bibliothèque)
+    editingInfo: null, // { type: 'local' | 'api', id: string, originalMetadata: {nom, description, tags} }
   }
 
 function buildReducer(state, action) {
@@ -241,7 +243,11 @@ function buildReducer(state, action) {
       return { ...state, prototypeTalents }
     }
     case 'LOAD_BUILD':
-      return { ...INITIAL_STATE, ...action.build }
+      return { ...INITIAL_STATE, ...action.build, editingInfo: action.editingInfo || null }
+    case 'SET_EDITING_INFO':
+      return { ...state, editingInfo: action.editingInfo }
+    case 'CLEAR_EDITING_INFO':
+      return { ...state, editingInfo: null }
     case 'RESET':
       return { ...INITIAL_STATE }
     default:
