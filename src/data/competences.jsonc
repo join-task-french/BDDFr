@@ -35,6 +35,9 @@
     "emplacementsMods": [
       {
         "emplacement": "LANCEUR INTELLIGENT"
+      },
+      {
+        "emplacement": "PROJECTILE INTELLIGENT"
       }
     ]
   },
@@ -87,7 +90,12 @@
       }
     ],
     "emplacementsMods": [
-
+      {
+        "emplacement": "LANCEUR"
+      },
+      {
+        "emplacement": "CHARGE UTILE"
+      }
     ]
   },
   "piege": {
@@ -139,6 +147,9 @@
     ],
     "emplacementsMods": [
       {
+        "emplacement": "CHARGE"
+      },
+      {
         "emplacement": "ÉLECTRONIQUE"
       }
     ]
@@ -164,6 +175,9 @@
     "emplacementsMods": [
       {
         "emplacement": "LOGEMENT"
+      },
+      {
+        "emplacement": "PROJECTEUR"
       }
     ]
   },
@@ -249,7 +263,7 @@
         "emplacement": "BOBINE"
       },
       {
-        "emplacement": "BOBINE"
+        "emplacement": "LOGEMENT"
       }
     ]
   },
@@ -318,10 +332,13 @@
     ],
     "emplacementsMods": [
       {
-        "emplacement": "MÉCANISME DE TIR"
+        "emplacement": "LOGEMENT"
       },
       {
         "emplacement": "MÉCANISME DE TIR"
+      },
+      {
+        "emplacement": "DÉSIGNATION"
       }
     ]
   },
@@ -407,6 +424,9 @@
       },
       {
         "emplacement": "LANCEUR"
+      },
+      {
+        "emplacement": "SYSTÈME"
       }
     ]
   },
@@ -475,6 +495,9 @@
     "emplacementsMods": [
       {
         "emplacement": "AGITATEUR"
+      },
+      {
+        "emplacement": "PNEUMATIQUE"
       }
     ]
   },
@@ -528,6 +551,12 @@
     "emplacementsMods": [
       {
         "emplacement": "CHARGE UTILE"
+      },
+      {
+        "emplacement": "PROPULSION"
+      },
+      {
+        "emplacement": "DÉSIGNATION"
       }
     ]
   },
@@ -600,6 +629,9 @@
       },
       {
         "emplacement": "DÉSIGNATION"
+      },
+      {
+        "emplacement": "CHARGE UTILE"
       }
     ]
   },
@@ -683,7 +715,10 @@
         "emplacement": "BATTERIE"
       },
       {
-        "emplacement": "BATTERIE"
+        "emplacement": "COQUE"
+      },
+      {
+        "emplacement": "APPROVISIONNEMENT"
       }
     ]
   },
@@ -754,6 +789,9 @@
       },
       {
         "emplacement": "REVÊTEMENT DUR"
+      },
+      {
+        "emplacement": "GYRO"
       }
     ]
   }
