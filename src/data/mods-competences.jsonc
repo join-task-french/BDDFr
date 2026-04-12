@@ -153,7 +153,7 @@
   "ruche_duree": {
     "nom": "Durée",
     "competence": "ruche",
-    "emplacement": "SYSTEME",
+    "emplacement": "SYSTÈME",
     "attributs": [
       { "attribut": "duree_mod_comp_ruche" }
     ]
@@ -161,7 +161,7 @@
   "ruche_sante": {
     "nom": "Santé",
     "competence": "ruche",
-    "emplacement": "SYSTEME",
+    "emplacement": "SYSTÈME",
     "attributs": [
       { "attribut": "sante_mod_comp" }//TODO modifier le slug
     ]
@@ -180,7 +180,7 @@
   "ruche_technicien_duree": {
     "nom": "Durée",
     "competence": "ruche",
-    "emplacement": "SYSTME",
+    "emplacement": "SYSTÈME",
     "prerequis": "technicien",
     "attributs": [
       { "attribut": "duree_mod_comp_ruche",
