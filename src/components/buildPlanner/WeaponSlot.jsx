@@ -13,13 +13,14 @@ const HEADER_COLORS = {
 export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype, prototypeTalent, onSelectPrototypeTalent }) {
     const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
     const isExotic = weapon?.estExotique
+    const isNamed = weapon?.estNomme
     const isSpecific = weapon?.type === 'arme_specifique'
     const hasPredefinedTalent = weapon?.talents && weapon.talents.length > 0 && weapon.talents.some(t => t && t !== 'n/a' && t !== '')
     const nameColor = isPrototype ? 'text-cyan-400' : 'text-white'
     const borderColor = isPrototype ? 'border-cyan-500/50' : 'border-tactical-border'
     const headerBg = isPrototype ? 'bg-cyan-500/10' : colors.bg
     const headerBorder = isPrototype ? 'border-cyan-500/30' : colors.border
-    const headerText = isPrototype ? 'text-cyan-400' : colors.text
+    const headerText = isPrototype ? 'text-cyan-400' : (isNamed ? 'text-shd' : colors.text)
 
     return (
         <div className="build-slot group" onClick={weapon ? undefined : onSelect}>
