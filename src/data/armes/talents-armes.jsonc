@@ -537,8 +537,12 @@
   },
   "vindicatif": {
     "nom": "Vindicatif",
-    "description": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de 15m :\n16% à la probabilité de coup critique et 16% aux dégâts de coup critique pendant 20s.",
+    "description": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de **15m :**\n**16% à la probabilité de coup critique et 16% aux dégâts de coup critique** pendant **20s**.",
     "icon": "vindicatif",
+    "perfectDescription": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de **20m :**\n**21% à la probabilité de coup critique et 21% aux dégâts de coup critique** pendant **20s**.",
+    "armesParfaites": [
+      "rancune"
+    ],
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
