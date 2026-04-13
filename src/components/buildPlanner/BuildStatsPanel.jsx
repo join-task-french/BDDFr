@@ -130,6 +130,41 @@ function GlobalStatRow({ attr, color = 'text-green-400' }) {
 }
 
 
+function EffectiveDmgColumn({ title, data, avg, icon, color }) {
+  return (
+    <div className="space-y-0.5">
+      <div className="flex items-center gap-1 mb-0.5">
+        <span className="text-2xs">{icon}</span>
+        <span className="text-2xs font-bold text-gray-400 uppercase tracking-tighter">{title}</span>
+      </div>
+      <div className="space-y-0">
+        <DmgRow label="Dégâts de base" val={data.body} />
+        <DmgRow label="Critique" val={data.crit} color="text-orange-400" />
+        <div className="flex justify-between items-center text-2xs mb-0.5">
+          <span className="text-gray-500 italic">Moyenne de dégats au corps</span>
+          <span className={`font-bold ${color}`}>{avg.body.toLocaleString('fr-FR')}</span>
+        </div>
+        
+        <DmgRow label="Headshot" val={data.headshot} color="text-yellow-400" />
+        <DmgRow label="Headshot critique" val={data.headshotCrit} color="text-red-500" />
+        <div className="flex justify-between items-center text-2xs">
+          <span className="text-gray-500 italic">Moyenne de dégats headshot</span>
+          <span className={`font-bold ${color}`}>{avg.headshot.toLocaleString('fr-FR')}</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function DmgRow({ label, val, color = "text-gray-300" }) {
+  return (
+    <div className="flex justify-between text-2xs">
+      <span className="text-gray-600 mr-2">{label}</span>
+      <span className={`font-mono ${color}`}>{val.toLocaleString('fr-FR')}</span>
+    </div>
+  )
+}
+
 /** Formatte une valeur numérique avec son unité */
 function formatValue(value, unite) {
   if (value == null) return '—'
@@ -143,10 +178,14 @@ function formatValue(value, unite) {
 /** Bloc de stats par arme — regroupe les entrées par statistique cible */
 function WeaponStatBlock({ w }) {
   const [expanded, setExpanded] = useState(null) // stat slug expanded
+  const [showEffective, setShowEffective] = useState(false)
 
   return (
-    <div className="border border-tactical-border/30 rounded p-2">
-      <div className="flex items-center justify-between mb-1">
+    <div className="border border-tactical-border/30 rounded p-2 transition-all duration-200">
+      <div 
+        className="flex items-center justify-between mb-1 cursor-pointer hover:opacity-80"
+        onClick={() => setShowEffective(!showEffective)}
+      >
         <div className="text-xs text-white font-bold truncate mr-2">
           <span className="text-gray-600 text-xs uppercase">{w.slot}</span>{' '}
           {w.nom}
@@ -158,8 +197,47 @@ function WeaponStatBlock({ w }) {
           {w.expertise > 0 && (
             <span className="text-xs text-shd">+{w.expertise}%</span>
           )}
+          <span className="text-gray-700 text-2xs ml-1">{showEffective ? '▼' : '▶'}</span>
         </div>
       </div>
+
+      {/* Dégâts Effectifs (Détails) */}
+      {showEffective && w.effectiveDamages && (
+        <div className="mt-1 mb-2 px-1.5 space-y-2 animate-in fade-in slide-in-from-top-1 duration-200">
+          <div className="border-b border-tactical-border/10 pb-1 mb-1">
+            <div className="flex justify-between items-center text-2xs mb-1">
+              <span className="text-gray-500 font-bold">Probabilité critique (cap 60%)</span>
+              <span className="text-orange-400 font-bold">{w.chc}%</span>
+            </div>
+            <div className="flex justify-between items-center text-2xs mb-1">
+              <span className="text-gray-500 font-bold">Dégâts de critique</span>
+              <span className="text-red-400 font-bold">{w.chd}%</span>
+            </div>
+            <div className="flex justify-between items-center text-2xs">
+              <span className="text-gray-500 font-bold">Dégâts de headshot</span>
+              <span className="text-yellow-400 font-bold">{w.hsd}%</span>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            <EffectiveDmgColumn 
+              title="Dégats sur protection"
+              data={w.effectiveDamages.protection} 
+              avg={w.avgDamages.protection}
+              icon="🛡️"
+              color="text-blue-400"
+            />
+            <EffectiveDmgColumn 
+              title="Dégats sur Santé"
+              data={w.effectiveDamages.health} 
+              avg={w.avgDamages.health}
+              icon="❤️"
+              color="text-green-400"
+            />
+          </div>
+        </div>
+      )}
+
       {/* Stats regroupées par statistique cible */}
       {w.groupedStats && Object.keys(w.groupedStats).length > 0 && (
         <div className="space-y-0.5 mt-1 pt-1 border-t border-tactical-border/20">

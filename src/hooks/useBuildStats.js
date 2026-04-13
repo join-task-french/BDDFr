@@ -260,8 +260,9 @@ export function useBuildStats(data) {
       // Les attributs offensifs d'équipement affectent les armes
       const cat = normCat(a.categorie)
       if (cat === 'offensif') {
-        if (!offensiveTotals[key]) offensiveTotals[key] = { nom: a.nom, slug: a.slug, total: 0, unite: a.unite || '', categorie: a.categorie || '' }
-        offensiveTotals[key].total += a.valeur
+        const keyToUse = a.slug || a.nom
+        if (!offensiveTotals[keyToUse]) offensiveTotals[keyToUse] = { nom: a.nom, slug: a.slug, total: 0, unite: a.unite || '', categorie: a.categorie || '' }
+        offensiveTotals[keyToUse].total += a.valeur
       }
     }
     for (const slot of Object.keys(build.gear || {})) {
@@ -332,25 +333,15 @@ export function useBuildStats(data) {
     const essVals = build.weaponEssentialValues || {}
     const stats = []
 
-    // Mapping des types d'armes vers leurs slugs de statistiques de dégâts
-    const typeToStatSlug = {
-      'fusil_assaut': 'degats_fusil_assaut',
-      'fusil': 'degats_fusil',
-      'fusil_precision': 'degats_fusil_precision',
-      'fusil_mitrailleur': 'degats_fusil_mitrailleur',
-      'pm': 'degats_pm',
-      'pistolet': 'degats_pistolet',
-      'calibre_12': 'degats_calibre_12'
-    }
-
     /** Helper pour sommer toutes les sources d'une statistique spécifique à partir d'une map de stats agrégées par attribut */
     const getStatTotalFromMap = (statsMap, statSlug) => {
       let total = 0
       Object.entries(statsMap).forEach(([attrSlug, entry]) => {
-        const attrDef = data.attributs?.[attrSlug]
+        const actualSlug = entry.slug || attrSlug
+        const attrDef = data.attributs?.[actualSlug]
         if (attrDef && attrDef.statistiques && attrDef.statistiques.includes(statSlug)) {
           total += entry.total
-        } else if (attrSlug === statSlug) {
+        } else if (actualSlug === statSlug) {
           total += entry.total
         }
       })
@@ -362,6 +353,11 @@ export function useBuildStats(data) {
       const isProto = build.prototypes?.[expertiseKey] || false
       const base = (isProto && weapon.prototypeDegatsBase) ? weapon.prototypeDegatsBase : (weapon.degatsBase || 0)
       const lvl = exp[expertiseKey] || 0
+      
+      // Récupérer les données du type d'arme
+      const typeData = data.armes_type?.[weapon.type]
+      const typeStatSlug = typeData?.statistique
+
       // Mods spécifiques à cette arme
       const ownModStats = computeModStats(weaponMods)
       // Fusionner : mods d'arme + mods d'équipement + attributs offensifs d'équipement
@@ -376,14 +372,21 @@ export function useBuildStats(data) {
       
       // On ne fusionne que les stats offensives provenant du gear (mods et attributs)
       // Les stats défensives et utilitaires du gear ne s'appliquent pas à l'affichage de l'arme
-      const gearOffensiveMods = {}
-      Object.entries(gearModTotals).forEach(([key, entry]) => {
-        if (normCat(entry.categorie) === 'offensif') {
-          gearOffensiveMods[key] = entry
-        }
-      })
-      mergeIn(gearOffensiveMods)
-      mergeIn(offensiveGearAttributeTotals)
+      const gearOffensiveStats = {}
+      const addOffensiveFrom = (source) => {
+        Object.entries(source).forEach(([key, entry]) => {
+          const cat = normCat(entry.categorie)
+          if (cat === 'offensif') {
+            const attrSlug = entry.slug || key
+            if (!gearOffensiveStats[attrSlug]) gearOffensiveStats[attrSlug] = { ...entry }
+            else gearOffensiveStats[attrSlug].total += entry.total
+          }
+        })
+      }
+      
+      addOffensiveFrom(gearModTotals)
+      addOffensiveFrom(offensiveGearAttributeTotals)
+      mergeIn(gearOffensiveStats)
 
       // Attributs essentiels de l'arme (valeurs personnalisées par le joueur)
       const slotEssVals = essVals[expertiseKey] || {}
@@ -399,9 +402,8 @@ export function useBuildStats(data) {
         allStats[key].total += val
       }
       // Si pas d'attributs_essentiels sur l'arme, utiliser ceux du type
-      if (!essentials.length && data.armes_type) {
-        const typeData = data.armes_type[weapon.type]
-        if (typeData?.attributs_essentiels) {
+      if (!essentials.length && typeData) {
+        if (typeData.attributs_essentiels) {
           for (const slug of typeData.attributs_essentiels) {
             const attrDef = data.attributs?.[slug]
             if (!attrDef) continue
@@ -421,21 +423,68 @@ export function useBuildStats(data) {
 
       // CALCUL DES DÉGÂTS TOTAUX (Expertise + Dégâts d'arme + Dégâts type + Multiplicateurs)
       const weaponDamageBonus = getStatTotalFromMap(allStats, 'degats_arme')
-      const typeStatSlug = typeToStatSlug[weapon.type]
       const typeDamageBonus = typeStatSlug ? getStatTotalFromMap(allStats, typeStatSlug) : 0
       
       const dta = getStatTotalFromMap(allStats, 'degats_protections')
       const dth = getStatTotalFromMap(allStats, 'degats_sante')
       const ooc = getStatTotalFromMap(allStats, 'degats_cible_non_abritee')
-      
+
+      const hsd = getStatTotalFromMap(allStats, 'degats_headshot') + (weapon.headshot || 0)
+      const chd = getStatTotalFromMap(allStats, 'degats_coup_critique')
+      const chc = Math.min(60, getStatTotalFromMap(allStats, 'probabilite_coup_critique'))
+
+      // Bonus de Dégâts toutes armes (TWD) - supposé inclus dans weaponDamageBonus ou gearAttributeTotals
+      // Dans Division 2, AWD et TWD s'additionnent avant de multiplier la base
       const wdMultiplier = 1 + (lvl + weaponDamageBonus + typeDamageBonus) / 100
-      const multMultiplier = (1 + ooc / 100) * (1 + Math.max(dta, dth) / 100)
       
-      const finalDamage = Math.round(base * wdMultiplier * multMultiplier)
+      // Calcul des dégâts de base (affichés dans l'inventaire)
+      const baseModified = base * wdMultiplier
+
+      // Calcul des variantes de dégâts (selon degats.md)
+      // DMG = BASE x (1+AWD%) x (1+TWD%) x (1+HSD%+CHD%) x (1+DTA%/DTH%) x (1+DTOOC%) x (1+AMP1%) ...
+      // Note: HSD et CHD s'additionnent s'ils se produisent en même temps (Headshot Critique)
+      
+      const calcDmg = (isCrit, isHeadshot, targetStat, oocStat) => {
+        let critHsdMult = 1
+        if (isCrit && isHeadshot) critHsdMult += (chd + hsd) / 100
+        else if (isCrit) critHsdMult += chd / 100
+        else if (isHeadshot) critHsdMult += hsd / 100
+        
+        return Math.round(baseModified * critHsdMult * (1 + targetStat / 100) * (1 + oocStat / 100))
+      }
+
+      const effectiveDamages = {
+        protection: {
+          body: calcDmg(false, false, dta, ooc),
+          crit: calcDmg(true, false, dta, ooc),
+          headshot: calcDmg(false, true, dta, ooc),
+          headshotCrit: calcDmg(true, true, dta, ooc)
+        },
+        health: {
+          body: calcDmg(false, false, dth, ooc),
+          crit: calcDmg(true, false, dth, ooc),
+          headshot: calcDmg(false, true, dth, ooc),
+          headshotCrit: calcDmg(true, true, dth, ooc)
+        }
+      }
+
+      // Dégâts moyens (pondérés par la probabilité de critique)
+      // On sépare la moyenne sur les tirs au corps et la moyenne sur les headshots
+      const chcFactor = chc / 100
+      const invChcFactor = 1 - chcFactor
+
+      const avgDmgProtBody = (effectiveDamages.protection.body * invChcFactor) + (effectiveDamages.protection.crit * chcFactor)
+      const avgDmgProtHeadshot = (effectiveDamages.protection.headshot * invChcFactor) + (effectiveDamages.protection.headshotCrit * chcFactor)
+
+      const avgDmgHealthBody = (effectiveDamages.health.body * invChcFactor) + (effectiveDamages.health.crit * chcFactor)
+      const avgDmgHealthHeadshot = (effectiveDamages.health.headshot * invChcFactor) + (effectiveDamages.health.headshotCrit * chcFactor)
+
+      const multMultiplier = (1 + ooc / 100) * (1 + Math.max(dta, dth) / 100)
+      const finalDamage = Math.round(baseModified * multMultiplier)
 
       // On retire les attributs appliqués au calcul principal pour éviter les doublons dans la liste sous l'arme
       const filteredStats = { ...allStats }
-      const statsToRemove = ['degats_arme', typeStatSlug, 'degats_protections', 'degats_sante', 'degats_cible_non_abritee'].filter(Boolean)
+      const statsToRemove = ['degats_arme', typeStatSlug, 'degats_protections', 'degats_sante', 'degats_cible_non_abritee', 'degats_headshot', 'degats_coup_critique', 'probabilite_coup_critique'].filter(Boolean)
       
       Object.keys(filteredStats).forEach(attrSlug => {
         const attrDef = data.attributs?.[attrSlug]
@@ -456,6 +505,17 @@ export function useBuildStats(data) {
         modStats: ownModStats,
         totalStats: allStats,
         groupedStats: groupStatsByTarget(filteredStats),
+        effectiveDamages,
+        avgDamages: { 
+          protection: { body: Math.round(avgDmgProtBody), headshot: Math.round(avgDmgProtHeadshot) },
+          health: { body: Math.round(avgDmgHealthBody), headshot: Math.round(avgDmgHealthHeadshot) }
+        },
+        chc,
+        chd,
+        hsd,
+        dta,
+        dth,
+        ooc
       }
     }
 
@@ -465,9 +525,11 @@ export function useBuildStats(data) {
     if (w1) stats.push(w1)
     const ws = buildWeaponStat(build.sidearm, build.sidearmMods, 'sidearm', 'Poing', build.sidearmAttribute)
     if (ws) stats.push(ws)
+    const wsp = buildWeaponStat(build.specialWeapon, null, 'special', 'Spécifique', null)
+    if (wsp) stats.push(wsp)
 
     return stats
-  }, [build.weapons, build.sidearm, build.weaponMods, build.sidearmMods, build.expertise, build.weaponEssentialValues, build.weaponAttributes, build.sidearmAttribute, gearModTotals, offensiveGearAttributeTotals, data.attributs, data.armes_type, data.statistiques])
+  }, [build.weapons, build.sidearm, build.specialWeapon, build.weaponMods, build.sidearmMods, build.expertise, build.weaponEssentialValues, build.weaponAttributes, build.sidearmAttribute, gearModTotals, offensiveGearAttributeTotals, data.attributs, data.armes_type, data.statistiques])
 
   // Totaux combinés (équipement + mods d'équipement + ensembles)
   // Les mods d'armes et attributs d'armes ne sont PAS inclus ici — ils sont spécifiques à chaque arme
