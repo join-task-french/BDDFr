@@ -119,7 +119,7 @@ function BonusDisplay({ bonus, data }) {
       ))}
       {talent && (
         <div className="mt-0.5">
-          <div className="text-shd font-bold truncate">{talent.nom}</div>
+          <TalentInline talent={talent} noBackground />
         </div>
       )}
     </div>
