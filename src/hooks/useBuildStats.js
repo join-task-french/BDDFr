@@ -421,7 +421,7 @@ export function useBuildStats(data) {
     const getActiveWeaponMods = (slot) => {
       const equippedMods = Array.isArray(slot.mods) ? slot.mods.filter(Boolean) : []
       const predefIds = Array.isArray(slot.data?.modsPredefinis) ? slot.data.modsPredefinis : []
-      if (!slot.data?.estExotique || predefIds.length === 0) return equippedMods
+      if (predefIds.length === 0) return equippedMods
 
       const alreadyAdded = new Set(
         equippedMods

@@ -58,20 +58,51 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
     return modsList.find(m => normalizeText(m?.slug || '') === needle || normalizeText(m?.nom || '') === needle) || null
   }
 
-  const exoticModRows = useMemo(() => {
-    if (!isExotic || predefMods.length === 0) return []
-    return predefMods.map((modId, i) => {
+  const visibleModRows = useMemo(() => {
+    const resolvedPredefs = predefMods.map((modId, i) => {
       const mod = resolveMod(modId)
       return {
-        idx: i,
-        type: mod?.type || modSlots[i]?.[0] || 'mod',
+        order: i,
         predefName: modId,
         predefMod: mod,
+        type: mod?.type || null,
       }
     })
-  }, [isExotic, predefMods, modSlots, modsArmes, modsList])
 
-  const visibleModRows = isExotic ? exoticModRows : modSlots.map(([globalType], i) => ({ idx: i, type: globalType }))
+    // Assigner d'abord les mods prédéfinis par type de slot (plus fiable que l'ordre brut).
+    const rows = modSlots.map(([globalType], i) => ({ idx: i, type: globalType, predefName: null, predefMod: null }))
+    const usedPredefs = new Set()
+
+    rows.forEach((row) => {
+      const matchIdx = resolvedPredefs.findIndex((p, idx) => !usedPredefs.has(idx) && p.type === row.type)
+      if (matchIdx < 0) return
+      usedPredefs.add(matchIdx)
+      row.predefName = resolvedPredefs[matchIdx].predefName
+      row.predefMod = resolvedPredefs[matchIdx].predefMod
+    })
+
+    // Fallback: compléter les slots restants avec les prédefs non assignés (ordre source).
+    const leftovers = resolvedPredefs.filter((_, idx) => !usedPredefs.has(idx))
+    let cursor = 0
+    rows.forEach((row) => {
+      if (row.predefName || cursor >= leftovers.length) return
+      row.predefName = leftovers[cursor].predefName
+      row.predefMod = leftovers[cursor].predefMod
+      cursor += 1
+    })
+
+    // Cas exotique atypique: afficher quand même les prédefs même sans slots déclarés.
+    if (rows.length === 0 && resolvedPredefs.length > 0) {
+      return resolvedPredefs.map((p, i) => ({
+        idx: i,
+        type: p.type || 'mod',
+        predefName: p.predefName,
+        predefMod: p.predefMod,
+      }))
+    }
+
+    return rows
+  }, [modSlots, predefMods, modsArmes, modsList])
 
   if (!weapon || weapon.type === 'arme_specifique') return null
 
@@ -131,7 +162,7 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
               <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">Mods</div>
               {visibleModRows.map((row) => {
                 const { idx, type: globalType } = row
-                if (isExotic) {
+                if (row.predefName || row.predefMod || isExotic) {
                   const predefName = row.predefName
                   const predefMod = row.predefMod
                   return (
