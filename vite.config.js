@@ -9,9 +9,11 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: 'auto',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
+        cleanupOutdatedCaches: true,
       },
       manifest: {
         "short_name": "BDDFr",
@@ -52,4 +54,3 @@ export default defineConfig({
     allowedHosts: true,
   }
 })
-
