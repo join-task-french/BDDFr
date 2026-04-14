@@ -2,7 +2,6 @@ import {lazy, Suspense, useEffect, useState} from 'react'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import Layout from './components/layout/Layout'
 import Loader from './components/common/Loader'
-import PageViewer from "./pages/PageViewer.jsx";
 import { apiBuildotheque } from './utils/apiBuildotheque'
 import { useDataLoader } from './hooks/useDataLoader'
 import { useKonamiCode } from './hooks/useKonamiCode'
@@ -15,6 +14,7 @@ const BuildLibraryPage = lazy(() => import('./pages/build/BuildLibraryPage.jsx')
 const SHDWatchPage = lazy(() => import('./pages/build/SHDWatchPage.jsx'))
 const ChangelogPage = lazy(() => import('./pages/ChangelogPage'))
 const GeneratorPage = lazy(() => import('./pages/GeneratorPage'))
+const PageViewer = lazy(() => import('./pages/PageViewer.jsx'))
 
 function SuspensePage({ children }) {
     return <Suspense fallback={<Loader />}>{children}</Suspense>

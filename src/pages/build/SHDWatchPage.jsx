@@ -45,18 +45,14 @@ export default function SHDWatchPage() {
 
   const handleLevelChange = (statId, level) => {
     updateStat(statId, parseInt(level));
-    // Forcer un rafraîchissement global via le context
-    window.dispatchEvent(new Event('shd-levels-updated'));
   };
 
   const handleSetAllToMax = () => {
     setAllToMax();
-    window.dispatchEvent(new Event('shd-levels-updated'));
   };
 
   const handleResetAll = () => {
     resetAll();
-    window.dispatchEvent(new Event('shd-levels-updated'));
   };
 
   const totalPoints = Object.values(shdLevels || {}).reduce((acc, val) => acc + val, 0);
@@ -89,7 +85,7 @@ export default function SHDWatchPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
         {/* Navigation des catégories (Le cercle SHD) */}
         <div className="lg:col-span-6 flex items-center justify-center py-10">
-          <div className="relative w-80 h-80 md:w-[480px] md:h-[480px]">
+          <div className="relative w-80 h-80 md:w-120 md:h-120">
             {/* Centre de la montre */}
             <div className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
               <div className="w-32 h-32 md:w-48 md:h-48 bg-tactical-panel border-4 border-shd rounded-full flex flex-col items-center justify-center pointer-events-auto">
