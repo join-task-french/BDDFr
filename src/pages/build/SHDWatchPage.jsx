@@ -64,7 +64,7 @@ export default function SHDWatchPage() {
           <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1">
             Ma Montre <span className="text-shd">SHD</span>
           </h2>
-          <p className="text-sm text-gray-500">Configurez les bonus de statistiques de votre montre SHD (Niveau 1000+ recommandé)</p>
+          <p className="text-sm text-gray-500">Configurez les bonus de statistiques de votre montre SHD</p>
         </div>
         <div className="flex flex-wrap gap-2">
           <button 

@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer, useCallback, useMemo, useEffect } from 'react'
 import { getSpecFromWeapon, getSpecialisations } from '../utils/formatters'
-import { getSHDLevels } from '../hooks/useSHDWatch'
+import { getSHDLevels, SHD_LEVELS_UPDATED_EVENT, STORAGE_KEY as SHD_STORAGE_KEY } from '../hooks/useSHDWatch'
 
 const BuildContext = createContext(null)
 
@@ -319,14 +319,25 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
     [state.specialWeapon, classSpe]
   )
 
-  // Écouter les mises à jour de la montre SHD depuis le localStorage (page SHDWatch)
+  // Écouter les mises à jour de la montre SHD (même onglet + autres onglets)
   useEffect(() => {
     const handleUpdate = () => {
       dispatch({ type: 'REFRESH_SHD_LEVELS' })
-    };
-    window.addEventListener('shd-levels-updated', handleUpdate);
-    return () => window.removeEventListener('shd-levels-updated', handleUpdate);
-  }, [dispatch]);
+    }
+
+    const handleStorage = (event) => {
+      if (event.key === SHD_STORAGE_KEY) {
+        handleUpdate()
+      }
+    }
+
+    window.addEventListener(SHD_LEVELS_UPDATED_EVENT, handleUpdate)
+    window.addEventListener('storage', handleStorage)
+    return () => {
+      window.removeEventListener(SHD_LEVELS_UPDATED_EVENT, handleUpdate)
+      window.removeEventListener('storage', handleStorage)
+    }
+  }, [dispatch])
 
   // Sauvegarder le build dans le localStorage à chaque changement
   useEffect(() => {

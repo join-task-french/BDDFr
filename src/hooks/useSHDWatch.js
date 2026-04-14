@@ -1,6 +1,13 @@
 import { useState, useEffect } from 'react';
 
-const STORAGE_KEY = 'div2_shd_watch';
+export const STORAGE_KEY = 'div2_shd_watch';
+export const SHD_LEVELS_UPDATED_EVENT = 'shd-levels-updated';
+
+function clampLevel(level) {
+  const parsed = Number(level);
+  if (!Number.isFinite(parsed)) return 0;
+  return Math.max(0, Math.min(50, Math.round(parsed)));
+}
 
 function buildDefaultLevels(montreConfig) {
   const defaults = {};
@@ -18,11 +25,15 @@ function buildDefaultLevels(montreConfig) {
 
 export function getSHDLevels(montreConfig) {
   const defaults = buildDefaultLevels(montreConfig);
+  if (typeof window === 'undefined') return { ...defaults };
+
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       const parsed = JSON.parse(saved);
-      return { ...defaults, ...parsed };
+      if (parsed && typeof parsed === 'object') {
+        return { ...defaults, ...parsed };
+      }
     }
   } catch (e) {
     console.error("Failed to load SHD levels", e);
@@ -31,10 +42,12 @@ export function getSHDLevels(montreConfig) {
 }
 
 export function saveSHDLevels(levels) {
+  if (typeof window === 'undefined') return;
+
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(levels));
-    // Déclencher un événement personnalisé pour informer les autres composants
-    window.dispatchEvent(new Event('shd-levels-updated'));
+    // Événement local (même onglet) pour synchroniser les pages Build.
+    window.dispatchEvent(new CustomEvent(SHD_LEVELS_UPDATED_EVENT, { detail: levels }));
   } catch (e) {
     console.error("Failed to save SHD levels", e);
   }
@@ -47,8 +60,20 @@ export function useSHDWatch(montreConfig) {
     const handleUpdate = () => {
       setShdLevels(getSHDLevels(montreConfig));
     };
-    window.addEventListener('shd-levels-updated', handleUpdate);
-    return () => window.removeEventListener('shd-levels-updated', handleUpdate);
+
+    const handleStorage = (event) => {
+      if (event.key === STORAGE_KEY) {
+        handleUpdate();
+      }
+    };
+
+    window.addEventListener(SHD_LEVELS_UPDATED_EVENT, handleUpdate);
+    window.addEventListener('storage', handleStorage);
+
+    return () => {
+      window.removeEventListener(SHD_LEVELS_UPDATED_EVENT, handleUpdate);
+      window.removeEventListener('storage', handleStorage);
+    };
   }, [montreConfig]);
 
   useEffect(() => {
@@ -56,26 +81,32 @@ export function useSHDWatch(montreConfig) {
   }, [montreConfig]);
 
   const updateStat = (statId, level) => {
-    const newLevels = { ...shdLevels, [statId]: level };
-    setShdLevels(newLevels);
-    saveSHDLevels(newLevels);
+    setShdLevels(prev => {
+      const newLevels = { ...prev, [statId]: clampLevel(level) };
+      saveSHDLevels(newLevels);
+      return newLevels;
+    });
   };
 
   const setAllToMax = () => {
-    const defaultLevels = buildDefaultLevels(montreConfig);
-    const keys = Object.keys(defaultLevels).length > 0 ? Object.keys(defaultLevels) : Object.keys(shdLevels || {});
-    const newLevels = {};
-    keys.forEach(key => {
-      newLevels[key] = 50;
+    setShdLevels(prev => {
+      const defaultLevels = buildDefaultLevels(montreConfig);
+      const keys = Object.keys(defaultLevels).length > 0 ? Object.keys(defaultLevels) : Object.keys(prev || {});
+      const newLevels = {};
+      keys.forEach(key => {
+        newLevels[key] = 50;
+      });
+      saveSHDLevels(newLevels);
+      return newLevels;
     });
-    setShdLevels(newLevels);
-    saveSHDLevels(newLevels);
   };
 
   const resetAll = () => {
-    const defaultLevels = buildDefaultLevels(montreConfig);
-    setShdLevels(defaultLevels);
-    saveSHDLevels(defaultLevels);
+    setShdLevels(() => {
+      const defaultLevels = buildDefaultLevels(montreConfig);
+      saveSHDLevels(defaultLevels);
+      return defaultLevels;
+    });
   };
 
   return {
