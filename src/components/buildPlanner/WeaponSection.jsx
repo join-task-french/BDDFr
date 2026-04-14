@@ -107,6 +107,7 @@ export default function WeaponSection({ data }) {
           talent={weaponTalents[0]}
           attribute={weaponAttributes[0]}
           allAttributs={data.attributs}
+          statistiques={data.statistiques}
           modsArmes={data.modsArmes}
           weaponMods={weaponMods[0]}
           armesType={data.armes_type}
@@ -135,6 +136,7 @@ export default function WeaponSection({ data }) {
           talent={weaponTalents[1]}
           attribute={weaponAttributes[1]}
           allAttributs={data.attributs}
+          statistiques={data.statistiques}
           modsArmes={data.modsArmes}
           weaponMods={weaponMods[1]}
           armesType={data.armes_type}
@@ -163,6 +165,7 @@ export default function WeaponSection({ data }) {
           talent={sidearmTalent}
           attribute={sidearmAttribute}
           allAttributs={data.attributs}
+          statistiques={data.statistiques}
           modsArmes={data.modsArmes}
           weaponMods={sidearmMods}
           headerColor="gray"

@@ -11,7 +11,7 @@ const HEADER_COLORS = {
     gray:   { bg: 'bg-gray-500/10',   border: 'border-gray-500/30',   text: 'text-gray-400',   hover: 'group-hover:text-gray-500/50' },
 }
 
-export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype, prototypeTalent, onSelectPrototypeTalent, extraPanel, extraPanelTitle = 'Options', extraPanelDefaultOpen = false }) {
+export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, statistiques, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype, prototypeTalent, onSelectPrototypeTalent, extraPanel, extraPanelTitle = 'Options', extraPanelDefaultOpen = false }) {
     const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
     const isExotic = weapon?.estExotique
     const isNamed = weapon?.estNomme
@@ -114,6 +114,7 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                             weapon={weapon}
                             attribute={attribute}
                             allAttributs={allAttributs}
+                            statistiques={statistiques}
                             modsArmes={modsArmes}
                             weaponMods={weaponMods}
                             onChangeAttribute={onSetAttribute}

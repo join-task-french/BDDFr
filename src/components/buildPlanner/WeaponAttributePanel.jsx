@@ -1,7 +1,7 @@
 import { useState, useMemo, useEffect } from 'react'
 import { normalizeText } from '../../utils/textUtils'
 import { getWeaponEssentialAttributes } from '../../utils/formatters'
-import { isWeaponModCompatible, formatModAttributs } from '../../utils/modCompatibility'
+import { isWeaponModCompatible, formatModAttributs, getModAffectedStatDetails } from '../../utils/modCompatibility'
 import AttributeSlider from './AttributeSlider'
 import AttributePicker from './AttributePicker'
 
@@ -15,7 +15,7 @@ import AttributePicker from './AttributePicker'
  * - Attribut classique libre : remplaçable et modifiable (si l'arme n'est pas exotique
  * et n'a pas d'attributs prédéfinis qui occupent tous les slots).
  */
-export default function WeaponAttributePanel({ weapon, attribute, allAttributs, modsArmes, weaponMods, onChangeAttribute, onChangeMods, armesType, essentialSlotKey, essentialValues, dispatch, isPrototype }) {
+export default function WeaponAttributePanel({ weapon, attribute, allAttributs, statistiques, modsArmes, weaponMods, onChangeAttribute, onChangeMods, armesType, essentialSlotKey, essentialValues, dispatch, isPrototype }) {
   const [pickerOpen, setPickerOpen] = useState(false)
   const [modPickerSlot, setModPickerSlot] = useState(null)
 
@@ -166,14 +166,19 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
                   const predefName = row.predefName
                   const predefMod = row.predefMod
                   return (
-                      <div key={idx} className="flex items-center gap-1.5 py-0.5">
-                        <span className="text-xs text-gray-600 uppercase w-16 shrink-0">{globalType}</span>
-                        {predefMod ? (
-                            <ModName mod={predefMod} allAttributs={allAttributs} className="text-gray-500" />
-                        ) : predefName ? (
-                            <span className="text-xs text-gray-500 truncate">{predefName}</span>
-                        ) : (
-                            <span className="text-xs text-gray-600 italic">—</span>
+                      <div key={idx} className="py-0.5">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-xs text-gray-600 uppercase w-16 shrink-0">{globalType}</span>
+                          {predefMod ? (
+                              <ModName mod={predefMod} allAttributs={allAttributs} statistiques={statistiques} className="text-gray-400" nameClassName="text-purple-300" />
+                          ) : predefName ? (
+                              <span className="text-xs text-gray-500 truncate">{predefName}</span>
+                          ) : (
+                              <span className="text-xs text-gray-600 italic">—</span>
+                          )}
+                        </div>
+                        {predefMod && (
+                          <ModAffectedStats mod={predefMod} allAttributs={allAttributs} statistiques={statistiques} />
                         )}
                       </div>
                   )
@@ -181,23 +186,28 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
 
                 const equipped = weaponMods?.[idx] || null
                 return (
-                    <div key={idx} className="flex items-center gap-1.5 py-0.5">
-                      <span className="text-xs text-gray-600 uppercase w-16 shrink-0">{globalType}</span>
-                      {equipped ? (
-                          <div className="flex items-center gap-1 flex-1 min-w-0">
-                            <ModName mod={equipped} allAttributs={allAttributs} className="text-gray-300" />
+                    <div key={idx} className="py-0.5">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-xs text-gray-600 uppercase w-16 shrink-0">{globalType}</span>
+                        {equipped ? (
+                            <div className="flex items-center gap-1 flex-1 min-w-0">
+                              <ModName mod={equipped} allAttributs={allAttributs} statistiques={statistiques} className="text-gray-300" nameClassName="text-cyan-300" />
+                              <button
+                                  onClick={() => { const m = [...(weaponMods || [])]; m[idx] = null; onChangeMods(m) }}
+                                  className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
+                              >✕</button>
+                            </div>
+                        ) : (
                             <button
-                                onClick={() => { const m = [...(weaponMods || [])]; m[idx] = null; onChangeMods(m) }}
-                                className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
-                            >✕</button>
-                          </div>
-                      ) : (
-                          <button
-                              onClick={() => setModPickerSlot({ idx, type: globalType })}
-                              className="text-xs text-shd/40 hover:text-shd transition-colors"
-                          >
-                            + Mod
-                          </button>
+                                onClick={() => setModPickerSlot({ idx, type: globalType })}
+                                className="text-xs text-shd/40 hover:text-shd transition-colors"
+                            >
+                              + Mod
+                            </button>
+                        )}
+                      </div>
+                      {equipped && (
+                        <ModAffectedStats mod={equipped} allAttributs={allAttributs} statistiques={statistiques} />
                       )}
                     </div>
                 )
@@ -224,6 +234,7 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
                 type={modPickerSlot.type}
                 weapon={weapon}
                 allAttributs={allAttributs}
+                statistiques={statistiques}
                 onSelect={(mod) => {
                   const m = [...(weaponMods || Array(visibleModRows.length).fill(null))]
                   m[modPickerSlot.idx] = mod
@@ -237,11 +248,11 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
   )
 }
 
-function ModName({ mod, allAttributs, className = '' }) {
-  const statsText = formatModAttributs(mod, allAttributs)
+function ModName({ mod, allAttributs, statistiques, className = '', nameClassName = 'text-cyan-300' }) {
+  const statsText = formatModAttributs(mod, allAttributs, statistiques)
   return (
       <span className={`text-xs truncate relative group/mod cursor-default ${className}`}>
-      {mod.nom}
+      <span className={nameClassName}>{mod.nom}</span>
         {statsText && (
             <span className="absolute left-0 bottom-full mb-1 z-50 hidden group-hover/mod:block bg-tactical-panel border border-tactical-border rounded px-2 py-1.5 shadow-lg whitespace-nowrap pointer-events-none">
           <span className="block text-xs text-green-400">{statsText}</span>
@@ -251,8 +262,29 @@ function ModName({ mod, allAttributs, className = '' }) {
   )
 }
 
+function ModAffectedStats({ mod, allAttributs, statistiques }) {
+  const affectedStats = useMemo(
+      () => getModAffectedStatDetails(mod, allAttributs, statistiques),
+      [mod, allAttributs, statistiques]
+  )
+  if (affectedStats.length === 0) return null
+  return (
+      <div className="pl-[4.3rem] text-[11px] text-gray-500 leading-tight flex flex-wrap gap-x-2 gap-y-0.5">
+        {affectedStats.map((entry) => (
+            <span key={`${entry.label}-${entry.valueText || 'none'}`}>
+              {entry.valueText ? (
+                  <>
+                    <span className="text-green-400">{entry.valueText}</span>{' '}{entry.label}
+                  </>
+              ) : entry.label}
+            </span>
+        ))}
+      </div>
+  )
+}
+
 /** Picker de mod d'arme avec compatibilité structurée */
-function ModPicker({ mods, type, weapon, allAttributs, onSelect, onClose }) {
+function ModPicker({ mods, type, weapon, allAttributs, statistiques, onSelect, onClose }) {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
@@ -270,11 +302,11 @@ function ModPicker({ mods, type, weapon, allAttributs, onSelect, onClose }) {
       const s = normalizeText(search)
       list = list.filter(m =>
           normalizeText(m.nom || '').includes(s) ||
-          normalizeText(formatModAttributs(m, allAttributs)).includes(s)
+          normalizeText(formatModAttributs(m, allAttributs, statistiques)).includes(s)
       )
     }
     return list
-  }, [mods, type, weapon, allAttributs, search])
+  }, [mods, type, weapon, allAttributs, statistiques, search])
 
   return (
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm" onClick={onClose}>
@@ -297,7 +329,7 @@ function ModPicker({ mods, type, weapon, allAttributs, onSelect, onClose }) {
                         className="w-full text-left px-3 py-2 rounded hover:bg-shd/10 transition-colors group"
                 >
                   <div className="text-sm text-white group-hover:text-shd">{mod.nom}</div>
-                  <div className="text-xs text-green-400">{formatModAttributs(mod, allAttributs)}</div>
+                  <div className="text-xs text-green-400">{formatModAttributs(mod, allAttributs, statistiques)}</div>
                 </button>
             ))}
           </div>
