@@ -111,7 +111,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
 
   const pb = useMemo(() => {
     if (!slotKey || !equipementsType) return 0
-    const base = equipementsType[slotKey]?.protectionBase || 0
+    const base = (equipementsType[slotKey]?.protection ?? equipementsType[slotKey]?.protectionBase) || 0
     const grade = expertiseLevel || 0
     return Math.floor(base * (1 + grade * 0.01))
   }, [slotKey, equipementsType, expertiseLevel])

@@ -149,8 +149,7 @@ export function useBuildStats(data) {
           const level = build.shdLevels?.[statId] || 0
           if (level > 0) {
             const val = level * config.ratio
-            // On utilise la statistique cible définie dans le JSONC, sinon l'ID de la stat
-            const targetSlug = config.statistique || config.target || statId
+            const targetSlug = config.target || config.statistique || statId
             watchStats[statId] = {
               nom: config.label || config.nom || statId,
               total: val,
@@ -258,7 +257,8 @@ export function useBuildStats(data) {
     // 2, 3, 4: Récupération des statistiques de l'équipement (Offensif, Défensif, Utilitaire)
     // --------------------------------------------------------------------------
     const gearTotals = { offensif: {}, defensif: {}, utilitaire: {}, maniement: {}, autre: {} }
-    
+    const gearTypes = data.equipements_type || data['equipements-type'] || {}
+
     const addStatToGear = (slug, val, cat) => {
       if (!slug || val == null) return
       const nc = normCat(cat)
@@ -269,6 +269,16 @@ export function useBuildStats(data) {
 
     // Parcourir chaque slot de pièce d'équipement
     for (const slot of Object.keys(build.gear || {})) {
+      const piece = build.gear?.[slot]
+      // La protection du type d'équipement est une contribution directe en points.
+      if (piece) {
+        const slotProtection = (gearTypes[slot]?.protection ?? gearTypes[slot]?.protectionBase) || 0
+        if (slotProtection > 0) {
+          const slotExpertiseBonus = slotProtection * ((build.expertise?.[slot] || 0) * 0.01)
+          addStatToGear('protection', slotProtection + slotExpertiseBonus, 'defensif')
+        }
+      }
+
       // Attributs classiques et essentiels
       const attrs = build.gearAttributes?.[slot]
       if (attrs) {
@@ -333,6 +343,57 @@ export function useBuildStats(data) {
 
     Object.values(globalMerged).forEach(entry => {
       if (!entry.unite) entry.unite = inferUnitFromSources(entry.sources)
+    })
+
+    const resolvePointBaseSlug = (percentSlug, percentUnit) => {
+      if (percentUnit !== '%') return null
+      const candidates = []
+      if (percentSlug === 'protection_shd') candidates.push('protection')
+      if (percentSlug === 'sante_shd') candidates.push('sante')
+      if (percentSlug.endsWith('_percent')) candidates.push(percentSlug.slice(0, -8))
+      if (percentSlug.endsWith('_shd')) candidates.push(percentSlug.slice(0, -4))
+      if (percentSlug.startsWith('pourcentage_')) candidates.push(percentSlug.replace(/^pourcentage_/, ''))
+
+      for (const candidate of [...new Set(candidates)]) {
+        if (!candidate || candidate === percentSlug) continue
+        const baseInfo = resolveAttrInfo(candidate)
+        if (baseInfo?.unite === 'pts' || baseInfo?.unite === 'pts/s') return candidate
+      }
+      return null
+    }
+
+    const percentGroups = {}
+    Object.entries(globalMerged).forEach(([slug, entry]) => {
+      const baseSlug = resolvePointBaseSlug(slug, entry.unite)
+      if (!baseSlug) return
+      if (!percentGroups[baseSlug]) percentGroups[baseSlug] = []
+      percentGroups[baseSlug].push({ slug, total: entry.total })
+    })
+
+    Object.entries(percentGroups).forEach(([baseSlug, percentEntries]) => {
+      const percentTotal = percentEntries.reduce((sum, e) => sum + (e.total || 0), 0)
+      if (!percentTotal) return
+
+      const baseInfo = resolveAttrInfo(baseSlug)
+      if (!globalMerged[baseSlug]) {
+        globalMerged[baseSlug] = {
+          total: 0,
+          unite: baseInfo.unite || 'pts',
+          categorie: baseInfo.categorie || 'autre',
+          sources: []
+        }
+      }
+
+      const currentPoints = globalMerged[baseSlug].total || 0
+      const convertedPoints = currentPoints * (percentTotal / 100)
+      if (!convertedPoints) return
+
+      globalMerged[baseSlug].total += convertedPoints
+      globalMerged[baseSlug].sources.push({
+        nom: `Conversion bonus % (${Math.round(percentTotal * 10) / 10}%)`,
+        valeur: convertedPoints,
+        unite: globalMerged[baseSlug].unite || baseInfo.unite || 'pts'
+      })
     })
 
     // --------------------------------------------------------------------------
@@ -544,20 +605,21 @@ export function useBuildStats(data) {
     // --------------------------------------------------------------------------
     
     // Calcul de l'armure totale (Protection)
-    const gearTypes = data.equipements_type || data['equipements-type'] || {}
     const metadata = data.metadata || {}
-    let baseArmor = metadata.baseArmorDefault || 0
+    const baseArmor = metadata.baseArmorDefault || 0
+    let gearBaseArmor = 0
     let expertiseArmor = 0
     for (const slot of Object.keys(build.gear || {})) {
       if (build.gear[slot]) {
-        const pb = gearTypes[slot]?.protectionBase || 0
-        baseArmor += pb
+        const pb = (gearTypes[slot]?.protection ?? gearTypes[slot]?.protectionBase) || 0
+        gearBaseArmor += pb
         expertiseArmor += (pb * (build.expertise?.[slot] || 0) * 0.01)
       }
     }
-    const armorBonusPoints = globalMerged['protection']?.total || 0
-    const armorBonusPercent = (globalMerged['protection_shd']?.total || 0) + (globalMerged['protection_percent']?.total || 0)
-    const finalArmor = Math.round((baseArmor + expertiseArmor + armorBonusPoints) * (1 + (armorBonusPercent / 100)))
+    const protectionTotalPoints = globalMerged['protection']?.total || 0
+    const armorBonusPoints = protectionTotalPoints - gearBaseArmor - expertiseArmor
+    const armorBonusPercentRaw = (globalMerged['protection_shd']?.total || 0) + (globalMerged['protection_percent']?.total || 0)
+    const finalArmor = Math.round(baseArmor + protectionTotalPoints)
 
     // Regrouper les statistiques globales par catégorie pour l'affichage
     const displayStats = { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] }
@@ -583,9 +645,10 @@ export function useBuildStats(data) {
       unite: "pts",
       sources: [
         { nom: "Armure de base", valeur: baseArmor, unite: "pts" },
+        ...(gearBaseArmor > 0 ? [{ nom: "Protection équipement", valeur: gearBaseArmor, unite: "pts" }] : []),
         ...(expertiseArmor > 0 ? [{ nom: "Expertise", valeur: expertiseArmor, unite: "pts" }] : []),
-        ...(armorBonusPoints > 0 ? [{ nom: "Bonus fixes", valeur: armorBonusPoints, unite: "pts" }] : []),
-        ...(armorBonusPercent > 0 ? [{ nom: "Bonus %", valeur: armorBonusPercent, unite: "%" }] : [])
+        ...(armorBonusPoints > 0 ? [{ nom: "Bonus protection (convertis)", valeur: armorBonusPoints, unite: "pts" }] : []),
+        ...(armorBonusPercentRaw > 0 ? [{ nom: "Bonus % cumulés", valeur: armorBonusPercentRaw, unite: "%" }] : [])
       ]
     })
 
