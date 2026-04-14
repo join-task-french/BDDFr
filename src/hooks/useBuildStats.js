@@ -1,5 +1,6 @@
 import { useMemo } from 'react'
 import { useBuild } from '../context/BuildContext'
+import { normalizeText } from '../utils/textUtils'
 
 /**
  * Mapping attribut essentiel → catégorie de core.
@@ -338,6 +339,39 @@ export function useBuildStats(data) {
     // 6: Récupération des statistiques des armes (chaque arme séparément fusionnée)
     // --------------------------------------------------------------------------
     const finalWeapons = []
+    const modsRepo = data.modsArmes || []
+    const resolveWeaponMod = (id) => {
+      if (!id || !modsRepo) return null
+      if (!Array.isArray(modsRepo) && modsRepo[id]) return modsRepo[id]
+      const needle = normalizeText(id)
+      const list = Array.isArray(modsRepo) ? modsRepo : Object.values(modsRepo)
+      return list.find(m => normalizeText(m?.slug || '') === needle || normalizeText(m?.nom || '') === needle) || null
+    }
+
+    const getActiveWeaponMods = (slot) => {
+      const equippedMods = Array.isArray(slot.mods) ? slot.mods.filter(Boolean) : []
+      const predefIds = Array.isArray(slot.data?.modsPredefinis) ? slot.data.modsPredefinis : []
+      if (!slot.data?.estExotique || predefIds.length === 0) return equippedMods
+
+      const alreadyAdded = new Set(
+        equippedMods
+          .map(mod => normalizeText(mod?.slug || mod?.nom || ''))
+          .filter(Boolean)
+      )
+
+      const resolvedPredef = predefIds
+        .map(resolveWeaponMod)
+        .filter(Boolean)
+        .filter(mod => {
+          const key = normalizeText(mod?.slug || mod?.nom || '')
+          if (!key || alreadyAdded.has(key)) return false
+          alreadyAdded.add(key)
+          return true
+        })
+
+      return [...equippedMods, ...resolvedPredef]
+    }
+
     const weaponSlots = [
       { key: 'weapon0', data: build.weapons[0], attrs: build.weaponAttributes[0], mods: build.weaponMods[0], talent: build.weaponTalents[0], label: 'Primaire' },
       { key: 'weapon1', data: build.weapons[1], attrs: build.weaponAttributes[1], mods: build.weaponMods[1], talent: build.weaponTalents[1], label: 'Secondaire' },
@@ -389,17 +423,16 @@ export function useBuildStats(data) {
         addStat(a.slug || a.nom, a.valeur, "Attribut d'arme")
       })
 
-      // Ajouter les mods de l'arme
-      if (slot.mods) {
-        slot.mods.forEach(mod => {
-          if (mod.attributs) {
-            mod.attributs.forEach(entry => {
-              addStat(entry.attribut, entry.valeur, mod.nom || "Mod d'arme")
-            })
-          }
-        })
-      }
-      
+      // Ajouter les mods de l'arme (inclut les mods prédéfinis des exotiques)
+      const activeWeaponMods = getActiveWeaponMods(slot)
+      activeWeaponMods.forEach(mod => {
+        if (mod?.attributs) {
+          mod.attributs.forEach(entry => {
+            addStat(entry.attribut, entry.valeur, mod.nom || "Mod d'arme")
+          })
+        }
+      })
+
       // Ajouter les attributs par défaut/essentiels de l'arme (ex: DTH sur AR)
       const typeData = data.armes_type?.[slot.data.type]
       const essVals = build.weaponEssentialValues?.[slot.key] || {}
