@@ -55,7 +55,11 @@ export function encodeBuild(state) {
       if (!mods) return null
       return trimArray((Array.isArray(mods) ? mods : [mods]).map(m => m ? (m.slug || m.statistique) : null))
     })),
-    trimArray((state.skillMods || []).map(m => m ? (m.slug || null) : null)),
+    trimArray((state.skillMods || []).map(slotMods => {
+      if (!slotMods) return null
+      const asArray = Array.isArray(slotMods) ? slotMods : [slotMods]
+      return trimArray(asArray.map(m => m ? (m.slug || null) : null))
+    })),
     trimArray(ALL_SLOTS.map(slot => state.expertise?.[slot] || null)),
     trimArray(ALL_SLOTS.map(slot => state.prototypes?.[slot] ? 1 : null)),
     trimArray(ALL_SLOTS.map(slot => state.prototypeTalents?.[slot] ? (state.prototypeTalents[slot].slug || state.prototypeTalents[slot].nom) : null)),
@@ -251,10 +255,13 @@ export function resolveBuild(compact, data) {
   }
 
   const findModComp = (id) => findBySlugOrName(data.modsCompetences || [], id)
-  build.skillMods = (compact.sm || [null, null]).map(id => {
-    if (!id) return null
-    if (Array.isArray(id)) return id[0] ? findModComp(id[0]) : null
-    return findModComp(id)
+  build.skillMods = (compact.sm || [null, null]).map(entry => {
+    if (!entry) return null
+    if (Array.isArray(entry)) {
+      const mods = entry.map(id => id ? findModComp(id) : null)
+      return mods.some(Boolean) ? mods : null
+    }
+    return findModComp(entry)
   })
   while (build.skillMods.length < 2) build.skillMods.push(null)
 

@@ -34,9 +34,9 @@ const getDefaultState = () => ({
     gearMods: {},
     // Compétences
     skills: [null, null],
-    // Mods de compétences : [mod_object, mod_object]
+    // Mods de compétences : [ [mod_object_par_emplacement], [mod_object_par_emplacement] ]
     skillMods: [null, null],
-    // Valeurs utilisateur des mods (curseurs) : { gearMods: { slot: { modIndex: { attrSlug: val } } }, skillMods: { slotIndex: { attrSlug: val } } }
+    // Valeurs utilisateur des mods (curseurs) : { gearMods: { slot: { modIndex: { attrSlug: val } } }, skillMods: { slotIndex: { modIndex: { attrSlug: val } } } }
     modValues: { gearMods: {}, skillMods: {} },
     // Niveaux de la montre SHD (0-50 pour chaque stat)
     shdLevels: getSHDLevels(),
@@ -81,6 +81,11 @@ const getInitialState = () => {
     console.error("Failed to load build from localStorage", e)
   }
   return defaultState
+}
+
+function normalizeSkillModsForSlot(slotMods) {
+  if (!slotMods) return []
+  return Array.isArray(slotMods) ? [...slotMods] : [slotMods]
 }
 
 function buildReducer(state, action) {
@@ -278,10 +283,21 @@ function buildReducer(state, action) {
     // ---- Mods de compétence ----
     case 'SET_SKILL_MOD': {
       const skillMods = [...state.skillMods]
-      skillMods[action.slot] = action.mod
-      // Reset mod values for this skill slot when mod changes
+      const modIndex = action.modIndex || 0
+      const currentMods = normalizeSkillModsForSlot(skillMods[action.slot])
+      currentMods[modIndex] = action.mod
+      skillMods[action.slot] = currentMods.some(Boolean) ? currentMods : null
+      // Reset mod values for this skill slot+index when mod changes
       const smv = { ...state.modValues.skillMods }
-      delete smv[action.slot]
+      const slotVals = { ...(smv[action.slot] || {}) }
+      const hasLegacyShape = Object.keys(slotVals).some(k => Number.isNaN(Number(k)))
+      if (hasLegacyShape) {
+        delete smv[action.slot]
+      } else {
+        delete slotVals[modIndex]
+        if (Object.keys(slotVals).length > 0) smv[action.slot] = slotVals
+        else delete smv[action.slot]
+      }
       return { ...state, skillMods, modValues: { ...state.modValues, skillMods: smv } }
     }
     case 'SET_GEAR_MOD_VALUE': {
@@ -292,9 +308,11 @@ function buildReducer(state, action) {
       return { ...state, modValues: { ...state.modValues, gearMods: gmv2 } }
     }
     case 'SET_SKILL_MOD_VALUE': {
-      // action: { slot, attrSlug, valeur }
+      // action: { slot, modIndex, attrSlug, valeur }
+      const modIndex = action.modIndex || 0
       const smv2 = { ...state.modValues.skillMods }
-      smv2[action.slot] = { ...(smv2[action.slot] || {}), [action.attrSlug]: action.valeur }
+      smv2[action.slot] = { ...(smv2[action.slot] || {}) }
+      smv2[action.slot][modIndex] = { ...(smv2[action.slot][modIndex] || {}), [action.attrSlug]: action.valeur }
       return { ...state, modValues: { ...state.modValues, skillMods: smv2 } }
     }
     case 'SET_EXPERTISE_LEVEL': {

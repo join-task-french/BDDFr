@@ -46,7 +46,7 @@ function getCompatibleSkillMods(competenceSlug, emplacement, modsCompetences, sp
   })
 }
 
-export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences, allAttributs, statistiques, onSelect }) {
+export default function SkillSlot({ slotIndex, skill, skillMods, modsCompetences, allAttributs, statistiques, onSelect }) {
   const { dispatch, skillNeedsSpec, specialisation, SPECIALISATIONS, modValues } = useBuild()
   const [modPickerOpen, setModPickerOpen] = useState(null) // emplacement index or null
 
@@ -102,7 +102,9 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
               <div className="mt-2 pt-2 border-t border-tactical-border/30">
                 <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">Mods</div>
                 {modSlots.map((slot, i) => {
-                  const equipped = skillMod && i === 0 ? skillMod : null // un seul mod de compétence pour l'instant
+                  const equipped = Array.isArray(skillMods)
+                    ? (skillMods[i] || null)
+                    : (i === 0 ? (skillMods || null) : null)
                   return (
                     <div key={i} className="py-0.5">
                       <div className="flex items-center gap-1.5">
@@ -119,7 +121,7 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
                                 )}
                               </span>
                               <button
-                                onClick={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, mod: null }) }}
+                                onClick={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, modIndex: i, mod: null }) }}
                                 className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
                               >✕</button>
                             </div>
@@ -127,7 +129,10 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
                               if (entry.valeur != null) return null
                               const attrDef = allAttributs?.[entry.attribut]
                               if (!attrDef || attrDef.min == null || attrDef.max == null || attrDef.min === attrDef.max) return null
-                              const userVal = modValues?.skillMods?.[slotIndex]?.[entry.attribut]
+                              const slotValues = modValues?.skillMods?.[slotIndex]
+                              const indexedVal = slotValues?.[i]?.[entry.attribut]
+                              const legacyVal = i === 0 ? slotValues?.[entry.attribut] : undefined
+                              const userVal = indexedVal != null ? indexedVal : legacyVal
                               const val = userVal != null ? userVal : attrDef.max
                               const unite = attrDef.unite || '%'
                               const step = unite === 'pts' || unite === 'pts/s' ? 1 : 0.1
@@ -143,7 +148,7 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
                                     max={attrDef.max}
                                     step={step}
                                     value={val}
-                                    onChange={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD_VALUE', slot: slotIndex, attrSlug: entry.attribut, valeur: parseFloat(e.target.value) }) }}
+                                    onChange={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD_VALUE', slot: slotIndex, modIndex: i, attrSlug: entry.attribut, valeur: parseFloat(e.target.value) }) }}
                                     className="attr-slider mt-0.5"
                                   />
                                 </div>
@@ -185,7 +190,7 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
           statistiques={statistiques}
           specialisation={specialisation}
           onSelect={(mod) => {
-            dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, mod })
+            dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, modIndex: modPickerOpen, mod })
             setModPickerOpen(null)
           }}
           onClose={() => setModPickerOpen(null)}
