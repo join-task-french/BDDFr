@@ -185,6 +185,8 @@ export default function BuildLibraryPage() {
   const [searchResults, setSearchResults] = useState([])
   const [isSearchingApi, setIsSearchingApi] = useState(false)
   const [user, setUser] = useState(apiBuildotheque.user)
+  const [userApiBuilds, setUserApiBuilds] = useState([])
+  const [isUserApiBuildsLoading, setIsUserApiBuildsLoading] = useState(false)
 
   useEffect(() => {
     const saved = localStorage.getItem('div2_builds_v2')
@@ -254,6 +256,29 @@ export default function BuildLibraryPage() {
     setIsApiLoading(false)
   }
 
+  const loadUserApiBuilds = async (auteurId) => {
+    if (!auteurId) {
+      setUserApiBuilds([])
+      setIsUserApiBuildsLoading(false)
+      return
+    }
+
+    setIsUserApiBuildsLoading(true)
+    const result = await apiBuildotheque.fetchBuilds({ auteurId, limit: 100 }, effectiveApiUrl)
+    setUserApiBuilds(result?.builds || [])
+    setIsUserApiBuildsLoading(false)
+  }
+
+  useEffect(() => {
+    if (!user?.id) {
+      setUserApiBuilds([])
+      setIsUserApiBuildsLoading(false)
+      return
+    }
+
+    loadUserApiBuilds(user.id)
+  }, [user?.id, effectiveApiUrl])
+
   const executeSearch = async (term = localSearchTerm.trim()) => {
     setSearchTerm(term)
     
@@ -299,6 +324,9 @@ export default function BuildLibraryPage() {
   const loadRemoteBuilds = async () => {
     // Cette fonction est conservée pour la compatibilité avec confirmPublish qui l'appelle
     loadInitialBuilds()
+    if (user?.id) {
+      loadUserApiBuilds(user.id)
+    }
     if (searchTerm || selectedTags.length > 0) {
       const result = await apiBuildotheque.fetchBuilds({
         text: searchTerm,
@@ -481,8 +509,15 @@ export default function BuildLibraryPage() {
   }
 
   const filteredLocalBuilds = useMemo(() => {
+    const mergedLocalCategoryBuilds = [
+      ...localBuilds.map(build => ({ ...build, _source: 'local' })),
+      ...userApiBuilds
+        .filter(apiBuild => !localBuilds.some(localBuild => localBuild.encoded === apiBuild.encoded))
+        .map(build => ({ ...build, _source: 'api-user' }))
+    ]
+
     const term = normalizeText(searchTerm)
-    const filtered = localBuilds.filter(build => {
+    const filtered = mergedLocalCategoryBuilds.filter(build => {
       const matchesSearch = !term ||
           normalizeText(build.nom).includes(term) ||
           normalizeText(build.description).includes(term) ||
@@ -494,7 +529,7 @@ export default function BuildLibraryPage() {
       return matchesSearch && matchesTags
     })
     return sortBuilds(filtered)
-  }, [localBuilds, searchTerm, selectedTags, sortBy])
+  }, [localBuilds, userApiBuilds, searchTerm, selectedTags, sortBy])
 
   const filteredPredefinedBuilds = useMemo(() => {
     const term = normalizeText(searchTerm)
@@ -683,20 +718,24 @@ export default function BuildLibraryPage() {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {filteredLocalBuilds.map((b, i) => (
-                          <BuildCard
-                              key={'local-' + (b.id || b.encoded || i)}
-                              build={b}
-                              data={data}
-                              onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
-                              onPublish={() => handlePublish(b)}
-                              onEdit={() => handleEditInPlanner(b)}
-                              onDelete={() => handleDeleteLocal(b.encoded)}
-                              isLocal
-                              currentUser={user}
-                              userHash={user?.id}
-                          />
-                      ))}
+                      {filteredLocalBuilds.map((b, i) => {
+                          const isLocalStoredBuild = b._source === 'local'
+                          return (
+                              <BuildCard
+                                  key={'local-' + (b.id || b.encoded || i)}
+                                  build={b}
+                                  data={data}
+                                  onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
+                                  onPublish={isLocalStoredBuild ? () => handlePublish(b) : null}
+                                  onEdit={() => handleEditInPlanner(b)}
+                                  onDelete={isLocalStoredBuild ? () => handleDeleteLocal(b.encoded) : (b.id ? () => handleDeleteRemote(b.id) : null)}
+                                  isLocal={isLocalStoredBuild}
+                                  apiUrl={effectiveApiUrl}
+                                  currentUser={user}
+                                  userHash={user?.id}
+                              />
+                          )
+                      })}
                       {searchResults.map((b, i) => {
                           const isLocalBuild = localBuilds.some(lb => lb.encoded === b.encoded);
                           return (
@@ -719,6 +758,46 @@ export default function BuildLibraryPage() {
               </section>
           ) : (
               <>
+                <section>
+                  <h3 className="text-sm font-bold text-shd uppercase tracking-widest mb-6 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-shd rounded-full animate-pulse" />
+                    Vos Builds Enregistrés ({filteredLocalBuilds.length})
+                  </h3>
+                  {isUserApiBuildsLoading && user?.id && (
+                      <div className="mb-4 text-center text-shd animate-pulse text-xs font-bold uppercase">
+                        Chargement de vos builds...
+                      </div>
+                  )}
+                  {filteredLocalBuilds.length === 0 ? (
+                      <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
+                        {user?.id
+                          ? 'Aucun build trouvé dans votre catégorie personnelle.'
+                          : 'Aucun build enregistré localement. Connectez-vous pour aussi voir vos builds en ligne.'}
+                      </div>
+                  ) : (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {filteredLocalBuilds.map((b, i) => {
+                            const isLocalStoredBuild = b._source === 'local'
+                            return (
+                                <BuildCard
+                                    key={'local-' + (b.id || b.encoded || i)}
+                                    build={b}
+                                    data={data}
+                                    onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
+                                    onPublish={isLocalStoredBuild ? () => handlePublish(b) : null}
+                                    onEdit={() => handleEditInPlanner(b)}
+                                    onDelete={isLocalStoredBuild ? () => handleDeleteLocal(b.encoded) : (b.id ? () => handleDeleteRemote(b.id) : null)}
+                                    isLocal={isLocalStoredBuild}
+                                    apiUrl={effectiveApiUrl}
+                                    currentUser={user}
+                                    userHash={user?.id}
+                                />
+                            )
+                        })}
+                      </div>
+                  )}
+                </section>
+
                 {topBuilds.length > 0 && (
                     <section>
                       <h3 className="text-sm font-bold text-yellow-500 uppercase tracking-widest mb-6 flex items-center gap-2">
@@ -774,39 +853,6 @@ export default function BuildLibraryPage() {
                       </div>
                     </section>
                 )}
-
-                <section>
-                  <h3 className="text-sm font-bold text-shd uppercase tracking-widest mb-6 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-shd rounded-full animate-pulse" />
-                    Vos Builds Enregistrés ({filteredLocalBuilds.length})
-                  </h3>
-                  {localBuilds.length === 0 ? (
-                      <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
-                        Aucun build enregistré localement. Utilisez le Build Planner pour en créer un !
-                      </div>
-                  ) : filteredLocalBuilds.length === 0 ? (
-                      <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
-                        Aucun build local ne correspond à vos critères.
-                      </div>
-                  ) : (
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {filteredLocalBuilds.map((b, i) => (
-                            <BuildCard
-                                key={'local-' + (b.encoded || i)}
-                                build={b}
-                                data={data}
-                                onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
-                                onPublish={() => handlePublish(b)}
-                                onEdit={() => handleEditInPlanner(b)}
-                                onDelete={() => handleDeleteLocal(b.encoded)}
-                                isLocal
-                                currentUser={user}
-                                userHash={user?.id}
-                            />
-                        ))}
-                      </div>
-                  )}
-                </section>
               </>
           )}
         </div>
