@@ -68,6 +68,18 @@ export default function BuildStatsPanel({ data }) {
           </Section>
         )}
 
+        {/* Statistiques de Maniement */}
+        {attributesByCategory.maniement && attributesByCategory.maniement.length > 0 && (
+          <Section title="Maniement" icon="🎯">
+            <div className="space-y-0.5">
+              {attributesByCategory.maniement.map((attr, i) => (
+                <GlobalStatRow key={i} attr={attr} color="text-emerald-400" />
+              ))}
+            </div>
+          </Section>
+        )}
+
+
         {/* Bonus d'ensemble */}
         {(setBonuses.gearSets.length > 0 || setBonuses.brandSets.length > 0) && (
           <Section title="Bonus d'ensemble" icon="🏅">

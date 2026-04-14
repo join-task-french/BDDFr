@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDataLoader } from '../../hooks/useDataLoader.js'
-import { BuildProvider, useBuild } from '../../context/BuildContext.jsx'
+import { useBuild } from '../../context/BuildContext.jsx'
 import { decodeBuild, resolveBuild } from '../../utils/buildShare.js'
 import Loader from '../../components/common/Loader.jsx'
 import WeaponSection from '../../components/buildPlanner/WeaponSection.jsx'
@@ -23,9 +23,7 @@ export default function BuildPlannerPage() {
   )
 
   return (
-    <BuildProvider classSpe={data.classSpe} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}>
-      <BuildPlannerContent data={data} />
-    </BuildProvider>
+    <BuildPlannerContent data={data} />
   )
 }
 

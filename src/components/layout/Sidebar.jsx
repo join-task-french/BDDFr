@@ -131,6 +131,19 @@ export default function Sidebar({ open, onClose }) {
               >
                 Build Planner
               </NavLink>
+              <NavLink
+                  to="/shd"
+                  className={({ isActive }) =>
+                      `flex items-center gap-3 px-3 py-2 rounded text-[11px] font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
+                          isActive
+                              ? 'bg-shd/5 text-shd border-shd/20'
+                              : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
+                      }`
+                  }
+                  onClick={onClose}
+              >
+                Ma Montre SHD
+              </NavLink>
             </div>
           </div>
 

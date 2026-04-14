@@ -1,5 +1,6 @@
 import { createContext, useContext, useReducer, useCallback, useMemo } from 'react'
 import { getSpecFromWeapon, getSpecialisations } from '../utils/formatters'
+import { getSHDLevels } from '../hooks/useSHDWatch'
 
 const BuildContext = createContext(null)
 
@@ -33,6 +34,8 @@ const INITIAL_STATE = {
   skillMods: [null, null],
   // Valeurs utilisateur des mods (curseurs) : { gearMods: { slot: { modIndex: { attrSlug: val } } }, skillMods: { slotIndex: { attrSlug: val } } }
   modValues: { gearMods: {}, skillMods: {} },
+  // Niveaux de la montre SHD (0-50 pour chaque stat)
+  shdLevels: getSHDLevels(),
   // Expertise : niveaux 0-20 par slot
   expertise: {
       weapon0: 0, weapon1: 0, sidearm: 0,
@@ -242,8 +245,15 @@ function buildReducer(state, action) {
       const prototypeTalents = { ...state.prototypeTalents, [action.slot]: action.talent }
       return { ...state, prototypeTalents }
     }
-    case 'LOAD_BUILD':
-      return { ...INITIAL_STATE, ...action.build, editingInfo: action.editingInfo || null }
+    case 'SET_SHD_LEVEL': {
+      const shdLevels = { ...state.shdLevels, [action.stat]: Math.max(0, Math.min(50, action.level)) }
+      return { ...state, shdLevels }
+    }
+    case 'LOAD_BUILD': {
+      const shdFromBuild = action.build.shdLevels || {};
+      const mergedShd = { ...getSHDLevels(), ...shdFromBuild };
+      return { ...INITIAL_STATE, ...action.build, editingInfo: action.editingInfo || null, shdLevels: mergedShd }
+    }
     case 'SET_EDITING_INFO':
       return { ...state, editingInfo: action.editingInfo }
     case 'CLEAR_EDITING_INFO':

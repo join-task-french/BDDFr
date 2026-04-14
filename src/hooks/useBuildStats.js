@@ -323,6 +323,51 @@ export function useBuildStats(data) {
     return totals
   }, [build.gearMods, build.modValues, data.attributs])
 
+  // Bonus de la montre SHD
+  const shdAttributeTotals = useMemo(() => {
+    const totals = {}
+    if (!build.shdLevels) return totals
+
+    // Ratio de 0.2% par point pour la plupart des stats (sauf exceptions)
+    const SHD_STATS_CONFIG = {
+      degats_arme: { ratio: 0.2, nom: "Dégâts d'arme (Montre)", cat: "offensif" },
+      degats_coup_critique: { ratio: 0.4, nom: "Dégâts CC (Montre)", cat: "offensif" },
+      probabilite_coup_critique: { ratio: 0.2, nom: "Probabilité CC (Montre)", cat: "offensif" },
+      degats_headshot: { ratio: 0.4, nom: "Dégâts Headshot (Montre)", cat: "offensif" },
+      
+      protection: { ratio: 0.2, nom: "Protection (Montre)", cat: "defensif" },
+      resistance_alterations: { ratio: 0.2, nom: "Résist. Altérations (Montre)", cat: "defensif" },
+      regeneration_protection: { ratio: 0.2, nom: "Régén. Protection (Montre)", cat: "defensif" },
+      sante: { ratio: 0.2, nom: "Santé (Montre)", cat: "defensif" },
+      
+      degats_competence: { ratio: 0.2, nom: "Dégâts Compétence (Montre)", cat: "utilitaire" },
+      recuperation_competence: { ratio: 0.2, nom: "Récup. Compétence (Montre)", cat: "utilitaire" },
+      duree_competence: { ratio: 0.2, nom: "Durée Compétence (Montre)", cat: "utilitaire" },
+      reparation_competence: { ratio: 0.2, nom: "Répar. Compétence (Montre)", cat: "utilitaire" },
+      
+      precision: { ratio: 0.2, nom: "Précision (Montre)", cat: "maniement" },
+      stabilite: { ratio: 0.2, nom: "Stabilité (Montre)", cat: "maniement" },
+      vitesse_rechargement: { ratio: 0.2, nom: "Rechargement (Montre)", cat: "maniement" },
+      vitesse_echange: { ratio: 0.2, nom: "Échange d'arme (Montre)", cat: "maniement" }
+    }
+
+    for (const [slug, level] of Object.entries(build.shdLevels)) {
+      if (level > 0) {
+        const config = SHD_STATS_CONFIG[slug]
+        if (config) {
+          totals[slug] = {
+            nom: config.nom,
+            total: level * config.ratio,
+            unite: '%',
+            categorie: config.cat,
+            slug: slug
+          }
+        }
+      }
+    }
+    return totals
+  }, [build.shdLevels])
+
   /**
    * Statistiques PAR ARME : chaque arme a ses propres mods d'arme + les mods d'équipement +
    * les attributs offensifs d'équipement + les valeurs essentielles de l'arme.
@@ -386,6 +431,7 @@ export function useBuildStats(data) {
       
       addOffensiveFrom(gearModTotals)
       addOffensiveFrom(offensiveGearAttributeTotals)
+      addOffensiveFrom(shdAttributeTotals)
       mergeIn(gearOffensiveStats)
 
       // Attributs essentiels de l'arme (valeurs personnalisées par le joueur)
@@ -530,7 +576,8 @@ export function useBuildStats(data) {
     if (wsp) stats.push(wsp)
 
     return stats
-  }, [build.weapons, build.sidearm, build.specialWeapon, build.weaponMods, build.sidearmMods, build.expertise, build.weaponEssentialValues, build.weaponAttributes, build.sidearmAttribute, gearModTotals, offensiveGearAttributeTotals, data.attributs, data.armes_type, data.statistiques])
+  }, [build.weapons, build.sidearm, build.specialWeapon, build.weaponMods, build.sidearmMods, build.expertise, build.weaponEssentialValues, build.weaponAttributes, build.sidearmAttribute, gearModTotals, offensiveGearAttributeTotals, shdAttributeTotals, data.attributs, data.armes_type, data.statistiques])
+
 
   const allAttributeTotals = useMemo(() => {
     const combined = {}
@@ -544,11 +591,12 @@ export function useBuildStats(data) {
     mergeIn(gearAttributeTotals)
     mergeIn(gearModTotals)
     mergeIn(setAttributeTotals || {})
+    mergeIn(shdAttributeTotals)
     return combined
-  }, [gearAttributeTotals, gearModTotals, setAttributeTotals])
+  }, [gearAttributeTotals, gearModTotals, setAttributeTotals, shdAttributeTotals])
 
   const attributesByCategory = useMemo(() => {
-    const groups = { offensif: [], defensif: [], utilitaire: [], autre: [] }
+    const groups = { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] }
     for (const entry of Object.values(allAttributeTotals)) {
       const nc = normCat(entry.categorie)
       if (groups[nc]) groups[nc].push(entry)

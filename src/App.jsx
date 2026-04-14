@@ -7,10 +7,12 @@ import { apiBuildotheque } from './utils/apiBuildotheque'
 import { useDataLoader } from './hooks/useDataLoader'
 import { useKonamiCode } from './hooks/useKonamiCode'
 import InvestisseurReroll from './pages/InvestisseurReroll.jsx'
+import { BuildProvider } from './context/BuildContext.jsx'
 
 const DatabasePage = lazy(() => import('./pages/DatabasePage'))
 const BuildPlannerPage = lazy(() => import('./pages/build/BuildPlannerPage.jsx'))
 const BuildLibraryPage = lazy(() => import('./pages/build/BuildLibraryPage.jsx'))
+const SHDWatchPage = lazy(() => import('./pages/build/SHDWatchPage.jsx'))
 const ChangelogPage = lazy(() => import('./pages/ChangelogPage'))
 const GeneratorPage = lazy(() => import('./pages/GeneratorPage'))
 
@@ -58,6 +60,7 @@ export default function App() {
             import('./pages/DatabasePage');
             import('./pages/build/BuildPlannerPage.jsx');
             import('./pages/build/BuildLibraryPage.jsx');
+            import('./pages/build/SHDWatchPage.jsx');
             import('./pages/ChangelogPage');
             import('./pages/GeneratorPage');
             import('./pages/PageViewer');
@@ -74,9 +77,10 @@ export default function App() {
             <Route element={<Layout children={secretSession > 0 ? <InvestisseurReroll key={secretSession} allAttributs={data.attributs} allEquipements={data.equipements} allTalents={data.talentsEquipements} onClose={() => setSecretSession(0)} /> : null} />}>
                 <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
                 <Route path="db/:category/:slug?/:modifier?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
-                <Route path="planner" element={<SuspensePage><BuildPlannerPage /></SuspensePage>} />
-                <Route path="library" element={<SuspensePage><BuildLibraryPage /></SuspensePage>} />
-                <Route path="build" element={<SuspensePage><BuildPlannerPage /></SuspensePage>} />
+                <Route path="planner" element={<SuspensePage><BuildProvider classSpe={data.classSpe} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider></SuspensePage>} />
+                <Route path="library" element={<SuspensePage><BuildProvider classSpe={data.classSpe} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildLibraryPage /></BuildProvider></SuspensePage>} />
+                <Route path="build" element={<SuspensePage><BuildProvider classSpe={data.classSpe} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider></SuspensePage>} />
+                <Route path="shd" element={<SuspensePage><SHDWatchPage /></SuspensePage>} />
                 <Route path="changelog" element={<SuspensePage><ChangelogPage /></SuspensePage>} />
                 <Route path="generator" element={<SuspensePage><GeneratorPage /></SuspensePage>} />
                 <Route path="pages/:pageId?" element={<SuspensePage><PageViewer /></SuspensePage>} />
