@@ -36,34 +36,12 @@ export default function BuildStatsPanel({ data }) {
           <CoreAttributeBars coreStats={coreStats} coreSources={coreSources} attributsType={data.attributs_type} />
         </Section>
 
-        {/* Statistiques Offensives Globales */}
-        {attributesByCategory.offensif.length > 0 && (
-          <Section title="Offensif" icon="🔥">
-            <div className="space-y-0.5">
-              {attributesByCategory.offensif.map((attr, i) => (
-                <GlobalStatRow key={i} attr={attr} color="text-red-400" />
-              ))}
-            </div>
-          </Section>
-        )}
-
         {/* Statistiques de Protection / Défensives */}
         {attributesByCategory.defensif.length > 0 && (
           <Section title="Protection" icon="🛡️">
             <div className="space-y-0.5">
               {attributesByCategory.defensif.map((attr, i) => (
                 <GlobalStatRow key={i} attr={attr} color="text-blue-400" />
-              ))}
-            </div>
-          </Section>
-        )}
-
-        {/* Statistiques Utilitaires */}
-        {attributesByCategory.utilitaire.length > 0 && (
-          <Section title="Utilitaires" icon="🔧">
-            <div className="space-y-0.5">
-              {attributesByCategory.utilitaire.map((attr, i) => (
-                <GlobalStatRow key={i} attr={attr} color="text-yellow-400" />
               ))}
             </div>
           </Section>
@@ -80,16 +58,6 @@ export default function BuildStatsPanel({ data }) {
           </Section>
         )}
 
-        {/* Statistiques de Maniement */}
-        {attributesByCategory.maniement && attributesByCategory.maniement.length > 0 && (
-          <Section title="Maniement" icon="🎯">
-            <div className="space-y-0.5">
-              {attributesByCategory.maniement.map((attr, i) => (
-                <GlobalStatRow key={i} attr={attr} color="text-emerald-400" />
-              ))}
-            </div>
-          </Section>
-        )}
 
 
         {/* Bonus d'ensemble */}
@@ -98,6 +66,18 @@ export default function BuildStatsPanel({ data }) {
             <SetBonusList setBonuses={setBonuses} data={data} />
           </Section>
         )}
+
+
+          {/* Statistiques Utilitaires */}
+          {attributesByCategory.utilitaire.length > 0 && (
+              <Section title="Utilitaires" icon="🔧">
+                  <div className="space-y-0.5">
+                      {attributesByCategory.utilitaire.map((attr, i) => (
+                          <GlobalStatRow key={i} attr={attr} color="text-yellow-400" />
+                      ))}
+                  </div>
+              </Section>
+          )}
 
         {/* Compétences */}
         {equippedSkills.length > 0 && (
