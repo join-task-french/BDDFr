@@ -1,4 +1,5 @@
 import MarkdownText from '../common/MarkdownText'
+import TalentInline from '../database/cards/TalentInline'
 
 /**
  * Affiche les bonus d'ensemble (Gear Sets) et de marque (Brand Sets).
@@ -53,7 +54,7 @@ function SetEntry({ entry, accentColor, data }) {
     <div className="mb-2 last:mb-0">
       <div className="flex items-center justify-between mb-0.5">
         <span className="text-xs font-bold text-white truncate">{entry.nom}</span>
-        <span className={`text-xs font-bold ${countColor}`}>
+        <span className={`text-xs font-bold shrink-0 ml-2 ${countColor}`}>
           {entry.count}/{entry.maxPieces}
         </span>
       </div>
@@ -119,7 +120,7 @@ function BonusDisplay({ bonus, data }) {
       ))}
       {talent && (
         <div className="mt-0.5">
-          <div className="text-shd font-bold truncate">{talent.nom}</div>
+          <TalentInline talent={talent} noBackground />
         </div>
       )}
     </div>

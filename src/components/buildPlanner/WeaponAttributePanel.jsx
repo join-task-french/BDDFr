@@ -46,6 +46,32 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
   // Emplacements de mods : transformation de l'objet en tableau de clés/valeurs
   const modSlots = weapon?.emplacementsMods ? Object.entries(weapon.emplacementsMods) : []
   const predefMods = weapon?.modsPredefinis || []
+  const modsList = useMemo(() => {
+    if (!modsArmes) return []
+    return Array.isArray(modsArmes) ? modsArmes : Object.values(modsArmes)
+  }, [modsArmes])
+
+  const resolveMod = (id) => {
+    if (!id) return null
+    if (modsArmes && !Array.isArray(modsArmes) && modsArmes[id]) return modsArmes[id]
+    const needle = normalizeText(id)
+    return modsList.find(m => normalizeText(m?.slug || '') === needle || normalizeText(m?.nom || '') === needle) || null
+  }
+
+  const exoticModRows = useMemo(() => {
+    if (!isExotic || predefMods.length === 0) return []
+    return predefMods.map((modId, i) => {
+      const mod = resolveMod(modId)
+      return {
+        idx: i,
+        type: mod?.type || modSlots[i]?.[0] || 'mod',
+        predefName: modId,
+        predefMod: mod,
+      }
+    })
+  }, [isExotic, predefMods, modSlots, modsArmes, modsList])
+
+  const visibleModRows = isExotic ? exoticModRows : modSlots.map(([globalType], i) => ({ idx: i, type: globalType }))
 
   if (!weapon || weapon.type === 'arme_specifique') return null
 
@@ -100,17 +126,16 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
         )}
 
         {/* Mods */}
-        {modSlots.length > 0 && (
+        {visibleModRows.length > 0 && (
             <div className="pt-1">
               <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">Mods</div>
-              {modSlots.map(([globalType, specificSlot], i) => {
+              {visibleModRows.map((row) => {
+                const { idx, type: globalType } = row
                 if (isExotic) {
-                  const predefName = predefMods[i]
-                  const predefMod = (modsArmes && !Array.isArray(modsArmes))
-                    ? modsArmes[predefName]
-                    : (modsArmes?.find(m => m.slug === predefName) || modsArmes?.find(m => m.nom.toLowerCase() === predefName.toLowerCase()))
+                  const predefName = row.predefName
+                  const predefMod = row.predefMod
                   return (
-                      <div key={i} className="flex items-center gap-1.5 py-0.5">
+                      <div key={idx} className="flex items-center gap-1.5 py-0.5">
                         <span className="text-xs text-gray-600 uppercase w-16 shrink-0">{globalType}</span>
                         {predefMod ? (
                             <ModName mod={predefMod} allAttributs={allAttributs} className="text-gray-500" />
@@ -123,21 +148,21 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
                   )
                 }
 
-                const equipped = weaponMods?.[i] || null
+                const equipped = weaponMods?.[idx] || null
                 return (
-                    <div key={i} className="flex items-center gap-1.5 py-0.5">
+                    <div key={idx} className="flex items-center gap-1.5 py-0.5">
                       <span className="text-xs text-gray-600 uppercase w-16 shrink-0">{globalType}</span>
                       {equipped ? (
                           <div className="flex items-center gap-1 flex-1 min-w-0">
                             <ModName mod={equipped} allAttributs={allAttributs} className="text-gray-300" />
                             <button
-                                onClick={() => { const m = [...(weaponMods || [])]; m[i] = null; onChangeMods(m) }}
+                                onClick={() => { const m = [...(weaponMods || [])]; m[idx] = null; onChangeMods(m) }}
                                 className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
                             >✕</button>
                           </div>
                       ) : (
                           <button
-                              onClick={() => setModPickerSlot({ idx: i, type: globalType })}
+                              onClick={() => setModPickerSlot({ idx, type: globalType })}
                               className="text-xs text-shd/40 hover:text-shd transition-colors"
                           >
                             + Mod
@@ -169,7 +194,7 @@ export default function WeaponAttributePanel({ weapon, attribute, allAttributs, 
                 weapon={weapon}
                 allAttributs={allAttributs}
                 onSelect={(mod) => {
-                  const m = [...(weaponMods || Array(modSlots.length).fill(null))]
+                  const m = [...(weaponMods || Array(visibleModRows.length).fill(null))]
                   m[modPickerSlot.idx] = mod
                   onChangeMods(m)
                   setModPickerSlot(null)

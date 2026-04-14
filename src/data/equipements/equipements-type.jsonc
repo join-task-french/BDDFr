@@ -3,36 +3,36 @@
         "nom": "Masque",
         "icon": "masque",
         "emoji": "🎭",
-        "protectionBase": 80000
+        "protection": 80000
     },
     "sac_a_dos": {
         "nom": "Sac à dos",
         "icon": "sac",
         "emoji": "🎒",
-        "protectionBase": 131000
+        "protection": 131000
     },
     "torse": {
         "nom": "Torse",
         "icon": "torse",
         "emoji": "🦺",
-        "protectionBase": 158000
+        "protection": 158000
     },
     "gants": {
         "nom": "Gants",
         "icon": "gants",
         "emoji": "🧤",
-        "protectionBase": 80000
+        "protection": 80000
     },
     "holster": {
         "nom": "Holster",
         "icon": "holster",
         "emoji": "🔧",
-        "protectionBase": 112000
+        "protection": 112000
     },
     "genouilleres": {
         "nom": "Genouillères",
         "icon": "genouilleres",
         "emoji": "🦿",
-        "protectionBase": 99000
+        "protection": 99000
     }
 }

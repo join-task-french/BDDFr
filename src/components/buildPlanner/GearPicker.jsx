@@ -141,9 +141,10 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
                 : p.estNomme ? 'border-yellow-600/40 bg-yellow-900/5'
                     : p.type === 'gear_set' ? 'border-emerald-600/40 bg-emerald-900/5' : ''
             const isExotic = p.type === 'exotique'
+            const isNamed = p.estNomme
             const marqueNom = resolveMarque(p.marque)
-            const mainText = isExotic ? p.nom : (marqueNom || p.nom)
-            const subText = isExotic ? (p.marque ? marqueNom : 'Équipement Exotique') : (marqueNom ? p.nom : 'Équipement Improvisé')
+            const mainText = (isExotic || isNamed) ? p.nom : (marqueNom || p.nom)
+            const subText = (isExotic || isNamed) ? (marqueNom || 'Équipement') : (marqueNom ? p.nom : 'Équipement Improvisé')
 
             // Résolution de l'icône : d'abord l'icône spécifique de la pièce, 
             // sinon l'icône spécifiée dans l'ensemble (marque/gear set),
@@ -167,7 +168,7 @@ export default function GearPicker({ data, slotKey, onClose, onSelectTalent }) {
                         src={resolveAsset(iconSlug)}
                         alt={marqueNom || p.nom}
                         size="w-10 h-10"
-                        color={isExotic ? 'text-shd' : p.type === 'gear_set' ? 'text-emerald-500' : 'text-gray-400'}
+                        color={isExotic ? 'text-red-400' : isNamed ? 'text-shd' : p.type === 'gear_set' ? 'text-emerald-500' : 'text-gray-400'}
                     />
                   </div>
 

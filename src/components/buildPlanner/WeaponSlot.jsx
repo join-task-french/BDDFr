@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { getWeaponTypeLabel, getWeaponEssentialAttributes } from '../../utils/formatters'
 import MarkdownText from '../common/MarkdownText'
 import StatChip from '../common/StatChip'
@@ -10,16 +11,27 @@ const HEADER_COLORS = {
     gray:   { bg: 'bg-gray-500/10',   border: 'border-gray-500/30',   text: 'text-gray-400',   hover: 'group-hover:text-gray-500/50' },
 }
 
-export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype, prototypeTalent, onSelectPrototypeTalent }) {
+export default function WeaponSlot({ label, weapon, talent, attribute, allAttributs, modsArmes, weaponMods, onSelect, onRemove, onSelectTalent, onSetAttribute, onSetMods, headerColor = 'red', badge, armesType, expertiseSlot, expertiseLevel, onExpertiseChange, maxExpertiseLevel, essentialSlotKey, essentialValues, dispatch, data, isPrototype, prototypeTalent, onSelectPrototypeTalent, extraPanel, extraPanelTitle = 'Options', extraPanelDefaultOpen = false }) {
     const colors = HEADER_COLORS[headerColor] || HEADER_COLORS.red
     const isExotic = weapon?.estExotique
+    const isNamed = weapon?.estNomme
     const isSpecific = weapon?.type === 'arme_specifique'
     const hasPredefinedTalent = weapon?.talents && weapon.talents.length > 0 && weapon.talents.some(t => t && t !== 'n/a' && t !== '')
+
+    const borderColor = isPrototype
+        ? 'border-l-cyan-500'
+        : isExotic
+            ? 'border-l-red-400'
+            : isNamed
+                ? 'border-l-shd'
+                : 'border-l-blue-500'
+
+    const headerBg = isPrototype ? 'bg-cyan-500/10' : 'bg-blue-500/10'
+    const headerBorder = isPrototype ? 'border-cyan-500/30' : 'border-blue-500/30'
+    const headerText = isPrototype ? 'text-cyan-400' : (isNamed ? 'text-shd' : 'text-blue-400')
+
     const nameColor = isPrototype ? 'text-cyan-400' : 'text-white'
-    const borderColor = isPrototype ? 'border-cyan-500/50' : 'border-tactical-border'
-    const headerBg = isPrototype ? 'bg-cyan-500/10' : colors.bg
-    const headerBorder = isPrototype ? 'border-cyan-500/30' : colors.border
-    const headerText = isPrototype ? 'text-cyan-400' : colors.text
+    const [isExtraPanelOpen, setIsExtraPanelOpen] = useState(extraPanelDefaultOpen)
 
     return (
         <div className="build-slot group" onClick={weapon ? undefined : onSelect}>
@@ -70,11 +82,14 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
             </div>
             <div className="p-3 min-h-25">
                 {weapon ? (
-                    <div>
+                    <div className={`border-l-2 ${borderColor} pl-3`}>
+                        <div className="flex items-center gap-2">
+                            {isExotic && <span className="text-red-400 text-xs font-bold uppercase tracking-widest">Exotique</span>}
+                            {isNamed && !isExotic && <span className="text-yellow-500 text-xs font-bold uppercase tracking-widest">Nommé</span>}
+                        </div>
                         <div className="flex justify-between items-start">
                             <div>
                                 <div className={`font-bold ${nameColor} text-sm uppercase tracking-wide`}>
-                                    {isExotic && <span className="text-red-400 mr-1">★</span>}
                                     {weapon.nom}
                                 </div>
                                 <div className="text-xs text-gray-500">
@@ -111,13 +126,32 @@ export default function WeaponSlot({ label, weapon, talent, attribute, allAttrib
                         />
                         {/* Expertise */}
                         {expertiseSlot && onExpertiseChange && (
-                            <ExpertiseSlider
-                                slot={expertiseSlot}
-                                level={expertiseLevel || 0}
-                                onChange={onExpertiseChange}
-                                maxLevel={maxExpertiseLevel}
-                                disabled={isPrototype}
-                            />
+                            <div className="mt-2">
+                                <ExpertiseSlider
+                                    slot={expertiseSlot}
+                                    level={expertiseLevel || 0}
+                                    onChange={onExpertiseChange}
+                                    maxLevel={maxExpertiseLevel}
+                                    disabled={isPrototype}
+                                />
+                            </div>
+                        )}
+                        {extraPanel && (
+                            <div className="mt-3 pt-3 border-t border-tactical-border">
+                                <button
+                                    type="button"
+                                    onClick={(e) => { e.stopPropagation(); setIsExtraPanelOpen(v => !v) }}
+                                    className="w-full flex items-center justify-between text-xs text-purple-300 font-bold uppercase tracking-widest hover:text-purple-200"
+                                >
+                                    <span>{extraPanelTitle}</span>
+                                    <span className="text-gray-500">{isExtraPanelOpen ? '▾' : '▸'}</span>
+                                </button>
+                                {isExtraPanelOpen && (
+                                    <div className="mt-2">
+                                        {extraPanel}
+                                    </div>
+                                )}
+                            </div>
                         )}
                         {/* Talents exotiques (depuis talents[]) — non modifiables */}
                         {weapon.talents && weapon.talents.length > 0 && weapon.estExotique ? (

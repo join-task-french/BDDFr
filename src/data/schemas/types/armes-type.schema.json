@@ -33,13 +33,19 @@
         "emoji": {
           "type": "string",
           "description": "Emoji représentant le type d'arme"
+        },
+        "statistique": {
+          "type": "string",
+          "description": "Slug de la statistique de dégâts correspondant à ce type d'arme",
+          "pattern": "^[a-z0-9_]+$"
         }
       },
       "required": [
         "attributs_essentiels",
         "icon",
         "nom",
-        "type"
+        "type",
+        "statistique"
       ],
       "additionalProperties": false
     }

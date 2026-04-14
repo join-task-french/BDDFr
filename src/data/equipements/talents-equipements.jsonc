@@ -1316,7 +1316,6 @@
   },
   "rafale": {
     "nom": "Rafale",
-    "description": "Talent parfait uniquement",
     "perfectDescription": "Tous les effets d'état que vous appliquez appliquent également l'effet Chute de neige à la cible.",
     "emplacement": "genouilleres",
     "equipementsParfaits": [
@@ -1492,7 +1491,6 @@
   },
   "perplexite": {
     "nom": "Perplexité",
-    "description": "Talent parfait uniquement",
     "perfectDescription": "Quand vous infligez des dégâts d'arme à un ennemi, 50% des dégâts sont redirigés vers un autre ennemi se trouvant à moins de 30 mètres.\nS'il n'y a pas d'autre ennemi à proximité, les dégâts s'infligent normalement.\nNe s'applique pas aux plaques de protection",
     "emplacement": "genouilleres",
     "equipementsParfaits": [
@@ -2904,17 +2902,21 @@
   "exercice_cordial": {
     "nom": "Exercice cordial",
     "description": "Pour chaque coeur sur vos pièces d'équipement, vous recevez **+40%** des deux autres bonus de doeur. Les Tiers de compétence comptent pour **15% d'efficacité de compétence** quand ces bonus sont appliqués.",
-    "emplacement": "torse"
+    "emplacement": "gear_set",
+    "gearSet": "core_strength"
   },
   "coeur_externe": {
     "nom": "Coeur externe",
     "description": "Ce talent ne modifie pas directement le talent **Exercice cordial**. Ce sac à dos comprend trois attributs essentiels",
-    "emplacement": "sac_a_dos"
+    "emplacement": "sac_a_dos",
+    "gearSet": "core_strength"
   },
   "coeur_interne": {
     "nom": "Coeur interne",
     "description": "Augmente le pourcentage des bonus que vous recevez des autres coeurs de 40% à 75%.",
-    "emplacement": "torse"
+    "emplacement": "torse",
+    "gearSet": "core_strength",
+    "prerequis": "exercice_cordial"
   },
   "triple_emplacement": {
     "nom": "Triple emplacement",

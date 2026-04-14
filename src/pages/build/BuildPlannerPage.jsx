@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useDataLoader } from '../../hooks/useDataLoader.js'
-import { BuildProvider, useBuild } from '../../context/BuildContext.jsx'
+import { useBuild } from '../../context/BuildContext.jsx'
 import { decodeBuild, resolveBuild } from '../../utils/buildShare.js'
 import Loader from '../../components/common/Loader.jsx'
 import WeaponSection from '../../components/buildPlanner/WeaponSection.jsx'
@@ -23,9 +23,7 @@ export default function BuildPlannerPage() {
   )
 
   return (
-    <BuildProvider classSpe={data.classSpe} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}>
-      <BuildPlannerContent data={data} />
-    </BuildProvider>
+    <BuildPlannerContent data={data} />
   )
 }
 
@@ -93,26 +91,23 @@ function BuildPlannerContent({ data }) {
 
   return (
     <div className="p-4 sm:p-6 lg:p-8 max-w-screen-2xl mx-auto">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
-        <div>
-          <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1 flex items-baseline gap-3">
-            <span>Build <span className="text-shd">Planner</span></span>
-            {editingInfo && (
-              <span className="text-xs text-shd/60 normal-case font-black italic bg-shd/5 px-2 py-1 rounded border border-shd/20 animate-pulse">
-                Mode Édition : {editingInfo.originalMetadata.nom}
-              </span>
-            )}
-          </h2>
-          <p className="text-sm text-gray-500">Concevez votre build The Division 2</p>
-        </div>
-        <BuildActions data={data} />
-      </div>
-
-      {/* Layout 2 colonnes : build editor + stats sidebar */}
-      <div className="flex flex-col xl:flex-row gap-6">
-        {/* Colonne principale — éditeur de build */}
+      <div className="flex flex-col xl:flex-row gap-6 items-start">
         <div className="flex-1 min-w-0">
+          <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-white uppercase tracking-widest mb-1 flex items-baseline gap-3">
+                <span>Build <span className="text-shd">Planner</span></span>
+                {editingInfo && (
+                  <span className="text-xs text-shd/60 normal-case font-black italic bg-shd/5 px-2 py-1 rounded border border-shd/20 animate-pulse">
+                    Mode Édition : {editingInfo.originalMetadata.nom}
+                  </span>
+                )}
+              </h2>
+              <p className="text-sm text-gray-500">Concevez votre build The Division 2</p>
+            </div>
+            <BuildActions data={data} />
+          </div>
+
           {/* Armes */}
           <section className="mb-8" id="section-weapons">
             <h3 className="text-sm font-bold text-red-400 uppercase tracking-widest mb-4 flex items-center gap-2">
@@ -142,10 +137,8 @@ function BuildPlannerContent({ data }) {
         </div>
 
         {/* Sidebar — statistiques du build */}
-        <aside className="w-full xl:w-80 shrink-0">
-          <div className="xl:sticky xl:top-20">
-            <BuildStatsPanel data={data} />
-          </div>
+        <aside className="w-full xl:w-96 shrink-0 xl:sticky xl:top-8 xl:max-h-[calc(100vh-4rem)] xl:overflow-y-auto pr-0 xl:pr-2 custom-scrollbar">
+          <BuildStatsPanel data={data} />
         </aside>
       </div>
     </div>

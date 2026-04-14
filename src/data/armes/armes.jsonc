@@ -12,7 +12,7 @@
     "estExotique": false,
     "estNomme": false,
     "emplacementsMods": {
-      "chargeur": "chargeur_762"
+      "chargeur": "magasin_tubulaire"
     }
   },
   "acr": {
@@ -89,7 +89,7 @@
     "talents": [
       "optimiste"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
       "viseur": "rail_optique"
@@ -130,11 +130,11 @@
     "talents": [
       "allegro"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
       "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
+      "canon": "rail_sous_canon_court"
     }
   },
   "ak_m": {
@@ -533,7 +533,7 @@
     "talents": [
       "myope"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
       "viseur": "rail_optique",
@@ -715,10 +715,10 @@
     "talents": [
       "synchro"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
-      "viseur": "rail_optique"
+      "viseur": "rail_optique_court"
     }
   },
   "tkb_408": {
@@ -755,10 +755,10 @@
     "talents": [
       "ligne_plate"
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
   },
@@ -2025,10 +2025,9 @@
     "talents": [
       "extra"
     ],
-    "emplacementsMods": {
-      "chargeur": "magasin_tubulaire",
+    "emplacementsMods": {//OK
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_long"
     }
   },
   "gaucher": {
@@ -2174,10 +2173,10 @@
     "talents": [
       "imprudence"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "magasin_tubulaire",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
     }
   },
   "super_90_sbs_tactique": {
@@ -2900,10 +2899,10 @@
     "degatsBase": 433600,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_integre",
       "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
+      "canon": "rail_sous_canon_court"
     }
   },
   "m44_chasse": {
@@ -2948,10 +2947,10 @@
         "prototypeValue": 205
       }
     ],
-    "emplacementsMods": {
-      "chargeur": "chargeur_762_precision",
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_integre",
       "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
+      "canon": "rail_sous_canon_court"
     }
   },
   "oh_noel": {
@@ -2998,11 +2997,11 @@
     "degatsBase": 409400,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique_long",
-      "canon": "rail_sous_canon_long"
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court"
     }
   },
   "adrestia": {
@@ -3078,9 +3077,9 @@
     "talents": [
       "futur_parfait"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
+      "bouche": "bouche_762",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
@@ -3097,7 +3096,7 @@
     "degatsBase": 48500,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
       "bouche": "bouche_9mm",
       "viseur": "rail_optique_court"
@@ -3171,9 +3170,9 @@
     "degatsBase": 53900,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
+      "viseur": "rail_optique",
       "canon": "rail_sous_canon_long",
       "bouche": "bouche_9mm"
     }
@@ -3265,10 +3264,11 @@
     "degatsBase": 58700,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_9mm"
     }
   },
   "aug_a3_ameliore": {
@@ -3289,8 +3289,8 @@
       "canon": "rail_sous_canon_court"
     }
   },
-  "aug_a3_tactique": {
-    "nom": "AUG A3 tactique",
+  "aug_a3p_tactique": {
+    "nom": "AUG A3P tactique",
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
     "portee": 22,
@@ -3301,10 +3301,11 @@
     "degatsBase": 58700,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
-      "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_9mm"
     }
   },
   "vector_sbr_9_mm_tactique": {
@@ -3422,7 +3423,7 @@
     "talents": [
       "indefectible"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_court"
     }
@@ -3681,13 +3682,16 @@
     "rechargement": 1.92,
     "headshot": 50,
     "degatsBase": 47800,
+    "talents": [
+      "vindicatif"
+    ],
     "estExotique": false,
     "estNomme": true,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_9mm",
       "viseur": "rail_optique_court",
       "canon": "rail_sous_canon_court",
-      "bouche": "bouche"
+      "bouche": "bouche_9mm"
     }
   },
   "uic15_mod2": {
@@ -3721,10 +3725,10 @@
     "degatsBase": 92400,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
   },
@@ -4073,7 +4077,7 @@
     "degatsBase": 121300,
     "estExotique": false,
     "estNomme": false,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762",
       "bouche": "bouche_762",
       "viseur": "rail_optique",
@@ -5413,9 +5417,9 @@
     "talents": [
       "petit_faible"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_762_precision",
-      "bouche": "bouche_556",
+      "bouche": "bouche_762",
       "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
@@ -5526,9 +5530,9 @@
     "notes": "-30200 dégâts de base + 60 cpm",
     "estExotique": false,
     "estNomme": true,
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "viseur": "rail_optique_court",
-      "canon": "rail_sous_canon_court"
+      "canon": "rail_sous_canon_long"
     }
   },
   "fronde": {
@@ -5760,7 +5764,7 @@
     "talents": [
       "aller_retour"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "bouche": "bouche_9mm",
       "canon": "rail_sous_canon_long",
       "chargeur": "chargeur_9mm",

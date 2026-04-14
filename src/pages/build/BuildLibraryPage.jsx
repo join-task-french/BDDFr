@@ -185,6 +185,8 @@ export default function BuildLibraryPage() {
   const [searchResults, setSearchResults] = useState([])
   const [isSearchingApi, setIsSearchingApi] = useState(false)
   const [user, setUser] = useState(apiBuildotheque.user)
+  const [userApiBuilds, setUserApiBuilds] = useState([])
+  const [isUserApiBuildsLoading, setIsUserApiBuildsLoading] = useState(false)
 
   useEffect(() => {
     const saved = localStorage.getItem('div2_builds_v2')
@@ -244,14 +246,38 @@ export default function BuildLibraryPage() {
     }
 
     // Sinon chargement classique
-    const [top, recent] = await Promise.all([
+    const [top, recent, likes] = await Promise.all([
       apiBuildotheque.fetchTopBuilds({ limit: 6 }, effectiveApiUrl),
-      apiBuildotheque.fetchRecentBuilds({ limit: 6 }, effectiveApiUrl)
+      apiBuildotheque.fetchRecentBuilds({ limit: 6 }, effectiveApiUrl),
+      apiBuildotheque.isAuthenticated() ? apiBuildotheque.fetchUserLikes(effectiveApiUrl) : Promise.resolve([])
     ])
     setTopBuilds(top?.builds || [])
     setRecentBuilds(recent?.builds || [])
     setIsApiLoading(false)
   }
+
+  const loadUserApiBuilds = async (auteurId) => {
+    if (!auteurId) {
+      setUserApiBuilds([])
+      setIsUserApiBuildsLoading(false)
+      return
+    }
+
+    setIsUserApiBuildsLoading(true)
+    const result = await apiBuildotheque.fetchBuilds({ auteurId, limit: 100 }, effectiveApiUrl)
+    setUserApiBuilds(result?.builds || [])
+    setIsUserApiBuildsLoading(false)
+  }
+
+  useEffect(() => {
+    if (!user?.id) {
+      setUserApiBuilds([])
+      setIsUserApiBuildsLoading(false)
+      return
+    }
+
+    loadUserApiBuilds(user.id)
+  }, [user?.id, effectiveApiUrl])
 
   const executeSearch = async (term = localSearchTerm.trim()) => {
     setSearchTerm(term)
@@ -298,6 +324,9 @@ export default function BuildLibraryPage() {
   const loadRemoteBuilds = async () => {
     // Cette fonction est conservée pour la compatibilité avec confirmPublish qui l'appelle
     loadInitialBuilds()
+    if (user?.id) {
+      loadUserApiBuilds(user.id)
+    }
     if (searchTerm || selectedTags.length > 0) {
       const result = await apiBuildotheque.fetchBuilds({
         text: searchTerm,
@@ -480,8 +509,15 @@ export default function BuildLibraryPage() {
   }
 
   const filteredLocalBuilds = useMemo(() => {
+    const mergedLocalCategoryBuilds = [
+      ...localBuilds.map(build => ({ ...build, _source: 'local' })),
+      ...userApiBuilds
+        .filter(apiBuild => !localBuilds.some(localBuild => localBuild.encoded === apiBuild.encoded))
+        .map(build => ({ ...build, _source: 'api-user' }))
+    ]
+
     const term = normalizeText(searchTerm)
-    const filtered = localBuilds.filter(build => {
+    const filtered = mergedLocalCategoryBuilds.filter(build => {
       const matchesSearch = !term ||
           normalizeText(build.nom).includes(term) ||
           normalizeText(build.description).includes(term) ||
@@ -493,7 +529,7 @@ export default function BuildLibraryPage() {
       return matchesSearch && matchesTags
     })
     return sortBuilds(filtered)
-  }, [localBuilds, searchTerm, selectedTags, sortBy])
+  }, [localBuilds, userApiBuilds, searchTerm, selectedTags, sortBy])
 
   const filteredPredefinedBuilds = useMemo(() => {
     const term = normalizeText(searchTerm)
@@ -682,20 +718,24 @@ export default function BuildLibraryPage() {
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {filteredLocalBuilds.map((b, i) => (
-                          <BuildCard
-                              key={'local-' + (b.id || b.encoded || i)}
-                              build={b}
-                              data={data}
-                              onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
-                              onPublish={() => handlePublish(b)}
-                              onEdit={() => handleEditInPlanner(b)}
-                              onDelete={() => handleDeleteLocal(b.encoded)}
-                              isLocal
-                              currentUser={user}
-                              userHash={user?.id}
-                          />
-                      ))}
+                      {filteredLocalBuilds.map((b, i) => {
+                          const isLocalStoredBuild = b._source === 'local'
+                          return (
+                              <BuildCard
+                                  key={'local-' + (b.id || b.encoded || i)}
+                                  build={b}
+                                  data={data}
+                                  onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
+                                  onPublish={isLocalStoredBuild ? () => handlePublish(b) : null}
+                                  onEdit={() => handleEditInPlanner(b)}
+                                  onDelete={isLocalStoredBuild ? () => handleDeleteLocal(b.encoded) : (b.id ? () => handleDeleteRemote(b.id) : null)}
+                                  isLocal={isLocalStoredBuild}
+                                  apiUrl={effectiveApiUrl}
+                                  currentUser={user}
+                                  userHash={user?.id}
+                              />
+                          )
+                      })}
                       {searchResults.map((b, i) => {
                           const isLocalBuild = localBuilds.some(lb => lb.encoded === b.encoded);
                           return (
@@ -718,6 +758,46 @@ export default function BuildLibraryPage() {
               </section>
           ) : (
               <>
+                <section>
+                  <h3 className="text-sm font-bold text-shd uppercase tracking-widest mb-6 flex items-center gap-2">
+                    <span className="w-2 h-2 bg-shd rounded-full animate-pulse" />
+                    Vos Builds Enregistrés ({filteredLocalBuilds.length})
+                  </h3>
+                  {isUserApiBuildsLoading && user?.id && (
+                      <div className="mb-4 text-center text-shd animate-pulse text-xs font-bold uppercase">
+                        Chargement de vos builds...
+                      </div>
+                  )}
+                  {filteredLocalBuilds.length === 0 ? (
+                      <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
+                        {user?.id
+                          ? 'Aucun build trouvé dans votre catégorie personnelle.'
+                          : 'Aucun build enregistré localement. Connectez-vous pour aussi voir vos builds en ligne.'}
+                      </div>
+                  ) : (
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {filteredLocalBuilds.map((b, i) => {
+                            const isLocalStoredBuild = b._source === 'local'
+                            return (
+                                <BuildCard
+                                    key={'local-' + (b.id || b.encoded || i)}
+                                    build={b}
+                                    data={data}
+                                    onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
+                                    onPublish={isLocalStoredBuild ? () => handlePublish(b) : null}
+                                    onEdit={() => handleEditInPlanner(b)}
+                                    onDelete={isLocalStoredBuild ? () => handleDeleteLocal(b.encoded) : (b.id ? () => handleDeleteRemote(b.id) : null)}
+                                    isLocal={isLocalStoredBuild}
+                                    apiUrl={effectiveApiUrl}
+                                    currentUser={user}
+                                    userHash={user?.id}
+                                />
+                            )
+                        })}
+                      </div>
+                  )}
+                </section>
+
                 {topBuilds.length > 0 && (
                     <section>
                       <h3 className="text-sm font-bold text-yellow-500 uppercase tracking-widest mb-6 flex items-center gap-2">
@@ -773,39 +853,6 @@ export default function BuildLibraryPage() {
                       </div>
                     </section>
                 )}
-
-                <section>
-                  <h3 className="text-sm font-bold text-shd uppercase tracking-widest mb-6 flex items-center gap-2">
-                    <span className="w-2 h-2 bg-shd rounded-full animate-pulse" />
-                    Vos Builds Enregistrés ({filteredLocalBuilds.length})
-                  </h3>
-                  {localBuilds.length === 0 ? (
-                      <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
-                        Aucun build enregistré localement. Utilisez le Build Planner pour en créer un !
-                      </div>
-                  ) : filteredLocalBuilds.length === 0 ? (
-                      <div className="p-8 border border-dashed border-tactical-border rounded-lg text-center text-gray-500">
-                        Aucun build local ne correspond à vos critères.
-                      </div>
-                  ) : (
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {filteredLocalBuilds.map((b, i) => (
-                            <BuildCard
-                                key={'local-' + (b.encoded || i)}
-                                build={b}
-                                data={data}
-                                onView={() => navigate(b.id ? `/build?build-id=${b.id}` : `/build?b=${b.encoded}`)}
-                                onPublish={() => handlePublish(b)}
-                                onEdit={() => handleEditInPlanner(b)}
-                                onDelete={() => handleDeleteLocal(b.encoded)}
-                                isLocal
-                                currentUser={user}
-                                userHash={user?.id}
-                            />
-                        ))}
-                      </div>
-                  )}
-                </section>
               </>
           )}
         </div>
@@ -817,7 +864,14 @@ export default function BuildLibraryPage() {
 
 function BuildCard({ build, data, onView, onPublish, onEdit, onDelete, isLocal, apiUrl, userHash }) {
   const [likes, setLikes] = useState(build.likes || 0)
+  const [isLiked, setIsLiked] = useState(build.isLiked || apiBuildotheque.getUserLikes().includes(build.id))
   const [isLiking, setIsLiking] = useState(false)
+
+  // Synchronisation si le build change (par ex. suite à un rechargement global)
+  useEffect(() => {
+    setLikes(build.likes || 0)
+    setIsLiked(build.isLiked || apiBuildotheque.getUserLikes().includes(build.id))
+  }, [build.likes, build.isLiked, build.id])
 
   // La condition stricte de suppression locale OU si l'ID API correspond exactement au SHA-512 stocké dans userHash
   const isAuthor = isLocal ? true : (build.auteurId && userHash && build.auteurId === userHash)
@@ -830,12 +884,37 @@ function BuildCard({ build, data, onView, onPublish, onEdit, onDelete, isLocal, 
     }
     if (isLocal || !build.id) return
 
+    const previousLikes = likes
+    const previousIsLiked = isLiked
+    const newIsLiked = !isLiked
+
+    // Mise à jour optimiste pour une réactivité immédiate
+    setIsLiked(newIsLiked)
+    setLikes(prev => newIsLiked ? prev + 1 : Math.max(0, prev - 1))
     setIsLiking(true)
-    const result = await apiBuildotheque.toggleLike(build.id, apiUrl)
-    if (result && result.likes !== undefined) {
-      setLikes(result.likes)
+
+    try {
+      const result = await apiBuildotheque.toggleLike(build.id, apiUrl)
+      if (result) {
+        // Si l'API renvoie les valeurs réelles, on les utilise pour se synchroniser
+        if (result.likes !== undefined) {
+          setLikes(result.likes)
+        }
+        if (result.isLiked !== undefined) {
+          setIsLiked(result.isLiked)
+        }
+      } else {
+        // Rollback en cas d'erreur de l'API
+        setLikes(previousLikes)
+        setIsLiked(previousIsLiked)
+      }
+    } catch (err) {
+      console.error("Erreur lors du like:", err)
+      setLikes(previousLikes)
+      setIsLiked(previousIsLiked)
+    } finally {
+      setIsLiking(false)
     }
-    setIsLiking(false)
   }
 
   const resolved = useMemo(() => {
@@ -930,11 +1009,12 @@ function BuildCard({ build, data, onView, onPublish, onEdit, onDelete, isLocal, 
                       <button
                           onClick={handleLike}
                           disabled={isLiking}
-                          className={`flex items-center gap-1 px-1.5 py-0.5 rounded border text-xs font-black transition-all ${
-                              isLiking ? 'opacity-50 cursor-wait' : 'hover:scale-110'
-                          } text-shd/80 bg-shd/5 border-shd/20`}
+                          className={`flex items-center gap-1 px-2 py-0.5 rounded border text-xs font-black transition-all ${
+                              isLiking ? 'opacity-50 cursor-wait' : 'hover:scale-110 active:scale-95'
+                          } ${isLiked ? 'text-shd bg-shd/20 border-shd/40' : 'text-white/60 bg-white/5 border-white/10'}`}
+                          title={isLiked ? "Retirer mon like" : "Liker ce build"}
                       >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <svg className="w-4 h-4" fill={isLiked ? "currentColor" : "none"} stroke="currentColor" strokeWidth={isLiked ? 0 : 2} viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
                         </svg>
                         {likes}

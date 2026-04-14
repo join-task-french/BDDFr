@@ -11,6 +11,9 @@ const CAT_COLORS = {
 /**
  * Modal de sélection d'un attribut depuis le référentiel attributs.jsonc.
  * @param {Array} attributs - Liste complète des attributs (data.attributs)
+ * @param ensembles
+ * @param marque
+ * @param piece
  * @param {string} cible - "arme" ou "equipement"
  * @param {string} [categorie] - Filtre optionnel : "offensif", "defensif", "utilitaire"
  * @param {boolean} [essentiel] - Si true, affiche uniquement les attributs essentiels ; si false, uniquement les classiques
@@ -159,12 +162,12 @@ export default function AttributePicker({ attributs, ensembles, marque, piece, c
                 <div className="text-sm text-white group-hover:text-shd transition-colors flex items-center gap-2">
                   <span>{attr.nom}</span>
                   {attr.isPieceRecommended && (
-                    <span className="text-[10px] bg-blue-500/20 text-blue-400 px-1 rounded uppercase font-bold tracking-tighter">
+                    <span className="text-xs bg-blue-500/20 text-blue-400 px-1 rounded uppercase font-bold tracking-tighter">
                       Pièce
                     </span>
                   )}
                   {attr.isBrandRecommended && !attr.isPieceRecommended && (
-                    <span className="text-[10px] bg-emerald-500/20 text-emerald-400 px-1 rounded uppercase font-bold tracking-tighter">
+                    <span className="text-xs bg-emerald-500/20 text-emerald-400 px-1 rounded uppercase font-bold tracking-tighter">
                       Marque
                     </span>
                   )}
