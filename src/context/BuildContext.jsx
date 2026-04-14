@@ -6,8 +6,7 @@ const BuildContext = createContext(null)
 
 const STORAGE_KEY = 'div2_current_build'
 
-const getInitialState = () => {
-  const defaultState = {
+const getDefaultState = () => ({
     // Arme spécifique (signature) — détermine la spécialisation
     specialWeapon: null,
     // Armes classiques : primaire, secondaire
@@ -56,7 +55,10 @@ const getInitialState = () => {
     },
     // Infos sur le build en cours d'édition (si chargé depuis la bibliothèque)
     editingInfo: null, // { type: 'local' | 'api', id: string, originalMetadata: {nom, description, tags} }
-  }
+  })
+
+const getInitialState = () => {
+  const defaultState = getDefaultState()
 
   try {
     const saved = localStorage.getItem(STORAGE_KEY)
@@ -272,7 +274,7 @@ function buildReducer(state, action) {
     case 'LOAD_BUILD': {
       const shdFromBuild = action.build.shdLevels || {};
       const mergedShd = { ...getSHDLevels(), ...shdFromBuild };
-      const defaultState = getInitialState();
+      const defaultState = getDefaultState();
       return { ...defaultState, ...action.build, editingInfo: action.editingInfo || null, shdLevels: mergedShd }
     }
     case 'SET_EDITING_INFO':
@@ -280,7 +282,7 @@ function buildReducer(state, action) {
     case 'CLEAR_EDITING_INFO':
       return { ...state, editingInfo: null }
     case 'RESET':
-      return getInitialState()
+      return getDefaultState()
     default:
       return state
   }
@@ -305,7 +307,7 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
       return { ...state, prototypes, expertise, prototypeTalents }
     }
     if (action.type === 'RESET') {
-      return getInitialState()
+      return getDefaultState()
     }
     return buildReducer(state, action)
   }, undefined, getInitialState)
@@ -345,6 +347,8 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
     const hasContent = state.weapons.some(Boolean) || state.sidearm || Object.values(state.gear).some(Boolean)
     if (hasContent) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+    } else {
+      localStorage.removeItem(STORAGE_KEY)
     }
   }, [state])
 
