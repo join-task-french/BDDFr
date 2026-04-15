@@ -1,38 +1,26 @@
 import { useMemo } from 'react'
 import { useBuild } from '../context/BuildContext'
+import { normalizeText } from '../utils/textUtils'
 
 /**
  * Mapping attribut essentiel → catégorie de core.
- * Les ensembles utilisent des slugs (degats_arme, protection, tiers_de_competence).
  */
 function resolveCoreCategory(essentialName, attributs) {
   if (!essentialName) return null
   const norm = essentialName.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 
-  // Mapping direct des slugs et catégories courants
-  const slugMap = {
-    'degats_arme': 'offensif',
-    'degats_armes': 'offensif',
-    'protection': 'defensif',
-    'tiers_de_competence': 'utilitaire',
-    'tier_de_competence': 'utilitaire',
-    'offensif': 'offensif',
-    'defensif': 'defensif',
-    'utilitaire': 'utilitaire'
-  }
-  if (slugMap[norm] || slugMap[essentialName]) return slugMap[norm] || slugMap[essentialName]
-
-  // Fallback : chercher par nom dans les attributs
   if (!attributs) return null
   const match = Object.values(attributs).find(a => {
     if (!a.estEssentiel || !a.cible?.includes('equipement')) return false
     const aNorm = a.nom.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    return aNorm === norm || aNorm.includes(norm) || norm.includes(aNorm)
+    const slugNorm = a.slug.toLowerCase().replace(/_/g, ' ')
+    return aNorm === norm || aNorm.includes(norm) || norm.includes(aNorm) || slugNorm.includes(norm) || norm.includes(slugNorm)
   })
   if (match) return match.categorie
-  if (norm.includes('degat') || norm.includes('arme')) return 'offensif'
-  if (norm.includes('protect') || norm.includes('armure')) return 'defensif'
-  if (norm.includes('competence') || norm.includes('tier')) return 'utilitaire'
+  
+  if (norm.includes('degat') || norm.includes('arme') || norm.includes('offensif')) return 'offensif'
+  if (norm.includes('protect') || norm.includes('armure') || norm.includes('defensif')) return 'defensif'
+  if (norm.includes('competence') || norm.includes('tier') || norm.includes('utilitaire')) return 'utilitaire'
   return null
 }
 
@@ -41,110 +29,163 @@ function normCat(cat) {
   return cat.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
 }
 
+function inferUnitFromSources(sources = []) {
+  const nonEmptyUnits = sources
+    .map(s => s?.unite)
+    .filter(u => typeof u === 'string' && u.trim() !== '')
+  if (nonEmptyUnits.length === 0) return ''
+  const uniqueUnits = [...new Set(nonEmptyUnits)]
+  return uniqueUnits.length === 1 ? uniqueUnits[0] : ''
+}
+
 /**
  * Hook qui calcule toutes les statistiques du build actuel.
- * Toutes les données viennent du context et des fichiers JSONC.
  */
 export function useBuildStats(data) {
   const build = useBuild()
 
-  // Helper: résoudre unité + nom depuis le référentiel d'attributs ou statistiques
+  // Helper pour résoudre les informations d'un attribut ou d'une statistique
   const resolveAttrInfo = (attrSlug) => {
+    if (!attrSlug) return { nom: '', unite: '', categorie: 'autre' }
+
     const def = data.attributs?.[attrSlug]
-    if (def) return { nom: def.nom, unite: def.unite || '%', categorie: def.categorie || '', min: def.min, max: def.max }
-    const stat = data.statistiques?.[attrSlug]
-    if (stat) return { nom: stat.nom, unite: '%', categorie: '' }
-    return { nom: attrSlug.replace(/_arm$|_eqp$|_mod$/, '').replace(/_/g, ' '), unite: '%', categorie: '' }
-  }
-
-  /**
-   * Calcule les stats de mods pour un ensemble de mods donné.
-   */
-  const computeModStats = (mods) => {
-    const totals = {}
-    if (!mods) return totals
-    const arr = Array.isArray(mods) ? mods : [mods]
-    for (const mod of arr) {
-      if (!mod?.attributs || !Array.isArray(mod.attributs)) continue
-      for (const entry of mod.attributs) {
-        if (!entry.attribut || entry.valeur == null) continue
-        const info = resolveAttrInfo(entry.attribut)
-        const key = entry.attribut
-        if (!totals[key]) totals[key] = { nom: info.nom, total: 0, unite: info.unite, categorie: info.categorie }
-        totals[key].total += entry.valeur
-      }
+    if (def) return { 
+      nom: def.nom, 
+      unite: def.unite ?? '',
+      categorie: def.categorie || 'autre',
+      min: def.min, 
+      max: def.max, 
+      statistiques: def.statistiques 
     }
-    return totals
-  }
 
-  /**
-   * Résout le slug de statistique cible pour un attribut ou un mod.
-   */
-  const resolveStatSlugs = (attrSlug) => {
-    const attrDef = data.attributs?.[attrSlug]
-    if (attrDef?.statistiques?.length) return attrDef.statistiques
     const stat = data.statistiques?.[attrSlug]
-    if (stat) return [attrSlug]
-    return [attrSlug]
-  }
-
-  /**
-   * Regroupe un objet totalStats par statistique cible.
-   */
-  const groupStatsByTarget = (totalStats) => {
-    const grouped = {}
-    for (const [attrKey, entry] of Object.entries(totalStats)) {
-      const statSlugs = resolveStatSlugs(attrKey)
-      for (const statSlug of statSlugs) {
-        const statDef = data.statistiques?.[statSlug]
-        const statName = statDef?.nom || entry.nom
-        if (!grouped[statSlug]) {
-          grouped[statSlug] = {
-            nom: statName,
-            total: 0,
-            unite: entry.unite,
-            categorie: entry.categorie,
-            sources: [],
+    if (stat) {
+      // Déduire la catégorie de la statistique si absente
+      let cat = stat.categorie || ''
+      if (!cat) {
+        // Tenter de trouver la catégorie dans la montre
+        if (data.montre?.categories) {
+          for (const [catKey, category] of Object.entries(data.montre.categories)) {
+            const hasMatch = category.stats && (
+              category.stats[attrSlug] || 
+              Object.values(category.stats).some(s => s.statistique === attrSlug || s.target === attrSlug)
+            )
+            if (hasMatch) {
+              cat = catKey
+              break
+            }
           }
         }
-        grouped[statSlug].total += entry.total
-        grouped[statSlug].sources.push({ nom: entry.nom, valeur: entry.total, unite: entry.unite })
+      }
+      if (!cat) {
+        const norm = attrSlug.toLowerCase()
+        if (norm.includes('degat') || norm.includes('critique') || norm.includes('headshot') || norm.includes('arme') || norm.includes('cadence')) cat = 'offensif'
+        else if (norm.includes('protect') || norm.includes('armure') || norm.includes('resistance') || norm.includes('sante')) cat = 'defensif'
+        else if (norm.includes('competence') || norm.includes('recup') || norm.includes('duree')) cat = 'utilitaire'
+        else if (norm.includes('maniement') || norm.includes('precision') || norm.includes('stabilite') || norm.includes('rechargement') || norm.includes('chargeur') || norm.includes('munitions') || norm.includes('echange')) cat = 'maniement'
+        else cat = 'autre'
+      }
+      return { nom: stat.nom, unite: stat.unite ?? '', categorie: cat }
+    }
+
+    // Fallback pour les slugs inconnus (ex: targets de la montre)
+    const norm = attrSlug.toLowerCase()
+    let cat = 'autre'
+    
+    // Tenter de trouver la catégorie dans la montre pour les fallbacks aussi
+    if (data.montre?.categories) {
+      for (const [catKey, category] of Object.entries(data.montre.categories)) {
+        const hasMatch = category.stats && (
+          category.stats[attrSlug] || 
+          Object.values(category.stats).some(s => s.statistique === attrSlug || s.target === attrSlug)
+        )
+        if (hasMatch) {
+          cat = catKey
+          break
+        }
       }
     }
-    return grouped
+    
+    if (cat === 'autre') {
+      if (norm.includes('degat') || norm.includes('critique') || norm.includes('headshot') || norm.includes('arme') || norm.includes('cadence')) cat = 'offensif'
+      else if (norm.includes('protect') || norm.includes('armure') || norm.includes('resistance') || norm.includes('sante')) cat = 'defensif'
+      else if (norm.includes('competence') || norm.includes('recup') || norm.includes('duree')) cat = 'utilitaire'
+      else if (norm.includes('maniement') || norm.includes('precision') || norm.includes('stabilite') || norm.includes('rechargement') || norm.includes('chargeur') || norm.includes('munitions') || norm.includes('echange')) cat = 'maniement'
+    }
+
+    return { 
+      nom: attrSlug.replace(/_arm$|_eqp$|_mod$/, '').replace(/_shd$/, ' (Montre)').replace(/_/g, ' '), 
+      unite: '',
+      categorie: cat
+    }
   }
 
-  // Ensembles indexés par slug
-  const ensemblesMap = useMemo(() => {
-    return data.ensembles || {}
-  }, [data.ensembles])
+  return useMemo(() => {
+    // console.log("useBuildStats: recalculating due to build/data change", build.shdLevels)
+    if (!data.attributs || !data.statistiques) {
+      return {
+        coreStats: { offensif: 0, defensif: 0, utilitaire: 0 },
+        weaponStats: [],
+        attributesByCategory: { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] },
+        setBonuses: { gearSets: [], brandSets: [] },
+        allAttributeTotals: {},
+        totalGearPieces: 0,
+        totalWeapons: 0,
+        equippedSkills: [],
+        equippedTalents: [],
+        specialisation: null,
+        shdLevels: build.shdLevels
+      }
+    }
 
-  // Bonus d'ensemble / marque
-  const { setBonuses, setAttributeTotals } = useMemo(() => {
+    // --------------------------------------------------------------------------
+    // 1: Récupération des statistiques de la montre
+    // --------------------------------------------------------------------------
+    const watchStats = {}
+    if (build.shdLevels && data.montre?.categories) {
+      Object.entries(data.montre.categories).forEach(([catKey, category]) => {
+        if (!category.stats) return
+        Object.entries(category.stats).forEach(([statId, config]) => {
+          const level = build.shdLevels?.[statId] || 0
+          if (level > 0) {
+            const val = level * config.ratio
+            const targetSlug = config.target || config.statistique || statId
+            watchStats[statId] = {
+              nom: config.label || config.nom || statId,
+              total: val,
+              unite: config.unite ?? config.unit ?? resolveAttrInfo(targetSlug).unite,
+              categorie: catKey,
+              slug: targetSlug,
+              sourceNom: "Montre SHD"
+            }
+          }
+        })
+      })
+    }
+
+    // --------------------------------------------------------------------------
+    // Calcul des bonus d'ensemble (prérequis pour les étapes 2, 3, 4)
+    // --------------------------------------------------------------------------
+    const ensemblesMap = data.ensembles || {}
     const counts = {}
     let wildcardCount = 0
     for (const slot of Object.keys(build.gear || {})) {
       const piece = build.gear[slot]
       if (!piece?.marque) continue
-      if (piece.marque === '*') {
-        wildcardCount++
-      } else {
-        counts[piece.marque] = (counts[piece.marque] || 0) + 1
-      }
+      if (piece.marque === '*') wildcardCount++
+      else counts[piece.marque] = (counts[piece.marque] || 0) + 1
     }
     if (wildcardCount > 0) {
-      for (const marqueSlug of Object.keys(counts)) {
-        counts[marqueSlug] += wildcardCount
-      }
+      for (const marqueSlug of Object.keys(counts)) counts[marqueSlug] += wildcardCount
     }
 
+    const setAttributeTotals = {}
     const gearSets = []
     const brandSets = []
-    const setTotals = {}
+    const classStats = build.specialisation ? build.classSpe?.[build.specialisation]?.classStats : null
 
     const parseAndAddBonus = (bonus) => {
       if (!bonus) return
-      
       if (typeof bonus === 'string') {
         const match = bonus.match(/^\+?([0-9.,]+)(%?)\s+(.+)$/)
         if (match) {
@@ -152,13 +193,11 @@ export function useBuildStats(data) {
           const hasPercent = match[2] === '%'
           const label = match[3].trim().toLowerCase()
           let foundSlug = null
-          if (data.attributs) {
-            const attrMatch = Object.entries(data.attributs).find(([slug, def]) => 
-              def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
-            )
-            if (attrMatch) foundSlug = attrMatch[0]
-          }
-          if (!foundSlug && data.statistiques) {
+          const attrMatch = Object.entries(data.attributs).find(([slug, def]) => 
+            def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
+          )
+          if (attrMatch) foundSlug = attrMatch[0]
+          else {
             const statMatch = Object.entries(data.statistiques).find(([slug, def]) => 
               def.nom.toLowerCase() === label || label.includes(def.nom.toLowerCase())
             )
@@ -166,31 +205,32 @@ export function useBuildStats(data) {
           }
           if (foundSlug) {
             const info = resolveAttrInfo(foundSlug)
-            if (!setTotals[foundSlug]) {
-              setTotals[foundSlug] = { nom: info.nom, total: 0, unite: hasPercent ? '%' : info.unite, categorie: info.categorie, slug: foundSlug }
+            if (!setAttributeTotals[foundSlug]) {
+              setAttributeTotals[foundSlug] = { 
+                nom: info.nom, 
+                total: 0, 
+                unite: hasPercent ? '%' : info.unite, 
+                categorie: info.categorie, 
+                slug: foundSlug 
+              }
             }
-            setTotals[foundSlug].total += val
+            setAttributeTotals[foundSlug].total += val
           }
         }
       } else if (bonus.attributs) {
-        // Nouveau format: objet avec liste d'attributs
         for (const attr of bonus.attributs) {
-          const val = attr.value
-          const foundSlug = attr.slug
-          if (foundSlug) {
-            const info = resolveAttrInfo(foundSlug)
-            if (!setTotals[foundSlug]) {
-              // Déterminer l'unité (pourcentage par défaut, sauf exceptions connues)
-              const hasPercent = !(
-                foundSlug.includes('taille_chargeur') ||
-                foundSlug.includes('capacite_munitions') ||
-                foundSlug.includes('utilitaire') ||
-                foundSlug.includes('menace') ||
-                foundSlug.includes('portee_optimale')
-              )
-              setTotals[foundSlug] = { nom: info.nom, total: 0, unite: hasPercent ? '%' : info.unite, categorie: info.categorie, slug: foundSlug }
+          if (attr.slug) {
+            const info = resolveAttrInfo(attr.slug)
+            if (!setAttributeTotals[attr.slug]) {
+              setAttributeTotals[attr.slug] = { 
+                nom: info.nom, 
+                total: 0, 
+                unite: info.unite ?? '',
+                categorie: info.categorie,
+                slug: attr.slug 
+              }
             }
-            setTotals[foundSlug].total += val
+            setAttributeTotals[attr.slug].total += attr.value
           }
         }
       }
@@ -209,470 +249,498 @@ export function useBuildStats(data) {
       if (ensemble.bonus2pieces) checkBonus(2, ensemble.bonus2pieces)
       if (ensemble.bonus3pieces) checkBonus(3, ensemble.bonus3pieces)
       if (ensemble.bonus4pieces) checkBonus(4, ensemble.bonus4pieces)
-      const entry = { slug: marqueSlug, nom: ensemble.nom, type: ensemble.type, count, maxPieces: ensemble.type === 'gear_set' ? 6 : 3, bonuses }
+      const entry = { slug: marqueSlug, nom: ensemble.nom, type: ensemble.type, count, maxPieces: ensemble.type === 'gear_set' ? 4 : 3, bonuses }
       if (ensemble.type === 'gear_set') gearSets.push(entry)
       else brandSets.push(entry)
     }
-    gearSets.sort((a, b) => b.count - a.count)
-    brandSets.sort((a, b) => b.count - a.count)
-    return { setBonuses: { gearSets, brandSets }, setAttributeTotals: setTotals }
-  }, [build.gear, ensemblesMap, data.attributs, data.statistiques])
 
-  // Comptage des cores — basé sur l'attribut essentiel réellement sélectionné
-  const coreStats = useMemo(() => {
-    const counts = { offensif: 0, defensif: 0, utilitaire: 0 }
-    for (const slot of Object.keys(build.gear || {})) {
-      const piece = build.gear[slot]
-      if (!piece) continue
-      const attrs = build.gearAttributes[slot]
-      if (attrs?.essentiels) {
-        for (const ess of attrs.essentiels) {
-          if (!ess?.categorie) continue
-          const nc = normCat(ess.categorie)
-          if (counts[nc] !== undefined) counts[nc]++
-        }
-      } else {
-        // Fallback: si pas encore d'attribut sélectionné, utiliser l'ensemble
-        const ensemble = (piece.marque && piece.marque !== '*') ? ensemblesMap[piece.marque] : null
-        if (ensemble?.attributsEssentiels?.length > 0) {
-          for (const essName of ensemble.attributsEssentiels) {
-            const cat = resolveCoreCategory(essName, data.attributs)
-            if (!cat) continue
-            const nc = normCat(cat)
-            if (counts[nc] !== undefined) counts[nc]++
-          }
-        }
-      }
-    }
-    return counts
-  }, [build.gear, build.gearAttributes, ensemblesMap, data.attributs])
-
-  // Agrégation des attributs d'équipement
-  // Les attributs offensifs d'équipement affectent toutes les armes (comme les mods d'équipement)
-  const { gearAttributeTotals, offensiveGearAttributeTotals } = useMemo(() => {
-    const totals = {}
-    const offensiveTotals = {}
-    const addAttr = (a) => {
-      if (!a?.nom || a.valeur == null) return
-      const key = a.slug || a.nom
-      if (!totals[key]) totals[key] = { nom: a.nom, slug: a.slug, total: 0, unite: a.unite || '', categorie: a.categorie || '' }
-      totals[key].total += a.valeur
-      // Les attributs offensifs d'équipement affectent les armes
-      const cat = normCat(a.categorie)
-      if (cat === 'offensif') {
-        if (!offensiveTotals[key]) offensiveTotals[key] = { nom: a.nom, slug: a.slug, total: 0, unite: a.unite || '', categorie: a.categorie || '' }
-        offensiveTotals[key].total += a.valeur
-      }
-    }
-    for (const slot of Object.keys(build.gear || {})) {
-      const attrs = build.gearAttributes[slot]
-      if (!attrs) continue
-      if (attrs.essentiels) attrs.essentiels.forEach(addAttr)
-      if (attrs.classiques) attrs.classiques.forEach(addAttr)
-    }
-
-    // AJOUT: Inclure les bonus d'ensemble dans les totaux offensifs qui affectent les armes
-    for (const [slug, entry] of Object.entries(setAttributeTotals || {})) {
-      const cat = normCat(entry.categorie)
-      if (cat === 'offensif') {
-        if (!offensiveTotals[slug]) offensiveTotals[slug] = { ...entry, total: 0 }
-        offensiveTotals[slug].total += entry.total
-      }
-    }
-
-    return { gearAttributeTotals: totals, offensiveGearAttributeTotals: offensiveTotals }
-  }, [build.gear, build.gearAttributes, setAttributeTotals])
-
-  // Agrégation des attributs d'armes (attribut libre choisi par le joueur)
-  const weaponAttributeTotals = useMemo(() => {
-    const totals = {}
-    const addAttr = (a) => {
-      if (!a?.nom || a.valeur == null) return
-      const key = a.slug || a.nom
-      if (!totals[key]) totals[key] = { nom: a.nom, slug: a.slug, total: 0, unite: a.unite || '', categorie: a.categorie || '' }
-      totals[key].total += a.valeur
-    }
-    if (build.weaponAttributes) build.weaponAttributes.forEach(a => addAttr(a))
-    if (build.sidearmAttribute) addAttr(build.sidearmAttribute)
-    return totals
-  }, [build.weaponAttributes, build.sidearmAttribute])
-
-  // Bonus de mods d'équipement (affectent le joueur globalement → s'appliquent à toutes les armes)
-  const gearModTotals = useMemo(() => {
-    const totals = {}
-    const gmv = build.modValues?.gearMods || {}
-    for (const [slot, slotMods] of Object.entries(build.gearMods || {})) {
-      const modArray = Array.isArray(slotMods) ? slotMods : [slotMods]
-      for (let modIdx = 0; modIdx < modArray.length; modIdx++) {
-        const mod = modArray[modIdx]
-        if (!mod?.attributs || !Array.isArray(mod.attributs)) continue
-        for (const entry of mod.attributs) {
-          if (!entry.attribut) continue
-          const info = resolveAttrInfo(entry.attribut)
-          // Utiliser la valeur fixe si présente, sinon la valeur utilisateur du curseur, sinon le max de l'attribut
-          const userVal = gmv[slot]?.[modIdx]?.[entry.attribut]
-          const val = entry.valeur != null ? entry.valeur : (userVal != null ? userVal : (info.max != null ? info.max : null))
-          if (val == null) continue
-          const key = entry.attribut
-          if (!totals[key]) totals[key] = { nom: info.nom, total: 0, unite: info.unite, categorie: info.categorie }
-          totals[key].total += val
-        }
-      }
-    }
-    return totals
-  }, [build.gearMods, build.modValues, data.attributs])
-
-  /**
-   * Statistiques PAR ARME : chaque arme a ses propres mods d'arme + les mods d'équipement +
-   * les attributs offensifs d'équipement + les valeurs essentielles de l'arme.
-   * Les stats d'arme ne se cumulent PAS entre les armes.
-   */
-  const weaponStats = useMemo(() => {
-    const exp = build.expertise || {}
-    const essVals = build.weaponEssentialValues || {}
-    const stats = []
-
-    // Mapping des types d'armes vers leurs slugs de statistiques de dégâts
-    const typeToStatSlug = {
-      'fusil_assaut': 'degats_fusil_assaut',
-      'fusil': 'degats_fusil',
-      'fusil_precision': 'degats_fusil_precision',
-      'fusil_mitrailleur': 'degats_fusil_mitrailleur',
-      'pm': 'degats_pm',
-      'pistolet': 'degats_pistolet',
-      'calibre_12': 'degats_calibre_12'
-    }
-
-    /** Helper pour sommer toutes les sources d'une statistique spécifique à partir d'une map de stats agrégées par attribut */
-    const getStatTotalFromMap = (statsMap, statSlug) => {
-      let total = 0
-      Object.entries(statsMap).forEach(([attrSlug, entry]) => {
-        const attrDef = data.attributs?.[attrSlug]
-        if (attrDef && attrDef.statistiques && attrDef.statistiques.includes(statSlug)) {
-          total += entry.total
-        } else if (attrSlug === statSlug) {
-          total += entry.total
-        }
-      })
-      return total
-    }
-
-    const buildWeaponStat = (weapon, weaponMods, expertiseKey, slotLabel, weaponAttr) => {
-      if (!weapon) return null
-      const isProto = build.prototypes?.[expertiseKey] || false
-      const base = (isProto && weapon.prototypeDegatsBase) ? weapon.prototypeDegatsBase : (weapon.degatsBase || 0)
-      const lvl = exp[expertiseKey] || 0
-      // Mods spécifiques à cette arme
-      const ownModStats = computeModStats(weaponMods)
-      // Fusionner : mods d'arme + mods d'équipement + attributs offensifs d'équipement
-      const allStats = {}
-      const mergeIn = (source) => {
-        for (const [key, entry] of Object.entries(source)) {
-          if (!allStats[key]) allStats[key] = { ...entry }
-          else allStats[key] = { ...allStats[key], total: allStats[key].total + entry.total }
-        }
-      }
-      mergeIn(ownModStats)
-      
-      // On ne fusionne que les stats offensives provenant du gear (mods et attributs)
-      // Les stats défensives et utilitaires du gear ne s'appliquent pas à l'affichage de l'arme
-      const gearOffensiveMods = {}
-      Object.entries(gearModTotals).forEach(([key, entry]) => {
-        if (normCat(entry.categorie) === 'offensif') {
-          gearOffensiveMods[key] = entry
-        }
-      })
-      mergeIn(gearOffensiveMods)
-      mergeIn(offensiveGearAttributeTotals)
-
-      // Attributs essentiels de l'arme (valeurs personnalisées par le joueur)
-      const slotEssVals = essVals[expertiseKey] || {}
-      const essentials = weapon.attributs_essentiels || []
-      for (const ess of essentials) {
-        if (!ess?.nom) continue
-        const attrDef = data.attributs?.[ess.nom]
-        if (!attrDef) continue
-        const hasPredef = ess.valeur != null
-        const val = hasPredef ? ess.valeur : (slotEssVals[ess.nom] != null ? slotEssVals[ess.nom] : attrDef.max)
-        const key = ess.nom
-        if (!allStats[key]) allStats[key] = { nom: attrDef.nom, total: 0, unite: attrDef.unite || '%', categorie: attrDef.categorie || '' }
-        allStats[key].total += val
-      }
-      // Si pas d'attributs_essentiels sur l'arme, utiliser ceux du type
-      if (!essentials.length && data.armes_type) {
-        const typeData = data.armes_type[weapon.type]
-        if (typeData?.attributs_essentiels) {
-          for (const slug of typeData.attributs_essentiels) {
-            const attrDef = data.attributs?.[slug]
-            if (!attrDef) continue
-            const val = slotEssVals[slug] != null ? slotEssVals[slug] : attrDef.max
-            if (!allStats[slug]) allStats[slug] = { nom: attrDef.nom, total: 0, unite: attrDef.unite || '%', categorie: attrDef.categorie || '' }
-            allStats[slug].total += val
-          }
-        }
-      }
-
-      // Attribut libre choisi par le joueur
-      if (weaponAttr?.nom && weaponAttr.valeur != null) {
-        const key = weaponAttr.slug || weaponAttr.nom
-        if (!allStats[key]) allStats[key] = { nom: weaponAttr.nom, total: 0, unite: weaponAttr.unite || '%', categorie: weaponAttr.categorie || '' }
-        allStats[key].total += weaponAttr.valeur
-      }
-
-      // CALCUL DES DÉGÂTS TOTAUX (Expertise + Dégâts d'arme + Dégâts type + Multiplicateurs)
-      const weaponDamageBonus = getStatTotalFromMap(allStats, 'degats_arme')
-      const typeStatSlug = typeToStatSlug[weapon.type]
-      const typeDamageBonus = typeStatSlug ? getStatTotalFromMap(allStats, typeStatSlug) : 0
-      
-      const dta = getStatTotalFromMap(allStats, 'degats_protections')
-      const dth = getStatTotalFromMap(allStats, 'degats_sante')
-      const ooc = getStatTotalFromMap(allStats, 'degats_cible_non_abritee')
-      
-      const wdMultiplier = 1 + (lvl + weaponDamageBonus + typeDamageBonus) / 100
-      const multMultiplier = (1 + ooc / 100) * (1 + Math.max(dta, dth) / 100)
-      
-      const finalDamage = Math.round(base * wdMultiplier * multMultiplier)
-
-      // On retire les attributs appliqués au calcul principal pour éviter les doublons dans la liste sous l'arme
-      const filteredStats = { ...allStats }
-      const statsToRemove = ['degats_arme', typeStatSlug, 'degats_protections', 'degats_sante', 'degats_cible_non_abritee'].filter(Boolean)
-      
-      Object.keys(filteredStats).forEach(attrSlug => {
-        const attrDef = data.attributs?.[attrSlug]
-        if (attrDef && attrDef.statistiques && attrDef.statistiques.some(s => statsToRemove.includes(s))) {
-          delete filteredStats[attrSlug]
-        } else if (statsToRemove.includes(attrSlug)) {
-          delete filteredStats[attrSlug]
-        }
-      })
-
-      return {
-        nom: weapon.nom,
-        type: weapon.type,
-        slot: slotLabel,
-        degatsBase: base,
-        degatsAffiche: finalDamage,
-        expertise: lvl,
-        modStats: ownModStats,
-        totalStats: allStats,
-        groupedStats: groupStatsByTarget(filteredStats),
-      }
-    }
-
-    const w0 = buildWeaponStat(build.weapons?.[0], build.weaponMods?.[0], 'weapon0', 'Primaire', build.weaponAttributes?.[0])
-    if (w0) stats.push(w0)
-    const w1 = buildWeaponStat(build.weapons?.[1], build.weaponMods?.[1], 'weapon1', 'Secondaire', build.weaponAttributes?.[1])
-    if (w1) stats.push(w1)
-    const ws = buildWeaponStat(build.sidearm, build.sidearmMods, 'sidearm', 'Poing', build.sidearmAttribute)
-    if (ws) stats.push(ws)
-
-    return stats
-  }, [build.weapons, build.sidearm, build.weaponMods, build.sidearmMods, build.expertise, build.weaponEssentialValues, build.weaponAttributes, build.sidearmAttribute, gearModTotals, offensiveGearAttributeTotals, data.attributs, data.armes_type, data.statistiques])
-
-  // Totaux combinés (équipement + mods d'équipement + ensembles)
-  // Les mods d'armes et attributs d'armes ne sont PAS inclus ici — ils sont spécifiques à chaque arme
-  const allAttributeTotals = useMemo(() => {
-    const combined = {}
-    const mergeIn = (source) => {
-      for (const [slug, entry] of Object.entries(source)) {
-        const key = entry.slug || slug
-        if (!combined[key]) combined[key] = { ...entry }
-        else combined[key].total += entry.total
-      }
-    }
-    mergeIn(gearAttributeTotals)
-    // weaponAttributeTotals retiré car spécifique à l'arme tenue
-    mergeIn(gearModTotals)
-    mergeIn(setAttributeTotals || {})
-    return combined
-  }, [gearAttributeTotals, gearModTotals, setAttributeTotals])
-
-  // Attributs groupés par catégorie
-  const attributesByCategory = useMemo(() => {
-    const groups = { offensif: [], defensif: [], utilitaire: [], autre: [] }
-    for (const entry of Object.values(allAttributeTotals)) {
-      const nc = normCat(entry.categorie)
-      if (groups[nc]) groups[nc].push(entry)
-      else groups.autre.push(entry)
-    }
-    return groups
-  }, [allAttributeTotals])
-
-  // Mods d'armes équipés
-  const equippedWeaponMods = useMemo(() => {
-    const mods = []
-    if (build.weaponMods) {
-      build.weaponMods.forEach((slotMods, i) => {
-        if (!slotMods) return
-        const arr = Array.isArray(slotMods) ? slotMods : [slotMods]
-        arr.forEach(m => { if (m) mods.push({ slot: `Arme ${i + 1}`, ...m }) })
-      })
-    }
-    if (build.sidearmMods) {
-      const arr = Array.isArray(build.sidearmMods) ? build.sidearmMods : [build.sidearmMods]
-      arr.forEach(m => { if (m) mods.push({ slot: 'Poing', ...m }) })
-    }
-    return mods
-  }, [build.weaponMods, build.sidearmMods])
-
-  // Mods d'équipement équipés
-  const equippedGearMods = useMemo(() => {
-    const mods = []
-    for (const [slot, slotMods] of Object.entries(build.gearMods || {})) {
-      const modArray = Array.isArray(slotMods) ? slotMods : [slotMods]
-      modArray.forEach((mod, idx) => {
-        if (mod) mods.push({ slot: modArray.length > 1 ? `${slot} (${idx + 1})` : slot, ...mod })
-      })
-    }
-    return mods
-  }, [build.gearMods])
-
-  // Compétences
-  const equippedSkills = useMemo(() => (build.skills || []).filter(Boolean), [build.skills])
-
-  // Spécialisation
-  const specialisation = build.specialisation
-  const specialisationLabel = specialisation ? build.SPECIALISATIONS?.[specialisation]?.label : null
-
-  // Compteurs
-  const totalGearPieces = useMemo(() => Object.values(build.gear || {}).filter(Boolean).length, [build.gear])
-  const totalWeapons = useMemo(() => {
-    let c = 0
-    if (build.specialWeapon) c++
-    if (build.weapons?.[0]) c++
-    if (build.weapons?.[1]) c++
-    if (build.sidearm) c++
-    return c
-  }, [build.specialWeapon, build.weapons, build.sidearm])
-
-  // Talents équipés
-  const equippedTalents = useMemo(() => {
-    const talents = []
-    // Armes
-    if (build.weaponTalents) build.weaponTalents.forEach((t, i) => { if (t) talents.push({ slot: `Arme ${i + 1}`, ...t }) })
-    if (build.sidearmTalent) talents.push({ slot: 'Poing', ...build.sidearmTalent })
-    // Équipement
-    if (build.gearTalents) {
-      for (const [slot, t] of Object.entries(build.gearTalents)) {
-        if (t) talents.push({ slot, ...t })
-      }
-    }
-    return talents
-  }, [build.weaponTalents, build.sidearmTalent, build.gearTalents])
-
-  // Statistiques calculées (Protection, Santé, etc.)
-  const calculatedStats = useMemo(() => {
-    // Valeurs de base niveau 40 (estimations standard Division 2)
-    // On somme la protection de base de chaque pièce d'équipement réellement équipée + expertise
-    let baseArmorFromGear = 0
-    let armorFromExpertise = 0
-
+    // --------------------------------------------------------------------------
+    // 2, 3, 4: Récupération des statistiques de l'équipement (Offensif, Défensif, Utilitaire)
+    // --------------------------------------------------------------------------
+    const gearTotals = { offensif: {}, defensif: {}, utilitaire: {}, maniement: {}, autre: {} }
     const gearTypes = data.equipements_type || data['equipements-type'] || {}
-    
+
+    const addStatToGear = (slug, val, cat) => {
+      if (!slug || val == null) return
+      const nc = normCat(cat)
+      const target = gearTotals[nc] || gearTotals.autre
+      if (!target[slug]) target[slug] = 0
+      target[slug] += val
+    }
+
+    // Parcourir chaque slot de pièce d'équipement
     for (const slot of Object.keys(build.gear || {})) {
-      if (build.gear[slot]) {
-        const typeInfo = gearTypes[slot]
-        if (typeInfo?.protectionBase) {
-          const pb = typeInfo.protectionBase
-          baseArmorFromGear += pb
-          
-          // L'expertise sur l'équipement (+1% armure de base par grade d'expertise)
-          const grade = build.expertise?.[slot] || 0
-          if (grade > 0) {
-            armorFromExpertise += (pb * grade * 0.01)
-          }
+      const piece = build.gear?.[slot]
+      // La protection du type d'équipement est une contribution directe en points.
+      if (piece) {
+        const slotProtection = (gearTypes[slot]?.protection ?? gearTypes[slot]?.protectionBase) || 0
+        if (slotProtection > 0) {
+          const slotExpertiseBonus = slotProtection * ((build.expertise?.[slot] || 0) * 0.01)
+          addStatToGear('protection', slotProtection + slotExpertiseBonus, 'defensif')
         }
       }
+
+      // Attributs classiques et essentiels
+      const attrs = build.gearAttributes?.[slot]
+      if (attrs) {
+        [...(attrs.essentiels || []), ...(attrs.classiques || [])].forEach(a => {
+          if (!a) return
+          if (a.valeur != null) addStatToGear(a.slug || a.nom, a.valeur, a.categorie)
+        })
+      }
+      // Mods d'équipement
+      const mods = build.gearMods?.[slot]
+      if (mods) {
+        const modArray = Array.isArray(mods) ? mods : [mods]
+        modArray.forEach((mod, modIdx) => {
+          if (mod?.attributs) {
+            mod.attributs.forEach(entry => {
+              const info = resolveAttrInfo(entry.attribut)
+              const userVal = build.modValues?.gearMods?.[slot]?.[modIdx]?.[entry.attribut]
+              const val = entry.valeur != null ? entry.valeur : (userVal != null ? userVal : (info.max || 0))
+              addStatToGear(entry.attribut, val, info.categorie)
+            })
+          }
+        })
+      }
     }
+
+    // Ajouter les bonus d'ensemble calculés précédemment
+    Object.values(setAttributeTotals).forEach(entry => {
+      addStatToGear(entry.slug, entry.total, entry.categorie)
+    })
+
+    // Ajouter les bonus globaux de spécialisation (classStats.bonusAttributs)
+    ;(classStats?.bonusAttributs || []).forEach(attr => {
+      if (!attr?.nom || attr.valeur == null) return
+      const info = resolveAttrInfo(attr.nom)
+      addStatToGear(attr.nom, attr.valeur, info.categorie)
+    })
+
+    // --------------------------------------------------------------------------
+    // 5: Fusionner les statistiques récolté avec celles présente dans la montre 
+    // --------------------------------------------------------------------------
+    const globalMerged = {}
     
-    // Si aucune pièce n'est équipée, on garde une valeur de base à 0
-    let totalArmor = baseArmorFromGear
-
-    // Somme des attributs de protection (Points et Pourcentages)
-    let armorPoints = 0
-    let armorPercent = 0
-
-    const processSource = (sourceMap) => {
-      if (!sourceMap) return
-      Object.entries(sourceMap).forEach(([slug, entry]) => {
-        const isArmor = slug === 'protection' || data.attributs?.[slug]?.statistiques?.includes('protection')
-        
-        if (isArmor) {
-          if (entry.unite === '%') armorPercent += entry.total
-          else armorPoints += entry.total
-        } else if (slug === 'protection_fixe') {
-          armorPoints += entry.total
-        }
-      })
-    }
-
-    processSource(gearAttributeTotals)
-    processSource(gearModTotals)
-    processSource(setAttributeTotals)
-
-    // Calcul final : (Base Gear + Cores/Attributs Pts + Expertise) * (1 + Bonus%)
-    // L'expertise est calculée sur la base de la pièce, elle est ensuite multipliée par les bonus de marque/mod
-    const armorBeforePercent = totalArmor + armorPoints + armorFromExpertise
-
-    const finalArmor = Math.round(armorBeforePercent * (1 + (armorPercent / 100)))
-
-    return {
-      protection_totale: { nom: "Armure totale", total: finalArmor, unite: "pts", categorie: "defensif" },
-      protection_base: { nom: "Protection de base (Gear)", total: Math.floor(baseArmorFromGear + armorFromExpertise), unite: "pts", categorie: "defensif" }
-    }
-  }, [
-    allAttributeTotals, 
-    build.expertise, 
-    build.gear, 
-    data.equipements_type, 
-    data.attributs,
-    setAttributeTotals, 
-    gearModTotals, 
-    gearAttributeTotals
-  ])
-
-  // On injecte les stats calculées dans les catégories
-  const attributesByCategoryFinal = useMemo(() => {
-    const groups = { ...attributesByCategory }
-    
-    // Injecter Armure totale au début de la section défensive
-    // Inclure aussi le détail de la protection de base si non nul
-    const extraStats = [
-      calculatedStats.protection_totale
-    ]
-    
-    if (calculatedStats.protection_base.total > 0) {
-      extraStats.push(calculatedStats.protection_base)
-    }
-
-    groups.defensif = [
-      ...extraStats,
-      ...groups.defensif.filter(a => 
-        a.nom !== "Armure totale" && 
-        a.nom !== "Santé totale" && 
-        a.nom !== "Protection de base (Gear)" &&
-        a.nom !== "Protection de base (Agent)" &&
-        !a.nom?.toLowerCase().includes("santé")
+    // On collecte toutes les sources (Watch + Gear)
+    const allSources = [
+      ...Object.values(watchStats),
+      ...Object.entries(gearTotals).flatMap(([cat, stats]) => 
+        Object.entries(stats).map(([slug, val]) => {
+          const info = resolveAttrInfo(slug)
+          return { slug, total: val, categorie: cat, unite: info.unite, sourceNom: "Équipement" }
+        })
       )
     ]
-    
-    return groups
-  }, [attributesByCategory, calculatedStats])
 
-  return {
-    coreStats,
-    allAttributeTotals,
-    attributesByCategory: attributesByCategoryFinal,
-    weaponStats,
-    gearModTotals,
-    setBonuses,
-    equippedWeaponMods,
-    equippedGearMods,
-    equippedSkills,
-    equippedTalents,
-    specialisation,
-    specialisationLabel,
-    totalGearPieces,
-    totalWeapons,
+    // On fusionne vers les statistiques cibles du jeu
+    allSources.forEach(src => {
+      const info = resolveAttrInfo(src.slug)
+      const targets = info.statistiques || [src.slug]
+      targets.forEach(t => {
+        const targetInfo = resolveAttrInfo(t)
+        if (!globalMerged[t]) globalMerged[t] = {
+          total: 0, 
+          unite: targetInfo.unite ?? src.unite ?? '',
+          categorie: src.categorie || targetInfo.categorie || info.categorie,
+          sources: []
+        }
+        globalMerged[t].total += src.total
+        globalMerged[t].sources.push({ nom: src.sourceNom, valeur: src.total, unite: src.unite ?? targetInfo.unite ?? '' })
+      })
+    })
+
+    Object.values(globalMerged).forEach(entry => {
+      if (!entry.unite) entry.unite = inferUnitFromSources(entry.sources)
+    })
+
+    const resolvePointBaseSlug = (percentSlug, percentUnit) => {
+      if (percentUnit !== '%') return null
+      const candidates = []
+      if (percentSlug === 'protection_shd') candidates.push('protection')
+      if (percentSlug === 'sante_shd') candidates.push('sante')
+      if (percentSlug.endsWith('_percent')) candidates.push(percentSlug.slice(0, -8))
+      if (percentSlug.endsWith('_shd')) candidates.push(percentSlug.slice(0, -4))
+      if (percentSlug.startsWith('pourcentage_')) candidates.push(percentSlug.replace(/^pourcentage_/, ''))
+
+      for (const candidate of [...new Set(candidates)]) {
+        if (!candidate || candidate === percentSlug) continue
+        const baseInfo = resolveAttrInfo(candidate)
+        if (baseInfo?.unite === 'pts' || baseInfo?.unite === 'pts/s') return candidate
+      }
+      return null
+    }
+
+    const percentGroups = {}
+    Object.entries(globalMerged).forEach(([slug, entry]) => {
+      const baseSlug = resolvePointBaseSlug(slug, entry.unite)
+      if (!baseSlug) return
+      if (!percentGroups[baseSlug]) percentGroups[baseSlug] = []
+      percentGroups[baseSlug].push({ slug, total: entry.total })
+    })
+
+    Object.entries(percentGroups).forEach(([baseSlug, percentEntries]) => {
+      const percentTotal = percentEntries.reduce((sum, e) => sum + (e.total || 0), 0)
+      if (!percentTotal) return
+
+      const baseInfo = resolveAttrInfo(baseSlug)
+      if (!globalMerged[baseSlug]) {
+        globalMerged[baseSlug] = {
+          total: 0,
+          unite: baseInfo.unite || 'pts',
+          categorie: baseInfo.categorie || 'autre',
+          sources: []
+        }
+      }
+
+      const currentPoints = globalMerged[baseSlug].total || 0
+      const convertedPoints = currentPoints * (percentTotal / 100)
+      if (!convertedPoints) return
+
+      globalMerged[baseSlug].total += convertedPoints
+      globalMerged[baseSlug].sources.push({
+        nom: `Conversion bonus % (${Math.round(percentTotal * 10) / 10}%)`,
+        valeur: convertedPoints,
+        unite: globalMerged[baseSlug].unite || baseInfo.unite || 'pts'
+      })
+    })
+
+    // --------------------------------------------------------------------------
+    // 6: Récupération des statistiques des armes (chaque arme séparément fusionnée)
+    // --------------------------------------------------------------------------
+    const finalWeapons = []
+    const modsRepo = data.modsArmes || []
+    const resolveWeaponMod = (id) => {
+      if (!id || !modsRepo) return null
+      if (!Array.isArray(modsRepo) && modsRepo[id]) return modsRepo[id]
+      const needle = normalizeText(id)
+      const list = Array.isArray(modsRepo) ? modsRepo : Object.values(modsRepo)
+      return list.find(m => normalizeText(m?.slug || '') === needle || normalizeText(m?.nom || '') === needle) || null
+    }
+
+    const getActiveWeaponMods = (slot) => {
+      const equippedMods = Array.isArray(slot.mods) ? slot.mods.filter(Boolean) : []
+      const predefIds = Array.isArray(slot.data?.modsPredefinis) ? slot.data.modsPredefinis : []
+      if (predefIds.length === 0) return equippedMods
+
+      const alreadyAdded = new Set(
+        equippedMods
+          .map(mod => normalizeText(mod?.slug || mod?.nom || ''))
+          .filter(Boolean)
+      )
+
+      const resolvedPredef = predefIds
+        .map(resolveWeaponMod)
+        .filter(Boolean)
+        .filter(mod => {
+          const key = normalizeText(mod?.slug || mod?.nom || '')
+          if (!key || alreadyAdded.has(key)) return false
+          alreadyAdded.add(key)
+          return true
+        })
+
+      return [...equippedMods, ...resolvedPredef]
+    }
+
+    const weaponSlots = [
+      { key: 'weapon0', data: build.weapons[0], attrs: build.weaponAttributes[0], mods: build.weaponMods[0], talent: build.weaponTalents[0], label: 'Primaire' },
+      { key: 'weapon1', data: build.weapons[1], attrs: build.weaponAttributes[1], mods: build.weaponMods[1], talent: build.weaponTalents[1], label: 'Secondaire' },
+      { key: 'sidearm', data: build.sidearm, attrs: build.sidearmAttribute, mods: build.sidearmMods, talent: build.sidearmTalent, label: 'Poing' },
+      { key: 'special', data: build.specialWeapon, attrs: null, mods: null, talent: null, label: 'Spécifique' }
+    ]
+
+    weaponSlots.forEach(slot => {
+      if (!slot.data) return
+      
+      const wStats = {}
+      const groupedStats = {}
+
+      const addStat = (slug, val, sourceNom, sourceUnite) => {
+        if (!slug || val === 0) return
+        const info = resolveAttrInfo(slug)
+        const targets = info.statistiques || [slug]
+        targets.forEach(t => {
+          const targetInfo = resolveAttrInfo(t)
+          if (!wStats[t]) wStats[t] = 0
+          wStats[t] += val
+
+          if (!groupedStats[t]) {
+            // Filtrer : On ne garde pour l'arme que ce qui est offensif ou maniement
+            if (targetInfo.categorie !== 'offensif' && targetInfo.categorie !== 'maniement') return
+
+            groupedStats[t] = {
+              nom: targetInfo.nom,
+              total: 0,
+              unite: targetInfo.unite ?? sourceUnite ?? info.unite ?? '',
+              sources: []
+            }
+          }
+          groupedStats[t].total += val
+          groupedStats[t].sources.push({ nom: sourceNom, valeur: val, unite: sourceUnite ?? info.unite ?? targetInfo.unite ?? '' })
+        })
+      }
+
+      // Initialiser avec les stats globales (Équipement + Montre)
+      Object.entries(globalMerged).forEach(([slug, entry]) => {
+        entry.sources.forEach(src => {
+          if (!src || src.valeur == null) return
+          addStat(slug, src.valeur, src.nom, src.unite)
+        })
+      })
+
+      // Ajouter les attributs spécifiques à l'arme
+      const ownAttrs = Array.isArray(slot.attrs) ? slot.attrs : (slot.attrs ? [slot.attrs] : [])
+      ownAttrs.forEach(a => {
+        if (!a) return
+        addStat(a.slug || a.nom, a.valeur, "Attribut d'arme")
+      })
+
+      // Ajouter les mods de l'arme (inclut les mods prédéfinis des exotiques)
+      const activeWeaponMods = getActiveWeaponMods(slot)
+      activeWeaponMods.forEach(mod => {
+        if (mod?.attributs) {
+          mod.attributs.forEach(entry => {
+            addStat(entry.attribut, entry.valeur, mod.nom || "Mod d'arme")
+          })
+        }
+      })
+
+      // Ajouter les attributs par défaut/essentiels de l'arme (ex: DTH sur AR)
+      const typeData = data.armes_type?.[slot.data.type]
+      const essVals = build.weaponEssentialValues?.[slot.key] || {}
+      const essentials = slot.data.attributs_essentiels || (typeData?.attributs_essentiels?.map(slug => ({ nom: slug })) || [])
+      essentials.forEach(ess => {
+        const slug = ess.nom
+        const attrDef = data.attributs?.[slug]
+        if (!attrDef) return
+        const val = ess.valeur != null ? ess.valeur : (essVals[slug] != null ? essVals[slug] : attrDef.max)
+        addStat(slug, val, "Bonus de type")
+      })
+
+      // Bonus d'arme de spécialisation: points configurés par type d'arme
+      const configuredPoints = Number(build.specialWeaponBonusPoints?.[slot.data.type] || 0)
+      const valuePerPoint = Number(classStats?.bonusArme?.valeurParPoint || 0)
+      if (configuredPoints > 0 && valuePerPoint > 0 && typeData?.statistique) {
+        addStat(typeData.statistique, configuredPoints * valuePerPoint, 'Bonus arme spécialisation')
+      }
+
+      // Bonus d'expertise de l'arme
+      const expertiseLvl = build.expertise?.[slot.key] || 0
+      if (expertiseLvl > 0) {
+        addStat('degats_arme', expertiseLvl, "Expertise")
+      }
+
+      Object.values(groupedStats).forEach(entry => {
+        if (!entry.unite) entry.unite = inferUnitFromSources(entry.sources)
+      })
+      
+      // --------------------------------------------------------------------------
+      // Calcul des dégâts selon la formule :
+      // DMG = BASE x (1+AWD%) x (1+TWD%) x (1+HSD%+CHD%) x (1+DTA%/DTH%) x (1+DTOOC%) x (1+AMP%)
+      // --------------------------------------------------------------------------
+      const base = slot.data.degatsBase || 0
+      
+      // TWD (Total Weapon Damage) = Global (Montre + Cores Rouges)
+      const twd = (wStats['degats_arme'] || 0) / 100
+      // AWD (All Weapon Damage?) = Spécifique au type
+      const typeStatSlug = typeData?.statistique
+      const awd = (wStats[typeStatSlug] || 0) / 100
+      
+      const hsd = ( (slot.data.headshot || 0) + (wStats['degats_headshot'] || 0) ) / 100
+      const chd = (wStats['degats_coup_critique'] || 0) / 100
+      const chc = Math.min(60, (wStats['probabilite_coup_critique'] || 0)) / 100
+      
+      const dta = (wStats['degats_protections'] || 0) / 100
+      const dth = (wStats['degats_sante'] || 0) / 100
+      const dtooc = (wStats['degats_cible_non_abritee'] || 0) / 100
+      
+      // Multiplicateur AMP (Talents/Buffs)
+      const amp = 1
+
+      // Dégâts de base calculés (BASE x AWD x TWD x AMP)
+      const dmgCalculated = base * (1 + awd) * (1 + twd) * amp
+      
+      const calcDmg = (isCrit, isHeadshot, vsProtection) => {
+        let critHsdMult = 1
+        if (isCrit && isHeadshot) critHsdMult = (1 + hsd + chd)
+        else if (isCrit) critHsdMult = (1 + chd)
+        else if (isHeadshot) critHsdMult = (1 + hsd)
+        
+        const vsMult = vsProtection ? (1 + dta) : (1 + dth)
+        return Math.round(dmgCalculated * critHsdMult * vsMult * (1 + dtooc))
+      }
+
+      const effectiveDamages = {
+        protection: {
+          body: calcDmg(false, false, true),
+          crit: calcDmg(true, false, true),
+          headshot: calcDmg(false, true, true),
+          headshotCrit: calcDmg(true, true, true)
+        },
+        health: {
+          body: calcDmg(false, false, false),
+          crit: calcDmg(true, false, false),
+          headshot: calcDmg(false, true, false),
+          headshotCrit: calcDmg(true, true, false)
+        }
+      }
+
+      const avgDamages = {
+        protection: {
+          body: Math.round(effectiveDamages.protection.body * (1 - chc) + effectiveDamages.protection.crit * chc),
+          headshot: Math.round(effectiveDamages.protection.headshot * (1 - chc) + effectiveDamages.protection.headshotCrit * chc)
+        },
+        health: {
+          body: Math.round(effectiveDamages.health.body * (1 - chc) + effectiveDamages.health.crit * chc),
+          headshot: Math.round(effectiveDamages.health.headshot * (1 - chc) + effectiveDamages.health.headshotCrit * chc)
+        }
+      }
+
+      finalWeapons.push({
+        ...slot.data,
+        nom: slot.data.nom,
+        type: slot.data.type,
+        slot: slot.label,
+        degatsAffiche: Math.round(dmgCalculated),
+        effectiveDamages,
+        avgDamages,
+        weaponStats: wStats,
+        groupedStats,
+        chc: Math.round(chc * 100 * 10) / 10,
+        chd: Math.round(chd * 100 * 10) / 10,
+        hsd: Math.round(hsd * 100 * 10) / 10,
+        dta: Math.round(dta * 100 * 10) / 10,
+        dth: Math.round(dth * 100 * 10) / 10,
+        dtooc: Math.round(dtooc * 100 * 10) / 10,
+        twd: Math.round(twd * 100 * 10) / 10,
+        awd: Math.round(awd * 100 * 10) / 10,
+        expertise: expertiseLvl
+      })
+    })
+
+    // --------------------------------------------------------------------------
+    // 7: Renvoyé les statistiques globales et individuelles
+    // --------------------------------------------------------------------------
+    
+    // Calcul de l'armure totale (Protection)
+    const metadata = data.metadata || {}
+    const baseArmor = metadata.baseArmorDefault || 0
+    let gearBaseArmor = 0
+    let expertiseArmor = 0
+    for (const slot of Object.keys(build.gear || {})) {
+      if (build.gear[slot]) {
+        const pb = (gearTypes[slot]?.protection ?? gearTypes[slot]?.protectionBase) || 0
+        gearBaseArmor += pb
+        expertiseArmor += (pb * (build.expertise?.[slot] || 0) * 0.01)
+      }
+    }
+    const protectionTotalPoints = globalMerged['protection']?.total || 0
+    const armorBonusPoints = protectionTotalPoints - gearBaseArmor - expertiseArmor
+    const armorBonusPercentRaw = (globalMerged['protection_shd']?.total || 0) + (globalMerged['protection_percent']?.total || 0)
+    const finalArmor = Math.round(baseArmor + protectionTotalPoints)
+
+    // Regrouper les statistiques globales par catégorie pour l'affichage
+    const displayStats = { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] }
+    Object.entries(globalMerged).forEach(([slug, entry]) => {
+      const info = resolveAttrInfo(slug)
+      const nc = normCat(entry.categorie || info.categorie)
+      if (displayStats[nc]) {
+        displayStats[nc].push({ 
+          slug, 
+          nom: info.nom, 
+          total: entry.total, 
+          unite: entry.unite,
+          sources: entry.sources // Passer les sources pour l'affichage détaillé
+        })
+      }
+    })
+
+    // Ajouter l'armure totale calculée dans la catégorie défensive avec sources
+    displayStats.defensif.push({ 
+      slug: 'protection_totale', 
+      nom: "Armure totale", 
+      total: finalArmor, 
+      unite: "pts",
+      sources: [
+        { nom: "Armure de base", valeur: baseArmor, unite: "pts" },
+        ...(gearBaseArmor > 0 ? [{ nom: "Protection équipement", valeur: gearBaseArmor, unite: "pts" }] : []),
+        ...(expertiseArmor > 0 ? [{ nom: "Expertise", valeur: expertiseArmor, unite: "pts" }] : []),
+        ...(armorBonusPoints > 0 ? [{ nom: "Bonus protection (convertis)", valeur: armorBonusPoints, unite: "pts" }] : []),
+        ...(armorBonusPercentRaw > 0 ? [{ nom: "Bonus % cumulés", valeur: armorBonusPercentRaw, unite: "%" }] : [])
+      ]
+    })
+
+    const { counts: coreCounts, sources: coreSources } = calculateCores(build.gearAttributes, build.gear, ensemblesMap, data.attributs)
+
+    return {
+      coreStats: coreCounts,
+      coreSources: coreSources,
+      weaponStats: finalWeapons,
+      attributesByCategory: displayStats,
+      setBonuses: { gearSets, brandSets },
+      allAttributeTotals: globalMerged,
+      totalGearPieces: Object.values(build.gear || {}).filter(Boolean).length,
+      totalWeapons: [build.weapons?.[0], build.weapons?.[1], build.sidearm, build.specialWeapon].filter(Boolean).length,
+      equippedSkills: (build.skills || []).filter(Boolean),
+      equippedTalents: getEquippedTalents(build),
+      specialisation: build.specialisation,
+      shdLevels: build.shdLevels // Exposer pour faciliter le debug/suivi si besoin
+    }
+
+  }, [build, data])
+}
+
+// --- Fonctions Helpers auxiliaires ---
+
+function calculateCores(gearAttributes, gear, ensemblesMap, attributsRepo) {
+  const counts = { offensif: 0, defensif: 0, utilitaire: 0 }
+  const sources = { offensif: [], defensif: [], utilitaire: [] }
+  const slots = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
+  
+  slots.forEach(slot => {
+    const piece = gear?.[slot]
+    if (!piece) return
+    
+    const attrs = gearAttributes?.[slot]
+    if (attrs?.essentiels && attrs.essentiels.length > 0) {
+      attrs.essentiels.forEach(ess => {
+        if (!ess) return
+        const nc = normCat(ess.categorie)
+        if (counts[nc] !== undefined) {
+          counts[nc]++
+          sources[nc].push({ nom: slot.charAt(0).toUpperCase() + slot.slice(1), valeur: 1 })
+        }
+      })
+    } else {
+      // Fallback sur l'ensemble si pas d'attribut sélectionné
+      const ensemble = (piece.marque && piece.marque !== '*') ? ensemblesMap[piece.marque] : null
+      if (ensemble?.attributsEssentiels) {
+        ensemble.attributsEssentiels.forEach(essName => {
+          const cat = resolveCoreCategory(essName, attributsRepo)
+          const nc = normCat(cat)
+          if (counts[nc] !== undefined) {
+            counts[nc]++
+            sources[nc].push({ nom: `${slot.charAt(0).toUpperCase() + slot.slice(1)} (${ensemble.nom})`, valeur: 1 })
+          }
+        })
+      }
+    }
+  })
+
+  // Vérifier aussi les bonus d'ensemble qui pourraient donner des coeurs (ex: +1 Tier compétence)
+  // Note: On peut itérer sur setAttributeTotals s'il contient des 'niveau_competence' etc.
+  
+  return { counts, sources }
+}
+
+function getEquippedTalents(build) {
+  const talents = []
+  if (build.weaponTalents) build.weaponTalents.forEach((t, i) => { if (t) talents.push({ slot: `Arme ${i + 1}`, ...t }) })
+  if (build.sidearmTalent) talents.push({ slot: 'Poing', ...build.sidearmTalent })
+  if (build.gearTalents) {
+    for (const [slot, t] of Object.entries(build.gearTalents)) {
+      if (t) talents.push({ slot, ...t })
+    }
   }
+  return talents
 }

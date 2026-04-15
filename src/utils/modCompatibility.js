@@ -131,3 +131,81 @@ export function resolveModAttrName(slug, allAttributs, statistiques) {
   // Fallback: humaniser le slug
   return slug.replace(/_arm$|_eqp$|_mod$/, '').replace(/_/g, ' ')
 }
+
+/**
+ * Retourne la liste des statistiques impactees par un mod.
+ * Resolution via attributs[].statistiques, avec fallback sur l'attribut lui-meme.
+ * @param {Object} mod
+ * @param {Array|Object} allAttributs
+ * @param {Array|Object} statistiques
+ * @returns {string[]}
+ */
+export function getModAffectedStats(mod, allAttributs, statistiques) {
+  return getModAffectedStatDetails(mod, allAttributs, statistiques).map(item => item.label)
+}
+
+/**
+ * Retourne les statistiques impactees par un mod avec leur valeur d'affichage.
+ * @param {Object} mod
+ * @param {Array|Object} allAttributs
+ * @param {Array|Object} statistiques
+ * @returns {{ label: string, valueText: string }[]}
+ */
+export function getModAffectedStatDetails(mod, allAttributs, statistiques) {
+  if (!mod?.attributs || !Array.isArray(mod.attributs)) return []
+
+  const details = []
+  const seen = new Set()
+  const add = (name, valueText = '') => {
+    if (!name) return
+    const key = `${name.toLowerCase()}|${valueText}`
+    if (seen.has(key)) return
+    seen.add(key)
+    details.push({ label: name, valueText })
+  }
+
+  const resolveAttrDef = (slug) => {
+    if (!allAttributs) return null
+    return Array.isArray(allAttributs) ? allAttributs.find(a => a.slug === slug) : allAttributs[slug]
+  }
+
+  const formatValue = (entry, attrDef) => {
+    const unite = attrDef?.unite || ''
+    if (entry?.valeur != null) {
+      const sign = entry.valeur >= 0 ? '+' : ''
+      return `${sign}${entry.valeur}${unite}`
+    }
+    if (attrDef?.min != null && attrDef?.max != null) {
+      return `+${attrDef.min} a ${attrDef.max}${unite}`
+    }
+    if (attrDef?.max != null) {
+      const sign = attrDef.max >= 0 ? '+' : ''
+      return `${sign}${attrDef.max}${unite}`
+    }
+    return ''
+  }
+
+  for (const entry of mod.attributs) {
+    const slug = entry?.attribut
+    if (!slug) continue
+
+    const attrDef = resolveAttrDef(slug)
+    const valueText = formatValue(entry, attrDef)
+
+    const statSlugs = Array.isArray(attrDef?.statistiques) ? attrDef.statistiques : []
+    if (statSlugs.length > 0) {
+      for (const statSlug of statSlugs) {
+        const statDef = statistiques
+          ? (Array.isArray(statistiques) ? statistiques.find(s => s.slug === statSlug) : statistiques[statSlug])
+          : null
+        add(statDef?.nom || resolveModAttrName(statSlug, allAttributs, statistiques), valueText)
+      }
+      continue
+    }
+
+    add(resolveModAttrName(slug, allAttributs, statistiques), valueText)
+  }
+
+  return details
+}
+

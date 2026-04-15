@@ -7,6 +7,7 @@ import { apiBuildotheque } from '../../utils/apiBuildotheque'
 export default function BuildActions({ data }) {
   const {
     specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods,
+    specialWeaponBonusPoints,
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods, modValues,
@@ -46,7 +47,7 @@ export default function BuildActions({ data }) {
       type: 'confirm',
       onConfirm: (val) => {
         setDialog(p => ({ ...p, open: false }))
-        if (val) onConfirm()
+        if (val !== false) onConfirm()
       },
       onCancel: () => setDialog(p => ({ ...p, open: false }))
     }))
@@ -71,6 +72,7 @@ export default function BuildActions({ data }) {
 
   const buildState = {
     specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods,
+    specialWeaponBonusPoints,
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods, modValues,
@@ -374,18 +376,18 @@ export default function BuildActions({ data }) {
                 <div key={i} className="flex items-center justify-between px-4 py-3 border-b border-tactical-border/50 hover:bg-tactical-hover transition-colors">
                   <div className="flex-1 min-w-0 pr-2">
                     <div className="text-white text-sm font-bold truncate">{b.nom}</div>
-                    <div className="text-[10px] text-gray-500 truncate italic">
+                    <div className="text-xs text-gray-500 truncate italic">
                       {b.description || 'Pas de description'}
                     </div>
                   </div>
                   <div className="flex gap-1">
-                    <button onClick={() => loadBuild(i)} className="px-2 py-1 rounded text-[10px] font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20" title="Charger">
+                    <button onClick={() => loadBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20" title="Charger">
                       📂
                     </button>
-                    <button onClick={() => editBuild(i)} className="px-2 py-1 rounded text-[10px] font-bold text-blue-400 bg-blue-900/10 border border-blue-500/20 hover:bg-blue-900/30" title="Modifier">
+                    <button onClick={() => editBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-blue-400 bg-blue-900/10 border border-blue-500/20 hover:bg-blue-900/30" title="Modifier">
                       ✏️
                     </button>
-                    <button onClick={() => deleteBuild(i)} className="px-2 py-1 rounded text-[10px] font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30" title="Supprimer">
+                    <button onClick={() => deleteBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30" title="Supprimer">
                       ✕
                     </button>
                   </div>

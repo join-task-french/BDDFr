@@ -7,7 +7,8 @@
         ],
         "icon": "fusil_assaut",
         "type": "principale",
-        "emoji": "🔫"
+        "emoji": "🔫",
+        "statistique": "degats_fusil_assaut"
     },
     "calibre_12": {
         "nom": "Calibre 12",
@@ -17,7 +18,8 @@
         ],
         "icon": "calibre12",
         "type": "principale",
-        "emoji": "💥"
+        "emoji": "💥",
+        "statistique": "degats_calibre_12"
     },
     "fusil": {
         "nom": "Fusil",
@@ -27,7 +29,8 @@
         ],
         "icon": "fusil",
         "type": "principale",
-        "emoji": "🎯"
+        "emoji": "🎯",
+        "statistique": "degats_fusil"
     },
     "pistolet": {
         "nom": "Pistolet",
@@ -36,7 +39,8 @@
         ],
         "icon": "pistolet",
         "type": "secondaire",
-        "emoji": "🔫"
+        "emoji": "🔫",
+        "statistique": "degats_pistolet"
     },
     "pistolet_mitrailleur": {
         "nom": "Pistolet mitrailleur",
@@ -46,7 +50,8 @@
         ],
         "icon": "pistolet_mitrailleur",
         "type": "principale",
-        "emoji": "⚡"
+        "emoji": "⚡",
+        "statistique": "degats_pm"
     },
     "fusil_mitrailleur": {
         "nom": "Fusil mitrailleur",
@@ -56,7 +61,8 @@
         ],
         "icon": "fusil_mitrailleur",
         "type": "principale",
-        "emoji": "🔥"
+        "emoji": "🔥",
+        "statistique": "degats_fusil_mitrailleur"
     },
     "fusil_precision": {
         "nom": "Fusil de précision",
@@ -66,13 +72,15 @@
         ],
         "icon": "sniper",
         "type": "principale",
-        "emoji": "🎯"
+        "emoji": "🎯",
+        "statistique": "degats_fusil_precision"
     },
     "arme_specifique": {
         "nom": "Arme spécifique",
         "attributs_essentiels": [],
         "icon": "fusil_assaut",
         "type": "specifique",
-        "emoji": "🎖️"
+        "emoji": "🎖️",
+        "statistique": "degats_arme_specifique"
     }
 }

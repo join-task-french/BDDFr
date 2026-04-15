@@ -7,7 +7,7 @@ import MarkdownText from '../../common/MarkdownText'
  * Même présentation que TalentArmeCard mais en version compacte.
  * Si le talent a une perfectDescription, un switch permet de basculer.
  */
-export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements, isNamed }) {
+export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements, isNamed, noBackground = false }) {
 
   if (!talent) return null
   const icon = resolveAsset(talent.icon)
@@ -22,7 +22,7 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
 
 
   return (
-    <div className="bg-tactical-bg/40 rounded px-3 py-2 space-y-1.5">
+    <div className={`${noBackground ? 'space-y-1' : 'bg-tactical-bg/40 rounded px-3 py-2 space-y-1.5'}`}>
       {/* Header : icon + nom + badge exo + switch parfait */}
       <div className="flex items-center gap-2 flex-wrap">
         <GameIcon src={icon} alt="" size="w-5 h-5" />

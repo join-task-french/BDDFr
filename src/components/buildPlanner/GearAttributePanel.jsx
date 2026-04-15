@@ -111,7 +111,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
 
   const pb = useMemo(() => {
     if (!slotKey || !equipementsType) return 0
-    const base = equipementsType[slotKey]?.protectionBase || 0
+    const base = (equipementsType[slotKey]?.protection ?? equipementsType[slotKey]?.protectionBase) || 0
     const grade = expertiseLevel || 0
     return Math.floor(base * (1 + grade * 0.01))
   }, [slotKey, equipementsType, expertiseLevel])
@@ -221,6 +221,15 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
     return !!(attr && attr.nom)
   }
 
+  // Est-ce que la VALEUR de l'attribut est fixée par la pièce ?
+  const isClassicValueFixedByIndex = (idx) => {
+    if (!piece?.attributs || !Array.isArray(piece.attributs)) return false
+    const attr = piece.attributs[idx]
+    // Si l'attribut a une valeur définie dans les données, elle est fixée.
+    // Sinon (ex: juste un nom d'attribut sans valeur), elle peut être modifiée.
+    return !!(attr && attr.nom && attr.valeur != null)
+  }
+
   const updateAttributes = (newEss, newClassiques) => {
     onChange({ essentiels: newEss, classiques: newClassiques })
   }
@@ -286,7 +295,8 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
             <AttributeSlider
                 key={`classic-${i}`}
                 attribute={classiques[i] || null}
-                readOnly={isClassicFixedByIndex(i)}
+                readOnly={isClassicValueFixedByIndex(i)}
+                locked={isClassicFixedByIndex(i)}
                 onChange={(attr) => setClassic(i, attr)}
                 onPick={() => setPickerOpen(`classic-${i}`)}
                 onRemove={isClassicFixedByIndex(i) ? null : () => setClassic(i, null)}

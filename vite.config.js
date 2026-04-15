@@ -9,9 +9,11 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
+      injectRegister: 'auto',
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         maximumFileSizeToCacheInBytes: 20 * 1024 * 1024,
+        cleanupOutdatedCaches: true,
       },
       manifest: {
         "short_name": "BDDFr",
@@ -21,12 +23,17 @@ export default defineConfig({
             "src": "favicon_192x192.png",
             "type": "image/png",
             "sizes": "192x192"
+          },
+          {
+            "src": "favicon_512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
           }
         ],
         "start_url": process.env.VITE_BASE_PATH || '/BDDFr',
         "display": "standalone",
         "theme_color": "#15181d",
-        "background_color": "#0d0f12"
+        "background_color": "#2c3e50"
       }
     })
   ],
@@ -34,6 +41,7 @@ export default defineConfig({
   assetsInclude: ['**/*.jsonc'],
   build: {
     assetsInlineLimit: 10240,
+    chunkSizeWarningLimit: 2000,
   },
   define: {
     __APP_VERSION__: JSON.stringify(Date.now().toString()),
@@ -46,4 +54,3 @@ export default defineConfig({
     allowedHosts: true,
   }
 })
-

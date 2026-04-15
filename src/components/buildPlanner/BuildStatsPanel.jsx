@@ -10,6 +10,7 @@ import SetBonusList from './SetBonusList'
 export default function BuildStatsPanel({ data }) {
   const {
     coreStats,
+    coreSources,
     weaponStats,
     attributesByCategory,
     setBonuses,
@@ -32,7 +33,7 @@ export default function BuildStatsPanel({ data }) {
       <div className="p-4 space-y-5">
         {/* Core Attributes Bars */}
         <Section title="Attributs principaux" icon="🎯">
-          <CoreAttributeBars coreStats={coreStats} attributsType={data.attributs_type} />
+          <CoreAttributeBars coreStats={coreStats} coreSources={coreSources} attributsType={data.attributs_type} />
         </Section>
 
         {/* Statistiques de Protection / Défensives */}
@@ -41,17 +42,6 @@ export default function BuildStatsPanel({ data }) {
             <div className="space-y-0.5">
               {attributesByCategory.defensif.map((attr, i) => (
                 <GlobalStatRow key={i} attr={attr} color="text-blue-400" />
-              ))}
-            </div>
-          </Section>
-        )}
-
-        {/* Statistiques Utilitaires */}
-        {attributesByCategory.utilitaire.length > 0 && (
-          <Section title="Utilitaires" icon="🔧">
-            <div className="space-y-0.5">
-              {attributesByCategory.utilitaire.map((attr, i) => (
-                <GlobalStatRow key={i} attr={attr} color="text-yellow-400" />
               ))}
             </div>
           </Section>
@@ -68,12 +58,26 @@ export default function BuildStatsPanel({ data }) {
           </Section>
         )}
 
+
+
         {/* Bonus d'ensemble */}
         {(setBonuses.gearSets.length > 0 || setBonuses.brandSets.length > 0) && (
           <Section title="Bonus d'ensemble" icon="🏅">
             <SetBonusList setBonuses={setBonuses} data={data} />
           </Section>
         )}
+
+
+          {/* Statistiques Utilitaires */}
+          {attributesByCategory.utilitaire.length > 0 && (
+              <Section title="Utilitaires" icon="🔧">
+                  <div className="space-y-0.5">
+                      {attributesByCategory.utilitaire.map((attr, i) => (
+                          <GlobalStatRow key={i} attr={attr} color="text-yellow-400" />
+                      ))}
+                  </div>
+              </Section>
+          )}
 
         {/* Compétences */}
         {equippedSkills.length > 0 && (
@@ -118,17 +122,73 @@ function Section({ title, icon, children }) {
 
 /** Ligne de statistique globale */
 function GlobalStatRow({ attr, color = 'text-green-400' }) {
+  const [isExpanded, setIsExpanded] = useState(false);
   const isMainStat = attr.nom === "Armure totale";
+  const hasSources = attr.sources && attr.sources.length > 0;
+
   return (
-    <div className={`flex items-center justify-between text-xs py-0.5 border-b border-tactical-border/10 last:border-0 ${isMainStat ? 'bg-white/5 -mx-1 px-1 rounded' : ''}`}>
-      <span className={`${isMainStat ? 'text-gray-300 font-bold' : 'text-gray-500'} truncate mr-2`}>{attr.nom}</span>
-      <span className={`font-bold shrink-0 ${isMainStat ? 'text-blue-300' : color}`}>
-        {attr.total >= 0 && !isMainStat ? '+' : ''}{formatValue(attr.total, attr.unite)}
-      </span>
+    <div className="group">
+      <div 
+        className={`flex items-center justify-between text-xs py-0.5 border-b border-tactical-border/10 last:border-0 ${isMainStat ? 'bg-white/5 -mx-1 px-1 rounded' : ''} ${hasSources ? 'cursor-pointer hover:bg-white/5' : ''}`}
+        onClick={hasSources ? () => setIsExpanded(!isExpanded) : undefined}
+      >
+        <span className={`${isMainStat ? 'text-gray-300 font-bold' : 'text-gray-500'} truncate mr-2 flex items-center gap-1`}>
+          {hasSources && (
+            <span className="text-gray-700 text-xs">{isExpanded ? '▾' : '▸'}</span>
+          )}
+          {attr.nom}
+        </span>
+        <span className={`font-bold shrink-0 ${isMainStat ? 'text-blue-300' : color}`}>
+          {attr.total >= 0 && !isMainStat ? '+' : ''}{formatValue(attr.total, attr.unite)}
+        </span>
+      </div>
+      {isExpanded && hasSources && attr.sources.map((src, si) => (
+        <div key={si} className="flex items-center justify-between text-2xs pl-4 text-gray-600 border-l border-tactical-border/20 ml-1 mt-0.5 mb-0.5">
+          <span className="truncate mr-2 italic">{src.nom}</span>
+          <span className="shrink-0 font-mono">
+            {src.valeur >= 0 ? '+' : ''}{formatValue(src.valeur, src.unite)}
+          </span>
+        </div>
+      ))}
     </div>
   )
 }
 
+
+function EffectiveDmgColumn({ title, data, avg, icon, color }) {
+  return (
+    <div className="space-y-0.5">
+      <div className="flex items-center gap-1 mb-0.5">
+        <span className="text-2xs">{icon}</span>
+        <span className="text-2xs font-bold text-gray-400 uppercase tracking-tighter">{title}</span>
+      </div>
+      <div className="space-y-0">
+        <DmgRow label="Dégâts de base" val={data.body} />
+        <DmgRow label="Critique" val={data.crit} color="text-orange-400" />
+        <div className="flex justify-between items-center text-2xs mb-0.5">
+          <span className="text-gray-500 italic">Moyenne de dégats au corps</span>
+          <span className={`font-bold ${color}`}>{avg.body.toLocaleString('fr-FR')}</span>
+        </div>
+        
+        <DmgRow label="Headshot" val={data.headshot} color="text-yellow-400" />
+        <DmgRow label="Headshot critique" val={data.headshotCrit} color="text-red-500" />
+        <div className="flex justify-between items-center text-2xs">
+          <span className="text-gray-500 italic">Moyenne de dégats headshot</span>
+          <span className={`font-bold ${color}`}>{avg.headshot.toLocaleString('fr-FR')}</span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function DmgRow({ label, val, color = "text-gray-300" }) {
+  return (
+    <div className="flex justify-between text-2xs">
+      <span className="text-gray-600 mr-2">{label}</span>
+      <span className={`font-mono ${color}`}>{val.toLocaleString('fr-FR')}</span>
+    </div>
+  )
+}
 
 /** Formatte une valeur numérique avec son unité */
 function formatValue(value, unite) {
@@ -143,57 +203,106 @@ function formatValue(value, unite) {
 /** Bloc de stats par arme — regroupe les entrées par statistique cible */
 function WeaponStatBlock({ w }) {
   const [expanded, setExpanded] = useState(null) // stat slug expanded
+  const [showDetails, setShowDetails] = useState(false)
 
   return (
-    <div className="border border-tactical-border/30 rounded p-2">
-      <div className="flex items-center justify-between mb-1">
+    <div className="border border-tactical-border/30 rounded p-2 transition-all duration-200 bg-black/10">
+      <div 
+        className="flex items-center justify-between mb-1 cursor-pointer hover:opacity-80"
+        onClick={() => setShowDetails(!showDetails)}
+      >
         <div className="text-xs text-white font-bold truncate mr-2">
-          <span className="text-gray-600 text-xs uppercase">{w.slot}</span>{' '}
+          <span className="text-gray-600 text-xs uppercase font-black block leading-none mb-0.5">{w.slot}</span>
           {w.nom}
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
-          <span className="text-red-400 text-xs font-bold">
+          <span className="text-red-400 text-xs font-bold font-mono">
             {w.degatsAffiche ? w.degatsAffiche.toLocaleString('fr-FR') : (w.degatsExpertise ? w.degatsExpertise.toLocaleString('fr-FR') : (w.degatsBase ? w.degatsBase.toLocaleString('fr-FR') : '—'))}
           </span>
           {w.expertise > 0 && (
-            <span className="text-xs text-shd">+{w.expertise}%</span>
+            <span className="text-2xs text-shd font-black">+{w.expertise}</span>
           )}
+          <span className="text-gray-700 text-2xs ml-1">{showDetails ? '▼' : '▶'}</span>
         </div>
       </div>
-      {/* Stats regroupées par statistique cible */}
-      {w.groupedStats && Object.keys(w.groupedStats).length > 0 && (
-        <div className="space-y-0.5 mt-1 pt-1 border-t border-tactical-border/20">
-          {Object.entries(w.groupedStats).map(([statSlug, entry]) => {
-            const hasSources = entry.sources && entry.sources.length > 1
-            const isExpanded = expanded === statSlug
-            return (
-              <div key={statSlug}>
-                <div
-                  className={`flex items-center justify-between text-xs ${hasSources ? 'cursor-pointer hover:bg-white/5 rounded px-0.5 -mx-0.5' : ''}`}
-                  onClick={hasSources ? () => setExpanded(isExpanded ? null : statSlug) : undefined}
-                >
-                  <span className="text-gray-500 truncate mr-2 flex items-center gap-1">
-                    {hasSources && (
-                      <span className="text-gray-700 text-2xs">{isExpanded ? '▾' : '▸'}</span>
-                    )}
-                    {entry.nom}
-                  </span>
-                  <span className={`font-bold shrink-0 ${entry.total >= 0 ? 'text-green-400' : 'text-red-400'}`}>
-                    {entry.total >= 0 ? '+' : ''}{formatValue(entry.total, entry.unite)}
-                  </span>
+
+      {/* Détails de l'arme (poids mémoire/espace) */}
+      {showDetails && (
+        <div className="mt-2 space-y-3 animate-in fade-in slide-in-from-top-1 duration-200">
+          {/* Dégâts Effectifs */}
+          {w.effectiveDamages && (
+            <div className="px-1.5 space-y-2 border-b border-tactical-border/10 pb-3">
+              <div className="bg-white/5 rounded p-1.5 space-y-1">
+                <div className="flex justify-between items-center text-2xs">
+                  <span className="text-gray-500 font-bold uppercase tracking-tighter">Probabilité critique</span>
+                  <span className="text-orange-400 font-bold">{w.chc}%</span>
                 </div>
-                {/* Détail des sources */}
-                {isExpanded && entry.sources.map((src, si) => (
-                  <div key={si} className="flex items-center justify-between text-2xs pl-4 text-gray-600">
-                    <span className="truncate mr-2">{src.nom}</span>
-                    <span className="shrink-0">
-                      {src.valeur >= 0 ? '+' : ''}{formatValue(src.valeur, src.unite)}
-                    </span>
-                  </div>
-                ))}
+                <div className="flex justify-between items-center text-2xs">
+                  <span className="text-gray-500 font-bold uppercase tracking-tighter">Dégâts critique</span>
+                  <span className="text-red-400 font-bold">{w.chd}%</span>
+                </div>
+                <div className="flex justify-between items-center text-2xs">
+                  <span className="text-gray-500 font-bold uppercase tracking-tighter">Dégâts headshot</span>
+                  <span className="text-yellow-400 font-bold">{w.hsd}%</span>
+                </div>
               </div>
-            )
-          })}
+
+              <div className="grid grid-cols-1 gap-3">
+                <EffectiveDmgColumn 
+                  title="Sur protection"
+                  data={w.effectiveDamages.protection} 
+                  avg={w.avgDamages.protection}
+                  icon="🛡️"
+                  color="text-blue-400"
+                />
+                <EffectiveDmgColumn 
+                  title="Sur Santé"
+                  data={w.effectiveDamages.health} 
+                  avg={w.avgDamages.health}
+                  icon="❤️"
+                  color="text-green-400"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Stats regroupées par statistique cible */}
+          {w.groupedStats && Object.keys(w.groupedStats).length > 0 && (
+            <div className="space-y-0.5 px-1 pb-1">
+              <div className="text-xs font-bold text-gray-600 uppercase tracking-widest mb-1.5 border-b border-tactical-border/10">Attributs & Bonus</div>
+              {Object.entries(w.groupedStats).map(([statSlug, entry]) => {
+                const hasSources = entry.sources && entry.sources.length > 0
+                const isExpanded = expanded === statSlug
+                return (
+                  <div key={statSlug} className="group">
+                    <div
+                      className={`flex items-center justify-between text-xs py-0.5 ${hasSources ? 'cursor-pointer hover:bg-white/5 rounded px-0.5 -mx-0.5' : ''}`}
+                      onClick={hasSources ? () => setExpanded(isExpanded ? null : statSlug) : undefined}
+                    >
+                      <span className="text-gray-500 truncate mr-2 flex items-center gap-1 group-hover:text-gray-400">
+                        {hasSources && (
+                          <span className="text-gray-700 text-xs">{isExpanded ? '▾' : '▸'}</span>
+                        )}
+                        {entry.nom}
+                      </span>
+                      <span className={`font-bold shrink-0 font-mono ${entry.total >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                        {entry.total >= 0 ? '+' : ''}{formatValue(entry.total, entry.unite)}
+                      </span>
+                    </div>
+                    {/* Détail des sources */}
+                    {isExpanded && entry.sources.map((src, si) => (
+                      <div key={si} className="flex items-center justify-between text-xs pl-4 text-gray-600 border-l border-tactical-border/20 ml-1 mt-0.5">
+                        <span className="truncate mr-2 italic">{src.nom}</span>
+                        <span className="shrink-0 font-mono">
+                          {src.valeur >= 0 ? '+' : ''}{formatValue(src.valeur, src.unite)}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                )
+              })}
+            </div>
+          )}
         </div>
       )}
     </div>

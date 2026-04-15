@@ -40,6 +40,7 @@ export default function Dialog({
   const [selectedTags, setSelectedTags] = useState(defaultTags)
   const [author, setAuthor] = useState(defaultAuthor)
   const inputRef = useRef(null)
+  const maxSelectedTags = 5
 
   useEffect(() => {
     if (open) {
@@ -85,11 +86,17 @@ export default function Dialog({
   }
 
   const toggleTag = (tagId) => {
-    setSelectedTags(prev => 
-      prev.includes(tagId) 
-        ? prev.filter(id => id !== tagId) 
-        : [...prev, tagId]
-    )
+    setSelectedTags(prev => {
+      if (prev.includes(tagId)) {
+        return prev.filter(id => id !== tagId)
+      }
+
+      if (prev.length >= maxSelectedTags) {
+        return prev
+      }
+
+      return [...prev, tagId]
+    })
   }
 
 
@@ -132,7 +139,7 @@ export default function Dialog({
                   />
                   {maxInputLength && (
                     <div className="flex justify-end mt-1">
-                      <span className={`text-[10px] uppercase font-bold tracking-tighter ${inputValue.length >= maxInputLength ? 'text-red-400' : 'text-gray-600'}`}>
+                      <span className={`text-xs uppercase font-bold tracking-tighter ${inputValue.length >= maxInputLength ? 'text-red-400' : 'text-gray-600'}`}>
                         {inputValue.length} / {maxInputLength}
                       </span>
                     </div>
@@ -154,7 +161,7 @@ export default function Dialog({
                     />
                     {maxDescriptionLength && (
                       <div className="flex justify-end mt-1">
-                        <span className={`text-[10px] uppercase font-bold tracking-tighter ${description.length >= maxDescriptionLength ? 'text-red-400' : 'text-gray-600'}`}>
+                        <span className={`text-xs uppercase font-bold tracking-tighter ${description.length >= maxDescriptionLength ? 'text-red-400' : 'text-gray-600'}`}>
                           {description.length} / {maxDescriptionLength}
                         </span>
                       </div>
@@ -171,24 +178,31 @@ export default function Dialog({
                     {sortedAvailableTags.map(tag => {
                       const tagId = tag.slug || tag.id;
                       const isSelected = selectedTags.includes(tagId);
+                      const maxReached = selectedTags.length >= maxSelectedTags;
+                      const isDisabled = !isSelected && maxReached;
                       const tagColor = tag.color || '#6b7280';
                       return (
                         <button
                           key={tagId}
                           type="button"
                           onClick={() => toggleTag(tagId)}
+                          disabled={isDisabled}
+                          title={isDisabled ? `Maximum ${maxSelectedTags} tags` : ''}
                           style={{
                             backgroundColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.05)',
                             color: isSelected ? getContrastColor(tagColor) : '#6b7280',
                             borderColor: isSelected ? tagColor : 'rgba(255, 255, 255, 0.1)'
                           }}
-                          className="px-3 py-1 rounded text-xs font-bold uppercase transition-all border hover:border-white/20"
+                          className={`px-3 py-1 rounded text-xs font-bold uppercase transition-all border hover:border-white/20 ${isDisabled ? 'opacity-50 cursor-not-allowed hover:border-white/10' : ''}`}
                         >
                           {tag.label}
                         </button>
                       );
                     })}
                   </div>
+                  <p className="mt-2 text-xs text-gray-500 italic">
+                    Maximum {maxSelectedTags} tags selectionnables.
+                  </p>
                 </div>
               )}
 

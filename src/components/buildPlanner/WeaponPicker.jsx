@@ -122,7 +122,7 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
                 />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-[10px] font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded inline-block mb-1">
+                <div className="text-xs font-bold uppercase tracking-widest bg-purple-500/15 text-purple-400 px-1.5 py-0.5 rounded inline-block mb-1">
                   {w._specNom}
                 </div>
                 <div className="font-bold text-white text-sm uppercase tracking-wide group-hover:text-purple-400 transition-colors truncate">
@@ -142,8 +142,9 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
               {weapons.map(w => {
                 const blocked = w.estExotique && !canEquipExotic
                 const isExotic = w.estExotique
-                const mainText = isExotic ? w.nom : (w.fabricant || getWeaponTypeLabel(data.armes_type, w.type))
-                const subText = isExotic ? w.fabricant : w.nom
+                const isNamed = w.estNomme
+                const mainText = w.nom
+                const subText = w.fabricant || getWeaponTypeLabel(data.armes_type, w.type)
 
                 return (
                   <div
@@ -156,12 +157,13 @@ export default function WeaponPicker({ data, mode, slotIndex, onClose, onSelect 
                         src={resolveAsset(w.type)}
                         alt={w.type}
                         size="w-10 h-10"
-                        color={isExotic ? 'text-red-400' : 'text-gray-400'}
+                        color={isExotic ? 'text-red-400' : isNamed ? 'text-shd' : 'text-gray-400'}
                       />
                     </div>
 
                     <div className="flex-1 min-w-0">
                       {w.estExotique && <Badge type="exotic" />}
+                      {w.estNomme && !w.estExotique && <Badge type="named" />}
                       {blocked && (
                         <div className="text-xs text-red-400 mt-1">⚠ Exotique déjà équipée</div>
                       )}

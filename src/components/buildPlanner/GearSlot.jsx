@@ -4,6 +4,8 @@ import MarkdownText from '../common/MarkdownText'
 import GearAttributePanel from './GearAttributePanel'
 import ExpertiseSlider from './ExpertiseSlider'
 
+import Badge from '../common/Badge'
+
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
@@ -78,16 +80,16 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
   const borderColor = isPrototype
       ? 'border-l-cyan-500'
       : piece?.type === 'exotique'
-          ? 'border-l-shd'
+          ? 'border-l-red-400'
           : piece?.estNomme
-              ? 'border-l-yellow-500'
+              ? 'border-l-shd'
               : piece?.type === 'gear_set'
                   ? 'border-l-emerald-500'
                   : 'border-l-blue-500'
 
   const headerBg = isPrototype ? 'bg-cyan-500/10' : 'bg-blue-500/10'
   const headerBorder = isPrototype ? 'border-cyan-500/30' : 'border-blue-500/30'
-  const headerText = isPrototype ? 'text-cyan-400' : 'text-blue-400'
+  const headerText = isPrototype ? 'text-cyan-400' : (piece?.estNomme ? 'text-shd' : 'text-blue-400')
 
   return (
       <div className="build-slot group" onClick={piece ? undefined : onSelect}>
