@@ -1646,7 +1646,8 @@
     "attributs": [
       {
         "nom": "degats_aux_protections_eqp",
-        "valeur": 8
+        "valeur": 8,
+        "prototypeValue": 12
       },
       {}
     ],
