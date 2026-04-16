@@ -127,6 +127,11 @@ export function useBuildStats(data) {
         coreStats: { offensif: 0, defensif: 0, utilitaire: 0 },
         weaponStats: [],
         attributesByCategory: { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] },
+        attributesBySourceCategory: {
+          equipement: { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] },
+          montre: { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] },
+          specialisation: { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] }
+        },
         setBonuses: { gearSets: [], brandSets: [] },
         allAttributeTotals: {},
         totalGearPieces: 0,
@@ -258,12 +263,13 @@ export function useBuildStats(data) {
     // 2, 3, 4: Récupération des statistiques de l'équipement (Offensif, Défensif, Utilitaire)
     // --------------------------------------------------------------------------
     const gearTotals = { offensif: {}, defensif: {}, utilitaire: {}, maniement: {}, autre: {} }
+    const specialisationTotals = { offensif: {}, defensif: {}, utilitaire: {}, maniement: {}, autre: {} }
     const gearTypes = data.equipements_type || data['equipements-type'] || {}
 
-    const addStatToGear = (slug, val, cat) => {
+    const addStatToCategoryTotals = (totals, slug, val, cat) => {
       if (!slug || val == null) return
       const nc = normCat(cat)
-      const target = gearTotals[nc] || gearTotals.autre
+      const target = totals[nc] || totals.autre
       if (!target[slug]) target[slug] = 0
       target[slug] += val
     }
@@ -276,7 +282,7 @@ export function useBuildStats(data) {
         const slotProtection = (gearTypes[slot]?.protection ?? gearTypes[slot]?.protectionBase) || 0
         if (slotProtection > 0) {
           const slotExpertiseBonus = slotProtection * ((build.expertise?.[slot] || 0) * 0.01)
-          addStatToGear('protection', slotProtection + slotExpertiseBonus, 'defensif')
+          addStatToCategoryTotals(gearTotals, 'protection', slotProtection + slotExpertiseBonus, 'defensif')
         }
       }
 
@@ -285,7 +291,7 @@ export function useBuildStats(data) {
       if (attrs) {
         [...(attrs.essentiels || []), ...(attrs.classiques || [])].forEach(a => {
           if (!a) return
-          if (a.valeur != null) addStatToGear(a.slug || a.nom, a.valeur, a.categorie)
+          if (a.valeur != null) addStatToCategoryTotals(gearTotals, a.slug || a.nom, a.valeur, a.categorie)
         })
       }
       // Mods d'équipement
@@ -298,7 +304,7 @@ export function useBuildStats(data) {
               const info = resolveAttrInfo(entry.attribut)
               const userVal = build.modValues?.gearMods?.[slot]?.[modIdx]?.[entry.attribut]
               const val = entry.valeur != null ? entry.valeur : (userVal != null ? userVal : (info.max || 0))
-              addStatToGear(entry.attribut, val, info.categorie)
+              addStatToCategoryTotals(gearTotals, entry.attribut, val, info.categorie)
             })
           }
         })
@@ -307,14 +313,14 @@ export function useBuildStats(data) {
 
     // Ajouter les bonus d'ensemble calculés précédemment
     Object.values(setAttributeTotals).forEach(entry => {
-      addStatToGear(entry.slug, entry.total, entry.categorie)
+      addStatToCategoryTotals(gearTotals, entry.slug, entry.total, entry.categorie)
     })
 
     // Ajouter les bonus globaux de spécialisation (classStats.bonusAttributs)
     ;(classStats?.bonusAttributs || []).forEach(attr => {
       if (!attr?.nom || attr.valeur == null) return
       const info = resolveAttrInfo(attr.nom)
-      addStatToGear(attr.nom, attr.valeur, info.categorie)
+      addStatToCategoryTotals(specialisationTotals, attr.nom, attr.valeur, info.categorie)
     })
 
     // --------------------------------------------------------------------------
@@ -329,6 +335,12 @@ export function useBuildStats(data) {
         Object.entries(stats).map(([slug, val]) => {
           const info = resolveAttrInfo(slug)
           return { slug, total: val, categorie: cat, unite: info.unite, sourceNom: "Équipement" }
+        })
+      ),
+      ...Object.entries(specialisationTotals).flatMap(([cat, stats]) =>
+        Object.entries(stats).map(([slug, val]) => {
+          const info = resolveAttrInfo(slug)
+          return { slug, total: val, categorie: cat, unite: info.unite, sourceNom: 'Spécialisation' }
         })
       )
     ]
@@ -655,6 +667,41 @@ export function useBuildStats(data) {
       }
     })
 
+    const sourceDisplayStats = {
+      equipement: { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] },
+      montre: { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] },
+      specialisation: { offensif: [], defensif: [], utilitaire: [], maniement: [], autre: [] }
+    }
+
+    const sourceKeyByName = {
+      'Équipement': 'equipement',
+      'Montre SHD': 'montre',
+      'Spécialisation': 'specialisation'
+    }
+
+    Object.entries(globalMerged).forEach(([slug, entry]) => {
+      const info = resolveAttrInfo(slug)
+      const nc = normCat(entry.categorie || info.categorie)
+      ;(entry.sources || []).forEach(src => {
+        const sourceKey = sourceKeyByName[src.nom]
+        if (!sourceKey) return
+        const bucket = sourceDisplayStats[sourceKey][nc] || sourceDisplayStats[sourceKey].autre
+        const existing = bucket.find(item => item.slug === slug)
+        if (existing) {
+          existing.total += src.valeur
+          existing.sources.push(src)
+          return
+        }
+        bucket.push({
+          slug,
+          nom: info.nom,
+          total: src.valeur,
+          unite: src.unite || entry.unite,
+          sources: [src]
+        })
+      })
+    })
+
     // Ajouter l'armure totale calculée dans la catégorie défensive avec sources
     displayStats.defensif.push({ 
       slug: 'protection_totale', 
@@ -677,6 +724,7 @@ export function useBuildStats(data) {
       coreSources: coreSources,
       weaponStats: finalWeapons,
       attributesByCategory: displayStats,
+      attributesBySourceCategory: sourceDisplayStats,
       setBonuses: { gearSets, brandSets },
       allAttributeTotals: globalMerged,
       totalGearPieces: Object.values(build.gear || {}).filter(Boolean).length,
