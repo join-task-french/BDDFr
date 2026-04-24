@@ -169,7 +169,7 @@ export function GameIcon({ src, alt = '', size = 'w-5 h-5', className = '', colo
 // ================================================================
 // CARTES INTERACTIVES
 // ================================================================
-const _mapsGlob = import.meta.glob('../img/maps/**/*.{png,jpg,jpeg,webp}', { eager: true })
+const _mapsGlob = import.meta.glob('../../img/maps/**/*.{png,jpg,jpeg,webp}', { eager: true })
 export const MAP_IMAGES = buildIndex(_mapsGlob)
 
 /**
