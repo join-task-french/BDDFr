@@ -1,7 +1,20 @@
 import { compressToEncodedURIComponent, decompressFromEncodedURIComponent } from 'lz-string'
 
 const GEAR_ORDER = ['masque', 'torse', 'holster', 'sac_a_dos', 'gants', 'genouilleres']
-const ALL_SLOTS = ['weapon0', 'weapon1', 'sidearm', ...GEAR_ORDER]
+const ALL_SLOTS = ['weapon0', 'weapon1', 'sidearm', ...GEAR_ORDER, 'special']
+
+function normalizeImportedShdLevels(levels) {
+  if (!levels || typeof levels !== 'object') return null
+
+  const normalized = {}
+  Object.entries(levels).forEach(([statId, level]) => {
+    const parsed = Number(level)
+    if (!Number.isFinite(parsed)) return
+    normalized[statId] = Math.max(0, Math.round(parsed))
+  })
+
+  return Object.keys(normalized).length > 0 ? normalized : null
+}
 
 function trimArray(arr) {
   if (!arr || !Array.isArray(arr)) return null
@@ -55,12 +68,18 @@ export function encodeBuild(state) {
       if (!mods) return null
       return trimArray((Array.isArray(mods) ? mods : [mods]).map(m => m ? (m.slug || m.statistique) : null))
     })),
-    trimArray((state.skillMods || []).map(m => m ? (m.slug || null) : null)),
+    trimArray((state.skillMods || []).map(slotMods => {
+      if (!slotMods) return null
+      const asArray = Array.isArray(slotMods) ? slotMods : [slotMods]
+      return trimArray(asArray.map(m => m ? (m.slug || null) : null))
+    })),
     trimArray(ALL_SLOTS.map(slot => state.expertise?.[slot] || null)),
     trimArray(ALL_SLOTS.map(slot => state.prototypes?.[slot] ? 1 : null)),
     trimArray(ALL_SLOTS.map(slot => state.prototypeTalents?.[slot] ? (state.prototypeTalents[slot].slug || state.prototypeTalents[slot].nom) : null)),
     Object.keys(wev).length > 0 ? wev : null,
-    mv
+    mv,
+    state.shdLevels && Object.values(state.shdLevels).some(l => l > 0) ? state.shdLevels : null,
+    state.specialWeaponBonusPoints && Object.keys(state.specialWeaponBonusPoints).length > 0 ? state.specialWeaponBonusPoints : null
   ]
 
   const finalArr = trimArray(arr) || []
@@ -97,6 +116,8 @@ export function decodeBuild(encoded) {
       if (arr[17]) compact.pt = arr[17]
       if (arr[18]) compact.wev = arr[18]
       if (arr[19]) compact.mv = arr[19]
+      if (arr[20]) compact.shd = arr[20]
+      if (arr[21]) compact.swbp = arr[21]
 
       return compact
     }
@@ -129,9 +150,9 @@ export function resolveBuild(compact, data) {
     for (const spec of specs) {
       if (spec.cle === id || spec.slug === id || spec.arme?.nom?.toLowerCase() === id.toLowerCase()) {
         return {
-          nom: spec.arme.nom, slug: spec.slug || spec.cle, type: 'arme_specifique',
-          portee: spec.arme.portee, rpm: spec.arme.rpm, chargeur: spec.arme.chargeur,
-          rechargement: spec.arme.rechargement, headshot: spec.arme.headshot, degatsBase: spec.arme.degatsBase,
+          ...spec.arme,
+          slug: spec.slug || spec.cle,
+          specialisation: spec.nom,
         }
       }
     }
@@ -212,16 +233,16 @@ export function resolveBuild(compact, data) {
       GEAR_ORDER.forEach((slot, i) => {
         if (compact.ga[i]) {
           build.gearAttributes[slot] = {
-            essentiels: (compact.ga[i][0] || []).map(a => resolveAttr(a)),
-            classiques: (compact.ga[i][1] || []).map(a => resolveAttr(a)),
+            essentiels: (compact.ga[i][0] || []).map(a => resolveAttr(a)).filter(Boolean),
+            classiques: (compact.ga[i][1] || []).map(a => resolveAttr(a)).filter(Boolean),
           }
         }
       })
     } else {
       for (const [slot, entry] of Object.entries(compact.ga)) {
         build.gearAttributes[slot] = {
-          essentiels: (entry.e || []).map(a => resolveAttr(a)),
-          classiques: (entry.c || []).map(a => resolveAttr(a)),
+          essentiels: (entry.e || []).map(a => resolveAttr(a)).filter(Boolean),
+          classiques: (entry.c || []).map(a => resolveAttr(a)).filter(Boolean),
         }
       }
     }
@@ -247,14 +268,17 @@ export function resolveBuild(compact, data) {
   }
 
   const findModComp = (id) => findBySlugOrName(data.modsCompetences || [], id)
-  build.skillMods = (compact.sm || [null, null]).map(id => {
-    if (!id) return null
-    if (Array.isArray(id)) return id[0] ? findModComp(id[0]) : null
-    return findModComp(id)
+  build.skillMods = (compact.sm || [null, null]).map(entry => {
+    if (!entry) return null
+    if (Array.isArray(entry)) {
+      const mods = entry.map(id => id ? findModComp(id) : null)
+      return mods.some(Boolean) ? mods : null
+    }
+    return findModComp(entry)
   })
   while (build.skillMods.length < 2) build.skillMods.push(null)
 
-  build.expertise = { weapon0: 0, weapon1: 0, sidearm: 0, masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0 }
+  build.expertise = { weapon0: 0, weapon1: 0, sidearm: 0, masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0, special: 0 }
   if (compact.exp) {
     if (Array.isArray(compact.exp)) {
       ALL_SLOTS.forEach((slot, i) => { if (compact.exp[i]) build.expertise[slot] = compact.exp[i] })
@@ -291,6 +315,11 @@ export function resolveBuild(compact, data) {
     if (compact.mv.g) build.modValues.gearMods = compact.mv.g
     if (compact.mv.s) build.modValues.skillMods = compact.mv.s
   }
+  
+  const normalizedShd = normalizeImportedShdLevels(compact.shd)
+  if (normalizedShd) build.shdLevels = normalizedShd
+
+  build.specialWeaponBonusPoints = compact.swbp || {}
 
   return build
 }

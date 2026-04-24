@@ -15,7 +15,7 @@ export default function SkillSection({ data }) {
             key={i}
             slotIndex={i}
             skill={skills[i]}
-            skillMod={skillMods[i]}
+            skillMods={skillMods[i]}
             modsCompetences={data.modsCompetences}
             allAttributs={data.attributs}
             statistiques={data.statistiques}

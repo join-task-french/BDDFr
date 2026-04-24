@@ -1,19 +1,24 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { useBuild } from '../../context/BuildContext'
 import { generateShareUrl, decodeBuild, resolveBuild } from '../../utils/buildShare'
 import Dialog from '../common/Dialog'
+import { apiBuildotheque } from '../../utils/apiBuildotheque'
 
 export default function BuildActions({ data }) {
   const {
     specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods,
+    specialWeaponBonusPoints,
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods, modValues,
+    shdLevels,
     expertise, prototypes, prototypeTalents, weaponEssentialValues,
-    dispatch
+    editingInfo, dispatch
   } = useBuild()
   const [showSaves, setShowSaves] = useState(false)
   const [shareStatus, setShareStatus] = useState(null) // null | 'copied' | 'error'
+  const location = useLocation()
 
   const [dialog, setDialog] = useState({
     open: false,
@@ -45,13 +50,13 @@ export default function BuildActions({ data }) {
       type: 'confirm',
       onConfirm: (val) => {
         setDialog(p => ({ ...p, open: false }))
-        if (val) onConfirm()
+        if (val !== false) onConfirm()
       },
       onCancel: () => setDialog(p => ({ ...p, open: false }))
     }))
   }
 
-  const showPrompt = (title, message, defaultValue, onConfirm) => {
+  const showPrompt = (title, message, defaultValue, onConfirm, options = {}) => {
     setDialog(prev => ({
       ...prev,
       open: true,
@@ -59,6 +64,7 @@ export default function BuildActions({ data }) {
       message,
       type: 'prompt',
       defaultValue,
+      ...options,
       onConfirm: (val) => {
         setDialog(p => ({ ...p, open: false }))
         onConfirm(val)
@@ -69,9 +75,11 @@ export default function BuildActions({ data }) {
 
   const buildState = {
     specialWeapon, weapons, weaponTalents, weaponAttributes, weaponMods,
+    specialWeaponBonusPoints,
     sidearm, sidearmTalent, sidearmAttribute, sidearmMods,
     gear, gearTalents, gearAttributes, gearMods,
     skills, skillMods, modValues,
+    shdLevels,
     expertise, prototypes, prototypeTalents, weaponEssentialValues,
   }
 
@@ -95,20 +103,138 @@ export default function BuildActions({ data }) {
   }
 
   const saveBuild = () => {
-    showPrompt('Sauvegarder le build', 'Entrez un nom pour votre build :', '', (name) => {
+    const isEditing = !!editingInfo
+    const title = isEditing ? 'Mettre à jour le build' : 'Sauvegarder le build'
+    const message = isEditing 
+      ? 'Confirmez les informations pour mettre à jour votre build.' 
+      : 'Donnez un nom et une description pour retrouver votre build plus tard.'
+    
+    const defaultNom = isEditing ? editingInfo.originalMetadata.nom : 'Mon Build'
+    const defaultDesc = isEditing ? editingInfo.originalMetadata.description : ''
+    const defaultTags = isEditing ? editingInfo.originalMetadata.tags : []
+
+    showPrompt(title, message, defaultNom, async (val) => {
+      const name = typeof val === 'object' ? val.name?.trim() : val?.trim()
+      const description = typeof val === 'object' ? val.description?.trim() : ''
+      const tags = typeof val === 'object' ? val.tags : []
+      
       if (!name) return
-      const saves = JSON.parse(localStorage.getItem('div2_builds') || '{}')
-      saves[name] = { ...buildState, savedAt: new Date().toISOString() }
-      localStorage.setItem('div2_builds', JSON.stringify(saves))
-      showAlert('Succès', `Build "${name}" sauvegardé !`)
+
+      const encoded = generateShareUrl(buildState).split('b=')[1]
+      
+      if (isEditing) {
+        if (editingInfo.type === 'local') {
+          const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+          const index = saves.findIndex(b => b.encoded === editingInfo.id)
+          
+          if (index !== -1) {
+            const updatedBuild = {
+              ...saves[index],
+              nom: name,
+              description: description,
+              tags: tags,
+              encoded: encoded,
+              timestamp: Date.now()
+            }
+            saves[index] = updatedBuild
+            localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
+            
+            dispatch({ 
+              type: 'SET_EDITING_INFO', 
+              editingInfo: { ...editingInfo, id: encoded, originalMetadata: { nom: name, description, tags } } 
+            })
+            
+            showAlert('Succès', `Build "${name}" mis à jour localement !`)
+          } else {
+            // Si on ne le trouve plus par son ancien ID (encoded), on l'ajoute comme nouveau
+            const buildToSave = {
+              nom: name,
+              description: description,
+              tags: tags,
+              encoded: encoded,
+              timestamp: Date.now(),
+              likes: 0
+            }
+            saves.push(buildToSave)
+            localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
+            showAlert('Succès', `Build "${name}" sauvegardé !`)
+          }
+        } else if (editingInfo.type === 'api') {
+           const baseUrl = apiBuildotheque.getBaseUrl(data.metadata?.buildLibraryApiUrl)
+           const result = await apiBuildotheque.updateBuild(editingInfo.id, {
+             nom: name,
+             description,
+             tags,
+             encoded
+           }, baseUrl)
+
+           if (result) {
+             // Mise à jour locale du cache si présent
+             const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+             const localIndex = saves.findIndex(s => s.id === editingInfo.id || (s.encoded === encoded))
+             if (localIndex !== -1) {
+               saves[localIndex] = { ...saves[localIndex], nom: name, description, tags, encoded, timestamp: Date.now() }
+               localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
+             }
+
+             dispatch({ 
+                type: 'SET_EDITING_INFO', 
+                editingInfo: { ...editingInfo, originalMetadata: { nom: name, description, tags } } 
+             })
+             showAlert('Succès', `Build "${name}" mis à jour dans la Buildothèque !`)
+           } else {
+             showAlert('Erreur', 'Impossible de mettre à jour le build sur le serveur.')
+           }
+        }
+        return
+      }
+
+      const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+      const exists = saves.some(b => b.nom.toLowerCase() === name.toLowerCase())
+      
+      if (exists) {
+        showAlert('Nom déjà utilisé', `Un build nommé "${name}" existe déjà dans votre navigateur. Veuillez choisir un autre nom.`)
+        return
+      }
+
+      const buildToSave = {
+        nom: name,
+        description: description,
+        tags: tags,
+        encoded: encoded,
+        timestamp: Date.now(),
+        likes: 0
+      }
+
+      saves.push(buildToSave)
+      localStorage.setItem('div2_builds_v2', JSON.stringify(saves))
+      showAlert('Succès', `Build "${name}" sauvegardé dans la Buildothèque !`)
+    }, { 
+      showDescription: true, 
+      showTags: true, 
+      defaultDescription: defaultDesc,
+      defaultTags: defaultTags,
+      availableTags: data?.buildsTags ? Object.values(data.buildsTags) : [],
+      maxInputLength: 25,
+      maxDescriptionLength: 500
     })
   }
 
-  const loadBuild = (name) => {
-    const saves = JSON.parse(localStorage.getItem('div2_builds') || '{}')
-    if (saves[name]) {
-      dispatch({ type: 'LOAD_BUILD', build: saves[name] })
-      setShowSaves(false)
+  const loadBuild = (index) => {
+    const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+    const savedBuild = saves[index]
+    if (savedBuild && savedBuild.encoded) {
+      const compact = decodeBuild(savedBuild.encoded)
+      try {
+        const build = resolveBuild(compact, data)
+        if (build) {
+          dispatch({ type: 'LOAD_BUILD', build })
+          setShowSaves(false)
+        }
+      } catch (e) {
+        console.error("Erreur lors du chargement du build", e)
+        showAlert('Erreur', 'Impossible de charger ce build.')
+      }
     }
   }
 
@@ -159,24 +285,72 @@ export default function BuildActions({ data }) {
     )
   }
 
-  const deleteBuild = (name) => {
+  const deleteBuild = (index) => {
+    const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+    const name = saves[index]?.nom || 'ce build'
     showConfirm('Supprimer le build', `Voulez-vous vraiment supprimer "${name}" ?`, () => {
-      const saves = JSON.parse(localStorage.getItem('div2_builds') || '{}')
-      delete saves[name]
-      localStorage.setItem('div2_builds', JSON.stringify(saves))
+      const newSaves = [...saves]
+      newSaves.splice(index, 1)
+      localStorage.setItem('div2_builds_v2', JSON.stringify(newSaves))
       setShowSaves(s => !s)
       setTimeout(() => setShowSaves(true), 10)
     })
   }
 
-  const reset = () => {
-    showConfirm('Réinitialiser', 'Voulez-vous vraiment réinitialiser tout le build ?', () => {
-      dispatch({ type: 'RESET' })
+  const editBuild = (index) => {
+    const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
+    const build = saves[index]
+    if (!build) return
+
+    showPrompt('Modifier le build', 'Modifiez le nom, la description et les tags de votre build.', build.nom, (val) => {
+      const name = typeof val === 'object' ? val.name?.trim() : val?.trim()
+      const description = typeof val === 'object' ? val.description?.trim() : ''
+      const tags = typeof val === 'object' ? val.tags : []
+      
+      if (!name) return
+
+      const newSaves = [...saves]
+      newSaves[index] = { ...build, nom: name, description, tags }
+      localStorage.setItem('div2_builds_v2', JSON.stringify(newSaves))
+      
+      // Force refresh of the saves list in UI
+      setShowSaves(false)
+      setTimeout(() => setShowSaves(true), 10)
+    }, { 
+      showDescription: true, 
+      showTags: true, 
+      defaultDescription: build.description || '',
+      defaultTags: build.tags || [],
+      availableTags: data?.buildsTags ? Object.values(data.buildsTags) : [],
+      maxInputLength: 25,
+      maxDescriptionLength: 500
     })
   }
 
-  const saves = JSON.parse(localStorage.getItem('div2_builds') || '{}')
-  const saveKeys = Object.keys(saves)
+  const buildCleanPlannerUrl = (pathname, search = '') => {
+    const rawBase = import.meta.env.BASE_URL || '/'
+    const basePath = rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase
+    const normalizedPath = pathname?.startsWith('/') ? pathname : `/${pathname || 'build'}`
+    return `${basePath}${normalizedPath}${search}`
+  }
+
+  const reset = () => {
+    showConfirm('Réinitialiser', 'Voulez-vous vraiment réinitialiser tout le build ?', () => {
+      dispatch({ type: 'RESET' })
+
+      const params = new URLSearchParams(location.search)
+      params.delete('build-id')
+      params.delete('b')
+      params.delete('edit')
+      const nextSearch = params.toString()
+
+      const routePath = location.pathname || '/build'
+      const cleanUrl = buildCleanPlannerUrl(routePath, nextSearch ? `?${nextSearch}` : '')
+      window.history.replaceState(null, '', cleanUrl)
+    })
+  }
+
+  const saves = JSON.parse(localStorage.getItem('div2_builds_v2') || '[]')
 
   return (
     <div className="flex flex-wrap gap-2 relative">
@@ -192,7 +366,7 @@ export default function BuildActions({ data }) {
       </button>
       <button onClick={saveBuild}
         className="px-4 py-2 rounded text-xs font-bold uppercase tracking-widest bg-shd/20 text-shd border border-shd/40 hover:bg-shd/30 transition-all">
-        💾 Sauvegarder
+        {editingInfo ? '📝 Mettre à jour' : '💾 Sauvegarder'}
       </button>
       <button onClick={() => setShowSaves(!showSaves)}
         className="px-4 py-2 rounded text-xs font-bold uppercase tracking-widest bg-blue-900/20 text-blue-400 border border-blue-500/30 hover:bg-blue-900/40 transition-all">
@@ -216,22 +390,25 @@ export default function BuildActions({ data }) {
             </button>
           </div>
           <div className="max-h-64 overflow-y-auto">
-            {saveKeys.length === 0 ? (
+            {saves.length === 0 ? (
               <p className="text-gray-500 text-xs p-4 text-center uppercase tracking-widest">Aucun build</p>
             ) : (
-              saveKeys.map(name => (
-                <div key={name} className="flex items-center justify-between px-4 py-3 border-b border-tactical-border/50 hover:bg-tactical-hover transition-colors">
-                  <div>
-                    <div className="text-white text-sm font-bold">{name}</div>
-                    <div className="text-xs text-gray-500">
-                      {saves[name].savedAt ? new Date(saves[name].savedAt).toLocaleDateString('fr-FR') : ''}
+              saves.map((b, i) => (
+                <div key={i} className="flex items-center justify-between px-4 py-3 border-b border-tactical-border/50 hover:bg-tactical-hover transition-colors">
+                  <div className="flex-1 min-w-0 pr-2">
+                    <div className="text-white text-sm font-bold truncate">{b.nom}</div>
+                    <div className="text-xs text-gray-500 truncate italic">
+                      {b.description || 'Pas de description'}
                     </div>
                   </div>
                   <div className="flex gap-1">
-                    <button onClick={() => loadBuild(name)} className="px-2 py-1 rounded text-xs font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20">
-                      Charger
+                    <button onClick={() => loadBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-shd bg-shd/10 border border-shd/30 hover:bg-shd/20" title="Charger">
+                      📂
                     </button>
-                    <button onClick={() => deleteBuild(name)} className="px-2 py-1 rounded text-xs font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30">
+                    <button onClick={() => editBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-blue-400 bg-blue-900/10 border border-blue-500/20 hover:bg-blue-900/30" title="Modifier">
+                      ✏️
+                    </button>
+                    <button onClick={() => deleteBuild(i)} className="px-2 py-1 rounded text-xs font-bold text-red-400 bg-red-900/10 border border-red-500/20 hover:bg-red-900/30" title="Supprimer">
                       ✕
                     </button>
                   </div>

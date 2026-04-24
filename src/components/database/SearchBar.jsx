@@ -1,11 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
 
-export default function SearchBar({ value, onChange }) {
+export default function SearchBar({ value, onChange, placeholder = "Rechercher dans la catégorie..." }) {
     const [localValue, setLocalValue] = useState(value || '')
     const lastSentValue = useRef(value || '')
 
     useEffect(() => {
-        if (value !== lastSentValue.current) {
+        // On ne met à jour localValue depuis value que si value a changé DEPUIS L'EXTÉRIEUR
+        // (ex: changement de catégorie ou reset des filtres)
+        // Si localValue est déjà identique à value, on ne fait rien pour éviter de casser le curseur
+        if (value !== localValue && value !== lastSentValue.current) {
             setLocalValue(value || '')
         }
         lastSentValue.current = value || ''
@@ -17,10 +20,17 @@ export default function SearchBar({ value, onChange }) {
                 lastSentValue.current = localValue
                 onChange(localValue)
             }
-        }, 100)
+        }, 300)
 
         return () => clearTimeout(timeoutId)
     }, [localValue, onChange, value])
+
+    const handleBlur = () => {
+        if (localValue !== value) {
+            lastSentValue.current = localValue
+            onChange(localValue)
+        }
+    }
 
     return (
         <div className="relative mb-4">
@@ -31,7 +41,8 @@ export default function SearchBar({ value, onChange }) {
                 type="text"
                 value={localValue}
                 onChange={e => setLocalValue(e.target.value)}
-                placeholder="Rechercher dans la catégorie..."
+                onBlur={handleBlur}
+                placeholder={placeholder}
                 className="w-full pl-10 pr-4 py-2.5 bg-tactical-panel border border-tactical-border rounded text-gray-200 placeholder-gray-600 focus:outline-none focus:ring-1 focus:ring-shd text-sm uppercase tracking-wide"
             />
             {localValue && (

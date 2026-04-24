@@ -2,6 +2,7 @@ import { useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import remarkBreaks from 'remark-breaks'
+import rehypeRaw from 'rehype-raw'
 import { useNavigate } from 'react-router-dom'
 import {resolveAsset} from "./GameAssets.jsx";
 import MermaidDiagram from "./MermaidDiagram.jsx";
@@ -22,6 +23,7 @@ export default function MarkdownText({ children, className = "" }) {
         <div className={`${className}`}>
             <ReactMarkdown
                 remarkPlugins={[remarkGfm, remarkBreaks]}
+                rehypePlugins={[rehypeRaw]}
                 urlTransform={(url) => url}
                 components={{
                     h1: ({node, ...props}) => <h1 className="text-3xl font-bold text-white uppercase tracking-widest mt-2 mb-4 border-b border-tactical-border pb-2" {...props} />,
@@ -48,6 +50,10 @@ export default function MarkdownText({ children, className = "" }) {
                     ol: ({node, ...props}) => <ol className="list-decimal pl-5 mb-4 text-gray-300 space-y-1 last:mb-0" {...props} />,
                     li: ({node, ...props}) => <li className="mb-0.5" {...props} />,
                     blockquote: ({node, ...props}) => <blockquote className="border-l-4 border-shd pl-4 py-1 italic text-gray-400 bg-tactical-hover/30 my-4 rounded-r" {...props} />,
+
+                    details: ({node, ...props}) => <details className="mb-4 bg-tactical-hover/20 border border-tactical-border/50 rounded overflow-hidden group" {...props} />,
+                    summary: ({node, ...props}) => <summary className="p-3 bg-tactical-hover/40 cursor-pointer font-bold text-gray-200 hover:text-shd transition-colors select-none list-inside group-open:border-b group-open:border-tactical-border/50 group-open:mb-2" {...props} />,
+
                     code: ({node, inline, className: codeClassName, children: codeChildren, ...props}) => {
                         const match = /language-(\w+)/.exec(codeClassName || '')
                         if (!inline && match && match[1] === 'mermaid') {
@@ -71,10 +77,24 @@ export default function MarkdownText({ children, className = "" }) {
                     img: ({node, src, alt, ...props}) => {
                         if (!src) return null;
 
-                        const forceInline = src.includes('#inline');
+                        let multiplier = 1;
+
+                        const inlineRegex = /#inline(?:-(?:\[([0-9.]+)]|([0-9.]+)))?/;
+                        const inlineMatch = src.match(inlineRegex);
+                        const forceInline = !!inlineMatch;
                         const forceBlock = src.includes('#block');
 
-                        const cleanSrc = src.replace('#inline', '').replace('#block', '');
+                        if (inlineMatch) {
+                            const val = inlineMatch[1] || inlineMatch[2];
+                            if (val) {
+                                const parsed = parseFloat(val);
+                                if (!isNaN(parsed)) {
+                                    multiplier = parsed;
+                                }
+                            }
+                        }
+
+                        const cleanSrc = src.replace(inlineRegex, '').replace('#block', '');
 
                         let isInline = forceInline || (cleanSrc.startsWith('slug:') && !forceBlock);
                         let imageUrl = cleanSrc;
@@ -87,14 +107,18 @@ export default function MarkdownText({ children, className = "" }) {
                         }
 
                         const classes = isInline
-                            ? "h-[1.2em] w-auto inline-block align-middle mx-1 -mt-1 rounded-sm object-contain"
+                            ? "w-auto inline-block align-middle mx-1 -mt-1 rounded-sm object-contain"
                             : "max-w-full h-auto rounded border border-tactical-border my-4 block mx-auto cursor-zoom-in hover:border-shd transition-colors";
 
                         const { src: _origSrc, alt: _origAlt, ...safeProps } = props;
+
+                        const styles = isInline ? { height: `${1.2 * multiplier}em` } : {};
+
                         return (
                             <img
                                 {...safeProps}
                                 className={classes}
+                                style={styles}
                                 loading="lazy"
                                 alt={alt || ''}
                                 src={imageUrl}
@@ -107,7 +131,6 @@ export default function MarkdownText({ children, className = "" }) {
                 {content}
             </ReactMarkdown>
 
-            {/* Modal de zoom */}
             {zoomedImage && (
                 <div
                     className="fixed inset-0 z-100 flex items-center justify-center bg-black/90 p-4 sm:p-8 cursor-zoom-out backdrop-blur-sm transition-all duration-300"

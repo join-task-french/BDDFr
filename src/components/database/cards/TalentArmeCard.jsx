@@ -36,19 +36,31 @@ export default function TalentArmeCard({ item, armes, isStatic }) {
   const isUrlPerfect = params.slug === item.slug && params.modifier === 'parfait'
   const forcePerfect = searchParams.get('parfait') === 'true'
 
-  const [showPerfect, setShowPerfect] = useState(isUrlPerfect || forcePerfect)
+  const [showPerfect, setShowPerfect] = useState(isUrlPerfect || forcePerfect || !item.description)
 
   useEffect(() => {
     if (isStatic) {
-      setShowPerfect(forcePerfect)
+      setShowPerfect(forcePerfect || !item.description)
     } else if (params.slug === item.slug) {
-      setShowPerfect(params.modifier === 'parfait')
+      setShowPerfect(params.modifier === 'parfait' || !item.description)
     }
-  }, [params.modifier, params.slug, item.slug, isStatic])
+  }, [params.modifier, params.slug, item.slug, isStatic, item.description, forcePerfect])
 
   const togglePerfect = (e) => {
     e.preventDefault()
     e.stopPropagation()
+
+    if (!item.description) {
+      const category = params.category || 'talentsArmes'
+      const basePath = `/db/${category}/${item.slug}`
+      navigate({
+        pathname: `${basePath}/parfait`,
+        search: location.search
+      }, {
+        replace: params.slug === item.slug
+      })
+      return
+    }
 
     const nextState = !showPerfect
     setShowPerfect(nextState)
@@ -66,7 +78,7 @@ export default function TalentArmeCard({ item, armes, isStatic }) {
     })
   }
 
-  const description = showPerfect && hasPerfect ? item.perfectDescription : item.description
+  const description = (showPerfect && hasPerfect) || !item.description ? item.perfectDescription : item.description
 
   return (
       <div className={`bg-tactical-panel border border-tactical-border rounded-lg overflow-hidden flex flex-col h-full ${borderColor ? `border-l-2 ${borderColor}` : ''}`}>
@@ -75,7 +87,7 @@ export default function TalentArmeCard({ item, armes, isStatic }) {
             <GameIcon src={talentIcon} alt="" size="w-6 h-6" />
             <div className={`font-bold text-sm uppercase tracking-wide ${nameColor}`}>{item.nom}</div>
             {isExotic && (
-                <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1 py-0.5 rounded uppercase tracking-widest">
+                <span className="text-xs font-bold text-red-400 bg-red-500/10 px-1 py-0.5 rounded uppercase tracking-widest border border-red-500/20">
               Exotique
             </span>
             )}
@@ -83,6 +95,8 @@ export default function TalentArmeCard({ item, armes, isStatic }) {
                 <button
                     onClick={togglePerfect}
                     className={`ml-auto flex items-center gap-1 text-xs font-bold uppercase tracking-widest px-1.5 py-0.5 rounded border transition-all ${
+                        !item.description ? 'cursor-default' : ''
+                    } ${
                         showPerfect
                             ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/40'
                             : 'bg-tactical-bg text-gray-500 border-tactical-border hover:border-gray-500'
@@ -129,6 +143,25 @@ export default function TalentArmeCard({ item, armes, isStatic }) {
                 })}
               </ul>
 
+            </div>
+        )}
+
+        {isExotic && (
+            <div className="px-4 pb-2 text-xs text-red-500/70 flex flex-col items-start gap-1">
+              <span className="text-red-400 font-bold uppercase tracking-widest">Arme exotique :</span>
+              <ul className="text-xs list-disc list-inside">
+                {(Array.isArray(armes) ? armes : Object.values(armes || {})).filter(a => a.talents?.includes(item.slug)).map(a => (
+                    <li key={a.slug}>
+                      <Link
+                          to={`/db/armes/${a.slug}`}
+                          className="text-red-300 hover:underline hover:text-red-400 transition-colors"
+                          onClick={e => e.stopPropagation()}
+                      >
+                        {a.nom}
+                      </Link>
+                    </li>
+                ))}
+              </ul>
             </div>
         )}
 

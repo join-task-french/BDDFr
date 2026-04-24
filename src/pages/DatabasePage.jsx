@@ -1,5 +1,6 @@
 import { useMemo, useCallback, useEffect, useState } from 'react'
 import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
+import { normalizeText } from '../utils/textUtils'
 import { useDataLoader } from '../hooks/useDataLoader'
 import Loader from '../components/common/Loader'
 import CategoryNav from '../components/database/CategoryNav'
@@ -71,6 +72,14 @@ const SORT_CATEGORIES = {
   modsEquipements:    { options: MOD_EQUIP_SORT_OPTIONS, default: MOD_EQUIP_DEFAULT_SORT, apply: applySortModsEquip },
   modsCompetences:    { options: MOD_COMP_SORT_OPTIONS, default: MOD_COMP_DEFAULT_SORT, apply: applySortModsComp },
   descente:           { options: DESCENTE_SORT_OPTIONS, default: DESCENTE_DEFAULT_SORT, apply: applySortDescente },
+}
+
+function areFilterValuesEqual(a, b) {
+  if (Array.isArray(a) && Array.isArray(b)) {
+    if (a.length !== b.length) return false
+    return a.every((value, index) => value === b[index])
+  }
+  return a === b
 }
 
 function getFiltersConfig(category, data, values) {
@@ -194,7 +203,9 @@ export default function DatabasePage() {
 
       const cleanValues = {}
       for (const [k, v] of Object.entries(newValues)) {
-        if (v !== '' && v !== null && !(Array.isArray(v) && v.length === 0)) {
+        const defaultValue = filterConfig?.defaults?.[k]
+        const isDefault = defaultValue !== undefined && areFilterValuesEqual(v, defaultValue)
+        if (!isDefault && v !== '' && v !== null && !(Array.isArray(v) && v.length === 0)) {
           cleanValues[k] = v
         }
       }
@@ -207,7 +218,7 @@ export default function DatabasePage() {
 
       return prev
     }, { replace: true })
-  }, [activeCategory, setSearchParams])
+  }, [activeCategory, setSearchParams, filterConfig])
 
   const handleFilterReset = useCallback(() => {
     setSearchParams(prev => {
@@ -260,7 +271,7 @@ export default function DatabasePage() {
     }
 
     if (searchTerm) {
-      const term = searchTerm.toLowerCase()
+      const term = normalizeText(searchTerm)
 
       const slugDict = {}
       const populateDict = (source, nameField = 'nom') => {
@@ -268,7 +279,7 @@ export default function DatabasePage() {
         const items = Array.isArray(source) ? source : Object.values(source)
         items.forEach(item => {
           if (item && item.slug && item[nameField]) {
-            slugDict[item.slug] = String(item[nameField]).toLowerCase()
+            slugDict[item.slug] = normalizeText(String(item[nameField]))
           }
         })
       }
@@ -289,10 +300,11 @@ export default function DatabasePage() {
         if (!val) return ''
         if (typeof val === 'string') {
           const resolved = slugDict[val]
-          return resolved ? `${val.toLowerCase()} ${resolved}` : val.toLowerCase()
+          const normalizedVal = normalizeText(val)
+          return resolved ? `${normalizedVal} ${resolved}` : normalizedVal
         }
         if (typeof val === 'number' || typeof val === 'boolean') {
-          return String(val).toLowerCase()
+          return normalizeText(String(val))
         }
         if (Array.isArray(val)) {
           return val.map(extractText).join(' ')
@@ -305,7 +317,7 @@ export default function DatabasePage() {
 
       items = items.filter(item => {
         const fullItemText = extractText(item)
-        const descenteText = item.descente?.levels?.base?.toLowerCase() || ''
+        const descenteText = normalizeText(item.descente?.levels?.base || '')
         return fullItemText.includes(term) || descenteText.includes(term)
       })
     }

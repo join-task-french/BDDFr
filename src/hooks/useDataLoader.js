@@ -4,7 +4,7 @@ import { getSpecialisations } from '../utils/formatters'
 import { buildLookupMaps } from '../utils/lookupMaps'
 import { slugify } from "../utils/slugify.js";
 
-const jsoncFiles = import.meta.glob('../data/*.jsonc', { query: '?raw', eager: true, import: 'default' })
+const jsoncFiles = import.meta.glob('../data/**/*.jsonc', { query: '?raw', eager: true, import: 'default' })
 
 function stripJsonComments(text) {
   let cleanText = text.replace(/^\uFEFF/, '');
@@ -24,31 +24,35 @@ function parseJsoncContent(rawText) {
 }
 
 const DATA_FILES_MAP = {
-  armes: 'armes.jsonc',
-  armes_type: 'armes-type.jsonc',
-  attributs: 'attributs.jsonc',
-  attributs_type: 'attributs-type.jsonc',
+  armes: 'armes/armes.jsonc',
+  armes_type: 'armes/armes-type.jsonc',
+  attributs: 'attributs/attributs.jsonc',
+  attributs_type: 'attributs/attributs-type.jsonc',
   classSpe: 'class-spe.jsonc',
   competences: 'competences.jsonc',
-  ensembles: 'ensembles.jsonc',
-  equipements: 'equipements.jsonc',
-  equipements_type: 'equipements-type.jsonc',
+  ensembles: 'equipements/ensembles.jsonc',
+  equipements: 'equipements/equipements.jsonc',
+  equipements_type: 'equipements/equipements-type.jsonc',
   maps: 'maps.jsonc',
   metadata: 'metadata.jsonc',
-  modsArmes: 'mods-armes.jsonc',
-  modsArmesType: 'mods-armes-type.jsonc',
+  modsArmes: 'armes/mods-armes.jsonc',
+  modsArmesType: 'armes/mods-armes-type.jsonc',
   modsCompetences: 'mods-competences.jsonc',
-  modsEquipements: 'mods-equipements.jsonc',
-  statistiques: 'statistiques.jsonc',
-  talentsArmes: 'talents-armes.jsonc',
-  talentsEquipements: 'talents-equipements.jsonc',
+  modsEquipements: 'equipements/mods-equipements.jsonc',
+  statistiques: 'attributs/statistiques.jsonc',
+  montre: 'montre/montre.jsonc',
+  talentsArmes: 'armes/talents-armes.jsonc',
+  talentsAutres: 'talents-autres.jsonc',
+  talentsEquipements: 'equipements/talents-equipements.jsonc',
   talentsPrototypes: 'talents-prototypes.jsonc',
+  builds: 'builds/builds.jsonc',
+  buildsTags: 'builds/tags.jsonc',
 }
 
 const SLUG_KEYED_FILES = new Set([
   'armes', 'attributs', 'classSpe', 'competences', 'ensembles',
   'equipements', 'modsArmes', 'modsCompetences', 'modsEquipements',
-  'statistiques', 'talentsArmes', 'talentsEquipements', 'talentsPrototypes',
+  'statistiques', 'talentsArmes', 'talentsAutres', 'talentsEquipements', 'talentsPrototypes', 'buildsTags',
 ])
 
 function injectSlugs(obj) {
@@ -90,6 +94,13 @@ export function useDataLoader() {
           result[key] = rawData
         }
 
+        // Enrichissement data-driven : les items issus de mods-equipements.jsonc sont des mods
+        if (key === 'modsEquipements' && result[key] && typeof result[key] === 'object') {
+          Object.values(result[key]).forEach(item => {
+            if (item && typeof item === 'object') item.estMod = true
+          })
+        }
+
         setProgress(Math.round(((i + 1) / entries.length) * 100))
       }
 
@@ -106,20 +117,8 @@ export function useDataLoader() {
 
       if (result.classSpe && result.armes) {
         const specWeapons = Object.values(result.classSpe).map(spec => ({
-          nom: spec.arme.nom,
+          ...spec.arme,
           slug: slugify(spec.arme.nom),
-          type: 'arme_specifique',
-          fabricant: spec.nom,
-          portee: spec.arme.portee,
-          rpm: spec.arme.rpm,
-          chargeur: spec.arme.chargeur,
-          rechargement: spec.arme.rechargement,
-          headshot: spec.arme.headshot,
-          degatsBase: spec.arme.degatsBase,
-          icon: spec.arme.icon,
-          estExotique: false,
-          estNomme: false,
-          talents: [],
           specialisation: spec.nom,
         }))
 
@@ -144,4 +143,3 @@ export function useDataLoader() {
 
   return { data, loading, error, progress }
 }
-

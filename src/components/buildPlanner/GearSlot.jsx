@@ -4,6 +4,8 @@ import MarkdownText from '../common/MarkdownText'
 import GearAttributePanel from './GearAttributePanel'
 import ExpertiseSlider from './ExpertiseSlider'
 
+import Badge from '../common/Badge'
+
 function hasContent(v) {
   return v && v !== '' && v !== 'n/a' && v !== '-'
 }
@@ -78,16 +80,16 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
   const borderColor = isPrototype
       ? 'border-l-cyan-500'
       : piece?.type === 'exotique'
-          ? 'border-l-shd'
+          ? 'border-l-red-400'
           : piece?.estNomme
-              ? 'border-l-yellow-500'
+              ? 'border-l-shd'
               : piece?.type === 'gear_set'
                   ? 'border-l-emerald-500'
                   : 'border-l-blue-500'
 
   const headerBg = isPrototype ? 'bg-cyan-500/10' : 'bg-blue-500/10'
   const headerBorder = isPrototype ? 'border-cyan-500/30' : 'border-blue-500/30'
-  const headerText = isPrototype ? 'text-cyan-400' : 'text-blue-400'
+  const headerText = isPrototype ? 'text-cyan-400' : (piece?.estNomme ? 'text-shd' : 'text-blue-400')
 
   return (
       <div className="build-slot group" onClick={piece ? undefined : onSelect}>
@@ -128,7 +130,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
           {piece ? (
               <div className={`border-l-2 ${borderColor} pl-3`}>
                 <div className="flex items-center gap-2">
-                  {piece.type === 'exotique' && <span className="text-shd text-xs font-bold">EXOTIQUE</span>}
+                  {piece.type === 'exotique' && <span className="text-red-400 text-xs font-bold">EXOTIQUE</span>}
                   {piece.estNomme && piece.type !== 'exotique' && <span className="text-yellow-500 text-xs font-bold">NOMMÉ</span>}
                   {piece.type === 'gear_set' && <span className="text-emerald-400 text-xs font-bold">GEAR SET</span>}
                 </div>
@@ -171,7 +173,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                             : talentsEquipements?.find(t => t.slug === slug || t.nom === slug)
                         return (
                             <div key={i} className={i > 0 ? "mt-3" : ""}>
-                              <div className="text-xs text-shd font-bold uppercase tracking-widest">
+                              <div className="text-xs text-red-400 font-bold uppercase tracking-widest">
                                 {resolved?.nom ? `Talent : ${resolved.nom}` : 'Talent Exotique'}
                               </div>
                               <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed">
@@ -271,7 +273,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                                         type="range"
                                         min={prototypeTalent.statMin}
                                         max={prototypeTalent.statMax}
-                                        step={0.1}
+                                        step={prototypeTalent.pas || 0.1}
                                         value={prototypeTalent.valeur ?? prototypeTalent.statMax}
                                         onChange={(e) => {
                                             e.stopPropagation();
@@ -285,7 +287,7 @@ export default function GearSlot({ slotKey, label, icon, piece, talent, hasTalen
                                     />
                                 )}
                                 {prototypeTalent.description && (
-                                    <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed italic">{prototypeTalent.description}</MarkdownText>
+                                    <MarkdownText className="text-xs text-gray-400 mt-1 leading-relaxed italic">{prototypeTalent.description.replace(/\{value\}/g, prototypeTalent.valeur !== undefined ? prototypeTalent.valeur : prototypeTalent.statMax)}</MarkdownText>
                                 )}
                             </div>
                         ) : (

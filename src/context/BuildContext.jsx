@@ -1,42 +1,50 @@
-import { createContext, useContext, useReducer, useCallback, useMemo } from 'react'
+import { createContext, useContext, useReducer, useCallback, useMemo, useEffect } from 'react'
 import { getSpecFromWeapon, getSpecialisations } from '../utils/formatters'
+import { getSHDLevels, normalizeSHDLevels, SHD_LEVELS_UPDATED_EVENT, STORAGE_KEY as SHD_STORAGE_KEY } from '../hooks/useSHDWatch'
 
 const BuildContext = createContext(null)
 
-const INITIAL_STATE = {
-  // Arme spécifique (signature) — détermine la spécialisation
-  specialWeapon: null,
-  // Armes classiques : primaire, secondaire
-  weapons: [null, null],
-  weaponTalents: [null, null],
-  // Attributs armes : [{nom, valeur}] par slot (0=primaire, 1=secondaire, 'sidearm'=poing)
-  weaponAttributes: [null, null],
-  sidearmAttribute: null,
-  // Valeurs des attributs essentiels par slot : { weapon0: {slug: valeur}, weapon1: {slug: valeur}, sidearm: {slug: valeur} }
-  weaponEssentialValues: { weapon0: {}, weapon1: {}, sidearm: {} },
-  // Mods d'armes : [array_de_mods] par slot
-  weaponMods: [null, null],
-  sidearmMods: null,
-  // Arme de poing
-  sidearm: null,
-  sidearmTalent: null,
-  // Équipements
-  gear: { masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null },
-  gearTalents: { torse: null, sac_a_dos: null },
-  // Attributs équipements : { slot: { essentiels: [{nom,valeur}], classiques: [{nom,valeur}] } }
-  gearAttributes: {},
-  // Mods d'équipements : { slot: [mod_object_1, mod_object_2] }
-  gearMods: {},
-  // Compétences
-  skills: [null, null],
-  // Mods de compétences : [mod_object, mod_object]
-  skillMods: [null, null],
-  // Valeurs utilisateur des mods (curseurs) : { gearMods: { slot: { modIndex: { attrSlug: val } } }, skillMods: { slotIndex: { attrSlug: val } } }
-  modValues: { gearMods: {}, skillMods: {} },
-  // Expertise : niveaux 0-20 par slot
-  expertise: {
+const STORAGE_KEY = 'div2_current_build'
+
+const getDefaultState = (montreConfig) => ({
+    // Arme spécifique (signature) — détermine la spécialisation
+    specialWeapon: null,
+    // Répartition des points bonusArme de la spécialisation: { [weaponType]: points }
+    specialWeaponBonusPoints: {},
+    // Armes classiques : primaire, secondaire
+    weapons: [null, null],
+    weaponTalents: [null, null],
+    // Attributs armes : [{nom, valeur}] par slot (0=primaire, 1=secondaire, 'sidearm'=poing)
+    weaponAttributes: [null, null],
+    sidearmAttribute: null,
+    // Valeurs des attributs essentiels par slot : { weapon0: {slug: valeur}, weapon1: {slug: valeur}, sidearm: {slug: valeur} }
+    weaponEssentialValues: { weapon0: {}, weapon1: {}, sidearm: {} },
+    // Mods d'armes : [array_de_mods] par slot
+    weaponMods: [null, null],
+    sidearmMods: null,
+    // Arme de poing
+    sidearm: null,
+    sidearmTalent: null,
+    // Équipements
+    gear: { masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null },
+    gearTalents: { torse: null, sac_a_dos: null },
+    // Attributs équipements : { slot: { essentiels: [{nom,valeur}], classiques: [{nom,valeur}] } }
+    gearAttributes: {},
+    // Mods d'équipements : { slot: [mod_object_1, mod_object_2] }
+    gearMods: {},
+    // Compétences
+    skills: [null, null],
+    // Mods de compétences : [ [mod_object_par_emplacement], [mod_object_par_emplacement] ]
+    skillMods: [null, null],
+    // Valeurs utilisateur des mods (curseurs) : { gearMods: { slot: { modIndex: { attrSlug: val } } }, skillMods: { slotIndex: { modIndex: { attrSlug: val } } } }
+    modValues: { gearMods: {}, skillMods: {} },
+    // Niveaux de la montre SHD (bornes dynamiques via montre.jsonc)
+    shdLevels: getSHDLevels(montreConfig),
+    // Expertise : niveaux 0-20 par slot
+    expertise: {
       weapon0: 0, weapon1: 0, sidearm: 0,
       masque: 0, torse: 0, holster: 0, sac_a_dos: 0, gants: 0, genouilleres: 0,
+      special: 0,
     },
     // Prototypes : booleans par slot
     prototypes: {
@@ -48,15 +56,79 @@ const INITIAL_STATE = {
       weapon0: null, weapon1: null, sidearm: null,
       masque: null, torse: null, holster: null, sac_a_dos: null, gants: null, genouilleres: null,
     },
-  }
+    // Infos sur le build en cours d'édition (si chargé depuis la bibliothèque)
+    editingInfo: null, // { type: 'local' | 'api', id: string, originalMetadata: {nom, description, tags} }
+    // Source du build actuellement chargé (persistée pour restaurer l'URL/le contexte)
+    activeBuildSource: null, // { type: 'api'|'share'|'local', id?: string, encoded?: string }
+  })
 
-function buildReducer(state, action) {
+const getInitialState = (montreConfig) => {
+  const defaultState = getDefaultState(montreConfig)
+
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      const parsed = JSON.parse(saved)
+      // On s'assure de fusionner avec les niveaux de la montre actuels 
+      // pour que les changements dans la page Montre soient reflétés
+      return {
+        ...defaultState,
+        ...parsed,
+        expertise: { ...defaultState.expertise, ...(parsed.expertise || {}) },
+        specialWeaponBonusPoints: { ...(parsed.specialWeaponBonusPoints || {}) },
+        shdLevels: getSHDLevels(montreConfig),
+      }
+    }
+  } catch (e) {
+    console.error("Failed to load build from localStorage", e)
+  }
+  return defaultState
+}
+
+function normalizeSkillModsForSlot(slotMods) {
+  if (!slotMods) return []
+  return Array.isArray(slotMods) ? [...slotMods] : [slotMods]
+}
+
+function buildReducer(state, action, montreConfig) {
   switch (action.type) {
     case 'SET_SPECIAL_WEAPON': {
-      return { ...state, specialWeapon: action.weapon }
+      return {
+        ...state,
+        specialWeapon: action.weapon,
+        specialWeaponBonusPoints: {},
+        expertise: { ...state.expertise, special: 0 },
+      }
     }
     case 'REMOVE_SPECIAL_WEAPON': {
-      return { ...state, specialWeapon: null }
+      return {
+        ...state,
+        specialWeapon: null,
+        specialWeaponBonusPoints: {},
+        expertise: { ...state.expertise, special: 0 },
+      }
+    }
+    case 'SET_SPECIAL_WEAPON_BONUS_POINT': {
+      const weaponType = action.weaponType
+      if (!weaponType) return state
+      const maxElement = Number.isFinite(action.maxElement) ? action.maxElement : 3
+      const maxPoints = Number.isFinite(action.maxPoints) ? action.maxPoints : 9
+      const requested = Math.max(0, Math.min(maxElement, action.points || 0))
+
+      const current = { ...(state.specialWeaponBonusPoints || {}) }
+      const otherTotal = Object.entries(current)
+        .filter(([key]) => key !== weaponType)
+        .reduce((sum, [, value]) => sum + (Number(value) || 0), 0)
+      const allowedForType = Math.max(0, maxPoints - otherTotal)
+      const nextValue = Math.min(requested, allowedForType)
+
+      if (nextValue <= 0) {
+        delete current[weaponType]
+      } else {
+        current[weaponType] = nextValue
+      }
+
+      return { ...state, specialWeaponBonusPoints: current }
     }
     case 'SET_WEAPON': {
       const weapons = [...state.weapons]
@@ -213,10 +285,21 @@ function buildReducer(state, action) {
     // ---- Mods de compétence ----
     case 'SET_SKILL_MOD': {
       const skillMods = [...state.skillMods]
-      skillMods[action.slot] = action.mod
-      // Reset mod values for this skill slot when mod changes
+      const modIndex = action.modIndex || 0
+      const currentMods = normalizeSkillModsForSlot(skillMods[action.slot])
+      currentMods[modIndex] = action.mod
+      skillMods[action.slot] = currentMods.some(Boolean) ? currentMods : null
+      // Reset mod values for this skill slot+index when mod changes
       const smv = { ...state.modValues.skillMods }
-      delete smv[action.slot]
+      const slotVals = { ...(smv[action.slot] || {}) }
+      const hasLegacyShape = Object.keys(slotVals).some(k => Number.isNaN(Number(k)))
+      if (hasLegacyShape) {
+        delete smv[action.slot]
+      } else {
+        delete slotVals[modIndex]
+        if (Object.keys(slotVals).length > 0) smv[action.slot] = slotVals
+        else delete smv[action.slot]
+      }
       return { ...state, skillMods, modValues: { ...state.modValues, skillMods: smv } }
     }
     case 'SET_GEAR_MOD_VALUE': {
@@ -227,9 +310,11 @@ function buildReducer(state, action) {
       return { ...state, modValues: { ...state.modValues, gearMods: gmv2 } }
     }
     case 'SET_SKILL_MOD_VALUE': {
-      // action: { slot, attrSlug, valeur }
+      // action: { slot, modIndex, attrSlug, valeur }
+      const modIndex = action.modIndex || 0
       const smv2 = { ...state.modValues.skillMods }
-      smv2[action.slot] = { ...(smv2[action.slot] || {}), [action.attrSlug]: action.valeur }
+      smv2[action.slot] = { ...(smv2[action.slot] || {}) }
+      smv2[action.slot][modIndex] = { ...(smv2[action.slot][modIndex] || {}), [action.attrSlug]: action.valeur }
       return { ...state, modValues: { ...state.modValues, skillMods: smv2 } }
     }
     case 'SET_EXPERTISE_LEVEL': {
@@ -240,16 +325,44 @@ function buildReducer(state, action) {
       const prototypeTalents = { ...state.prototypeTalents, [action.slot]: action.talent }
       return { ...state, prototypeTalents }
     }
-    case 'LOAD_BUILD':
-      return { ...INITIAL_STATE, ...action.build }
+    case 'SET_SHD_LEVEL': {
+      const shdLevels = normalizeSHDLevels(
+        { ...state.shdLevels, [action.stat]: action.level },
+        montreConfig
+      )
+      return { ...state, shdLevels }
+    }
+    case 'REFRESH_SHD_LEVELS': {
+      return { ...state, shdLevels: getSHDLevels(montreConfig) }
+    }
+    case 'LOAD_BUILD': {
+      const shdFromWatch = getSHDLevels(montreConfig);
+      const hasBuildShd = action.build.shdLevels && typeof action.build.shdLevels === 'object' && Object.keys(action.build.shdLevels).length > 0;
+      const shdFromBuild = hasBuildShd ? normalizeSHDLevels(action.build.shdLevels, montreConfig) : null;
+      const mergedShd = shdFromBuild ? { ...shdFromWatch, ...shdFromBuild } : shdFromWatch;
+      const defaultState = getDefaultState(montreConfig);
+      return {
+        ...defaultState,
+        ...action.build,
+        expertise: { ...defaultState.expertise, ...(action.build.expertise || {}) },
+        specialWeaponBonusPoints: { ...(action.build.specialWeaponBonusPoints || {}) },
+        editingInfo: action.editingInfo || null,
+        activeBuildSource: action.activeBuildSource || null,
+        shdLevels: mergedShd,
+      }
+    }
+    case 'SET_EDITING_INFO':
+      return { ...state, editingInfo: action.editingInfo }
+    case 'CLEAR_EDITING_INFO':
+      return { ...state, editingInfo: null }
     case 'RESET':
-      return { ...INITIAL_STATE }
+      return getDefaultState(montreConfig)
     default:
       return state
   }
 }
 
-export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
+export function BuildProvider({ children, classSpe, montreConfig, maxExpertiseLevel = 20 }) {
   const [state, dispatch] = useReducer((state, action) => {
     // Wrap the reducer to inject maxExpertiseLevel
     if (action.type === 'SET_EXPERTISE_LEVEL') {
@@ -267,8 +380,11 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
       }
       return { ...state, prototypes, expertise, prototypeTalents }
     }
-    return buildReducer(state, action)
-  }, INITIAL_STATE)
+    if (action.type === 'RESET') {
+      return getDefaultState(montreConfig)
+    }
+    return buildReducer(state, action, montreConfig)
+  }, undefined, () => getInitialState(montreConfig))
 
   // Initialize specialisation cache from data
   const SPECIALISATIONS = useMemo(() => getSpecialisations(classSpe), [classSpe])
@@ -278,6 +394,42 @@ export function BuildProvider({ children, classSpe, maxExpertiseLevel = 20 }) {
     () => getSpecFromWeapon(state.specialWeapon?.nom, classSpe),
     [state.specialWeapon, classSpe]
   )
+
+  // Écouter les mises à jour de la montre SHD (même onglet + autres onglets)
+  useEffect(() => {
+    const handleUpdate = () => {
+      dispatch({ type: 'REFRESH_SHD_LEVELS' })
+    }
+
+    const handleStorage = (event) => {
+      if (event.key === SHD_STORAGE_KEY) {
+        handleUpdate()
+      }
+    }
+
+    window.addEventListener(SHD_LEVELS_UPDATED_EVENT, handleUpdate)
+    window.addEventListener('storage', handleStorage)
+    return () => {
+      window.removeEventListener(SHD_LEVELS_UPDATED_EVENT, handleUpdate)
+      window.removeEventListener('storage', handleStorage)
+    }
+  }, [dispatch])
+
+  // Sauvegarder le build dans le localStorage à chaque changement
+  useEffect(() => {
+    // Éviter de sauvegarder si le state est vide (on peut vérifier gear par exemple)
+    const hasContent =
+      state.specialWeapon ||
+      state.weapons.some(Boolean) ||
+      state.sidearm ||
+      Object.values(state.gear).some(Boolean) ||
+      state.skills.some(Boolean)
+    if (hasContent) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state))
+    } else {
+      localStorage.removeItem(STORAGE_KEY)
+    }
+  }, [state])
 
   // Contraintes exotiques — armes classiques + arme de poing
   const hasExoticWeapon = state.weapons.some(w => w?.estExotique) || state.sidearm?.estExotique

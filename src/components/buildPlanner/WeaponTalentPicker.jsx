@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import { getTalentArmeFilters, getTalentArmeDefaults, applyTalentArmeFilters } from '../../config/filterConfigs'
 import SelectionModal from '../common/SelectionModal'
@@ -23,6 +24,7 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
     if (!wType || !data.talentsArmes) return []
     const list = Array.isArray(data.talentsArmes) ? data.talentsArmes : Object.values(data.talentsArmes || {})
     return list.filter(t => {
+      if (!t.description) return false
       if (t.estExotique) return false
       if (!t.compatibilite) return true
       return t.compatibilite[wType] === true
@@ -33,10 +35,10 @@ export default function WeaponTalentPicker({ data, slotIndex, weaponType, onClos
 
   const filtered = useMemo(() => {
     if (!search) return afterFilters
-    const term = search.toLowerCase()
+    const term = normalizeText(search)
     return afterFilters.filter(t =>
-        t.nom.toLowerCase().includes(term) ||
-        (t.description || '').toLowerCase().includes(term)
+        normalizeText(t.nom).includes(term) ||
+        normalizeText(t.description || '').includes(term)
     )
   }, [afterFilters, search])
 

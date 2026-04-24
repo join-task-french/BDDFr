@@ -1,0 +1,4843 @@
+// Équipements — The Division 2
+{
+  "masque_tactique_de_protection": {
+    "nom": "Masque tactique de protection",
+    "marque": "5_11_tactical",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "rush24": {
+    "nom": "RUSH24",
+    "marque": "5_11_tactical",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "porte_plaques_taclite": {
+    "nom": "Porte-plaques TacLite",
+    "marque": "5_11_tactical",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_station_grip": {
+    "nom": "Gants Station Grip",
+    "marque": "5_11_tactical",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "poigne_mortelle": {
+    "nom": "Poigne mortelle",
+    "description": "\"La plupart des gens passent leur temps à se battre dans la vie. Ils stressent dans des jobs sans avenir et pour payer leur bouffe, leur loyer ou leur prêt étudiant. Si tu manques de discernement dans la vie, toute cette merde finit par te tuer. Et il n'y a rien qui te donne plus de discernement que le fait d'être accroché au flanc d'une montagne.\"",
+    "emplacement": "gants",
+    "marque": "5_11_tactical",
+    "mod": false,
+    "obtention": {
+      "darkZone": true
+    },
+    "estNomme": true,
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "protection_pour_eliminations_eqp",
+        "valeur": 10
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "poche_de_holster_compact": {
+    "nom": "Poche de Holster Compact",
+    "marque": "5_11_tactical",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_exo_k1": {
+    "nom": "Genouillères Exo.K1",
+    "marque": "5_11_tactical",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_aphrodite_glint": {
+    "nom": "Masque Aphrodite Glint",
+    "marque": "airaldi_holdings",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_d_operateur_apollo": {
+    "nom": "Sac d'opérateur Apollo",
+    "marque": "airaldi_holdings",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme":  false
+  },
+  "veste_athena_missile": {
+    "nom": "Veste Athena Missile",
+    "marque": "airaldi_holdings",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "exemple_cristallin": {
+    "nom": "Exemple cristallin",
+    "description": "\"Seul le premier tir est propre. C'est tout ce qui vient après qui est moche\"",
+    "marque": "airaldi_holdings",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["mise_au_point"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_de_precision_persephone": {
+    "nom": "Gants de précision Persephone",
+    "marque": "airaldi_holdings",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "combo_holster_poche_hera": {
+    "nom": "Combo holster/poche Hera",
+    "marque": "airaldi_holdings",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protections_dionysus": {
+    "nom": "Protections Dionysus",
+    "marque": "airaldi_holdings",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_high_altitude_o2": {
+    "nom": "Masque High Altitude O2",
+    "marque": "alps_summit_armement",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_de_rando_en_montagne": {
+    "nom": "Sac de rando en montagne",
+    "marque": "alps_summit_armement",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "maintenance_percutante": {
+    "nom": "Maintenance percutante",
+    "description": "\"T'as essayé d'éteindre et de rallumer ?\"",
+    "marque": "alps_summit_armement",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["soutien_technique"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "cage_thoracique_x_treyme_pro": {
+    "nom": "Cage thoracique X-TREYME Pro",
+    "marque": "alps_summit_armement",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_d_escalade": {
+    "nom": "Gants d'escalade",
+    "marque": "alps_summit_armement",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "amour_maternel": {
+    "nom": "Amour maternel",
+    "marque": "alps_summit_armement",
+    "description": "\"La vie est horrible. Quand vous avez compris ça, il est plus facile d'apprécier les moments qui sont des exceptions. C'est une forme de réalisme.\"",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "sante_pour_competence_eqp",
+        "valeur": 25
+      },
+      {}
+    ]
+  },
+  "saccoche_de_jambe": {
+    "nom": "Saccoche de jambe",
+    "marque": "alps_summit_armement",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protections_clutch_x0_skin": {
+    "nom": "Protections Clutch X0-Skin",
+    "marque": "alps_summit_armement",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_combat_cete": {
+    "nom": "Masque de combat Cete",
+    "marque": "badger_tuff",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_grande_autonomie_sett": {
+    "nom": "Sac grande autonomie Sett",
+    "marque": "badger_tuff",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "veste_robuste_bauson": {
+    "nom": "Veste robuste \"Bauson\"",
+    "marque": "badger_tuff",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "rien_a_f": {
+    "nom": "Rien à f*",
+    "description": "\"Si jamais je t'ai offensé, sache qu'au fond de mon coeur... J'en ai rien à foutre.\"",
+    "marque": "badger_tuff",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["incassable"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_de_longue_duree_meles": {
+    "nom": "Gants de longue durée Meles",
+    "marque": "badger_tuff",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_huffle": {
+    "nom": "Holster \"Huffle\"",
+    "marque": "badger_tuff",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "reserve_de_munitions": {
+    "nom": "Réserve de munitions",
+    "description": "\"Comment ça, t'as plus de munitions ? Fouille-moi ce truc qui te sert de holster, trouve quelque chose à carrer dans ton flingue et tire ! -Chef de section des True Sons\"",
+    "emplacement": "holster",
+    "marque": "badger_tuff",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "munitions_eqp",
+        "valeur": 10
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "renforts_de_genoux_jonti": {
+    "nom": "Renforts de genoux Jonti",
+    "marque": "badger_tuff",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protection_faciale_air_guard": {
+    "nom": "Protection Faciale Air Guard",
+    "marque": "belstone_armory",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_tactique_cavalry": {
+    "nom": "Sac à dos tactique Cavalry",
+    "marque": "belstone_armory",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "ingenieur_fluides": {
+    "nom": "Ingénieur fluides",
+    "marque": "belstone_armory",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["sangsue"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "systeme_de_plastron_lancer": {
+    "nom": "Système de plastron Lancer",
+    "marque": "belstone_armory",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "transporteur": {
+    "nom": "Transporteur",
+    "description": "\"Mon fardeau quotidien ? Un blindage maximal. - Agent Sanders\"",
+    "marque": "belstone_armory",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["efficace"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "ganst_vambrace": {
+    "nom": "Ganst Vambrace",
+    "marque": "belstone_armory",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_fauld_tasset": {
+    "nom": "Holster Fauld & Tasset",
+    "marque": "belstone_armory",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_poleyn": {
+    "nom": "Genouillères Poleyn",
+    "marque": "belstone_armory",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_reyes": {
+    "nom": "Masque de Reyes",
+    "marque": "brazos_de_arcabuz",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_llave": {
+    "nom": "Sac à dos Llave",
+    "marque": "brazos_de_arcabuz",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "hermano": {
+    "nom": "Hermano",
+    "emplacement": "sac_a_dos",
+    "marque": "brazos_de_arcabuz",
+    "mod": true,
+    "talents": ["overclock"],
+    "estNomme": true,
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "type": "standard"
+  },
+  "feugo_campea": {
+    "nom": "Feugo Campea",
+    "marque": "brazos_de_arcabuz",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_caballeria": {
+    "nom": "Gants Caballeria",
+    "marque": "brazos_de_arcabuz",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_guerra": {
+    "nom": "Holster Guerra",
+    "marque": "brazos_de_arcabuz",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_de_picaro": {
+    "nom": "Holster de Picaro",
+    "emplacement": "holster",
+    "marque": "brazos_de_arcabuz",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_arme_eqp",
+        "valeur": 10
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "genouilleres_cerinola": {
+    "nom": "Genouillères Cerinola",
+    "marque": "brazos_de_arcabuz",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_deploiement_rapide": {
+    "nom": "Masque de déploiement rapide",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "protection_d_infanterie_mecanisee": {
+    "nom": "Protection d'infanterie mécanisée",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_de_guerilla": {
+    "nom": "Sac à dos de guérilla",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "devil_s_due": {
+    "nom": "Devil's Due",
+    "description": "\"Si tu sens la mort t'appeler essaie donc d'être précis car un tir bien ajusté te sauvera la vie. - Inscription dans le sac\"",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["serrement"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_nbc": {
+    "nom": "Gants NBC",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_de_reconnaissance": {
+    "nom": "Holster de reconnaissance",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_de_logistique": {
+    "nom": "Genouillères de logistique",
+    "marque": "ceska_vyroba_s_r_o",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "tourmente": {
+    "nom": "Tourmente",
+    "description": "\"Ne dévoilez jamais votre prochain coup.\"",
+    "emplacement": "genouilleres",
+    "marque": "ceska_vyroba_s_r_o",
+    "mod": false,
+    "obtention": {
+      "description": "Événement limité"
+    },
+    "talents": ["perplexite"],
+    "estNomme": true,
+    "type": "standard"
+  },
+  "mj_54": {
+    "nom": "MJ 54",
+    "marque": "china_light_industries_corporation",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "km_9": {
+    "nom": "KM 9",
+    "marque": "china_light_industries_corporation",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "alignement_strategique": {
+    "nom": "Alignement stratégique",
+    "description": "\"Je sais que ça donne l'impression qu'on va tout détruire, mais ne vous inquiétez pas. Avec nous, y a pas de problème. Juste des accidents heureux.\"",
+    "marque": "china_light_industries_corporation",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["mechancete"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "ps_282": {
+    "nom": "PS 282",
+    "marque": "china_light_industries_corporation",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "st_520": {
+    "nom": "ST 520",
+    "marque": "china_light_industries_corporation",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "fk_918": {
+    "nom": "FK 918",
+    "marque": "china_light_industries_corporation",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "hx_02": {
+    "nom": "HX 02",
+    "marque": "china_light_industries_corporation",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "respirateur_moyen_lomond": {
+    "nom": "Respirateur moyen Lomond",
+    "marque": "douglas_harding",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sonne": {
+    "nom": "Sonné",
+    "description": "\"Si le premier tir ne le tue pas, le deuxième l'achèvera. Ou le troisième. Le troisième, c'est souvent le bon\"",
+    "emplacement": "masque",
+    "marque": "douglas_harding",
+    "mod": true,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_headshot_eqp",
+        "valeur": 20
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "sac_a_dos_maree": {
+    "nom": "Sac à dos \"Maree\"",
+    "marque": "douglas_harding",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "systeme_de_poitrine_ericht": {
+    "nom": "Système de poitrine \"Ericht\"",
+    "marque": "douglas_harding",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "protege_mains_lochy": {
+    "nom": "Protège-mains \"Lochy\"",
+    "marque": "douglas_harding",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "systeme_de_holster_morar": {
+    "nom": "Système de holster Morar",
+    "marque": "douglas_harding",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protections_tay": {
+    "nom": "Protections Tay",
+    "marque": "douglas_harding",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_electrique": {
+    "nom": "Masque Electrique",
+    "marque": "electrique",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_electrique": {
+    "nom": "Sac à dos Electrique",
+    "marque": "electrique",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "lavoisier": {
+    "nom": "Lavoisier",
+    "description": "\"La perfection à l'état pur, à condition de comprendre comment s'en servir. Anonyme\"",
+    "marque": "electrique",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["galvanisation"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "veste_electrique": {
+    "nom": "Veste Electrique",
+    "marque": "electrique",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+
+"henri": {
+"nom": "Henri",
+"description": "\"Nous vivons ensemble, nous apprenons ensemble, nous mourons ensemble. Mais avant tout, nous nous rendons mutuellement plus fort. Anonyme\"",
+"marque": "electrique",
+"emplacement": "torse",
+"mod": true,
+"talents": ["compagnon"],
+"type": "standard",
+"estNomme": true
+},
+
+  "gants_electrique": {
+    "nom": "Gants Electrique",
+    "marque": "electrique",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_electrique": {
+    "nom": "Holster Electrique",
+    "marque": "electrique",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_electrique": {
+    "nom": "Genouillères Electrique",
+    "marque": "electrique",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "canon_a_neige": {
+    "nom": "Canon à neige",
+    "description": "\"Comme nos amis australiens, si on veut de la neige à Noël, on doit la fabriquer nous-mêmes.\"",
+    "emplacement": "genouilleres",
+    "marque": "electrique",
+    "mod": false,
+    "talents": ["rafale"],
+    "estNomme": true,
+    "type": "standard",
+    "obtention": {
+      "description": "Eliminations de lutins"
+    }
+  },
+  "respirateur_new_face": {
+    "nom": "Respirateur \"New Face\"",
+    "marque": "empress_international",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_style": {
+    "nom": "Sac à dos stylé",
+    "marque": "empress_international",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "bloc_batterie": {
+    "nom": "Bloc Batterie",
+    "marque": "empress_international",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["calcule"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "protecteur_tendance": {
+    "nom": "Protecteur tendance",
+    "marque": "empress_international",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "protection_de_cesar": {
+    "nom": "Protection de César",
+    "marque": "empress_international",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["doue"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "moufles_en_simili_cuir": {
+    "nom": "Moufles en simili cuir",
+    "marque": "empress_international",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "etui_robuste": {
+    "nom": "Étui robuste",
+    "marque": "empress_international",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protection_passe_partout": {
+    "nom": "Protection passe-partout",
+    "marque": "empress_international",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_protection_luktskydd": {
+    "nom": "Masque de protection Luktskydd",
+    "marque": "fenris_group_ab",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_de_combat_stridssack": {
+    "nom": "Sac de combat Stridssäck",
+    "marque": "fenris_group_ab",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "plaque_de_buste_forstarkt": {
+    "nom": "Plaque de buste Förstärkt",
+    "marque": "fenris_group_ab",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "calme_agressif": {
+    "nom": "Calme Agressif",
+    "description": "\"L'invention de l'arme à feu a entraîné une redéfinition du courage, qui n'était plus assimilé à un comportement de férocité agressive, mais aussi à la capacité à garder son calme sous le feu - Robert L O'Connell\"",
+    "marque": "fenris_group_ab",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["observation"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_tassar": {
+    "nom": "Gants Tassar",
+    "marque": "fenris_group_ab",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_fodral": {
+    "nom": "Holster Fodral",
+    "marque": "fenris_group_ab",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_knaskydd": {
+    "nom": "Genouillères Knäskydd",
+    "marque": "fenris_group_ab",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_javelina": {
+    "nom": "Masque de Javelina",
+    "marque": "gila_guard",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "refroidissement": {
+    "nom": "Refroidissement",
+    "description": "\"La vengeance est un plat qui se mange froid. -Quelqu'un qui se souvient de vous\"",
+    "emplacement": "masque",
+    "marque": "gila_guard",
+    "mod": 2,
+    "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de lutins"
+    },
+    "attributs": [
+      {}
+    ],
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "type": "standard"
+  },
+  "veilleur_de_nuit": {
+    "nom": "Veilleur de nuit",
+    "description": "\"Dans le verre et l'acier; Je te regarde; Une vision si cruelle\"",
+    "emplacement": "masque",
+    "marque": "gila_guard",
+    "mod": true,
+    "estNomme": true,
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_impulsion_scanner_eqp",
+        "valeur": 100
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "sac_big_horn": {
+    "nom": "Sac Big Horn",
+    "marque": "gila_guard",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gilet_armadillo": {
+    "nom": "Gilet Armadillo",
+    "marque": "gila_guard",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "leader": {
+    "nom": "Leader",
+    "description": "\"Knuckles, Ron, avec moi. Duchesse, tu pars devant. Tiens. Prends ça. Ça pourrait te sauver la peau - James Dragov \"",
+    "marque": "gila_guard",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["avant_garde"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_diamondback": {
+    "nom": "Gants Diamondback",
+    "marque": "gila_guard",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_jackrabbit": {
+    "nom": "Holster Jackrabbit",
+    "marque": "gila_guard",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_sidewinder": {
+    "nom": "Genouillères Sidewinder",
+    "marque": "gila_guard",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_emet": {
+    "nom": "Masque Emet",
+    "marque": "golan_gear_ltd",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "poitrine_chatzatz": {
+    "nom": "Poitrine Chatzatz",
+    "marque": "golan_gear_ltd",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "chasseur_tueur": {
+    "nom": "Chasseur-tueur",
+    "description": "\"Les mecs sont sortis de nulle part. Armés jusqu'aux dents et prêts à tuer. Le problème, c'est que c'était nous leur cible. - Agent de la Division\"",
+    "marque": "golan_gear_ltd",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["intimidation"],
+    "type": "standard",
+    "estNomme": true,
+    "obtention": {
+      "description": "Coffre Blanchâtre via Hunter New York\nDisponible ensuite chez Cassie Mendoza"
+    }
+  },
+  "sac_a_dos_chemar": {
+    "nom": "Sac à dos Chemar",
+    "marque": "golan_gear_ltd",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "livre_de_cuisine_de_l_anarchiste": {
+    "nom": "Livre de cuisine de l'anarchiste",
+    "description": "\"Conley, je crois que tu vas trouver des jouets qui te plairont, ici. Essaie juste de ne pas tout faire sauter en fouillant là-dedans. - Aaron Keener\"",
+    "marque": "golan_gear_ltd",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["mechancete"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_ayal": {
+    "nom": "Gants Ayal",
+    "marque": "golan_gear_ltd",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_shomer": {
+    "nom": "Holster Shomer",
+    "marque": "golan_gear_ltd",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_nahar": {
+    "nom": "Genouillères Nahar",
+    "marque": "golan_gear_ltd",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_penumbra": {
+    "nom": "Masque Penumbra",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "porte_plaque_umbra": {
+    "nom": "Porte-plaque Umbra",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "plastron_du_fantassin_zele": {
+    "nom": "Plastron du fantassin zélé",
+    "description": "\"Tu lâches ta mine et tu la laisses filer. Ne sois pas déstabilisé par la détonation. Tu dois te tenir prêt au choc. - Instructeur de la SHD\"",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["etincelle"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "sac_a_dos_antumbra": {
+    "nom": "Sac à dos Antumbra",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "livraison_festive": {
+    "nom": "Livraison festive",
+    "description": "\"J'ai mon feu d'artifice, vous avez votre feu d'artifice. Tout le monde a son feu d'artifice !\"",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["spectacle_pyrotechnique"],
+    "type": "standard",
+    "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de lutins"
+    }
+  },
+  "gants_d_attaque_dusk": {
+    "nom": "Gants d'attaque Dusk",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "support_d_arme_d_appoint_tenebrous": {
+    "nom": "Support d'arme d'appoint Tenebrous",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_sundown": {
+    "nom": "Genouillères Sundown",
+    "marque": "grupo_sombra_s_a",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_hg": {
+    "nom": "Masque HG",
+    "marque": "hasburg_guard",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_hg": {
+    "nom": "Sac à dos HG",
+    "marque": "hasburg_guard",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "the_courier": {
+    "nom": "The Courier",
+    "description": "\"Pour que ton âme soit transportée au paradis. Le prêtre\"",
+    "marque": "hasburg_guard",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["mort_rampante"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "veste_hg": {
+    "nom": "Veste HG",
+    "marque": "hasburg_guard",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "precieux": {
+    "nom": "Précieux",
+    "description": "\"Je t'offre ceci, pour protéger ton coeur sacré. Le prêtre\"",
+    "marque": "hasburg_guard",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["trauma"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_hg": {
+    "nom": "Gants HG",
+    "marque": "hasburg_guard",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_hg": {
+    "nom": "Holster HG",
+    "marque": "hasburg_guard",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_hg": {
+    "nom": "Genouillères HG",
+    "marque": "hasburg_guard",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_filtrant": {
+    "nom": "Masque filtrant",
+    "marque": "hana_u_corporation",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_crash": {
+    "nom": "Sac Crash",
+    "marque": "hana_u_corporation",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "multiplicateur_de_force": {
+    "nom": "Multiplicateur de force",
+    "description": "\"Dans ce job, il faut penser en termes de multiplicateur de force. On n'a pas toujours de renforts, alors il faut faire avec ce qu'on a. - Instructeur de la SHD\"",
+    "marque": "hana_u_corporation",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["armement_combine"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gilet_pare_eclats": {
+    "nom": "Gilet pare-éclats",
+    "marque": "hana_u_corporation",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_plaques": {
+    "nom": "Gants plaqués",
+    "marque": "hana_u_corporation",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_duel": {
+    "nom": "Holster Duel",
+    "marque": "hana_u_corporation",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protection_de_rotules": {
+    "nom": "Protection de rotules",
+    "marque": "hana_u_corporation",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_langmo": {
+    "nom": "Masque Langmo",
+    "marque": "lengmo",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_langmo": {
+    "nom": "Sac à dos Langmo",
+    "marque": "lengmo",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "armature": {
+    "nom": "Armature",
+    "description": "\"Tuer, c'est difficile la première fois, mais ça devient de plus en plus facile avec la pratique. - Le Stratège\"",
+    "marque": "lengmo",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["force_irresistible"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "veste_langmo_bomb": {
+    "nom": "Veste Langmo Bomb",
+    "marque": "lengmo",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "artisan": {
+    "nom": "Artisan",
+    "description": "\"Ce que je casse ne se répare pas -Le Stratège\"",
+    "marque": "lengmo",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["exploseur"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_langmo": {
+    "nom": "Gants Langmo",
+    "marque": "lengmo",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_langmo": {
+    "nom": "Holster Langmo",
+    "marque": "lengmo",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_lengmo": {
+    "nom": "Genouillères Lengmo",
+    "marque": "lengmo",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_legatus_s_p_a": {
+    "nom": "Masque Legatus S.p.A.",
+    "marque": "legatus_s_p_a",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "visionario": {
+    "nom": "Visionario",
+    "description": "\"Tiens-toi à cette distance; et bonsoir, mon bien-aimé -Le Songe d'une nuit d'été\"",
+    "emplacement": "masque",
+    "marque": "legatus_s_p_a",
+    "mod": true,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "portee_optimale_eqp",
+        "valeur": 50
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "sac_a_dos_legatus_s_p_a": {
+    "nom": "Sac à dos Legatus S.p.A.",
+    "marque": "legatus_s_p_a",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "vigil": {
+    "nom": "Vigil",
+    "description": "\"Honneur à ceux qui sont tombés.\"",
+    "marque": "legatus_s_p_a",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["polyvalence"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "veste_legatus_s_p_a": {
+    "nom": "Veste Legatus S.p.A.",
+    "marque": "legatus_s_p_a",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_legatus_s_p_a": {
+    "nom": "Gants Legatus S.p.A.",
+    "marque": "legatus_s_p_a",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "hoslter_legatus_s_p_a": {
+    "nom": "Hoslter Legatus S.p.A.",
+    "marque": "legatus_s_p_a",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_legatus_s_p_a": {
+    "nom": "Genouillères Legatus S.p.A.",
+    "marque": "legatus_s_p_a",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protection_faciale_mengu": {
+    "nom": "Protection faciale Mengu",
+    "marque": "murakami_industries",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_sashimono": {
+    "nom": "Sac à dos Sashimono",
+    "marque": "murakami_industries",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "cuirasse_tatami": {
+    "nom": "Cuirasse Tatami",
+    "marque": "murakami_industries",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "protection_de_mains_kote": {
+    "nom": "Protection de mains Kote",
+    "marque": "murakami_industries",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_de_cuisse_haidate": {
+    "nom": "Holster de cuisse Haidate",
+    "marque": "murakami_industries",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_suneata": {
+    "nom": "Genouillères Suneata",
+    "marque": "murakami_industries",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouillere_imperiale": {
+    "nom": "Genouillères impériales",
+    "description": "\"À terre sept fois, relève-toi huit fois.\"",
+    "emplacement": "genouilleres",
+    "marque": "murakami_industries",
+    "mod": false,
+    "obtention": {
+      "darkZone": true
+    },
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "pourcentage_regeneration_de_protection_eqp",
+        "valeur": 1
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "masque_de_protection_deadstick": {
+    "nom": "Masque de protection \"Deadstick\"",
+    "marque": "overlord_armaments",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "rail_de_support_vert": {
+    "nom": "Rail de Support \"Vert\"",
+    "marque": "overlord_armaments",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "protection_corporelle_big_drum": {
+    "nom": "Protection corporelle Big Drum",
+    "marque": "overlord_armaments",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_de_protection_neptune": {
+    "nom": "Gants de protection Neptune",
+    "marque": "overlord_armaments",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protection_de_hanches_graffham": {
+    "nom": "Protections de hanches Graffham",
+    "marque": "overlord_armaments",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protections_dingson": {
+    "nom": "Protections Dingson",
+    "marque": "overlord_armaments",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_astucieuses": {
+    "nom": "Genouillères astucieuses",
+    "description": "\"Qui a déjà vu un athée compter sur autre chose que son matos ?\"",
+    "emplacement": "genouilleres",
+    "marque": "overlord_armaments",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_sur_cible_non_abritee_eqp",
+        "valeur": 8
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "masque_steelworks": {
+    "nom": "Masque Steelworks",
+    "marque": "palisade_steelworks",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_steelworks": {
+    "nom": "Sac à dos Steelworks",
+    "marque": "palisade_steelworks",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "proxy": {
+    "nom": "Proxy",
+    "description": "\"Ennemi détecté. Ennemi éliminé. - Alexander Ortiz\"",
+    "marque": "palisade_steelworks",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["zone_de_defense"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "plastron_steelworks": {
+    "nom": "Plastron Steelworks",
+    "marque": "palisade_steelworks",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "combustor": {
+    "nom": "Combustor",
+    "description": "\"Mes agents ne se retrouvent jamais seuls sur le terrain. - Natalya Sokolova\"",
+    "marque": "palisade_steelworks",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["livraison_explosive"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_steelworks": {
+    "nom": "Gants Steelworks",
+    "marque": "palisade_steelworks",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_steelworks": {
+    "nom": "Holster Steelworks",
+    "marque": "palisade_steelworks",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_steelworks": {
+    "nom": "Genouillères Steelworks",
+    "marque": "palisade_steelworks",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protege_visage_guardrail_vi": {
+    "nom": "Protège-visage Guardrail VI",
+    "marque": "petrov_defense_group",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_d_armes_lourdes": {
+    "nom": "Sac d'armes lourdes",
+    "marque": "petrov_defense_group",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "brelage_de_poitrine_adapte": {
+    "nom": "Brêlage de poitrine adapté",
+    "marque": "petrov_defense_group",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gilet_vedmedytsya": {
+    "nom": "Gilet Vedmedytsya",
+    "description": "\"Prépare-toi à résister aux flots tumultueux de l'Histoire.\"",
+    "marque": "petrov_defense_group",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["prepare"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_de_mercenaire": {
+    "nom": "Gants de mercenaire",
+    "description": "\"Personne ne m'a jamais résisté. Si on appuie assez fort au bon endroit, rien ne résiste.\"",
+    "emplacement": "gants",
+    "marque": "petrov_defense_group",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_aux_protections_eqp",
+        "valeur": 8,
+        "prototypeValue": 12
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "gants_de_combat": {
+    "nom": "Gants de combat",
+    "marque": "petrov_defense_group",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_de_jambe": {
+    "nom": "Holster de Jambe",
+    "marque": "petrov_defense_group",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "protections_de_genoux": {
+    "nom": "Protections de genoux",
+    "marque": "petrov_defense_group",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_protection_de_terrain": {
+    "nom": "Masque de protection de terrain",
+    "marque": "providence_defense",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_de_police_sw": {
+    "nom": "Sac à dos de police SW",
+    "marque": "providence_defense",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "le_don": {
+    "nom": "Le Don",
+    "description": "\"Ce n'est qu'après avoir tout donné que tu peux espérer recevoir en retour. Quand l'enveloppe est vide, l'âme est complète. - Inconnu\"",
+    "marque": "providence_defense",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": ["vigilance"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "sacrifice": {
+    "nom": "Sacrifice",
+    "marque": "providence_defense",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [
+      "canon_de_verre"
+    ],
+    "type": "standard",
+    "estNomme": true
+  },
+  "systeme_de_protection_corporelle": {
+    "nom": "Système de protection corporelle",
+    "marque": "providence_defense",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_tactiques_d_assaut": {
+    "nom": "Gants tactiques d'assaut",
+    "marque": "providence_defense",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_modulaire": {
+    "nom": "Holster modulaire",
+    "marque": "providence_defense",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_de_combat_urbain": {
+    "nom": "Genouillères de combat urbain",
+    "marque": "providence_defense",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "respirateur_lourd_svalinn": {
+    "nom": "Respirateur lourd Svalinn",
+    "marque": "richter_kaiser_gmbh",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "transport_ajuste_duban": {
+    "nom": "Transport ajusté Duban",
+    "marque": "richter_kaiser_gmbh",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "khetaka_thorax": {
+    "nom": "Khetaka Thorax",
+    "marque": "richter_kaiser_gmbh",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_srivatsa": {
+    "nom": "Gants Srivatsa",
+    "marque": "richter_kaiser_gmbh",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "brelage_de_cuisse_jaivardhan": {
+    "nom": "Brêlage de cuisse Jaivardhan",
+    "marque": "richter_kaiser_gmbh",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "forge": {
+    "nom": "Forge",
+    "description": "\"Tu dois emplir l'espace. Tu n'es ni le marteau, ni l'enclume. Tu es l'impact ; l'énergie. Le potentiel. Plie ou brise-toi, tu trouveras ton but. Et dans le but se trouve la vérité.\"",
+    "emplacement": "holster",
+    "marque": "richter_kaiser_gmbh",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "sante_bouclier_eqp",
+        "valeur": 50
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "renforts_d_articulation_hulian": {
+    "nom": "Renforts d'articulation Hulian",
+    "marque": "richter_kaiser_gmbh",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_forces_speciales": {
+    "nom": "Masque de forces spéciales",
+    "marque": "sokolov_concern",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "pack_de_securisation_de_point_de_ralliement": {
+    "nom": "Pack de Sécurisation de point de ralliement",
+    "marque": "sokolov_concern",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gilet_balistique_leger": {
+    "nom": "Gilet balistique léger",
+    "marque": "sokolov_concern",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_a_micro_plaques": {
+    "nom": "Gants à micro-plaques",
+    "marque": "sokolov_concern",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "poigne_ferme": {
+    "nom": "Poigne ferme",
+    "description": "\"La poignée de main d'une personne en dit long sur elle. C'est aussi un geste hautement pathogène.\"",
+    "emplacement": "gants",
+    "marque": "sokolov_concern",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp",
+        "valeur": 16
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "holster_vertical_y": {
+    "nom": "Holster Vertical Y",
+    "marque": "sokolov_concern",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_d_agilite": {
+    "nom": "Genouillères d'agilité",
+    "marque": "sokolov_concern",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "filtre_ilarion": {
+    "nom": "Filtre Ilarion",
+    "marque": "uzina_getica",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_gavriil": {
+    "nom": "Sac à dos Gavriil",
+    "marque": "uzina_getica",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "de_pres_ou_de_loin": {
+    "nom": "De près ou de loin",
+    "marque": "uzina_getica",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["opportuniste"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "protection_parascheva": {
+    "nom": "Protection Parascheva",
+    "marque": "uzina_getica",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "ampli_de_reperage": {
+    "nom": "Ampli de repérage",
+    "marque": "uzina_getica",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["observateur"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_theodora": {
+    "nom": "Gants Theodora",
+    "marque": "uzina_getica",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "fourreau_constantin": {
+    "nom": "Fourreau Constantin",
+    "marque": "uzina_getica",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_dosoftei": {
+    "nom": "Genouillères Dosoftei",
+    "marque": "uzina_getica",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_de_respiration_facile": {
+    "nom": "Masque de respiration facile",
+    "marque": "walker_harris_co",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_horizons": {
+    "nom": "Sac à dos Horizons",
+    "marque": "walker_harris_co",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "matador": {
+    "nom": "Matador",
+    "description": "\"J'ai déjà dansé avec la mort, et ça m'a vite lassé. Je crois que je préfère quand les chances jouent avec moi.\"",
+    "marque": "walker_harris_co",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["poussee_d_adrenaline"],
+    "type": "standard",
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    }
+  },
+  "gilet_balistique": {
+    "nom": "Gilet balistique",
+    "marque": "walker_harris_co",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "tueur_a_la_chaine": {
+    "nom": "Tueur à la chaîne",
+    "description": "\"Quatre-vingt-dix-neuf canettes de bière sur le mur. Quatre-vingt-dix-neuf. J'en dégomme une, elle explose. Quatre-vingt-dix-huit canettes de bière sur le mur... - Sniper True Son qui s'ennuie\"",
+    "marque": "walker_harris_co",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["chasseur_de_tete"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_de_terrain_savanna": {
+    "nom": "Gants de terrain Savanna",
+    "marque": "walker_harris_co",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_de_portee_tactique": {
+    "nom": "Holster de portée tactique",
+    "marque": "walker_harris_co",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouillleres_mesa": {
+    "nom": "Genouilllères Mesa",
+    "marque": "walker_harris_co",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "respirateur_maxillam": {
+    "nom": "Respirateur Maxillam",
+    "marque": "wyvern_wear",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_de_survie_trapezius": {
+    "nom": "Sac de survie Trapezius",
+    "marque": "wyvern_wear",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "blindage_ventral_keel": {
+    "nom": "Blindage ventral Keel",
+    "marque": "wyvern_wear",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "elan": {
+    "nom": "Élan",
+    "description": "\"Ne t'arrête pas.\"",
+    "marque": "wyvern_wear",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["dynamisation"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_digits": {
+    "nom": "Gants \"Digits\"",
+    "marque": "wyvern_wear",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_didactyl": {
+    "nom": "Holster Didactyl",
+    "marque": "wyvern_wear",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "toutes_griffes_dehors": {
+    "nom": "Toutes griffes dehors",
+    "description": "\"Attends un peu que je les chope ! -Saint\"",
+    "emplacement": "holster",
+    "marque": "wyvern_wear",
+    "mod": false,
+    "obtention": {
+      "darkZone": true
+    },
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_corps_a_corps_eqp",
+        "valeur": 500
+      },
+      {
+        "nom": "degats_pistolet_eqp",
+        "valeur": 11
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "genouilleres_patella": {
+    "nom": "Genouillères Patella",
+    "marque": "wyvern_wear",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_cascades": {
+    "nom": "Masque Cascades",
+    "marque": "yaahl_gear",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "l_homme_sans_ombre": {
+    "nom": "L'homme sans ombre",
+    "description": "\"Aucun gémissement.Aucun éclat.Juste le silence.La fin de toute chose.\"",
+    "emplacement": "masque",
+    "marque": "yaahl_gear",
+    "mod": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "estNomme": true,
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_a_la_sante_es",
+        "valeur": 14,
+        "prototypeValue": 21
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "sac_garibaldi": {
+    "nom": "Sac Garibaldi",
+    "marque": "yaahl_gear",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "gilet_ranier": {
+    "nom": "Gilet Ranier",
+    "marque": "yaahl_gear",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "gants_olympique": {
+    "nom": "Gants Olympique",
+    "marque": "yaahl_gear",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_snoqualmie": {
+    "nom": "Holster Snoqualmie",
+    "marque": "yaahl_gear",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_yukon": {
+    "nom": "Genouillères Yukon",
+    "marque": "yaahl_gear",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_zwiadowka_sp_z_o_o": {
+    "nom": "Masque Zwiadowka Sp. z o.o.",
+    "marque": "zwiadowka_sp_z_o_o",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_zwiadowka_sp_z_o_o": {
+    "nom": "Sac à dos Zwiadowka Sp. z o.o.",
+    "marque": "zwiadowka_sp_z_o_o",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "plastron_zwiadowka_sp_z_o_o": {
+    "nom": "Plastron Zwiadowka Sp. z o.o.",
+    "marque": "zwiadowka_sp_z_o_o",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "estNomme": false
+  },
+  "bober": {
+    "nom": "Bober",
+    "description": "\"Ils ne m'auront jamais avec ce truc. - Diesel\"",
+    "marque": "zwiadowka_sp_z_o_o",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["retranchement"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_zwiadowka_sp_z_o_o": {
+    "nom": "Gants Zwiadowka Sp. z o.o.",
+    "marque": "zwiadowka_sp_z_o_o",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "etreinte_de_l_aigle": {
+    "nom": "Étreinte de l'Aigle",
+    "description": "\"Attends un peu que je les chope ! -Saint\"",
+    "emplacement": "gants",
+    "marque": "zwiadowka_sp_z_o_o",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "maniement_d_arme_eqp",
+        "valeur": 15
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "holster_zwiadowka_sp_z_o_o": {
+    "nom": "Holster Zwiadowka Sp. z o.o.",
+    "marque": "zwiadowka_sp_z_o_o",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_zwiadowka_sp_z_o_o": {
+    "nom": "Genouillères Zwiadowka Sp. z o.o.",
+    "marque": "zwiadowka_sp_z_o_o",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_aegis": {
+    "nom": "Masque Aegis",
+    "marque": "aegis",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_aegis": {
+    "nom": "Sac à dos Aegis",
+    "marque": "aegis",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "veste_aegis": {
+    "nom": "Veste Aegis",
+    "marque": "aegis",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_aegis": {
+    "nom": "Gants Aegis",
+    "marque": "aegis",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_aegis": {
+    "nom": "Holster Aegis",
+    "marque": "aegis",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_aegis": {
+    "nom": "Genouillères Aegis",
+    "marque": "aegis",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_de_tireur_d_elite_lyudmila": {
+    "nom": "Masque de tireur d'élite Lyudmila",
+    "marque": "as_et_huit",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "pack_ziba_low_profile": {
+    "nom": "Pack Ziba Low Profile",
+    "marque": "as_et_huit",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gilet_tania_silent": {
+    "nom": "Gilet Tania Silent",
+    "marque": "as_et_huit",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_roza_stable": {
+    "nom": "Gants Roza Stable",
+    "marque": "as_et_huit",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_arme_d_appoint_klavdiya": {
+    "nom": "Holster arme d'appoint Klavdiya",
+    "marque": "as_et_huit",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "protections_nina_prone": {
+    "nom": "Protections Nina Prone",
+    "marque": "as_et_huit",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_breaking_point": {
+    "nom": "Masque Breaking Point",
+    "marque": "breaking_point",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_breaking_point": {
+    "nom": "Sac à dos Breaking Point",
+    "marque": "breaking_point",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "veste_breaking_point": {
+    "nom": "Veste Breaking Point",
+    "marque": "breaking_point",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_breaking_point": {
+    "nom": "Gants Breaking Point",
+    "marque": "breaking_point",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_breaking_point": {
+    "nom": "Holster Breaking Point",
+    "marque": "breaking_point",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouillieres_breaking_point": {
+    "nom": "Genouillières Breaking Point",
+    "marque": "breaking_point",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_snow_job": {
+    "nom": "Masque Snow Job",
+    "marque": "dilemme_du_negociateur",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_nibble": {
+    "nom": "Sac à dos Nibble",
+    "marque": "dilemme_du_negociateur",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "protection_highball": {
+    "nom": "Protection Highball",
+    "marque": "dilemme_du_negociateur",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_mirror": {
+    "nom": "Gants Mirror",
+    "marque": "dilemme_du_negociateur",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "points_d_accroche_de_cuisse_bogey": {
+    "nom": "Points d'accroche de cuisse Bogey",
+    "marque": "dilemme_du_negociateur",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_lowball": {
+    "nom": "Genouillères Lowball",
+    "marque": "dilemme_du_negociateur",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "bouche_du_chasseur": {
+    "nom": "Bouche du chasseur",
+    "marque": "fureur_du_chasseur",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "kit_du_chasseur": {
+    "nom": "Kit du chasseur",
+    "marque": "fureur_du_chasseur",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "cage_du_chasseur": {
+    "nom": "Cage du chasseur",
+    "marque": "fureur_du_chasseur",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "griffes_du_chasseur": {
+    "nom": "Griffes du chasseur",
+    "marque": "fureur_du_chasseur",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "carquois_du_chasseur": {
+    "nom": "Carquois du chasseur",
+    "marque": "fureur_du_chasseur",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_du_chasseur": {
+    "nom": "Genouillères du chasseur",
+    "marque": "fureur_du_chasseur",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_de_brouillard_de_guerre": {
+    "nom": "Masque de brouillard de guerre",
+    "marque": "future_initiative",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_de_transport_radio_2k_rts": {
+    "nom": "Sac de transport radio 2k-RTS",
+    "marque": "future_initiative",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "protection_de_torse_terrapin": {
+    "nom": "Protection de torse Terrapin",
+    "marque": "future_initiative",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_de_controleur_apm": {
+    "nom": "Gants de contrôleur APM",
+    "marque": "future_initiative",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_tush_tactics": {
+    "nom": "Holster Tush Tactics",
+    "marque": "future_initiative",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_ajustees": {
+    "nom": "Genouillères ajustées",
+    "marque": "future_initiative",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_ar_rhodeswood": {
+    "nom": "Masque AR Rhodeswood",
+    "marque": "hard_wired",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "porte_dynamo_abberton": {
+    "nom": "Porte-dynamo Abberton",
+    "marque": "hard_wired",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gilet_renforce_serpentine": {
+    "nom": "Gilet Renforcé Serpentine",
+    "marque": "hard_wired",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_esd_molesey": {
+    "nom": "Gants ESD Molesey",
+    "marque": "hard_wired",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "harnais_ullswater": {
+    "nom": "Harnais Ullswater",
+    "marque": "hard_wired",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_de_stabilisation_strines": {
+    "nom": "Genouillères de stabilisation Strines",
+    "marque": "hard_wired",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
+  },
+  "masque_remodele": {
+    "nom": "Masque remodelé",
+    "marque": "refactor",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
+  },
+  "sac_a_dos_reorganise": {
+    "nom": "Sac à dos réorganisé",
+    "marque": "refactor",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
+  },
+  "gilet_optimise": {
+    "nom": "Gilet optimisé",
+    "marque": "refactor",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
+  },
+  "gants_revisite": {
+    "nom": "Gants revisités",
+    "marque": "refactor",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
+  },
+  "holster_corrige": {
+    "nom": "Holster corrigé",
+    "marque": "refactor",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "utilitaire"
+    ]
+  },
+  "genouilleres_remodelees": {
+    "nom": "Genouillères remodelées",
+    "marque": "refactor",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
+  },
+  "masque_final": {
+    "nom": "Masque Final",
+    "marque": "measured_assembly",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_measure": {
+    "nom": "Sac à dos Measure",
+    "marque": "measured_assembly",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "protection_final": {
+    "nom": "Protection Final",
+    "marque": "measured_assembly",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_measure": {
+    "nom": "Gants Measure",
+    "marque": "measured_assembly",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_final": {
+    "nom": "Holster Final",
+    "marque": "measured_assembly",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_measure": {
+    "nom": "Genouillères Measure",
+    "marque": "measured_assembly",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_durable": {
+    "nom": "Masque Durable",
+    "marque": "point_de_bascule",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_d_endurance": {
+    "nom": "Sac à dos d'endurance",
+    "marque": "point_de_bascule",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "protection_bravura": {
+    "nom": "Protection Bravura",
+    "marque": "point_de_bascule",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_colles": {
+    "nom": "Gants collés",
+    "marque": "point_de_bascule",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_doc": {
+    "nom": "Holster Doc",
+    "marque": "point_de_bascule",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_de_motivation": {
+    "nom": "Genouillères de motivation",
+    "marque": "point_de_bascule",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_focalise": {
+    "nom": "Masque Focalisé",
+    "marque": "concentrated_company",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_dirige": {
+    "nom": "Sac à dos dirigé",
+    "marque": "concentrated_company",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "plaque_fixee": {
+    "nom": "Plaque fixée",
+    "marque": "concentrated_company",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_de_pointage": {
+    "nom": "Gants de pointage",
+    "marque": "concentrated_company",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_de_ciblage": {
+    "nom": "Holster de ciblage",
+    "marque": "concentrated_company",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_de_pistage": {
+    "nom": "Genouillères de pistage",
+    "marque": "concentrated_company",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_imperturbable": {
+    "nom": "Masque imperturbable",
+    "marque": "unit_alloys",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_inegale": {
+    "nom": "Sac à dos inégalé",
+    "marque": "unit_alloys",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "plastron_desequilibre": {
+    "nom": "Plastron déséquilibré",
+    "marque": "unit_alloys",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "egalisatrice": {
+    "nom": "Égalisatrice",
+    "description": "\"Construire pour mieux détruire\"",
+    "marque": "unit_alloys",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["obliteration"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_ininflammables": {
+    "nom": "Gants ininflammables",
+    "marque": "unit_alloys",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_inconteste": {
+    "nom": "Holster incontesté",
+    "marque": "unit_alloys",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "salve": {
+    "nom": "Salve",
+    "description": "\"La vitesse de l'éclair !\"",
+    "emplacement": "holster",
+    "marque": "unit_alloys",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "cadence_de_tir_eqp",
+        "valeur": 5
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "genouilleres_sans_pareilles": {
+    "nom": "Genouillères sans pareilles",
+    "marque": "unit_alloys",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "masque_d_eclaireur": {
+    "nom": "Masque d'éclaireur",
+    "marque": "urban_lookout",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "sac_a_dos_de_balade": {
+    "nom": "Sac à dos de balade",
+    "marque": "urban_lookout",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "plastron_marque": {
+    "nom": "Plastron marqué",
+    "marque": "urban_lookout",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "dexterite": {
+    "nom": "Dextérité",
+    "description": "\"Je me sens d'humeur généreuse.\"",
+    "marque": "urban_lookout",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": ["rechargement_protege"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gants_etanches": {
+    "nom": "Gants étanches",
+    "marque": "urban_lookout",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_grossier": {
+    "nom": "Holster grossier",
+    "marque": "urban_lookout",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "dans_le_mille": {
+    "nom": "Dans le mille",
+    "description": "\"Tout est dans la hanche\"",
+    "emplacement": "holster",
+    "marque": "urban_lookout",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "precision_arm_eqp",
+        "valeur": 38
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "genouilleres_de_randonnee": {
+    "nom": "Genouillères de randonnée",
+    "marque": "urban_lookout",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "prototype_de_masque": {
+    "nom": "Prototype de masque",
+    "marque": "imminence_armaments",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "paquetage_de_mission": {
+    "nom": "Paquetage de mission",
+    "marque": "imminence_armaments",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "cap_n": {
+    "nom": "Cap'n",
+    "description": "\"Derrière moi\"",
+    "marque": "imminence_armaments",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["leadership"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gilet_urban_assault": {
+    "nom": "Gilet Urban Assault",
+    "marque": "imminence_armaments",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "gants_d_infiltrateur": {
+    "nom": "Gants d'infiltrateur",
+    "marque": "imminence_armaments",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_en_soie_d_araignee": {
+    "nom": "Holster en soir d'araignée",
+    "marque": "imminence_armaments",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_d_operateur": {
+    "nom": "Genouillères d'opérateur",
+    "marque": "imminence_armaments",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "cloak": {
+    "nom": "Cloak",
+    "description": "\"Pas de mouvements brusques.\"",
+    "emplacement": "genouilleres",
+    "marque": "imminence_armaments",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "menace_reduite_eqp",
+        "valeur": -50
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "masque_de_machiniste": {
+    "nom": "Masque de machiniste",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "boite_a_outils_d_artificier": {
+    "nom": "Boîte à outils d'artificier ",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "axel": {
+    "nom": "Axel",
+    "description": "\"Je ne suis pas en danger. C'est toi qui es en danger\"",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": ["afflux_d_energie"],
+    "type": "standard",
+    "estNomme": true
+  },
+  "gilet_de_service": {
+    "nom": "Gilet de service",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard"
+  },
+  "gants_de_garage": {
+    "nom": "Gants de garage",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "holster_d_artisan": {
+    "nom": "Holster d'artisan",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "genouilleres_professionnelles": {
+    "nom": "Genouillères professionnelles",
+    "marque": "shiny_monkey_gear",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard"
+  },
+  "grease": {
+    "nom": "Grease",
+    "description": "\"Je ne suis pas en danger. C'est toi qui es en danger.\"",
+    "emplacement": "genouilleres",
+    "marque": "shiny_monkey_gear",
+    "mod": false,
+    "estNomme": true,
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp",
+        "valeur": 16
+      },
+      {}
+    ],
+    "type": "standard"
+  },
+  "masque_de_discretion": {
+    "nom": "Masque de discrétion",
+    "marque": "heartbreaker",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_autoportant": {
+    "nom": "Sac autoportant",
+    "marque": "heartbreaker",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gilet_d_inflexibilite": {
+    "nom": "Gilet d'inflexibilité",
+    "marque": "heartbreaker",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_de_dexterite": {
+    "nom": "Gants de dextérité",
+    "marque": "heartbreaker",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_d_anticipation": {
+    "nom": "Holster d'anticipation",
+    "marque": "heartbreaker",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_d_agressivite": {
+    "nom": "Genouillères d'agressivité",
+    "marque": "heartbreaker",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_hotshot": {
+    "nom": "Masque Hotshot",
+    "marque": "hotshot",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_hotshot": {
+    "nom": "Sac à dos Hotshot",
+    "marque": "hotshot",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "veste_hotshot": {
+    "nom": "Veste Hotshot",
+    "marque": "hotshot",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_hotshot": {
+    "nom": "Gants Hotshot",
+    "marque": "hotshot",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_hotshot": {
+    "nom": "Holster Hotshot",
+    "marque": "hotshot",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_hotshot": {
+    "nom": "Genouillères Hotshot",
+    "marque": "hotshot",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_initiative_umbra": {
+    "nom": "Masque Initiative Umbra",
+    "marque": "initiative_umbra",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_initiative_umbra": {
+    "nom": "Sac à dos Initiative Umbra",
+    "marque": "initiative_umbra",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "veste_initiative_umbra": {
+    "nom": "Veste Initiative Umbra",
+    "marque": "initiative_umbra",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_initiative_umbra": {
+    "nom": "Gants Initiative Umbra",
+    "marque": "initiative_umbra",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_initiative_umbra": {
+    "nom": "Holster Initiative Umbra",
+    "marque": "initiative_umbra",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_initiative_umbra": {
+    "nom": "Genouillères Initiative Umbra",
+    "marque": "initiative_umbra",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_de_collecteur": {
+    "nom": "Masque de collecteur",
+    "marque": "ongoing_directive",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "harnais_pour_paquetage": {
+    "nom": "Harnais pour paquetage",
+    "marque": "ongoing_directive",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "harnais_de_ressources": {
+    "nom": "Harnais de ressources",
+    "marque": "ongoing_directive",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_de_combat_rapproche": {
+    "nom": "Gants de combat rapproché",
+    "marque": "ongoing_directive",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_pour_munitions_speciales": {
+    "nom": "Holster pour munitions spéciales",
+    "marque": "ongoing_directive",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres": {
+    "nom": "Genouillères",
+    "marque": "ongoing_directive",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_ortiz_exuro": {
+    "nom": "Masque Ortiz Exuro",
+    "marque": "ortiz_exuro",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_ortiz_exuro": {
+    "nom": "Sac à dos Ortiz Exuro",
+    "marque": "ortiz_exuro",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "veste_ortiz_exuro": {
+    "nom": "Veste Ortiz Exuro",
+    "marque": "ortiz_exuro",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_ortiz_exuro": {
+    "nom": "Gants Ortiz Exuro",
+    "marque": "ortiz_exuro",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_ortiz_exuro": {
+    "nom": "Holster Ortiz Exuro",
+    "marque": "ortiz_exuro",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_ortiz_exuro": {
+    "nom": "Genouillères Ortiz Exuro",
+    "marque": "ortiz_exuro",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_ray_face": {
+    "nom": "Masque Ray Face",
+    "marque": "pointe_de_lance",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "pack_tactique_brad": {
+    "nom": "Pack tactique Brad",
+    "marque": "pointe_de_lance",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gilet_de_combat_wright": {
+    "nom": "Gilet de combat Wright",
+    "marque": "pointe_de_lance",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_de_combat_reyes": {
+    "nom": "Gants de combat Reyes",
+    "marque": "pointe_de_lance",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "systeme_de_holster_lilley": {
+    "nom": "Système de holster Lilley",
+    "marque": "pointe_de_lance",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_trombley": {
+    "nom": "Genouillères Trombley",
+    "marque": "pointe_de_lance",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_de_protection_contre_les_biorisques": {
+    "nom": "Masque de protection contre les biorisques",
+    "marque": "protocole_eclipse",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_de_confinement": {
+    "nom": "Sac de confinement",
+    "marque": "protocole_eclipse",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "pastron_scelle": {
+    "nom": "Pastron scellé",
+    "marque": "protocole_eclipse",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_tactiques_de_qualite_medicale": {
+    "nom": "Gants tactiques de qualité médicale",
+    "marque": "protocole_eclipse",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "points_d_accroche_de_cuisse_ppe": {
+    "nom": "Points d'accroche de cuisse PPE",
+    "marque": "protocole_eclipse",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "protection_de_genoux_anti_dechirure": {
+    "nom": "Protection de genoux anti-déchirure",
+    "marque": "protocole_eclipse",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_anti_chaleur": {
+    "nom": "Masque anti-chaleur",
+    "marque": "foundry_bullwark",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "support_de_bouclier": {
+    "nom": "Support de bouclier",
+    "marque": "foundry_bullwark",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "armure_de_plates_forgees": {
+    "nom": "Armure de plates forgées",
+    "marque": "foundry_bullwark",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_de_creuset": {
+    "nom": "Gants de creuset",
+    "marque": "foundry_bullwark",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "ceinture_a_outils": {
+    "nom": "Ceinture à outils",
+    "marque": "foundry_bullwark",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_de_forge": {
+    "nom": "Genouillères de forge",
+    "marque": "foundry_bullwark",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_antipoussiere_rigger": {
+    "nom": "Masque antipoussière Rigger",
+    "marque": "rigger",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_d_equipement_rigger": {
+    "nom": "Sac d'équipement Rigger",
+    "marque": "rigger",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "harnais_d_acces_rapide_rigger": {
+    "nom": "Harnais d'accès rapide Rigger",
+    "marque": "rigger",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_antiderapants_rigger": {
+    "nom": "Gants antidérapants Rigger",
+    "marque": "rigger",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "pochette_fonctionnelle_rigger": {
+    "nom": "Pochette fonctionnelle Rigger",
+    "marque": "rigger",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "protections_antichocs_rigger": {
+    "nom": "Protections antichocs Rigger",
+    "marque": "rigger",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_strikers": {
+    "nom": "Masque strikers",
+    "marque": "strikers_battlegear",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_striker": {
+    "nom": "Sac à dos Striker",
+    "marque": "strikers_battlegear",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "harnais_striker": {
+    "nom": "Harnais Striker",
+    "marque": "strikers_battlegear",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_striker": {
+    "nom": "Gants Striker",
+    "marque": "strikers_battlegear",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_striker": {
+    "nom": "Holster Striker",
+    "marque": "strikers_battlegear",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genoullieres_striker": {
+    "nom": "Genoullières Striker",
+    "marque": "strikers_battlegear",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_vecteur_d_attaque": {
+    "nom": "Masque Vecteur d'attaque",
+    "marque": "corruption_systeme",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
+  },
+  "conteneur_de_surcharge": {
+    "nom": "Conteneur de surcharge",
+    "marque": "corruption_systeme",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
+  },
+  "armure_menace_combinee": {
+    "nom": "Armure menace combinée",
+    "marque": "corruption_systeme",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
+  },
+  "gants_de_controle_haptique": {
+    "nom": "Gants de contrôle Haptique",
+    "marque": "corruption_systeme",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
+  },
+  "holster_moule": {
+    "nom": "Holster moulé",
+    "marque": "corruption_systeme",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "offensif"
+    ]
+  },
+  "genouilliere_zero_day": {
+    "nom": "Genouillière Zero-day",
+    "marque": "corruption_systeme",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set",
+    "attributEssentiel": [
+      "defensif"
+    ]
+  },
+  "masque_cavalier": {
+    "nom": "Masque Cavalier",
+    "marque": "cavalier",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_cavalier": {
+    "nom": "Sac à dos Cavalier",
+    "marque": "cavalier",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "veste_cavalier": {
+    "nom": "Veste Cavalier",
+    "marque": "cavalier",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_cavalier": {
+    "nom": "Gants Cavalier",
+    "marque": "cavalier",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_cavalier": {
+    "nom": "Holster Cavalier",
+    "marque": "cavalier",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_cavalier": {
+    "nom": "Genouillères Cavalier",
+    "marque": "cavalier",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_de_classe_a_de_heft": {
+    "nom": "Masque de classe A de Heft",
+    "marque": "true_patriot",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_de_driver": {
+    "nom": "Sac à dos de Driver",
+    "marque": "true_patriot",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "protection_corporelle_d_appleton": {
+    "nom": "Protection corporelle d'Appleton",
+    "marque": "true_patriot",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "protege_mains_de_ross": {
+    "nom": "Protège-mains de Ross",
+    "marque": "true_patriot",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_a_faible_friction_de_young": {
+    "nom": "Holster à faible friction de Young",
+    "marque": "true_patriot",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_de_sheridan": {
+    "nom": "Genouillères de Sheridan",
+    "marque": "true_patriot",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_virtuose": {
+    "nom": "Masque Virtuose",
+    "marque": "virtuoso",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_a_dos_virtuose": {
+    "nom": "Sac à dos Virtuose",
+    "marque": "virtuoso",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "veste_virtuose": {
+    "nom": "Veste Virtuose",
+    "marque": "virtuoso",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "gants_virtuose": {
+    "nom": "Gants Virtuose",
+    "marque": "virtuoso",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_virtuose": {
+    "nom": "Holster Virtuose",
+    "marque": "virtuoso",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_virtuose": {
+    "nom": "Genouillères Virtuose",
+    "marque": "virtuoso",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "catharsis": {
+    "nom": "Catharsis",
+    "emplacement": "masque",
+    "description": "\"L'ordre établi fait tout pour que la rage révolutionnaire soit redirigée vers des exutoires permettant de libérer une pression générée par des désirs qui pourraient devenir dangereux si on les laissait s'exprimer. - George L.Jackson\"",
+    "mod": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination"
+    },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "reparation_subies_eqp"
+      },
+      {
+        "nom": "regeneration_de_protection_eqp"
+      }
+    ],
+    "talents": [
+      "cercle_vicieux"
+    ],
+    "type": "exotique"
+  },
+  "le_catalyseur": {
+    "nom": "Le Catalyseur",
+    "description": "\"On est toujours en train d'être testés. La seule variable constante est le feu.\"",
+    "emplacement": "masque",
+    "mod": true,
+    "obtention": {
+      "mission": true,
+      "description": "Tuer l'un des boss nommés de Brooklyn ou dans la mission \"Army Terminal\""
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      },
+      {
+        "nom": "effets_d_etat_eqp"
+      }
+    ],
+    "talents": [
+      "agent_chimique"
+    ],
+    "type": "exotique"
+  },
+  "masque_de_coyote": {
+    "nom": "Masque de Coyote",
+    "description": "\"Des balles, j'en ai bouffé un paquet. C'est pas les tiennes qui me feront tomber. - Coyote\"",
+    "emplacement": "masque",
+    "mod": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "mission": true,
+      "represailles": "Hyènes, Escouade d'extermination",
+      "description": "Tuer Coyote, boss de la mission Jefferson Trade Center"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "instinct_de_meute"
+    ],
+    "type": "exotique"
+  },
+  "collector": {
+    "nom": "Collector",
+    "description": "\"On va voir si la Division arrive à te recoudre, après ça ! - Le Stratège\"",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "amasseur_de_butin"
+    ],
+    "type": "exotique"
+  },
+  "memento": {
+    "nom": "Memento",
+    "description": "\"J'ai pris la relève de ceux qui épiaient, chassaient et récupéraient jusqu'à ce qu'il ne soient plus que des ombres.\nMa mission est maintenant terminée et la tienne peut commencer.\"\n- Inscription d'un auteur inconnu",
+    "emplacement": "sac_a_dos",
+    "attributEssentiel": [
+      "offensif",
+      "utilitaire",
+      "defensif"
+    ],
+    "attributs": [],
+    "mod": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination"
+    },
+    "talents": [
+      "elimination_confirmee"
+    ],
+    "type": "exotique"
+  },
+  "fierte_harrier": {
+    "nom": "Fierté Harrier",
+    "description": "\"Les aigles en force !\"",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Fin de mission"
+    },
+    "attributEssentiel": [
+      "offensif",
+      "defensif",
+      "utilitaire"
+    ],
+    "attributs": [],
+    "talents": [
+      "reequilibre"
+    ],
+    "type": "exotique"
+  },
+  "pack_de_reparation_d_urgence_de_birdie": {
+    "nom": "Pack de réparation d'urgence de Birdie",
+    "description": "\"Relève-toi, on n'a plus de sacs mortuaires.\"",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
+      "description": "Traque Fardeau de la vérité <Alani Kelso> Mission Roosevelt Island"
+    },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "competences_de_reparation_eqp"
+      }
+    ],
+    "talents": [
+      "medecin_de_combat"
+    ],
+    "type": "exotique"
+  },
+  "sac_a_dos_de_survie_d_acosta": {
+    "nom": "Sac à dos de survie d'Acosta",
+    "description": "\"On ne sait jamais de quoi on peut avoir besoin, alors mieux vaut se préparer à tout. - Eva Acosta, experte en spéléologie urbaine\"",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Parias, Escouade D'extermination"
+    },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "degats_de_competence_eqp"
+      }
+    ],
+    "talents": [
+      "un_tiens_vaut_mieux",
+      "que_deux_tu_l_auras"
+    ],
+    "type": "exotique"
+  },
+  "sac_ninja_bike": {
+    "nom": "Sac Ninja Bike",
+    "description": "\"Il est ressuscité des profondeurs de l'enfer, comme s'il ne pouvait pas mourir. Le prêtre\"",
+    "emplacement": "sac_a_dos",
+    "marque": "*",
+    "attributEssentiel": [
+      "offensif",
+      "utilitaire",
+      "defensif"
+    ],
+    "attributs": [],
+    "mod": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Rikers, Escouade D'extermination"
+    },
+    "talents": [
+      "debrouillardise"
+    ],
+    "type": "exotique"
+  },
+  "beacon": {
+    "nom": "Beacon",
+    "emplacement": "torse",
+    "description": "\"Avec moi.\"",
+    "mod": true,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Rikers, Escouade d'extermination"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "lien"
+    ],
+    "type": "exotique"
+  },
+  "bricoleur": {
+    "nom": "Bricoleur",
+    "description": "\"Pourquoi pas les deux ?\"",
+    "emplacement": "masque",
+    "mod": true,
+    "obtention": {
+      "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
+      "description": "Traque Crossroads <Le Directeur> Mission Potomac Event Center"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "abrege"
+    ],
+    "type": "exotique"
+  },
+  "la_fierte_de_ridgeway": {
+    "nom": "La fierté de Ridgeway",
+    "description": "\"La manière dont un homme saigne en dit long sur son compte. Moi ? Je saigne pour mon pays, et rien d'autre. - Général Antwon Ridgeway\"",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Obtenir 5 pièces lors de votre ascencion du summit dans les coffres à ouvrir avec une clef.\n\n33% de chance d'obtenir la pièce \"Protection corporelle 120\" lors des niveaux 1-20\n33% de chance d'obtenir la pièce \"Épaulières 2140\" lors des niveaux 21-40\n33% de chance d'obtenir \"Couteau de chasse 4160\" lors des niveaux 41-60\n33% de chance d'obtenir la pièce \"Drapeau 6180\" lors des niveaux 61-80\n33% de chance d'obtenir la pièce \"Plaques d'identité 81100\" lors des niveaux 81-100\nRendez-vous à l'étage 100 du summit, tuez les hunters pour valider le projet.\n\nComplétez le nouveau projet (prévoir un torse nommé Rien à foutre) pour obtenir le blueprint du torse"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "avantage_sanglant"
+    ],
+    "type": "exotique"
+  },
+  "provocateur": {
+    "nom": "Provocateur",
+    "description": "\"On ne peut pas porter de rouge au combat. Un chevalier rouge n'a pas peur, il provoque l'ennemi. - Anonyme",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
+      "description": "Traque Nuances de rouge <Théo Parnell> Mission Siège de l'administration spatiale"
+    },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "regeneration_de_protection_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
+    "talents": [
+      "challenger"
+    ],
+    "type": "exotique"
+  },
+  "systeme_de_protection_tardigrade": {
+    "nom": "Système de protection Tardigrade",
+    "description": "\"Évolution de concept de blindage réactif, le nano-plaquage ablatif était à l'origine destiné aux boucliers thermiques autoréparants équipant les avions conçus pour entrer et sortir de l'atmosphère terrestre de façon répétée.",
+    "emplacement": "torse",
+    "mod": true,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "True Sons, fin de mission"
+    },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "regeneration_de_protection_eqp"
+      }
+    ],
+    "talents": [
+      "nano_plaquage_ablatif"
+    ],
+    "type": "exotique"
+  },
+  "vilenie": {
+    "nom": "Vilenie",
+    "description": "\"Tu t'accroches à la vie comme un ado rebelle qui brave le couvre-feu. Mais la mort est patiente...et moi aussi. - Dr Vilis, BTSU",
+    "emplacement": "masque",
+    "mod": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, fin de mission"
+    },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
+    "talents": [
+      "charge_toxique"
+    ],
+    "type": "exotique"
+  },
+  "conquerants": {
+    "nom": "Conquérants",
+    "description": "\"Commence tout en bas et hisse-toi jusqu'au sommet",
+    "emplacement": "gants",
+    "mod": false,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Hyènes, fin de mission"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "maillon_faible"
+    ],
+    "type": "exotique"
+  },
+  "gants_exodus": {
+    "nom": "Gants Exodus",
+    "description": "\"J'aimerais faire un retrait.",
+    "emplacement": "gants",
+    "mod": false,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "True Sons, fin de mission"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "ecran_de_fumee"
+    ],
+    "type": "exotique"
+  },
+  "gants_robustes": {
+    "nom": "Gants robustes",
+    "description": "\"On ne peut pas dire que je l'ai inventé, mais j'ai donné un coup de main - Calvin McManus",
+    "emplacement": "gants",
+    "mod": false,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, fin de mission"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "poigne_de_fer"
+    ],
+    "type": "exotique"
+  },
+  "gants_strategiques_btsu": {
+    "nom": "Gants Stratégiques BTSU",
+    "description": "\"Mon père m'a toujours dit que les bons ouvriers avaient de bons outils. C'est pour ça que j'ai choisi de rejoindre l'organisation qui avait les meilleurs outils. - Galveston",
+    "emplacement": "gants",
+    "mod": false,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "True Sons, fin de mission"
+    },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "recup_de_competence_eqp"
+      },
+      {
+        "nom": "competences_de_reparation_eqp"
+      }
+    ],
+    "talents": [
+      "optimisation_de_transfert"
+    ],
+    "type": "exotique"
+  },
+  "poing_sanglant": {
+    "nom": "Poings sanglant",
+    "description": "\"Une montre cassée donne l'heure deux fois par jour. 13" ,
+    "emplacement": "gants",
+    "mod": false,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Rikers, Escouade D'extermination"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "exuberant"
+    ],
+    "type": "exotique"
+  },
+  "dynastie_imperiale": {
+    "nom": "Dynastie Impériale",
+    "description": "\"Les symboles sont importants. Regarde le phénix sur ta manche. Pour moi, le dragon a la même signification. - Faye Lau",
+    "emplacement": "holster",
+    "mod": false,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Nettoyeurs, Escouade D'extermination",
+      "mission": true,
+      "description": "Récompense lors de l'élimination d'un boss Nettoyeurs, mission/summit"
+    },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "effets_d_etat_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
+    "talents": [
+      "eclat_du_dragon"
+    ],
+    "type": "exotique"
+  },
+  "electrochoc": {
+    "nom": "Éléctrochoc",
+    "description": "\"Après avoir reçu un coup de poing au centre commercial, j'ai eu une idée...choquante. Anonyme",
+    "emplacement": "holster",
+    "mod": false,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True Sons, Escouade D'extermination"
+    },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "protection_contre_alterations_d_etat_eqp"
+      }
+    ],
+    "talents": [
+      "defibrillateur"
+    ],
+    "type": "exotique"
+  },
+  "forme_d_onde": {
+    "nom": "Forme d'onde",
+    "description": "\"Des couches de graphite ont été insérées dans le tissu kevlar du holster pour que les mouvements du porteur génèrent un champs électromagnétique oscillant inducteur permettant de recharger les dispositifs électriques distants.",
+    "emplacement": "holster",
+    "mod": false,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Parias, fin de mission"
+    },
+    "attributEssentiel": [
+      "utilitaire"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_competence_eqp"
+      },
+      {
+        "nom": "recup_de_competence_eqp"
+      }
+    ],
+    "talents": [
+      "courant_alternatif"
+    ],
+    "type": "exotique"
+  },
+  "fourreau_centurion": {
+    "description": "Il vaut mieux avoir plus qu'une arme dans son étui.",
+    "nom": "Fourreau Centurion",
+    "emplacement": "holster",
+    "mod": false,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Hyènes, Escouade D'extermination"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "maniement_d_arme_eqp"
+      }
+    ],
+    "talents": [
+      "contre"
+    ],
+    "type": "exotique"
+  },
+  "holster_d_agilite": {
+    "nom": "Holster d'agilité",
+    "description": "Sauvez-vous !",
+    "emplacement": "holster",
+    "mod": false,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Parias, fin de mission"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "esquive_reparatrice"
+    ],
+    "type": "exotique"
+  },
+  "holster_du_cow_boy_de_dodge_city": {
+    "nom": "Holster du cow-boy de Dodge City",
+    "description": "La rapidité c'est bien, mais la précision c'est tout ! Dans une fusillade...tu dois prendre ton temps dans l'urgence. - Wyatt Earp",
+    "emplacement": "holster",
+    "mod": false,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Achetez le projet à la vendeuse Inaya al-khaliq à côté de l'établi de fabrication [projet Holster: va vers l'ouest, Jeune Agent.]\n\nSe rendre au point contrôle \"station-service Riverside\" (situé à l'extrême ouest de la carte). Récuperez la \"Ceinture en cuir à blocage  rapide\" dans la caisse jaune de la réserve.\nDonnez la pièce à Inaya pour obtenir la suite.\n\n100% d'obtenir la pièce \"Holster en cuir travaillé\" sur un point de contrôle hyène de niveau 4.\n100% de chance d'obtenir la pièce \"Holster en cuir inversé\" sur un point de contrôle True sons de niveau 4.\n100% d'obtenir la pièce \"Protection antichoc huilé\" sur un point de contrôle Paria de niveau 4.\nDonnez les pièces à Inaya pour avoir la suite.\n\n100% de chance d'obtenir la pièce \"Rind\" sur un nommé Black Tusk.\nRendez vous dans le bar situé à l'est de la maison blanche. Le bar se situe sur la 15th St NW (il y a un ECHO dans le bar). Allez y après 12h00 ingame pour faire apparaitre le nommé en question (l'heure est dispo dans le mode photo. Echap -> maintenir F pour activer le mode)"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_headshot_eqp"
+      },
+      {
+        "nom": "maniement_d_arme_eqp"
+      }
+    ],
+    "talents": [
+      "gachette_facile"
+    ],
+    "type": "exotique"
+  },
+  "blacklisters": {
+    "nom": "Blacklisters",
+    "description": "Abattez ce type spécifiquement.",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "obtention": {
+      "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
+      "description": "Traque Le pacte <Le sommet> Tidal Basin "
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "talents": [
+      "ostracisation"
+    ],
+    "type": "exotique"
+  },
+  "genouilleres_d_acosta": {
+    "nom": "Genouillères d'Acosta",
+    "description": "Ils se sont fait choper par la JTF, mais ils n'ont pas ma maîtrise de dingo du parkour. - Eva Acosta",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade D'extermination"
+    },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "maniement_d_arme_eqp"
+      },
+      {
+        "nom": "sante_eqp"
+      }
+    ],
+    "talents": [
+      "plan_de_fuite"
+    ],
+    "type": "exotique"
+  },
+  "genouilleres_de_sawyer": {
+    "nom": "Genouillères de Sawyer",
+    "description": "Quand j'ai perdu ma jambe, je me suis dit que c'était fini pour moi. Mais j'ai trouvé le moyen de me rendre utile. Telle le phénix, je me suis relevée de mes cendres. Maintenant, c'est à eux de retrouver une utilité. - Odessa Sawyer",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Hyènes, Escouade D'extermination"
+    },
+    "attributEssentiel": [
+      "defensif"
+    ],
+    "attributs": [
+      {
+        "nom": "resistance_explosions_eqp"
+      },
+      {
+        "nom": "sante_eqp"
+      }
+    ],
+    "talents": [
+      "inflexibilite"
+    ],
+    "type": "exotique"
+  },
+  "genouilleres_ninja_bike": {
+    "nom": "Genouillères de messager Ninja Bike",
+    "description": "\"Parkour ! Parkour !\"- Un messager NinjaBike enthousiaste",
+    "emplacement": "genouilleres",
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ],
+    "mod": false,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Nettoyeurs, Escouade D'extermination"
+    },
+    "talents": [
+      "parkour"
+    ],
+    "type": "exotique"
+  },
+  "masque_improvise": {
+    "nom": "Masque improvisé",
+    "marque": "improvise",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
+  },
+  "sac_a_dos_improvise": {
+    "nom": "Sac à dos improvisé",
+    "marque": "improvise",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
+  },
+  "protection_corporelle_improvisee": {
+    "nom": "Protection corporelle improvisée",
+    "marque": "improvise",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
+  },
+  "gants_improvises": {
+    "nom": "Gants improvisés",
+    "marque": "improvise",
+    "emplacement": "gants",
+    "mod": true,
+    "talents": [],
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
+  },
+  "holster_improvise": {
+    "nom": "Holster improvisé",
+    "marque": "improvise",
+    "emplacement": "holster",
+    "mod": true,
+    "talents": [],
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
+  },
+  "masque_core_strength": {
+    "nom": "Masque Core Strength",
+    "marque": "core_strength",
+    "emplacement": "masque",
+    "attributEssentiel": [
+      "random"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": true,
+    "type": "gear_set"
+  },
+  "sac_a_dos_core_strength": {
+    "nom": "Sac à dos Core Strength",
+    "marque": "core_strength",
+    "emplacement": "sac_a_dos",
+    "attributEssentiel": [
+      "random"
+    ],
+    "mod": true,
+    "type": "gear_set"
+  },
+  "torse_core_strength": {
+    "nom": "Torse Core Strength",
+    "marque": "core_strength",
+    "emplacement": "torse",
+    "attributEssentiel": [
+      "random"
+    ],
+    "mod": true,
+    "type": "gear_set"
+  },
+  "gants_core_strength": {
+    "nom": "Gants Core Strength",
+    "marque": "core_strength",
+    "emplacement": "gants",
+    "attributEssentiel": [
+      "random"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": false,
+    "type": "gear_set"
+  },
+  "holster_core_strength": {
+    "nom": "Holster Core Strength",
+    "marque": "core_strength",
+    "emplacement": "holster",
+    "attributEssentiel": [
+      "random"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": false,
+    "type": "gear_set"
+  },
+  "genouilleres_core_strength": {
+    "nom": "Genouillères Core Strength",
+    "marque": "core_strength",
+    "emplacement": "genouilleres",
+    "attributEssentiel": [
+      "random"
+    ],
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "mod": false,
+    "type": "gear_set"
+  },
+  "genouilleres_improvisees": {
+    "nom": "Genouillères improvisées",
+    "marque": "improvise",
+    "emplacement": "genouilleres",
+    "mod": true,
+    "talents": [],
+    "type": "improvise",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "obtention": {
+      "description": "Fabriqué dans l'établis"
+    }
+  },
+  "robin": {
+    "nom": "Robin",
+    "marque": "style_royal",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [
+      "degaineur"
+    ],
+    "type": "standard",
+    "notes": "",
+    "estNomme": true,
+    "obtention": {
+    }
+  },
+  "bulldog": {
+    "nom": "Bulldog",
+    "marque": "style_royal",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [
+      "maitrise_de_soi"
+    ],
+    "type": "standard",
+    "notes": "",
+    "estNomme": true,
+    "obtention": {
+    }
+  },
+  "masque_de_lin": {
+    "nom": "Masque de lin",
+    "marque": "style_royal",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "plaque_de_la_jacobee": {
+    "nom": "Plaque de la Jacobée",
+    "marque": "style_royal",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "sacs_a_dos_du_chardon": {
+    "nom": "Sacs à dos du chardon",
+    "marque": "style_royal",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "gants_du_lion": {
+    "nom": "Gants du lion",
+    "marque": "style_royal",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "holster_de_la_jonquille": {
+    "nom": "Holster de la jonquille",
+    "marque": "style_royal",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "genouilleres_de_la_rose": {
+    "nom": "Genouillères de la rose",
+    "marque": "style_royal",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "investisseur": {
+    "nom": "Investisseur",
+    "emplacement": "masque",
+    "mod": false,
+    "talents": [
+      "triple_emplacement"
+    ],
+    "type": "exotique",
+    "notes": "Un attribut essentiel parmis la liste des possibilitées.",
+    "description": "Quand ils s'y attendent le moins.",
+
+    "obtention": {
+      "description": "Passe de saison Mobilisation : Niveau 1 (payant), Niveau 69 (gratuit)."
+    },
+    "attributEssentiel": [
+      "offensif",
+      "utilitaire",
+      "defensif"
+    ],
+    "attributs": [
+      {},
+      {},
+      {}
+    ]
+  }
+
+}

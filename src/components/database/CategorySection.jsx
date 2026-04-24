@@ -102,6 +102,7 @@ export default function CategorySection({ category, items, searchTerm, allData, 
   }
   if (category?.key === 'talentsEquipements') {
     if (allData?.equipements) extraProps.equipements = allData.equipements
+    if (allData?.ensembles) extraProps.ensembles = allData.ensembles
   }
   if (category?.key === 'ensembles') {
     if (allData?.talentsEquipements) extraProps.talentsEquipements = allData.talentsEquipements
@@ -131,7 +132,12 @@ export default function CategorySection({ category, items, searchTerm, allData, 
     const currentModifier = pathParts[4];
 
     let newPath = `/db/${category.key}/${itemSlug}`;
-    if (currentSlug === itemSlug && currentModifier) {
+    
+    // Si c'est un talent sans description classique, il est forcément parfait
+    const isTalent = category.key === 'talentsArmes' || category.key === 'talentsEquipements';
+    if (isTalent && !item.description && item.perfectDescription) {
+      newPath += `/parfait`;
+    } else if (currentSlug === itemSlug && currentModifier) {
       newPath += `/${currentModifier}`;
     }
 

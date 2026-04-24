@@ -21,38 +21,38 @@ const RELATIONS = [
     // ==========================================
     {
         name: "Armes -> Types d'armes",
-        sourceFile: 'armes-type.jsonc',
-        targetFile: 'armes.jsonc',
+        sourceFile: 'armes/armes-type.jsonc',
+        targetFile: 'armes/armes.jsonc',
         targetKey: 'type'
     },
     {
         name: "Armes -> Talents d'armes",
-        sourceFile: 'talents-armes.jsonc',
-        targetFile: 'armes.jsonc',
+        sourceFile: 'armes/talents-armes.jsonc',
+        targetFile: 'armes/armes.jsonc',
         targetKey: 'talents'
     },
     {
         name: "Armes -> Mods pré-équipés",
-        sourceFile: 'mods-armes.jsonc',
-        targetFile: 'armes.jsonc',
+        sourceFile: 'armes/mods-armes.jsonc',
+        targetFile: 'armes/armes.jsonc',
         targetKey: 'modsPredefinis'
     },
     {
         name: "Armes -> Attributs Essentiels",
-        sourceFile: 'attributs.jsonc',
-        targetFile: 'armes.jsonc',
+        sourceFile: 'attributs/attributs.jsonc',
+        targetFile: 'armes/armes.jsonc',
         targetKey: 'attributs_essentiels'
     },
     {
         name: "Armes -> Attributs (Classiques)",
-        sourceFile: 'attributs.jsonc',
-        targetFile: 'armes.jsonc',
+        sourceFile: 'attributs/attributs.jsonc',
+        targetFile: 'armes/armes.jsonc',
         targetKey: 'attributs'
     },
     {
         name: "Types d'armes -> Attributs Essentiels",
-        sourceFile: 'attributs.jsonc',
-        targetFile: 'armes-type.jsonc',
+        sourceFile: 'attributs/attributs.jsonc',
+        targetFile: 'armes/armes-type.jsonc',
         targetKey: 'attributs_essentiels'
     },
 
@@ -61,14 +61,14 @@ const RELATIONS = [
     // ==========================================
     {
         name: "Talents d'armes -> Armes (Armes Parfaites)",
-        sourceFile: 'armes.jsonc',
-        targetFile: 'talents-armes.jsonc',
+        sourceFile: 'armes/armes.jsonc',
+        targetFile: 'armes/talents-armes.jsonc',
         targetKey: 'armesParfaites'
     },
     {
         name: "Talents d'armes -> Compatibilité (Types d'armes)",
-        sourceFile: 'armes-type.jsonc',
-        targetFile: 'talents-armes.jsonc',
+        sourceFile: 'armes/armes-type.jsonc',
+        targetFile: 'armes/talents-armes.jsonc',
         targetKey: 'compatibilite',
         targetIsKey: true
     },
@@ -78,32 +78,32 @@ const RELATIONS = [
     // ==========================================
     {
         name: "Équipements -> Types d'équipements (Emplacements)",
-        sourceFile: 'equipements-type.jsonc',
-        targetFile: 'equipements.jsonc',
+        sourceFile: 'equipements/equipements-type.jsonc',
+        targetFile: 'equipements/equipements.jsonc',
         targetKey: 'emplacement'
     },
     {
         name: "Équipements -> Marques / Gear Sets",
-        sourceFile: 'ensembles.jsonc',
-        targetFile: 'equipements.jsonc',
+        sourceFile: 'equipements/ensembles.jsonc',
+        targetFile: 'equipements/equipements.jsonc',
         targetKey: 'marque' // ⚠️ Attention au slug "*"
     },
     {
         name: "Équipements -> Talents d'équipements",
-        sourceFile: 'talents-equipements.jsonc',
-        targetFile: 'equipements.jsonc',
+        sourceFile: 'equipements/talents-equipements.jsonc',
+        targetFile: 'equipements/equipements.jsonc',
         targetKey: 'talents'
     },
     {
         name: "Équipements -> Attributs",
-        sourceFile: 'attributs.jsonc',
-        targetFile: 'equipements.jsonc',
+        sourceFile: 'attributs/attributs.jsonc',
+        targetFile: 'equipements/equipements.jsonc',
         targetKey: 'attributs'
     },
     {
         name: "Équipements -> Type d'attribut Essentiel",
-        sourceFile: 'attributs-type.jsonc',
-        targetFile: 'equipements.jsonc',
+        sourceFile: 'attributs/attributs-type.jsonc',
+        targetFile: 'equipements/equipements.jsonc',
         targetKey: 'attributEssentiel'
     },
 
@@ -112,8 +112,8 @@ const RELATIONS = [
     // ==========================================
     {
         name: "Talents d'équipements -> Équipements (Pièces Parfaites)",
-        sourceFile: 'equipements.jsonc',
-        targetFile: 'talents-equipements.jsonc',
+        sourceFile: 'equipements/equipements.jsonc',
+        targetFile: 'equipements/talents-equipements.jsonc',
         targetKey: 'equipementsParfaits'
     },
 
@@ -122,14 +122,14 @@ const RELATIONS = [
     // ==========================================
     {
         name: "Ensembles -> Talent Torse",
-        sourceFile: 'talents-equipements.jsonc',
-        targetFile: 'ensembles.jsonc',
+        sourceFile: 'equipements/talents-equipements.jsonc',
+        targetFile: 'equipements/ensembles.jsonc',
         targetKey: 'talentTorse'
     },
     {
         name: "Ensembles -> Talent Sac",
-        sourceFile: 'talents-equipements.jsonc',
-        targetFile: 'ensembles.jsonc',
+        sourceFile: 'equipements/talents-equipements.jsonc',
+        targetFile: 'equipements/ensembles.jsonc',
         targetKey: 'talentSac'
     },
 
@@ -138,9 +138,16 @@ const RELATIONS = [
     // ==========================================
     {
         name: "Attributs -> Statistiques de jeu",
-        sourceFile: 'statistiques.jsonc',
-        targetFile: 'attributs.jsonc',
+        sourceFile: 'attributs/statistiques.jsonc',
+        targetFile: 'attributs/attributs.jsonc',
         targetKey: 'statistiques'
+    },
+    {
+        name: "Class-spe -> Attributs (bonusAttributs)",
+        sourceFile: 'attributs/attributs.jsonc',
+        targetFile: 'class-spe.jsonc',
+        targetKey: 'nom',
+        targetPath: ['classStats', 'bonusAttributs']
     },
 
     // ==========================================
@@ -148,31 +155,31 @@ const RELATIONS = [
     // ==========================================
     {
         name: "Mods d'armes (Compatibilité) -> Types de mods",
-        sourceFile: 'mods-armes-type.jsonc',
-        targetFile: 'mods-armes.jsonc',
+        sourceFile: 'armes/mods-armes-type.jsonc',
+        targetFile: 'armes/mods-armes.jsonc',
         targetKey: 'compatible'
     },
     {
         name: "Mods d'armes -> Attributs",
-        sourceFile: 'attributs.jsonc',
-        targetFile: 'mods-armes.jsonc',
+        sourceFile: 'attributs/attributs.jsonc',
+        targetFile: 'armes/mods-armes.jsonc',
         targetKey: 'attribut'
     },
     {
         name: "Mods d'équipements -> Catégorie (Type d'attribut)",
-        sourceFile: 'attributs-type.jsonc',
-        targetFile: 'mods-equipements.jsonc',
+        sourceFile: 'attributs/attributs-type.jsonc',
+        targetFile: 'equipements/mods-equipements.jsonc',
         targetKey: 'categorie'
     },
     {
         name: "Mods d'équipements -> Attributs",
-        sourceFile: 'attributs.jsonc',
-        targetFile: 'mods-equipements.jsonc',
+        sourceFile: 'attributs/attributs.jsonc',
+        targetFile: 'equipements/mods-equipements.jsonc',
         targetKey: 'attribut'
     },
     {
         name: "Mods de compétences -> Attributs",
-        sourceFile: 'attributs.jsonc',
+        sourceFile: 'attributs/attributs.jsonc',
         targetFile: 'mods-competences.jsonc',
         targetKey: 'attribut'
     }
@@ -213,12 +220,27 @@ function loadJsonc(filename) {
  * @param {Set<string>} results Set accumulateur pour éviter les doublons de traitement.
  * @returns {Set<string>}
  */
-function extractValues(data, targetKey, targetIsKey = false, results = new Set()) {
+function hasPathSequence(path, sequence = []) {
+    if (!sequence || sequence.length === 0) return true
+    let seqIndex = 0
+    for (const segment of path) {
+        if (segment === sequence[seqIndex]) {
+            seqIndex++
+            if (seqIndex === sequence.length) return true
+        }
+    }
+    return false
+}
+
+function extractValues(data, targetKey, targetIsKey = false, results = new Set(), targetPath = null, currentPath = []) {
     if (Array.isArray(data)) {
-        data.forEach(item => extractValues(item, targetKey, targetIsKey, results))
+        data.forEach((item, index) => extractValues(item, targetKey, targetIsKey, results, targetPath, [...currentPath, `[${index}]`]))
     } else if (typeof data === 'object' && data !== null) {
         for (const [key, value] of Object.entries(data)) {
             if (key === targetKey) {
+                if (targetPath && !hasPathSequence(currentPath, targetPath)) {
+                    continue
+                }
 
                 if (targetIsKey) {
                     // Extraction des clés (ex: "compatibilite": { "fusil": true, "pistolet": false })
@@ -242,7 +264,7 @@ function extractValues(data, targetKey, targetIsKey = false, results = new Set()
 
             } else {
                 // Parcours récursif en profondeur
-                extractValues(value, targetKey, targetIsKey, results)
+                extractValues(value, targetKey, targetIsKey, results, targetPath, [...currentPath, key])
             }
         }
     }
@@ -277,7 +299,7 @@ for (const rule of RELATIONS) {
     const validSlugsSet = new Set(Object.keys(sourceData))
 
     // 2. Extraction dynamique de toutes les références utilisées dans le fichier cible
-    const usedSlugsSet = extractValues(targetData, rule.targetKey, rule.targetIsKey)
+    const usedSlugsSet = extractValues(targetData, rule.targetKey, rule.targetIsKey, new Set(), rule.targetPath)
 
     // 3. Identification des erreurs
     const invalidReferences = []

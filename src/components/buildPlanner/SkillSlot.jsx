@@ -1,15 +1,9 @@
 import { useState, useMemo, useEffect } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import { formatModAttributs } from '../../utils/modCompatibility'
 import MarkdownText from '../common/MarkdownText'
 
-/**
- * Normalise un nom pour comparaison.
- */
-function normalize(s) {
-  if (!s) return ''
-  return s.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase().trim()
-}
 
 /**
  * Trouve les emplacements de mods compatibles pour une compétence donnée.
@@ -30,21 +24,21 @@ function getSkillModSlots(skill) {
 function getCompatibleSkillMods(competenceSlug, emplacement, modsCompetences, specialisation) {
   if (!modsCompetences || !competenceSlug) return []
   const modsList = Array.isArray(modsCompetences) ? modsCompetences : Object.values(modsCompetences)
-  const compNorm = normalize(competenceSlug)
-  const empNorm = normalize(emplacement)
+  const compNorm = normalizeText(competenceSlug)
+  const empNorm = normalizeText(emplacement)
 
   return modsList.filter(m => {
     // Vérifier la compatibilité avec la compétence
     if (m.compatible && m.compatible.length > 0) {
-      const isCompat = m.compatible.some(c => normalize(c) === compNorm)
+      const isCompat = m.compatible.some(c => normalizeText(c) === compNorm)
       if (!isCompat) return false
     } else if (m.competence) {
       // Fallback sur le champ competence
-      if (normalize(m.competence) !== compNorm) return false
+      if (normalizeText(m.competence) !== compNorm) return false
     }
     // Vérifier la compatibilité avec l'emplacement
     if (emplacement && m.emplacement) {
-      if (normalize(m.emplacement) !== empNorm) return false
+      if (normalizeText(m.emplacement) !== empNorm) return false
     }
     // Vérifier prerequis de spécialisation
     if (m.prerequis) return m.prerequis === specialisation
@@ -52,7 +46,7 @@ function getCompatibleSkillMods(competenceSlug, emplacement, modsCompetences, sp
   })
 }
 
-export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences, allAttributs, statistiques, onSelect }) {
+export default function SkillSlot({ slotIndex, skill, skillMods, modsCompetences, allAttributs, statistiques, onSelect }) {
   const { dispatch, skillNeedsSpec, specialisation, SPECIALISATIONS, modValues } = useBuild()
   const [modPickerOpen, setModPickerOpen] = useState(null) // emplacement index or null
 
@@ -108,7 +102,9 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
               <div className="mt-2 pt-2 border-t border-tactical-border/30">
                 <div className="text-xs text-gray-600 uppercase tracking-widest mb-0.5">Mods</div>
                 {modSlots.map((slot, i) => {
-                  const equipped = skillMod && i === 0 ? skillMod : null // un seul mod de compétence pour l'instant
+                  const equipped = Array.isArray(skillMods)
+                    ? (skillMods[i] || null)
+                    : (i === 0 ? (skillMods || null) : null)
                   return (
                     <div key={i} className="py-0.5">
                       <div className="flex items-center gap-1.5">
@@ -125,7 +121,7 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
                                 )}
                               </span>
                               <button
-                                onClick={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, mod: null }) }}
+                                onClick={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, modIndex: i, mod: null }) }}
                                 className="text-gray-600 hover:text-red-400 text-xs ml-auto shrink-0"
                               >✕</button>
                             </div>
@@ -133,7 +129,10 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
                               if (entry.valeur != null) return null
                               const attrDef = allAttributs?.[entry.attribut]
                               if (!attrDef || attrDef.min == null || attrDef.max == null || attrDef.min === attrDef.max) return null
-                              const userVal = modValues?.skillMods?.[slotIndex]?.[entry.attribut]
+                              const slotValues = modValues?.skillMods?.[slotIndex]
+                              const indexedVal = slotValues?.[i]?.[entry.attribut]
+                              const legacyVal = i === 0 ? slotValues?.[entry.attribut] : undefined
+                              const userVal = indexedVal != null ? indexedVal : legacyVal
                               const val = userVal != null ? userVal : attrDef.max
                               const unite = attrDef.unite || '%'
                               const step = unite === 'pts' || unite === 'pts/s' ? 1 : 0.1
@@ -149,7 +148,7 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
                                     max={attrDef.max}
                                     step={step}
                                     value={val}
-                                    onChange={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD_VALUE', slot: slotIndex, attrSlug: entry.attribut, valeur: parseFloat(e.target.value) }) }}
+                                    onChange={(e) => { e.stopPropagation(); dispatch({ type: 'SET_SKILL_MOD_VALUE', slot: slotIndex, modIndex: i, attrSlug: entry.attribut, valeur: parseFloat(e.target.value) }) }}
                                     className="attr-slider mt-0.5"
                                   />
                                 </div>
@@ -191,7 +190,7 @@ export default function SkillSlot({ slotIndex, skill, skillMod, modsCompetences,
           statistiques={statistiques}
           specialisation={specialisation}
           onSelect={(mod) => {
-            dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, mod })
+            dispatch({ type: 'SET_SKILL_MOD', slot: slotIndex, modIndex: modPickerOpen, mod })
             setModPickerOpen(null)
           }}
           onClose={() => setModPickerOpen(null)}
@@ -221,11 +220,11 @@ function SkillModPicker({ competenceSlug, emplacement, modsCompetences, allAttri
 
   const filtered = useMemo(() => {
     if (!search) return compatibleMods
-    const s = search.toLowerCase()
+    const s = normalizeText(search)
     return compatibleMods.filter(m =>
-      (m.nom || m.slug || '').toLowerCase().includes(s) ||
-      (m.emplacement || '').toLowerCase().includes(s) ||
-      formatModAttributs(m, allAttributs, statistiques).toLowerCase().includes(s)
+      normalizeText(m.nom || m.slug || '').includes(s) ||
+      normalizeText(m.emplacement || '').includes(s) ||
+      normalizeText(formatModAttributs(m, allAttributs, statistiques)).includes(s)
     )
   }, [compatibleMods, allAttributs, statistiques, search])
 

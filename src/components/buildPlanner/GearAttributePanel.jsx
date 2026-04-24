@@ -1,4 +1,5 @@
 import { useState, useMemo, useEffect } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { getAttrCategoryLabel } from '../../utils/formatters'
 import { formatModAttributs } from '../../utils/modCompatibility'
 import AttributeSlider from './AttributeSlider'
@@ -71,20 +72,21 @@ function mapEssentialNames(names) {
     // Slugs utilisés dans ensembles.jsonc
     'degats_arme': 'offensif',
     'degats_armes': 'offensif',
-    'protection': 'défensif',
+    'protection': 'defensif',
     'tiers_de_competence': 'utilitaire',
     'tier_de_competence': 'utilitaire',
     // Noms textuels
     "Dégâts d'armes": 'offensif',
     "Dégâts d'arme": 'offensif',
-    'Protection': 'défensif',
+    'Protection': 'defensif',
     'Tier de compétence': 'utilitaire',
     'Tiers de compétence': 'utilitaire',
     // Valeurs directes
     'offensif': 'offensif',
-    'defensif': 'défensif',
-    'défensif': 'défensif',
-    'utilitaire': 'utilitaire'
+    'defensif': 'defensif',
+    'défensif': 'defensif',
+    'utilitaire': 'utilitaire',
+    'random': 'random'
   }
   return names.map(n => map[n] || n).filter(Boolean)
 }
@@ -109,7 +111,7 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
 
   const pb = useMemo(() => {
     if (!slotKey || !equipementsType) return 0
-    const base = equipementsType[slotKey]?.protectionBase || 0
+    const base = (equipementsType[slotKey]?.protection ?? equipementsType[slotKey]?.protectionBase) || 0
     const grade = expertiseLevel || 0
     return Math.floor(base * (1 + grade * 0.01))
   }, [slotKey, equipementsType, expertiseLevel])
@@ -219,6 +221,15 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
     return !!(attr && attr.nom)
   }
 
+  // Est-ce que la VALEUR de l'attribut est fixée par la pièce ?
+  const isClassicValueFixedByIndex = (idx) => {
+    if (!piece?.attributs || !Array.isArray(piece.attributs)) return false
+    const attr = piece.attributs[idx]
+    // Si l'attribut a une valeur définie dans les données, elle est fixée.
+    // Sinon (ex: juste un nom d'attribut sans valeur), elle peut être modifiée.
+    return !!(attr && attr.nom && attr.valeur != null)
+  }
+
   const updateAttributes = (newEss, newClassiques) => {
     onChange({ essentiels: newEss, classiques: newClassiques })
   }
@@ -284,7 +295,8 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
             <AttributeSlider
                 key={`classic-${i}`}
                 attribute={classiques[i] || null}
-                readOnly={isClassicFixedByIndex(i)}
+                readOnly={isClassicValueFixedByIndex(i)}
+                locked={isClassicFixedByIndex(i)}
                 onChange={(attr) => setClassic(i, attr)}
                 onPick={() => setPickerOpen(`classic-${i}`)}
                 onRemove={isClassicFixedByIndex(i) ? null : () => setClassic(i, null)}
@@ -366,6 +378,9 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
         {pickerOpen === 'essential-0' && (
             <AttributePicker
                 attributs={allAttributs}
+                ensembles={ensembles}
+                marque={piece?.marque}
+                piece={piece}
                 cible="equipement"
                 essentiel={true}
                 exclude={usedNames}
@@ -378,6 +393,9 @@ export default function GearAttributePanel({ piece, attributes, allAttributs, mo
         {pickerOpen && pickerOpen.startsWith('classic-') && (
             <AttributePicker
                 attributs={allAttributs}
+                ensembles={ensembles}
+                marque={piece?.marque}
+                piece={piece}
                 cible="equipement"
                 essentiel={false}
                 exclude={usedNames}
@@ -418,11 +436,11 @@ function GearModPicker({ mods, allAttributs, onSelect, onClose }) {
     const modsList = Array.isArray(mods) ? mods : Object.values(mods)
     let list = modsList.filter(m => !m.estExotique)
     if (!search) return list
-    const s = search.toLowerCase()
+    const s = normalizeText(search)
     return list.filter(m =>
-        (m.nom || '').toLowerCase().includes(s) ||
-        (m.categorie || '').toLowerCase().includes(s) ||
-        formatModAttributs(m, allAttributs).toLowerCase().includes(s)
+        normalizeText(m.nom || '').includes(s) ||
+        normalizeText(m.categorie || '').includes(s) ||
+        normalizeText(formatModAttributs(m, allAttributs)).includes(s)
     )
   }, [mods, allAttributs, search])
 

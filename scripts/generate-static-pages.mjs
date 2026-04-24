@@ -23,9 +23,9 @@ function parseJsonc(filePath) {
     } catch (e) { return null; }
 }
 
-const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes-type.jsonc')) || {};
-const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements-type.jsonc')) || {};
-const ensembles = parseJsonc(path.join(DATA_DIR, 'ensembles.jsonc')) || {};
+const weaponTypes = parseJsonc(path.join(DATA_DIR, 'armes', 'armes-type.jsonc')) || {};
+const gearTypes = parseJsonc(path.join(DATA_DIR, 'equipements', 'equipements-type.jsonc')) || {};
+const ensembles = parseJsonc(path.join(DATA_DIR, 'equipements', 'ensembles.jsonc')) || {};
 const classSpe = parseJsonc(path.join(DATA_DIR, 'class-spe.jsonc')) || {};
 const mapsData = parseJsonc(path.join(DATA_DIR, 'maps.jsonc')) || [];
 const metadata = parseJsonc(path.join(DATA_DIR, 'metadata.jsonc')) || {};
@@ -172,20 +172,21 @@ const pages_fixes = [
     { path: 'map', title: 'Carte Interactive — BDDFr', description: 'Explorez Washington D.C., New York et d\'autres zones avec notre carte interactive.' }
     { path: 'changelog', title: 'Mises à jour — BDDFr', description: changelogDesc },
     { path: 'generator', title: 'Générateur — BDDFr', description: 'Outil de contribution.' },
-    { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' }
+    { path: 'pages', title: 'Bibliothèque de Documents — BDDFr', description: 'Consultez nos guides et documents du réseau SHD.' },
+    { path: 'library', title: 'Bibliothèque de builds — BDDFr', description: 'Liste de builds partagé par la communauté.' }
 ];
 
 const categoryMap = {
-    'armes': 'armes.jsonc',
-    'equipements': 'equipements.jsonc',
-    'ensembles': 'ensembles.jsonc',
+    'armes': 'armes/armes.jsonc',
+    'equipements': 'equipements/equipements.jsonc',
+    'ensembles': 'equipements/ensembles.jsonc',
     'competences': 'competences.jsonc',
-    'attributs': 'attributs.jsonc',
-    'talentsArmes': 'talents-armes.jsonc',
-    'talentsEquipements': 'talents-equipements.jsonc',
+    'attributs': 'attributs/attributs.jsonc',
+    'talentsArmes': 'armes/talents-armes.jsonc',
+    'talentsEquipements': 'equipements/talents-equipements.jsonc',
     'talentsPrototypes': 'talents-prototypes.jsonc',
-    'modsArmes': 'mods-armes.jsonc',
-    'modsEquipements': 'mods-equipements.jsonc',
+    'modsArmes': 'armes/mods-armes.jsonc',
+    'modsEquipements': 'equipements/mods-equipements.jsonc',
     'modsCompetences': 'mods-competences.jsonc'
 };
 

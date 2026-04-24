@@ -1,0 +1,2479 @@
+// Attributs — The Division 2
+{
+  "degats_fusil_d_assaut_es": {
+    "nom": "Dégâts Fusil d'assaut",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "prototypeMax": 22.5,
+    "description": "Augmente les dégâts infligés par les fusils d'assaut",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_fusil_assaut"
+    ]
+  },
+  "degats_a_la_sante_es": {
+    "nom": "Dégâts à la santé",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 21,
+    "description": "Augmente les dégâts infligés à la santé de l'ennemi",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_sante"
+    ]
+  },
+  "degats_fusil_es": {
+    "nom": "Dégâts Fusil",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "prototypeMax": 22.5,
+    "description": "Augmente les dégâts infligés par les fusils",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_fusil"
+    ]
+  },
+  "degats_de_coup_critique_es": {
+    "nom": "Dégâts de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 17,
+    "description": "Augmente les dégâts infligés lors d'un coup critique",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_coup_critique"
+    ]
+  },
+  "degats_fusil_de_precision_es": {
+    "nom": "Dégâts Fusil de précision",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "prototypeMax": 22.5,
+    "description": "Augmente les dégâts infligés par les fusils de précision",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_fusil_precision"
+    ]
+  },
+  "degats_de_headshot_es": {
+    "nom": "Dégâts de headshot",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 111,
+    "description": "Augmente les dégâts infligés lors d'un tir à la tête",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_headshot"
+    ]
+  },
+  "degats_pm_es": {
+    "nom": "Dégâts de PM",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "prototypeMax": 22.5,
+    "description": "Augmente les dégâts infligés par les pistolets-mitrailleurs",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_pm"
+    ]
+  },
+  "probabilite_de_coup_critique_es": {
+    "nom": "Probabilité de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 21,
+    "description": "Augmente la probabilité de déclencher un coup critique",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "probabilite_coup_critique"
+    ]
+  },
+  "degats_fusil_mitrailleur_es": {
+    "nom": "Dégâts Fusil-mitrailleur",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "prototypeMax": 22.5,
+    "description": "Augmente les dégâts infligés par les fusils-mitrailleurs",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_fusil_mitrailleur"
+    ]
+  },
+  "degats_sur_cible_non_abritee_es": {
+    "nom": "Dégâts sur cible non abritée",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente les dégâts infligés aux cibles non abritées",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_cible_non_abritee"
+    ]
+  },
+  "degats_fusil_calibre_12_es": {
+    "nom": "Dégâts de fusil calibre 12",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "prototypeMax": 22.5,
+    "description": "Augmente les dégâts infligés par les armes de calibre 12",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_calibre_12"
+    ]
+  },
+  "degats_aux_protections_es": {
+    "nom": "Dégâts aux protections",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "prototypeMax": 18,
+    "description": "Augmente les dégâts infligés aux protections de l'ennemi",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_protections"
+    ]
+  },
+  "degats_pistolet_es": {
+    "nom": "Dégâts Pistolet",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "prototypeMax": 22.5,
+    "description": "Augmente les dégâts infligés par les pistolets",
+    "estEssentiel": true,
+    "selectionable": false,
+    "statistiques": [
+      "degats_pistolet"
+    ]
+  },
+  "degats_aux_protections_arm": {
+    "nom": "Dégâts aux protections",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente les dégâts infligés aux protections de l'ennemi",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_protections"
+    ]
+  },
+  "degats_a_la_sante_arm": {
+    "nom": "Dégâts à la santé",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 9.5,
+    "description": "Augmente les dégâts infligés à la santé de l'ennemi",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_sante"
+    ]
+  },
+  "probabilite_de_coup_critique_arm": {
+    "nom": "Probabilité de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 9.5,
+    "description": "Augmente la probabilité de déclencher un coup critique",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "probabilite_coup_critique"
+    ]
+  },
+  "degats_sur_cible_non_abritee_arm": {
+    "nom": "Dégâts sur cible non abritée",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts infligés aux cibles non abritées",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_cible_non_abritee"
+    ]
+  },
+  "degats_de_headshot_arm": {
+    "nom": "Dégâts de headshot",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts infligés lors d'un tir à la tête",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_headshot"
+    ]
+  },
+  "degats_de_coup_critique_arm": {
+    "nom": "Dégâts de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts infligés lors d'un coup critique",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_coup_critique"
+    ]
+  },
+  "taille_du_chargeur_arm": {
+    "nom": "Taille du chargeur",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12.5,
+    "description": "Augmente la capacité du chargeur de l'arme",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "taille_chargeur"
+    ]
+  },
+  "vitesse_de_changement_arm": {
+    "nom": "Vitesse de changement",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "description": "Réduit le temps de changement d'arme",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "vitesse_changement_arme"
+    ]
+  },
+  "vitesse_de_rechargement_arm": {
+    "nom": "Vitesse de rechargement",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Réduit le temps de rechargement de l'arme",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "vitesse_rechargement"
+    ]
+  },
+  "stabilite_arm": {
+    "nom": "Stabilité",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente la stabilité de l'arme",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "stabilite"
+    ]
+  },
+  "precision_arm": {
+    "nom": "Précision",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "description": "Augmente la précision de l'arme",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "precision"
+    ]
+  },
+  "portee_optimale_arm": {
+    "nom": "Portée optimale",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 24,
+    "description": "Augmente la portée optimale de l'arme",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "portee_optimale"
+    ]
+  },
+  "portee_optimale_mod": {
+    "nom": "Portée optimale",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 24,
+    "description": "Augmente la portée optimale de l'arme",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "portee_optimale"
+    ]
+  },
+  "portee_scan_mod_comp": {
+    "nom": "Portée scan",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la portée du scan",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "portee_scan"
+    ]
+  },
+  "portee_ruche_mod_comp": {
+    "nom": "Portée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la portée de la ruche",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "portee_ruche"
+    ]
+  },
+  "cadence_de_tir_arm": {
+    "nom": "Cadence de tir",
+    "categorie": "utilitaire",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente la cadence de tir de l'arme",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "cadence_tir"
+    ]
+  },
+  "degats_armes": {
+    "nom": "Dégâts d'armes",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 15,
+    "prototypeMax": 22.5,
+    "description": "Augmente les dégâts infligés par les armes",
+    "estEssentiel": true,
+    "selectionable": true,
+    "statistiques": [
+      "degats_arme"
+    ]
+  },
+  "tiers_de_competence": {
+    "nom": "Tier de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 1,
+    "prototypeMax": 1.5,
+    "description": "Augmente le tier de compétence de 1",
+    "estEssentiel": true,
+    "selectionable": true,
+    "statistiques": [
+      "tiers_competence"
+    ]
+  },
+  "protection": {
+    "nom": "Protection",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "pts",
+    "min": 1,
+    "max": 170000,
+    "prototypeMax": 255000,
+    "description": "Augmente la valeur totale d'armure",
+    "estEssentiel": true,
+    "selectionable": true,
+    "statistiques": [
+      "protection"
+    ]
+  },
+  "protection_eqp": {
+    "nom": "Protection",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 5,
+    "max": 15,
+    "description": "Augmente la valeur totale d'armure",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection"
+    ]
+  },
+  "maniement_d_arme_eqp": {
+    "nom": "Maniement d'arme",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "prototypeMax": 12,
+    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "maniement_arme"
+    ]
+  },
+  "precision_arm_eqp": {
+    "nom": "Précision",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 50,
+    "description": "Augmente la précision de l'arme",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "precision"
+    ]
+  },
+  "probabilite_de_coup_critique_eqp": {
+    "nom": "Probabilité de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "prototypeMax": 9,
+    "description": "Augmente la probabilité de déclencher un coup critique",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "probabilite_coup_critique"
+    ]
+  },
+  "degats_de_coup_critique_eqp": {
+    "nom": "Dégâts de coup critique",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "prototypeMax": 18,
+    "description": "Augmente les dégâts infligés lors d'un coup critique",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_coup_critique"
+    ]
+  },
+  "degats_de_headshot_eqp": {
+    "nom": "Dégâts de headshot",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "prototypeMax": 15,
+    "description": "Augmente les dégâts infligés lors d'un tir à la tête",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_headshot"
+    ]
+  },
+  "degats_arme_eqp": {
+    "nom": "Dégâts d'arme",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les dégâts d'armes.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_arme"
+    ]
+  },
+  "degats_pistolet_eqp": {
+    "nom": "Dégâts Pistolet",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 60,
+    "description": "Augmente les dégâts du pistolet.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_pistolet"
+    ]
+  },
+  "degats_sur_cible_non_abritee_eqp": {
+    "nom": "Dégâts sur cible non abritée",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Augmente les dégâts infligés aux cibles non abritées",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_cible_non_abritee"
+    ]
+  },
+  "menace_reduite_eqp": {
+    "nom": "Menace réduite",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": -50,
+    "max": 100,
+    "description": "Réduit la menace.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "menace"
+    ]
+  },
+  "regeneration_de_protection_eqp": {
+    "nom": "Régénération de protection",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "pts/s",
+    "min": 1,
+    "max": 4925,
+    "description": "Régénère l'armure au fil du temps",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "regeneration_protection"
+    ]
+  },
+  "regeneration_de_protection_percent_eqp": {
+    "nom": "Régénération de protection",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 4925,
+    "description": "Régénère l'armure au fil du temps",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "regeneration_protection"
+    ]
+  },
+  "pourcentage_regeneration_de_protection_eqp": {
+    "nom": "Régénération de protection",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 1,
+    "description": "Régénère l'armure au fil du temps",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "pourcentage_regeneration_protection"
+    ]
+  },
+  "protection_contre_alterations_d_etat_eqp": {
+    "nom": "Protection contre altérations d'état",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Réduit la durée des effets d'état subis",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "protection_alterations_etat"
+    ]
+  },
+  "protection_contre_electrocution_mod": {
+    "nom": "Protection contre l'électrocutions",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance électrique",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection_electrocution"
+    ]
+  },
+  "protection_contre_desactivation_mod": {
+    "nom": "Protection contre les désactivations",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux désactivations",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_desactivation"
+    ]
+  },
+  "protection_impulsion_mod": {
+    "nom": "Protection contre l'impulsion",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance à l'impulsion",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_impulsion"
+    ]
+  },
+  "protection_impulsion_mod_comp": {
+    "nom": "Protection contre l'impulsion",
+    "categorie": "defensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Résistance à l'impulsion",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_impulsion"
+    ]
+  },
+  "protection_entrave_mod": {
+    "nom": "Protection contre l'entrave",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance à l'entrave",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_entrave"
+    ]
+  },
+  "protection_bonus_mod_comp": {
+    "nom": "Protection bonus",
+    "categorie": "defensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Protection bonus",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection_bonus_comp"
+    ]
+  },
+  "reparation_subies_mod": {
+    "nom": "Réparations subies",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente les réparations d'armure reçues",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "reparation_subies"
+    ]
+  },
+  "degats_corps_a_corps_eqp": {
+    "nom": "Dégâts Corps à corps",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 500,
+    "description": "Augmente les dégâts de corps à corps",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_corps_a_corps"
+    ]
+  },
+  "resistance_entrave_mod_comp_lanceur": {
+    "nom": "Résistance entrave",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Résistance à l'entrave",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_entrave"
+    ]
+  },
+  "intensite_brulure_mod_comp": {
+    "nom": "Intensité de brûlure",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Intensité de brûlure augmenté",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "intensite_brulure"
+    ]
+  },
+  "sante_eqp": {
+    "nom": "Santé",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 18935,
+    "description": "Augmente la valeur totale de santé",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "sante"
+    ]
+  },
+  "sante_bouclier_eqp": {
+    "nom": "Santé de bouclier",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 50,
+    "description": "Augmente la valeur totale de la santé de bouclier",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "sante_bouclier"
+    ]
+  },
+  "resistance_explosions_eqp": {
+    "nom": "Résistance - Explosions",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Réduit les dégâts subis par les explosions",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "resistance_explosions"
+    ]
+  },
+  "resistance_explosions_mod_comp": {
+    "nom": "Résistance - Explosions",
+    "categorie": "defensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Réduit les dégâts subis par les explosions",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_explosions"
+    ]
+  },
+  "degats_de_competence_eqp": {
+    "nom": "Dégâts de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "prototypeMax": 15,
+    "description": "Augmente les dégâts infligés par les compétences",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "degats_de_competence_mod": {
+    "nom": "Dégâts de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "prototypeMax": 15,
+    "description": "Augmente les dégâts infligés par les compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "competences_de_reparation_eqp": {
+    "nom": "Compétences de réparation",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente les soins prodigués par les compétences",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "competence_reparation"
+    ]
+  },
+  "competences_de_reparation_mod": {
+    "nom": "Compétences de réparation",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente les soins prodigués par les compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "competence_reparation"
+    ]
+  },
+  "santee_de_competence_mod": {
+    "nom": "Santé de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente la santé des compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
+  "recup_de_competence_eqp": {
+    "nom": "Récup de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "prototypeMax": 18,
+    "description": "Réduit le temps de recharge des compétences",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "recup_competence"
+    ]
+  },
+  "recup_de_competence_mod": {
+    "nom": "Récup de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 12,
+    "prototypeMax": 18,
+    "description": "Réduit le temps de recharge des compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "recup_competence"
+    ]
+  },
+  "recup_de_competence_mod_comp": {
+    "nom": "Récup de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Réduit le temps de recharge de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "recup_competence"
+    ]
+  },
+  "recup_de_competence_mod_comp_tourelle": {
+    "nom": "Récup de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Réduit le temps de recharge de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "recup_competence"
+    ]
+  },
+  "recup_de_competence_mod_comp_luciole": {
+    "nom": "Récup de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Réduit le temps de recharge de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "recup_competence"
+    ]
+  },
+  "sante_pour_competence_eqp": {
+    "nom": "Santé pour compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 25,
+    "description": "Santé pour les compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "sante_pour_competence"
+    ]
+  },
+  "recup_impulsion_scanner_eqp": {
+    "nom": "Récup d'impulsion de scanner",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 90,
+    "max": 100,
+    "description": "Réduit le temps de recharge de l'impulsion de scanner",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "recup_impulsion_scanner"
+    ]
+  },
+  "effets_d_etat_eqp": {
+    "nom": "Effets d'état",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la durée des effets d'état infligés.",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "effets_etat"
+    ]
+  },
+  "portee_optimale_eqp": {
+    "nom": "Portée optimale",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 50,
+    "description": "Augmente la portée optimale.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "portee_optimale_eqp"
+    ]
+  },
+  "cadence_de_tir_eqp": {
+    "nom": "Cadence de tir",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente la cadence de tir de l'arme",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "cadence_tir"
+    ]
+  },
+  "munitions_mod": {
+    "nom": "munitions",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_arme"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 30,
+    "description": "Augmente le nombre de munitions dans le chargeur.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "taille_chargeur"
+    ]
+  },
+  "munitions_mod_comp": {
+    "nom": "munitions",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 2,
+    "description": "Augmente le nombre de munitions dans le chargeur.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "capacite_munitions"
+    ]
+  },
+  "munitions_eqp": {
+    "nom": "Capacité Munitions",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la capacité de munitions.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "capacite_munitions"
+    ]
+  },
+  "maniement_d_arme_mod": {
+    "nom": "Maniement d'arme",
+    "categorie": "offensif",
+    "cible": [
+      "mod_arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
+    "estEssentiel": false,
+    "selectionable": true,
+    "statistiques": [
+      "maniement_arme"
+    ]
+  },
+  "maniement_d_arme_mod_comp": {
+    "nom": "Maniement d'arme",
+    "categorie": "offensif",
+    "cible": [
+      "competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "maniement_arme"
+    ]
+  },
+  "maniement_d_arme_arm": {
+    "nom": "Maniement d'arme",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Améliore la vitesse de rechargement, la vitesse de changement, la précision et la stabilité des armes.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "maniement_arme"
+    ]
+  },
+  "rayon_mod_comp": {
+    "nom": "Rayon",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente le rayon de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "rayon"
+    ]
+  },
+  "rayon_electrocution_mod_comp": {
+    "nom": "Rayon",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente le rayon d'électrocution de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "rayon"
+    ]
+  },
+  "rayon_mod_comp_lanceur_chimique": {
+    "nom": "Rayon",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente le rayon de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "rayon"
+    ]
+  },
+  "rayon_souffle_mod_comp": {
+    "nom": "Rayon de souffle",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente le rayon de souffle de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "rayon_de_souffle"
+    ]
+  },
+  "degats_cible_non_abritees_mod_comp": {
+    "nom": "Dégâts sur cibles non abritées",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente les dégâts sur les cibles non abritées.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_cible_non_abritee"
+    ]
+  },
+  "degats_mod_comp": {
+    "nom": "Dégâts",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Augmente les dégâts de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "degats_mod_comp_luciole": {
+    "nom": "Dégâts",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente les dégâts de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "degats_mod_comp_tourelle": {
+    "nom": "Dégâts",
+    "categorie": "offensif",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente les dégâts de la compétence.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "degats_aux_protections_eqp": {
+    "nom": "Dégâts aux protections",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente les dégâts infligés aux protections de l'ennemi",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_protections"
+    ]
+  },
+  "protection_pour_eliminations_arm": {
+    "nom": "Protection pour éliminations",
+    "categorie": "defensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Apporte de la protection lors de l'éliminations d'un ennemi",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection_elimination"
+    ]
+  },
+  "degats_corps_a_corps_arm": {
+    "nom": "Dégâts Corps à corps",
+    "categorie": "offensif",
+    "cible": [
+      "arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 500,
+    "description": "Augmente les dégâts de corps à corps",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_corps_a_corps"
+    ]
+  },
+  "protection_pour_eliminations_eqp": {
+    "nom": "Protection pour éliminations",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Apporte de la protection lors de l'éliminations d'un ennemi",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection_elimination"
+    ]
+  },
+  "protection_pour_elimination_mod": {
+    "nom": "Protection pour éliminations",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": " points",
+    "min": 10000,
+    "max": 18935,
+    "description": "Apporte de la protection lors de l'éliminations d'un ennemi",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection_elimination"
+    ]
+  },
+  "protection_contre_ennemi_elite_mod": {
+    "nom": "Protection contre ennemi élite",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 13,
+    "description": "Réduit les dégâts subis par les ennemis élites",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "protection_elite"
+    ]
+  },
+  "duree_de_competence_mod": {
+    "nom": "Durée de compétences",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la durée des compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "duree_mod_comp": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "duree_mod_comp_leurre": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "duree_mod_comp_lanceur_chimique": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "duree_mod_comp_piege": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "duree_mod_comp_ruche": {
+    "nom": "Durée",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente la durée de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ]
+  },
+  "duree_entrave_mod_comp": {
+    "nom": "Durée entrave",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la durée de l'entrave",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_entrave"
+    ]
+  },
+  "duree_effet_mod_comp": {
+    "nom": "Durée effet",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la durée de l'effet",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_effet"
+    ]
+  },
+  "duree_effet_aveuglement_mod_comp_luciole": {
+    "nom": "Durée effet aveuglement",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la durée de l'effet",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_effet"
+    ]
+  },
+  "vitesse_mod_comp": {
+    "nom": "Vitesse",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la vitesse de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "vitesse_mod_comp"
+    ]
+  },
+  "duree_de_la_deviation_mod_comp": {
+    "nom": "Durée de la déviation",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la durée de la déviation",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_de_la_deviation"
+    ]
+  },
+  "recharge_mod_comp": {
+    "nom": "Recharge",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+         ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Réduit la durée de rechargement",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "temps_rechargement_comp"
+    ]
+  },
+  "bombes_supplementaires_mod_comp": {
+    "nom": "Bombes supplémentaires",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 2,
+    "description": "Augmente le nombre de bombes",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "bombes_supplementaires"
+    ]
+  },
+  "degats_corps_a_corps_mod": {
+    "nom": "Dégâts Corps à corps",
+    "categorie": "offensif",
+    "cible": [
+      "mod_arme"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 500,
+    "description": "Augmente les dégâts de corps à corps",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_corps_a_corps"
+    ]
+  },
+  "vitesse_rechargement_eqp": {
+    "nom": "Vitesse de rechargement",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Réduit le temps de rechargement",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "vitesse_rechargement"
+    ],
+    "min": 30,
+    "max": 30
+  },
+  "taille_chargeur_eqp": {
+    "nom": "Taille du chargeur",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Augmente la capacité du chargeur",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "taille_chargeur"
+    ],
+    "min": 15,
+    "max": 50
+  },
+  "degats_fusil_precision_eqp": {
+    "nom": "Dégâts Fusil de précision",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils de précision",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_fusil_precision"
+    ],
+    "min": 10,
+    "max": 30
+  },
+  "degats_fusil_eqp": {
+    "nom": "Dégâts Fusil",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_fusil"
+    ],
+    "min": 15,
+    "max": 25
+  },
+  "degats_arme_specifique_eqp": {
+    "nom": "Dégâts d'arme spécialisée",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts de l'arme spécialisée",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_arme_specifique"
+    ],
+    "min": 20,
+    "max": 20
+  },
+  "duree_competence_eqp": {
+    "nom": "Durée de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Augmente la durée des compétences",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "duree_competence"
+    ],
+    "min": 15,
+    "max": 45
+  },
+  "degats_fusil_calibre_12_eqp": {
+    "nom": "Dégâts Calibre 12",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des armes de calibre 12",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_calibre_12"
+    ],
+    "min": 10,
+    "max": 15
+  },
+  "degats_pm_eqp": {
+    "nom": "Dégâts PM",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des pistolets-mitrailleurs",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_pm"
+    ],
+    "min": 10,
+    "max": 30
+  },
+  "degats_fusil_assaut_eqp": {
+    "nom": "Dégâts Fusil d'assaut",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils d'assaut",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_fusil_assaut"
+    ],
+    "min": 10,
+    "max": 20
+  },
+  "degats_fusil_mitrailleur_eqp": {
+    "nom": "Dégâts Fusil-mitrailleur",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils-mitrailleurs",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_fusil_mitrailleur"
+    ],
+    "min": 10,
+    "max": 30
+  },
+  "sante_competence_eqp": {
+    "nom": "Santé de compétence",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus à la santé des objets de compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ],
+    "min": 10,
+    "max": 20
+  },
+  "sante_mod_comp": {
+    "nom": "Santé",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente la santé de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
+  "sante_mod_comp_leurre": {
+    "nom": "Santé",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la santé de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
+  "sante_mod_comp_mines_teleguidees": {
+    "nom": "Santé",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente la santé de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
+  "sante_mod_comp_impulsion": {
+    "nom": "Santé",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 20,
+    "description": "Augmente la santé de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "santee_competence"
+    ]
+  },
+  "sante_de_bouclier_mod_comp": {
+    "nom": "Santé de bouclier",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente la santé du bouclier",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "sante_bouclier"
+    ]
+  },
+  "soin_mod_comp": {
+    "nom": "Soin",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente les soins.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "soin"
+    ]
+  },
+  "soins_mod_comp_ruche": {
+    "nom": "Soins",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 7.5,
+    "description": "Augmente les soins.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "soin"
+    ]
+  },
+  "charges_reparation_mod_comp": {
+    "nom": "Charges de réparation",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 4,
+    "description": "Augmente les charges.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "charges"
+    ]
+  },
+  "charges_stimulant_mod_comp": {
+    "nom": "Charges de stimulant",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 4,
+    "description": "Augmente les charges.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "charges"
+    ]
+  },
+  "charges_aiguillon_mod_comp": {
+    "nom": "Charges d'aiguillon",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "max": 4,
+    "description": "Augmente les charges.",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "charges"
+    ]
+  },
+  "cibles_max_mod_comp_luciole": {
+    "nom": "Cibles max",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_competence"
+    ],
+    "unite": "",
+    "min": 1,
+    "description": "Augmente de nombre de cibles",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "cibles_max"
+    ]
+  },
+  "degat_du_deflecteur_mod_comp": {
+    "nom": "Dégâts du déflecteur",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente les dégâts du déflecteur",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_du_deflecteur"
+    ]
+  },
+  "degat_mod_comp_mine": {
+    "nom": "Dégâts",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 6,
+    "description": "Augmente les dégâts des mines téléguidées",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "degat_mod_comp_ruche": {
+    "nom": "Dégâts",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 5,
+    "description": "Augmente les dégâts de la ruche",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_competence"
+    ]
+  },
+  "reparation_par_ruche_mod_comp": {
+    "nom": "Réparation par ruche ranimation",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Augmente les réparations de la ruche",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "reparation_ruche"
+    ]
+  },
+  "mines_a_sous_munitions_mod_comp": {
+    "nom": "Mines à sous-munitions",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "",
+    "min": 1,
+    "description": "Augmente le nombres de mines téléguidées",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "mines_a_sous_munitions"
+    ]
+  },
+  "munitions_mortier_mod_comp": {
+    "nom": "Munitions mortier supplémentaires",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "",
+    "min": 1,
+    "description": "Augmente le nombres de munitions de mortier",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "munitions_mortier_supplementaires"
+    ]
+  },
+  "regeneration_active_mod_comp": {
+    "nom": "Régénération active",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max":6,
+    "description": "Augmente la régénération active du bouclier",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "regeneration_active"
+    ]
+  },
+  "regeneration_en_etui_mod_comp": {
+    "nom": "Régénération en étui",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max":5,
+    "description": "Augmente la régénération en étui du bouclier",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "regeneration_en_etui"
+    ]
+  },
+  "bonus_de_degats_mod_comp": {
+    "nom": "Bonus de dégâts (par ennemi)",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max":5,
+    "description": "Augmente les dégâts par ennemi",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "bonus_de_degats"
+    ]
+  },
+  "reparation_subies_eqp": {
+    "nom": "Réparations subies",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Augmente les réparations d'armure reçues",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "reparation_subies"
+    ],
+    "min": 15,
+    "max": 45
+  },
+  "stabilite_eqp": {
+    "nom": "Stabilité",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Réduit le recul de l'arme",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "stabilite"
+    ],
+    "min": 30,
+    "max": 50
+  },
+  "degats_sante_eqp": {
+    "nom": "Dégâts à la santé",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus de dégâts à la santé de l'ennemi",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_sante"
+    ],
+    "min": 10,
+    "max": 10
+  },
+  "utilitaire": {
+    "nom": "Tiers de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "",
+    "description": "Augmente le tiers de compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "tiers_competence"
+    ],
+    "min": 1,
+    "max": 1
+  },
+  "taille_cone_mod_comp": {
+    "nom": "Taille cône",
+    "categorie": "utilitaire",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 8,
+    "description": "Augmente la taille du cône de la compétence",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "taille_cone"
+    ]
+  },
+  "degats_de_fusil": {
+    "nom": "Dégâts Fusil",
+    "categorie": "offensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "description": "Bonus aux dégâts des fusils",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "degats_fusil"
+    ],
+    "min": 10,
+    "max": 20
+  },
+  "protection_impulsion_eqp": {
+    "nom": "Protection contre l'impulsion",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 40,
+    "description": "Résistance à l'impulsion",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_impulsion"
+    ]
+  },
+  "protection_contre_desactivation_eqp": {
+    "nom": "Protection contre les désactivations",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 40,
+    "description": "Résistance aux désactivations",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_desactivation"
+    ]
+  },
+  "protection_aveuglement_assourdissement_mod": {
+    "nom": "Protection contre les désactivations",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux aveuglements et assourdissements",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_aveuglement_assourdissement"
+    ]
+  },
+  "protection_brulure_mod": {
+    "nom": "Protection contre les désactivations",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux brûlures",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_brulure"
+    ]
+  },
+  "protection_desorientation_mod": {
+    "nom": "Protection contre les désorientation",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux désorientations",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_desorientation"
+    ]
+  },
+  "protection_saignement_mod": {
+    "nom": "Protection contre les saignements",
+    "categorie": "defensif",
+    "cible": [
+      "mod_equipement"
+    ],
+    "unite": "%",
+    "min": 1,
+    "max": 10,
+    "description": "Résistance aux saignements",
+    "estEssentiel": false,
+    "selectionable": false,
+    "statistiques": [
+      "resistance_saignement"
+    ]
+  },
+  "protection_total_eqp": {
+    "nom": "Protection total",
+    "categorie": "defensif",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 5,
+    "max": 5,
+    "description": "Augmente la protection total",
+    "statistiques": [
+      "protection"
+    ]
+  },
+  "efficacite_de_competence": {
+    "nom": "Efficacité de compétence",
+    "categorie": "utilitaire",
+    "cible": [
+      "equipement"
+    ],
+    "unite": "%",
+    "min": 5,
+    "max": 5,
+    "description": "Améliore l'efficacité des compétences",
+    "statistiques": [
+      // TODO : Ajouté toutes les stats de l'efficacité de compétences
+    ]
+  }
+}

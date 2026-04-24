@@ -1,4 +1,5 @@
 import { useState, useMemo } from 'react'
+import { normalizeText } from '../../utils/textUtils'
 import { useBuild } from '../../context/BuildContext'
 import { flattenCompetences } from '../../utils/competenceUtils'
 import SelectionModal from '../common/SelectionModal'
@@ -8,26 +9,33 @@ export default function SkillPicker({ data, slotIndex, onClose }) {
   const { dispatch, canEquipSkill, skillNeedsSpec, SPECIALISATIONS } = useBuild()
   const [search, setSearch] = useState('')
   const [typeFilter, setTypeFilter] = useState('all')
+  const collator = useMemo(() => new Intl.Collator('fr', { sensitivity: 'base' }), [])
 
   const skills = useMemo(() => flattenCompetences(data.competencesGrouped || data.competences), [data])
 
   const skillTypes = useMemo(() =>
-    [...new Set(skills.map(s => s.competence))].filter(Boolean),
-    [skills]
+    [...new Set(skills.map(s => s.competence))]
+      .filter(Boolean)
+      .sort((a, b) => collator.compare(a, b)),
+    [skills, collator]
   )
 
   const filtered = useMemo(() => {
     let list = skills
     if (typeFilter !== 'all') list = list.filter(s => s.competence === typeFilter)
     if (search) {
-      const term = search.toLowerCase()
+      const term = normalizeText(search)
       list = list.filter(s =>
-        s.competence.toLowerCase().includes(term) ||
-        s.variante.toLowerCase().includes(term)
+        normalizeText(s.competence).includes(term) ||
+        normalizeText(s.variante).includes(term)
       )
     }
-    return list
-  }, [skills, typeFilter, search])
+    return [...list].sort((a, b) => {
+      const byType = collator.compare(a.competence || '', b.competence || '')
+      if (byType !== 0) return byType
+      return collator.compare(a.variante || '', b.variante || '')
+    })
+  }, [skills, typeFilter, search, collator])
 
   const grouped = useMemo(() => {
     const g = {}

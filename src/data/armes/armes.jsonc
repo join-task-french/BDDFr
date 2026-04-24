@@ -1,0 +1,5832 @@
+{
+  "1886": {
+    "nom": "1886",
+    "type": "fusil",
+    "fabricant": "WINCHESTER",
+    "portee": 35,
+    "rpm": 100,
+    "chargeur": 8,
+    "rechargement": 3.15,
+    "headshot": 60,
+    "degatsBase": 387000,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire"
+    }
+  },
+  "acr": {
+    "nom": "ACR",
+    "type": "fusil_assaut",
+    "fabricant": "REMINGTON",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 1.74,
+    "headshot": 55,
+    "degatsBase": 58900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "acr_e": {
+    "nom": "ACR-E",
+    "type": "fusil_assaut",
+    "fabricant": "REMINGTON",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 1.74,
+    "headshot": 55,
+    "degatsBase": 58900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "f2000": {
+    "nom": "F2000",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 31,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.18,
+    "headshot": 55,
+    "degatsBase": 49100,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique"
+    }
+  },
+  "shield_splinterer": {
+    "nom": "Shield Splinterer",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 31,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.18,
+    "headshot": 55,
+    "degatsBase": 49100,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Coffre Ivoire via Hunter Washington\nDisponible ensuite chez Cassie Mendoza"
+    },
+    "talents": [
+      "optimiste"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique"
+    }
+  },
+  "aug_a3_cqc": {
+    "nom": "AUG A3-CQC",
+    "type": "fusil_assaut",
+    "fabricant": "STEYR",
+    "portee": 26,
+    "rpm": 680,
+    "chargeur": 42,
+    "rechargement": 1.96,
+    "headshot": 55,
+    "degatsBase": 57200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "main_invisible": {
+    "nom": "Main Invisible",
+    "type": "fusil_assaut",
+    "fabricant": "STEYR",
+    "portee": 26,
+    "rpm": 782,
+    "notes": "Le talent est inclus dans les statistiques de l'arme",
+    "chargeur": 42,
+    "rechargement": 1.96,
+    "headshot": 55,
+    "degatsBase": 57200,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "allegro"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "ak_m": {
+    "nom": "AK-M",
+    "type": "fusil_assaut",
+    "fabricant": "AKM",
+    "portee": 27,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 2.09,
+    "headshot": 55,
+    "degatsBase": 67200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "ak_m_du_marche_noire": {
+    "nom": "AK-M marché noire",
+    "type": "fusil_assaut",
+    "fabricant": "AKM",
+    "portee": 27,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 2.09,
+    "headshot": 55,
+    "degatsBase": 64700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "maniaque": {
+    "nom": "Maniaque",
+    "type": "fusil_assaut",
+    "fabricant": "AKM",
+    "portee": 27,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 2.09,
+    "headshot": 55,
+    "degatsBase": 64700,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "surcapacite"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "fal": {
+    "nom": "FAL",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 700,
+    "chargeur": 20,
+    "rechargement": 1.95,
+    "headshot": 55,
+    "degatsBase": 57600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "fal_sa_58": {
+    "nom": "FAL SA-58",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 700,
+    "chargeur": 20,
+    "rechargement": 1.95,
+    "headshot": 55,
+    "degatsBase": 57600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "fal_sa_58_para": {
+    "nom": "FAL SA-58 Para",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 700,
+    "chargeur": 20,
+    "rechargement": 1.95,
+    "headshot": 55,
+    "degatsBase": 57600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "famas_2010": {
+    "nom": "FAMAS 2010",
+    "type": "fusil_assaut",
+    "fabricant": "GIAT INDUSTRIES",
+    "portee": 26,
+    "rpm": 900,
+    "chargeur": 30,
+    "rechargement": 2.26,
+    "headshot": 55,
+    "degatsBase": 45300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "burn_out": {
+    "nom": "Burn Out",
+    "type": "fusil_assaut",
+    "fabricant": "GIAT INDUSTRIES",
+    "portee": 26,
+    "rpm": 900,
+    "chargeur": 30,
+    "rechargement": 2.26,
+    "headshot": 55,
+    "degatsBase": 45300,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "a_vide"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "g36_militaire": {
+    "nom": "G36 militaire",
+    "type": "fusil_assaut",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 52600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "l_inne": {
+    "nom": "L'inné",
+    "type": "fusil_assaut",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 52600,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "stabilisation"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "g36_ameliore": {
+    "nom": "G36 amélioré",
+    "type": "fusil_assaut",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 52600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m4_police": {
+    "nom": "M4 Police",
+    "type": "fusil_assaut",
+    "fabricant": "COLT",
+    "portee": 31,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.04,
+    "headshot": 55,
+    "degatsBase": 46900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "pyromane": {
+    "nom": "Pyromane",
+    "description": "Parfois le monde ne brûle pas assez vite.",
+    "type": "fusil_assaut",
+    "fabricant": "COLT",
+    "portee": 31,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.04,
+    "headshot": 55,
+    "degatsBase": 46900,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "inflammabilite"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "carbine_7": {
+    "nom": "CARBINE 7",
+    "type": "fusil_assaut",
+    "fabricant": "BRACE BUILT",
+    "portee": 28,
+    "rpm": 790,
+    "chargeur": 30,
+    "rechargement": 1.84,
+    "headshot": 55,
+    "degatsBase": 49800,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "la_foreuse": {
+    "nom": "La Foreuse",
+    "type": "fusil_assaut",
+    "fabricant": "BRACE BUILT",
+    "portee": 28,
+    "rpm": 790,
+    "chargeur": 30,
+    "rechargement": 1.84,
+    "headshot": 55,
+    "degatsBase": 49800,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "frappe_de_precision"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "honey_badger": {
+    "nom": "Honey Badger",
+    "type": "fusil_assaut",
+    "fabricant": "AAC",
+    "portee": 28,
+    "rpm": 800,
+    "chargeur": 30,
+    "rechargement": 1.87,
+    "headshot": 55,
+    "degatsBase": 51300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "carcajou_furieux": {
+    "nom": "Carcajou furieux",
+    "type": "fusil_assaut",
+    "fabricant": "AAC",
+    "portee": 28,
+    "rpm": 800,
+    "chargeur": 30,
+    "rechargement": 1.87,
+    "headshot": 55,
+    "degatsBase": 51300,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "corps_a_corps"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "p416_militaire": {
+    "nom": "P416 militaire",
+    "type": "fusil_assaut",
+    "fabricant": "PATRIOT ORDNANCE FACTORY",
+    "portee": 26,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 47400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "p416_g3_personnalise": {
+    "nom": "P416 G3 Personnalisé",
+    "type": "fusil_assaut",
+    "fabricant": "PATRIOT ORDNANCE FACTORY",
+    "portee": 26,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 47400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "vision_glorieuse": {
+    "nom": "Vision glorieuse",
+    "type": "fusil_assaut",
+    "fabricant": "PATRIOT ORDNANCE FACTORY",
+    "portee": 17,
+    "notes": "Le talent est inclus dans les statistiques de l'arme",
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 47400,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "myope"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "mk16": {
+    "nom": "Mk16",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 1.84,
+    "headshot": 55,
+    "degatsBase": 59200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "mk16_socom": {
+    "nom": "Mk16 SOCOM",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 1.84,
+    "headshot": 55,
+    "degatsBase": 59200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "mk_16_tactique": {
+    "nom": "Mk 16 tactique",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 1.84,
+    "headshot": 55,
+    "degatsBase": 59200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "ctar_21": {
+    "nom": "CTAR-21",
+    "type": "fusil_assaut",
+    "fabricant": "IMI TAVOR",
+    "portee": 32,
+    "rpm": 900,
+    "chargeur": 30,
+    "rechargement": 2.39, //ok
+    "headshot": 55,
+    "degatsBase": 44800,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": { //ok
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_court",
+      "canon": "lateral"
+    }
+  },
+  "le_fendoir": {
+    "nom": "Le Fendoir",
+    "type": "fusil_assaut",
+    "fabricant": "IMI TAVOR",
+    "portee": 32,
+    "rpm": 900,
+    "chargeur": 30,
+    "rechargement": 2.17,
+    "headshot": 55,
+    "degatsBase": 44800,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "precis"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "sig_556": {
+    "nom": "SIG 556",
+    "type": "fusil_assaut",
+    "fabricant": "SIG SAUER",
+    "portee": 28,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 1.97,
+    "headshot": 55,
+    "degatsBase": 55900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "mecanimal": {
+    "nom": "Mécanimal",
+    "type": "fusil_assaut",
+    "fabricant": "SIG SAUER",
+    "portee": 28,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 1.97,
+    "headshot": 55,
+    "degatsBase": 55900,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "futur_parfait"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "pdr": {
+    "nom": "PDR",
+    "type": "fusil_assaut",
+    "fabricant": "MAGPUL",
+    "portee": 31,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 1.85,
+    "headshot": 55,
+    "degatsBase": 57600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique"
+    }
+  },
+  "sujet_de_test": {
+    "nom": "Sujet de test",
+    "type": "fusil_assaut",
+    "fabricant": "MAGPUL",
+    "portee": 31,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 1.85,
+    "headshot": 55,
+    "degatsBase": 57600,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "synchro"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "tkb_408": {
+    "nom": "TKB-408",
+    "type": "fusil_assaut",
+    "fabricant": "KOROBOV",
+    "portee": 27,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 1.7,
+    "headshot": 55,
+    "degatsBase": 63500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "tueur_de_rois": {
+    "nom": "Tueur de rois",
+    "type": "fusil_assaut",
+    "fabricant": "KOROBOV",
+    "portee": 27,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 1.7,
+    "headshot": 55,
+    "degatsBase": 63500,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "ligne_plate"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "mg5": {
+    "nom": "MG5",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 800,
+    "chargeur": 50,
+    "rechargement": 2.96,
+    "headshot": 65,
+    "degatsBase": 54300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": { //OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "big_show": {
+    "nom": "Big Show",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 800,
+    "chargeur": 50,
+    "rechargement": 2.96,
+    "headshot": 65,
+    "degatsBase": 54300,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "coup_de_tonnerre"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "sleipnir": {
+    "nom": "Sleipnir",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 800,
+    "chargeur": 50,
+    "rechargement": 2.96,
+    "headshot": 65,
+    "degatsBase": 54300,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "frenesie"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "mg5_infanterie": {
+    "nom": "MG5 infanterie",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 800,
+    "chargeur": 50,
+    "rechargement": 3.01,
+    "headshot": 65,
+    "degatsBase": 52300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_762"
+    }
+  },
+  "stoner_lamg": {
+    "nom": "Stoner LAMG",
+    "type": "fusil_mitrailleur",
+    "fabricant": "KNIGHT'S ARMEMENT",
+    "portee": 40,
+    "rpm": 580,
+    "chargeur": 200,
+    "rechargement": 3,
+    "headshot": 65,
+    "degatsBase": 62400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    },
+    "modsPredefinis": [
+      "silencieux_qdc"
+    ]
+  },
+  "grondement": {
+    "nom": "Grondement",
+    "type": "fusil_mitrailleur",
+    "fabricant": "KNIGHT'S ARMEMENT",
+    "portee": 40,
+    "rpm": 580,
+    "chargeur": 200,
+    "rechargement": 3,
+    "headshot": 65,
+    "degatsBase": 62400,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "accablement"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    },
+    "modsPredefinis": [
+      "silencieux_qdc"
+    ]
+  },
+  "ecran_bleu": {
+    "nom": "Écran bleu",
+    "type": "fusil_mitrailleur",
+    "fabricant": "KNIGHT'S ARMEMENT",
+    "portee": 40,
+    "rpm": 720,
+    "chargeur": 200,
+    "rechargement": 2.22,
+    "headshot": 65,
+    "degatsBase": 62400,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Fin de mission.",
+      "description": "Le schéma est une récompense de Traque :\nJeffersin Trade Center : Capitaine Lewis.\nSon obtention permet de l'avoir en butin ciblé."
+    },
+    "estNomme": false,
+    "talents": [
+      "munitions_desactivatrices"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_eclair",
+      "chassis_de_desauthentification",
+      "poignee_dropkick",
+      "bouche_optimisee"
+    ]
+  },
+  "m249_b": {
+    "nom": "M249 B",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 850,
+    "chargeur": 100,
+    "rechargement": 4.54,
+    "headshot": 65,
+    "degatsBase": 48300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "black_friday": {
+    "nom": "Black Friday",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 850,
+    "chargeur": 100,
+    "rechargement": 4.54,
+    "headshot": 65,
+    "degatsBase": 48300,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "desequilibre"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "stinger": {
+    "nom": "Stinger",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "description": "Quand quelque chose vous manque au-delà du supportable. Il est souvent tentant de chercher du réconfort dans la destruction et les mauvaises habitudes.",
+    "portee": 35,
+    "rpm": 850,
+    "chargeur": 100,
+    "rechargement": 4.54,
+    "headshot": 65,
+    "degatsBase": 48300,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Programme de parrainage"
+    },
+    "talents": [
+      "vif"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "m249_para_tactique": {
+    "nom": "M249 Para tactique",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 850,
+    "chargeur": 100,
+    "rechargement": 4.54,
+    "headshot": 65,
+    "degatsBase": 48300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "mk46_militaire": {
+    "nom": "MK46 militaire",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 850,
+    "chargeur": 100,
+    "rechargement": 4.54,
+    "headshot": 65,
+    "degatsBase": 48300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "m60_classique": {
+    "nom": "M60 classique",
+    "type": "fusil_mitrailleur",
+    "fabricant": "SACO DEFENSE",
+    "portee": 40,
+    "rpm": 600,
+    "chargeur": 100,
+    "rechargement": 3.75,
+    "headshot": 65,
+    "degatsBase": 67700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m60_e4_militaire": {
+    "nom": "M60 E4 militaire",
+    "type": "fusil_mitrailleur",
+    "fabricant": "SACO DEFENSE",
+    "portee": 40,
+    "rpm": 600,
+    "chargeur": 100,
+    "rechargement": 4.8,
+    "headshot": 65,
+    "degatsBase": 65200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "m60_e6_marche_noire": {
+    "nom": "M60 E6 marché noir",
+    "type": "fusil_mitrailleur",
+    "fabricant": "SACO DEFENSE",
+    "portee": 40,
+    "rpm": 600,
+    "chargeur": 100,
+    "rechargement": 4.8,
+    "headshot": 65,
+    "degatsBase": 65200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "belle_epoque": {
+    "nom": "Belle époque",
+    "type": "fusil_mitrailleur",
+    "fabricant": "SACO DEFENSE",
+    "portee": 40,
+    "rpm": 600,
+    "chargeur": 100,
+    "rechargement": 3.85,
+    "headshot": 65,
+    "degatsBase": 65200,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "mains_rapides"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "rpk_74_classique": {
+    "nom": "RPK-74 classique",
+    "type": "fusil_mitrailleur",
+    "fabricant": "KALASHNIKOV",
+    "portee": 30,
+    "rpm": 600,
+    "chargeur": 40,
+    "rechargement": 4.00,
+    "headshot": 65,
+    "degatsBase": 71500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "rpk_74_m_militaire": {
+    "nom": "RPK-74 M militaire",
+    "type": "fusil_mitrailleur",
+    "fabricant": "KALASHNIKOV",
+    "portee": 30,
+    "rpm": 600,
+    "chargeur": 40,
+    "rechargement": 4.00,
+    "headshot": 65,
+    "degatsBase": 71500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "rpk_74_e_marche_noire": {
+    "nom": "RPK-74 E marché noir",
+    "type": "fusil_mitrailleur",
+    "fabricant": "KALASHNIKOV",
+    "portee": 30,
+    "rpm": 600,
+    "chargeur": 40,
+    "rechargement": 4.00,
+    "headshot": 65,
+    "degatsBase": 71500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "nouveau_et_fiable": {
+    "nom": "Nouveau & fiable",
+    "type": "fusil_mitrailleur",
+    "fabricant": "KALASHNIKOV",
+    "portee": 30,
+    "rpm": 600,
+    "chargeur": 40,
+    "rechargement": 2.86,
+    "headshot": 65,
+    "degatsBase": 71500,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "optimise"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "l86_lsw_militaire": {
+    "nom": "L86 LSW militaire",
+    "type": "fusil_mitrailleur",
+    "fabricant": "ENFIELD",
+    "portee": 30,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 3.18,
+    "headshot": 65,
+    "degatsBase": 61100,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_556"
+    }
+  },
+  "l86_a2_personnalise": {
+    "nom": "L86 A2 personnalisé",
+    "type": "fusil_mitrailleur",
+    "fabricant": "ENFIELD",
+    "portee": 30,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 3.18,
+    "headshot": 65,
+    "degatsBase": 61100,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "tabula_rasa": {
+    "nom": "Tabula Rasa",
+    "type": "fusil_mitrailleur",
+    "fabricant": "ENFIELD",
+    "portee": 30,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 3.18,
+    "headshot": 65,
+    "degatsBase": 61100,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "main_ferme"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "iwi_negev": {
+    "nom": "IWI NEGEV",
+    "type": "fusil_mitrailleur",
+    "fabricant": "IMI",
+    "portee": 40,
+    "rpm": 750,
+    "chargeur": 100,
+    "rechargement": 4.00,
+    "headshot": 65,
+    "degatsBase": 57600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "carnage": {
+    "nom": "Carnage",
+    "type": "fusil_mitrailleur",
+    "fabricant": "IMI",
+    "portee": 40,
+    "rpm": 750,
+    "chargeur": 100,
+    "rechargement": 4.00,
+    "headshot": 65,
+    "degatsBase": 57600,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "sadique"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "gr9": {
+    "nom": "GR9",
+    "type": "fusil_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 200,
+    "rechargement": 3.63,
+    "headshot": 65,
+    "degatsBase": 49500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_762"
+    },
+    "modsPredefinis": [
+      "lunette_integree_8x"
+    ]
+  },
+  "defi": {
+    "nom": "Défi",
+    "type": "fusil_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 200,
+    "rechargement": 3.63,
+    "headshot": 65,
+    "degatsBase": 49500,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "ligne_plate"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    },
+    "modsPredefinis": [
+      "lunette_integree_8x"
+    ]
+  },
+  "cricket": {
+    "nom": "Cricket",
+    "type": "fusil_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 200,
+    "rechargement": 3.63,
+    "headshot": 65,
+    "degatsBase": 49500,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "frappe_de_precision"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_762"
+    },
+    "modsPredefinis": [
+      "lunette_integree_8x"
+    ]
+  },
+  "px4_storm_type_f": {
+    "nom": "Px4 Storm Type F",
+    "type": "pistolet",
+    "fabricant": "BERETTA",
+    "portee": 12,
+    "rpm": 380,
+    "chargeur": 14,
+    "rechargement": 1.63,
+    "headshot": 100,
+    "degatsBase": 91700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
+      "canon": "gadget"
+    }
+  },
+  "px4_storm_type_t": {
+    "nom": "Px4 Storm Type T",
+    "type": "pistolet",
+    "fabricant": "BERETTA",
+    "portee": 12,
+    "rpm": 380,
+    "chargeur": 14,
+    "rechargement": 1.63,
+    "headshot": 100,
+    "degatsBase": 91700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
+      "canon": "gadget"
+    }
+  },
+  "x_45": {
+    "nom": "X-45",
+    "type": "pistolet",
+    "fabricant": "FN HERSTAL",
+    "portee": 16,
+    "rpm": 400,
+    "chargeur": 15,
+    "rechargement": 1.99,
+    "headshot": 100,
+    "degatsBase": 88300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
+      "canon": "gadget"
+    }
+  },
+  "x_45_tactique": {
+    "nom": "X-45 tactique",
+    "type": "pistolet",
+    "fabricant": "FN HERSTAL",
+    "portee": 16,
+    "rpm": 400,
+    "chargeur": 15,
+    "rechargement": 1.99,
+    "headshot": 100,
+    "degatsBase": 88300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
+      "canon": "gadget"
+    }
+  },
+  "m9_militaire": {
+    "nom": "M9 militaire",
+    "type": "pistolet",
+    "fabricant": "BERETTA",
+    "portee": 16,
+    "rpm": 350,
+    "chargeur": 15,
+    "rechargement": 1.90,
+    "headshot": 100,
+    "degatsBase": 102600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "93r": {
+    "nom": "93R",
+    "type": "pistolet",
+    "fabricant": "BERETTA",
+    "portee": 12,
+    "rpm": 700,
+    "chargeur": 20,
+    "rechargement": 1.71,
+    "headshot": 100,
+    "degatsBase": 53000,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "93r_tireur_d_elite": {
+    "nom": "93R tireur d'élite",
+    "type": "pistolet",
+    "fabricant": "BERETTA",
+    "portee": 12,
+    "rpm": 700,
+    "chargeur": 20,
+    "rechargement": 1.56,
+    "notes": "L'attribut est inclus dans la stat",
+    "headshot": 100,
+    "degatsBase": 53000,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "indefectible"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_9mm"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "vitesse_de_rechargement_arm",
+        "valeur": 9.3
+      }
+    ],
+    "obtention": {
+      "description": "Spécialisation : Tireur d'élite"
+    }
+  },
+  "d50": {
+    "nom": "D50",
+    "type": "pistolet",
+    "fabricant": "MAGNUM/IMI",
+    "portee": 18,
+    "rpm": 200,
+    "chargeur": 8,
+    "rechargement": 2.24,
+    "headshot": 100,
+    "degatsBase": 189200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "viseur": "rail_optique_court"
+    }
+  },
+  "d50_de_survivaliste": {
+    "nom": "D50 de Survivaliste",
+    "type": "pistolet",
+    "fabricant": "MAGNUM/IMI",
+    "portee": 18,
+    "rpm": 200,
+    "chargeur": 8,
+    "rechargement": 2.24,
+    "headshot": 100,
+    "degatsBase": 189200,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "sadique"
+    ],
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_sur_cible_non_abritee_arm",
+        "valeur": 8
+      }
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique_court"
+    },
+    "obtention": {
+      "description": "Spécialisation : Survivaliste"
+    }
+  },
+  "m1911": {
+    "nom": "M1911",
+    "type": "pistolet",
+    "fabricant": "COLT",
+    "portee": 12,
+    "rpm": 310,
+    "chargeur": 7,
+    "rechargement": 2.24,
+    "headshot": 100,
+    "degatsBase": 129900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet"
+    }
+  },
+  "m45a1": {
+    "nom": "M45A1",
+    "type": "pistolet",
+    "fabricant": "COLT",
+    "portee": 12,
+    "rpm": 310,
+    "chargeur": 7,
+    "rechargement": 2.33,
+    "headshot": 100,
+    "degatsBase": 117400,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
+  },
+  "m1911_tactique": {
+    "nom": "M1911 tactique",
+    "type": "pistolet",
+    "fabricant": "COLT",
+    "portee": 12,
+    "rpm": 310,
+    "chargeur": 7,
+    "rechargement": 2.33,
+    "headshot": 100,
+    "degatsBase": 117400,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
+  },
+  "mozambique_special": {
+    "nom": "Mozambique Spécial",
+    "type": "pistolet",
+    "fabricant": "COLT",
+    "portee": 12,
+    "rpm": 310,
+    "chargeur": 7,
+    "rechargement": 2.33,
+    "headshot": 100,
+    "degatsBase": 117400,
+    "estNomme": true,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
+  },
+  "first_wave_pf45": {
+    "nom": "First Wave PF45",
+    "type": "pistolet",
+    "fabricant": "SMITH&WESSON",
+    "portee": 14,
+    "rpm": 370,
+    "chargeur": 10,
+    "rechargement": 1.74,
+    "headshot": 100,
+    "degatsBase": 100700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    }
+  },
+  "pf45_personnalise": {
+    "nom": "PF45 personnalisé",
+    "type": "pistolet",
+    "fabricant": "SMITH&WESSON",
+    "portee": 14,
+    "rpm": 370,
+    "chargeur": 10,
+    "rechargement": 1.77,
+    "headshot": 100,
+    "degatsBase": 94000,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget",
+      "bouche": "bouche"
+    }
+  },
+  "paratonnerre": {
+    "nom": "Paratonnerre",
+    "type": "pistolet",
+    "fabricant": "SMITH&WESSON",
+    "portee": 14,
+    "rpm": 370,
+    "chargeur": 10,
+    "rechargement": 1.77,
+    "headshot": 100,
+    "degatsBase": 94000,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "debarras"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget",
+      "bouche": "bouche"
+    }
+  },
+  "petite_abeille_ouvriere": {
+    "nom": "Petite abeille ouvrière",
+    "type": "pistolet",
+    "fabricant": "Exotique",
+    "description": "\"Presque parfait sur tous les plans.\nTant que vous ne ratez pas.\" 13",
+    "portee": 18,
+    "rpm": 400,
+    "chargeur": 10,
+    "rechargement": 1.61,
+    "headshot": 100,
+    "degatsBase": 94000,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination."
+    },
+    "estNomme": false,
+    "talents": [
+      "petite_abeille_ouvriere"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "concentration_d_abeille",
+      "vitesse_d_abeille",
+      "force_d_abeille",
+      "objectif_d_abeille"
+    ]
+  },
+  "snubnosed_diceros": {
+    "nom": "Snubnosed Diceros",
+    "type": "pistolet",
+    "fabricant": "CHIAPPA FIREARMS",
+    "portee": 18,
+    "rpm": 180,
+    "chargeur": 6,
+    "rechargement": 1.98,
+    "headshot": 100,
+    "degatsBase": 211300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "chargeur": "barillet"
+    }
+  },
+  "diceros": {
+    "nom": "Diceros",
+    "type": "pistolet",
+    "fabricant": "CHIAPPA FIREARMS",
+    "portee": 18,
+    "rpm": 180,
+    "chargeur": 6,
+    "rechargement": 2.00,
+    "headshot": 100,
+    "degatsBase": 204800,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "barillet",
+      "canon": "gadget"
+    }
+  },
+  "diceros_special": {
+    "nom": "Diceros Special",
+    "description": "Un revolver .357 Magnum très puissant. Le canon inhabituellement bas tirant depuis la partie inférieure du cylindre lui confère un équilibre rare pour une arme de cette catégorie.",
+    "type": "pistolet",
+    "fabricant": "CHIAPPA FIREARMS",
+    "portee": 18,
+    "rpm": 180,
+    "chargeur": 6,
+    "rechargement": 1.93,
+    "headshot": 100,
+    "degatsBase": 198300,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "optimiste"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "barillet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    },
+    "obtention": {
+      "description": "Spécialisation : Démolisseur"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "stabilite_arm",
+        "valeur": 9.3
+      }
+    ]
+  },
+  "586_magnum": {
+    "nom": "586 Magnum",
+    "type": "pistolet",
+    "fabricant": "SMITH&WESSON",
+    "portee": 16,
+    "rpm": 160,
+    "chargeur": 6,
+    "rechargement": 2.54,
+    "headshot": 100,
+    "degatsBase": 233300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "chargeur": "barillet",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "orbite": {
+    "nom": "Orbite",
+    "description": "Une fois en mouvement, la balle poursuit sa trajectoire jusqu'à sa cible, puis tout mouvement cesse brusquement.",
+    "type": "pistolet",
+    "fabricant": "SMITH&WESSON",
+    "portee": 16,
+    "rpm": 160,
+    "chargeur": 6,
+    "rechargement": 2.54,
+    "headshot": 100,
+    "degatsBase": 233300,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "finisseur"
+    ],
+    "emplacementsMods": {
+      "chargeur": "barillet",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "686_magnum_police": {
+    "nom": "686_Magnum_Police",
+    "type": "pistolet",
+    "fabricant": "SMITH&WESSON",
+    "portee": 16,
+    "rpm": 160,
+    "chargeur": 6,
+    "rechargement": 2.54,
+    "headshot": 100,
+    "degatsBase": 233300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "barillet",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "prophete": {
+    "nom": "Prophète",
+    "type": "pistolet",
+    "fabricant": "SMITH&WESSON",
+    "portee": 16,
+    "rpm": 160,
+    "chargeur": 6,
+    "rechargement": 2.54,
+    "headshot": 100,
+    "degatsBase": 233300,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "resolu"
+    ],
+    "emplacementsMods": {//ok
+      "chargeur": "barillet",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "le_moissonneur": {
+    "nom": "Le Moissonneur",
+    "description": "\"Rien ne vaut la récompense à la fin de la récolte.\"",
+    "type": "pistolet",
+    "fabricant": "SMITH&WESSON",
+    "portee": 16,
+    "rpm": 149,
+    "chargeur": 6,
+    "rechargement": 2.54,
+    "headshot": 100,
+    "degatsBase": 256600,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
+    "emplacementsMods": {//OK
+      "chargeur": "barillet",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "kard_45": {
+    "nom": "KARD-45",
+    "type": "pistolet",
+    "fabricant": "TDI",
+    "portee": 16,
+    "rpm": 310,
+    "chargeur": 10,
+    "rechargement": 1.71,
+    "headshot": 100,
+    "degatsBase": 114300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget",
+      "bouche":  "bouche_9mm"
+    }
+  },
+  "tdi_kard_personnalise": {
+    "nom": "TDI \"KARD\" personnalisé",
+    "type": "pistolet",
+    "fabricant": "TDI",
+    "portee": 16,
+    "rpm": 310,
+    "chargeur": 10,
+    "rechargement": 1.71,
+    "headshot": 100,
+    "degatsBase": 114300,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget",
+      "bouche":  "bouche_9mm"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es"
+      },
+      {
+        "nom": "tiers_de_competence",
+        "valeur": 1
+      }
+    ]
+  },
+  "maxim_9": {
+    "nom": "Maxim 9",
+    "type": "pistolet",
+    "fabricant": "SILENCERCO",
+    "portee": 16,
+    "rpm": 280,
+    "chargeur": 17,
+    "rechargement": 1.39,
+    "headshot": 100,
+    "degatsBase": 125400,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Spécialisation : Technicien"
+    },
+    "talents": [
+      "pointe"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_pistolet_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_de_headshot_arm",
+        "valeur": 9
+      }
+    ]
+  },
+  "p320_xcompact": {
+    "nom": "P320 Xcompact",
+    "type": "pistolet",
+    "fabricant": "SIG-SAUER",
+    "portee": 12,
+    "rpm": 380,
+    "chargeur": 17,
+    "rechargement": 1.77,
+    "headshot": 100,
+    "degatsBase": 87500,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "preservation"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget",
+      "bouche":  "bouche_9mm"
+    },
+    "obtention": {
+      "description": "Spécialisation : Artilleur"
+    }
+  },
+  "acs_12": {
+    "nom": "ACS-12",
+    "type": "calibre_12",
+    "fabricant": "ATCHISSON",
+    "portee": 16,
+    "rpm": 300,
+    "chargeur": 20,
+    "rechargement": 3.05,
+    "headshot": 45,
+    "degatsBase": 180800,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_integre",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "rock_n_roll": {
+    "nom": "Rock'n'Roll",
+    "description": "\"Y'a plein de gens qui aiment la guitare mais moi, c'est la batterie que je kiffe... BAN, BAM, BAM ! Ça me fait trop tripper.\"\n- Membre des Hyènes jouant dans un groupe",
+    "type": "calibre_12",
+    "fabricant": "ATCHISSON",
+    "portee": 16,
+    "rpm": 300,
+    "chargeur": 30,
+    "notes": "Le talent est inclus dans la stats",
+    "rechargement": 3.05,
+    "headshot": 45,
+    "degatsBase": 180800,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "extra"
+    ],
+    "emplacementsMods": {//OK
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "gaucher": {
+    "nom": "Gaucher",
+    "type": "calibre_12",
+    "fabricant": "ATCHISSON",
+    "portee": 16,
+    "rpm": 300,
+    "chargeur": 20,
+    "rechargement": 3.05,
+    "headshot": 45,
+    "degatsBase": 180800,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "coup_de_massue"
+    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "sasg_12_s_marche_noir": {
+    "nom": "SASG-12 S marché noir",
+    "type": "calibre_12",
+    "fabricant": "IZHMASH",
+    "portee": 14,
+    "rpm": 180,
+    "chargeur": 7,
+    "rechargement": 2.77,
+    "headshot": 45,
+    "degatsBase": 349800,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "sasg_12": {
+    "nom": "SASG-12",
+    "type": "calibre_12",
+    "fabricant": "IZHMASH",
+    "portee": 14,
+    "rpm": 180,
+    "chargeur": 7,
+    "rechargement": 2.77,
+    "headshot": 45,
+    "degatsBase": 349800,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "sasg_12_tactique": {
+    "nom": "SASG-12 K tactique",
+    "type": "calibre_12",
+    "fabricant": "IZHMASH",
+    "portee": 14,
+    "rpm": 180,
+    "chargeur": 7,
+    "rechargement": 2.77,
+    "headshot": 45,
+    "degatsBase": 349800,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "tsunami": {
+    "nom": "Tsunami",
+    "type": "calibre_12",
+    "fabricant": "IZHMASH",
+    "portee": 14,
+    "rpm": 180,
+    "chargeur": 7,
+    "rechargement": 2.77,
+    "headshot": 45,
+    "degatsBase": 349800,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "martelement"
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "super_90_marine": {
+    "nom": "SUPER 90 MARINE",
+    "type": "calibre_12",
+    "fabricant": "BENELLI",
+    "portee": 11,
+    "rpm": 160,
+    "chargeur": 8,
+    "rechargement": 4.23,
+    "headshot": 45,
+    "degatsBase": 389900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "super_90": {
+    "nom": "SUPER 90",
+    "type": "calibre_12",
+    "fabricant": "BENELLI",
+    "portee": 11,
+    "rpm": 160,
+    "chargeur": 8,
+    "rechargement": 4.23,
+    "headshot": 45,
+    "degatsBase": 389900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "comme_de_la_colle": {
+    "nom": "Comme de la colle",
+    "type": "calibre_12",
+    "fabricant": "BENELLI",
+    "portee": 11,
+    "rpm": 160,
+    "chargeur": 8,
+    "rechargement": 4.23,
+    "headshot": 45,
+    "degatsBase": 389900,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "imprudence"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "super_90_sbs_tactique": {
+    "nom": "SUPER 90 SBS TACTIQUE",
+    "type": "calibre_12",
+    "fabricant": "BENELLI",
+    "portee": 11,
+    "rpm": 160,
+    "chargeur": 8,
+    "rechargement": 4.23,
+    "headshot": 45,
+    "degatsBase": 389900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "enforcer": {
+    "nom": "Enforcer",
+    "type": "calibre_12",
+    "fabricant": "BENELLI",
+    "portee": 11,
+    "rpm": 160,
+    "chargeur": 8,
+    "rechargement": 4.65,
+    "headshot": 45,
+    "degatsBase": 389900,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
+    "talents": [
+      "martelement"
+    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "deux_canons_scies": {
+    "nom": "Deux canons sciés",
+    "type": "calibre_12",
+    "fabricant": "L.C SMITH",
+    "portee": 7,
+    "rpm": 200,
+    "chargeur": 2,
+    "rechargement": 2.51,
+    "headshot": 45,
+    "degatsBase": 678100,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {},//ok
+    "armePoing": true
+  },
+  "allume_feu": {
+    "nom": "Allume-feu",
+    "description": "Les cartouches contiennent une fine poudre augmentant l'inflammibilité des cibles touchées par le fusil",
+    "type": "calibre_12",
+    "fabricant": "L.C SMITH",
+    "portee": 11,
+    "rpm": 200,
+    "chargeur": 2,
+    "rechargement": 3.89,
+    "headshot": 45,
+    "degatsBase": 635700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "munitions_catalysantes"
+    ],
+    "emplacementsMods": {},
+    "armePoing": true,
+    "obtention": {
+      "description": "Spécialisation : Incendiaire"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_calibre_12_es",
+        "valeur": 11.6
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_a_la_sante_arm",
+        "valeur": 7.5
+      }
+    ]
+  },
+  "baguette_magique_de_secours": {
+    "nom": "Baguette magique de secours",
+    "type": "calibre_12",
+    "fabricant": "L.C SMITH",
+    "portee": 7,
+    "rpm": 200,
+    "chargeur": 2,
+    "rechargement": 2.51,
+    "headshot": 45,
+    "degatsBase": 635700,
+    "estExotique": false,
+    "estNomme": true,
+    "emplacementsMods": {},
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_calibre_12_es",
+        "valeur": 17
+      },
+      {
+        "nom": "degats_aux_protections_es"
+      }
+    ],
+    "armePoing": true
+  },
+  "baguette_magique": {
+    "nom": "Baguette magique",
+    "type": "calibre_12",
+    "fabricant": "L.C SMITH",
+    "portee": 11,
+    "rpm": 200,
+    "chargeur": 2,
+    "rechargement": 3.89,
+    "headshot": 45,
+    "degatsBase": 678100,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "motive"
+    ],
+    "emplacementsMods": {}
+  },
+  "l_inhumateur": {
+    "nom": "L'Inhumateur",
+    "description": "Quand vous quittez ce monde, tout ce que vous entendez c'est un bruit blanc.",
+    "type": "calibre_12",
+    "fabricant": "KEL-TEC",
+    "portee": 16,
+    "rpm": 70,
+    "chargeur": 12,
+    "rechargement": 7.99,
+    "headshot": 45,
+    "degatsBase": 678900,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "distance"
+    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "m870_mcs_personnalise": {
+    "nom": "M870 MCS personnalisé",
+    "type": "calibre_12",
+    "fabricant": "REMINGTON",
+    "portee": 11,
+    "rpm": 75,
+    "chargeur": 5,
+    "rechargement": 3.35,
+    "headshot": 45,
+    "degatsBase": 703700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "m870_express": {
+    "nom": "M870 Express",
+    "type": "calibre_12",
+    "fabricant": "REMINGTON",
+    "portee": 11,
+    "rpm": 75,
+    "chargeur": 5,
+    "rechargement": 3.35,
+    "headshot": 45,
+    "degatsBase": 703700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m870_militaire": {
+    "nom": "M870 militaire",
+    "type": "calibre_12",
+    "fabricant": "REMINGTON",
+    "portee": 11,
+    "rpm": 75,
+    "chargeur": 5,
+    "rechargement": 3.35,
+    "headshot": 45,
+    "degatsBase": 703700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "cuelebre": {
+    "nom": "Cuélebre",
+    "type": "calibre_12",
+    "fabricant": "REMINGTON",
+    "portee": 11,
+    "rpm": 75,
+    "chargeur": 5,
+    "rechargement": 2.23,
+    "headshot": 45,
+    "degatsBase": 703700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "mouvements_jazz"
+    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "spas_12": {
+    "nom": "SPAS-12",
+    "type": "calibre_12",
+    "fabricant": "FRANCHI",
+    "portee": 16,
+    "rpm": 70,
+    "chargeur": 8,
+    "rechargement": 5.5,
+    "headshot": 45,
+    "degatsBase": 716000,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "magasin_tubulaire"
+    }
+  },
+  "epine": {
+    "nom": "ÉPINE",
+    "type": "calibre_12",
+    "fabricant": "FRANCHI",
+    "portee": 16,
+    "rpm": 70,
+    "chargeur": 8,
+    "rechargement": 5.5,
+    "headshot": 45,
+    "degatsBase": 716000,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "imprudence"
+    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire"
+    }
+  },
+  "six12": {
+    "nom": "SIX12",
+    "type": "calibre_12",
+    "fabricant": "CRYE PRECISION",
+    "portee": 14,
+    "rpm": 130,
+    "chargeur": 7,
+    "rechargement": 3,
+    "headshot": 45,
+    "degatsBase": 409600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "la_serpilliere": {
+    "nom": "La Serpillière",
+    "type": "calibre_12",
+    "fabricant": "CRYE PRECISION",
+    "portee": 14,
+    "rpm": 130,
+    "chargeur": 7,
+    "rechargement": 3,
+    "headshot": 45,
+    "degatsBase": 409600,
+    "estExotique": false,
+    "estNomme": true,
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    },
+    "attributs": [
+      {
+        "nom": "protection_pour_eliminations_arm",
+        "valeur": 10
+      }
+    ]
+  },
+  "g28": {
+    "nom": "G28",
+    "type": "fusil_precision",
+    "fabricant": "HECKLER&KOCK",
+    "portee": 50,
+    "rpm": 180,
+    "chargeur": 20,
+    "rechargement": 3.27,
+    "headshot": 0,
+    "degatsBase": 206400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "relique": {
+    "nom": "Relique",
+    "type": "fusil_precision",
+    "fabricant": "HECKLER&KOCK",
+    "portee": 50,
+    "rpm": 180,
+    "chargeur": 20,
+    "rechargement": 3.27,
+    "headshot": 0,
+    "degatsBase": 206400,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "resolu"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "sacrum_imperium": {
+    "nom": "Sacrum Imperium",
+    "description": "\"Par la lumière sacrée, donnez-moi la force d'exécuter la volonté divine.\" Le prêtre",
+    "type": "fusil_precision",
+    "fabricant": "Exotique",
+    "portee": 60,
+    "rpm": 180,
+    "chargeur": 10,
+    "rechargement": 3.60,
+    "headshot": 30,
+    "degatsBase": 206400,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Hyène, Escouade d'extermination"
+    },
+    "estNomme": false,
+    "talents": [
+      "le_piege"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_du_medecin",
+      "chargeur_home",
+      "poigne_du_medecin_sacrum_imperium",
+      "perseverance_du_medecin_sacrum_imperium"
+    ]
+  },
+  "mk20_ssr_soccom": {
+    "nom": "Mk20 SSR SOCCOM",
+    "type": "fusil_precision",
+    "fabricant": "FN HERSTAL",
+    "portee": 55,
+    "rpm": 275,
+    "chargeur": 20,
+    "rechargement": 4.54,
+    "headshot": 0,
+    "degatsBase": 145900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "les_tenebres": {
+    "nom": "Les ténèbres",
+    "type": "fusil_precision",
+    "fabricant": "FN HERSTAL",
+    "portee": 55,
+    "rpm": 275,
+    "chargeur": 20,
+    "rechargement": 4.54,
+    "headshot": 0,
+    "degatsBase": 145900,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "realisme"
+    ],
+    "emplacementsMods": {//ok
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "replique_de_m700_carbon": {
+    "nom": "Réplique de M700 Carbon",
+    "type": "fusil_precision",
+    "fabricant": "REMINGTON",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 7,
+    "rechargement": 3.6,
+    "headshot": 0,
+    "degatsBase": 412500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m700_carbon": {
+    "nom": "M700 Carbon",
+    "type": "fusil_precision",
+    "fabricant": "REMINGTON",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 7,
+    "rechargement": 3.62,
+    "headshot": 0,
+    "degatsBase": 412500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "brutus": {
+    "nom": "Brutus",
+    "type": "fusil_precision",
+    "fabricant": "REMINGTON",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 7,
+    "rechargement": 3.62,
+    "headshot": 0,
+    "degatsBase": 412500,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "derriere_toi"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m700_tactique": {
+    "nom": "M700 tactique",
+    "type": "fusil_precision",
+    "fabricant": "REMINGTON",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 7,
+    "rechargement": 3.62,
+    "headshot": 0,
+    "degatsBase": 412500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "lateral"
+    }
+  },
+  "model_700": {
+    "nom": "Model 700",
+    "type": "fusil_precision",
+    "fabricant": "REMINGTON",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 7,
+    "rechargement": 6.41,
+    "headshot": 0,
+    "degatsBase": 441600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_integre",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long"
+    }
+  },
+  "grand_baton_d_ekim": {
+    "nom": "Grand bâton d'Ekim",
+    "type": "fusil_precision",
+    "fabricant": "REMINGTON",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 7,
+    "rechargement": 6.41,
+    "headshot": 0,
+    "degatsBase": 441600,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "ranger"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long"
+    }
+  },
+  "svd_surplus": {
+    "nom": "SVD surplus",
+    "type": "fusil_precision",
+    "fabricant": "KALASHNIKOV CONCERN",
+    "portee": 50,
+    "rpm": 260,
+    "chargeur": 10,
+    "rechargement": 2.59,
+    "headshot": 0,
+    "degatsBase": 156700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "svd_parachutiste": {
+    "nom": "SVD para",
+    "type": "fusil_precision",
+    "fabricant": "KALASHNIKOV CONCERN",
+    "portee": 50,
+    "rpm": 260,
+    "chargeur": 10,
+    "rechargement": 2.59,
+    "headshot": 111,
+    "degatsBase": 156700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "commando": {
+    "nom": "Commando",
+    "type": "fusil_precision",
+    "fabricant": "KALASHNIKOV CONCERN",
+    "portee": 50,
+    "rpm": 260,
+    "chargeur": 10,
+    "rechargement": 2.59,
+    "headshot": 111,
+    "degatsBase": 156700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "nudite"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "effroyable_sentence": {
+    "nom": "Effroyable sentence",
+    "description": "\"Quand viendra ta sentence, tu ne sauras pas combien de mots ont été prononcés, mais tu sauras quel est le dernier d'entre eux.\"",
+    "type": "fusil_precision",
+    "fabricant": "Exotique",
+    "portee": 50,
+    "rpm": 260,
+    "chargeur": 10,
+    "rechargement": 2.48,
+    "headshot": 40,
+    "degatsBase": 156700,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination"
+    },
+    "estNomme": false,
+    "talents": [
+      "point_final"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "eclat_du_jugement",
+      "ressort_a_tension_optimisee",
+      "chassis_inflexible",
+      "canon_perfore"
+    ]
+  },
+  "srs_furtif": {
+    "nom": "SRS furtif",
+    "type": "fusil_precision",
+    "fabricant": "DESERT TACTICAL ARMS",
+    "portee": 60,
+    "rpm": 60,
+    "chargeur": 7,
+    "rechargement": 4.29,//OK
+    "headshot": 0,
+    "degatsBase": 409400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "srs_a1": {
+    "nom": "SRS A1",
+    "type": "fusil_precision",
+    "fabricant": "DESERT TACTICAL ARMS",
+    "portee": 60,
+    "rpm": 60,
+    "chargeur": 7,
+    "rechargement": 3.9,
+    "headshot": 0,
+    "degatsBase": 409400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "epingle": {
+    "nom": "Épingle",
+    "type": "fusil_precision",
+    "fabricant": "DESERT TACTICAL ARMS",
+    "portee": 60,
+    "rpm": 60,
+    "chargeur": 7,
+    "rechargement": 3.9,
+    "headshot": 0,
+    "degatsBase": 409400,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "premier_sang"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m44_personnalise": {
+    "nom": "M44 personnalisé",
+    "type": "fusil_precision",
+    "fabricant": "IZHMASH",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 5,
+    "rechargement": 3.9,
+    "headshot": 0,
+    "degatsBase": 417700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m44_carabine_classique": {
+    "nom": "M44 Carabine classique",
+    "type": "fusil_precision",
+    "fabricant": "IZHMASH",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 5,
+    "rechargement": 3.9,
+    "headshot": 0,
+    "degatsBase": 433600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_integre",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "m44_chasse": {
+    "nom": "M44 chasse",
+    "type": "fusil_precision",
+    "fabricant": "IZHMASH",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 5,
+    "rechargement": 3.9,
+    "headshot": 0,
+    "degatsBase": 428700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_integre",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "mort_blanche": {
+    "nom": "Mort blanche",
+    "type": "fusil_precision",
+    "description": "\"La neige me manque.\" - S.H.",
+    "fabricant": "IZHMASH",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 5,
+    "rechargement": 3.9,
+    "headshot": 0,
+    "degatsBase": 433600,
+    "estExotique": false,
+    "estNomme": true,
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_de_precision_es"
+      },
+      {
+        "nom": "degats_de_headshot_es",
+        "valeur": 137,
+        "prototypeValue": 205
+      }
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_integre",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "oh_noel": {
+    "nom": "Oh, Noël",
+    "type": "fusil_precision",
+    "fabricant": "IZHMASH",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 5,
+    "rechargement": 4.29,
+    "notes": "Le mods est inclus dans le temps de rechargement",
+    "headshot": 0,
+    "degatsBase": 433600,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de Lutins"
+    },
+    "talents": [
+      "lumieres_scintillantes"
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique_long"
+    },
+    "modsPredefinis": [
+      "lunette_vx1_12x"
+    ],
+    "attributs_essentiels": [
+      {
+        "nom": "degats_de_headshot_es",
+        "valeur": 137
+      }
+    ]
+  },
+  "sr_1": {
+    "nom": "SR-1",
+    "type": "fusil_precision",
+    "fabricant": "DSR-PRECISION",
+    "portee": 50,
+    "rpm": 60,
+    "chargeur": 5,
+    "rechargement": 2.86,
+    "headshot": 0,
+    "degatsBase": 409400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "adrestia": {
+    "nom": "Adrestia",
+    "type": "fusil_precision",
+    "fabricant": "DSR-PRECISION",
+    "portee": 50,
+    "rpm": 60,
+    "chargeur": 5,
+    "rechargement": 2.86,
+    "headshot": 0,
+    "degatsBase": 409400,
+    "estExotique": false,
+    "estNomme": true,
+    "notes": "A démonter pour fabriquer le Nemesis, c'est une arme unique.",
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "tueur_attitre": {
+    "nom": "Tueur attitré",
+    "type": "fusil_precision",
+    "fabricant": "DSR-PRECISION",
+    "portee": 50,
+    "rpm": 60,
+    "chargeur": 5,
+    "rechargement": 2.86,
+    "headshot": 0,
+    "degatsBase": 409400,
+    "estExotique": false,
+    "estNomme": true,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "tactical_308": {
+    "nom": "Tactical .308",
+    "type": "fusil_precision",
+    "fabricant": "CADEX DEFENSE",
+    "portee": 50,
+    "rpm": 70,
+    "chargeur": 7,
+    "rechargement": 2.76,
+    "headshot": 0,
+    "degatsBase": 403800,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//ok
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "scalpel": {
+    "nom": "Scalpel",
+    "type": "fusil_precision",
+    "fabricant": "CADEX DEFENSE",
+    "portee": 50,
+    "rpm": 70,
+    "chargeur": 7,
+    "rechargement": 2.76,
+    "headshot": 0,
+    "degatsBase": 403800,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "futur_parfait"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "smg_9_converti": {
+    "nom": "SMG-9 converti",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "INTRACTEC",
+    "portee": 15,
+    "rpm": 1000,
+    "chargeur": 32,
+    "rechargement": 2.26,
+    "headshot": 50,
+    "degatsBase": 48500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "smg_9_a2_converti": {
+    "nom": "SMG-9 A2 converti",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "INTRACTEC",
+    "portee": 15,
+    "rpm": 1000,
+    "chargeur": 32,
+    "rechargement": 2.3,
+    "headshot": 50,
+    "degatsBase": 46700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "mp5a2": {
+    "nom": "MP5A2",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 21,
+    "rpm": 800,
+    "chargeur": 30,
+    "rechargement": 1.79,
+    "headshot": 50,
+    "degatsBase": 53900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "mp5_n": {
+    "nom": "MP5-N",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 21,
+    "rpm": 800,
+    "chargeur": 30,
+    "rechargement": 1.79,
+    "headshot": 50,
+    "degatsBase": 53900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "mp5_st": {
+    "nom": "MP5 ST",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 21,
+    "rpm": 800,
+    "chargeur": 30,
+    "rechargement": 1.79,
+    "headshot": 50,
+    "degatsBase": 53900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "cabaret": {
+    "nom": "Cabaret",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 21,
+    "rpm": 800,
+    "chargeur": 30,
+    "rechargement": 1.79,
+    "headshot": 50,
+    "degatsBase": 53900,
+    "estExotique": false,
+    "estNomme": true,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "pp_19": {
+    "nom": "PP-19",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "IZHMASH",
+    "portee": 21,
+    "rpm": 700,
+    "chargeur": 53,
+    "rechargement": 1.46,
+    "headshot": 50,
+    "degatsBase": 63600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "viseur": "rail_optique_court",
+      "bouche": "bouche"
+    }
+  },
+  "pp_19_ameliore": {
+    "nom": "PP-19 amélioré",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "IZHMASH",
+    "portee": 21,
+    "rpm": 700,
+    "chargeur": 53,
+    "rechargement": 1.46,
+    "headshot": 50,
+    "degatsBase": 63600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "coup_de_froid": {
+    "nom": "Coup de froid",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "IZHMASH",
+    "portee": 21,
+    "rpm": 700,
+    "chargeur": 53,
+    "rechargement": 1.46,
+    "headshot": 50,
+    "degatsBase": 63600,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "contrainte"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "aug_a3_para_xs": {
+    "nom": "AUG A3 Para XS",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "STEYR",
+    "portee": 22,
+    "rpm": 725,
+    "chargeur": 25,
+    "rechargement": 2.31,
+    "headshot": 50,
+    "degatsBase": 58700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "aug_a3_ameliore": {
+    "nom": "AUG A3 amélioré",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "STEYR",
+    "portee": 22,
+    "rpm": 725,
+    "chargeur": 25,
+    "rechargement": 2.31,
+    "headshot": 50,
+    "degatsBase": 58700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "aug_a3p_tactique": {
+    "nom": "AUG A3P tactique",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "STEYR",
+    "portee": 22,
+    "rpm": 725,
+    "chargeur": 25,
+    "rechargement": 2.31,
+    "headshot": 50,
+    "degatsBase": 58700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "vector_sbr_9_mm_tactique": {
+    "nom": "Vector SBR 9 mm tactique",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "TDI",
+    "portee": 15,
+    "rpm": 1200,
+    "chargeur": 19,
+    "rechargement": 1.69,
+    "headshot": 50,
+    "degatsBase": 40500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    }
+  },
+  "vector_sbr_9mm": {
+    "nom": "Vector SBR 9 mm",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "TDI",
+    "portee": 15,
+    "rpm": 1200,
+    "chargeur": 33,
+    "rechargement": 2.38,
+    "headshot": 50,
+    "degatsBase": 39300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "vector_45_acp": {
+    "nom": "Vector .45 ACP",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "TDI",
+    "portee": 15,
+    "rpm": 1200,
+    "chargeur": 25,
+    "rechargement": 2.06,
+    "headshot": 50,
+    "degatsBase": 38300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche"
+    }
+  },
+  "hiver_funeste": {
+    "nom": "Hiver funeste",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "TDI",
+    "portee": 15,
+    "rpm": 1200,
+    "chargeur": 25,
+    "rechargement": 2.06,
+    "headshot": 50,
+    "degatsBase": 38300,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "tueur"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_45_acp",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_45_acp"
+    }
+  },
+  "mp7": {
+    "nom": "MP7",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 21,
+    "rpm": 950,
+    "chargeur": 40,
+    "rechargement": 1.60,
+    "headshot": 50,
+    "degatsBase": 46400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_556"
+    }
+  },
+  "echangeur": {
+    "nom": "Échangeur",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 21,
+    "rpm": 950,
+    "chargeur": 40,
+    "rechargement": 1.60,
+    "headshot": 50,
+    "degatsBase": 46400,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "indefectible"
+    ],
+    "emplacementsMods": {//OK
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "t821_marche_noir": {
+    "nom": "T821 marché noir",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "SOCIMI",
+    "portee": 20,
+    "rpm": 550,
+    "chargeur": 32,
+    "rechargement": 1.47,
+    "headshot": 50,
+    "degatsBase": 76900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    }
+  },
+  "t821_police": {
+    "nom": "T821 police",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "SOCIMI",
+    "portee": 20,
+    "rpm": 550,
+    "chargeur": 32,
+    "rechargement": 1.47,
+    "headshot": 50,
+    "degatsBase": 76900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    }
+  },
+  "ump_45_police": {
+    "nom": "UMP-45 Police",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 16,
+    "rpm": 650,
+    "chargeur": 25,
+    "rechargement": 1.67,
+    "headshot": 50,
+    "degatsBase": 63700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_45_acp",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche"
+    }
+  },
+  "ump_45_tactique": {
+    "nom": "UMP-45 tactique",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 16,
+    "rpm": 650,
+    "chargeur": 25,
+    "rechargement": 1.67,
+    "headshot": 50,
+    "degatsBase": 63700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_45_acp",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche"
+    }
+  },
+  "m1928": {
+    "nom": "M1928",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "THOMPSON",
+    "portee": 19,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 1.46,
+    "headshot": 50,
+    "degatsBase": 78400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "viseur": "rail_optique_court"
+    }
+  },
+  "tommy_gun": {
+    "nom": "Tommy Gun",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "THOMPSON",
+    "portee": 21,
+    "rpm": 900,
+    "chargeur": 50,
+    "rechargement": 1.54,
+    "headshot": 50,
+    "degatsBase": 50600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {}
+  },
+  "l_acquis": {
+    "nom": "L'ACQUIS",
+    "description": "Les armes ne sont pas sublimes par essence, elles le deviennent.",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "THOMPSON",
+    "portee": 21,
+    "rpm": 900,
+    "chargeur": 50,
+    "rechargement": 1.54,
+    "headshot": 50,
+    "degatsBase": 50600,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "stabilisation"
+    ],
+    "emplacementsMods": {}//OK
+  },
+  "l_enneigeur": {
+    "nom": "L'Eneigeur",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "THOMPSON",
+    "portee": 16,
+    "rpm": 250,
+    "chargeur": 50,
+    "rechargement": 2.30,
+    "headshot": 50,
+    "degatsBase": 93000,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Eliminations de Lutins"
+    },
+    "talents": [
+      "pierre_cachee"
+    ],
+    "emplacementsMods": {}
+  },
+  "p90": {
+    "nom": "P90",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 21,
+    "rpm": 1100,
+    "chargeur": 50,
+    "rechargement": 1.57,
+    "headshot": 50,
+    "degatsBase": 39500,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "bouclier_d_emeline": {
+    "nom": "Bouclier d'Emeline",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 21,
+    "rpm": 1100,
+    "chargeur": 50,
+    "rechargement": 1.57,
+    "headshot": 50,
+    "degatsBase": 39500,
+    "estExotique": false,
+    "estNomme": true,
+    "emplacementsMods": {
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "ecarteur": {
+    "nom": "Écarteur",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "SIG-SAUER",
+    "portee": 22,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.09,
+    "headshot": 50,
+    "degatsBase": 51000,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "outsider"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    }
+  },
+  "l_appartement": {
+    "nom": "L'Appartement",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "SIG-SAUER",
+    "portee": 22,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.09,
+    "headshot": 50,
+    "degatsBase": 51000,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "mesure"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche"
+    }
+  },
+  "cmmg_banshee": {
+    "nom": "CMMG Banshee",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "CMMG",
+    "portee": 21,
+    "rpm": 900,
+    "chargeur": 32,
+    "rechargement": 1.92,//OK
+    "headshot": 50,
+    "degatsBase": 47800,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "rancune": {
+    "nom": "Rancune",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "CMMG",
+    "portee": 21,
+    "rpm": 900,
+    "chargeur": 32,
+    "rechargement": 1.92,
+    "headshot": 50,
+    "degatsBase": 47800,
+    "talents": [
+      "vindicatif"
+    ],
+    "estExotique": false,
+    "estNomme": true,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_9mm"
+    }
+  },
+  "uic15_mod2": {
+    "nom": "UIC15 MOD2",
+    "type": "fusil",
+    "fabricant": "AMERICAN DEFENSE MANUFACTURING",
+    "portee": 60,
+    "rpm": 240,
+    "chargeur": 30,
+    "rechargement": 1.57,
+    "headshot": 60,
+    "degatsBase": 150300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "acr_ss": {
+    "nom": "ACR SS",
+    "type": "fusil",
+    "fabricant": "AMERICAN DEFENSE MANUFACTURING",
+    "portee": 45,
+    "rpm": 420,
+    "chargeur": 30,
+    "rechargement": 2.39,
+    "headshot": 60,
+    "degatsBase": 92400,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m16a2": {
+    "nom": "M16A2",
+    "type": "fusil",
+    "fabricant": "COLT",
+    "portee": 50,
+    "rpm": 400,
+    "chargeur": 30,
+    "rechargement": 2.22,
+    "headshot": 60,
+    "degatsBase": 107000,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "murmure": {
+    "nom": "MURMURE",
+    "type": "fusil",
+    "fabricant": "COLT",
+    "portee": 50,
+    "rpm": 400,
+    "chargeur": 30,
+    "rechargement": 2.22,
+    "headshot": 60,
+    "degatsBase": 107000,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "derriere_toi"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m1a_socom": {
+    "nom": "M1A SOCOM",
+    "type": "fusil",
+    "fabricant": "SPRINGFIELD ARMORY",
+    "portee": 60,
+    "rpm": 320,
+    "chargeur": 10,
+    "rechargement": 2.11,
+    "headshot": 60,
+    "degatsBase": 129200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "m1a_cqb": {
+    "nom": "M1A CQB",
+    "type": "fusil",
+    "fabricant": "SPRINGFIELD ARMORY",
+    "portee": 60,
+    "rpm": 320,
+    "chargeur": 10,
+    "rechargement": 2.11,
+    "headshot": 60,
+    "degatsBase": 129200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "rafraichisseur": {
+    "nom": "RAFRAÎCHISSEUR",
+    "description": "N'oubliez pas de vous hydrater.",
+    "type": "fusil",
+    "fabricant": "SPRINGFIELD ARMORY",
+    "portee": 60,
+    "rpm": 384,
+    "chargeur": 100,
+    "rechargement": 2.4,
+    "headshot": -100,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "rafraichissement"
+    ],
+    "emplacementsMods": {}
+  },
+  "medecin_de_famille": {
+    "nom": "Médecin de famille",
+    "type": "fusil",
+    "fabricant": "Exotique",
+    "portee": 60,
+    "rpm": 320,
+    "chargeur": 10,
+    "rechargement": 1.93,
+    "headshot": 60,
+    "degatsBase": 129200,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination",
+      "description": "Le schéma est une récompense de Traque :\nCentrale de Pentco Fairview : Général Anderson.\nSon obtention permet de l'avoir en butin ciblé."
+    },
+    "estNomme": false,
+    "talents": [
+      "medecin_de_famille"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "vision_du_medecin",
+      "chargeur_de_famille",
+      "poigne_du_medecin_de_famille",
+      "perseverance_du_medecin_de_famille"
+    ]
+  },
+  "m1a_classique": {
+    "nom": "M1A CLASSIQUE",
+    "type": "fusil",
+    "fabricant": "SPRINGFIELD ARMORY",
+    "portee": 60,
+    "rpm": 180,
+    "chargeur": 10,
+    "rechargement": 2.36,
+    "headshot": 60,
+    "degatsBase": 231300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "secret_du_chef": {
+    "nom": "SECRET DU CHEF",
+    "description": "\"En cuisine, mon secret c'est la générosité: j'en met toujours un peu plus.\"\n- Sergent Rolland T. Baker",
+    "type": "fusil",
+    "fabricant": "SPRINGFIELD ARMORY",
+    "portee": 60,
+    "rpm": 180,
+    "chargeur": 13,
+    "rechargement": 2.6,
+    "headshot": 60,
+    "degatsBase": 231300,
+    "estExotique": false,
+    "estNomme": true,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "lvoa_c": {
+    "nom": "LVOA-C",
+    "type": "fusil",
+    "fabricant": "WAR SPORT",
+    "portee": 55,
+    "rpm": 380,
+    "chargeur": 30,
+    "rechargement": 1.89,
+    "headshot": 60,
+    "degatsBase": 100600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "surge": {
+    "nom": "SURGE",
+    "description": "\"La machine apprend. Pas nous.\"\n- Réflexion transhumaniste sur l'obsolescence programmée",
+    "type": "fusil",
+    "fabricant": "WAR SPORT",
+    "portee": 55,
+    "rpm": 380,
+    "chargeur": 30,
+    "rechargement": 1.89,
+    "headshot": 60,
+    "degatsBase": 100600,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "pointe"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "mdr_urbain": {
+    "nom": "MDR URBAIN",
+    "type": "fusil",
+    "fabricant": "DESERT TECH",
+    "portee": 60,
+    "rpm": 380,
+    "chargeur": 20,
+    "rechargement": 2.59,
+    "headshot": 60,
+    "degatsBase": 103000,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "vindicator": {
+    "nom": "Vindicator",
+    "type": "fusil",
+    "fabricant": "Exotique",
+    "portee": 66,
+    "rpm": 380,
+    "chargeur": 25,
+    "rechargement": 2.85,
+    "headshot": 60,
+    "degatsBase": 103000,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "represailles": "Black Tusk, Escouade d'extermination",
+      "description": "Boutique du mode Descent\nCoût : 350 crédits NSA"
+    },
+    "estNomme": false,
+    "talents": [
+      "interface_d_assaut_ortiz"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "lunette_ra",
+      "chargeur_de_simulation",
+      "poignee_loop",
+      "amplificateur_de_velocite"
+    ]
+  },
+  "mk17_militaire": {
+    "nom": "Mk17 MILITAIRE",
+    "type": "fusil",
+    "fabricant": "FN HERSTAL",
+    "portee": 55,
+    "rpm": 275,
+    "chargeur": 10,
+    "rechargement": 2.45,//OK
+    "headshot": 60,
+    "degatsBase": 145900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "mk17_police": {
+    "nom": "Mk17 POLICE",
+    "type": "fusil",
+    "fabricant": "FN HERSTAL",
+    "portee": 55,
+    "rpm": 275,
+    "chargeur": 10,
+    "rechargement": 2.23,
+    "headshot": 60,
+    "degatsBase": 145900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "regard_eternel": {
+    "nom": "REGARD ÉTERNEL",
+    "description": "\"Regarde toujours la récompense, mon gars. Attention... Vas-y !\"\n- Instructeur du NYCP",
+    "type": "fusil",
+    "fabricant": "FN HERSTAL",
+    "portee": 55,
+    "rpm": 275,
+    "chargeur": 10,
+    "rechargement": 2.23,
+    "headshot": 60,
+    "degatsBase": 145900,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "perpetuation"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "sig_716_cqb": {
+    "nom": "SIG 716 CQB",
+    "type": "fusil",
+    "fabricant": "SIG-SAUER",
+    "portee": 45,
+    "rpm": 320,
+    "chargeur": 20,
+    "rechargement": 2.39,
+    "headshot": 60,
+    "degatsBase": 125900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "sig_716": {
+    "nom": "SIG 716",
+    "type": "fusil",
+    "fabricant": "SIG-SAUER",
+    "portee": 45,
+    "rpm": 320,
+    "chargeur": 20,
+    "rechargement": 2.44,
+    "headshot": 60,
+    "degatsBase": 121300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "outil_d_artiste": {
+    "nom": "Outil d'Artiste",
+    "type": "fusil",
+    "fabricant": "SIG-SAUER",
+    "portee": 45,
+    "rpm": 320,
+    "chargeur": 20,
+    "rechargement": 2.23,
+    "headshot": 60,
+    "degatsBase": 125900,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "fusilier"
+    ],
+    "emplacementsMods": {//ok
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "usc_45_acp": {
+    "nom": "USC .45 ACP",
+    "type": "fusil",
+    "fabricant": "KECKLER&KOCH",
+    "portee": 55,
+    "rpm": 420,
+    "chargeur": 20,
+    "rechargement": 2.62,
+    "headshot": 60,
+    "degatsBase": 97700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "la_virginienne": {
+    "nom": "LA VIRGINIENNE",
+    "type": "fusil",
+    "fabricant": "WINCHESTER",
+    "portee": 35,
+    "rpm": 100,
+    "chargeur": 8,
+    "rechargement": 3.15,
+    "headshot": 60,
+    "degatsBase": 387000,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "boomerang"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556"
+    }
+  },
+  "resolute_mk47": {
+    "nom": "Resolute MK47",
+    "type": "fusil",
+    "fabricant": "CMMG",
+    "portee": 55,
+    "rpm": 300,
+    "chargeur": 36,
+    "rechargement": 1.76,
+    "headshot": 60,
+    "degatsBase": 124900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "harmony": {
+    "nom": "HARMONY",
+    "type": "fusil",
+    "fabricant": "CMMG",
+    "portee": 55,
+    "rpm": 300,
+    "chargeur": 30,
+    "rechargement": 1.76,
+    "headshot": 60,
+    "degatsBase": 124900,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "darkZone": true
+    },
+    "talents": [
+      "synchro"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "la_vorace": {
+    "nom": "La Vorace",
+    "description": "Avides de cadavres, Geri et Freki, les loups d'Odin, rôdent sur le champ de bataille. Chasse pour eux, guerrier d'Odin. Donne-leur de quoi assouvir leur faim.",
+    "type": "fusil",
+    "fabricant": "Exotique",
+    "portee": 50,
+    "rpm": 240,
+    "chargeur": 60,
+    "rechargement": 2,
+    "notes": "Les mods sont inclus dans les stats.",
+    "headshot": 60,
+    "degatsBase": 134400,
+    "estExotique": true,
+    "obtention": {
+      "raid": "raid 2 : Cheval de fer",
+      "darkZone": true,
+      "represailles": "Black Tusk, Fin de mission",
+      "description": "1% en tuant un boss du raid et 10% coffre final"
+    },
+    "estNomme": false,
+    "talents": [
+      "geri_et_freki"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_du_predateur",
+      "chargeurs_gloutons",
+      "gueule_devorante",
+      "griffe_de_loup"
+    ]
+  },
+  "m4_allege": {
+    "nom": "M4 ALLÉGÉ",
+    "type": "fusil",
+    "fabricant": "COLT",
+    "portee": 55,
+    "rpm": 360,
+    "chargeur": 30,
+    "rechargement": 1.85,
+    "headshot": 60,
+    "degatsBase": 107300,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "bonne_nuit": {
+    "nom": "Bonne nuit",
+    "type": "calibre_12",
+    "fabricant": "FRANCHI",
+    "portee": 13,
+    "rpm": 70,
+    "chargeur": 8,
+    "rechargement": 4.78,
+    "notes": "Les mods sont inclus dans les stats de l'arme",
+    "headshot": 25,
+    "degatsBase": 716000,
+    "estExotique": true,
+    "obtention": {
+      "represailles": "Parias,Escouade d'extermination",
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Tuer un boss Parias, 1/3/5/7% normal/difficile/défi/héroïque"
+    },
+    "estNomme": false,
+    "talents": [
+      "marchand_de_sable"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_parias",
+      "systeme_de_chargement_modifie",
+      "etourdisseur"
+    ]
+  },
+  "berceuse": {
+    "nom": "Berceuse",
+    "type": "calibre_12",
+    "fabricant": "FRANCHI",
+    "portee": 13,
+    "rpm": 70,
+    "chargeur": 8,
+    "rechargement": 4.78,
+    "notes": "Les mods sont inclus dans les stats de l'arme",
+    "headshot": 25,
+    "degatsBase": 716000,
+    "estExotique": true,
+    "obtention": {
+      "description": "Précommander The Division 2, bundle boutique"
+    },
+    "estNomme": false,
+    "talents": [
+      "marchand_de_sable"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_endommagee",
+      "systeme_de_chargement_modifie",
+      "poignee_renforcee"
+    ]
+  },
+  "scorpio": {
+    "nom": "Scorpio",
+    "description": "Cette arme tire des munitions empoisonnées débilitantes inspirées du scorpion (de l'espèce Hottentotta, précisément). Développée en collaboration avec la DARPA, elle n'a pas reçu d'autorisation de commercialisation car elle n'est pas conforme aux termes de la Convention de La Haye de 1899.",
+    "type": "calibre_12",
+    "fabricant": "CRYE PRECISION",
+    "portee": 14,
+    "rpm": 130,
+    "chargeur": 7,
+    "rechargement": 2.50,
+    "headshot": 45,
+    "degatsBase": 409600,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "represailles": "Hyènes, Fin de mission",
+      "butinCible": true,
+      "cachesExotiques": true
+    },
+    "estNomme": false,
+    "talents": [
+      "choc_septique"
+    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "bouche": "bouche",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    },
+    "modsPredefinis": [
+      "glandes_venimeuses",
+      "recepteurs_de_lumiere_stellaire",
+      "poignee_a_pince",
+      "aculeus"
+    ]
+  },
+  "overlord": {
+    "nom": "Overlord",
+    "type": "calibre_12",
+    "fabricant": "KEL-TEC",
+    "portee": 16,
+    "rpm": 70,
+    "chargeur": 12,
+    "rechargement": 6.94,
+    "headshot": 45,
+    "degatsBase": 678900,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Hyène, Escouade d'extermination."
+    },
+    "estNomme": false,
+    "talents": [
+      "capitulation"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "chargeur_antiemeute",
+      "rail_balistique",
+      "poignee_optimisee"
+    ]
+  },
+  "sherif": {
+    "nom": "Shérif",
+    "description": "Là, c'est du sérieux.",
+    "type": "calibre_12",
+    "fabricant": "Exotique",
+    "portee": 100,
+    "rpm": 70,
+    "chargeur": 8,
+    "rechargement": 3.65,
+    "headshot": 45,
+    "degatsBase": 526400,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
+      "description": "Récompense de Traque :\nUnited Ironworks : le général Anderson\nMaître - 100% (la 1er fois)."
+    },
+    "estNomme": false,
+    "talents": [
+      "autentico"
+    ],
+    "emplacementsMods": {}
+  },
+  "impitoyable": {
+    "nom": "Impitoyable",
+    "type": "fusil",
+    "fabricant": "IZHMASH",
+    "portee": 35,
+    "rpm": 400,
+    "chargeur": 30,
+    "rechargement": 1.74,
+    "headshot": 60,
+    "degatsBase": 102300,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Hyène, Escouade d'extermination.",
+      "description": "Tuer un boss Hyène, 1/3/5/7% normal/difficile/défi/héroïque"
+    },
+    "estNomme": false,
+    "talents": [
+      "detente_binaire"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_impitoyable",
+      "chargeur_impitoyable",
+      "poignee_impitoyable",
+      "bouche_impitoyable"
+    ]
+  },
+  "inflexible": {
+    "nom": "Inflexible",
+    "type": "fusil",
+    "fabricant": "IZHMASH",
+    "portee": 35,
+    "rpm": 400,
+    "chargeur": 30,
+    "rechargement": 1.74,
+    "notes": "Les mods sont inclus dans la vitesse de rechargement.",
+    "headshot": 60,
+    "degatsBase": 102300,
+    "estExotique": true,
+    "obtention": {
+      "description": "Précommander The Division 2, bundle boutique"
+    },
+    "estNomme": false,
+    "talents": [
+      "detente_binaire"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_russe_personnalisee_non_identifiee",
+      "chargeur_inflexible",
+      "poignee_inflexible",
+      "bouche_de_mayhem"
+    ]
+  },
+  "diamondback": {
+    "nom": "Diamondback",
+    "type": "fusil",
+    "fabricant": "WINCHESTER",
+    "portee": 35,
+    "rpm": 100,
+    "chargeur": 8,
+    "rechargement": 3.15,
+    "headshot": 60,
+    "degatsBase": 387000,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "mission": true,
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Black Tusk, Fin de mission",
+      "description": "Terminer les 3 zones de l'expédition Kenly College."
+    },
+    "estNomme": false,
+    "talents": [
+      "morsure_fatale"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "viseur_a_point_de_diamondback",
+      "levier_de_diamondback",
+      "poignee_de_diamondback",
+      "decoration_de_crotale"
+    ]
+  },
+  "bittersweet": {
+    "nom": "Bittersweet",
+    "description": "L'arme bigoût.",
+    "type": "fusil",
+    "fabricant": "Exotique",
+    "portee": 60,
+    "rpm": 180,
+    "chargeur": 20,
+    "rechargement": 2.60,
+    "headshot": 70,
+    "degatsBase": 231300,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Nettoyeurs, fin de mission"
+    },
+    "estNomme": false,
+    "talents": [
+      "transfusion"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "lunette_de_bittersweet",
+      "chargeur_de_bittersweet",
+      "accessoire_sous_canon_de_bittersweet"
+    ]
+  },
+  "eagle_bearer": {
+    "nom": "Eagle Bearer",
+    "description": "L'inscription indique : \n\"Un présent offert à Odessa Sawyer pour le dévouement sans faille dans la tragédie nationale que nous traversons tous. Puisse-t-elle trouver la force de relever les défis qui l'attendent.\"\n- La communauté du refuge du Théâtre",
+    "type": "fusil_assaut",
+    "fabricant": "PATRIOT ORDNANCE FACTORY",
+    "portee": 26,
+    "rpm": 850,
+    "chargeur": 60,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 47400,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "raid": "raid 1 : Opération Heures Sombres",
+      "darkZone": true,
+      "represailles": "Black Tusk, Fin de mission",
+      "description": "1% en tuant un boss du raid et 10% coffre final."
+    },
+    "estNomme": false,
+    "talents": [
+      "frappe_de_l_aigle",
+      "tenacite"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_oeil_d_aigle",
+      "aire_balistique",
+      "poignee_serres_d_aigle",
+      "bec_dentele"
+    ]
+  },
+  "cameleon": {
+    "nom": "Caméléon",
+    "description": "Le caméléon dispose d'une technologie de revêtement réfringent conçu par l'équipe de recherche de la DARPA.",
+    "type": "fusil_assaut",
+    "fabricant": "TDI",
+    "portee": 20,
+    "rpm": 900,
+    "chargeur": 50,
+    "rechargement": 2.40,
+    "headshot": 50,
+    "degatsBase": 44700,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Hyènes, Fin de mission",
+      "description": "Récompense de prime 1/3/5/7% normal/difficile/défi/héroïque"
+    },
+    "estNomme": false,
+    "talents": [
+      "instinct_d_adaptation"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_de_cameleon",
+      "processeur_activcamo_de_cameleon",
+      "suppresseur_de_cameleon",
+      "poignee_de_cameleon"
+    ]
+  },
+  "bighorn": {
+    "nom": "Bighorn",
+    "description": "\"Vise. Inspire. Bloque ton souffle. Concentre-toi. Expire. Apuuie.\"",
+    "type": "fusil_assaut",
+    "fabricant": "STEYR",
+    "portee": 40,
+    "rpm": 800,
+    "chargeur": 42,
+    "rechargement": 1.80,
+    "headshot": 95,
+    "degatsBase": 57200,
+    "estExotique": true,
+    "obtention": {
+      "darkZone": true,
+      "mission": true,
+      "represailles": "Black Tusk, Fin de mission",
+      "description": "Uniquement en difficulté légendaire 5%, boss nommé en forteresse ou summit"
+    },
+    "estNomme": false,
+    "talents": [
+      "chasseur_de_gros_gibier"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "lunette_de_selection_de_tir",
+      "chargeur_a_ressort_ajuste",
+      "bouche_en_acier_au_carbone",
+      "poignee_de_corne_bighorn"
+    ]
+  },
+  "capacitor": {
+    "nom": "Capacitor",
+    "description": "\"Moi ce que je préfère, c'est les câbles dénudés qui se touchent et les incendies électriques. Heureusement, ces deux trucs vont bien ensemble. Une étincelle et on met le feu !\"\n- Ancien technicien des Black Tusks",
+    "type": "fusil_assaut",
+    "fabricant": "MAGPUL",
+    "portee": 31,
+    "rpm": 700,
+    "chargeur": 41,
+    "rechargement": 1.85,
+    "headshot": 55,
+    "degatsBase": 57600,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
+      "description": "Finir 5 défis de Summit en une ascension."
+    },
+    "estNomme": false,
+    "talents": [
+      "capacite"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_condutrice",
+      "generateur_de_tension",
+      "electrode_de_decharge",
+      "poignee_securisee_dielectrique"
+    ]
+  },
+  "feu_de_saint_elme": {
+    "nom": "Feu de Saint-Elme",
+    "type": "fusil_assaut",
+    "description": "\"Parfois, les phénomènes les plus beaux et les plus menaçants sont purement naturels.\" Anonyme",
+    "fabricant": "COLT",
+    "portee": 31,
+    "rpm": 850,
+    "chargeur": 70,
+    "rechargement": 2.04,
+    "headshot": 55,
+    "degatsBase": 46900,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "True sons, Escouade d'extermination"
+    },
+    "estNomme": false,
+    "talents": [
+      "actum_est"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "rail_conducteur",
+      "chargeur_isolee",
+      "poignee_isolee",
+      "bouche_surchargee"
+    ]
+  },
+  "strega": {
+    "nom": "Strega",
+    "description": "\"On ne peut plus faire de prévention. On limite les dégâts.\"\n- Colonel Antwon Ridgeway",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 700,
+    "chargeur": 40,
+    "rechargement": 1.95,
+    "headshot": 55,
+    "degatsBase": 57600,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Hyène, Escouade d'extermination",
+      "mission": true
+    },
+    "estNomme": false,
+    "talents": [
+      "pertubation"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_strega",
+      "chargeur_strega",
+      "poignee_strega",
+      "bouche_strega"
+    ]
+  },
+  "pestilence": {
+    "nom": "Pestilence",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 935,
+    "chargeur": 100,
+    "rechargement": 4.54,
+    "headshot": 65,
+    "degatsBase": 48300,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination",
+      "darkZone": true,
+      "description": "Récompense lors de l'élimination d'un ennemi nommé en DZ\n1/2/3% pour les points de repère en normal/difficile/défi + héroique."
+    },
+    "estNomme": false,
+    "talents": [
+      "fleau_des_parias"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "chargeur_fleau",
+      "ruban_de_mise_en_garde",
+      "bouche_fleau"
+    ]
+  },
+  "bullet_king": {
+    "nom": "Bullet King",
+    "type": "fusil_mitrailleur",
+    "fabricant": "IMI",
+    "portee": 40,
+    "rpm": 750,
+    "chargeur": 100,
+    "notes": "Les mods sont inclus dans les stats.\nLe chargeur est fixé à 100 pour le bon fonctionnement de certain set (ongoing) ou bonus (taille du chargeur).",
+    "rechargement": 4.76,
+    "headshot": 65,
+    "degatsBase": 54600,
+    "estExotique": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Rikers, Escouade d'extermination",
+      "description": "Récompense lors de l'élimination d'un boss Rikers mission/summit\n1/3/5/7% normal/difficile/défi/héroique."
+    },
+    "estNomme": false,
+    "talents": [
+      "deluge_de_feu"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "chargeur_de_contenance",
+      "bouche_en_plaque_or",
+      "bipied_solid_gold"
+    ]
+  },
+  "dragon_de_fer": {
+    "nom": "Dragon de fer",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 800,
+    "chargeur": 85,
+    "rechargement": 2.96,
+    "headshot": 65,
+    "degatsBase": 54300,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Nettoyeurs, Escouade d'extermination"
+    },
+    "estNomme": false,
+    "talents": [
+      "ardent"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "soufflet",
+      "ecailles",
+      "cornes_de_dragon"
+    ]
+  },
+  "pakhan": {
+    "nom": "Pakhan",
+    "type": "fusil_mitrailleur",
+    "fabricant": "Exotique",
+    "portee": 30,
+    "rpm": 600,
+    "chargeur": 60,
+    "rechargement": 3.64,
+    "headshot": 65,
+    "degatsBase": 71500,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination."
+    },
+    "estNomme": false,
+    "talents": [
+      "pakhan"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_pakhan",
+      "chargeur_pakhan",
+      "accessoire_sous_canon_pakhan",
+      "bouche_pakhan"
+    ]
+  },
+  "nemesis": {
+    "nom": "Nemesis",
+    "description": "\"Je guette les guetteurs.\"\n- Phaedra \"Puck\" Lao, sniper des Black Tusks",
+    "type": "fusil_precision",
+    "fabricant": "ACCURACY INTERNATIONAL",
+    "portee": 60,
+    "rpm": 50,
+    "chargeur": 5,
+    "rechargement": 2.78,
+    "notes": "Les mods sont inclus dans les stats.",
+    "headshot": 45,
+    "degatsBase": 940200,
+    "estExotique": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Obtention : \nIl faut réunir plusieurs parties (dont son schéma) de l'arme puis se rendre à l'établi de fabrication.\n1ère partie : Peut être obtenu dans le coffre de Tidal Bassin derrière la porte sécurisé (une fois sur l'aéroglisseur). La porte peut être ouverte grâce à la clef obtenu au niveau des baraquements après avoir hacké l'ordinateur. Détruire le SR1 nommé Adrestia pour récupérer la première pièce.\n2ème partie : Peut être obtenu en tuant le dernier boss de la forteresse Capitole/Manning Zoo en mode invasion (peu importe la difficulté)\n3ème partie : Peut être obtenu en tuant le dernier boss de la forteresse Roosevelt Island en mode invasion (peu importe la difficulté)\n4ème partie : Peut être obtenu en tuant le dernier boss de la forteresse District Union Arena en mode invasion (peu importe la difficulté)\n5ème partie : (schéma) Peut être obtenu en tuant le boss Phaedra \"Puck\" de la mission Grand Washington Hotel en mode invasion (peu importe la difficulté)."
+    },
+    "estNomme": false,
+    "talents": [
+      "accelerateur_electromagnetique"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "lunette_numerique_nemesis",
+      "culasse_nemesis",
+      "bipied_nemesis",
+      "canon_nemesis"
+    ]
+  },
+  "mantis": {
+    "nom": "Mantis",
+    "description": "\"Le camouflage ne consiste pas seulement à se fondre dans l'environement. Vous conmaissez le terme \"mométisme agressif\" ? Tout le monde peut se cacher et attendre le bon moment pour frapper, mais pourquoi attendre quand on peut séduire ?\"\n- Sid \"Maneater\" Madison",
+    "type": "fusil_precision",
+    "fabricant": "DESERT TACTICAL ARMS",
+    "portee": 60,
+    "rpm": 60,
+    "chargeur": 7,
+    "rechargement": 3.90,
+    "notes": "Les mods sont inclus dans les stats.",
+    "headshot": 40,
+    "degatsBase": 409400,
+    "estExotique": true,
+    "obtention": {
+      "cachesExotiques": true,
+      "butinCible": true,
+      "represailles": "Hyène, Fin de mission"
+    },
+    "estNomme": false,
+    "talents": [
+      "visee_analytique"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_a_revetement_antireflet",
+      "machine_bien_huilee",
+      "accessoire_de_camouflage",
+      "silencieux_enveloppe"
+    ]
+  },
+  "linceul": {
+    "nom": "Linceul",
+    "type": "fusil_precision",
+    "fabricant": "Exotique",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 7,
+    "rechargement": 3.32,
+    "notes": "Les mods sont inclus dans les stats.",
+    "headshot": 45,
+    "degatsBase": 412500,
+    "estExotique": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination"
+    },
+    "estNomme": false,
+    "talents": [
+      "cible_de_priorite_elevee"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "lunette_de_linceul",
+      "chargeur_de_linceul",
+      "accessoire_sous_canon_de_linceul",
+      "bouche_de_linceul"
+    ]
+  },
+  "liberte": {
+    "nom": "Liberté",
+    "type": "pistolet",
+    "fabricant": "MAGNUM/IMI",
+    "description": "\"Il m'a offert la liberté, et à d'autres, la mort. Si on le respecte, il est respectueux.\"\nGénéral Ridgeway, en remettant son arme d'appoint à un subordonné.",
+    "portee": 18,
+    "rpm": 230,
+    "chargeur": 8,
+    "rechargement": 1.95,
+    "headshot": 105,
+    "degatsBase": 189200,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "il faut réunir les 4 parties puis se rendre à l'établi de fabrication.\nLes pièces doivent s'obtenir dans l'ordre suivant.\n\n1ère partie : Le « Dispositif de détente » peut être obtenu sur le  boss du Capitole Capitaine Ken Nelson.\n2nd partie : Le « Châssis et Peinture » peut être obtenu sur le boss \" Capitaine Briggs\" de la mission Musée de l'histoire Américaine.\n3ème partie : Le « Visée et Rail » peut être obtenu sur le boss  \"Sergent Clark Wade\" de la mission Musée Viewpoint.\n4ème partie : Le « Crosse et Plaques » peut être obtenu sur le boss \" Sergent-maitre Steve Quiroz\" de la mission Siège de l'Administration spatiale."
+    },
+    "estNomme": false,
+    "talents": [
+      "la_liberte_ou_la_mort"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_liberte",
+      "poignee_liberte",
+      "mecanisme_de_detente",
+      "personnalisations_liberte"
+    ]
+  },
+  "regulus": {
+    "nom": "Regulus",
+    "description": "\"Vous pouvez poignarder les puissants dans le dos mais au jugement dernier les rats rongeront vos os.\"\n- Javier Kajika",
+    "type": "pistolet",
+    "fabricant": "SMITH&WESSON",
+    "portee": 16,
+    "rpm": 160,
+    "chargeur": 6,
+    "rechargement": 2.31,
+    "headshot": 100,
+    "degatsBase": 282100,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "description": "Terminer le raid 2 « Cheval de fer » une première fois pour obtenir deux projets à réaliser.\nCompléter les différents projets pour obtenir celui permettant l'obtention du schéma du Regulus. Une fois le dernier projet débloqué, vous pourrez terminer une deuxième fois le raid pour obtenir :\n\n- le châssis sur le lieutenant Gray\n- la poignée incurvée sur le capitaine Fieser\n- le barillet gravé sur le major Williams\n- la bouche gravée sur la colonelle Morozova\n- le lingot d'or dans le coffre de butin à la fin du raid.\n\nUne fois les composants obtenus, vous pourrez fabriquer le Regulus sur l'établi avec une réplique de Police 686 Magnum."
+    },
+    "estNomme": false,
+    "talents": [
+      "regicide"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "barillet_grave",
+      "bouche_gravee"
+    ]
+  },
+  "mosquito": {
+    "nom": "Mosquito",
+    "type": "pistolet",
+    "fabricant": "BERETTA",
+    "description": "\"Il est temps de sortir d'hibernation, agent. On a du pain sur la planche\"\n- Calvain McManus",
+    "portee": 16,
+    "rpm": 350,
+    "chargeur": 15,
+    "rechargement": 1.65,
+    "headshot": 100,
+    "degatsBase": 102600,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Hyène, Fin de mission"
+    },
+    "estNomme": false,
+    "talents": [
+      "chanson_du_moustique"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "chargeur_de_mosquito",
+      "bouche_de_mosquito"
+    ]
+  },
+  "tempete": {
+    "nom": "Tempête",
+    "type": "pistolet",
+    "fabricant": "Exotique",
+    "description": "\"Semi-auto ? Je n'ai pas ce genre de faiblesse.\"",
+    "portee": 12,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 2.38,
+    "headshot": 100,
+    "degatsBase": 62700,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "mission": true,
+      "represailles": "Black Tusk, Escouade d'extermination",
+      "description": "Récompense de Traque :\nTidal Basin : Le pacte\nMaître - 100% (la 1er fois)."
+    },
+    "estNomme": false,
+    "talents": [
+      "mesure_exo"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "chargeur_de_tempete",
+      "bouche_de_tempete"
+    ]
+  },
+  "flux_continu": {
+    "nom": "Flux continu",
+    "description": "\"On dit que je ne sais pas quand il faut la fermer, mais c'est juste l'Épice qui parle.\"\n- Dime, membre de la Commission des Hyènes",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 21,
+    "rpm": 850,
+    "chargeur": 60,
+    "rechargement": 1.43,
+    "headshot": 50,
+    "degatsBase": 39500,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "description": "Ouvrir des caches des Hyène dans certains quartiers spécifiques pour obtenir les pièces :\n50% de chance d'obtenir \"Conteneur chargé\" dans Downtown East\n50% de chance d'obtenir \"mods modifiés\" dans Judiciary square \n50% de chance d'obtenir \"chargeur créatif\" dans Downtown West\n100% de chance d'obtenir le blueprint dans une cache des hyènes dans la mission Siège de la banque une fois que vous avez les 3 pièces."
+    },
+    "estNomme": false,
+    "talents": [
+      "conversation_ininterrompue"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "bouche_flux_continu",
+      "optique_modifiee",
+      "chargeur_flux_continu",
+      "conteneur_flux_continu"
+    ]
+  },
+  "lady_death": {
+    "nom": "Lady death",
+    "description": "\"La liberté, inaliénable ? C'est des conneries. On pourra toujours te prendre ta liberté. La seule chose qui te sépare de la tyrannie, c'est le canon de ton flingue.\"\n- Fan du Deuxième Amendement",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "CMMG",
+    "portee": 21,
+    "rpm": 900,
+    "chargeur": 32,
+    "rechargement": 1.75,
+    "headshot": 50,
+    "degatsBase": 35400,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "True sons, Escouade d'extermination",
+      "description": "3% en tuant l'un des 22 boss de NewYork"
+    },
+    "estNomme": false,
+    "talents": [
+      "souffle_ultime"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "regard_de_la_mort",
+      "visage_de_la_mort",
+      "gueule_de_la_mort",
+      "baiser_de_la_mort"
+    ]
+  },
+  "contre_feu": {
+    "nom": "Contre-feu",
+    "description": "\"Car seuls ceux qui ont souffert peuvent ordonner la souffrance des autres !\"\n- Credo des Parias",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "Exotique",
+    "notes": "#BackfireForever\nLes mods sont inclus dans les stats.",
+    "portee": 22,
+    "rpm": 850,
+    "chargeur": 50,
+    "rechargement": 2.09,
+    "headshot": 50,
+    "degatsBase": 51000,
+    "estExotique": true,
+    "obtention": {
+      "cachesExotiques": true,
+      "represailles": "Parias, Escouade d'extermination",
+      "butinCible": true
+    },
+    "estNomme": false,
+    "talents": [
+      "paiement_en_nature"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_rapide",
+      "chargeur_a_prise_barbelee",
+      "chassis_barbele",
+      "bouche_dentelee"
+    ]
+  },
+  "ouroboros": {
+    "nom": "Ouroboros",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "TDI",
+    "portee": 15,
+    "rpm": 1403,
+    "chargeur": 50,
+    "rechargement": 1.65,
+    "headshot": 50,
+    "degatsBase": 38300,
+    "estExotique": true,
+    "notes": "Les mods sont inclus dans les stats.",
+    "obtention": {
+      "incursion": true,
+      "represailles": "Black Tusk, Fin de mission",
+      "description": "1% de chance de loot sur les boss du mode incursion\n10% de chance dans le coffre de butin en récompense de la complétion de l'incursion (1x/semaine/personnage)"
+    },
+    "estNomme": false,
+    "talents": [
+      "lien_des_tenebres"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "visee_infinity",
+      "chargeur_serpent",
+      "poignee_resistante_legere",
+      "bouche_resistante_aux_intemperies"
+    ]
+  },
+  "oxpecker": {
+    "nom": "Oxpecker",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "Exotique",
+    "portee": 32,
+    "notes": "Les mods sont inclus dans les stats.",
+    "rpm": 950,
+    "chargeur": 50,
+    "rechargement": 1.6,
+    "headshot": 50,
+    "degatsBase": 46400,
+    "estExotique": true,
+    "obtention": {
+      "butinCible": true,
+      "cachesExotiques": true,
+      "represailles": "Hyène, Escouade d'extermination"
+    },
+    "estNomme": false,
+    "talents": [
+      "symbiose"
+    ],
+    "emplacementsMods": {},
+    "modsPredefinis": [
+      "optique_d_oxpecker",
+      "accessoire_sous_canon_d_oxpecker",
+      "bouche_d_oxpecker"
+    ]
+  },
+  "achille": {
+    "nom": "Achille",
+    "type": "fusil",
+    "fabricant": "KECKLER&KOCH",
+    "portee": 55,
+    "rpm": 420,
+    "chargeur": 20,
+    "rechargement": 2.62,
+    "headshot": 60,
+    "degatsBase": 97700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "petit_faible"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "scene_gauche": {
+    "nom": "Scène gauche",
+    "description": "\"Si vous voulez faire une entrée, utilisez Scène gauche.\" 13",
+    "type": "fusil",
+    "fabricant": "SPRINGFIELD ARMORY",
+    "portee": 60,
+    "rpm": 320,
+    "chargeur": 10,
+    "rechargement": 2.11,
+    "headshot": 60,
+    "degatsBase": 129200,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "coup_de_massue"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "ak_m_militaire": {
+    "nom": "AK-M militaire",
+    "type": "fusil_assaut",
+    "fabricant": "AKM",
+    "portee": 27,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 2.09,
+    "headshot": 55,
+    "degatsBase": 67200,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_762",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "g36_c": {
+    "nom": "G36 C",
+    "type": "fusil_assaut",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 52600,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "goalie": {
+    "nom": "Goalie",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 700,
+    "chargeur": 20,
+    "rechargement": 1.95,
+    "headshot": 55,
+    "degatsBase": 57600,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "point_de_pression"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "huntsman": {
+    "nom": "Huntsman",
+    "description": "Le chasseur devient la proie.",
+    "type": "fusil_assaut",
+    "fabricant": "GIAT INDUSTRIES",
+    "portee": 26,
+    "rpm": 900,
+    "chargeur": 30,
+    "rechargement": 2.26,
+    "headshot": 55,
+    "degatsBase": 45300,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Coffre de cendres via Hunter Brooklyn\nDisponible ensuite chez Cassie Mendoza"
+    },
+    "talents": [
+      "frenesie"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "lexington": {
+    "nom": "Lexington",
+    "description": "\"Négatif, Ramos.\" - Faye Lau",
+    "type": "fusil_assaut",
+    "fabricant": "COLT",
+    "portee": 31,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.24,
+    "headshot": 55,
+    "degatsBase": 48700,
+    "obtention": {
+      "description": "Évènement limité + Lootable en Escalade (prototype)"
+    },
+    "estExotique": false,
+    "estNomme": true,
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_d_assaut_es",
+        "valeur": 15
+      },
+      {
+        "nom": "degats_a_la_sante_es",
+        "valeur": 21
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_sur_cible_non_abritee_arm",
+        "valeur": 10
+      }
+    ]
+  },
+  "lud": {
+    "nom": "Lud",
+    "type": "fusil_assaut",
+    "fabricant": "FN HERSTAL",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 2.02,//OK
+    "headshot": 55,
+    "degatsBase": 59200,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "rationalisation"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "premiere_vue": {
+    "nom": "Première vue",
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 27,
+    "rpm": 600,
+    "chargeur": 30,
+    "rechargement": 2.55,
+    "headshot": 85,
+    "notes": "+20% de headshot particularité du nommé",
+    "degatsBase": 67200,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "protecteur": {
+    "nom": "Protecteur",
+    "type": "fusil_assaut",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 35,
+    "rpm": 750,
+    "chargeur": 30,
+    "rechargement": 2.13,
+    "headshot": 55,
+    "degatsBase": 52600,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Event berger"
+    },
+    "talents": [
+      "tueur"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_556",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique",
+      "canon": "rail_sous_canon_long"
+    },
+    "attributs_essentiels": [
+      {
+        "nom": "degats_fusil_d_assaut_es",
+        "valeur": 15
+      },
+      {
+        "nom": "degats_a_la_sante_es",
+        "valeur": 21
+      }
+    ],
+    "attributs": [
+      {
+        "nom": "degats_sur_cible_non_abritee_arm",
+        "valeur": 10
+      }
+    ]
+  },
+  "instigateur": {
+    "nom": "Instigateur",
+    "type": "fusil_precision",
+    "fabricant": "IZHMASH",
+    "portee": 50,
+    "rpm": 55,
+    "chargeur": 5,
+    "rechargement": 3.9,
+    "headshot": 0,
+    "degatsBase": 417700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "petit_faible"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "panier": {
+    "nom": "Panier",
+    "type": "fusil_precision",
+    "fabricant": "KALASHNIKOV CONCERN",
+    "portee": 50,
+    "rpm": 60,
+    "chargeur": 10,
+    "rechargement": 2.86,
+    "headshot": 0,
+    "degatsBase": 387000,
+    "estExotique": false,
+    "estNomme": true,
+    "notes": "+320300 dégats de base, -200 de cpm",
+    "emplacementsMods": {
+      "chargeur": "chargeur_762_precision",
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "quickstep": {
+    "nom": "Quickstep",
+    "type": "pistolet",
+    "portee": 12,
+    "rpm": 310,
+    "chargeur": 7,
+    "rechargement": 2.33,
+    "headshot": 100,
+    "degatsBase": 117400,
+    "estNomme": true,
+
+    "talents": [
+      "mode_vitesse"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_pistolet",
+      "bouche": "bouche_45",
+      "viseur": "micro_rail_optique",
+      "canon": "gadget"
+    },
+    "obtention": {
+      "description": "Évènement limité/Prime \"Houndsman\""
+    }
+  },
+  "confinement": {
+    "nom": "confinement",
+    "type": "calibre_12",
+    "fabricant": "REMINGTON",
+    "portee": 11,
+    "rpm": 75,
+    "chargeur": 5,
+    "rechargement": 3.35,
+    "headshot": 45,
+    "degatsBase": 703700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "immobilisation"
+    ],
+    "emplacementsMods": {
+      "chargeur": "magasin_tubulaire",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "fusil_calibre_12_ksg": {
+    "nom": "Fusil calibre 12 KSG",
+    "type": "calibre_12",
+    "fabricant": "L.C SMITH",
+    "portee": 7,
+    "rpm": 200,
+    "chargeur": 2,
+    "rechargement": 2.51,
+    "headshot": 45,
+    "degatsBase": 635700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {}
+  },
+  "fusil_calibre_12_a_double_canon": {
+    "nom": "Fusil calibre 12 à double canon",
+    "type": "calibre_12",
+    "fabricant": "KEL-TEC",
+    "portee": 16,
+    "rpm": 70,
+    "chargeur": 12,
+    "rechargement": 7.99,
+    "headshot": 45,
+    "degatsBase": 678900,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {}
+  },
+  "stack_broker": {
+    "nom": "Stack broker",
+    "type": "calibre_12",
+    "fabricant": "ATCHISSON",
+    "portee": 16,
+    "rpm": 360,
+    "chargeur": 20,
+    "rechargement": 3.05,
+    "headshot": 45,
+    "degatsBase": 150600,
+    "notes": "-30200 dégâts de base + 60 cpm",
+    "estExotique": false,
+    "estNomme": true,
+    "emplacementsMods": {//OK
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "fronde": {
+    "nom": "Fronde",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "HECKLER&KOCH",
+    "portee": 60,
+    "notes": "+44 de portée optimale car nommé",
+    "rpm": 650,
+    "chargeur": 25,
+    "rechargement": 1.67,
+    "headshot": 50,
+    "degatsBase": 63700,
+    "estExotique": false,
+    "estNomme": true,
+    "obtention": {
+      "description": "Évènement limité"
+    },
+    "emplacementsMods": {
+      "chargeur": "chargeur_45_acp",
+      "bouche": "bouche_45_acp",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long"
+    }
+  },
+  "puriste": {
+    "nom": "Puriste",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "INTRACTEC",
+    "portee": 15,
+    "rpm": 1000,
+    "chargeur": 32,
+    "rechargement": 2.3,
+    "headshot": 50,
+    "degatsBase": 46700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "rationalisation"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court"
+    }
+  },
+  "sig_mpx": {
+    "nom": "SIG MPX",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "SIG-SAUER",
+    "portee": 22,
+    "rpm": 850,
+    "chargeur": 30,
+    "rechargement": 2.09,
+    "headshot": 50,
+    "degatsBase": 51000,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "ecume": {
+    "nom": "Écume",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "TDI",
+    "portee": 15,
+    "rpm": 1200,
+    "chargeur": 19,
+    "rechargement": 1.69,
+    "headshot": 50,
+    "degatsBase": 40500,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "immobilisation"
+    ],
+    "emplacementsMods": {
+      "chargeur": "chargeur_9mm",
+      "bouche": "bouche_9mm",
+      "viseur": "rail_optique_court",
+      "canon": "rail_sous_canon_court"
+    }
+  },
+  "big_alejandro": {
+    "nom": "Big Alejandro",
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 35,
+    "rpm": 1100,
+    "chargeur": 200,
+    "rechargement": 4.03,
+    "headshot": 65,
+    "degatsBase": 39300,
+    "estExotique": true,
+    "estNomme": false,
+    "talents": [
+      "tireur_a_couvert"
+    ],
+    "obtention": {
+      "represailles": "True sons, Fin de mission",
+      "description": "Evenement 10 ans de The division"
+    },
+    "emplacementsMods": {},
+    "modsPredefinis": []
+  },
+  "rusty": {
+    "nom": "Rusty",
+    "type": "fusil_mitrailleur",
+    "fabricant": "KALASHNIKOV",
+    "portee": 30,
+    "rpm": 600,
+    "chargeur": 40,
+    "rechargement": 4.00,
+    "headshot": 65,
+    "degatsBase": 71500,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "point_de_pression"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
+  },
+  "sonneur_de_cloches": {
+    "nom": "Sonneur de cloches",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 800,
+    "chargeur": 50,
+    "rechargement": 3.01,
+    "headshot": 65,
+    "degatsBase": 52300,
+    "estExotique": false,
+    "estNomme": true,
+    "description": "Fait sonner les cloches",
+    "obtention": {
+      "description": "Primes Houndsman, évenement"
+    },
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_court",
+      "bouche": "bouche_762"
+      }
+    },
+  "vitesse_superieure": {
+    "nom": "Vitesse supérieure",
+    "type": "fusil_mitrailleur",
+    "fabricant": "FN HERSTAL",
+    "portee": 35,
+    "rpm": 850,
+    "chargeur": 100,
+    "rechargement": 4.54,
+    "headshot": 65,
+    "degatsBase": 48300,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "mesure"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "bande_munitions",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "m9_a1_officier": {
+    "nom": "M9 A1 officier",
+    "type": "pistolet",
+    "fabricant": "",
+    "portee": 16,
+    "rpm": 350,
+    "chargeur": 15,
+    "rechargement": 1.96,
+    "headshot": 100,
+    "degatsBase": 95700,
+    "estExotique": false,
+    "estNomme": false,
+    "emplacementsMods": {
+      "viseur": "micro_rail_optique",
+      "canon": "lateral",
+      "chargeur": "bande_munitions",
+      "bouche":"bouche"
+    }
+  },
+  "agitateur": {
+    "nom": "Agitateur",
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 31,
+    "rpm": 850,
+    "chargeur": 50,
+    "rechargement": 1.69,//TODO a verif
+    "headshot": 88,
+    "degatsBase": 49100,
+    "estExotique": true,
+    "estNomme": false,
+    "talents": [
+      "perturbation"
+    ],
+    "modsPredefinis": [
+      "lunette_agitateur",
+      "chargeur_agitateur",
+      "bouche_agitateur"
+    ]
+  },
+  "interchange": {
+    "nom": "Interchange",
+    "type": "pistolet_mitrailleur",
+    "fabricant": "",
+    "portee": 22,
+    "rpm": 725,
+    "chargeur": 24,
+    "rechargement": 2.31,
+    "headshot": 83,
+    "degatsBase": 58700,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "aller_retour"
+    ],
+    "emplacementsMods": {//OK
+      "bouche": "bouche_9mm",
+      "canon": "rail_sous_canon_long",
+      "chargeur": "chargeur_9mm",
+      "viseur": "rail_optique"
+    }
+  },
+  "trader": {
+    "nom": "Trader",
+    "type": "fusil",
+    "fabricant": "",
+    "portee": 45,
+    "rpm": 420,
+    "chargeur": 30,
+    "rechargement": 2.63,
+    "headshot": 60,
+    "degatsBase": 92400,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "aller_retour"
+    ],
+    "emplacementsMods": {
+      "bouche": "bouche_762",
+      "canon": "rail_sous_canon_long",
+      "chargeur": "chargeur_762",
+      "viseur": "rail_optique_long"
+    }
+  },
+  "l_archiviste": {
+    "nom": "L'Archivisite",
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 1.91,
+    "headshot": 55,
+    "degatsBase": 58900,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "ranger"
+    ],
+    "emplacementsMods": {
+      "bouche": "bouche_556",
+      "canon": "rail_sous_canon_long",
+      "chargeur": "chargeur_556",
+      "viseur": "rail_optique"
+    }
+  },
+  "premiere_floraison": {
+    "nom": "Première floraison",
+    "type": "fusil_assaut",
+    "portee": 31,
+    "rpm": 700,
+    "chargeur": 30,
+    "headshot": 157.7,
+    "degatsBase": 57600,
+    "estNomme": true,
+    "talents": [
+      "recolte_de_fleurs"
+    ],
+    "description": "Les fleurs de cerisier sont éphèmères :\nElles ne durent généralement pas plus de deux semaines. Vos ennemis eux, tiendront beaucoup moins longtemps."
+  }
+}

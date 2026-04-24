@@ -1,0 +1,103 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Ensembles (Gear Sets + Marques) — The Division 2",
+  "description": "Clé = slug de l'ensemble.",
+  "type": "object",
+  "additionalProperties": false,
+  "patternProperties": {
+    "^[a-z0-9_]+$": {
+      "type": "object",
+      "required": [
+        "nom",
+        "type"
+      ],
+      "properties": {
+        "nom": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "gear_set",
+            "marque",
+            "improvise"
+          ]
+        },
+        "icon": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "attributsEssentiels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "offensif",
+              "defensif",
+              "utilitaire",
+              "random"
+            ]
+          }
+        },
+        "bonus1piece": {
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/definitions/bonusObject" }
+          ]
+        },
+        "bonus2pieces": {
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/definitions/bonusObject" }
+          ]
+        },
+        "bonus3pieces": {
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/definitions/bonusObject" }
+          ]
+        },
+        "bonus4pieces": {
+          "oneOf": [
+            { "type": "string" },
+            { "$ref": "#/definitions/bonusObject" }
+          ]
+        },
+        "talentTorse": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "talentSac": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+$"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Notes libres sur l'ensemble"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "bonusObject": {
+      "type": "object",
+      "required": ["attributs"],
+      "additionalProperties": false,
+      "properties": {
+        "attributs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["slug", "value"],
+            "additionalProperties": false,
+            "properties": {
+              "slug": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+              "value": { "type": "number" }
+            }
+          }
+        },
+        "talent": { "type": "string", "pattern": "^[a-z0-9_]+$" }
+      }
+    }
+  }
+}

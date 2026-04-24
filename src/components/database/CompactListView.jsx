@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { GameIcon, WEAPON_TYPE_ICONS, GEAR_SLOT_ICONS_IMG, resolveAttributeIcon, resolveAsset } from '../common/GameAssets.jsx'
+import { GameIcon, WEAPON_TYPE_ICONS, GEAR_SLOT_ICONS_IMG, resolveAttribut, resolveAsset } from '../common/GameAssets.jsx'
 import {getWeaponTypeLabel, getGearSlotLabel, getAttrCategoryLabel, formatNumber, calculateMaxDamage, buildGearSlotLabels} from '../../utils/formatters'
 import { slugify } from "../../utils/slugify.js"
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
@@ -21,9 +21,18 @@ export default function CompactListView({ items, category, CardComponent, extraP
     setExpandedSlug(expandedSlug === slug ? null : slug)
   }
 
-  const handleCardClick = (slug) => {
-    const newUrl = `/db/${category.key}/${slug}${location.search}`
-    if (location.pathname !== `/db/${category.key}/${slug}`) {
+  const handleCardClick = (item) => {
+    const slug = item.slug || slugify(item.nom)
+    let basePath = `/db/${category.key}/${slug}`
+    
+    // Si c'est un talent sans description classique, il est forcément parfait
+    const isTalent = category.key === 'talentsArmes' || category.key === 'talentsEquipements';
+    if (isTalent && !item.description && item.perfectDescription) {
+      basePath += `/parfait`;
+    }
+
+    const newUrl = `${basePath}${location.search}`
+    if (location.pathname !== basePath) {
       navigate(newUrl, { replace: true })
     }
   }
@@ -64,7 +73,7 @@ export default function CompactListView({ items, category, CardComponent, extraP
                   <div className="p-4 bg-black/20 overflow-x-auto">
                     <div 
                       className="min-w-fit cursor-pointer hover:ring-1 hover:ring-shd/50 rounded-lg transition-all"
-                      onClick={() => handleCardClick(slug)}
+                      onClick={() => handleCardClick(item)}
                     >
                       <CardComponent item={item} {...extraProps} />
                     </div>
@@ -171,7 +180,7 @@ function GearRow({ item, ensembles, equipementsType, attributsType }) {
       <div className="flex gap-1 flex-1 overflow-hidden">
         {attrsEssentiels.map((attr, i) => (
           <div key={i} className="flex items-center gap-1 px-1.5 py-0.5">
-            <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3.5 h-3.5" />
+            <GameIcon src={resolveAsset(resolveAttribut({ categorie: attr, estEssentiel: true }))} alt="" size="w-3.5 h-3.5" />
             <span className="text-xs text-gray-400 hidden sm:inline truncate">{getAttrCategoryLabel(attributsType, attr)}</span>
           </div>
         ))}
@@ -195,7 +204,7 @@ function EnsembleRow({ item, attributsType }) {
       <div className="flex gap-1 flex-1 overflow-hidden">
         {item.attributsEssentiels?.map((attr, i) => (
           <div key={i} className="flex items-center gap-1 px-1.5 py-0.5">
-            <GameIcon src={resolveAttributeIcon(attr)} alt="" size="w-3.5 h-3.5" />
+            <GameIcon src={resolveAsset(resolveAttribut({ categorie: attr, estEssentiel: true }))} alt="" size="w-3.5 h-3.5" />
             <span className="text-xs text-gray-400 hidden sm:inline truncate">{getAttrCategoryLabel(attributsType, attr)}</span>
           </div>
         ))}
@@ -222,7 +231,7 @@ function AttributeRow({ item }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveAttributeIcon(item.categorie)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveAsset(resolveAttribut(item))} alt="" size="w-8 h-8" />
       </div>
       <div className="flex flex-col min-w-0 w-48 md:w-80 flex-shrink-0">
         <div className="font-bold text-sm uppercase truncate text-shd">{item.nom}</div>
@@ -279,7 +288,7 @@ function ModEquipRow({ item }) {
   return (
     <>
       <div className="w-10 flex-shrink-0 flex justify-center">
-        <GameIcon src={resolveAttributeIcon(item.attribut)} alt="" size="w-8 h-8" />
+        <GameIcon src={resolveAsset(resolveAttribut(item))} alt="" size="w-8 h-8" />
       </div>
       <div className="font-bold text-sm uppercase truncate text-shd w-48 md:w-80 flex-shrink-0">{item.nom}</div>
     </>

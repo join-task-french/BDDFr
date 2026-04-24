@@ -1,0 +1,22 @@
+{
+    "offensif": {
+        "nom": "Offensif",
+        "icon": "offensif",
+        "color": "red"
+    },
+    "defensif": {
+        "nom": "Défensif",
+        "icon": "defensif",
+        "color": "blue"
+    },
+    "utilitaire": {
+        "nom": "Utilitaire",
+        "icon": "utilitaire",
+        "color": "yellow"
+    },
+    "random": {
+        "nom": "Aléatoire",
+        "icon": "random",
+        "color": "gray"
+    }
+}

@@ -1,0 +1,2015 @@
+// Ensembles (Gear Sets + Marques) — The Division 2
+{
+  "ongoing_directive": {
+    "nom": "Ongoing Directive",
+    "type": "gear_set",
+    "icon": "ongoing_directive",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "vitesse_rechargement_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "regle_d_engagement"
+    },
+    "talentTorse": "munitions_parabellum",
+    "talentSac": "specialiste_des_traumatismes"
+  },
+  "true_patriot": {
+    "nom": "True Patriot",
+    "type": "gear_set",
+    "icon": "true_patriot",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "munitions_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "taille_chargeur_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "rouge_blanc_et_bleu"
+    },
+    "talentTorse": "drapeau_brandi",
+    "talentSac": "elan_patriotique"
+  },
+  "hard_wired": {
+    "nom": "Hard Wired",
+    "type": "gear_set",
+    "icon": "hard_wired",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_competence_eqp",
+          "value": 15
+        },
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "boucle_de_retroaction"
+    },
+    "talentTorse": "renforcement_positif",
+    "talentSac": "cour_circuit"
+  },
+  "as_et_huit": {
+    "nom": "As et Huit",
+    "type": "gear_set",
+    "icon": "as_et_huit",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_precision_eqp",
+          "value": 15
+        },
+        {
+          "slug": "degats_fusil_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_headshot_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "la_main_du_mort"
+    },
+    "talentTorse": "sans_limite",
+    "talentSac": "as_dans_la_manche"
+  },
+  "pointe_de_lance": {
+    "nom": "Pointe de Lance",
+    "type": "gear_set",
+    "icon": "pointe_de_lance",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_arme_specifique_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "reconnaissance_agressive"
+    },
+    "talentTorse": "destruction_specialisee",
+    "talentSac": "mouvement_specifique"
+  },
+  "dilemme_du_negociateur": {
+    "nom": "Dilemme du Négociateur",
+    "type": "gear_set",
+    "icon": "dilemme_du_negociateur",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "probabilite_de_coup_critique_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_coup_critique_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "negociation_hostiles"
+    },
+    "talentTorse": "controle_de_masse",
+    "talentSac": "mesures_critiques"
+  },
+  "strikers_battlegear": {
+    "nom": "Strikers Battlegear",
+    "type": "gear_set",
+    "icon": "strikers_battlegear",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "cadence_de_tir_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "amplification_striker"
+    },
+    "talentTorse": "avantage_accru",
+    "talentSac": "gestion_du_risque"
+  },
+  "corruption_systeme": {
+    "nom": "Corruption Système",
+    "type": "gear_set",
+    "icon": "corruption_systeme",
+    "notes": "L'attribut essentiel varie en fonction de la piece d'équipement.",
+    "attributsEssentiels": [
+      "offensif",
+      "defensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "protection_pour_eliminations_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "protection_impulsion_eqp",
+          "value": 40
+        },
+        {
+          "slug": "protection_contre_desactivation_eqp",
+          "value": 40
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "protocole_hackstep"
+    },
+    "talentTorse": "optimisation_de_compilation",
+    "talentSac": "execution_multithereading"
+  },
+  "protocole_eclipse": {
+    "nom": "Protocole Eclipse",
+    "type": "gear_set",
+    "icon": "protocole_eclipse",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 15
+        },
+        {
+          "slug": "protection_contre_alterations_d_etat_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "transmission_indirecte"
+    },
+    "talentTorse": "proliferation",
+    "talentSac": "amplificateur_de_symptome"
+  },
+  "foundry_bullwark": {
+    "nom": "Foundry Bullwark",
+    "type": "gear_set",
+    "icon": "foundry_bullwark",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "protection_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "regeneration_de_protection_percent_eqp",
+          "value": 1
+        },
+        {
+          "slug": "sante_bouclier_eqp",
+          "value": 50
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "reparation_de_fortune"
+    },
+    "talentTorse": "materiaux_ameliores",
+    "talentSac": "processus_de_raffinerie"
+  },
+  "future_initiative": {
+    "nom": "Future Initiative",
+    "type": "gear_set",
+    "icon": "future_initiative",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 15
+        },
+        {
+          "slug": "duree_competence_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "controle_du_terrain"
+    },
+    "talentTorse": "superiorite_tactique",
+    "talentSac": "tactiques_de_combat_ameliorees"
+  },
+  "fureur_du_chasseur": {
+    "nom": "Fureur du chasseur",
+    "type": "gear_set",
+    "icon": "fureur_du_chasseur",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_calibre_12_eqp",
+          "value": 15
+        },
+        {
+          "slug": "degats_pm_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "protection_pour_eliminations_eqp",
+          "value": 20
+        },
+        {
+          "slug": "protection_pour_eliminations_eqp",
+          "value": 50
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "predateur_ultime"
+    },
+    "talentTorse": "faim_insatiable",
+    "talentSac": "force_ecrasante"
+  },
+  "rigger": {
+    "nom": "Rigger",
+    "type": "gear_set",
+    "icon": "rigger",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "duree_competence_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "entretien_efficace"
+    },
+    "talentTorse": "meilleurs_potes",
+    "talentSac": "disponibilite_totale"
+  },
+  "heartbreaker": {
+    "nom": "Heartbreaker",
+    "type": "gear_set",
+    "icon": "heartbreaker",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_assaut_eqp",
+          "value": 15
+        },
+        {
+          "slug": "degats_fusil_mitrailleur_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "coup_de_coeur"
+    },
+    "talentTorse": "max_bpm",
+    "talentSac": "froid"
+  },
+  "initiative_umbra": {
+    "nom": "Initiative Umbra",
+    "type": "gear_set",
+    "icon": "initiative_umbra",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "probabilite_de_coup_critique_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "vitesse_rechargement_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "depuis_les_ombres_a_la_lumiere"
+    },
+    "talentTorse": "depuis_les_ombres",
+    "talentSac": "a_la_lumiere"
+  },
+  "hotshot": {
+    "nom": "Hotshot",
+    "type": "gear_set",
+    "icon": "hotshot",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_precision_eqp",
+          "value": 30
+        },
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_headshot_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "cephalee"
+    },
+    "talentTorse": "audace",
+    "talentSac": "benediction"
+  },
+  "cavalier": {
+    "nom": "Cavalier",
+    "type": "gear_set",
+    "icon": "cavalier",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "protection_contre_alterations_d_etat_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 40
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "charge_en_cours"
+    },
+    "talentTorse": "surcharge",
+    "talentSac": "protection_de_charge"
+  },
+  "ortiz_exuro": {
+    "nom": "Ortiz: Exuro",
+    "type": "gear_set",
+    "icon": "ortiz_exuro",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 20
+        },
+        {
+          "slug": "sante_competence_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 40
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "prototype_tourelle_incineratrice_ortiz"
+    },
+    "talentTorse": "combustion_en_chaine",
+    "talentSac": "coup_de_chaud"
+  },
+  "aegis": {
+    "nom": "Aegis",
+    "type": "gear_set",
+    "icon": "aegis",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "sante_eqp",
+          "value": 70
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "protection_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "stoique"
+    },
+    "notes": "Le talent ne fonctionne pas en pvp",
+    "talentTorse": "tromperie",
+    "talentSac": "placage_en_polyethylene"
+  },
+  "breaking_point": {
+    "nom": "Breaking Point",
+    "type": "gear_set",
+    "icon": "breaking_point",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_precision_eqp",
+          "value": 25
+        },
+        {
+          "slug": "degats_fusil_eqp",
+          "value": 25
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_headshot_eqp",
+          "value": 30
+        },
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "en_ligne_de_mire"
+    },
+    "talentTorse": "point_de_non_retour",
+    "talentSac": "point_d_honneur"
+  },
+  "virtuoso": {
+    "nom": "Virtuoso",
+    "type": "gear_set",
+    "icon": "virtuoso",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 15
+        },
+        {
+          "slug": "taille_chargeur_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "symphonie"
+    },
+    "talentTorse": "fortissimo",
+    "talentSac": "accelerando"
+  },
+  "refactor": {
+    "nom": "Refactor",
+    "type": "gear_set",
+    "icon": "refactor",
+    "notes": "L'attribut essentiel varie en fonction de la piece d'équipement.",
+    "attributsEssentiels": [
+      "defensif",
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_competence_eqp",
+          "value": 25
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "retour_a_l_envoyeur"
+    },
+    "talentTorse": "interet_accru",
+    "talentSac": "surprotection"
+  },
+  "measured_assembly": {
+    "nom": "Measured Assembly",
+    "type": "gear_set",
+    "icon": "measured_assembly",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 60
+        },
+        {
+          "slug": "resistance_explosions_eqp",
+          "value": 40
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "pelotonnement"
+    },
+    "talentTorse": "esprit_de_ruche",
+    "talentSac": "cooperation_intelligente"
+  },
+  "point_de_bascule": {
+    "nom": "Point de bascule",
+    "type": "gear_set",
+    "icon": "point_de_bascule",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "taille_chargeur_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_mitrailleur_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "controle_de_la_puissance"
+    },
+    "talentTorse": "durabilite",
+    "talentSac": "boule_de_neige"
+  },
+  "concentrated_company": {
+    "nom": "Concentrated Company",
+    "type": "gear_set",
+    "icon": "concentrated_company",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "camaraderie"
+    },
+    "talentTorse": "tous_pour_un",
+    "talentSac": "un_pour_tous"
+  },
+  "sokolov_concern": {
+    "nom": "Sokolov Concern",
+    "type": "marque",
+    "icon": "sokolov_concern",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_pm_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_coup_critique_eqp",
+          "value": 13
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "probabilite_de_coup_critique_eqp",
+          "value": 8
+        }
+      ]
+    }
+  },
+  "providence_defense": {
+    "nom": "Providence Defense",
+    "type": "marque",
+    "icon": "providence_defense",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_de_headshot_eqp",
+          "value": 13
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "probabilite_de_coup_critique_eqp",
+          "value": 8
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_coup_critique_eqp",
+          "value": 13
+        }
+      ]
+    }
+  },
+  "overlord_armaments": {
+    "nom": "Overlord Armaments",
+    "type": "marque",
+    "icon": "overlord",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_de_fusil",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "precision_arm_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 30
+        }
+      ]
+    }
+  },
+  "5_11_tactical": {
+    "nom": "5.11 Tactical",
+    "type": "marque",
+    "icon": "5_11_tactical",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "sante_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "reparation_subies_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "protection_contre_alterations_d_etat_eqp",
+          "value": 30
+        }
+      ]
+    }
+  },
+  "douglas_harding": {
+    "nom": "Douglas & Harding",
+    "type": "marque",
+    "icon": "douglas_harding",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_pistolet_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "stabilite_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "precision_arm_eqp",
+          "value": 50
+        }
+      ]
+    }
+  },
+  "petrov_defense_group": {
+    "nom": "Petrov Defense Group",
+    "type": "marque",
+    "icon": "petrov_defense",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_mitrailleur_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "munitions_eqp",
+          "value": 50
+        }
+      ]
+    }
+  },
+  "wyvern_wear": {
+    "nom": "Wyvern Wear",
+    "type": "marque",
+    "icon": "wyvern_wear",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_de_competence_eqp",
+          "value": 8
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 18
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "duree_competence_eqp",
+          "value": 45
+        }
+      ]
+    }
+  },
+  "alps_summit_armement": {
+    "nom": "Alps Summit Armement",
+    "type": "marque",
+    "icon": "alps_summit",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 18
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "duree_competence_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 30
+        }
+      ]
+    }
+  },
+  "richter_kaiser_gmbh": {
+    "nom": "Richter & Kaiser GmbH",
+    "type": "marque",
+    "icon": "richter_kaiser",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "reparation_subies_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "resistance_explosions_eqp",
+          "value": 25
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 40
+        }
+      ]
+    }
+  },
+  "gila_guard": {
+    "nom": "Gila Guard",
+    "type": "marque",
+    "icon": "gila_guard",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "protection_eqp",
+          "value": 5
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "sante_eqp",
+          "value": 60
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "regeneration_de_protection_percent_eqp",
+          "value": 2
+        }
+      ]
+    }
+  },
+  "murakami_industries": {
+    "nom": "Murakami Industries",
+    "type": "marque",
+    "icon": "murakami",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "duree_competence_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 35
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_competence_eqp",
+          "value": 18
+        }
+      ]
+    }
+  },
+  "fenris_group_ab": {
+    "nom": "Fenris Group AB",
+    "type": "marque",
+    "icon": "fenris_group",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_assaut_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "vitesse_rechargement_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "stabilite_eqp",
+          "value": 50
+        }
+      ]
+    }
+  },
+  "airaldi_holdings": {
+    "nom": "Airaldi Holdings",
+    "type": "marque",
+    "icon": "airaldi_holding",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_precision_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_headshot_eqp",
+          "value": 13
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_aux_protections_eqp",
+          "value": 5
+        }
+      ]
+    }
+  },
+  "china_light_industries_corporation": {
+    "nom": "China Light Industries Corporation",
+    "type": "marque",
+    "icon": "china_light",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_de_competence_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 25
+        }
+      ]
+    }
+  },
+  "yaahl_gear": {
+    "nom": "Yaahl Gear",
+    "type": "marque",
+    "icon": "yaahl_gear",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "protection_contre_alterations_d_etat_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "protection_contre_alterations_d_etat_eqp",
+          "value": 40
+        }
+      ]
+    }
+  },
+  "badger_tuff": {
+    "nom": "Badger Tuff",
+    "type": "marque",
+    "icon": "badger_tuff",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_calibre_12_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "protection_eqp",
+          "value": 5
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "protection_pour_eliminations_eqp",
+          "value": 15
+        }
+      ]
+    }
+  },
+  "grupo_sombra_s_a": {
+    "nom": "Grupo Sombra S.A",
+    "type": "marque",
+    "icon": "grupo_sombra",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_de_coup_critique_eqp",
+          "value": 13
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_competence_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_headshot_eqp",
+          "value": 13
+        }
+      ]
+    }
+  },
+  "hana_u_corporation": {
+    "nom": "Hana-U Corporation",
+    "type": "marque",
+    "icon": "hana_u",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_competence_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": 15
+        }
+      ]
+    }
+  },
+  "golan_gear_ltd": {
+    "nom": "Golan Gear Ltd",
+    "type": "marque",
+    "icon": "golan_gear",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "regeneration_de_protection_percent_eqp",
+          "value": 1.5
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "protection_eqp",
+          "value": 10
+        }
+      ]
+    }
+  },
+  "ceska_vyroba_s_r_o": {
+    "nom": "Česká Výroba s.r.o",
+    "type": "marque",
+    "icon": "ceska_vyroba",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "probabilite_de_coup_critique_eqp",
+          "value": 8
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "protection_contre_alterations_d_etat_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "sante_eqp",
+          "value": 90
+        }
+      ]
+    }
+  },
+  "walker_harris_co": {
+    "nom": "Walker, Harris & co",
+    "type": "marque",
+    "icon": "walker_harris",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": 5
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_aux_protections_eqp",
+          "value": 5
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_sante_eqp",
+          "value": 10
+        }
+      ]
+    }
+  },
+  "belstone_armory": {
+    "nom": "Belstone Armory",
+    "type": "marque",
+    "icon": "belstone_armory",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "regeneration_de_protection_percent_eqp",
+          "value": 1
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "protection_pour_eliminations_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "reparation_subies_eqp",
+          "value": 45
+        }
+      ]
+    }
+  },
+  "empress_international": {
+    "nom": "Empress International",
+    "type": "marque",
+    "icon": "empress_international",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "sante_competence_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_competence_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "efficacite_de_competence",
+          "value": 8
+        }
+      ]
+    }
+  },
+  "uzina_getica": {
+    "nom": "Uzina Getica",
+    "type": "marque",
+    "icon": "uzina_getica",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "protection_eqp",
+          "value": 5
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "protection_pour_eliminations_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "protection_contre_alterations_d_etat_eqp",
+          "value": 30
+        }
+      ]
+    }
+  },
+  "brazos_de_arcabuz": {
+    "nom": "Brazos de Arcabuz",
+    "type": "marque",
+    "icon": "brazos_de_arcabuz",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "utilitaire",
+          "value": 1
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "taille_chargeur_eqp",
+          "value": 50
+        }
+      ]
+    }
+  },
+  "hasburg_guard": {
+    "nom": "Hasburg Guard",
+    "type": "marque",
+    "icon": "hasburg_guard",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_de_headshot_eqp",
+          "value": 13
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_precision_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 25
+        }
+      ]
+    }
+  },
+  "electrique": {
+    "nom": "Electrique",
+    "type": "marque",
+    "icon": "electrique",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "effets_d_etat_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "protection_contre_alterations_d_etat_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_pm_eqp",
+          "value": 30
+        }
+      ]
+    }
+  },
+  "palisade_steelworks": {
+    "nom": "Palisade Steelworks",
+    "type": "marque",
+    "icon": "palisade_steelworks",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "protection_pour_eliminations_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "sante_eqp",
+          "value": 60
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "utilitaire",
+          "value": 1
+        }
+      ]
+    }
+  },
+  "zwiadowka_sp_z_o_o": {
+    "nom": "Zwiadowka Sp. z o.o.",
+    "type": "marque",
+    "icon": "zwiadowka_sp_z_o_o",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "taille_chargeur_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_fusil",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 30
+        }
+      ]
+    }
+  },
+  "legatus_s_p_a": {
+    "nom": "Legatus S.p.A.",
+    "type": "marque",
+    "icon": "legatus_s_p_a",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "vitesse_rechargement_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "portee_optimale_eqp",
+          "value": 70
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": 15
+        }
+      ]
+    }
+  },
+  "unit_alloys": {
+    "nom": "Unit Alloys",
+    "type": "marque",
+    "icon": "unit_alloys",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "cadence_de_tir_eqp",
+          "value": 5
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_assaut_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "taille_chargeur_eqp",
+          "value": 50
+        }
+      ]
+    }
+  },
+  "urban_lookout": {
+    "nom": "Urban Lookout",
+    "type": "marque",
+    "icon": "urban_lookout",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "precision_arm_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "duree_competence_eqp",
+          "value": 30
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_precision_eqp",
+          "value": 30
+        }
+      ]
+    }
+  },
+  "imminence_armaments": {
+    "nom": "Imminence Armaments",
+    "type": "marque",
+    "icon": "imminence_armaments",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": 5
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "menace_reduite_eqp",
+          "value": 100
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_pistolet_eqp",
+          "value": 60
+        }
+      ]
+    }
+  },
+  "shiny_monkey_gear": {
+    "nom": "Shiny Monkey Gear",
+    "type": "marque",
+    "icon": "shiny_monkey_gear",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "duree_competence_eqp",
+          "value": 15
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_competence_eqp",
+          "value": 5
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 52
+        }
+      ]
+    }
+  },
+  "lengmo": {
+    "nom": "Lengmo",
+    "type": "marque",
+    "icon": "lengmo",
+    "attributsEssentiels": [
+      "defensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "resistance_explosions_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "sante_competence_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_fusil_mitrailleur_eqp",
+          "value": 30
+        }
+      ]
+    }
+  },
+  "core_strength": {
+    "nom": "Core Strength",
+    "type": "gear_set",
+    "attributsEssentiels": [
+      "random"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "maniement_d_arme_eqp",
+          "value": 10
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_arme_eqp",
+          "value": 5
+        },
+        {
+          "slug": "protection_total",
+          "value": 5
+        },
+        {
+          "slug": "efficacite_de_competence",
+          "value": 5
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "exercice_cordial"
+    },
+    "talentSac": "coeur_externe",
+    "talentTorse": "coeur_interne"
+  },
+  "improvise": {
+    "nom": "Improvisé",
+    "type": "improvise",
+    "icon": "improvise",
+    "attributsEssentiels": [
+      "random"
+    ],
+    "notes": "Les équipements improvisé ont la particularité de pouvoir porté un mod sur toutes de leurs pieces."
+  },
+  "style_royal": {
+    "nom": "Style Royal",
+    "type": "marque",
+    "attributsEssentiels": [
+      "offensif"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+        "slug": "maniement_d_arme_eqp",
+        "value": 5
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "taille_chargeur_eqp",
+          "value": 32
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "degats_de_coup_critique_eqp",
+          "value": 15
+        }
+      ]
+    }
+  }
+}

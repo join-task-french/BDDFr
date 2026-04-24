@@ -7,23 +7,22 @@ import MarkdownText from '../../common/MarkdownText'
  * Même présentation que TalentArmeCard mais en version compacte.
  * Si le talent a une perfectDescription, un switch permet de basculer.
  */
-export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements, isNamed }) {
+export default function TalentInline({ talent, isExotic = false, allArmes, allEquipements, isNamed, noBackground = false }) {
 
   if (!talent) return null
   const icon = resolveAsset(talent.icon)
   const nameColor = talent.estExotique ? 'text-red-400' : 'text-shd'
-  const isPerfectNamed = isNamed && talent.perfectDescription
-
+  const isPerfectNamed = (isNamed && talent.perfectDescription) || !talent.description
   const [showPerfect, setShowPerfect] = useState(isPerfectNamed)
 
-  const description = showPerfect ? talent.perfectDescription : talent.description
+  const description = (showPerfect && talent.perfectDescription) || !talent.description ? talent.perfectDescription : talent.description
   const compatTypes = talent.compatibilite
     ? Object.entries(talent.compatibilite).filter(([, v]) => v).map(([k]) => k)
     : []
 
 
   return (
-    <div className="bg-tactical-bg/40 rounded px-3 py-2 space-y-1.5">
+    <div className={`${noBackground ? 'space-y-1' : 'bg-tactical-bg/40 rounded px-3 py-2 space-y-1.5'}`}>
       {/* Header : icon + nom + badge exo + switch parfait */}
       <div className="flex items-center gap-2 flex-wrap">
         <GameIcon src={icon} alt="" size="w-5 h-5" />
@@ -31,7 +30,7 @@ export default function TalentInline({ talent, isExotic = false, allArmes, allEq
           {talent.nom}
         </span>
         {talent.estExotique && (
-            <span className="text-xs font-bold text-red-400 bg-red-500/15 px-1 py-0.5 rounded uppercase tracking-widest">
+            <span className="text-xs font-bold text-red-400 bg-red-500/10 px-1 py-0.5 rounded uppercase tracking-widest border border-red-500/20">
             Exotique
           </span>
         )}
