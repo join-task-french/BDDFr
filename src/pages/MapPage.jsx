@@ -162,7 +162,7 @@ export default function MapPage() {
 
     useEffect(() => {
         setLoading(true)
-        loadJsonc(`${BASE}data/maps.jsonc`)
+        loadJsonc(`${BASE}${BASE.endsWith('/') ? '' : '/'}data/maps.jsonc`)
             .then(data => {
                 if (Array.isArray(data)) {
                     setMapsConfig(data)
@@ -403,7 +403,7 @@ export default function MapPage() {
                         {selectedMarker.image && (
                             <div className="w-full h-48 sm:h-64 relative bg-black shrink-0">
                                 <img
-                                    src={selectedMarker.image.startsWith('http') ? selectedMarker.image : `${BASE}img/${selectedMarker.image}`}
+                                    src={selectedMarker.image.startsWith('http') ? selectedMarker.image : `${BASE}${BASE.endsWith('/') ? '' : '/'}img/${selectedMarker.image}`}
                                     alt={selectedMarker.label}
                                     className="w-full h-full object-cover"
                                 />

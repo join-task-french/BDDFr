@@ -36,7 +36,7 @@ export default function Sidebar({ open, onClose }) {
 
   useEffect(() => {
     setLoadingError(false)
-    loadJsonc(`${BASE}data/maps.jsonc`)
+    loadJsonc(`${BASE}${BASE.endsWith('/') ? '' : '/'}data/maps.jsonc`)
         .then(data => {
           if (Array.isArray(data)) {
             setMapsConfig(data)
