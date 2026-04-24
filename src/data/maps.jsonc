@@ -45,6 +45,34 @@
                 "label": "Planque Downton East",
                 "description": "Planque située dans le quartier de Downton East."
             }
+        ],
+        "zones": [
+            {
+                "id": "zone_downton_east",
+                "category": "quartiers",
+                "label": "Downtown East",
+                "description": "Quartier principalement contrôlé par les Hyènes.",
+                "color": "#ef4444",
+                "coords": [
+                    [8180, 5954],
+                    [8952, 5954],
+                    [8952, 5993],
+                    [9726, 5993],
+                    [10226, 6204],
+                    [10279, 6204],
+                    [10279, 6400],
+                    [10725, 6400],
+                    [10725, 5126],
+                    [10665, 5126],
+                    [10665, 4660],
+                    [10725, 4660],
+                    [10725, 4350],
+                    [9067, 4350],
+                    [9067, 4227],
+                    [8943, 4124],
+                    [8180, 4117]
+                ]
+            }
         ]
     }
 ]

@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo } from 'react'
 import { useParams, useSearchParams } from 'react-router-dom'
-import { MapContainer, ImageOverlay, ZoomControl, useMap, Marker, Tooltip, useMapEvents } from 'react-leaflet'
+import { MapContainer, ImageOverlay, ZoomControl, useMap, Marker, Tooltip, useMapEvents, Polygon } from 'react-leaflet'
 import L from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { resolveMapImage, GameIcon, resolveAsset } from "../components/common/GameAssets.jsx";
@@ -249,6 +249,11 @@ export default function MapPage() {
         return currentMapConfig.markers.filter(marker => activeCategories.includes(marker.category))
     }, [currentMapConfig?.markers, activeCategories])
 
+    // Les zones (quartiers) ne sont plus soumises au filtre par catégorie
+    const visibleZones = useMemo(() => {
+        return currentMapConfig?.zones || []
+    }, [currentMapConfig?.zones])
+
     if (loading) return <Loader />
     if (loadingError) return <div className="flex h-full w-full items-center justify-center bg-[#0a0a0a] text-red-500 font-mono text-sm uppercase p-10 text-center">[ERROR] Impossible de charger maps.jsonc<br/>{loadingError}</div>
     if (!currentMapConfig) return <div className="flex h-full w-full items-center justify-center bg-[#0a0a0a] text-gray-500 font-mono text-sm uppercase">[ERROR] Carte introuvable</div>
@@ -405,32 +410,49 @@ export default function MapPage() {
                         )
                     )}
 
-                    {isValidTarget && (
-                        <Marker
-                            position={[targetY, targetX]}
-                            icon={L.divIcon({
-                                html: `
-                                    <div class="relative w-10 h-10 flex items-center justify-center pointer-events-none">
-                                        <div class="absolute inset-0 rounded-full bg-[#ff6d00]/40 animate-ping-slow"></div>
-                                        <div class="relative w-3 h-3 rounded-full bg-[#ff6d00] border-2 border-white shadow-[0_0_15px_rgba(255,109,0,0.9)]"></div>
-                                        <div class="absolute w-6 h-6 border border-[#ff6d00]/50 rounded-full"></div>
-                                        <div class="absolute w-px h-8 bg-[#ff6d00]/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                                        <div class="absolute w-8 h-px bg-[#ff6d00]/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
-                                    </div>
-                                `,
-                                className: 'bg-transparent border-0',
-                                iconSize: [40, 40], iconAnchor: [20, 20]
-                            })}
-                            zIndexOffset={1000}
-                        >
-                            <Tooltip direction="bottom" offset={[0, 20]} opacity={1} permanent className="tactical-map-tooltip">
-                                <div className="bg-[#ff6d00]/90 text-white font-bold text-[10px] px-2 py-0.5 rounded shadow-lg uppercase tracking-widest border border-white/20 backdrop-blur-sm">
-                                    Localisation pointée
-                                </div>
-                            </Tooltip>
-                        </Marker>
-                    )}
+                    {/* AFFICHAGE DES QUARTIERS (ZONES) */}
+                    {visibleZones.map(zone => {
+                        const catDef = currentMapConfig.categories?.find(c => c.id === zone.category) || {}
+                        const fallbackColor = catDef.color || '#3b82f6'
 
+                        const bColor = zone.borderColor || zone.color || fallbackColor
+                        const fColor = zone.fillColor || zone.color || fallbackColor
+                        const fOpacity = zone.fillOpacity !== undefined ? zone.fillOpacity : 0.15
+
+                        // Leaflet attend des tableaux [y, x] pour le CRS.Simple
+                        const positions = zone.coords.map(coord => [coord[1], coord[0]])
+
+                        return (
+                            <Polygon
+                                key={zone.id}
+                                positions={positions}
+                                pathOptions={{
+                                    color: bColor,
+                                    fillColor: fColor,
+                                    fillOpacity: fOpacity,
+                                    weight: 3
+                                }}
+                            >
+                                <Tooltip sticky className="tactical-map-tooltip">
+                                    <div className="bg-tactical-panel/95 border border-tactical-border rounded p-3 backdrop-blur-sm shadow-2xl text-left font-sans min-w-[150px]">
+                                        <h4 className="font-bold text-sm uppercase tracking-widest" style={{ color: bColor }}>
+                                            {zone.label}
+                                        </h4>
+                                        {zone.description && (
+                                            <>
+                                                <div className="w-full h-px bg-tactical-border my-2 opacity-50"></div>
+                                                <p className="text-xs text-gray-300 m-0 leading-relaxed whitespace-pre-wrap">
+                                                    {zone.description}
+                                                </p>
+                                            </>
+                                        )}
+                                    </div>
+                                </Tooltip>
+                            </Polygon>
+                        )
+                    })}
+
+                    {/* AFFICHAGE DES MARQUEURS */}
                     {visibleMarkers.map(marker => {
                         const catDef = currentMapConfig.categories?.find(c => c.id === marker.category) || {}
                         const iconUrl = resolveAsset(catDef.icon)
@@ -462,6 +484,32 @@ export default function MapPage() {
                             </Marker>
                         )
                     })}
+
+                    {isValidTarget && (
+                        <Marker
+                            position={[targetY, targetX]}
+                            icon={L.divIcon({
+                                html: `
+                                    <div class="relative w-10 h-10 flex items-center justify-center pointer-events-none">
+                                        <div class="absolute inset-0 rounded-full bg-[#ff6d00]/40 animate-ping-slow"></div>
+                                        <div class="relative w-3 h-3 rounded-full bg-[#ff6d00] border-2 border-white shadow-[0_0_15px_rgba(255,109,0,0.9)]"></div>
+                                        <div class="absolute w-6 h-6 border border-[#ff6d00]/50 rounded-full"></div>
+                                        <div class="absolute w-px h-8 bg-[#ff6d00]/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                                        <div class="absolute w-8 h-px bg-[#ff6d00]/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                                    </div>
+                                `,
+                                className: 'bg-transparent border-0',
+                                iconSize: [40, 40], iconAnchor: [20, 20]
+                            })}
+                            zIndexOffset={1000}
+                        >
+                            <Tooltip direction="bottom" offset={[0, 20]} opacity={1} permanent className="tactical-map-tooltip">
+                                <div className="bg-[#ff6d00]/90 text-white font-bold text-[10px] px-2 py-0.5 rounded shadow-lg uppercase tracking-widest border border-white/20 backdrop-blur-sm">
+                                    Localisation pointée
+                                </div>
+                            </Tooltip>
+                        </Marker>
+                    )}
                 </MapContainer>
             ) : (
                 <div className="flex flex-col h-full w-full items-center justify-center text-gray-500 font-mono text-sm uppercase">

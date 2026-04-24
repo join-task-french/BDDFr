@@ -93,6 +93,47 @@
             "required": ["id", "coords", "category", "label", "description"],
             "additionalProperties": false
         },
+        "zone": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Identifiant unique de la zone"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "Référence à l'ID d'une catégorie existante pour les filtres"
+                },
+                "label": {
+                    "type": "string",
+                    "description": "Nom du quartier ou de la zone"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description affichée au survol"
+                },
+                "color": {
+                    "type": "string",
+                    "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+                    "description": "Couleur de remplissage et de bordure du polygone"
+                },
+                "coords": {
+                    "type": "array",
+                    "description": "Liste de coordonnées [X, Y] délimitant la zone",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        },
+                        "minItems": 2,
+                        "maxItems": 2
+                    },
+                    "minItems": 3
+                }
+            },
+            "required": ["id", "label", "coords"],
+            "additionalProperties": false
+        },
         "mapPart": {
             "type": "object",
             "properties": {
@@ -181,6 +222,13 @@
                     "description": "Liste de tous les points d'intérêts",
                     "items": {
                         "$ref": "#/definitions/marker"
+                    }
+                },
+                "zones": {
+                    "type": "array",
+                    "description": "Liste des quartiers/zones polygonales",
+                    "items": {
+                        "$ref": "#/definitions/zone"
                     }
                 }
             },
