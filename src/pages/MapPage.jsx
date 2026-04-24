@@ -189,7 +189,6 @@ export default function MapPage() {
         return parentMapConfig
     }, [mapsConfig, mapId, subMapId])
 
-    // Initialisation depuis l'URL au chargement de la carte
     useEffect(() => {
         if (currentMapConfig?.categories) {
             const urlCats = searchParams.get('cats')
@@ -201,7 +200,6 @@ export default function MapPage() {
         }
     }, [currentMapConfig, searchParams])
 
-    // Groupement des catégories
     const groupedCategories = useMemo(() => {
         if (!currentMapConfig?.categories) return {}
         return currentMapConfig.categories.reduce((acc, cat) => {
@@ -212,7 +210,6 @@ export default function MapPage() {
         }, {})
     }, [currentMapConfig])
 
-    // RÉÉCRITURE SILENCIEUSE DE L'URL
     const rewriteUrlParams = (categories) => {
         const url = new URL(window.location.href)
         const allIds = currentMapConfig.categories.map(c => c.id)
@@ -251,6 +248,11 @@ export default function MapPage() {
         setCollapsedGroups(prev => ({ ...prev, [groupName]: !prev[groupName] }))
     }
 
+    const handleReset = () => {
+        const allIds = currentMapConfig.categories.map(c => c.id)
+        updateActiveCategories(allIds)
+    }
+
     const handleCopyLocation = () => {
         const url = new URL(window.location.href)
         url.searchParams.set('x', Math.round(contextMenu.lng))
@@ -280,6 +282,9 @@ export default function MapPage() {
     const resolvedSingleImageUrl = !currentMapConfig.mapParts ? resolveMapImage(currentMapConfig.map || currentMapConfig.imageSlug) : null
     const hasImageContent = resolvedSingleImageUrl || (currentMapConfig.mapParts && currentMapConfig.mapParts.length > 0)
 
+    const allCatIds = currentMapConfig.categories?.map(c => c.id) || []
+    const inactiveCount = allCatIds.length - activeCategories.length
+
     return (
         <div className="h-full w-full relative bg-[#0a0a0a] overflow-hidden z-0">
             <style>{`
@@ -294,50 +299,94 @@ export default function MapPage() {
                 }
             `}</style>
 
-            {/* PANNEAU DE FILTRES REFAIT */}
+            {/* PANNEAU DE FILTRES */}
             {currentMapConfig.categories?.length > 0 && (
                 <div className="absolute top-4 right-4 z-[400] flex flex-col items-end">
-                    <button onClick={() => setFilterPanelOpen(!filterPanelOpen)} className="mb-2 p-2 bg-tactical-panel/90 border border-tactical-border rounded shadow-lg text-gray-400 hover:text-white backdrop-blur-sm"><svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg></button>
-                    {filterPanelOpen && (
-                        <div className="bg-tactical-panel/95 border border-tactical-border rounded-lg p-4 backdrop-blur-md min-w-[260px] max-h-[85vh] overflow-y-auto shadow-2xl custom-scrollbar">
-                            <h3 className="text-white text-xs font-bold uppercase tracking-widest border-b border-tactical-border pb-2 mb-4">Tactical Overlay</h3>
-                            <div className="space-y-6">
-                                {Object.entries(groupedCategories).map(([groupName, cats]) => (
-                                    <div key={groupName} className="group/section">
-                                        <div className="flex items-center justify-between mb-2">
-                                            <div
-                                                className="flex items-center gap-2 cursor-pointer select-none"
-                                                onClick={() => toggleCollapse(groupName)}
-                                            >
-                                                <svg className={`w-3 h-3 text-shd transition-transform ${collapsedGroups[groupName] ? '-rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                                                <span className="text-[11px] font-black text-gray-400 uppercase tracking-tighter">{groupName}</span>
-                                            </div>
-                                            <button
-                                                onClick={() => toggleGroup(groupName, cats)}
-                                                className="text-[9px] text-gray-600 hover:text-shd uppercase font-mono transition-colors"
-                                            >
-                                                {cats.every(c => activeCategories.includes(c.id)) ? '[Désactiver]' : '[Activer]'}
-                                            </button>
-                                        </div>
+                    <button
+                        onClick={() => setFilterPanelOpen(!filterPanelOpen)}
+                        className={`mb-2 flex items-center gap-2 px-4 py-2 rounded text-xs font-bold uppercase tracking-widest border transition-all ${
+                            filterPanelOpen || inactiveCount > 0
+                                ? 'bg-shd/20 text-shd border-shd/40'
+                                : 'bg-tactical-panel/90 text-gray-400 border-tactical-border hover:border-gray-500 backdrop-blur-sm'
+                        }`}
+                    >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                        </svg>
+                        Filtres
+                        {inactiveCount > 0 && (
+                            <span className="bg-shd text-black px-1.5 py-0.5 rounded-full text-xs font-black">{activeCategories.length}</span>
+                        )}
+                    </button>
 
-                                        {!collapsedGroups[groupName] && (
-                                            <div className="space-y-2 pl-2 border-l border-tactical-border/30 ml-1.5">
-                                                {cats.map(cat => (
-                                                    <label key={cat.id} className="flex items-center gap-3 cursor-pointer group/item">
-                                                        <input type="checkbox" checked={activeCategories.includes(cat.id)} onChange={() => toggleCategory(cat.id)} className="hidden" />
-                                                        <div className={`w-3.5 h-3.5 rounded-sm border flex items-center justify-center transition-all ${activeCategories.includes(cat.id) ? 'border-shd bg-shd/20 shadow-[0_0_8px_rgba(255,109,0,0.3)]' : 'border-gray-700 bg-transparent'}`}>
-                                                            {activeCategories.includes(cat.id) && <div className="w-1.5 h-1.5 bg-shd rounded-px" />}
-                                                        </div>
-                                                        <div className="w-4 h-4 flex items-center justify-center shrink-0 opacity-70 group-hover/item:opacity-100 transition-opacity">
-                                                            <GameIcon src={resolveAsset(cat.icon)} className="w-full h-full object-contain" />
-                                                        </div>
-                                                        <span className={`text-xs transition-colors ${activeCategories.includes(cat.id) ? 'text-gray-200' : 'text-gray-500'}`}>{cat.name}</span>
+                    {filterPanelOpen && (
+                        <div className="bg-tactical-panel/95 border border-tactical-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[280px] max-h-[80vh] overflow-y-auto">
+                            <div className="flex items-center justify-between mb-3">
+                                <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">Légende & Filtres</span>
+                                <div className="flex gap-2">
+                                    {inactiveCount > 0 && (
+                                        <button onClick={handleReset}
+                                                className="text-xs text-red-400 font-bold uppercase tracking-widest hover:text-red-300 transition-colors">
+                                            Réinitialiser
+                                        </button>
+                                    )}
+                                    <button onClick={() => setFilterPanelOpen(false)}
+                                            className="text-gray-500 hover:text-shd text-lg leading-none">&times;</button>
+                                </div>
+                            </div>
+
+                            <div className="space-y-4">
+                                {Object.entries(groupedCategories).map(([groupName, cats]) => {
+                                    const allActive = cats.every(c => activeCategories.includes(c.id));
+
+                                    return (
+                                        <div key={groupName} className="flex flex-col gap-1">
+                                            <div className="flex items-center justify-between mb-1.5 mt-2">
+                                                <div
+                                                    className="flex items-center gap-2 cursor-pointer group"
+                                                    onClick={() => toggleCollapse(groupName)}
+                                                >
+                                                    <label className="block text-xs text-gray-500 font-bold uppercase tracking-widest cursor-pointer mb-0 group-hover:text-gray-300 transition-colors">
+                                                        {groupName}
                                                     </label>
-                                                ))}
+                                                    <span className="text-[10px] leading-none text-gray-500 group-hover:text-gray-400">
+                                                        {collapsedGroups[groupName] ? '▼' : '▲'}
+                                                    </span>
+                                                </div>
+                                                <button
+                                                    onClick={() => toggleGroup(groupName, cats)}
+                                                    className="text-[10px] text-gray-500 hover:text-gray-300 font-bold uppercase tracking-widest transition-colors"
+                                                >
+                                                    {allActive ? 'Désactiver' : 'Activer'}
+                                                </button>
                                             </div>
-                                        )}
-                                    </div>
-                                ))}
+
+                                            {!collapsedGroups[groupName] && (
+                                                <div className="flex flex-col gap-1.5">
+                                                    {cats.map(cat => {
+                                                        const checked = activeCategories.includes(cat.id);
+                                                        return (
+                                                            <button
+                                                                key={cat.id}
+                                                                onClick={() => toggleCategory(cat.id)}
+                                                                className={`flex items-center gap-2 px-2 py-1.5 rounded text-xs font-bold uppercase tracking-wide border transition-all text-left ${
+                                                                    checked
+                                                                        ? 'bg-shd/20 text-shd border-shd/40'
+                                                                        : 'bg-tactical-bg/80 text-gray-500 border-tactical-border hover:border-gray-500 hover:text-gray-400'
+                                                                }`}
+                                                            >
+                                                                <div className={`w-5 h-5 flex items-center justify-center shrink-0 ${checked ? 'opacity-100' : 'opacity-50'}`}>
+                                                                    <GameIcon src={resolveAsset(cat.icon)} className="w-full h-full object-contain" />
+                                                                </div>
+                                                                <span className="flex-1">{cat.name}</span>
+                                                            </button>
+                                                        )
+                                                    })}
+                                                </div>
+                                            )}
+                                        </div>
+                                    )
+                                })}
                             </div>
                         </div>
                     )}

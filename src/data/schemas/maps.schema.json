@@ -44,6 +44,10 @@
                     "type": "string",
                     "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
                     "description": "Couleur hexadécimale pour le marqueur (ex: '#ef4444')"
+                },
+                "group": {
+                    "type": "string",
+                    "description": "Groupe de catégories pour les filtres (ex: 'Ennemis', 'Ressources')"
                 }
             },
             "required": ["id", "name", "icon"],
