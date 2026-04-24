@@ -205,15 +205,15 @@ export default function Sidebar({ open, onClose }) {
               </svg>
             </NavLink>
 
-            <div className={`mt-1 space-y-1 overflow-hidden transition-all duration-300 ${buildsExpanded ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
+            <div className={`pl-11 pr-2 mt-2 space-y-1 overflow-hidden transition-all duration-300 ${buildsExpanded ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
 
               <NavLink
                   to="/shd"
                   className={({ isActive }) =>
-                      `flex items-center gap-3 px-3 py-2 rounded text-xs font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
+                      `flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest transition-colors border ${
                           isActive
-                              ? 'bg-shd/5 text-shd border-shd/20'
-                              : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
+                              ? 'bg-shd/10 text-shd border-shd/30'
+                              : 'text-gray-500 hover:text-gray-300 hover:bg-tactical-hover border-transparent'
                       }`
                   }
                   onClick={onClose}
@@ -223,10 +223,10 @@ export default function Sidebar({ open, onClose }) {
               <NavLink
                   to="/library"
                   className={({ isActive }) =>
-                      `flex items-center gap-3 px-3 py-2 rounded text-xs font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
+                      `flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest transition-colors border ${
                           isActive
-                              ? 'bg-shd/5 text-shd border-shd/20'
-                              : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
+                              ? 'bg-shd/10 text-shd border-shd/30'
+                              : 'text-gray-500 hover:text-gray-300 hover:bg-tactical-hover border-transparent'
                       }`
                   }
                   onClick={onClose}
@@ -236,10 +236,10 @@ export default function Sidebar({ open, onClose }) {
               <NavLink
                   to="/build"
                   className={({ isActive }) =>
-                      `flex items-center gap-3 px-3 py-2 rounded text-xs font-bold uppercase tracking-widest transition-all duration-200 border ml-6 ${
+                      `flex items-center gap-2 px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest transition-colors border ${
                           isActive
-                              ? 'bg-shd/5 text-shd border-shd/20'
-                              : 'text-gray-500 hover:bg-tactical-hover hover:text-gray-300 border-transparent'
+                              ? 'bg-shd/10 text-shd border-shd/30'
+                              : 'text-gray-500 hover:text-gray-300 hover:bg-tactical-hover border-transparent'
                       }`
                   }
                   onClick={onClose}
