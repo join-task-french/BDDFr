@@ -248,6 +248,23 @@ async function generate() {
             args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
         });
 
+        // PRÉ-EXTRACTION DES NIVEAUX DE DESCENTE DEPUIS LE JSON
+        const descenteTalentsLevels = {};
+        const wTalentsRaw = parseJsonc(path.join(DATA_DIR, categoryMap['talentsArmes'])) || parseJsonc(path.join(DATA_DIR, 'talents-armes.jsonc')) || {};
+        const gTalentsRaw = parseJsonc(path.join(DATA_DIR, categoryMap['talentsEquipements'])) || parseJsonc(path.join(DATA_DIR, 'talents-equipements.jsonc')) || {};
+        const allDescenteItemsRaw = [
+            ...Object.entries(wTalentsRaw).map(([s, v]) => ({ ...v, slug: s })),
+            ...Object.entries(gTalentsRaw).map(([s, v]) => ({ ...v, slug: s }))
+        ].filter(i => i.descente);
+
+        for (const item of allDescenteItemsRaw) {
+            if (item.descente && item.descente.levels) {
+                descenteTalentsLevels[item.slug] = Object.keys(item.descente.levels)
+                    .filter(k => k !== 'base')
+                    .sort((a, b) => parseInt(a) - parseInt(b));
+            }
+        }
+
         const sitemapEntries = [`${BASE_URL}/`];
         const today = new Date().toISOString().split('T')[0];
         const exportOgImagesDir = path.join(DIST_DIR, 'og-images');
@@ -380,7 +397,7 @@ async function generate() {
 
                     await new Promise(r => setTimeout(r, 2000));
 
-                    // Extraction des métadonnées du DOM
+                    // Extraction basique des métadonnées du DOM
                     const cardMetadatas = await page.$$eval('.og-target-card', els => {
                         return els.map(el => {
                             const select = el.querySelector('select');
@@ -388,19 +405,28 @@ async function generate() {
                                 slug: el.getAttribute('data-slug'),
                                 hasPerfect: Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Parfait')),
                                 hasPrototype: Array.from(el.querySelectorAll('button')).some(b => b.textContent.includes('Prototype')),
-                                descenteLevels: select ? Array.from(select.options).map(o => o.value) : ['1']
+                                descenteLevels: select ? Array.from(select.options).map(o => o.value) : []
                             };
                         });
                     });
 
-                    // NOUVEAU : On pré-filtre les tâches réelles pour avoir un total exact
+                    // NOUVEAU : On pré-filtre les tâches en utilisant les données JSON fiables pour Descente
                     const tasks = [];
                     for (const meta of cardMetadatas) {
                         if (!meta.slug) continue;
                         if (isPerfect && !meta.hasPerfect) continue;
                         if (isPrototype && !meta.hasPrototype) continue;
 
-                        const levels = isDescente ? meta.descenteLevels : [''];
+                        let levels = [''];
+                        if (isDescente) {
+                            // Priorité absolue aux niveaux extraits du JSON
+                            levels = descenteTalentsLevels[meta.slug];
+                            if (!levels || levels.length === 0) {
+                                // Fallback sur le DOM ou des niveaux génériques
+                                levels = (meta.descenteLevels && meta.descenteLevels.length > 0) ? meta.descenteLevels : ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+                            }
+                        }
+
                         for (const level of levels) {
                             tasks.push({ slug: meta.slug, level });
                         }
@@ -478,7 +504,6 @@ async function generate() {
                         const hashKey = `${categoryKey}_${slug}${levelSuffix}`;
                         const imageOutputPath = path.join(categoryOgDir, `${slug}${levelSuffix}.jpg`);
 
-                        // Si en cache, on ignore la génération visuelle
                         if (fs.existsSync(imageOutputPath) && imageHashes[hashKey] === currentHash) {
                             if (processedCards % 25 === 0 && processedCards !== totalCards) printProgress();
                             continue;
@@ -607,8 +632,9 @@ async function generate() {
             let items = [];
 
             if (categoryKey === 'descente') {
-                const wTalents = parseJsonc(path.join(DATA_DIR, 'talents-armes.jsonc')) || {};
-                const gTalents = parseJsonc(path.join(DATA_DIR, 'talents-equipements.jsonc')) || {};
+                // Utilisation des fallbacks sécurisés pour la génération HTML également
+                const wTalents = parseJsonc(path.join(DATA_DIR, categoryMap['talentsArmes'])) || parseJsonc(path.join(DATA_DIR, 'talents-armes.jsonc')) || {};
+                const gTalents = parseJsonc(path.join(DATA_DIR, categoryMap['talentsEquipements'])) || parseJsonc(path.join(DATA_DIR, 'talents-equipements.jsonc')) || {};
                 items = [
                     ...Object.entries(wTalents).map(([s, v]) => ({ ...v, slug: s })),
                     ...Object.entries(gTalents).map(([s, v]) => ({ ...v, slug: s }))
