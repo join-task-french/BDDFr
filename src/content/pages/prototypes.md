@@ -74,19 +74,19 @@ Augmenter les statistiques des ennemis ne suffisait pas. L'Escalade introduit 2 
 
 Actuellement, le mode Escalade est l'unique moyen de mettre la main sur l'équipement Prototype. Oubliez le butin ciblé : ici, tout est question de hasard. Chaque ennemi éliminé possède une petite chance de faire tomber une pièce d'équipement ou une arme Prototype. Naturellement, cette probabilité augmente avec la difficulté :
 
-| Tier         | taux de drop | kill nécessaires |
-|--------------|--------------|------------------|
-| **Tier 0**   | 0,10 %       | **~** 1000       |
-| **Tier 1**   | 0,20 %       | **~** 500        |
-| **Tier 2**   | 0,40 %       | **~** 250        |
-| **Tier 3**   | 0,60 %       | **~** 167        |
-| **Tier 4**   | 0,60 %       | **~** 167        |
-| **Tier 5**   | 0,80 %       | **~** 125        |
-| **Tier 6**   | 1,25 %       | **~** 80         |
-| **Tier 7**   | 1,50 %       | **~** 67         |
-| **Tier 8**   | 2,00 %       | **~** 50         |
-| **Tier 9**   | 2,50 %       | **~** 40         |
-| **Tier 10**  | 3,00 %       | **~** 33         |
+| Tier         | taux de drop | butin ciblé | kill nécessaires (non ciblé) |
+|--------------|--------------|-------------|------------------------------|
+| **Tier 0**   | 0,10 %       | ? %         | **~** 1000                   |
+| **Tier 1**   | 0,20 %       | 5.0 %       | **~** 500                    |
+| **Tier 2**   | 0,40 %       | 11.0 %      | **~** 250                    |
+| **Tier 3**   | 0,60 %       | 16.0 %      | **~** 167                    |
+| **Tier 4**   | 0,60 %       | 22.0 %      | **~** 167                    |
+| **Tier 5**   | 0,80 %       | 28.0 %      | **~** 125                    |
+| **Tier 6**   | 1,25 %       | 39.0 %      | **~** 80                     |
+| **Tier 7**   | 1,50 %       | 45.0 %      | **~** 67                     |
+| **Tier 8**   | 2,00 %       | 50.0 %      | **~** 50                     |
+| **Tier 9**   | 2,50 %       | 56.0 %      | **~** 40                     |
+| **Tier 10**  | 3,00 %       | 62.0 %      | **~** 33                     |
 
 
 
