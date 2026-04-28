@@ -75,19 +75,21 @@ export default function App() {
     }, []);
 
     return (
-        <Routes>
-            <Route element={<Layout children={secretSession > 0 ? <InvestisseurReroll key={secretSession} allAttributs={data.attributs} allEquipements={data.equipements} allTalents={data.talentsEquipements} onClose={() => setSecretSession(0)} /> : null} />}>
-                <Route index element={<SuspensePage><DatabasePage /></SuspensePage>} />
-                <Route path="db/:category/:slug?/:modifier?" element={<SuspensePage><DatabasePage /></SuspensePage>} />
-                <Route path="map/:mapId?/:subMapId?" element={<SuspensePage><MapPage /></SuspensePage>} />
-                <Route path="planner" element={<SuspensePage><BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider></SuspensePage>} />
-                <Route path="library" element={<SuspensePage><BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildLibraryPage /></BuildProvider></SuspensePage>} />
-                <Route path="build" element={<SuspensePage><BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider></SuspensePage>} />
-                <Route path="shd" element={<SuspensePage><SHDWatchPage /></SuspensePage>} />
-                <Route path="changelog" element={<SuspensePage><ChangelogPage /></SuspensePage>} />
-                <Route path="generator" element={<SuspensePage><GeneratorPage /></SuspensePage>} />
-                <Route path="pages/:pageId?" element={<SuspensePage><PageViewer /></SuspensePage>} />
-            </Route>
-        </Routes>
+        <SuspensePage>
+            <Routes>
+                <Route element={<Layout children={secretSession > 0 ? <InvestisseurReroll key={secretSession} allAttributs={data.attributs} allEquipements={data.equipements} allTalents={data.talentsEquipements} onClose={() => setSecretSession(0)} /> : null} />}>
+                    <Route index element={<DatabasePage />} />
+                    <Route path="db/:category/:slug?/:modifier?" element={<DatabasePage />} />
+                    <Route path="map/:mapId?/:subMapId?" element={<MapPage />} />
+                    <Route path="planner" element={<BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider>} />
+                    <Route path="library" element={<BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildLibraryPage /></BuildProvider>} />
+                    <Route path="build" element={<BuildProvider classSpe={data.classSpe} montreConfig={data.montre} maxExpertiseLevel={data.metadata?.maxExpertiseLevel || 20}><BuildPlannerPage /></BuildProvider>} />
+                    <Route path="shd" element={<SHDWatchPage />} />
+                    <Route path="changelog" element={<ChangelogPage />} />
+                    <Route path="generator" element={<GeneratorPage />} />
+                    <Route path="pages/:pageId?" element={<PageViewer />} />
+                </Route>
+            </Routes>
+        </SuspensePage>
     )
 }
