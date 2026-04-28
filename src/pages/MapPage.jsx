@@ -7,6 +7,14 @@ import 'leaflet/dist/leaflet.css'
 import { resolveMapImage, GameIcon, resolveAsset } from "../components/common/GameAssets.jsx";
 import { useDataLoader } from '../hooks/useDataLoader.js'
 import Loader from '../components/common/Loader.jsx'
+import MapEditorOverlay from '../components/map/MapEditorOverlay.jsx'
+
+// Capture l'instance Leaflet pour la passer à l'éditeur (mode dev)
+function MapInstanceCapture({ onReady }) {
+    const map = useMap()
+    useEffect(() => { onReady(map) }, [map, onReady])
+    return null
+}
 
 const BASE = import.meta.env.BASE_URL
 
@@ -148,7 +156,7 @@ function ContextMenuHandler({ setContextMenu }) {
 // ============================================================================
 export default function MapPage() {
     const { mapId, subMapId } = useParams()
-    const [searchParams] = useSearchParams()
+    const [searchParams, setSearchParams] = useSearchParams()
 
     const { data, loading, error: loadingError } = useDataLoader()
     const mapsConfig = data?.maps
@@ -159,6 +167,10 @@ export default function MapPage() {
     const [hudCoords, setHUDCoords] = useState({ x: '0', y: '0' })
     const [contextMenu, setContextMenu] = useState(null)
     const [selectedMarker, setSelectedMarker] = useState(null)
+    const [leafletMap, setLeafletMap] = useState(null)
+
+    // Activation de l'éditeur via le query param ?editor=true (mode dev uniquement)
+    const editorActive = import.meta.env.DEV && searchParams.get('editor') === 'true'
 
     const currentMapConfig = useMemo(() => {
         if (!mapsConfig || !Array.isArray(mapsConfig) || mapsConfig.length === 0) return null
@@ -246,13 +258,15 @@ export default function MapPage() {
     }
 
     const visibleMarkers = useMemo(() => {
+        if (editorActive) return []
         if (!currentMapConfig?.markers) return []
         return currentMapConfig.markers.filter(marker => activeCategories.includes(marker.category))
-    }, [currentMapConfig?.markers, activeCategories])
+    }, [currentMapConfig?.markers, activeCategories, editorActive])
 
     const visibleZones = useMemo(() => {
+        if (editorActive) return []
         return currentMapConfig?.zones || []
-    }, [currentMapConfig?.zones])
+    }, [currentMapConfig?.zones, editorActive])
 
     if (loading) return <Loader />
     if (loadingError) return <div className="flex h-full w-full items-center justify-center bg-[#0a0a0a] text-red-500 font-mono text-sm uppercase p-10 text-center">[ERROR] Impossible de charger maps.jsonc<br/>{loadingError}</div>
@@ -404,6 +418,7 @@ export default function MapPage() {
                     <MapMouseCoordinatesHUD setHUDCoords={setHUDCoords} />
                     <ContextMenuHandler setContextMenu={setContextMenu} />
                     <ZoomControl position="bottomright" />
+                    {import.meta.env.DEV && <MapInstanceCapture onReady={setLeafletMap} />}
 
                     {currentMapConfig.mapParts ? (
                         <ViewportManager parts={currentMapConfig.mapParts} currentMapId={currentMapConfig.id} />
@@ -556,6 +571,19 @@ export default function MapPage() {
                         </div>
                     </button>
                 </div>
+            )}
+
+            {/* ÉDITEUR DE CARTE (DEV ONLY) */}
+            {import.meta.env.DEV && editorActive && leafletMap && currentMapConfig && (
+                <MapEditorOverlay
+                    map={leafletMap}
+                    mapConfig={currentMapConfig}
+                    onClose={() => {
+                        const next = new URLSearchParams(searchParams)
+                        next.delete('editor')
+                        setSearchParams(next, { replace: true })
+                    }}
+                />
             )}
 
             {/* LA FICHE DÉTAILLÉE DU MARQUEUR (MODAL) */}
