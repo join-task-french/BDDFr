@@ -288,7 +288,7 @@ export default function MapPage() {
 
             {/* PANNEAU DE FILTRES */}
             {currentMapConfig.categories?.length > 0 && (
-                <div className="absolute top-4 right-4 z-[400] flex flex-col items-end">
+                <div className="absolute top-4 right-4 z-400 flex flex-col items-end">
                     <button
                         onClick={() => setFilterPanelOpen(!filterPanelOpen)}
                         className={`mb-2 flex items-center gap-2 px-4 py-2 rounded text-xs font-bold uppercase tracking-widest border transition-all ${
@@ -307,7 +307,7 @@ export default function MapPage() {
                     </button>
 
                     {filterPanelOpen && (
-                        <div className="bg-tactical-panel/95 border border-tactical-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[280px] max-h-[80vh] overflow-y-auto">
+                        <div className="bg-tactical-panel/95 border border-tactical-border rounded-lg p-4 shadow-xl backdrop-blur-sm min-w-[300px] sm:min-w-[380px] max-h-[80vh] overflow-y-auto">
                             <div className="flex items-center justify-between mb-3">
                                 <span className="text-xs text-gray-400 font-bold uppercase tracking-widest">Légende & Filtres</span>
                                 <div className="flex gap-2">
@@ -349,7 +349,7 @@ export default function MapPage() {
                                             </div>
 
                                             {!collapsedGroups[groupName] && (
-                                                <div className="flex flex-col gap-1.5">
+                                                <div className="grid grid-cols-2 gap-1.5">
                                                     {cats.map(cat => {
                                                         const checked = activeCategories.includes(cat.id);
                                                         const bgColor = cat.backgroundColor || 'transparent'
@@ -358,7 +358,8 @@ export default function MapPage() {
                                                             <button
                                                                 key={cat.id}
                                                                 onClick={() => toggleCategory(cat.id)}
-                                                                className={`flex items-center gap-2 px-2 py-1.5 rounded text-xs font-bold uppercase tracking-wide border transition-all text-left ${
+                                                                title={cat.name}
+                                                                className={`flex items-center gap-2 px-2 py-1.5 rounded text-xs font-bold uppercase tracking-wide border transition-all text-left overflow-hidden ${
                                                                     checked
                                                                         ? 'bg-shd/20 text-shd border-shd/40'
                                                                         : 'bg-tactical-bg/80 text-gray-500 border-tactical-border hover:border-gray-500 hover:text-gray-400'
@@ -367,7 +368,7 @@ export default function MapPage() {
                                                                 <div className={`w-5 h-5 flex items-center justify-center rounded-full shrink-0 ${checked ? 'opacity-100' : 'opacity-50'}`} style={{ backgroundColor: bgColor }}>
                                                                     <GameIcon src={resolveAsset(cat.icon)} color={iColor} className="w-full h-full object-contain" />
                                                                 </div>
-                                                                <span className="flex-1">{cat.name}</span>
+                                                                <span className="flex-1 truncate">{cat.name}</span>
                                                             </button>
                                                         )
                                                     })}
@@ -540,7 +541,7 @@ export default function MapPage() {
             {/* LE MENU CONTEXTUEL (CLIC DROIT) */}
             {contextMenu && (
                 <div
-                    className="absolute z-[1000] bg-tactical-panel/95 backdrop-blur-md border border-tactical-border shadow-2xl rounded py-1 min-w-[220px]"
+                    className="absolute z-1000 bg-tactical-panel/95 backdrop-blur-md border border-tactical-border shadow-2xl rounded py-1 min-w-[220px]"
                     style={{ top: contextMenu.y, left: contextMenu.x }}
                     onMouseLeave={() => setContextMenu(null)}
                 >
@@ -559,7 +560,7 @@ export default function MapPage() {
 
             {/* LA FICHE DÉTAILLÉE DU MARQUEUR (MODAL) */}
             {selectedMarker && (
-                <div className="absolute inset-0 z-[2000] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setSelectedMarker(null)}>
+                <div className="absolute inset-0 z-2000 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4" onClick={() => setSelectedMarker(null)}>
                     <div
                         className="bg-tactical-panel border border-tactical-border rounded-lg shadow-2xl max-w-lg w-full max-h-[85vh] overflow-hidden flex flex-col"
                         onClick={e => e.stopPropagation()}
