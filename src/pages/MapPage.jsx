@@ -172,6 +172,14 @@ export default function MapPage() {
     // Activation de l'éditeur via le query param ?editor=true (mode dev uniquement)
     const editorActive = import.meta.env.DEV && searchParams.get('editor') === 'true'
 
+    // Quand la sidebar de l'éditeur s'ouvre/ferme, le conteneur de la map change de largeur :
+    // on demande à Leaflet de recalculer sa taille pour éviter une vue tronquée.
+    useEffect(() => {
+        if (!leafletMap) return
+        const t = setTimeout(() => { try { leafletMap.invalidateSize() } catch (_) {} }, 60)
+        return () => clearTimeout(t)
+    }, [editorActive, leafletMap])
+
     const currentMapConfig = useMemo(() => {
         if (!mapsConfig || !Array.isArray(mapsConfig) || mapsConfig.length === 0) return null
         const activeMapId = mapId || mapsConfig[0]?.id
@@ -287,7 +295,8 @@ export default function MapPage() {
     const inactiveCount = allCatIds.length - activeCategories.length
 
     return (
-        <div className="h-full w-full relative bg-[#0a0a0a] overflow-hidden z-0">
+        <div className="h-full w-full flex flex-row bg-[#0a0a0a] overflow-hidden z-0">
+            <div className="relative flex-1 min-w-0 h-full">
             <style>{`
                 .leaflet-tooltip.tactical-map-tooltip { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; margin: 0 !important; }
                 .leaflet-tooltip.tactical-map-tooltip::before, .leaflet-tooltip.tactical-map-tooltip::after { display: none !important; }
@@ -350,13 +359,13 @@ export default function MapPage() {
                                                     <label className="block text-xs text-gray-500 font-bold uppercase tracking-widest cursor-pointer mb-0 group-hover:text-gray-300 transition-colors">
                                                         {groupName}
                                                     </label>
-                                                    <span className="text-[10px] leading-none text-gray-500 group-hover:text-gray-400">
+                                                    <span className="text-xs leading-none text-gray-500 group-hover:text-gray-400">
                                                         {collapsedGroups[groupName] ? '▼' : '▲'}
                                                     </span>
                                                 </div>
                                                 <button
                                                     onClick={() => toggleGroup(groupName, cats)}
-                                                    className="text-[10px] text-gray-500 hover:text-gray-300 font-bold uppercase tracking-widest transition-colors"
+                                                    className="text-xs text-gray-500 hover:text-gray-300 font-bold uppercase tracking-widest transition-colors"
                                                 >
                                                     {allActive ? 'Désactiver' : 'Activer'}
                                                 </button>
@@ -505,7 +514,7 @@ export default function MapPage() {
                                         <div className="w-full h-px bg-tactical-border mb-2 opacity-50"></div>
                                         <p className="text-xs text-gray-300 m-0 leading-relaxed whitespace-pre-wrap">{marker.description}</p>
                                         {(marker.extendedDescription || marker.image) && (
-                                            <p className="text-[10px] text-gray-500 mt-2 uppercase tracking-wide">Clic pour détails ⏵</p>
+                                            <p className="text-xs text-gray-500 mt-2 uppercase tracking-wide">Clic pour détails ⏵</p>
                                         )}
                                     </div>
                                 </Tooltip>
@@ -532,7 +541,7 @@ export default function MapPage() {
                             zIndexOffset={1000}
                         >
                             <Tooltip direction="bottom" offset={[0, 20]} opacity={1} permanent className="tactical-map-tooltip">
-                                <div className="bg-[#ff6d00]/90 text-white font-bold text-[10px] px-2 py-0.5 rounded shadow-lg uppercase tracking-widest border border-white/20 backdrop-blur-sm">
+                                <div className="bg-[#ff6d00]/90 text-white font-bold text-xs px-2 py-0.5 rounded shadow-lg uppercase tracking-widest border border-white/20 backdrop-blur-sm">
                                     Localisation pointée
                                 </div>
                             </Tooltip>
@@ -546,7 +555,7 @@ export default function MapPage() {
             )}
 
             {/* COORDONNÉES HUD */}
-            <div className="absolute top-4 left-4 text-[10px] text-shd/70 font-mono uppercase tracking-widest pointer-events-none z-[400]">
+            <div className="absolute top-4 left-4 text-xs text-shd/70 font-mono uppercase tracking-widest pointer-events-none z-[400]">
                 SYS.COORD: {currentMapConfig.id.toUpperCase()}_SEC_01<br/>CRS: SIMPLE (FLAT)
             </div>
             <div className="absolute bottom-8 right-14 text-xs text-shd font-mono uppercase tracking-widest pointer-events-none z-[400] text-right">
@@ -567,25 +576,13 @@ export default function MapPage() {
                         <svg className="w-4 h-4 text-shd" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" /></svg>
                         <div className="flex flex-col">
                             <span className="font-semibold">Copier l'URL</span>
-                            <span className="text-[10px] text-gray-500 font-mono uppercase">X:{Math.round(contextMenu.lng)} Y:{Math.round(contextMenu.lat)}</span>
+                            <span className="text-xs text-gray-500 font-mono uppercase">X:{Math.round(contextMenu.lng)} Y:{Math.round(contextMenu.lat)}</span>
                         </div>
                     </button>
                 </div>
             )}
 
-            {/* ÉDITEUR DE CARTE (DEV ONLY) */}
-            {import.meta.env.DEV && editorActive && leafletMap && currentMapConfig && (
-                <MapEditorOverlay
-                    map={leafletMap}
-                    mapConfig={currentMapConfig}
-                    allMaps={mapsConfig}
-                    onClose={() => {
-                        const next = new URLSearchParams(searchParams)
-                        next.delete('editor')
-                        setSearchParams(next, { replace: true })
-                    }}
-                />
-            )}
+            {/* (l'éditeur de carte est rendu hors de ce sous-div, voir plus bas) */}
 
             {/* LA FICHE DÉTAILLÉE DU MARQUEUR (MODAL) */}
             {selectedMarker && (
@@ -631,6 +628,21 @@ export default function MapPage() {
                         </div>
                     </div>
                 </div>
+            )}
+            </div>
+
+            {/* ÉDITEUR DE CARTE (DEV ONLY) — sidebar côte à côte avec la map */}
+            {import.meta.env.DEV && editorActive && leafletMap && currentMapConfig && (
+                <MapEditorOverlay
+                    map={leafletMap}
+                    mapConfig={currentMapConfig}
+                    allMaps={mapsConfig}
+                    onClose={() => {
+                        const next = new URLSearchParams(searchParams)
+                        next.delete('editor')
+                        setSearchParams(next, { replace: true })
+                    }}
+                />
             )}
         </div>
     )

@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState, useCallback, useMemo } from 'react'
 import { renderToString } from 'react-dom/server'
-import { createPortal } from 'react-dom'
 import L from 'leaflet'
 import { GameIcon, resolveAsset } from '../common/GameAssets.jsx'
 
@@ -121,7 +120,8 @@ export default function MapEditorOverlay({ map, mapConfig, allMaps, onClose }) {
     // état édité (zones + markers)
     const initial = useMemo(() => ({
         zones: (mapConfig?.zones || []).map(z => ({ ...z, coords: clonePoly(z.coords) })),
-        markers: (mapConfig?.markers || []).map(m => ({ ...m, coords: clonePoint(m.coords) }))
+        markers: (mapConfig?.markers || []).map(m => ({ ...m, coords: clonePoint(m.coords) })),
+        categories: (mapConfig?.categories || []).map(c => ({ ...c }))
     }), [mapConfig])
 
     const { state, commit, undo, redo, reset } = useHistory(initial)
@@ -141,6 +141,8 @@ export default function MapEditorOverlay({ map, mapConfig, allMaps, onClose }) {
     const [drawingCoords, setDrawingCoords] = useState([]) // points en cours pour nouvelle zone
     const [previewPoint, setPreviewPoint] = useState(null) // [x,y] aperçu du prochain point en mode drawZone
     const [editingMarkerData, setEditingMarkerData] = useState(null) // marqueur en cours d'édition (formulaire/modal)
+    const [showCategoriesPanel, setShowCategoriesPanel] = useState(false)
+    const [editingCategoryId, setEditingCategoryId] = useState(null)
 
     const ctrlRef = useRef(false)
 
@@ -216,7 +218,7 @@ export default function MapEditorOverlay({ map, mapConfig, allMaps, onClose }) {
                 const newMarker = {
                     id: genId('marker'),
                     coords: [Math.round(e.latlng.lng), Math.round(e.latlng.lat)],
-                    category: mapConfig?.categories?.[0]?.id || '',
+                    category: state.categories?.[0]?.id || mapConfig?.categories?.[0]?.id || '',
                     label: 'Nouveau marqueur',
                     description: ''
                 }
@@ -244,6 +246,7 @@ export default function MapEditorOverlay({ map, mapConfig, allMaps, onClose }) {
             if (tool === 'drawZone' && drawingCoords.length >= 3) {
                 const newZone = {
                     id: genId('zone'),
+                    category: 'quartiers',
                     label: 'Nouvelle zone',
                     description: '',
                     coords: drawingCoords,
@@ -587,24 +590,26 @@ export default function MapEditorOverlay({ map, mapConfig, allMaps, onClose }) {
     const exportJSON = () => {
         const editedZones = state.zones.map(z => ({
             ...z,
+            category: z.category || 'quartiers',
             coords: z.coords.map(c => [Math.round(c[0]), Math.round(c[1])])
         }))
         const editedMarkers = state.markers.map(m => ({
             ...m,
             coords: [Math.round(m.coords[0]), Math.round(m.coords[1])]
         }))
+        const editedCategories = (state.categories || []).map(c => ({ ...c }))
 
-        // Reconstruit le tableau complet de cartes en remplaçant zones/markers de la carte courante
+        // Reconstruit le tableau complet de cartes en remplaçant zones/markers/categories de la carte courante
         const updateMap = (m) => {
             if (m.id === mapConfig?.id) {
-                return { ...m, zones: editedZones, markers: editedMarkers }
+                return { ...m, categories: editedCategories, zones: editedZones, markers: editedMarkers }
             }
             if (Array.isArray(m.subMaps)) {
                 return { ...m, subMaps: m.subMaps.map(updateMap) }
             }
             return m
         }
-        const fullMaps = Array.isArray(allMaps) ? allMaps.map(updateMap) : [{ ...(mapConfig || {}), zones: editedZones, markers: editedMarkers }]
+        const fullMaps = Array.isArray(allMaps) ? allMaps.map(updateMap) : [{ ...(mapConfig || {}), categories: editedCategories, zones: editedZones, markers: editedMarkers }]
 
         const text = stringifyMaps(fullMaps)
         navigator.clipboard?.writeText(text).catch(() => {})
@@ -617,94 +622,166 @@ export default function MapEditorOverlay({ map, mapConfig, allMaps, onClose }) {
     // UI overlay (panneau outils + formulaires)
     // -----------------------------------------------------------------------
     const selectedZone = state.zones.find(z => z.id === selectedZoneId)
-    const categories = mapConfig?.categories || []
+    const categories = state.categories || []
+
+    // CRUD catégories
+    const addCategory = () => {
+        const newCat = { id: genId('cat'), name: 'Nouvelle catégorie', icon: '', iconColor: '#ffffff', group: '' }
+        commit(s => ({ ...s, categories: [...(s.categories || []), newCat] }))
+    }
+    const updateCategory = (catId, patch) => {
+        commit(s => ({ ...s, categories: (s.categories || []).map(c => c.id === catId ? { ...c, ...patch } : c) }))
+    }
+    const deleteCategory = (catId) => {
+        commit(s => ({
+            ...s,
+            categories: (s.categories || []).filter(c => c.id !== catId),
+            // marqueurs qui utilisaient cette catégorie: on retire le lien
+            markers: s.markers.map(m => m.category === catId ? { ...m, category: '' } : m)
+        }))
+    }
 
     return (
-        <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[3000] pointer-events-none">
-            <div className="pointer-events-auto bg-tactical-panel/95 border border-shd/60 rounded-lg shadow-2xl backdrop-blur-md text-gray-200 font-mono text-xs uppercase tracking-widest">
-                {/* Barre d'outils */}
-                <div className="flex items-center gap-1 p-2 border-b border-tactical-border">
-                    <span className="px-2 text-shd font-bold">[DEV] EDITOR</span>
-                    <button onClick={() => { setTool('select'); setDrawingCoords([]) }}
-                            className={`px-2 py-1 rounded border ${tool === 'select' ? 'bg-shd/30 border-shd text-shd' : 'border-tactical-border hover:border-shd/50'}`}>Sélection</button>
-                    <button onClick={() => { setTool('drawZone'); setSelectedZoneId(null); setSelectedMarkerId(null) }}
-                            className={`px-2 py-1 rounded border ${tool === 'drawZone' ? 'bg-shd/30 border-shd text-shd' : 'border-tactical-border hover:border-shd/50'}`}>+ Zone</button>
-                    <button onClick={() => { setTool('addMarker'); setSelectedZoneId(null); setSelectedMarkerId(null) }}
-                            className={`px-2 py-1 rounded border ${tool === 'addMarker' ? 'bg-shd/30 border-shd text-shd' : 'border-tactical-border hover:border-shd/50'}`}>+ Marqueur</button>
-                    <span className="w-px h-5 bg-tactical-border mx-1" />
-                    <button onClick={undo} title="Ctrl+Z" className="px-2 py-1 rounded border border-tactical-border hover:border-shd/50">↶ Undo</button>
-                    <button onClick={redo} title="Ctrl+Y" className="px-2 py-1 rounded border border-tactical-border hover:border-shd/50">↷ Redo</button>
-                    <span className="w-px h-5 bg-tactical-border mx-1" />
-                    <button onClick={exportJSON} className="px-2 py-1 rounded border border-emerald-500/50 text-emerald-300 hover:bg-emerald-500/20">Export</button>
-                    <button onClick={() => reset(initial)} className="px-2 py-1 rounded border border-red-500/50 text-red-300 hover:bg-red-500/20">Reset</button>
-                    <button onClick={onClose} className="px-2 py-1 rounded border border-tactical-border hover:border-red-500/60 ml-2">✕ Fermer</button>
-                </div>
-                <div className="px-3 py-1.5 text-[10px] text-gray-400 normal-case">
-                    {tool === 'drawZone' && <>Clic pour ajouter un point · Double-clic pour terminer (≥3 pts) · Échap pour annuler · Ctrl pour désactiver le snap</>}
-                    {tool === 'addMarker' && <>Clic sur la carte pour placer un nouveau marqueur</>}
-                    {tool === 'select' && <>Sélectionne une zone/marqueur · Clic milieu d'arête pour ajouter un point · Clic-droit sur sommet pour le supprimer · Drag = déplacer (Ctrl = solo)</>}
-                </div>
-            </div>
-
-            {/* Panneau zone sélectionnée */}
-            {selectedZone && (
-                <div className="pointer-events-auto mt-2 bg-tactical-panel/95 border border-tactical-border rounded-lg shadow-2xl backdrop-blur-md p-3 w-[360px] text-xs text-gray-200 font-sans">
-                    <div className="flex items-center justify-between mb-2">
-                        <span className="font-bold uppercase tracking-widest text-shd">Zone</span>
-                        <button onClick={() => deleteZone(selectedZone.id)} className="text-red-400 hover:text-red-300 text-[10px] uppercase">Supprimer</button>
-                    </div>
-                    <ZoneFields zone={selectedZone} categories={categories} onChange={(patch) => updateZone(selectedZone.id, z => ({ ...z, ...patch }))} />
-                </div>
-            )}
-
-            {/* Modal d'édition du marqueur (porté dans body pour éviter les soucis de stacking/transform/pointer-events) */}
-            {editingMarkerData && createPortal(
-                <MarkerEditModal
-                    marker={editingMarkerData}
-                    categories={categories}
-                    onChange={(patch) => updateMarker(editingMarkerData.id, patch)}
-                    onDelete={() => deleteMarker(editingMarkerData.id)}
-                    onClose={() => setEditingMarkerData(null)}
-                />,
-                document.body
-            )}
-        </div>
+        <>
+            <SidebarShell
+                tool={tool}
+                setTool={setTool}
+                setDrawingCoords={setDrawingCoords}
+                setSelectedZoneId={setSelectedZoneId}
+                setSelectedMarkerId={setSelectedMarkerId}
+                undo={undo}
+                redo={redo}
+                showCategoriesPanel={showCategoriesPanel}
+                setShowCategoriesPanel={setShowCategoriesPanel}
+                categoriesCount={categories.length}
+                exportJSON={exportJSON}
+                reset={() => reset(initial)}
+                onClose={onClose}
+                selectedZone={selectedZone}
+                deleteZone={deleteZone}
+                updateZone={updateZone}
+                editingMarker={editingMarkerData}
+                categories={categories}
+                updateMarker={updateMarker}
+                deleteMarker={deleteMarker}
+                closeMarker={() => setEditingMarkerData(null)}
+                categoriesPanelProps={{
+                    categories,
+                    editingId: editingCategoryId,
+                    setEditingId: setEditingCategoryId,
+                    onAdd: addCategory,
+                    onUpdate: updateCategory,
+                    onDelete: deleteCategory,
+                    onClose: () => setShowCategoriesPanel(false),
+                }}
+            />
+        </>
     )
 }
 
-function MarkerEditModal({ marker, categories, onChange, onDelete, onClose }) {
-    const panelRef = useRef(null)
+// ---------------------------------------------------------------------------
+// Sidebar latérale droite : barre d'outils + panneaux contextuels
+// ---------------------------------------------------------------------------
+function SidebarShell({
+    tool, setTool, setDrawingCoords, setSelectedZoneId, setSelectedMarkerId,
+    undo, redo, showCategoriesPanel, setShowCategoriesPanel, categoriesCount,
+    exportJSON, reset, onClose,
+    selectedZone, deleteZone, updateZone,
+    editingMarker, categories, updateMarker, deleteMarker, closeMarker,
+    categoriesPanelProps,
+}) {
+    const sidebarRef = useRef(null)
     useEffect(() => {
-        const el = panelRef.current
+        const el = sidebarRef.current
         if (!el) return
-        // Empêche Leaflet d'intercepter les clics/drag/scroll sur la modale
+        // Empêche Leaflet d'intercepter les clics/drag/scroll sur la sidebar
         L.DomEvent.disableClickPropagation(el)
         L.DomEvent.disableScrollPropagation(el)
     }, [])
-    useEffect(() => {
-        const onKey = (e) => { if (e.key === 'Escape') onClose() }
-        window.addEventListener('keydown', onKey)
-        return () => window.removeEventListener('keydown', onKey)
-    }, [onClose])
+
+    const toolBtn = (active) => `w-full text-left px-2 py-1.5 rounded border ${active ? 'bg-shd/30 border-shd text-shd' : 'border-tactical-border hover:border-shd/50'}`
+
     return (
-        <div className="fixed inset-0 z-[4000] flex items-center justify-center" role="dialog" aria-modal="true">
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
-            <div ref={panelRef} className="relative bg-tactical-panel/98 border border-shd/60 rounded-lg shadow-2xl backdrop-blur-md p-4 w-[440px] max-h-[90vh] overflow-y-auto text-xs text-gray-200 font-sans">
-                <div className="flex items-center justify-between mb-3 pb-2 border-b border-tactical-border">
-                    <span className="font-bold uppercase tracking-widest text-shd">Édition du marqueur</span>
-                    <div className="flex items-center gap-2">
-                        <button onClick={onDelete} className="text-red-400 hover:text-red-300 text-[10px] uppercase border border-red-500/50 rounded px-2 py-1">Supprimer</button>
-                        <button onClick={onClose} className="text-gray-300 hover:text-white text-[10px] uppercase border border-tactical-border rounded px-2 py-1">Fermer</button>
+        <div
+            ref={sidebarRef}
+            className="relative h-full w-[380px] shrink-0 z-[3000] flex flex-col bg-tactical-panel/95 border-l border-shd/60 shadow-2xl backdrop-blur-md text-gray-200 font-sans text-xs"
+        >
+            {/* Header */}
+            <div className="flex items-center justify-between px-3 py-2 border-b border-tactical-border bg-tactical-bg/40">
+                <span className="text-shd font-bold uppercase tracking-widest font-mono">[DEV] Map Editor</span>
+                <button onClick={onClose} className="px-2 py-1 rounded border border-tactical-border hover:border-red-500/60 text-xs uppercase">✕ Fermer</button>
+            </div>
+
+            {/* Corps scrollable */}
+            <div className="flex-1 overflow-y-auto">
+                {/* Outils */}
+                <div className="p-3 border-b border-tactical-border">
+                    <div className="text-xs uppercase tracking-widest text-shd/80 mb-2">Outils</div>
+                    <div className="grid grid-cols-1 gap-1">
+                        <button onClick={() => { setTool('select'); setDrawingCoords([]) }} className={toolBtn(tool === 'select')}>Sélection</button>
+                        <button onClick={() => { setTool('drawZone'); setSelectedZoneId(null); setSelectedMarkerId(null) }} className={toolBtn(tool === 'drawZone')}>+ Zone</button>
+                        <button onClick={() => { setTool('addMarker'); setSelectedZoneId(null); setSelectedMarkerId(null) }} className={toolBtn(tool === 'addMarker')}>+ Marqueur</button>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1 mt-2">
+                        <button onClick={undo} title="Ctrl+Z" className="px-2 py-1.5 rounded border border-tactical-border hover:border-shd/50">↶ Undo</button>
+                        <button onClick={redo} title="Ctrl+Y" className="px-2 py-1.5 rounded border border-tactical-border hover:border-shd/50">↷ Redo</button>
+                    </div>
+                    <div className="grid grid-cols-2 gap-1 mt-2">
+                        <button onClick={exportJSON} className="px-2 py-1.5 rounded border border-emerald-500/50 text-emerald-300 hover:bg-emerald-500/20">Export</button>
+                        <button onClick={reset} className="px-2 py-1.5 rounded border border-red-500/50 text-red-300 hover:bg-red-500/20">Reset</button>
+                    </div>
+                    <button onClick={() => setShowCategoriesPanel(v => !v)} className={`mt-2 w-full px-2 py-1.5 rounded border ${showCategoriesPanel ? 'bg-shd/30 border-shd text-shd' : 'border-tactical-border hover:border-shd/50'}`}>
+                        Catégories ({categoriesCount})
+                    </button>
+                    <div className="mt-2 text-xs text-gray-400 leading-snug">
+                        {tool === 'drawZone' && <>Clic pour ajouter un point · Double-clic ou clic sur le 1er point pour fermer (≥3 pts) · Échap pour annuler · Ctrl désactive le snap</>}
+                        {tool === 'addMarker' && <>Clic sur la carte pour placer un nouveau marqueur</>}
+                        {tool === 'select' && <>Sélectionne une zone/marqueur · Clic milieu d'arête pour ajouter un point · Clic-droit sur sommet pour le supprimer · Drag = déplacer (Ctrl = solo)</>}
                     </div>
                 </div>
-                <MarkerFields marker={marker} categories={categories} onChange={onChange} />
-                <div className="mt-3 pt-2 border-t border-tactical-border text-[10px] text-gray-500">
-                    Astuce : Échap pour fermer · les modifications sont enregistrées en direct (undo/redo dispo).
-                </div>
+
+                {/* Panneau zone sélectionnée */}
+                {selectedZone && (
+                    <div className="p-3 border-b border-tactical-border">
+                        <div className="flex items-center justify-between mb-2">
+                            <span className="font-bold uppercase tracking-widest text-shd">Zone</span>
+                            <button onClick={() => deleteZone(selectedZone.id)} className="text-red-400 hover:text-red-300 text-xs uppercase border border-red-500/40 rounded px-2 py-0.5">Supprimer</button>
+                        </div>
+                        <ZoneFields zone={selectedZone} onChange={(patch) => {
+                            updateZone(selectedZone.id, z => ({ ...z, ...patch }))
+                            // Si l'ID a changé, suivre la sélection pour ne pas perdre le formulaire
+                            if (patch.id !== undefined && patch.id !== selectedZone.id) {
+                                setSelectedZoneId(patch.id)
+                            }
+                        }} />
+                    </div>
+                )}
+
+                {/* Panneau marqueur sélectionné */}
+                {editingMarker && (
+                    <div className="p-3 border-b border-tactical-border">
+                        <div className="flex items-center justify-between mb-2">
+                            <span className="font-bold uppercase tracking-widest text-shd">Marqueur</span>
+                            <div className="flex items-center gap-2">
+                                <button onClick={() => deleteMarker(editingMarker.id)} className="text-red-400 hover:text-red-300 text-xs uppercase border border-red-500/40 rounded px-2 py-0.5">Supprimer</button>
+                                <button onClick={closeMarker} className="text-gray-300 hover:text-white text-xs uppercase border border-tactical-border rounded px-2 py-0.5">Fermer</button>
+                            </div>
+                        </div>
+                        <MarkerFields marker={editingMarker} categories={categories} onChange={(patch) => updateMarker(editingMarker.id, patch)} />
+                    </div>
+                )}
+
+                {/* Panneau catégories */}
+                {showCategoriesPanel && (
+                    <div className="p-3 border-b border-tactical-border">
+                        <CategoriesPanel {...categoriesPanelProps} embedded />
+                    </div>
+                )}
             </div>
         </div>
     )
 }
+
 
 // ---------------------------------------------------------------------------
 // Sous-composants formulaire
@@ -712,7 +789,7 @@ function MarkerEditModal({ marker, categories, onChange, onDelete, onClose }) {
 function Field({ label, children }) {
     return (
         <label className="block mb-2">
-            <span className="block text-[10px] uppercase tracking-widest text-gray-400 mb-1">{label}</span>
+            <span className="block text-xs uppercase tracking-widest text-gray-400 mb-1">{label}</span>
             {children}
         </label>
     )
@@ -720,24 +797,19 @@ function Field({ label, children }) {
 
 const inputCls = "w-full bg-tactical-bg/80 border border-tactical-border rounded px-2 py-1 text-xs text-gray-200 focus:border-shd outline-none"
 
-function ZoneFields({ zone, categories, onChange }) {
+function ZoneFields({ zone, onChange }) {
     return (
         <>
             <Field label="ID"><input className={inputCls} value={zone.id} onChange={e => onChange({ id: e.target.value })} /></Field>
             <Field label="Label"><input className={inputCls} value={zone.label || ''} onChange={e => onChange({ label: e.target.value })} /></Field>
-            <Field label="Catégorie">
-                <select className={inputCls} value={zone.category || ''} onChange={e => onChange({ category: e.target.value || undefined })}>
-                    <option value="">— aucune —</option>
-                    {categories.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
-                </select>
-            </Field>
+            <div className="text-xs text-gray-500 mb-2">Catégorie : <span className="text-gray-300">quartiers</span> (forcée pour toutes les zones)</div>
             <Field label="Description"><textarea rows={2} className={inputCls} value={zone.description || ''} onChange={e => onChange({ description: e.target.value })} /></Field>
             <div className="grid grid-cols-3 gap-2">
                 <Field label="Border"><input type="color" className={inputCls + ' h-7 p-0'} value={zone.borderColor || '#ff6d00'} onChange={e => onChange({ borderColor: e.target.value })} /></Field>
                 <Field label="Fill"><input type="color" className={inputCls + ' h-7 p-0'} value={zone.fillColor || '#ff6d00'} onChange={e => onChange({ fillColor: e.target.value })} /></Field>
                 <Field label="Opacité"><input type="number" min={0} max={1} step={0.05} className={inputCls} value={zone.fillOpacity ?? 0.2} onChange={e => onChange({ fillOpacity: Number(e.target.value) })} /></Field>
             </div>
-            <div className="text-[10px] text-gray-500 mt-1">Points: {zone.coords.length}</div>
+            <div className="text-xs text-gray-500 mt-1">Points: {zone.coords.length}</div>
         </>
     )
 }
@@ -766,12 +838,140 @@ function MarkerFields({ marker, categories, onChange }) {
                         {categories.map(c => <option key={c.id} value={c.id}>{c.name}{c.group ? ` (${c.group})` : ''}</option>)}
                     </select>
                 </div>
-                <div className="text-[10px] text-gray-500 mt-1">L'icône est portée par la catégorie (schéma maps.jsonc).</div>
+                <div className="text-xs text-gray-500 mt-1">L'icône est portée par la catégorie (schéma maps.jsonc).</div>
             </Field>
             <Field label="Label"><input className={inputCls} value={marker.label || ''} onChange={e => onChange({ label: e.target.value })} /></Field>
             <Field label="Description (tooltip)"><textarea rows={2} className={inputCls} value={marker.description || ''} onChange={e => onChange({ description: e.target.value })} /></Field>
             <Field label="Description étendue (modal)"><textarea rows={3} className={inputCls} value={marker.extendedDescription || ''} onChange={e => onChange({ extendedDescription: e.target.value || undefined })} /></Field>
             <Field label="Image (URL ou nom de fichier dans /img)"><input className={inputCls} value={marker.image || ''} onChange={e => onChange({ image: e.target.value || undefined })} /></Field>
+        </>
+    )
+}
+
+// ---------------------------------------------------------------------------
+// Panneau de gestion des catégories (et sous-catégories via le champ `group`)
+// ---------------------------------------------------------------------------
+function CategoriesPanel({ categories, editingId, setEditingId, onAdd, onUpdate, onDelete, onClose, embedded = false }) {
+    const panelRef = useRef(null)
+    useEffect(() => {
+        const el = panelRef.current
+        if (!el) return
+        L.DomEvent.disableClickPropagation(el)
+        L.DomEvent.disableScrollPropagation(el)
+    }, [])
+
+    // Regroupe les catégories par `group` (sous-catégorie). Les catégories sans group sont placées dans "—".
+    const grouped = useMemo(() => {
+        const map = new Map()
+        for (const c of categories) {
+            const key = c.group || '—'
+            if (!map.has(key)) map.set(key, [])
+            map.get(key).push(c)
+        }
+        return [...map.entries()]
+    }, [categories])
+
+    const allGroups = useMemo(() => {
+        const set = new Set()
+        for (const c of categories) if (c.group) set.add(c.group)
+        return [...set]
+    }, [categories])
+
+    const editing = categories.find(c => c.id === editingId) || null
+
+    return (
+        <div ref={panelRef} className={embedded
+            ? "text-xs text-gray-200 font-sans"
+            : "pointer-events-auto mt-2 bg-tactical-panel/95 border border-tactical-border rounded-lg shadow-2xl backdrop-blur-md p-3 w-[460px] max-h-[70vh] overflow-y-auto text-xs text-gray-200 font-sans"}>
+            <div className="flex items-center justify-between mb-2 pb-2 border-b border-tactical-border">
+                <span className="font-bold uppercase tracking-widest text-shd">Catégories de marqueurs</span>
+                <div className="flex items-center gap-2">
+                    <button onClick={onAdd} className="text-emerald-300 hover:text-emerald-200 text-xs uppercase border border-emerald-500/50 rounded px-2 py-1">+ Ajouter</button>
+                    <button onClick={onClose} className="text-gray-300 hover:text-white text-xs uppercase border border-tactical-border rounded px-2 py-1">Fermer</button>
+                </div>
+            </div>
+            <div className="text-xs text-gray-500 mb-2 normal-case">
+                Les sous-catégories sont définies par le champ <code className="text-gray-300">group</code> (ex: « Zones de sécurité »). Les catégories partageant le même <code>group</code> seront affichées ensemble dans les filtres.
+            </div>
+
+            {grouped.length === 0 && (
+                <div className="text-xs text-gray-500 italic">Aucune catégorie. Cliquez « + Ajouter ».</div>
+            )}
+
+            {grouped.map(([groupName, items]) => (
+                <div key={groupName} className="mb-3">
+                    <div className="text-xs uppercase tracking-widest text-shd/80 mb-1 border-b border-tactical-border/60 pb-0.5">{groupName}</div>
+                    {items.map(cat => {
+                        const iconUrl = resolveAsset(cat.icon)
+                        const isEditing = editingId === cat.id
+                        return (
+                            <div key={cat.id} className="border border-tactical-border rounded mb-1 bg-tactical-bg/40">
+                                <div className="flex items-center gap-2 p-1.5">
+                                    <div
+                                        className="w-7 h-7 rounded-full flex items-center justify-center p-1 shrink-0 border border-tactical-border"
+                                        style={{ backgroundColor: cat.backgroundColor || 'transparent' }}
+                                    >
+                                        {iconUrl && <GameIcon src={iconUrl} color={cat.iconColor || cat.color || '#ffffff'} className="w-full h-full object-contain" />}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <div className="text-xs text-gray-200 truncate">{cat.name || <span className="italic text-gray-500">(sans nom)</span>}</div>
+                                        <div className="text-xs text-gray-500 truncate">{cat.id}</div>
+                                    </div>
+                                    <button onClick={() => setEditingId(isEditing ? null : cat.id)} className="text-xs uppercase border border-tactical-border rounded px-2 py-0.5 hover:border-shd/60">
+                                        {isEditing ? 'Replier' : 'Éditer'}
+                                    </button>
+                                    <button onClick={() => { if (confirm(`Supprimer la catégorie "${cat.name || cat.id}" ?`)) onDelete(cat.id) }} className="text-xs uppercase border border-red-500/40 text-red-300 rounded px-2 py-0.5 hover:bg-red-500/20">✕</button>
+                                </div>
+                                {isEditing && (
+                                    <div className="p-2 border-t border-tactical-border">
+                                        <CategoryFields category={cat} allGroups={allGroups} onChange={(patch) => onUpdate(cat.id, patch)} />
+                                    </div>
+                                )}
+                            </div>
+                        )
+                    })}
+                </div>
+            ))}
+        </div>
+    )
+}
+
+function CategoryFields({ category, allGroups, onChange }) {
+    const iconUrl = resolveAsset(category.icon)
+    return (
+        <>
+            <div className="grid grid-cols-2 gap-2">
+                <Field label="ID"><input className={inputCls} value={category.id} onChange={e => onChange({ id: e.target.value })} /></Field>
+                <Field label="Nom"><input className={inputCls} value={category.name || ''} onChange={e => onChange({ name: e.target.value })} /></Field>
+            </div>
+            <Field label="Groupe">
+                <input
+                    className={inputCls}
+                    list="map-editor-groups"
+                    value={category.group || ''}
+                    onChange={e => onChange({ group: e.target.value || undefined })}
+                    placeholder="ex: Zones de sécurité"
+                />
+                <datalist id="map-editor-groups">
+                    {allGroups.map(g => <option key={g} value={g} />)}
+                </datalist>
+            </Field>
+            <Field label="Icône (nom de fichier)">
+                <div className="flex items-center gap-2">
+                    <div
+                        className="w-8 h-8 rounded-full flex items-center justify-center p-1 shrink-0 border border-tactical-border"
+                        style={{ backgroundColor: category.backgroundColor || 'transparent' }}
+                    >
+                        {iconUrl && <GameIcon src={iconUrl} color={category.iconColor || category.color || '#ffffff'} className="w-full h-full object-contain" />}
+                    </div>
+                    <input className={inputCls} value={category.icon || ''} onChange={e => onChange({ icon: e.target.value || undefined })} placeholder="ex: planque" />
+                </div>
+            </Field>
+            <div className="grid grid-cols-3 gap-2">
+                <Field label="Icon color"><input type="color" className={inputCls + ' h-7 p-0'} value={category.iconColor || '#ffffff'} onChange={e => onChange({ iconColor: e.target.value })} /></Field>
+                <Field label="Color (fallback)"><input type="color" className={inputCls + ' h-7 p-0'} value={category.color || '#ffffff'} onChange={e => onChange({ color: e.target.value })} /></Field>
+                <Field label="Background"><input type="color" className={inputCls + ' h-7 p-0'} value={category.backgroundColor || '#000000'} onChange={e => onChange({ backgroundColor: e.target.value || undefined })} /></Field>
+            </div>
         </>
     )
 }

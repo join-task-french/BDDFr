@@ -269,7 +269,7 @@ function ModAffectedStats({ mod, allAttributs, statistiques }) {
   )
   if (affectedStats.length === 0) return null
   return (
-      <div className="pl-[4.3rem] text-[11px] text-gray-500 leading-tight flex flex-wrap gap-x-2 gap-y-0.5">
+      <div className="pl-[4.3rem] text-xs text-gray-500 leading-tight flex flex-wrap gap-x-2 gap-y-0.5">
         {affectedStats.map((entry) => (
             <span key={`${entry.label}-${entry.valueText || 'none'}`}>
               {entry.valueText ? (

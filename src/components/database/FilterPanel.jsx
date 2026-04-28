@@ -271,7 +271,7 @@ function CheckboxesDropdownField({ filter, value, onChange }) {
           }`}
         >
           <span>{summary}</span>
-          <span className="text-[10px] leading-none text-gray-400">{open ? '▲' : '▼'}</span>
+          <span className="text-xs leading-none text-gray-400">{open ? '▲' : '▼'}</span>
         </button>
 
         {open && (

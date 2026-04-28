@@ -165,7 +165,7 @@ export default function Sidebar({ open, onClose }) {
                                           key={subMap.id}
                                           to={`/map/${map.id}/${subMap.id}`}
                                           onClick={window.innerWidth < 768 ? onClose : undefined}
-                                          className={`block px-3 py-1.5 rounded text-[10px] font-bold uppercase tracking-widest transition-colors ${
+                                          className={`block px-3 py-1.5 rounded text-xs font-bold uppercase tracking-widest transition-colors ${
                                               isSubActive
                                                   ? 'text-shd bg-shd/5'
                                                   : 'text-gray-500 hover:text-gray-300 hover:bg-tactical-hover'
@@ -183,7 +183,7 @@ export default function Sidebar({ open, onClose }) {
                 </div>
             )}
             {loadingError && (
-                <div className="text-[10px] text-red-500 font-mono pl-11 pr-2 mt-2 uppercase">
+                <div className="text-xs text-red-500 font-mono pl-11 pr-2 mt-2 uppercase">
                   [ERROR] Impossible de charger maps.jsonc
                 </div>
             )}
