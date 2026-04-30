@@ -44,7 +44,8 @@
                 "name": "Affectations Confidentiels",
                 "icon": "affectation_confidentiel",
                 "iconColor": "#ffffff",
-                "group": "Missions"
+                "group": "Missions",
+                "defaultActive": false
             }
         ],
         "zones": [

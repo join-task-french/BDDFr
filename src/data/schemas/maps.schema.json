@@ -58,6 +58,10 @@
                 "group": {
                     "type": "string",
                     "description": "Groupe de catégories pour les filtres (ex: 'Ennemis', 'Ressources')"
+                },
+                "defaultActive": {
+                    "type": "boolean",
+                    "description": "Si false, la catégorie est décochée par défaut au chargement de la carte (true par défaut)"
                 }
             },
             "required": ["id", "name", "icon"],

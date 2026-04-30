@@ -196,16 +196,23 @@ export default function MapPage() {
         return parentMapConfig
     }, [mapsConfig, mapId, subMapId])
 
+    const defaultActiveCategoryIds = useMemo(() => {
+        if (!currentMapConfig?.categories) return []
+        return currentMapConfig.categories
+            .filter(c => c.defaultActive !== false)
+            .map(c => c.id)
+    }, [currentMapConfig])
+
     useEffect(() => {
         if (currentMapConfig?.categories) {
             const urlCats = searchParams.get('cats')
             if (urlCats !== null) {
                 setActiveCategories(urlCats === '' ? [] : urlCats.split(','))
             } else {
-                setActiveCategories(currentMapConfig.categories.map(c => c.id))
+                setActiveCategories(defaultActiveCategoryIds)
             }
         }
-    }, [currentMapConfig, searchParams])
+    }, [currentMapConfig, searchParams, defaultActiveCategoryIds])
 
     const groupedCategories = useMemo(() => {
         if (!currentMapConfig?.categories) return {}
@@ -219,9 +226,10 @@ export default function MapPage() {
 
     const rewriteUrlParams = (categories) => {
         const url = new URL(window.location.href)
-        const allIds = currentMapConfig.categories.map(c => c.id)
+        const isDefault = categories.length === defaultActiveCategoryIds.length
+            && categories.every(id => defaultActiveCategoryIds.includes(id))
 
-        if (categories.length === allIds.length) {
+        if (isDefault) {
             url.searchParams.delete('cats')
         } else {
             url.searchParams.set('cats', categories.join(','))
@@ -256,8 +264,7 @@ export default function MapPage() {
     }
 
     const handleReset = () => {
-        const allIds = currentMapConfig.categories.map(c => c.id)
-        updateActiveCategories(allIds)
+        updateActiveCategories(defaultActiveCategoryIds)
     }
 
     const handleCopyLocation = () => {
