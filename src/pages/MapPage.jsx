@@ -304,6 +304,10 @@ export default function MapPage() {
 
     const allCatIds = currentMapConfig.categories?.map(c => c.id) || []
     const inactiveCount = allCatIds.length - activeCategories.length
+    const isDefaultSelection = activeCategories.length === defaultActiveCategoryIds.length
+        && activeCategories.every(id => defaultActiveCategoryIds.includes(id))
+    const allCatsActive = activeCategories.length === allCatIds.length
+    const noneActive = activeCategories.length === 0
 
     return (
         <div className="h-full w-full flex flex-row bg-[#0a0a0a] overflow-hidden z-0">
@@ -587,21 +591,71 @@ export default function MapPage() {
                     </div>
 
                     {/* Barre d'actions */}
-                    <div className="flex items-center justify-between px-4 py-2 border-b border-tactical-border bg-tactical-bg/40">
-                        <span className="text-xs text-gray-400 uppercase tracking-widest">
-                            {activeCategories.length}/{allCatIds.length} actifs
-                        </span>
-                        <button
-                            onClick={handleReset}
-                            disabled={inactiveCount === 0}
-                            className={`text-xs font-bold uppercase tracking-widest border rounded px-2 py-1 transition-colors ${
-                                inactiveCount > 0
-                                    ? 'text-red-400 border-red-500/40 hover:bg-red-500/20 hover:text-red-300'
-                                    : 'text-gray-600 border-tactical-border opacity-50 cursor-not-allowed'
-                            }`}
-                        >
-                            Réinitialiser
-                        </button>
+                    <div className="flex flex-col gap-2 px-4 py-3 border-b border-tactical-border bg-tactical-bg/40">
+                        {/* Compteur + barre de progression */}
+                        <div className="flex items-center justify-between gap-3">
+                            <span className="text-[11px] text-gray-400 uppercase tracking-widest shrink-0">
+                                Catégories actives
+                            </span>
+                            <span className="text-[11px] font-bold text-shd tabular-nums tracking-widest">
+                                {activeCategories.length}<span className="text-gray-500"> / {allCatIds.length}</span>
+                            </span>
+                        </div>
+                        <div className="h-1 w-full rounded-full bg-tactical-border/60 overflow-hidden">
+                            <div
+                                className="h-full bg-shd/70 transition-all"
+                                style={{ width: allCatIds.length ? `${(activeCategories.length / allCatIds.length) * 100}%` : '0%' }}
+                            />
+                        </div>
+
+                        {/* Actions groupées */}
+                        <div className="grid grid-cols-3 gap-1.5 mt-1">
+                            <button
+                                onClick={() => updateActiveCategories(allCatIds)}
+                                disabled={allCatsActive}
+                                title="Tout activer"
+                                className={`flex items-center justify-center gap-1.5 h-8 px-2 rounded border text-[10px] font-bold uppercase tracking-widest transition-colors ${
+                                    !allCatsActive
+                                        ? 'text-shd border-shd/40 hover:bg-shd/20 hover:border-shd/70'
+                                        : 'text-gray-600 border-tactical-border bg-tactical-bg/40 opacity-50 cursor-not-allowed'
+                                }`}
+                            >
+                                <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span className="truncate">Tout</span>
+                            </button>
+                            <button
+                                onClick={() => updateActiveCategories([])}
+                                disabled={noneActive}
+                                title="Tout désactiver"
+                                className={`flex items-center justify-center gap-1.5 h-8 px-2 rounded border text-[10px] font-bold uppercase tracking-widest transition-colors ${
+                                    !noneActive
+                                        ? 'text-gray-300 border-tactical-border hover:border-shd/60 hover:text-shd'
+                                        : 'text-gray-600 border-tactical-border bg-tactical-bg/40 opacity-50 cursor-not-allowed'
+                                }`}
+                            >
+                                <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                                <span className="truncate">Aucun</span>
+                            </button>
+                            <button
+                                onClick={handleReset}
+                                disabled={isDefaultSelection}
+                                title="Réinitialiser à la configuration par défaut"
+                                className={`flex items-center justify-center gap-1.5 h-8 px-2 rounded border text-[10px] font-bold uppercase tracking-widest transition-colors ${
+                                    !isDefaultSelection
+                                        ? 'text-red-400 border-red-500/40 hover:bg-red-500/20 hover:text-red-300 hover:border-red-500/70'
+                                        : 'text-gray-600 border-tactical-border bg-tactical-bg/40 opacity-50 cursor-not-allowed'
+                                }`}
+                            >
+                                <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                </svg>
+                                <span className="truncate">Reset</span>
+                            </button>
+                        </div>
                     </div>
 
                     {/* Corps scrollable — sections séparées comme dans MapEditorOverlay */}
