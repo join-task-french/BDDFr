@@ -249,7 +249,8 @@
     "icon": "contrainte",
     "perfectDescription": "Vous gagnez +10% aux dégâts de coup critique toutes les 0.5s pendant que vous tirez.\nPeut se cumuler jusqu'à 8 fois.",
     "armesParfaites": [
-      "coup_de_froid"
+      "coup_de_froid",
+      "le_gros_titre"
     ],
     "compatibilite": {
       "fusil": true,
@@ -2755,5 +2756,10 @@
     "armesParfaites": [
       "premiere_floraison"
     ]
+  },
+  "rechargement_eclair": {
+    "nom": "Rechargement éclair",
+    "description": "Garder cette arme en étui pendant **5s** vous permet de la recharger et de l'armer.\nUne fois armée, le fait de prendre cette arme **recharge** vos armes principale et secondaire et vous confère **+20% de cadence de tir** et **+50% de dégâts d'arme** jusqu'à épuisement du chargeur.\nRecharger ou changer d'arme avant que le chargeur ne soit vide annule ses bonus de statistiques.",
+    "estExotique": true
   }
 }

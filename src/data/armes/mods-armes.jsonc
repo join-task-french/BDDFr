@@ -2825,5 +2825,41 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "optique_coup_de_fouet": {
+    "nom": "Optique de Coup de fouet",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_de_coup_de_fouet": {
+    "nom": "Chargeur de Coup de fouet",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "accessoire_sous_canon_de_coup_de_fouet": {
+    "nom": "Accessoire sous canon de Coup de fouet",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_changement_arm",
+        "valeur": 50
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
   }
 }

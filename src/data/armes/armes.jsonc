@@ -5859,5 +5859,30 @@
       "canon": "rail_sous_canon_long",
       "viseur": "rail_optique_long"
     }
+  },
+  "coup_de_fouet": {
+    "nom": "Coup de fouet",
+    "type": "pistolet",
+    "fabricant": "",
+    "portee": 18,
+    "rpm": 180,
+    "chargeur": 6,
+    "rechargement": 1.93,
+    "headshot": 100,
+    "degatsBase": 198300,
+    "estExotique": true,
+    "estNomme": false,
+    "description": "Pour se décharger des chargeurs.",
+    "obtention": {
+      "description": "Récompense de Traque :\nLe Pentagone : Le Directeur\nMaître - 100% (la 1er fois)."
+    },
+    "talents": [
+      "rechargement_eclair"
+    ],
+    "modsPredefinis": [
+      "optique_coup_de_fouet",
+      "chargeur_de_coup_de_fouet",
+      "accessoire_sous_canon_de_coup_de_fouet"
+    ]
   }
 }
