@@ -1090,7 +1090,7 @@
       "attributs": [
         {
           "slug": "resistance_explosions_eqp",
-          "value": 25
+          "value": 40
         }
       ]
     },
@@ -1098,7 +1098,7 @@
       "attributs": [
         {
           "slug": "competences_de_reparation_eqp",
-          "value": 40
+          "value": 52
         }
       ]
     }
