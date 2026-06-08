@@ -579,7 +579,7 @@
     }
   },
   "mk_16_tactique": {
-    "nom": "Mk 16 tactique",
+    "nom": "Mk16 tactique",
     "type": "fusil_assaut",
     "fabricant": "FN HERSTAL",
     "portee": 31,
