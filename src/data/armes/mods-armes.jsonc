@@ -2815,7 +2815,7 @@
     "compatible": []
   },
   "lunette_agitateur": {
-    "nom": "Chargeur d'Agitateur",
+    "nom": "Lunette d'Agitateur",
     "type": "bouche",
     "attributs": [
       {
