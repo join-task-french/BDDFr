@@ -95,25 +95,6 @@
       "viseur": "rail_optique"
     }
   },
-  "aug_a3_cqc": {
-    "nom": "AUG A3-CQC",
-    "type": "fusil_assaut",
-    "fabricant": "STEYR",
-    "portee": 26,
-    "rpm": 680,
-    "chargeur": 42,
-    "rechargement": 1.96,
-    "headshot": 55,
-    "degatsBase": 57200,
-    "estExotique": false,
-    "estNomme": false,
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "bouche": "bouche_556",
-      "viseur": "rail_optique",
-      "canon": "rail_sous_canon_long"
-    }
-  },
   "main_invisible": {
     "nom": "Main Invisible",
     "type": "fusil_assaut",
@@ -3272,7 +3253,7 @@
     }
   },
   "aug_a3_ameliore": {
-    "nom": "AUG A3 amélioré",
+    "nom": "AUG A3P amélioré",
     "type": "pistolet_mitrailleur",
     "fabricant": "STEYR",
     "portee": 22,
@@ -3553,7 +3534,7 @@
     "emplacementsMods": {}//OK
   },
   "l_enneigeur": {
-    "nom": "L'Eneigeur",
+    "nom": "L'Enneigeur",
     "type": "pistolet_mitrailleur",
     "fabricant": "THOMPSON",
     "portee": 16,
