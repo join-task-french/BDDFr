@@ -1595,6 +1595,9 @@
     "headshot": 100,
     "degatsBase": 117400,
     "estNomme": true,
+    "talents": [
+      "tir_destabilisant"
+    ],
     "emplacementsMods": {//OK
       "chargeur": "chargeur_pistolet",
       "bouche": "bouche_45",
@@ -3582,6 +3585,9 @@
     "degatsBase": 39500,
     "estExotique": false,
     "estNomme": true,
+    "talents": [
+      "preservation"
+    ],
     "emplacementsMods": {
       "bouche": "bouche_556",
       "viseur": "rail_optique_court"
