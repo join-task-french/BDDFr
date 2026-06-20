@@ -254,9 +254,9 @@
   },
   "contrainte": {
     "nom": "Contrainte",
-    "description": "Vous gagnez +10% aux dégâts de coup critique toutes les 0.5s pendant que vous tirez.\nPeut se cumuler jusqu'à 5 fois.",
+    "description": "Vous gagnez **+10%** aux dégâts de coup critique toutes les **0.5s** (1s) pendant que vous tirez.\nPeut se cumuler jusqu'à **5** (4) fois.",
     "icon": "contrainte",
-    "perfectDescription": "Vous gagnez +10% aux dégâts de coup critique toutes les 0.5s pendant que vous tirez.\nPeut se cumuler jusqu'à 8 fois.",
+    "perfectDescription": "Vous gagnez **+10%** aux dégâts de coup critique toutes les **0.5s** (1s) pendant que vous tirez.\nPeut se cumuler jusqu'à **8** (6) fois.",
     "armesParfaites": [
       "coup_de_froid",
       "le_gros_titre"
@@ -549,12 +549,13 @@
   },
   "vindicatif": {
     "nom": "Vindicatif",
-    "description": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de **15m :**\n**16% à la probabilité de coup critique et 16% aux dégâts de coup critique** pendant **20s**.",
+    "description": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de **15m** (6m) **:**\n**16%** (14%) **à la probabilité de coup critique et 16%** (14%) **aux dégâts de coup critique** pendant **20s** (24s).",
     "icon": "vindicatif",
-    "perfectDescription": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de **20m :**\n**21% à la probabilité de coup critique et 21% aux dégâts de coup critique** pendant **20s**.",
+    "perfectDescription": "Éliminer un ennemi touché par un effet d'état vous confère à vous ainsi qu'aux alliés à moins de **20m** (8m) **:**\n**21%** (18%) **à la probabilité de coup critique et 21%** (18%) **aux dégâts de coup critique** pendant **20s** (24s).",
     "armesParfaites": [
       "rancune"
     ],
+    "notes": "(PVP)",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -656,11 +657,12 @@
   },
   "main_ferme": {
     "nom": "Main ferme",
-    "description": "Les tirs réussis confèrent un bonus de 1% à la précision et à la stabilité.\nAu bout de 100 bonus cumulés, l'effet est consommé pour remplir le chargeur.",
-    "perfectDescription": "Les tirs réussis confèrent un bonus de 1% à la précision et à la stabilité.\nAu bout de 75 bonus cumulés, l'effet est consommé pour remplir le chargeur.",
+    "description": "Les tirs réussis confèrent un bonus de **+1%** (0.5%) à la **précision** et à la **stabilité**.\nAu bout de **100** (70) bonus cumulés, l'effet est consommé pour remplir le chargeur.",
+    "perfectDescription": "Les tirs réussis confèrent un bonus de **+1%** (0.8%) à la précision et à la **stabilité**.\nAu bout de **75** (70) bonus cumulés, l'effet est consommé pour remplir le chargeur.",
     "armesParfaites": [
       "tabula_rasa"
     ],
+    "notes": "(PVP)",
     "icon": "main_ferme",
     "compatibilite": {
       "fusil": true,
@@ -723,13 +725,14 @@
   },
   "pointe": {
     "nom": "Pointe",
-    "description": "Les headshots confèrent +20% de dégâts de compétence pendant 15s.",
+    "description": "Les headshots confèrent **+20%** (14%) de dégâts de compétence pendant **15s** (20s).",
     "icon": "pointe",
-    "perfectDescription": "Les headshots confèrent +25% de dégâts de compétence pendant 15s.",
+    "perfectDescription": "Les headshots confèrent **+25%** (18%) de dégâts de compétence pendant **15s** (20s).",
     "armesParfaites": [
       "surge",
       "maxim_9"
     ],
+    "notes": "(PVP)",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1821,13 +1824,14 @@
   },
   "coup_de_tonnerre": {
     "nom": "Coup de tonnerre",
-    "description": "Inflige 30% de dégâts supplémentaires aux cibles électrocutées.\nAu bout de 4 éliminations, inflige électrocution au prochain ennemi touché.",
+    "description": "Inflige **30%** (18%) de dégâts supplémentaires **aux cibles électrocutées**.\nAu bout de **4** éliminations, inflige électrocution au prochain ennemi touché.",
     "icon": "coup_de_tonnerre",
-    "perfectDescription": "Inflige 35% de dégâts supplémentaires aux cibles électrocutées.\nAu bout de 3 éliminations, inflige électrocution au prochain ennemi touché.",
+    "perfectDescription": "Inflige **35%** (22%) de dégâts supplémentaires **aux cibles électrocutées**.\nAu bout de **3** (4) éliminations, inflige électrocution au prochain ennemi touché.",
     "armesParfaites": [
       "cabaret",
       "big_show"
     ],
+    "notes": "(PVP)",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -1937,14 +1941,14 @@
   },
   "rationalisation": {
     "nom": "Rationalisation",
-    "description": "Augmente les dégâts d'arme de 42% quand il n'y a aucune compétence déployée ou en recharge.",
-    "notes": "32% (normal)/37% (parfaite) en pvp",
+    "description": "Augmente les dégâts d'arme de **42%** (24%) quand il n'y a aucune compétence déployée ou en recharge.",
     "icon": "rationalisation",
-    "perfectDescription": "Augmente les dégâts d'arme de 47% quand il n'y a aucune compétence déployée ou en recharge.",
+    "perfectDescription": "Augmente les dégâts d'arme de **47%** (28%) quand il n'y a aucune compétence déployée ou en recharge.",
     "armesParfaites": [
       "lud",
       "puriste"
     ],
+    "notes": "(PVP)",
     "compatibilite": {
       "fusil": true,
       "calibre_12": true,
@@ -2763,13 +2767,14 @@
   },
   "aller_retour": {
     "nom": "Aller-retour",
-    "description": "Changer d'arme pour celle-ci confère **+10% de cadence de tir** et **+9% de dégâts d'arme** pendant **10s.**\n\nChanger d'arme quand vous utilisez celle-ci confère **+5% de cadence de tir** et **+4,5% de dégâts d'arme** pendant **10s.**\n\nRecevoir l'un des ensembles de bonus annule l'autre si ce dernier est actif.\n\nDeux instances de ce talent ne peuvent pas fonctionner simultanément.",
+    "description": "Changer d'arme pour celle-ci confère **+10%** (6%) **de cadence de tir** et **+9%** (8%) **de dégâts d'arme** pendant **10s** (6s).\n\nChanger d'arme quand vous utilisez celle-ci confère **+5%** (4%) **de cadence de tir** et **+4,5%** (4%) **de dégâts d'arme** pendant **10s** (6s).\n\nRecevoir l'un des ensembles de bonus annule l'autre si ce dernier est actif.\n\nDeux instances de ce talent ne peuvent pas fonctionner simultanément.",
     "estExotique": false,
-    "perfectDescription": "Changer d'arme pour celle-ci confère **+13% de cadence de tir** et **+12% de dégâts d'arme** pendant **10s.**\n\nChanger d'arme quand vous utilisez celle-ci confère **+5% de cadence de tir** et **+4,5% de dégâts d'arme** pendant **10s.**\n\nRecevoir l'un des ensembles de bonus annule l'autre si ce dernier est actif.\n\nDeux instances de ce talent ne peuvent pas fonctionner simultanément.",
+    "perfectDescription": "Changer d'arme pour celle-ci confère **+13%** (8%) **de cadence de tir** et **+12%** (12%) **de dégâts d'arme** pendant **10s** (6s).\n\nChanger d'arme quand vous utilisez celle-ci confère **+5%** (4%) **de cadence de tir** et **+4,5%** (4%) **de dégâts d'arme** pendant **10s** (6s).\n\nRecevoir l'un des ensembles de bonus annule l'autre si ce dernier est actif.\n\nDeux instances de ce talent ne peuvent pas fonctionner simultanément.",
     "armesParfaites": [
       "interchange",
       "trader"
-    ]
+    ],
+    "notes": "(PVP)"
   },
   "recolte_de_fleurs": {
     "nom": "Récolte de fleurs",
