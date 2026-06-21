@@ -5796,10 +5796,13 @@
     "degatsBase": 58900,
     "estExotique": false,
     "estNomme": true,
+    "obtention": {
+      "description": "Récompense de l'affectation confidentielle : \nRécupération à la Bibliothèque du Congrès "
+    },
     "talents": [
       "ranger"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "bouche": "bouche_556",
       "canon": "rail_sous_canon_long",
       "chargeur": "chargeur_556",
@@ -5812,7 +5815,7 @@
     "portee": 31,
     "rpm": 700,
     "chargeur": 30,
-    "rechargement": 1.85,
+    "rechargement": 2.04,
     "headshot": 55,
     "degatsBase": 57600,
     "estNomme": true,
@@ -5820,10 +5823,10 @@
       "recolte_de_fleurs"
     ],
     "description": "Les fleurs de cerisier sont éphèmères :\nElles ne durent généralement pas plus de deux semaines. Vos ennemis eux, tiendront beaucoup moins longtemps.",
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "chargeur_556",
       "bouche": "bouche_556",
-      "viseur": "rail_optique"
+      "viseur": "rail_optique_court"
     }
   },
   "le_gros_titre": {
@@ -5836,6 +5839,9 @@
     "headshot": 185.2,
     "degatsBase": 62200,
     "estNomme": true,
+    "obtention": {
+      "description": "Récompense de l'affectation confidentielle : \nL'anomalie du Capitol Globe "
+    },
     "talents": [
       "contrainte"
     ],
@@ -5871,5 +5877,31 @@
       "chargeur_de_coup_de_fouet",
       "accessoire_sous_canon_de_coup_de_fouet"
     ]
+  },
+  "la_griffe": {
+    "nom": "La Griffe",
+    "type": "fusil",
+    "fabricant": "",
+    "portee": 60,
+    "rpm": 240,
+    "chargeur": 30,
+    "rechargement": 1.73,
+    "headshot": 60,
+    "degatsBase": 150300,
+    "estExotique": false,
+    "estNomme": true,
+    "description": "\"La première dose, c'est cadeau !\" -\nSalt",
+    "obtention": {
+      "description": "Récompense de l'affectation confidentielle : \nPlanque de Conspiracy Zone "
+    },
+    "talents": [
+      "frappe_de_precision"
+    ],
+    "emplacementsMods": {//OK
+      "bouche": "bouche_556",
+      "viseur": "rail_optique_long",
+      "canon": "rail_sous_canon_long",
+      "chargeur": "chargeur_556"
+    }
   }
 }

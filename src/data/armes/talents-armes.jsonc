@@ -658,7 +658,7 @@
   "main_ferme": {
     "nom": "Main ferme",
     "description": "Les tirs réussis confèrent un bonus de **+1%** (0.5%) à la **précision** et à la **stabilité**.\nAu bout de **100** (70) bonus cumulés, l'effet est consommé pour remplir le chargeur.",
-    "perfectDescription": "Les tirs réussis confèrent un bonus de **+1%** (0.8%) à la précision et à la **stabilité**.\nAu bout de **75** (70) bonus cumulés, l'effet est consommé pour remplir le chargeur.",
+    "perfectDescription": "Les tirs réussis confèrent un bonus de **+1%** (0.8%) à la **précision** et à la **stabilité**.\nAu bout de **75** (70) bonus cumulés, l'effet est consommé pour remplir le chargeur.",
     "armesParfaites": [
       "tabula_rasa"
     ],
@@ -1310,9 +1310,10 @@
   },
   "myope": {
     "nom": "Myope",
-    "description": "Stabilité accrue de +80% au prix de -35% de portée optimale.",
+    "description": "**Stabilité accrue de +80%** (70%) au prix de **-35%** (-20%) **de portée optimale**.",
     "icon": "myope",
-    "perfectDescription": "Stabilité accrue de +100% au prix de -35% de portée optimale.",
+    "perfectDescription": "**Stabilité accrue de +100%** (90%) au prix de **-35%** (-20%) **de portée optimale**.",
+    "notes": "(PVP)",
     "armesParfaites": [
       "vision_glorieuse"
     ],
@@ -1327,10 +1328,11 @@
     }
   },
   "a_vide": {
-    "nom": "A vide",
-    "description": "Recharger une arme vide améliore son maniement de +60% pendant 10s.",
+    "nom": "À vide",
+    "description": "Recharger une arme vide **améliore son maniement de +60%** (42%) pendant **10s** (8s).",
     "icon": "a_vide",
-    "perfectDescription": "Recharger une arme vide améliore son maniement de +80% pendant 10s.",
+    "perfectDescription": "Recharger une arme vide **améliore son maniement de +80%** (64%) pendant **10s** (8s).",
+    "notes": "(PVP)",
     "armesParfaites": [
       "burn_out"
     ],
@@ -1346,9 +1348,10 @@
   },
   "mesure": {
     "nom": "Mesure",
-    "description": "Pour la moitié supérieure du chargeur :\naugmente la cadence de tir de 25% et diminue les dégâts d'arme de -25%.\nPour la moitié inférieure du chargeur :\nla cadence de tir diminue de -18% et les dégâts d'arme augmentent de +30%.",
+    "description": "Pour la moitié supérieure du chargeur :\naugmente la **cadence de tir de 25%** (22%) et diminue **les dégâts d'arme de -25%** (-20%).\nPour la moitié inférieure du chargeur :\n**la cadence de tir diminue de -18%** et **les dégâts d'arme augmentent de +30%** (26%).",
     "icon": "mesure",
-    "perfectDescription": "Pour la moitié supérieure du chargeur :\naugmente la cadence de tir de 25% et diminue les dégâts d'arme de -30%.\nPour la moitié inférieure du chargeur :\nla cadence de tir diminue de -18% et les dégâts d'arme augmentent de +38%.",
+    "perfectDescription": "Pour la moitié supérieure du chargeur :\naugmente la **cadence de tir de 25%** (22%) et diminue **les dégâts d'arme de -30%** (-24%).\nPour la moitié inférieure du chargeur :\n**la cadence de tir diminue de -18%** et **les dégâts d'arme augmentent de +38%** (34%).",
+    "notes": "(PVP)",
     "armesParfaites": [
       "l_appartement"
     ],
@@ -1364,9 +1367,10 @@
   },
   "surcapacite": {
     "nom": "Surcapacité",
-    "description": "Au bout de 3 rechargements réalisés à vide, la capacité de base de votre chargeur est augmentée de 100%",
+    "description": "Au bout de **3** (4) rechargements réalisés à vide, la **capacité de base de votre chargeur** est augmentée de **100%**",
     "icon": "surcapacite",
-    "perfectDescription": "Au bout de 2 rechargements réalisés à vide, la capacité de base de votre chargeur est augmentée de 100%",
+    "perfectDescription": "Au bout de **2** (3) rechargements réalisés à vide, la **capacité de base de votre chargeur** est augmentée de **100%**",
+    "notes": "(PVP)",
     "armesParfaites": [
       "maniaque"
     ],
@@ -1844,9 +1848,10 @@
   },
   "stabilisation": {
     "nom": "Stabilisation",
-    "description": "Tirer augmente la précision d'arme +1% et la stabilité d'arme +1% par tir, jusqu'à 60%.\nSi vous arrêtez de tirer, les bonus se réinitialisent au bout de 4s.",
+    "description": "Tirer augmente la **précision** d'arme de **+1%** et la **stabilité** d'arme **+1%** par tir, jusqu'à **60%** (50%).\nSi vous arrêtez de tirer, les bonus se réinitialisent au bout de **4s** (2s).",
     "icon": "stabilisation",
-    "perfectDescription": "Tirer augmente la précision d'arme +1% et la stabilité d'arme +1% par tir, jusqu'à 75%.\nSi vous arrêtez de tirer, les bonus se réinitialisent au bout de 6s.",
+    "perfectDescription": "Tirer augmente la **précision** d'arme **+1%** et la **stabilité** d'arme **+1%** par tir, jusqu'à **75%** (65%).\nSi vous arrêtez de tirer, les bonus se réinitialisent au bout de **6s** (3s).",
+    "notes": "(PVP)",
     "armesParfaites": [
       "l_inne",
       "l_acquis"
@@ -1902,12 +1907,13 @@
   },
   "frappe_de_precision": {
     "nom": "Frappe de précision",
-    "description": "Tuer des ennemis situés à plus de 20m cumule des effets. Le maximum d'effets est de 3.\nToucher un ennemi situé à moins de 20m consomme tous les effets pour conférer +20% de dégâts contre les ennemis situés à moins de 20m pendant 5s.",
+    "description": "Tuer des ennemis situés à plus de **20m** cumule des effets. Le maximum d'effets est de **3**.\nToucher un ennemi situé à moins de **20m** consomme tous les effets pour conférer **+20% de dégâts** contre les ennemis situés à moins de **20m** pendant **5s**.",
     "icon": "frappe_de_precision",
-    "perfectDescription": "Tuer des ennemis situés à plus de 20m cumule des effets. Le maximum d'effets est de 2.\nToucher un ennemi situé à moins de 20m consomme tous les effets pour conférer +35% de dégâts contre les ennemis situés à moins de 20m pendant 5s.",
+    "perfectDescription": "Tuer des ennemis situés à plus de **20m** cumule des effets. Le maximum d'effets est de **2**.\nToucher un ennemi situé à moins de **20m** consomme tous les effets pour conférer **+35% de dégâts** contre les ennemis situés à moins de **20m** pendant **5s**.",
     "armesParfaites": [
       "la_foreuse",
-      "cricket"
+      "cricket",
+      "la_griffe"
     ],
     "compatibilite": {
       "fusil": true,
