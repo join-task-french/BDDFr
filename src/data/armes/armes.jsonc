@@ -5738,6 +5738,10 @@
     "degatsBase": 49100,
     "estExotique": true,
     "estNomme": false,
+    "obtention": {
+      "butinCible": true,
+      "represailles": "Hyènes, Fin de mission"
+    },
     "talents": [
       "perturbation"
     ],
@@ -5874,7 +5878,8 @@
     "estNomme": false,
     "description": "Pour se décharger des chargeurs.",
     "obtention": {
-      "description": "Récompense de Traque :\nLe Pentagone : Le Directeur\nMaître - 100% (la 1er fois)."
+      "description": "Récompense de Traque :\nLe Pentagone : Le Directeur\nMaître - 100% (la 1er fois).",
+      "represailles": "Black tusk, Escouade d'extermination"
     },
     "talents": [
       "rechargement_eclair"
@@ -5910,5 +5915,31 @@
       "canon": "rail_sous_canon_long",
       "chargeur": "chargeur_556"
     }
+  },
+  "caduceus": {
+    "nom": "Caduceus",
+    "type": "fusil_assaut",
+    "fabricant": "",
+    "portee": 31,
+    "rpm": 650,
+    "chargeur": 30,
+    "rechargement": 2.02,
+    "headshot": 55,
+    "degatsBase": 59200,
+    "estExotique": true,
+    "estNomme": false,
+    "description": "\"Laisser l'armée des États-Unis confondre le Caducée avec le bâton d'Asclépios.\"\n- Officier inconnu du Last Man Battalion ",
+    "obtention": {
+      "description": "Récompense de pass :\nNiveau 1 de saison (payant)\nNiveau 69 de saison (gratuit)"
+    },
+    "talents": [
+      "caducee"
+    ],
+    "modsPredefinis": [
+      "optique_de_caducee",
+      "chargeur_de_caducee",
+      "accessoire_sous_canon_de_caducee",
+      "bouche_de_caducee"
+    ]
   }
 }

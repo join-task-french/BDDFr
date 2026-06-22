@@ -97,8 +97,12 @@
   },
   "determination_empathique": {
     "nom": "Détermination Empathique",
-    "description": "Réparer un allié augmente ses totaux de dégâts d'arme et de dégâts de compétence de 3-15% pendant 20s.\nSur soi, le bénéfice est de 1-7%.\nL'efficacité augmente en fonction de votre Tier de compétence.",
-    "emplacement": "torse"
+    "description": "Réparer un allié augmente ses totaux de **dégâts d'arme** et de **dégâts de compétence** de **3-15%** pendant **20s**.\nSur soi, le bénéfice est de **1-7%**.\nL'efficacité augmente en fonction de votre Tier de compétence.",
+    "emplacement": "torse",
+    "perfectDescription": "Réparer un allié augmente ses totaux de **dégâts d'arme** et de **dégâts de compétence** de **3-20%** pendant **20s**.\nSur soi, le bénéfice est de **1-15%**.\nL'efficacité augmente en fonction de votre Tier de compétence.",
+    "equipementsParfaits": [
+      "bienfaiteur"
+    ]
   },
   "observation": {
     "nom": "Observation",
@@ -1177,9 +1181,13 @@
   },
   "protecteur": {
     "nom": "Protecteur",
-    "description": "Quand votre protection est intacte, augmente la réparation de compétence de 130%.",
+    "description": "Quand votre protection est intacte, augmente **la réparation de compétence** de **130%**.",
     "notes": "Le jeu comporte deux talents de sac avec le nom \"Protecteur\"",
     "emplacement": "sac_a_dos",
+    "perfectDescription": "Quand votre protection est intacte, augmente **la réparation de compétence** de **160%**.",
+    "equipementsParfaits": [
+      "momma_badger"
+    ],
     "descente": {
       "notes": "Le jeu comporte deux talents de sac avec le nom \"Protecteur\"",
       "boucles": [
@@ -2924,5 +2932,35 @@
     "notes": "PVP :\n![défensif](slug:defensif)Défensif : **+0.5% de régénération de protection**",
     "emplacement": "masque",
     "estExotique": true
+  },
+  "impermeabilite": {
+    "nom": "Imperméabilité",
+    "description": "Vous et vos alliés situés à moins de **10m** (30m) de vous reçoivent **+40%** (30%) **de protection contre les altérations d'état**.",
+    "notes": "(PVP)",
+    "emplacement": "genouilleres",
+    "estExotique": true
+  },
+  "prototype_de_nanite_a_application_rapide_ortiz": {
+    "nom": "Prototype de nanite à application rapide Ortiz",
+    "description": "**La durée et la portée des compétences de soins** sont réduites de **90%** (60%), mais **l'efficacité des soins** est accrue de **150%** (80%).\n**Soigner un allié** avec une compétence lui confère **30%** (20%) **de protection contre les altérations d'état** pendant **10s** (18s).\nTemps de recharge par allié : **10s** (18s).",
+    "notes": "(PVP)",
+    "emplacement": "gear_set",
+    "gear_set": "ortiz_reficere"
+  },
+  "suppresseurs_ameliores": {
+    "nom": "Suppresseurs améliorés",
+    "description": "Atténue la réduction de durée et de portée de **90%** (60%) à **25%** (40%).",
+    "notes": "(PVP)",
+    "emplacement": "sac_a_dos",
+    "gear_set": "ortiz_reficere",
+    "prerequis": "prototype_de_nanite_a_application_rapide_ortiz"
+  },
+  "nanites_en_surchage": {
+    "nom": "Nanites en surchage",
+    "description": "Augmente le bonus d'efficacité le bonus d'éfficacité de soins de **150%** (80%) à **225%** (120%).",
+    "notes": "(PVP)",
+    "emplacement": "torse",
+    "gear_set": "ortiz_reficere",
+    "prerequis": "prototype_de_nanite_a_application_rapide_ortiz"
   }
 }

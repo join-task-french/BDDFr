@@ -2011,5 +2011,66 @@
         }
       ]
     }
+  },
+  "edelweiss_gpz": {
+    "nom": "Edelweiss GPz",
+    "type": "marque",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus1piece": {
+      "attributs": [
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 18
+        }
+      ]
+    },
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "recup_de_competence_eqp",
+          "value": 20
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "efficacite_de_competence",
+          "value": 8
+        }
+      ]
+    }
+  },
+  "ortiz_reficere": {
+    "nom": "Ortiz: Reficere",
+    "type": "gear_set",
+    "icon": "ortiz_reficere",
+    "attributsEssentiels": [
+      "utilitaire"
+    ],
+    "bonus2pieces": {
+      "attributs": [
+        {
+          "slug": "efficacite_de_competence",
+          "value": 8
+        }
+      ]
+    },
+    "bonus3pieces": {
+      "attributs": [
+        {
+          "slug": "competences_de_reparation_eqp",
+          "value": 60
+        }
+      ]
+    },
+    "bonus4pieces": {
+      "attributs": [],
+      "talent": "prototype_de_nanite_a_application_rapide_ortiz"
+    },
+    "talentTorse": "nanites_en_surchage",
+    "talentSac": "suppresseurs_ameliores"
   }
 }

@@ -2812,5 +2812,11 @@
     "nom": "Rechargement éclair",
     "description": "Garder cette arme en étui pendant **5s** vous permet de la recharger et de l'armer.\nUne fois armée, le fait de prendre cette arme **recharge** vos armes principale et secondaire et vous confère **+20% de cadence de tir** et **+50% de dégâts d'arme** jusqu'à épuisement du chargeur.\nRecharger ou changer d'arme avant que le chargeur ne soit vide annule ses bonus de statistiques.",
     "estExotique": true
+  },
+  "caducee": {
+    "nom": "Caducée",
+    "description": "Les coups critiques vous soignent, vous et vos alliés, à hauteur de **3%** (2%) des **dégâts infligés** par le coup.",
+    "notes": "(PVP)",
+    "estExotique": true
   }
 }

@@ -2861,5 +2861,53 @@
     ],
     "estExotique": true,
     "compatible": []
+  },
+  "optique_de_caducee": {
+    "nom": "Optique de Caducée",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_de_caducee": {
+    "nom": "Chargeur de Caducée",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 40
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "accessoire_sous_canon_de_caducee": {
+    "nom": "Accessoire sous canon de Caducée",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 5
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_de_caducee": {
+    "nom": "Bouche de Caducée",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 5
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
   }
 }
