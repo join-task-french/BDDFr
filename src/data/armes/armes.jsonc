@@ -2956,7 +2956,7 @@
     "talents": [
       "lumieres_scintillantes"
     ],
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "viseur": "rail_optique_long"
     },
     "modsPredefinis": [
@@ -2964,8 +2964,12 @@
     ],
     "attributs_essentiels": [
       {
+      "nom": "degats_fusil_de_precision_es"
+      },
+      {
         "nom": "degats_de_headshot_es",
-        "valeur": 137
+        "valeur": 137,
+        "prototypeValue": 205
       }
     ]
   },
@@ -3875,9 +3879,12 @@
     "degatsBase": 231300,
     "estExotique": false,
     "estNomme": true,
-    "emplacementsMods": {
-      "chargeur": "chargeur_556",
-      "viseur": "rail_optique",
+    "talents": [
+      "tir_chanceux"
+    ],
+    "emplacementsMods": {//OK
+      "chargeur": "chargeur_762_precision",
+      "viseur": "rail_optique_long",
       "canon": "rail_sous_canon_long"
     }
   },
