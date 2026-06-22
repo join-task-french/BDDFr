@@ -2046,7 +2046,6 @@
   "ortiz_reficere": {
     "nom": "Ortiz: Reficere",
     "type": "gear_set",
-    "icon": "ortiz_reficere",
     "attributsEssentiels": [
       "utilitaire"
     ],
