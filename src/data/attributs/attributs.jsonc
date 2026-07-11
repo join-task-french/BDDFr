@@ -330,7 +330,7 @@
   },
   "vitesse_de_changement_arm": {
     "nom": "Vitesse de changement",
-    "categorie": "offensif",
+    "categorie": "utilitaire",
     "cible": [
       "arme"
     ],

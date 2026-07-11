@@ -2815,12 +2815,96 @@
     "compatible": []
   },
   "lunette_agitateur": {
-    "nom": "Chargeur d'Agitateur",
+    "nom": "Lunette d'Agitateur",
     "type": "bouche",
     "attributs": [
       {
         "attribut": "probabilite_de_coup_critique_arm",
         "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "optique_coup_de_fouet": {
+    "nom": "Optique de Coup de fouet",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_de_coup_de_fouet": {
+    "nom": "Chargeur de Coup de fouet",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "accessoire_sous_canon_de_coup_de_fouet": {
+    "nom": "Accessoire sous canon de Coup de fouet",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "vitesse_de_changement_arm",
+        "valeur": 50
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "optique_de_caducee": {
+    "nom": "Optique de Caducée",
+    "type": "viseur",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 10
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "chargeur_de_caducee": {
+    "nom": "Chargeur de Caducée",
+    "type": "chargeur",
+    "attributs": [
+      {
+        "attribut": "munitions_mod",
+        "valeur": 40
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "accessoire_sous_canon_de_caducee": {
+    "nom": "Accessoire sous canon de Caducée",
+    "type": "canon",
+    "attributs": [
+      {
+        "attribut": "degats_de_coup_critique_arm",
+        "valeur": 5
+      }
+    ],
+    "estExotique": true,
+    "compatible": []
+  },
+  "bouche_de_caducee": {
+    "nom": "Bouche de Caducée",
+    "type": "bouche",
+    "attributs": [
+      {
+        "attribut": "probabilite_de_coup_critique_arm",
+        "valeur": 5
       }
     ],
     "estExotique": true,

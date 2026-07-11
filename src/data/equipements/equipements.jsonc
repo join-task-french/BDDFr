@@ -4826,7 +4826,8 @@
     "description": "Quand ils s'y attendent le moins.",
 
     "obtention": {
-      "description": "Passe de saison Mobilisation : Niveau 1 (payant), Niveau 69 (gratuit)."
+      "butinCible": true,
+      "represailles": "True sons, Fin de mission"
     },
     "attributEssentiel": [
       "offensif",
@@ -4838,6 +4839,177 @@
       {},
       {}
     ]
+  },
+  "genouilleres_infirmiere": {
+    "nom": "Genouillères Infirmière",
+    "description": "Ne bougez plus.",
+    "emplacement": "genouilleres",
+    "talents": [
+      "impermeabilite"
+    ],
+    "mod": false,
+    "type": "exotique",
+    "obtention": {
+      "description": "Passe de saison Au coeurs des ténèbres : Niveau 29 (gratuit)"
+    },
+    "attributEssentiel": [
+      "offensif"
+    ],
+    "attributs": [
+      {
+        "nom": "probabilite_de_coup_critique_eqp"
+      },
+      {
+        "nom": "degats_de_coup_critique_eqp"
+      }
+    ]
+  },
+  "bienfaiteur": {
+    "nom": "Bienfaiteur",
+    "marque": "edelweiss_gpz",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [
+      "determination_empathique"
+    ],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    },
+    "estNomme": true
+  },
+  "momma_badger": {
+    "nom": "Momma Badger",
+    "marque": "edelweiss_gpz",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [
+      "protecteur"
+    ],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+      "butinCible": true
+    },
+    "estNomme": true
+  },
+  "masque_arc": {
+    "nom": "Masque Arc",
+    "marque": "ortiz_reficere",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "sac_en_nanites": {
+    "nom": "Sac en nanites",
+    "marque": "ortiz_reficere",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [
+      "suppresseurs_ameliores"
+    ],
+    "type": "gear_set"
+  },
+  "technoplaque": {
+    "nom": "Technoplaque",
+    "marque": "ortiz_reficere",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [
+      "nanites_en_surchage"
+    ],
+    "type": "gear_set"
+  },
+  "gants_hot_work": {
+    "nom": "Gants Hot Work",
+    "marque": "ortiz_reficere",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "holster_thermoplastique": {
+    "nom": "Holster thermoplastique",
+    "marque": "ortiz_reficere",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "genouilleres_atelier": {
+    "nom": "Genouillères Atelier",
+    "marque": "ortiz_reficere",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "gear_set"
+  },
+  "masque_infirmier_de_terrain": {
+    "nom": "Masque Infirmier de terrain",
+    "marque": "edelweiss_gpz",
+    "emplacement": "masque",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "armure_de_poitrine_secouriste": {
+    "nom": "Armure de poitrine Secouriste",
+    "marque": "edelweiss_gpz",
+    "emplacement": "torse",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "sacs_a_dos_kit_de_secours": {
+    "nom": "Sacs à dos Kit de secours",
+    "marque": "edelweiss_gpz",
+    "emplacement": "sac_a_dos",
+    "mod": true,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "gants_steriles": {
+    "nom": "Gants stériles",
+    "marque": "edelweiss_gpz",
+    "emplacement": "gants",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "holster_infirmier": {
+    "nom": "Holster Infirmier",
+    "marque": "edelweiss_gpz",
+    "emplacement": "holster",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
+  },
+  "genouilleres_brace": {
+    "nom": "Genouillères Brace",
+    "marque": "edelweiss_gpz",
+    "emplacement": "genouilleres",
+    "mod": false,
+    "talents": [],
+    "type": "standard",
+    "notes": "",
+    "obtention": {
+    }
   }
-
 }
