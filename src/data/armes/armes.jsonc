@@ -5845,10 +5845,10 @@
     "type": "fusil_mitrailleur",
     "portee": 40,
     "rpm": 600,
-    "chargeur": 100,
-    "rechargement": 1.96,
-    "headshot": 185.2,
-    "degatsBase": 62200,
+    "chargeur": 120,
+    "rechargement": 2.66,
+    "headshot": 65,
+    "degatsBase": 65200,
     "estNomme": true,
     "obtention": {
       "description": "Récompense de l'affectation confidentielle : \nL'anomalie du Capitol Globe "
@@ -5857,7 +5857,7 @@
       "contrainte"
     ],
     "description": "\"Pourquoi perdre du temps a lire les infos quand on peut être l'info ?\" - The Reed",
-    "emplacementsMods": {
+    "emplacementsMods": {//OK
       "chargeur": "bande_munitions",
       "bouche": "bouche_762",
       "canon": "rail_sous_canon_long",
@@ -5941,5 +5941,50 @@
       "accessoire_sous_canon_de_caducee",
       "bouche_de_caducee"
     ]
+  },
+  "qui_peut_le_plus": {
+    "nom": "Qui peut le plus",
+    "description": "La confusion est le premier pas vers la lucidité.",
+    "type": "fusil_mitrailleur",
+    "fabricant": "",
+    "portee": 30,
+    "rpm": 700,
+    "chargeur": 30,
+    "rechargement": 2.89,
+    "headshot": 65,
+    "degatsBase": 61100,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "casse_tete"
+    ],
+    "emplacementsMods": {//OK
+      "viseur": "rail_optique_long",
+      "chargeur": "chargeur_556",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_556"
+    }
+  },
+  "arret_cerebral": {
+    "nom": "Arrêt cérébral",
+    "type": "fusil",
+    "fabricant": "",
+    "portee": 60,
+    "rpm": 380,
+    "chargeur": 20,
+    "rechargement": 2.59,
+    "headshot": 60,
+    "degatsBase": 0,
+    "estExotique": false,
+    "estNomme": true,
+    "talents": [
+      "casse_tete"
+    ],
+    "emplacementsMods": {
+      "viseur": "rail_optique_long",
+      "chargeur": "chargeur_762",
+      "canon": "rail_sous_canon_long",
+      "bouche": "bouche_762"
+    }
   }
 }
