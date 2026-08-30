@@ -2847,5 +2847,12 @@
       "pistolet": true,
       "pistolet_mitrailleur":true
     }
+  },
+  "reglement_de_comptes": {
+    "nom": "Règlement de comptes",
+    "icone": "",
+    "description": "**Toucher un ennemi** avec cette arme lui applique une **marque**. Vous ne pouvez appliquer **qu'une seule marque à la fois**. Si vous touchez un autre ennemi, **la marque lui est transférée**.\n**Davantage de marques** peuvent être appliquées sur le même ennemi par **d'autres agents** utilisant cette arme. **4** marques maximum peuvent être appliquées sur un ennemi.\nCette arme inflige **+20% de dégâts accrus** aux ennemis marqués. Le bonus augmente de **5%** pour chaque **marque en plus de la vôtre**.",
+    "prerequis": "n/a",
+    "estExotique": true
   }
 }
