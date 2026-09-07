@@ -33,7 +33,11 @@ npm install
 - `npm run dev` : Lance le serveur de développement Vite.
 - `npm run build` : Compile le projet pour la production et génère les pages statiques.
 - `npm run sync-data` : Synchronise les fichiers de données de `src/data/` vers `public/data/`.
-- `npm run validate` : Valide les fichiers JSONC par rapport aux schémas définis.
+- `npm run validate` : Valide les fichiers JSONC par rapport aux schémas définis, puis lance les tests.
+- `npm test` : Lance la suite de tests (Vitest).
+- `npm run smoke` : Charge l'application compilée dans un vrai navigateur et échoue à la moindre erreur.
+- `npm run lint` : Analyse statique du code (ESLint).
+- `npm run generate-types` : Régénère les types TypeScript depuis les schémas JSON.
 
 ## 📁 Structure du Projet
 

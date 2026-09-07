@@ -27,7 +27,7 @@ jobs:
           node-version: 24
           cache: npm
 
-      - run: npm install
+      - run: npm ci
 
       - name: Valider les JSONC avec les schémas
         run: npm run validate
@@ -44,7 +44,7 @@ jobs:
           node-version: 24
           cache: npm
 
-      - run: npm install
+      - run: npm ci
       - run: npm run build
 
       - name: Upload artifact

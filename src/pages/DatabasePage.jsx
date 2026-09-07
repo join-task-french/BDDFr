@@ -410,7 +410,6 @@ export default function DatabasePage() {
             allData={data}
             isCompactMode={isCompactMode}
         />
-        {console.log('DatabasePage: rendu ScrollToTopButton')}
         <ScrollToTopButton />
       </div>
   )
