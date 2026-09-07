@@ -93,6 +93,64 @@ try {
   }))
   if (!planner.aDesEmplacements) failures.push('[rendu] le planner n affiche pas ses emplacements d armes')
 
+  // --- Comparateur et listes ------------------------------------------------
+  // Ces deux fonctions s'amorcent au clic droit : si le menu contextuel cesse de
+  // s'ouvrir, plus rien n'y donne acces et la regression est invisible.
+  await visit('#/db/armes', 'base de donnees (comparateur)')
+
+  const collection = await page.evaluate(async () => {
+    const attendre = (ms) => new Promise(r => setTimeout(r, ms))
+    const cartes = [...document.querySelectorAll('[data-slug]')]
+    if (cartes.length < 2) return { erreur: 'aucune carte' }
+
+    const ouvrir = async (carte) => {
+      carte.dispatchEvent(new MouseEvent('contextmenu', { bubbles: true, clientX: 80, clientY: 80 }))
+      await attendre(150)
+      return document.querySelector('[role=menu]')
+    }
+
+    // 1. Le menu s'ouvre et propose les deux actions.
+    const menu = await ouvrir(cartes[0])
+    if (!menu) return { erreur: 'menu contextuel absent' }
+    const actions = [...menu.querySelectorAll('button')].map(b => b.textContent)
+    const aComparer = actions.some(t => t.includes('Comparer'))
+    const aListe = actions.some(t => t.includes('Ajouter'))
+
+    // 2. Deux armes ajoutees au comparateur.
+    menu.querySelector('button').click()
+    await attendre(200)
+    const menu2 = await ouvrir(cartes[1])
+    const refuse = menu2?.querySelector('button')?.disabled
+    menu2?.querySelector('button')?.click()
+    await attendre(300)
+
+    // 3. Le tableau se construit.
+    const ouvrirCompare = [...document.querySelectorAll('button')]
+      .find(b => b.textContent.trim() === 'Comparer' && !b.closest('[role=menu]'))
+    ouvrirCompare?.click()
+    await attendre(500)
+    const table = document.querySelector('[role=dialog] table')
+    const lignes = table ? table.querySelectorAll('tbody tr').length : 0
+    const colonnes = table ? table.querySelectorAll('thead th').length : 0
+
+    document.querySelector('[role=dialog] [aria-label="Fermer la comparaison"]')?.click()
+    await attendre(200)
+    ;[...document.querySelectorAll('button')].find(b => b.textContent.trim() === 'Vider')?.click()
+
+    return { aComparer, aListe, refuse, lignes, colonnes }
+  })
+
+  if (collection.erreur) failures.push(`[collection] ${collection.erreur}`)
+  else {
+    if (!collection.aComparer) failures.push('[collection] le menu contextuel ne propose pas « Comparer »')
+    if (!collection.aListe) failures.push('[collection] le menu contextuel ne propose pas « Ajouter à une liste »')
+    if (collection.refuse) failures.push('[collection] deux armes sont refusees a la comparaison')
+    if (collection.lignes < 3) failures.push(`[collection] tableau de comparaison quasi vide (${collection.lignes} lignes)`)
+    // 1 colonne d'intitules + 2 elements.
+    if (collection.colonnes !== 3) failures.push(`[collection] ${collection.colonnes} colonnes au lieu de 3`)
+    console.log(`     comparateur : ${collection.lignes} lignes x ${collection.colonnes - 1} elements`)
+  }
+
   // --- Persistance du build ------------------------------------------------
   // Le build local est stocke sous forme de slugs (format 2) et re-resolu au
   // chargement contre les donnees courantes. Si cette resolution casse, le

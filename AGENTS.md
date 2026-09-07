@@ -15,6 +15,9 @@
 - Source veritee: `src/data/` (JSONC versionne) + schemas `src/data/schemas/`.
 - Sync public: `npm run sync-data` copie uniquement les JSONC racine de `src/data` vers `public/data` (pas recursif); ne pas supposer que les sous-dossiers y seront reflates.
 - DB page: `src/pages/DatabasePage.jsx` pilote recherche/filtres/tri via URL query (`q`, `filters`, `sort`) et `src/config/filterConfigs.js`.
+- Comparateur et listes: `src/context/CollectionContext.jsx` porte l'etat partage (listes en localStorage `bddfr_listes`, selection de comparaison en sessionStorage, menu contextuel). Les cartes ne font qu'appeler `itemMenuHandlers(categorie, item)` — aucune UI de menu dans les cartes.
+- Ce qui est comparable est decrit dans `src/config/comparisonConfig.js` (`groupBy` = ce qui a du sens cote a cote, `rows` = les champs et leur sens de lecture). Ajouter une categorie comparable se fait la, pas dans les composants.
+- L'identite d'un item vient de `src/utils/itemIdentity.js` : slug en general, `competenceSlug:slug` pour les variantes de competences (deux competences peuvent partager un slug de variante), et la vue `descente` est reconstituee depuis trois sources.
 - Generator: `src/pages/GeneratorPage.jsx` s'appuie sur `FIELDS/FILE_MAP/IDENTITY_KEY`; export ZIP fusionne local + loaded et regenere JSONC.
 - Buildotheque API: `src/utils/apiBuildotheque.js` + pages `src/pages/build/BuildPlannerPage.jsx` et `src/pages/build/BuildLibraryPage.jsx` (auth Discord, likes, CRUD builds, override URL API en localStorage).
 
@@ -39,7 +42,7 @@
 - Eviter de hardcoder des donnees metier dans les composants/hooks (listes, labels, mappings d'items): reutiliser d'abord les JSONC et configs existants.
 - Toujours privilegier `src/data/**/*.jsonc` + configs (`filterConfigs`, `generatorFields`) comme source de verite; le code UI doit surtout consommer ces structures.
 - Si une donnee n'existe pas, creer un nouveau JSONC/config par defaut seulement si c'est pertinent, puis brancher proprement les points d'integration associes.
-- Quand vous ajoutez une categorie donnee, alignez **ensemble**: `DATA_FILES_MAP` (`useDataLoader`), `FILE_MAP/IDENTITY_KEY/FIELDS` (`generatorFields`), filtres/tri (`filterConfigs`), et route/rendu DB.
+- Quand vous ajoutez une categorie donnee, alignez **ensemble**: `DATA_FILES_MAP` (`useDataLoader`), `FILE_MAP/IDENTITY_KEY/FIELDS` (`generatorFields`), filtres/tri (`filterConfigs`), `CATEGORIES` (`src/config/categories.js`), `COMPARISON_CONFIG` (`comparisonConfig`) et route/rendu DB. Le test `useDataLoader.test.js` echoue si un JSONC n'est pas branche.
 - Les URLs partage/build utilisent query params (`b`, `build-id`, `edit`) et doivent rester retro-compatibles (`buildShare.decodeBuild` gere ancien et nouveau format).
 - Base path deployment est configurable via `VITE_BASE_PATH`; par defaut `/BDDFr` (`vite.config.js`). Eviter les chemins absolus hardcodes hors cette convention.
 
